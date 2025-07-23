@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+
+    <t t-inherit="mail.CallActionList" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('o_CallActionList_buttons')]/t" position="inside">
+            <t t-if="messaging.rtc.currentRtcSession.isHost">
+                <t t-if="!messaging.rtc.currentRtcSession.isMeetingLock">
+                    <t t-set="LockMeetingTitle">Lock meeting</t>
+                </t>
+                <t t-else="">
+                    <t t-set="LockMeetingTitle">Unlock meeting</t>
+                </t>
+
+                <button class="o_CallActionList_button btn d-flex m-1 border-0 rounded-circle shadow-none opacity-100 opacity-75-hover p-3" t-att-class="{ 'o-isActive': !messaging.rtc.currentRtcSession.isMeetingLock, 'o-isSmall': callActionListView.isSmall }" t-att-aria-label="LockMeetingTitle" t-att-title="LockMeetingTitle" t-on-click="callActionListView.onClicklockMeeting">
+                    <div class="o_CallActionList_buttonIconWrapper fa-stack" t-att-class="{ 'o-isSmall': callActionListView.isSmall }">
+                        <i class="fa" t-att-class="{
+                            'fa-lg': !callActionListView.isSmall,
+                            'fa-unlock': !messaging.rtc.currentRtcSession.isMeetingLock,
+                            'fa-lock': messaging.rtc.currentRtcSession.isMeetingLock,
+                            'text-danger': messaging.rtc.currentRtcSession.isMeetingLock,
+                        }"/>
+                    </div>
+                </button>
+            </t>
+            <t t-if="!messaging.rtc.currentRtcSession.isEmoji">
+                <t t-set="feedbackEmoji">Feedback Emoji</t>
+            </t>
+            <t t-if="callActionListView">
+                <div class="o_Composer_primaryToolButtons o_Composer_primaryToolButtons_emoji">
+                    <button class="o_CallActionList_button btn d-flex m-1 border-0 rounded-circle shadow-none opacity-100 opacity-75-hover p-3" aria-label="Set Emoji" title="Set Emoji" id="smiley" t-on-click="callActionListView.onClickButtonEmojis" t-ref="buttonEmojis">
+                        <div class="o_CallActionList_buttonIconWrapper o_CallActionList_buttonIconWrapper_emoji fa-stack">
+                            <i class="fa fa-lg fa-smile-o o_ActionList_button_emoji"></i>
+                        </div>
+                    </button>
+                </div>
+            </t>
+            <t t-if="!messaging.rtc.currentRtcSession.isHandRaised">
+                <t t-set="riseHandTitle">Raise Hand</t>
+            </t>
+            <t t-else="">
+                <t t-set="riseHandTitle">Raised Hand</t>
+            </t>
+            <button class="o_CallActionList_button btn d-flex m-1 border-0 rounded-circle shadow-none opacity-100 opacity-75-hover p-3" t-att-class="{ 'o-isActive': !messaging.rtc.currentRtcSession.isHandRaised, 'o-isSmall': callActionListView.isSmall }" t-att-aria-label="riseHandTitle" t-att-title="riseHandTitle" t-on-click="callActionListView.onClickRiseHand">
+                <div class="o_CallActionList_buttonIconWrapper fa-stack" t-att-class="{ 'o-isSmall': callActionListView.isSmall }">
+                    <i class="fa" t-att-class="{
+                            'fa-lg': !callActionListView.isSmall,
+                            'fa-hand-paper-o': !messaging.rtc.currentRtcSession.isHandRaised,
+                            'fa-hand-rock-o': messaging.rtc.currentRtcSession.isHandRaised,
+                            'text-danger': messaging.rtc.currentRtcSession.isHandRaised,
+                        }"/>
+                </div>
+            </button>
+        </xpath>
+    </t>
+</templates>

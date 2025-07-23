@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="view_op_quiz_result_tree" model="ir.ui.view">
+            <field name="name">op.quiz.result.tree</field>
+            <field name="model">op.quiz.result</field>
+            <field name="type">tree</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree create="false">
+                    <field name="name"/>
+                    <field name="quiz_id"/>
+                    <field name="categ_id"/>
+                    <field name="finish_date"/>
+                    <field name="user_id"/>
+                    <field name="total_question"/>
+                    <field name="total_correct"/>
+                    <field name="total_incorrect"/>
+                    <field name="score"/>
+                    <field name="index" optional="hide"/>
+                    <field name="submit_date" optional="hide"/>
+                    <field name="line_ids" optional="hide"/>
+                    <field name="state" optional="hide"/>
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_op_quiz_result_form" model="ir.ui.view">
+            <field name="name">op.quiz.result.form</field>
+            <field name="model">op.quiz.result</field>
+            <field name="type">form</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Results">
+                    <header>
+                        <button string="Submit" class="oe_highlight"
+                                groups="openeducat_quiz.group_op_quiz_user"
+                                states="open" type="object"
+                                name="get_action_submit"/>
+                        <button string="To Asses" class="oe_highlight"
+                                groups="openeducat_quiz.group_op_quiz_user"
+                                states="submit" type="object"
+                                name="get_action_asses"/>
+                        <button string="Done" class="oe_highlight"
+                                groups="openeducat_quiz.group_op_quiz_user"
+                                states="asses" type="object"
+                                name="get_action_done"/>
+                        <field name="state" widget="statusbar" status_visible="open,hold,submit,assets,done"/>
+                        <button name="%(act_open_op_override_mark_wizard_view)d" string="Override Marks"
+                                type="action" attrs="{'invisible':['|',('state','=','open'), ('state','=','done')]}"
+                                class="oe_highlight"/>
+                        <button string="ReOpen" class="oe_highlight"
+                                groups="openeducat_quiz.group_op_quiz_user"
+                                states="hold" type="object"
+                                name="get_action_re_open"/>
+                    </header>
+                    <sheet>
+                        <group col="2">
+                            <group>
+                                <field name="index"/>
+                                <field name="name" readonly="1"/>
+                                <field name="user_id" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="quiz_id" readonly="1"/>
+                                <field name="categ_id" readonly="1"/>
+                            </group>
+                        </group>
+                        <group col="2">
+                            <group>
+                                <field name="total_marks" readonly="1"/>
+                                <field name="received_marks" readonly="1"/>
+                                <field name="score" readonly="1"/>
+                                <field name="submit_date" readonly="1"/>
+                                <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                            </group>
+                            <group>
+                                <field name="total_question" readonly="1"/>
+                                <field name="total_correct" readonly="1"/>
+                                <field name="total_incorrect" readonly="1"/>
+                                <field name="finish_date" readonly="1"/>
+                            </group>
+                        </group>
+                        <group name="result" string="Result">
+                            <field name="line_ids" nolabel="1" attrs="{'readonly':[('state','in',['done','cancel'])]}" colspan="2">
+                                <tree>
+                                <field name="display_type" invisible="1"/>
+                                    <field name="sequence" invisible="1" widget="handle" />
+                                    <field name="name"/>
+                                    <field  attrs="{'invisible': [('display_type', '!=', False)]}" name="answer"/>
+                                    <field  attrs="{'invisible': [('display_type', '!=', False)]}" name="given_answer"/>
+                                    <field  attrs="{'invisible': [('display_type', '!=', False)]}" name="question_mark"/>
+                                    <field  attrs="{'invisible': [('display_type', '!=', False)]}" name="mark"/>
+                                    <field  attrs="{'invisible': [('display_type', '!=', False)]}" name="que_type" invisible="1"/>
+                                    <field  attrs="{'invisible': [('display_type', '!=', False)]}" name="case_sensitive" widget="boolean_toggle" optional="hide"/>
+                                    <field  attrs="{'invisible': [('display_type', '!=', False)]}" name="result_id" optional="hide"/>
+                                    <field  attrs="{'invisible': [('display_type', '!=', False)]}" name="line_ids" optional="hide"/>
+                                    <field  attrs="{'invisible': [('display_type', '!=', False)]}" name="bank_line" optional="hide"/>
+                                    <field  attrs="{'invisible': [('display_type', '!=', False)]}" name="company_id" groups="base.group_multi_company" optional="show"/>
+                                    <button name="%(act_open_op_update_mark_wizard_view)d" string="Update Mark"
+                                            type="action" context="{'default_name':name,'default_answer':given_answer}"
+                                            attrs="{'invisible':[('que_type','!=','descriptive')]}"
+                                            class="oe_highlight"/>
+                                </tree>
+                                <form string="Results">
+                                <field name="display_type" invisible="1"/>
+                                <group attrs="{'invisible': [('display_type', '!=', 'section')]}">
+                                    <field name="name" string="Section" readonly="1"/>
+                                </group>
+                                    <group attrs="{'invisible': [('display_type', '!=', False)]}">
+                                        <field name="name" readonly="1"/>
+                                        <field name="answer" readonly="1"/>
+                                        <field name="given_answer" readonly="1"/>
+                                        <field name="question_mark" readonly="1"/>
+                                        <field name="mark"/>
+                                        <field name="que_type" readonly="1"/>
+                                        <field name="case_sensitive"
+                                               attrs="{'invisible': [('que_type', '!=', 'blank')]}"/>
+                                        <field name="grade_true_id"
+                                               attrs="{'invisible': [('que_type', '!=', 'blank')]}"/>
+                                        <field name="grade_false_id"
+                                               attrs="{'invisible': [('que_type', '!=', 'blank')]}"/>
+                                        <field name="bank_line"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_op_quiz_result_search" model="ir.ui.view">
+            <field name="name">op.quiz.result.search</field>
+            <field name="model">op.quiz.result</field>
+            <field name="type">search</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Results">
+                    <field name="name"/>
+                    <field name="quiz_id"/>
+                    <field name="user_id"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Quiz" name="group_by_result_quiz_id"
+                                context="{'group_by': 'quiz_id'}"/>
+                        <filter string="Quiz Category" name="group_by_result_categ_id"
+                                context="{'group_by': 'categ_id'}"/>
+                        <filter string="User" name="group_by_result_user_id"
+                                context="{'group_by': 'user_id'}"/>
+                        <filter string="Finished On" name="group_by_result_finish"
+                                context="{'group_by': 'finish_date'}"/>
+                    </group>
+                    <searchpanel>
+                        <field name="quiz_id"/>
+                    </searchpanel>
+                </search>
+            </field>
+        </record>
+
+        <record id="view_op_quiz_result_pivot" model="ir.ui.view">
+            <field name="name">op.quiz.result.pivot</field>
+            <field name="model">op.quiz.result</field>
+            <field name="type">pivot</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <pivot string="Results">
+                    <field name="name"/>
+                    <field name="quiz_id" type="row"/>
+                    <field name="categ_id"/>
+                    <field name="finish_date"/>
+                    <field name="user_id" type="col"/>
+                    <field name="total_question"/>
+                    <field name="total_correct"/>
+                    <field name="total_incorrect"/>
+                    <field name="score"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_open_op_quiz_result_view">
+            <field name="name">Results</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.quiz.result</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,pivot,form</field>
+            <field name="search_view_id" ref="view_op_quiz_result_search"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_open_op_quiz_result_view_form">
+            <field name="act_window_id" ref="act_open_op_quiz_result_view"/>
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_op_quiz_result_form"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_open_op_quiz_result_view_tree">
+            <field name="act_window_id" ref="act_open_op_quiz_result_view"/>
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_op_quiz_result_tree"/>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_quiz_analysis_pivot_view">
+            <field name="name">Quiz Result Analysis</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.quiz.result</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_id" ref="openeducat_quiz.view_op_quiz_result_pivot"/>
+            <field name="view_mode">pivot</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+
+        <record id="op_session_analysis_pivot_view" model="ir.actions.act_window.view">
+            <field name="sequence" eval="3"/>
+            <field name="view_mode">pivot</field>
+            <field name="view_id" ref="openeducat_quiz.view_op_quiz_result_pivot"/>
+            <field name="act_window_id" ref="act_quiz_analysis_pivot_view"/>
+        </record>
+
+
+</odoo>

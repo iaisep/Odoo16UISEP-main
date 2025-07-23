@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="student_attendance_timesheet_progression_report"
+              inherit_id="openeducat_attendance_enterprise.student_attendance_progression_report"
+              priority="40">
+        <xpath expr="//th[hasclass('student')]" position="after">
+            <th width="140px;">Attedance Time</th>
+        </xpath>
+
+        <xpath expr="//td[hasclass('student')]" position="after">
+            <td>
+                <t t-esc="lines.check_in" t-options="{'widget': 'datetime'}"/>
+            </td>
+        </xpath>
+    </template>
+</odoo>

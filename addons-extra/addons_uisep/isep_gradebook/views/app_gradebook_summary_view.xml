@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="view_tree_app_gradebook_summary" model="ir.ui.view">
+            <field name="name">app.gradebook.summary.tree</field>
+            <field name="model">appisep.gradebook.summary</field>
+            <field name="arch" type="xml">
+                <tree string="Notas por Cuatrimestre" create="false">
+                    <header>                 
+                        <button name="action_send_recognition" string="Enviar correo" type="object" class="btn-primary"/>   
+                    </header>
+                    <field name="admision_id" />
+                    <field name="student_id" />
+                    <field name="course_id" />
+                    <field name="batch_id" />
+                    <field name="description" />
+                    <field name="total_marks" />
+                    <field name="mail_send" widget="boolean_toggle" readonly="1" optional="show"/>
+                    <button name="determine_current_quarter" string="Ejecutar calculo" type="object" class="btn-primary" invisible="1"/>
+                    <button name="action_print_certificate_recognition" string="Imprimir reconocimiento" type="object" class="btn-primary" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="app_isep_gradebook_summar_search" model="ir.ui.view">
+            <field name="name">app_isep_gradebook_summar_search</field>
+            <field name="model">appisep.gradebook.summary</field>
+            <field name="arch" type="xml">
+                <search string="Nota promedio cuatrimestre">
+                    <field name="student_id" string="Alumno" filter_domain="[('student_id', 'ilike', self)]"/>
+                    <field name="batch_id" string="Grupo"/>
+                    <field name="admision_id" string="Nr. Admisión"/>
+                    <field name="course_id" string="Curso"/>
+                    
+                    <filter name="filter_excel" string="Excelencia >9.3" domain="[('total_marks', '>=', 9.3), ('total_marks', '&lt;', 11)]"/>
+                    <separator/>
+                    <!-- Filtros por rango de notas -->
+                    <filter name="filter_10" string="10 (Exacto)" domain="[('total_marks', '=', 10)]"/>
+                    <filter name="filter_9" string="9 (9-9.99)" domain="[('total_marks', '>=', 9), ('total_marks', '&lt;', 10)]"/>
+                    <filter name="filter_8" string="8 (8-8.99)" domain="[('total_marks', '>=', 8), ('total_marks', '&lt;', 9)]"/>
+                    <filter name="filter_7" string="7 (7-7.99)" domain="[('total_marks', '>=', 7), ('total_marks', '&lt;', 8)]"/>
+                    <filter name="filter_6" string="6 (6-6.99)" domain="[('total_marks', '>=', 6), ('total_marks', '&lt;', 7)]"/>
+                    <filter name="filter_5" string="5 (5-5.99)" domain="[('total_marks', '>=', 5), ('total_marks', '&lt;', 6)]"/>
+                    <filter name="filter_4" string="4 (4-4.99)" domain="[('total_marks', '>=', 4), ('total_marks', '&lt;', 5)]"/>
+                    <filter name="filter_3" string="3 (3-3.99)" domain="[('total_marks', '>=', 3), ('total_marks', '&lt;', 4)]"/>
+                    <filter name="filter_2" string="2 (2-2.99)" domain="[('total_marks', '>=', 2), ('total_marks', '&lt;', 3)]"/>
+                    <filter name="filter_1" string="1 (1-1.99)" domain="[('total_marks', '>=', 1), ('total_marks', '&lt;', 2)]"/>
+                    <filter name="filter_0" string="0" domain="[('total_marks', '=', 0)]"/>
+
+                    <group expand="0" string="Agrupar por">
+                        <filter name="group_course_id" string="Curso" context="{'group_by': 'course_id'}"/>
+                        <filter name="group_batch_id" string="Grupo" context="{'group_by': 'batch_id'}"/>
+                        <filter name="group_description" string="Descripcion" domain="[]" context="{'group_by': 'description'}"/>
+                    </group>
+
+                    <searchpanel>
+                        <field name="batch_id" string="Grupo" icon="fa-users" enable_counters="1"/>
+                    </searchpanel>
+                </search>
+            </field>
+        </record>
+
+        <record id="ir_actions_action_calculate_quatri" model="ir.actions.server">
+            <field name="name">Promediar notas cuatrimestre</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_appisep_gradebook_summary"/>
+            <field name="state">code</field>
+            <field name="code">                
+                for rec in records:
+                    rec.determine_current_quarter()
+            </field>
+            <field name="binding_model_id" ref="isep_gradebook.model_appisep_gradebook_summary"/>
+            <field name="binding_view_types">list</field>
+        </record>
+
+        <record id="action_app_gradebook_summary" model="ir.actions.act_window">
+            <field name="name">Notas por cuatrimestre</field>
+            <field name="res_model">appisep.gradebook.summary</field>
+            <field name="view_mode">tree</field>
+            <field name="context">{'search_default_filter_excel': 1}</field>
+        </record>
+
+        <menuitem id="menu_app_gradebook_summary" name="Resumen de notas q4" parent="isep_gradebook.menu_app_gradebook_reports_root" action="action_app_gradebook_summary"/>
+
+        
+    </data>
+</odoo>

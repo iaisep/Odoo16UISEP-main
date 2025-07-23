@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="0">
+
+        <record id="onboarding_step_1" model="oe.onboarding.steps">
+            <field name="plan_id" ref="openeducat_onboarding.onboarding_plan_1"/>
+            <field name="step_name">Class Room</field>
+            <field name="action_id" ref="openeducat_classroom.act_open_op_classroom_view"/>
+            <field name="image" type="base64" file="openeducat_classroom_enterprise/static/img/Classroom.png"/>
+            <field name="doc_link">https://doc.openeducat.org/openeducat/course-openeducat.html#configure-course
+            </field>
+            <field name="youtube_link">https://youtu.be/5u39dsIo1z8</field>
+        </record>
+
+</odoo>

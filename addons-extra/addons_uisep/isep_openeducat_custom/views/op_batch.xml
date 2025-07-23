@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+     
+
+
+        <record id="custom_op_batch_fields_form" model="ir.ui.view">
+            <field name="name">op.batch.form</field>
+            <field name="model">op.batch</field>
+            <field name="inherit_id" ref="openeducat_core.view_op_batch_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='course_id']" position="after">
+                    <field name="tutor_id"/>
+                    <field name="professor_id"/>
+                    <field name="teams_domain"/>
+                    <field name="teams_link"/>
+                    <field name="teams_msg" placeholder="La reunión sera a las  17:00 Cuidad de México" />
+                    
+                </xpath>
+
+
+            </field>
+        </record>
+
+
+
+
+
+
+    </data>
+</odoo>
+
+
+ 
+

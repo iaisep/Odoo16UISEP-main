@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="practice_request_form_template" name="Practice Request Form">
+        <t t-call="portal.portal_layout">
+            <div class="container mt-5">
+                <h2>Enviar solicitud de práctica</h2>
+                <form action="/my/practice_requests/new" method="post" class="mt-3">
+                    <t t-if="student">
+                        <div class="form-group">
+                            <label for="student_name">Nombre del Estudiante:</label>
+                            <input type="text" name="student_name" id="student_name" class="form-control"
+                                   t-att-value="student.name or ''"
+                                   readonly="readonly"/>
+                        </div>
+
+                    </t>
+                    <t t-else="">
+                        <p>No hay información disponible sobre los estudiantes.</p>
+                    </t>
+                    <div class="form-group">
+                        <label for="student_email">Correo del estudiante:</label>
+                        <input type="email" name="student_email" id="student_email" class="form-control"
+                               t-att-value="student.email or ''"
+                               readonly="readonly"/>
+                    </div>
+                    <!--                    <div class="form-group">-->
+                    <!--                        <label for="name">Student Name</label>-->
+                    <!--                        <input type="text" name="name" id="name" class="form-control" required="required"/>-->
+                    <!--                    </div>-->
+                    <!--                    <div class="form-group mt-3">-->
+                    <!--                        <label for="email">Email</label>-->
+                    <!--                        <input type="email" name="email" id="email" class="form-control" required="required"/>-->
+                    <!--                    </div>-->
+                    <div class="form-group mt-3">
+                        <label for="op_admission_id">Matricula</label>
+                        <select name="op_admission_id" id="op_admission_id" class="form-control" required="required">
+                            <t t-foreach="admissions" t-as="admission" t-key="admission.id">
+                                <option t-att-value="admission.id">
+                                    <t t-esc="admission.application_number"/> - <t t-esc="admission.course_id.name"/>
+                                </option>
+                            </t>
+                        </select>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <label for="course_id">Curso</label>
+                        <select name="course_id" id="course_id" class="form-control" required="required">
+                            <t t-foreach="courses" t-as="course" t-key="course.id">
+                                <option t-att-value="course.id">
+                                    <t t-esc="course.course_id.name"/>
+                                </option>
+                            </t>
+                        </select>
+                    </div>
+                    <t t-set="practice_types_dict" t-value="{
+                            'on_site': 'Presencial',
+                            'distance': 'Distancia',
+                            'validation': 'Convalidación'
+                        }"/>
+                    <div class="form-group mt-3">
+                        <label for="practice_center_type_id">Tipo de práctica</label>
+                        <select name="practice_center_type_id" id="practice_center_type_id" class="form-control"
+                                required="required" onchange="showDescription()">
+                            <t t-foreach="practice_types" t-as="ptype" t-key="ptype.id">
+                                    <option t-att-value="ptype.id">
+                                        <t t-esc="practice_types_dict.get(ptype.type_of_practice, ptype.type_of_practice)"/>
+                                    </option>
+                            </t>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="description">Requerimientos:</label>
+                        <div id="description" class="form-control">
+                            <t t-foreach="practice_types" t-as="ptype" t-key="ptype.id">
+                                <t t-set="identi2" t-value="'desc_'+str(ptype.id)"/>
+
+                                <div t-att-id="identi2" class="practice-description" t-att-hidden="True">
+                                    <t t-raw="ptype.description"/>
+
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+                   <div class="form-group">
+                        <label for="description">Centros de práctica habilitados:</label>
+                        <style>
+                            /* Contenedor con scroll */
+                            #description {
+                                max-height: 400px;
+                                overflow-y: auto;
+                                border: 1px solid #ddd;
+                                padding: 10px;
+                            }
+
+                            /* Distribuir en varias columnas */
+                            .grid-container {
+                                display: grid;
+                                /*  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); Ajusta el tamaño */ 
+                                grid-template-columns: repeat(4, 1fr); /* 4 columnas */
+                                gap: 15px;
+                            }
+
+                            /* Estilo normal del contenedor */
+                            .practice-description {
+                                border: 1px solid #ccc;
+                                border-radius: 10px;
+                                background-color: #f9f9f9;
+                                padding: 15px;
+                                box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+                                transition: background-color 0.3s ease-in-out;
+                            }
+
+                        </style>
+
+                        <div id="description" class="form-control grid-container">
+                            <t t-foreach="practice_types" t-as="ptype" t-key="ptype.id">
+                                <t t-set="identi2" t-value="'desc_'+str(ptype.id)"/>
+                                <t t-foreach="ptype.enabled_center_ids" t-as="enabled_center_id" t-key="enabled_center_id.id">
+                                    <t t-set="identi3" t-value="'center['+str(enabled_center_id.id)+']'"/>
+                                    
+                                    <div t-att-id="identi2" class="practice-description">
+                                        <table style="width: 100%;">
+                                            <tr>
+                                                <td colspan="4">
+                                                    <input type="checkbox" t-att-name="identi3" t-att-id="identi3" class="center-checkbox"/>
+                                                    <span>
+                                                        <t t-raw="enabled_center_id.official_name"/>
+                                                        [<t t-raw="enabled_center_id.country_id.name"/>,
+                                                        <t t-raw="enabled_center_id.state_id.name"/>,
+                                                        <t t-raw="enabled_center_id.zip_id.city_id.name"/>]
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <t t-foreach="enabled_center_id.schedule_ids" t-as="schedule_id" t-key="schedule_id.id">
+                                                <tr>
+                                                    <td width="10%"></td>
+                                                    <td width="60%">
+                                                        <t t-esc="('%02d:%02d' % (int(schedule_id.start_time), int((schedule_id.start_time - int(schedule_id.start_time)) * 60)))"/> -  
+                                                        <t t-esc="('%02d:%02d' % (int(schedule_id.end_time), int((schedule_id.end_time - int(schedule_id.end_time)) * 60)))"/>
+                                                        <t t-set="days_dict" t-value="{
+                                                                'monday': 'Lunes',
+                                                                'tuesday': 'Martes',
+                                                                'wednesday': 'Miércoles',
+                                                                'thursday': 'Jueves',
+                                                                'friday': 'Viernes',
+                                                                'saturday': 'Sábado'
+                                                            }"/>
+                                                        <!-- <t t-raw="schedule_id.day_of_week_id.day_of_week"/> -->
+                                                        <t t-esc="days_dict.get(schedule_id.day_of_week_id.day_of_week, schedule_id.day_of_week_id.day_of_week)"/>
+                                                    </td>
+                                                    <td width="30%"></td>
+                                                </tr>
+                                            </t>
+                                        </table>
+                                    </div>
+                                </t>
+                            </t>
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label for="application_description">Información adicional: (Describa aquí sus motivaciones y expectativas para la aplicación práctica) 
+                            <span class="text-danger"> Si tú ya inscribiste un centro, indicarnos el nombre, para asignarte.</span>
+                        </label>
+                        <!-- Descripción de las modalidades, todas ocultas por defecto -->
+                        <textarea
+                                name="application_description"
+                                id="application_description"
+                                class="form-control"
+                                placeholder="Describe here your motivations and expectations for the practice application."
+                                rows="4"></textarea>
+
+                    </div>
+
+                    <div class="form-group" id="available_schedule">
+                        <label for="description_available">Horario Disponible: (Describe aquí tu horario disponible.)
+                            <span class="text-danger"> Está en formato 24 horas</span>
+                        </label>
+                        <div class="row">
+                            <!-- Día: Monday -->
+                            <div class="col-4">
+                                <label for="monday_available_start_time">Día</label>
+                            </div>
+                            <div class="col-4">
+                                <label for="start_time">Inicio</label>
+                            </div>
+                            <div class="col-4">
+                                <label for="end_time">Fin</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <!-- Día: Monday -->
+                            <div class="col-4">
+                                <label for="monday_available_start_time">Lunes</label>
+                            </div>
+                            <div class="col-4">
+                                <input type="number" name="monday_available_start_time" id="monday_available_start_time"
+                                       class="form-control" placeholder="Hora de inicio para el lunes"/>
+                            </div>
+                            <div class="col-4">
+                                <input type="number" name="monday_available_end_time" id="monday_available_end_time"
+                                       class="form-control" placeholder="Hora de finalización del lunes"/>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <!-- Día: Tuesday -->
+                            <div class="col-4">
+                                <label for="tuesday_available_start_time">Martes</label>
+                            </div>
+                            <div class="col-4">
+                                <input type="number" name="tuesday_available_start_time"
+                                       id="tuesday_available_start_time"
+                                       class="form-control" placeholder="Hora de inicio para el Martes"/>
+                            </div>
+                            <div class="col-4">
+                                <input type="number" name="tuesday_available_end_time" id="tuesday_available_end_time"
+                                       class="form-control" placeholder="Hora de finalización del Martes"/>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <!-- Día: Wednesday -->
+                            <div class="col-4">
+                                <label for="wednesday_available_start_time">Miércoles</label>
+                            </div>
+                            <div class="col-4">
+                                <input type="number" name="wednesday_available_start_time"
+                                       id="wednesday_available_start_time"
+                                       class="form-control" placeholder="Hora de inicio para el Miércoles"/>
+                            </div>
+                            <div class="col-4">
+                                <input type="number" name="wednesday_available_end_time"
+                                       id="wednesday_available_end_time"
+                                       class="form-control" placeholder="Hora de finalización del Miércoles"/>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <!-- Día: Thursday -->
+                            <div class="col-4">
+                                <label for="thursday_available_start_time">Jueves</label>
+                            </div>
+                            <div class="col-4">
+                                <input type="number" name="thursday_available_start_time"
+                                       id="thursday_available_start_time"
+                                       class="form-control" placeholder="Hora de inicio para el Jueves"/>
+                            </div>
+                            <div class="col-4">
+                                <input type="number" name="thursday_available_end_time" id="thursday_available_end_time"
+                                       class="form-control" placeholder="Hora de finalización del Jueves"/>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <!-- Día: Friday -->
+                            <div class="col-4">
+                                <label for="friday_available_start_time">Viernes</label>
+                            </div>
+                            <div class="col-4">
+                                <input type="number" name="friday_available_start_time" id="friday_available_start_time"
+                                       class="form-control" placeholder="Hora de inicio para el Viernes"/>
+                            </div>
+                            <div class="col-4">
+                                <input type="number" name="friday_available_end_time" id="friday_available_end_time"
+                                       class="form-control" placeholder="Hora de finalización del Viernes"/>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <!-- Día: Saturday -->
+                            <div class="col-4">
+                                <label for="saturday_available_start_time">Sábado</label>
+                            </div>
+                            <div class="col-4">
+                                <input type="number" name="saturday_available_start_time"
+                                       id="saturday_available_start_time"
+                                       class="form-control" placeholder="Hora de inicio para el Sábado"/>
+                            </div>
+                            <div class="col-4">
+                                <input type="number" name="saturday_available_end_time" id="saturday_available_end_time"
+                                       class="form-control" placeholder="Hora de finalización del Sábado"/>
+                            </div>
+                        </div>
+
+                        <!--                        <div class="row">-->
+                        <!--                            &lt;!&ndash; Día: Sunday &ndash;&gt;-->
+                        <!--                            <div class="col-4">-->
+                        <!--                                <label for="sunday_available_start_time">Sunday</label>-->
+                        <!--                            </div>-->
+                        <!--                            <div class="col-4">-->
+                        <!--                                <input type="number" name="sunday_available_start_time" id="sunday_available_start_time"-->
+                        <!--                                       class="form-control" placeholder="Start time for Sunday"/>-->
+                        <!--                            </div>-->
+                        <!--                            <div class="col-4">-->
+                        <!--                                <input type="number" name="sunday_available_end_time" id="sunday_available_end_time"-->
+                        <!--                                       class="form-control" placeholder="End time for Sunday"/>-->
+                        <!--                            </div>-->
+                        <!--                        </div>-->
+
+                    </div>
+
+
+                    <!-- Location Section -->
+                    <div class="form-group mt-3">
+                        <label for="country_id">País</label>
+                        <select id="country_id" name="country_id" class="form-control">
+                            <option value="">Seleccione País</option>
+                            <t t-foreach="request.env['res.country'].search([])" t-as="country">
+                                <option t-att-value="country.id">
+                                    <t t-esc="country.name"/>
+                                </option>
+                            </t>
+                        </select>
+                    </div>
+
+                    <!-- State Selection -->
+                    <div class="form-group mt-3">
+                        <label for="state_id">Estado</label>
+                        <select id="state_id" name="state_id" class="form-control">
+                            <option value="">Seleccione un estado</option>
+                            <!-- Opciones dinámicas cargadas mediante JavaScript -->
+                        </select>
+                    </div>
+
+<!--
+                    <div class="form-group mt-3">
+                        <label for="zip_id">ZIP</label>
+                        <select id="zip_id" name="zip_id" class="form-control">
+                            <option value="">Seleccione ZIP</option>
+                        </select>
+                    </div>
+-->
+
+                    <div class="form-group mt-4">
+                        <button type="submit" class="btn btn-success">Enviar solicitud</button>
+                    </div>
+                    <t t-if="error_message">
+                        <div class="alert alert-danger" role="alert">
+                            <t t-esc="error_message"/>
+                        </div>
+                    </t>
+
+                </form>
+            </div>
+
+
+        </t>
+        <!--        <script>-->
+        <!--        // Convierte la variable practice_types de Python a un objeto JavaScript-->
+        <!--        var practiceTypes = [-->
+        <!--            <t t-foreach="practice_types" t-as="ptype" t-key="ptype.id">-->
+        <!--                {-->
+        <!--                    "id": <t t-esc="ptype.id"/>,-->
+        <!--                    "name": "<t t-esc="ptype.type_of_practice"/>",-->
+        <!--                    "description": "<t t-raw="ptype.description"/>"-->
+        <!--                },-->
+        <!--            </t>-->
+        <!--        ];-->
+        <!--         </script>-->
+
+
+        <script type="text/javascript">
+            function updateDates() {
+            // Obtener el valor seleccionado en el campo de selección
+            var selectedValue = document.getElementById('practice_center_type_id').value;
+
+            // Obtener todos los divs con las descripciones
+            var descriptions = document.querySelectorAll('.practice-description');
+
+            // Iterar sobre todos los divs de descripciones y ocultarlos
+            descriptions.forEach(function(description) {
+            // Ocultar todos los divs de descripción
+            description.setAttribute('hidden', 'true');
+            });
+
+            // Iterar sobre todos los divs de descripciones y mostrarlos
+            descriptions.forEach(function(description) {
+            if ('desc_' + selectedValue ==description.id){
+
+            description.removeAttribute('hidden');
+            }
+            });
+
+            <!--            // Mostrar la descripción que corresponde al valor seleccionado-->
+            <!--            var selectedDescription = document.getElementById('desc_' + selectedValue);-->
+
+            <!--            if (selectedDescription) {-->
+            <!--            selectedDescription.removeAttribute('hidden');-->
+            <!--            }-->
+            }
+
+            window.onload = updateDates;
+        </script>
+
+
+
+
+        <script type="text/javascript">
+            
+            const triggerSelect = document.getElementById('course_id');
+
+            const targetSelect = document.getElementById('practice_center_type_id');
+
+            triggerSelect.addEventListener('change', () => {
+                const selectedCourse = triggerSelect.value;
+
+            // Enable all options first
+            Array.from(targetSelect.options).forEach(option => {
+               option.hidden = false; // if you want to hide instead of disable, set hidden = true
+            });
+
+
+
+            const selectedText = triggerSelect.options[triggerSelect.selectedIndex].label
+
+
+            if (selectedText != 'MAESTRÍA EN PSICOLOGÍA CLÍNICA') {
+                const optionToDisable = targetSelect.querySelector(`option[value="${2}"]`);
+                optionToDisable.hidden = true;
+                }
+            else{
+
+                const optionToDisable = targetSelect.querySelector(`option[value="${2}"]`);
+                optionToDisable.hidden = false;
+
+             }
+            });
+           
+
+            window.addEventListener('load', () => {
+                // Create and dispatch the change event
+                const event = new Event('change');
+                triggerSelect.dispatchEvent(event);
+            });
+
+
+            function showDescription() {
+            // Obtener el valor seleccionado en el campo de selección
+            var selectedValue = document.getElementById('practice_center_type_id').value;
+
+            // Obtener todos los divs con las descripciones
+            var descriptions = document.querySelectorAll('.practice-description');
+
+            // Iterar sobre todos los divs de descripciones y ocultarlos
+            descriptions.forEach(function(description) {
+            // Ocultar todos los divs de descripción
+            description.setAttribute('hidden', 'true');
+            });
+
+            // Iterar sobre todos los divs de descripciones y mostrarlos
+            descriptions.forEach(function(description) {
+            if ('desc_' + selectedValue ==description.id){
+
+            description.removeAttribute('hidden');
+            }
+            });
+
+            if (selectedValue == 3){ //Validation
+                var elements = document.querySelectorAll('[id$="available_start_time"]');
+
+                document.getElementById('available_schedule').hidden = true;
+
+
+                elements.forEach(el => {
+                    el.value = 8;  // Set the value property to 8
+                    el.setAttribute('hidden', 'true');
+                });
+                elements = document.querySelectorAll('[id$="available_end_time"]');
+
+                elements.forEach(el => {
+                    el.value = 15;  // Set the value property to 15
+                    el.setAttribute('hidden', 'true');
+                });
+
+            }
+            else{
+
+                document.getElementById('available_schedule').removeAttribute('hidden');
+
+                var elements = document.querySelectorAll('[id$="available_start_time"]');
+
+                elements.forEach(el => {
+                    el.value = '';  // Set the value property to 
+                    el.removeAttribute('hidden');
+
+                });
+                elements = document.querySelectorAll('[id$="available_end_time"]');
+
+                elements.forEach(el => {
+                    el.value = '';  // Set the value property to 
+                    el.removeAttribute('hidden');
+                });
+
+            }
+            
+
+            <!--            // Mostrar la descripción que corresponde al valor seleccionado-->
+            <!--            var selectedDescription = document.getElementById('desc_' + selectedValue);-->
+
+            <!--            if (selectedDescription) {-->
+            <!--            selectedDescription.removeAttribute('hidden');-->
+            <!--            }-->
+            }
+
+            // Llamar a la función inicialmente para ocultar todas las descripciones al cargar la página
+            window.onload = showDescription;
+        </script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+            const countrySelect = document.getElementById('country_id');
+            const stateSelect = document.getElementById('state_id');
+
+            // Evento de cambio en el country_id
+            countrySelect.addEventListener('change', function () {
+            const countryId = this.value;
+
+            // Limpia las opciones actuales del state_id
+            stateSelect.innerHTML = '<option value="">Select a State</option>';
+
+            if (countryId) {
+            <!--                // Llama a la ruta /get_states/<country_id>-->
+            fetch(`/get_states/${countryId}`)
+            .then(response => response.json())
+            .then(data => {
+            // Añade las nuevas opciones al state_id
+            data.forEach(state => {
+            const option = document.createElement('option');
+            option.value = state.id;
+            option.textContent = state.name;
+            stateSelect.appendChild(option);
+            });
+            })
+            .catch(error => console.error('Error fetching states:', error));
+            }
+            });
+            });
+        </script>
+<!--
+        <script>
+            function updateZips() {
+            const stateId = document.getElementById('state_id').value;
+            const zipSelect = document.getElementById('zip_id');
+            zipSelect.innerHTML = '<option value="">Select a ZIP</option>'; // Reset ZIP options
+
+            if (stateId) {
+            fetch(`/get_zips/${stateId}`)
+            .then(response => response.json())
+            .then(data => {
+            data.forEach(zip => {
+            const option = document.createElement('option');
+            option.value = zip.id;
+            option.textContent = zip.name;
+            zipSelect.appendChild(option);
+            });
+            })
+            .catch(error => {
+            console.error('Error fetching ZIPs:', error);
+            });
+            }
+            }
+        </script>
+-->
+        <!-- JavaScript para cambiar color al marcar checkbox -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                document.querySelectorAll('.center-checkbox').forEach(function (checkbox) {
+                    checkbox.addEventListener('change', function () {
+                        let parentDiv = this.closest('.practice-description');
+                        if (this.checked) {
+                            parentDiv.style.backgroundColor = '#c8e6c9'; // Verde claro
+                            parentDiv.style.borderColor = '#4caf50'; // Verde oscuro
+                        } else {
+                            parentDiv.style.backgroundColor = '#f9f9f9'; // Color original
+                            parentDiv.style.borderColor = '#ccc'; // Borde original
+                        }
+                    });
+                });
+            });
+        </script>
+
+    </template>
+</odoo>

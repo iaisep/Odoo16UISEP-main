@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="view_op_attendance_register_inherited_form_view" model="ir.ui.view">
+            <field name="name">op.attendance.register.inherited.form</field>
+            <field name="model">op.attendance.register</field>
+            <field name="inherit_id" ref="openeducat_attendance.view_op_attendance_register_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='course_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='batch_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='code']" position="after">
+                    <field name="section_id" invisible="1"/>
+                    <field name="batch_id" context="{'course_id': course_id,'get_parent_batch':1}"
+                           attrs="{'invisible': [('section_id', '!=', False)],
+                           'required':[('section_id', '!=', False)]}"/>
+                    <field name="section_id"
+                           groups="openeducat_core_enterprise.group_op_section"/>
+                    <field name="auto_create_if_session"/>
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                </xpath>
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="course_id"
+                           attrs="{'invisible': [('section_id', '!=', False)],
+                           'required':[('section_id', '!=', False)]}"/>
+                    <field name="subject_id" required="1"/>
+                    <field name="auto_create"/>
+                    <field name="auto_create_type"
+                           attrs="{'invisible':[('auto_create','=',False)],
+                           'required':[('auto_create','=',True)]}"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="view_op_attendance_register_inherited_tree_view" model="ir.ui.view">
+            <field name="name">op.attendance.register.inherited.tree</field>
+            <field name="model">op.attendance.register</field>
+            <field name="inherit_id" ref="openeducat_attendance.view_op_attendance_register_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='batch_id']" position="after">
+                    <field name="auto_create" optional="hide"/>
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_op_attendance_register_inherited_search_view" model="ir.ui.view">
+            <field name="name">op.attendance.register.inherited.search</field>
+            <field name="model">op.attendance.register</field>
+            <field name="inherit_id" ref="openeducat_attendance.view_op_attendance_register_search"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group" position="after">
+                    <searchpanel>
+                        <field name="company_id" icon="fa-building"/>
+                        <field name="course_id" icon="fa fa-book"/>
+                    </searchpanel>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_op_tree_onboarding_attendance" model="ir.ui.view">
+            <field name="name">op.attendance.onboard</field>
+            <field name="model">op.attendance.register</field>
+            <field name="inherit_id" ref="openeducat_attendance.view_op_attendance_register_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree" position="attributes">
+                    <attribute name="banner_route">
+                        /openeducat_attendance_enterprise/openeducat_attendance_onboarding_panel
+                    </attribute>
+                </xpath>
+            </field>
+        </record>
+
+</odoo>

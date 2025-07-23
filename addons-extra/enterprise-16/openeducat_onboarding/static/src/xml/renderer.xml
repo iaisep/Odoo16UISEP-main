@@ -1,0 +1,11 @@
+<templates>
+    <t t-name="web.KanbanRendererOnBoarding" owl="1" t-inherit-mode="primary" t-inherit="web.KanbanRenderer">
+        <xpath expr="//t[@t-key='groupOrRecord.key']" position="before">
+            <div t-if="updateOnboardingTitle()" class="my-4 w-100 text-center">
+                <h2>
+                    <t t-esc="updateOnboardingTitle()"/>
+                </h2>
+            </div>
+        </xpath>
+    </t>
+</templates>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_calendar_online_meeting_form_view" model="ir.ui.view">
+        <field name="name">calendar.online.meeting.form</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='clear_videocall_location']" position="attributes">
+                <!-- <button name="clear_videocall_location" type="object" class="btn btn-link"
+                    attrs="{'invisible': [('videocall_location', '=', False)]}" context="{'recurrence_update': recurrence_update}">
+                    <span class="fa fa-times"></span><span> Clear meeting</span>
+                </button> -->
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//button[@name='set_discuss_videocall_location']" position="attributes">
+                <!-- <button name="set_discuss_videocall_location" type="object" class="btn btn-link"
+                    attrs="{'invisible':  [('videocall_location', '!=', False)]}" context="{'recurrence_update': recurrence_update}">
+                    <span class="fa fa-plus"></span><span> Add meeting</span>
+                </button> -->
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='videocall_location']" position="attributes">
+                <attribute name="attrs">{'readonly': [('is_meeting','==', True)]}</attribute>
+                <attribute name="attrs">{'force_save': True}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='mpw']" position="before">
+                <field name="is_meeting"/>
+            </xpath>
+            <xpath expr="//field[@name='mpw']" position="after">
+                <field name="is_password"/>
+                <field name="channel_id" attrs="{'invisible': True}"/>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page string="Meeting" name="meeting">
+                    <form>
+                        <sheet>
+                            <group>
+                                <group name="meeting">
+                                    <field name="course_id"/>
+                                    <field name="batch_id" domain="[('course_id', '=', course_id)]"/>
+                                    <field name="subject_id"/>
+                                </group>
+                            </group>
+                        </sheet>
+                    </form>
+                </page>
+            </xpath>
+            <xpath expr="//sheet" position="before">
+                <header>
+                    <button id="createMeet" string="Start Meeting" class="oe_highlight" type="object" name="action_create_meet" attrs="{'invisible': [('is_meeting', '=', False)]}"/>
+                </header>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,17 @@
+<odoo>
+    <record id="view_calendar_teams_meeting_form_view" model="ir.ui.view">
+        <field name="name">calendar.teams.meeting.form</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button type="action" name="%(openeducat_teams.act_open_teamsmeeting_view)d"
+                        attrs="{'invisible': [('online_meeting','=', True)]}" string="Create Teams Meeting"
+                        class="oe_highlight"/>
+            </xpath>
+            <xpath expr="//field[@name='description']" position="after">
+                <field name="meet_url" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

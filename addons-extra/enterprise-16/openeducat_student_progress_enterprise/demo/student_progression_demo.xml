@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="student_progression_demo1" model="op.student.progression">
+            <field name="student_id" ref="openeducat_core.op_student_1"/>
+            <field name="created_by" ref="base.user_admin"/>
+            <field name="date"
+                   eval="(DateTime.today() + relativedelta(days=-10)).strftime('%Y-%m-%d 05:30:00')"/>
+            <field name="state">open</field>
+        </record>
+
+</odoo>

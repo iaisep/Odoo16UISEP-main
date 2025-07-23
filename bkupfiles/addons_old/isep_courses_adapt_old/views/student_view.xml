@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_op_student_form_inherit" model="ir.ui.view">
+            <field name="name">op.student.inherit.form</field>
+            <field name="model">op.student</field>
+            <field name="inherit_id" ref="openeducat_core.view_op_student_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header/button[@name='create_student_user']" position="after">
+                    <button name="action_get_grades" type="object" string="Descargar Calificaciones" class="oe_highlight"/>
+                    <button name="action_status_moodle" type="object" string="Estatus Moodle" class="oe_highlight"/>
+                    <button name="action_wizard_certificate" type="object" string="CERTIFICADOS / DIPLOMAS" class="oe_highlight"/>
+                </xpath>
+                <xpath expr="//div[@name='button_box']" position="inside">
+                    <button class="btn oe_stat_button" type="object" name="action_open_exam_attendees" style="border-right: 1px solid;" icon="fa-pencil">
+                        <field string="Calificaciones" name="exam_attendees_count" widget="statinfo"/>
+                    </button>
+                    <button class="btn oe_stat_button" type="object" name="action_view_sale" style="border-right: 1px solid;" icon="fa-money">
+                        <field string="Ventas" name="sale_count" widget="statinfo"/>
+                    </button>
+                </xpath>
+                <xpath expr="//page[@name='educational']" position="after">
+                    <page name="moodle" string="Accesos Moodle">
+                        <group string="Moodle data" col="4" colspan="4" name="moodle_info">
+                            <field name="moodle_id" readonly="1"/>
+                            <field name="moodle_user" readonly="1"/>
+                            <field name="moodle_pass" readonly="1"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

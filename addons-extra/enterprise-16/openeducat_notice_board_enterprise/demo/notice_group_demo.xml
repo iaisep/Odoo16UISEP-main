@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo noupdate="1">
+    <record id="notice_group1" model="op.notice.group">
+        <field name="name">BOA Sem-1&amp;2 All Students Circular</field>
+        <field name="student_visibility">all_students</field>
+        <field name="course_ids" eval="[(6,0,[ref('openeducat_core.op_course_2'),ref('openeducat_core.op_course_3')])]"/>
+        <field name="batch_ids" eval="[(6,0,[ref('openeducat_core.op_batch_1'),ref('openeducat_core.op_batch_2')])]"/>
+        <field name="created_date" eval="DateTime.today().strftime('%Y-%m-%d')"/>
+        <field name="created_by" ref="openeducat_core.op_user_faculty"/>
+    </record>
+
+    <record id="notice_group2" model="op.notice.group">
+        <field name="name">BOA Students Misbehaviour Notice</field>
+        <field name="student_visibility">selected_students</field>
+        <field name="student_ids" eval="[(6,0,[ref('openeducat_core.op_student_1'),ref('openeducat_core.op_student_2'),ref('openeducat_core.op_student_3')])]"/>
+        <field name="created_date" eval="DateTime.today().strftime('%Y-%m-%d')"/>
+        <field name="created_by" ref="openeducat_core.op_user_faculty"/>
+    </record>
+
+    <record id="notice_group3" model="op.notice.group">
+        <field name="name">Annual Function Faculty Notice</field>
+        <field name="faculty_visibility">selected_faculty</field>
+        <field name="faculty_ids" eval="[(6,0,[ref('openeducat_core.op_faculty_1'),ref('openeducat_core.op_faculty_2'),ref('openeducat_core.op_faculty_3')])]"/>
+        <field name="created_date" eval="DateTime.today().strftime('%Y-%m-%d')"/>
+        <field name="created_by" ref="base.user_admin"/>
+    </record>
+</odoo>

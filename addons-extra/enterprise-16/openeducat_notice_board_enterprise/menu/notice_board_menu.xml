@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <menuitem id="menu_main_notice_board"
+                name="Notice Board"
+                web_icon="openeducat_notice_board_enterprise,static/description/icon.png"/>
+
+    <menuitem id="menu_my_notice"
+                name="My Notice"
+                parent="menu_main_notice_board"
+                sequence="10"/>
+
+    <menuitem id="menu_my_circular"
+                name="My Circular"
+                parent="menu_main_notice_board"
+                sequence="20"/>
+
+    <menuitem id="menu_notice_configuration"
+                name="Configuration"
+                parent="menu_main_notice_board"
+                sequence="30"/>
+
+    <menuitem id="menu_notice"
+                name="My Notices"
+                parent="menu_my_notice"
+                action="op_notice_view_action"
+                sequence="20"/>
+
+    <menuitem id="menu_circular"
+                name="My Circulars"
+                parent="menu_my_circular"
+                action="op_circular_view_action"
+                sequence="20"/>
+
+    <menuitem id="menu_notice_group_configuration"
+                name="Groups"
+                parent="menu_notice_configuration"
+                action="op_notice_group_action"
+                sequence="10"/>
+</odoo>

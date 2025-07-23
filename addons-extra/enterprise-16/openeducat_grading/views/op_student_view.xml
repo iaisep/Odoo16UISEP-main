@@ -1,0 +1,22 @@
+<odoo>
+
+    <record id="grading_smart_button_op_student_inherit" model="ir.ui.view">
+        <field name="name">op.student.grading.smart.buttons</field>
+        <field name="model">op.student</field>
+        <field name="inherit_id" ref="openeducat_core.view_op_student_form"/>
+        <field name="priority" eval="6"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="open_grade_book_grid"
+                        class="btn oe_stat_button"
+                        icon="fa-book"
+                        type="object">
+                    <div class="o_field_widget o_stat_info">
+                        <span class="o_stat_text">GradeBook</span>
+                    </div>
+                </button>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

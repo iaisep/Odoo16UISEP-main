@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- ===========================
+             Definición del Formato de Papel
+             =========================== -->
+        <record id="paperformat_cert_diploma" model="report.paperformat">
+            <field name="name">Letter Cert Diploma</field>
+            <field name="margin_top">0</field>     <!-- Sin margen superior -->
+            <field name="margin_bottom">0</field>  <!-- Sin margen inferior -->
+            <field name="margin_left">0</field>    <!-- Sin margen izquierdo -->
+            <field name="margin_right">0</field>   <!-- Sin margen derecho -->
+            <field name="header_line" eval="False"/>  <!-- Sin línea de encabezado -->
+            <field name="header_spacing">0</field>    <!-- Sin espacio de encabezado -->
+            <field name="dpi">90</field>
+            <field name="orientation">Portrait</field>
+            <field name="format">Letter</field>
+            <field name="default" eval="True"/>
+        </record>
+
+        <!-- ===========================
+             Acción para generar PDF
+             =========================== -->
+        <record id="r_cert_diploma" model="ir.actions.report">
+            <field name="name">Diploma Certificado</field>
+            <field name="model">op.student</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">isep_openeducat_reports.t_cert_diploma</field>
+            <field name="report_file">isep_openeducat_reports.t_cert_diploma</field>
+            <field name="binding_model_id" eval="False"/>
+            <field name="binding_type">report</field>
+            <field name="paperformat_id" ref="isep_openeducat_reports.paperformat_cert_diploma"/>
+            <field name="attachment">(object.name or 'CERT').replace('/','_') + '.pdf'</field>
+        </record>
+
+        <!-- ===========================
+             Plantilla Principal (Itera Estudiantes)
+             =========================== -->
+        <template id="t_cert_diploma">
+            <t t-set="students" t-value="docs or env[doc_model].sudo().browse(student_ids)"/>
+            <t t-foreach="students" t-as="o">
+                <t t-call="isep_openeducat_reports.t_cert_diploma_document" t-lang="o.partner_id.lang"/>
+            </t>
+        </template>
+
+        <!-- ===========================
+             Plantilla Interior (Contenido y Diseño, sin “split” manual)
+             =========================== -->
+        <template id="t_cert_diploma_document">
+            <t t-call="web.basic_layout">
+
+                <style>
+
+                    /* ============================
+                       Contenedor principal (.content)
+                       ============================ */
+                    .content {
+                        padding: 200px 50px 40px 50px;
+                        box-sizing: border-box;                       
+                    }
+
+                    /* ============================
+                       Encabezado (texto introductorio)
+                       ============================ */
+                    .header-section {
+                        text-align: justify;
+                        margin-bottom: 10px;
+                    }
+                    .header-section p {
+                        font-size: 20px;
+                        margin: 5px 0;
+                        line-height: 1.2;
+                    }
+                    .header-section p.title {
+                        font-size: 30px;
+                        color: #002E5D;
+                        margin-bottom: 10px;
+                    }
+                    .header-section p.subtitle {
+                        font-size: 20px;
+                        margin-bottom: 8px;
+                    }
+                    .header-section p.highlight {
+                        font-size: 20px;
+                        color: #ee7401;
+                        margin-bottom: 8px;
+                    }
+
+                    /* ============================
+                       Tabla de Materias
+                       ============================ */
+                    .table-cert {
+                        width: 100%;
+                        font-size: 20px;
+                        margin: 8px 0 12px 0;
+                        border-collapse: collapse;
+                    }
+                    .table-cert th,
+                    .table-cert td {
+                        padding: 4px 8px;
+                        border-bottom: 1px solid #ddd;
+                    }
+                    .table-cert th {
+                        text-align: left;
+                        background-color: transparent;
+                    }
+                    .table-cert td:nth-child(3) {
+                        text-align: right;
+                        page-break-inside: allow;
+                    }
+
+                    /* ============================
+                       Texto de cierre (párrafos)
+                       ============================ */
+                    .closing-text p {
+                        font-size: 20px;
+                        margin: 5px 0;
+                        line-height: 1.2;
+                    }
+                    .closing-text {
+                        margin-top: 10px;
+                        margin-bottom: 20px;
+                    }
+
+                    /* ============================
+                       Bloque QR + Firma (no partir entre páginas)
+                       ============================ */
+                    .qr-container,
+                    .sign-container {
+                        page-break-inside: avoid;
+                    }
+                    .qr-container {
+                        margin-bottom: 40px; 
+                        text-align: center;
+                    }
+                    .qr-img {
+                        width: 180px;
+                        height: 180px;
+                    }
+                    .sign-container {
+                        text-align: center;
+                        font-size: 16px;
+                    }
+                    .sign-container img {
+                        display: inline-block;
+                        vertical-align: middle;
+                        margin: 0 10px;
+                    }
+                    .sign-container .sign-line {
+                        margin-top: 8px;
+                    }
+                    .block-final {
+                        page-break-inside: avoid;
+                        margin-top: 20px;
+                        margin-bottom: 20px;
+                    }
+                </style>
+
+                <t t-set="libreta" t-value="env['app.gradebook.student'].sudo().search([('student_id','=',o.id),('batch_id','=',batch_id)])"/>
+                <t t-set="admission" t-value="libreta and libreta.admission_id or False"/>
+                <t t-set="materias" t-value="libreta and libreta.gradebook_subject_ids or []"/>
+                <t t-if="o and libreta and admission and materias">
+
+                    <t t-set="materias_obligatorias" t-value="materias.filtered(lambda r: r.op_subject_id.subject_type == 'compulsory')"/>
+
+                    <t t-set="materias_data"
+                         t-value="[
+                            '%s-%s' % (m.op_subject_id.name, m.final_subject_note) 
+                            for m in materias_obligatorias
+                         ]"/>
+                    <t t-set="data_to_stamp"
+                         t-value="{
+                            'Fecha': today_string,
+                            'Estudiante': o.display_name,
+                            'Documento': 'Certificado de Notas',
+                            'Carrera': admission.course_id.display_name,
+                            'Libreta': libreta.display_name,
+                            'Admision': admission.display_name,
+                            'materias': materias_data
+                         }"/>
+                    <t t-set="dict_stamp" t-value="env['op.sign_certificate'].sudo().stamp_data(data_to_stamp, o)"/>
+
+<!--                        <div class="watermark" style="position: absolute; opacity:1.0; width:100%; height:100%; text-align:center; z-index:-1; margin: 0px; ">
+
+                            <img class="border border-light" style="margin: 0px !important; width: 100%;" t-att-src="'/isep_openeducat_reports/static/src/img/background.png'"/>  
+                         </div> 
+-->
+                 
+                        <div class="page" style="width:100%; height:100%; margin-left: 0px !important; margin-right: 0px !important; padding-left: 0px !important; padding-right: 0px !important; page-break-after:always;  background: url('/isep_openeducat_reports/static/src/img/background.png')  background-size: 100%">
+                       <div class="content"> 
+                        <!-- Encabezado y texto introductorio -->
+                        <div class="header-section">
+                            <p class="title"><strong>Certificado de Notas</strong></p>
+                            <p class="subtitle"><strong>El Departamento de Secretaría Académica Universidad ISEP</strong></p>
+                            <p class="highlight"><strong>CERTIFICA:</strong></p>
+                            <p>
+                                Que <span t-out="o.name"/> con número de matrícula 
+                                <span t-out="admission.application_number"/>, matriculada en 
+                                <strong t-out="admission.course_id.display_name"/> durante el periodo 
+                                académico <span t-out="admission.batch_id.academic_year"/>, con una 
+                                carga lectiva de <span t-out="libreta.batch_id.credits"/> créditos 
+                                equivalentes a <span t-out="libreta.batch_id.hours"/> horas, ha 
+                                obtenido las calificaciones siguientes:
+                            </p>
+                        </div>
+
+                        <!-- Tabla única de todas las materias obligatorias -->
+                        <table class="table-cert table table-borderless table-striped">
+                            <thead>
+                                <tr>
+                                    <th><strong>Código</strong></th>
+                                    <th><strong>Asignatura</strong></th>
+                                    <th><strong>Calificación</strong></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="materias_obligatorias" t-as="m">
+                                    <tr>
+                                        <td><strong t-out="m.op_subject_id.code"/></td>
+                                        <td><strong t-out="m.op_subject_id.name"/></td>
+                                        <td><strong t-esc="'{0:,.2f}'.format(m.final_subject_note)"/></td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+
+                        <!-- Bloque QR + Firma (evitando que se parta entre páginas) -->
+                        <div class="block-final">
+                            <div class="closing-text">
+                                <p>Los créditos se ajustan al Sistema Educativo Mexicano y a los planes de estudio de Universidad ISEP.</p>
+                                <p>Para que así conste, firma el presente certificado a <span t-out="today_string"/>.</p>
+                            </div>
+                            <div class="row block-final" style="page-break-inside: avoid; margin-top: 40px; margin-bottom: 40px;width: 80%; text-align: center; margin-left: auto; margin-right: auto;">
+                                <!-- Columna 1: Código QR alineado a la izquierda -->
+                                <div class="col-4" style="text-align: left;">
+                                    <img 
+                                        alt="QR Code" 
+                                        style="width: 180px; height: 180px;"
+                                        t-att-src="
+                                            '/report/barcode/?barcode_type=QR&amp;value=%s&amp;width=180&amp;height=180' 
+                                            % quote_plus(
+                                                '%s/verificar_documento?' % (base_url)
+                                                + keep_query(
+                                                    stamp=dict_stamp.get('stamp',''),
+                                                    certificate_id=dict_stamp.get('certificate_id', 0),
+                                                    data_str=dict_stamp.get('data_str', '')
+                                                )
+                                            )
+                                        "
+                                    />
+                                </div>
+                                <!-- Columna 2: Firma manuscrita, logo ISEP y texto debajo -->
+                                <div class="col-8" style="position: relative; padding-left: 0; padding-right: 10px;">
+                                    <!-- Fila interna para firma y logotipo, alineados a la derecha -->
+                                    <div style="text-align: center;">
+                                        <!-- Imagen de la firma manuscrita -->
+                                        <img 
+                                            src="/isep_openeducat_reports/static/src/img/firma_decana_isep.png" 
+                                            style="width: 132px; height: 81px; vertical-align: middle;"
+                                        />
+                                        <!-- Logo de “Universidad ISEP”, a la derecha de la firma -->
+                                        <img 
+                                            src="/isep_openeducat_reports/static/src/img/sello_isep.png" 
+                                            style="width: 82px; height: 48px; margin-left: 16px; vertical-align: middle;"
+                                        />
+                                    </div>
+                                    <!-- Texto con nombre y cargo, justo debajo de las imágenes y alineado a la derecha -->
+                                    <div style="text-align: center; margin-top: 8px; font-size: 16px;">
+                                        
+                                        <strong><b>Dra. B. Nayeli Pérez Tamayo</b></strong><br/>
+                                        <strong><b>Vicerrectora Académica</b></strong>
+                                        
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </t> 
+            </t>
+        </template>
+
+    </data>
+</odoo>

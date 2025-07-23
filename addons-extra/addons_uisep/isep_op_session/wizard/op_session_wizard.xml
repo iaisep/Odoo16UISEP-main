@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="isep_op_session_wizard_view" model="ir.ui.view">
+        <field name="name">op.session.wizard</field>
+        <field name="model">op.session.wizard</field>
+        <field name="arch" type="xml">
+            <form class="o_mail_composer_form">
+                <div class="oe_title">
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                </div>
+                <group>
+                    <group>
+                        <field name="faculty_id" options='{"no_open": True}'/>
+                        <field name="admission_id" options='{"no_open": True}'/>
+                        <field name="course_id" options='{"no_open": True}'/>
+                        <field name="subject_id" options='{"no_open": True}'/>
+                        <field name="time_url_metting"/>
+                        <field name="type_day"/>
+                    </group>
+                    <group>
+                        <field name="batch_ids"
+                            widget="many2many_tags"
+                            options="{'no_create': True}"/>
+                        <field name="classroom_id"/>
+                        <label for="start_datetime" string="Session Time"/>
+                        <div class="o_row">
+                            <field name="start_datetime" widget="daterange" class="oe_inline"
+                                options="{'related_end_date': 'end_datetime'}"/>
+                            <i class="fa fa-long-arrow-right mx-2" aria-label="Arrow icon" title="Arrow"/>
+                            <field name="end_datetime" widget="daterange" nolabel="1" class="oe_inline"
+                                options="{'related_start_date': 'start_datetime'}"/>
+
+                        </div>
+                    </group>
+                </group>
+                <footer>
+                    <button string="Ejecutar" type="object" name="action_execute" class="btn-primary"/>
+                    <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                </footer>
+			</form>
+        </field>
+    </record>
+
+
+    <record id="action_op_session_wizard" model="ir.actions.act_window">
+        <field name="name">Sesiones</field>
+        <field name="res_model">op.session.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_op_session_wizard" 
+          name="Sesiones"
+          parent="openeducat_lesson.menu_op_school_config_lesson" 
+          action="action_op_session_wizard"/>
+</odoo>

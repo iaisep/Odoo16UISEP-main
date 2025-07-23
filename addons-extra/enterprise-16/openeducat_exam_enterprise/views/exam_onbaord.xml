@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- openeducat_core module STEPS -->
+    <!-- exam type view starts -->
+    <template id="onboarding_exam_layout_step">
+        <t t-call="base.onboarding_step">
+            <t t-set="title">Exam Type Configuration</t>
+            <t t-set="description">See how to create a Exam Type.</t>
+            <t t-set="done_icon" t-value="'fa-star'"/>
+            <t t-set="done_text">Looks great!</t>
+            <t t-set="btn_text">Customize</t>
+            <t t-set="method" t-value="'action_onboarding_exam_layout'"/>
+            <t t-set="model" t-value="'res.company'"/>
+            <t t-set="state" t-value="state.get('onboarding_exam_type_layout_state')"/>
+        </t>
+    </template>
+    <record id="view_op_exam_type_form_onboard" model="ir.ui.view">
+            <field name="name">op.exam.type.form</field>
+            <field name="model">op.exam.type</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Exam Type">
+                    <sheet>
+                        <group colspan="4">
+                            <field name="name"/>
+                            <field name="code"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button string="Apply" class="btn btn-primary" type="object"
+                                name="action_onboarding_exam_layout"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+    <record id="action_onboarding_exam_layout" model="ir.actions.act_window">
+        <field name="name">Exam Type Configuration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">op.exam.type</field>
+        <field name="view_mode">form</field>
+        <field name="binding_view_types">form</field>
+        <field name="view_id" ref="view_op_exam_type_form_onboard"/>
+        <field name="target">new</field>
+    </record>
+
+
+    <!-- exam room view starts -->
+    <template id="onboarding_exam_room_layout_step">
+        <t t-call="base.onboarding_step">
+            <t t-set="title">Exam Room Configuration</t>
+            <t t-set="description">See how to create a Exam Type.</t>
+            <t t-set="done_icon" t-value="'fa-star'"/>
+            <t t-set="done_text">Looks great!</t>
+            <t t-set="btn_text">Customize</t>
+            <t t-set="method" t-value="'action_onboarding_exam_room_layout'"/>
+            <t t-set="model" t-value="'res.company'"/>
+            <t t-set="state" t-value="state.get('onboarding_exam_room_layout_state')"/>
+        </t>
+    </template>
+    <record id="view_op_exam_room_form_onboard" model="ir.ui.view">
+            <field name="name">op.exam.room.form</field>
+            <field name="model">op.exam.room</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Exam Room">
+                    <sheet>
+                        <div>
+                            <group col="4">
+                                <field name="name"/>
+                                <field name="classroom_id"/>
+                                <field name="capacity"/>
+                            </group>
+                        </div>
+                    </sheet>
+                    <footer>
+                        <button string="Apply" class="btn btn-primary" type="object"
+                                name="action_onboarding_exam_room_layout"/>
+                    </footer>
+                </form>
+            </field>
+    </record>
+
+    <record id="action_onboarding_exam_room_layout" model="ir.actions.act_window">
+        <field name="name">Exam Room Configuration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">op.exam.room</field>
+        <field name="view_mode">form</field>
+        <field name="binding_view_types">form</field>
+        <field name="view_id" ref="view_op_exam_room_form_onboard"/>
+        <field name="target">new</field>
+    </record>
+
+
+    <!-- exam grade view starts -->
+    <template id="onboarding_exam_grade_layout_step">
+        <t t-call="base.onboarding_step">
+            <t t-set="title">Exam Grade Configuration</t>
+            <t t-set="description">See how to create a Exam Grade.</t>
+            <t t-set="done_icon" t-value="'fa-star'"/>
+            <t t-set="done_text">Looks great!</t>
+            <t t-set="btn_text">Customize</t>
+            <t t-set="method" t-value="'action_onboarding_exam_grade_layout'"/>
+            <t t-set="model" t-value="'res.company'"/>
+            <t t-set="state" t-value="state.get('onboarding_exam_grade_layout_state')"/>
+        </t>
+    </template>
+
+
+    <record id="view_op_grade_configuration_form_onboard" model="ir.ui.view">
+            <field name="name">op.grade.configuration.form</field>
+            <field name="model">op.grade.configuration</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Grade Configuration">
+                    <sheet>
+                        <group colspan="4">
+                            <field name="min_per"/>
+                            <field name="max_per"/>
+                            <field name="result"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button string="Apply" class="btn btn-primary" type="object"
+                                name="action_onboarding_exam_grade_layout"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_op_grade_configuration_inherited_tree" model="ir.ui.view">
+            <field name="name">op.grade.configuration.tree</field>
+            <field name="model">op.grade.configuration</field>
+            <field name="inherit_id" ref="openeducat_exam.view_op_grade_configuration_tree"/>
+            <field name="arch" type="xml">
+                <field name="result" position="after">
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                </field>
+            </field>
+        </record>
+
+
+    <record id="action_onboarding_exam_grade_layout" model="ir.actions.act_window">
+        <field name="name">Exam Grade Configuration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">op.grade.configuration</field>
+        <field name="view_mode">form</field>
+        <field name="binding_view_types">form</field>
+        <field name="view_id" ref="view_op_grade_configuration_form_onboard"/>
+        <field name="target">new</field>
+    </record>
+
+
+
+
+    <!-- ONBOARDING PANEL-->
+    <template id="openeducat_exam_onboarding_panel" name="openeducat.parent.quotation.onboarding.panel">
+        <t t-call="base.onboarding_container">
+            <t t-set="classes" t-value="'o_onboarding_violet'"/>
+            <t t-set="bg_image" t-value="'/sale/static/src/img/sale_quotation_onboarding_bg.jpg'"/>
+            <t t-set="close_method" t-value="'action_close_exam_panel_onboarding'"/>
+            <t t-set="close_model" t-value="'res.company'"/>
+            <t t-call="openeducat_exam_enterprise.onboarding_exam_layout_step" name="company_step_exam_type"></t>
+            <t t-call="openeducat_exam_enterprise.onboarding_exam_room_layout_step" name="company_step_exam_room_type"></t>
+            <t t-call="openeducat_exam_enterprise.onboarding_exam_grade_layout_step" name="company_step_exam_grade_type"></t>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.cron" id="account_analytic_cron_for_invoice_payment_massive_for_time">
+            <field name="name">Envío de correo de link de pago automático por tiempo - Recordatorio</field>
+            <field name="model_id" ref="isep_cron_send_mail_time.model_account_move"/>
+            <field name="state">code</field>
+            <field name="code">model.send_template_link_payment_massive_for_time()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="nextcall" eval="(datetime.now() + timedelta(minutes=7)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record model="ir.cron" id="cron_for_invoice_payment_link">
+            <field name="name">Envío de correo de link de pago automático a facturas, Recordatorio</field>
+            <field name="model_id" ref="isep_cron_send_mail_time.model_account_move"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_send_template_link_payment_invoices(range_days=30,max_email=5)
+# range_days : rango maximo de fecha de facturas a notificar con el link de pago.
+# max_email : Cantidad de email maximo a enviar por factura
+</field>
+            <field name="interval_number">3</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="nextcall"  eval="(datetime.now() + timedelta(days=1)).replace(hour=5, minute=0, second=0)" />
+        </record>
+
+
+    </data>
+
+</odoo>

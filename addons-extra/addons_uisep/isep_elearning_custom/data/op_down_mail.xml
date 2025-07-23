@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="email_template_down_report" model="mail.template">
+            <field name="name">Email de baja y encuesta de baja</field>
+            <field name="email_from">{{ ctx.get('email_from') }}</field>
+            <field name="subject">Estudiante dado de baja, {{ ctx.get('attendee') }}</field>
+            <field name="email_to">{{ ctx.get('email_to') }}</field>
+            <field name="model_id" ref="isep_elearning_custom.model_admission_downconsult"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html" type="html">
+                <table border="0" cellpadding="0" cellspacing="0" style="padding:16px 0 0 0;box-sizing:border-box;caption-side:bottom;padding-top: 16px; background-color: #FFFFFF; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;" width="100%">
+                    <tbody>
+                        <tr>
+                            <td align="center">
+                                <table border="0" cellpadding="0" cellspacing="0" width="590" style="box-sizing: border-box; padding: 16px; background-color: #ffffff; color: #454748; border-collapse: separate; font-family: Verdana, Arial, sans-serif;">
+                                    <tbody>
+                                        <tr>
+                                            <td align="center" style="min-width: 590px;">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width: 590px; background-color: white; padding: 0px 8px; border-collapse: separate; color: #454748; font-family: Verdana, Arial, sans-serif;">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td valign="middle">
+                                                                <span style="font-size: 9px;">Estudiante</span><br/>
+                                                                <span style="font-size: 20px; font-weight: bold;">
+                                                                    <t t-out="object.name or ''"/>
+                                                                </span>
+                                                            </td>
+                                                            <td valign="middle" align="right">
+                                                                <img t-attf-src="/logo.png?company={{ object.company_id.id }}" style="vertical-align:middle; padding: 0; margin: 0; height: auto; width: 80px;" t-att-alt="object.company_id.name" width="80"/>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="2" style="text-align:center;">
+                                                                <hr width="100%" style="height: 1px; opacity: 0.25; background-color: #cccccc; margin: 16px 0;"/>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td align="center" style="min-width: 590px;">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width: 590px; background-color: white; padding: 0px 8px; border-collapse: separate; color: #454748; font-family: Verdana, Arial, sans-serif;">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td valign="top" style="font-size: 13px;">
+                                                                <div>
+                                                                    Estimado(a) <t t-out="object.name or ''"/>,<br/><br/>
+                                                                    Lamentamos saber que te retiras. Apreciamos el tiempo que ha formado parte de nuestra comunidad ISEP y queremos asegurarnos de mejorar continuamente para brindar la mejor experiencia posible.<br/>
+                                                                    Te agradeceríamos mucho si pudieras tomarte unos minutos para completar la siguiente encuesta y compartir tu opinión. Tu retroalimentación es invaluable para nosotros.<br/>
+                                                                    <div style="margin: 16px 0;">
+                                                                        <a t-att-href="'/downconsult/survey/' + object.access_token" style="background-color: #ff6900; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
+                                                                            Complete la encuesta aquí
+                                                                        </a>
+                                                                    </div>
+                                                                    <span style="font-size: 10px;">Este enlace expirará en 7 días.</span><br/>
+                                                                    Gracias por tu tiempo y apoyo.<br/><br/>
+                                                                    Atentamente,<br/>
+                                                                    <b>Universidad ISEP</b>
+                                                                    
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="text-align:center;">
+                                                                <hr width="100%" style="height: 1px; opacity: 0.25; background-color: #cccccc; margin: 16px 0;"/>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td align="center" style="min-width: 590px;">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width: 590px; background-color: white; font-size: 11px; padding: 0 8px; border-collapse: separate; color: #454748; font-family: Verdana, Arial, sans-serif;">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td valign="middle" align="left">
+                                                                <t t-out="object.company_id.name or ''"/>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td valign="middle" align="left" style="opacity: 0.7;">
+                                                                <t t-out="object.company_id.phone or ''"/>
+                                                                <t t-if="object.company_id.email">
+                                                                    | <a t-att-href="'mailto:%s' % object.company_id.email" style="text-decoration:none; color: #454748;" t-out="object.company_id.email or ''"/>
+                                                                </t>
+                                                                <t t-if="object.company_id.website">
+                                                                    | <a t-att-href="'%s' % object.company_id.website" style="text-decoration:none; color: #454748;" t-out="object.company_id.website or ''"/>
+                                                                </t>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center" style="min-width: 590px;">
+                                <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width: 590px; background-color: #f1f1f1; color: #454748; padding: 8px; border-collapse: separate; font-family: Verdana, Arial, sans-serif;">
+                                    <tbody>
+                                        <tr>
+                                            <td style="text-align: center; font-size: 10px;">
+                                               Todos nuestros sueños se pueden hacer realidad si tenemos el coraje de perseguirlos. (Walt Disney) 
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </field>
+            <field name="report_template" ref="action_report_down_adminsion"/>
+            <field name="report_name">{{ object.name }}</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="action_report_gradebook" model="ir.actions.report">
+            <field name="name">Grade Report</field>
+            <field name="model">gradebook.gradebook</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">openeducat_grading.student_grade_report</field>
+            <field name="report_file">openeducat_grading.student_grade_report</field>
+            <field name="binding_model_id" ref="model_gradebook_gradebook"/>
+        </record>
+
+         <record id="action_transcript" model="ir.actions.report">
+            <field name="name">Transcript</field>
+            <field name="model">gradebook.gradebook</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">openeducat_grading.student_transcript</field>
+            <field name="report_file">openeducat_grading.student_transcript</field>
+            <field name="paperformat_id" ref="openeducat_grading.paperformat_transcript"/>
+            <field name="binding_model_id" ref="model_gradebook_gradebook"/>
+        </record>
+
+        <record id="action_honour_roll_certificate" model="ir.actions.report">
+            <field name="name">Honour Roll Certificate</field>
+            <field name="model">op.honorroll</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">openeducat_grading.honour_certification</field>
+            <field name="report_file">openeducat_grading.honour_certification</field>
+            <field name="paperformat_id" ref="openeducat_grading.paperformat_honor_roll"/>
+            <field name="binding_model_id" ref="model_op_honorroll"/>
+        </record>
+
+        <record id="action_honour_roll_list" model="ir.actions.report">
+            <field name="name">Honour Roll List</field>
+            <field name="model">op.honorroll</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">openeducat_grading.honor_roll_list</field>
+            <field name="report_file">openeducat_grading.honor_roll_list</field>
+            <field name="binding_model_id" ref="model_op_honorroll"/>
+        </record>
+
+</odoo>

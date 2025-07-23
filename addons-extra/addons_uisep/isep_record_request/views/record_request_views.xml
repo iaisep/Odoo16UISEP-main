@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="record_request_view_tree" model="ir.ui.view">
+        <field name="name">record.request.view.tree</field>
+        <field name="model">record.request</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="op_admission_id"/>
+                <field name="partner_id"/>
+                <field name="batch_id"/>
+                <field name="course_id"/>
+                <field name="application_number"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="record_request_view_form" model="ir.ui.view">
+        <field name="name">record.request.view.form</field>
+        <field name="model">record.request</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="op_admission_id"/>
+                            <field name="partner_id"/>
+                            <field name="batch_id"/>
+                        </group>
+                        <group>
+                            <field name="course_id"/>
+                            <field name="application_number"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="record_request_action" model="ir.actions.act_window">
+        <field name="name">Solicitudes</field>
+        <field name="res_model">record.request</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="record_request_menu"
+              name="Solicitudes"
+              action="record_request_action"
+              sequence="10"
+              parent="registers_menu"/>
+</odoo>

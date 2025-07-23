@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="success_page" name="Success Page">
+        <t t-call="portal.portal_layout">
+            <div class="container mt-4">
+                <h2>Centro de Práctica ¡Registrado exitosamente!</h2>
+                <p>Su centro de práctica ha sido registrado exitosamente.</p>
+                <a href="/my/centers" class="btn btn-primary">Ver centros de práctica</a>
+            </div>
+        </t>
+    </template>
+</odoo>

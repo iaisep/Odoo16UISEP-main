@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+         <record model="ir.ui.view" id="mail_message_view_gpt_form_inherit">
+            <field name="name">mail_message_view_gpt_form_inherit</field>
+            <field name="model">mail.message</field>
+            <field name="inherit_id" ref="mail.mail_message_view_form"/>
+            <field name="priority">25</field>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='parent_id']" position="after">
+                    <field name="type_message_role" invisible="0" readonly="0"/>
+                </xpath>
+            </field>
+        </record>
+        
+    </data>
+</odoo>

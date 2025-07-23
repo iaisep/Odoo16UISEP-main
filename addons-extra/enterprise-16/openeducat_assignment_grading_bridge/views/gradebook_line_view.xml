@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="view_gradebook_line_inherited_tree_view_grading_bridge" model="ir.ui.view">
+            <field name="name">gradebook.line.inherited.tree</field>
+            <field name="model">gradebook.line</field>
+            <field name="inherit_id" ref="openeducat_grading.view_gradebook_line_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='marks']" position="after">
+                    <field name="obtained_marks"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_gradebook_line_inherited_form_view_grading_bridge" model="ir.ui.view">
+            <field name="name">gradebook.line.inherited.form</field>
+            <field name="model">gradebook.line</field>
+            <field name="inherit_id" ref="openeducat_grading.view_gradebook_line_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='assignment_type_id']" position="after">
+                    <field name="penalty"/>
+                </xpath>
+                <xpath expr="//field[@name='marks']" position="after">
+                    <field name="obtained_marks"/>
+                </xpath>
+            </field>
+        </record>
+
+</odoo>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+        <record id="rubrics_element_demo1" model="op.rubric.element">
+            <field name="name">Listening</field>
+            <field name="rubrics_type">points</field>
+            <field name="point">10.0</field>
+            <field name="rubrics_template_id" ref="rubric_template_demo1"/>
+        </record>
+
+        <record id="rubrics_element_demo2" model="op.rubric.element">
+            <field name="name">Writting</field>
+            <field name="rubrics_type">points</field>
+            <field name="point">20.0</field>
+            <field name="rubrics_template_id" ref="rubric_template_demo1"/>
+        </record>
+
+        <record id="rubrics_element_demo3" model="op.rubric.element">
+            <field name="name">Formatting</field>
+            <field name="rubrics_type">points</field>
+            <field name="point">20.0</field>
+            <field name="rubrics_template_id" ref="rubric_template_demo1"/>
+        </record>
+
+        <record id="rubrics_element_demo4" model="op.rubric.element">
+            <field name="name">Content</field>
+            <field name="rubrics_type">percent</field>
+            <field name="percentage">20.0</field>
+            <field name="rubrics_template_id" ref="rubric_template_demo4"/>
+        </record>
+
+        <record id="rubrics_element_demo5" model="op.rubric.element">
+            <field name="name">Figure</field>
+            <field name="rubrics_type">percent</field>
+            <field name="percentage">40.0</field>
+            <field name="rubrics_template_id" ref="rubric_template_demo4"/>
+        </record>
+
+        <record id="rubrics_element_demo6" model="op.rubric.element">
+            <field name="name">Writting</field>
+            <field name="rubrics_type">percent</field>
+            <field name="percentage">40.0</field>
+            <field name="rubrics_template_id" ref="rubric_template_demo4"/>
+        </record>
+
+        <record id="rubrics_element_demo7" model="op.rubric.element">
+            <field name="name">Writting</field>
+            <field name="rubrics_type">points</field>
+            <field name="point">20.0</field>
+            <field name="rubrics_template_id" ref="rubric_template_demo3"/>
+        </record>
+
+        <record id="rubrics_element_demo8" model="op.rubric.element">
+            <field name="name">Formatting</field>
+            <field name="rubrics_type">points</field>
+            <field name="point">20.0</field>
+            <field name="rubrics_template_id" ref="rubric_template_demo3"/>
+        </record>
+
+        <record id="rubrics_element_demo9" model="op.rubric.element">
+            <field name="name">Content</field>
+            <field name="rubrics_type">points</field>
+            <field name="point">30.0</field>
+            <field name="rubrics_template_id" ref="rubric_template_demo3"/>
+        </record>
+
+        <record id="rubrics_element_demo10" model="op.rubric.element">
+            <field name="name">Figure</field>
+            <field name="rubrics_type">points</field>
+            <field name="point">30.0</field>
+            <field name="rubrics_template_id" ref="rubric_template_demo3"/>
+        </record>
+
+        <record id="rubrics_element_demo11" model="op.rubric.element">
+            <field name="name">Writting</field>
+            <field name="rubrics_type">percent</field>
+            <field name="percentage">20.0</field>
+            <field name="rubrics_template_id" ref="rubric_template_demo2"/>
+        </record>
+
+        <record id="rubrics_element_demo12" model="op.rubric.element">
+            <field name="name">Formatting</field>
+            <field name="rubrics_type">percent</field>
+            <field name="percentage">20.0</field>
+            <field name="rubrics_template_id" ref="rubric_template_demo2"/>
+        </record>
+
+        <record id="rubrics_element_demo13" model="op.rubric.element">
+            <field name="name">Content</field>
+            <field name="rubrics_type">percent</field>
+            <field name="percentage">30.0</field>
+            <field name="rubrics_template_id" ref="rubric_template_demo2"/>
+        </record>
+
+        <record id="rubrics_element_demo14" model="op.rubric.element">
+            <field name="name">Figure</field>
+            <field name="rubrics_type">percent</field>
+            <field name="percentage">30.0</field>
+            <field name="rubrics_template_id" ref="rubric_template_demo2"/>
+        </record>
+
+</odoo>

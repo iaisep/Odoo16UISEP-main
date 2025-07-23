@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_op_batch_inherited_form_view_inherit" model="ir.ui.view">
+        <field name="name">op.batch.view.form.inherit</field>
+        <field name="model">op.batch</field>
+        <field name="inherit_id" ref="openeducat_core_enterprise.view_op_batch_inherited_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="after">
+                <field name="coordinator"/>
+                <field name="campus_id"/>
+<!--                <field name="uvic_program" widget="boolean_toggle"/>-->
+                <field name="modality_id"/>
+                <field name="students_limit"/>
+                <field name="sepyc_program" widget="boolean_toggle"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_op_batch_form_inherit" model="ir.ui.view">
+        <field name="name">op.batch.view.form.inherit</field>
+        <field name="model">op.batch</field>
+        <field name="inherit_id" ref="openeducat_core.view_op_batch_form"/>
+        <field name="arch" type="xml">
+                <xpath expr="//sheet/group[last()]" position="after">
+                <notebook>
+                    <page string="Información general">
+                        <group>
+                            <group string="Información académica">
+                                <field name="expiration_days"/>
+                                <field name="date_diplomas"/>
+                                <field name="academic_year"/>
+                                <field name="generation"/>
+                            </group>
+                            <group string="Otra información">
+                                <field name="days_week"/>
+                                <field name="schedule"/>
+                                <field name="contact_class"/>
+                                <field name="type_practices"/>
+                            </group>
+                            <group string="SL">
+                                <field name="hours"/>
+                                <field name="credits"/>
+                                <field name="ects"/>
+                            </group>
+                            <group string="Reconocimientos">
+                                <field name="acknowledgments"/>
+                                <field name="reconeixements"/>
+                            </group>
+                            <group string="LATAM">
+                                <field name="practical_hours_total"/>
+                                <field name="independent_hours_total"/>
+                                <field name="theoretical_hours_total"/>
+                                <field name="hours_total"/>
+                                <field name="practical_hours_credits"/>
+                                <field name="independent_hours_credits"/>
+                                <field name="theoretical_hours_credits"/>
+                                <field name="credits_total"/>
+                            </group>
+                        </group>
+                    </page>
+                </notebook>
+            </xpath>
+        </field>
+    </record>
+</odoo>

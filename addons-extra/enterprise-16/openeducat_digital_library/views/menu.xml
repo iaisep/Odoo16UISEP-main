@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+        <menuitem id="menu_op_digital_library_main_root"
+                  sequence="25"
+                  name="Digital Library"
+                  web_icon="openeducat_digital_library,static/description/icon.png"/>
+
+        <menuitem id="menu_op_digital_library_category"
+                  name="Category"
+                  parent="menu_op_digital_library_main_root"
+                  sequence="20"
+                  action="act_open_op_digital_library_category_view"/>
+
+        <menuitem id="menu_op_digital_library_material"
+                  name="Material"
+                  parent="menu_op_digital_library_main_root"
+                  sequence="25"
+                  action="act_open_op_digital_library_material_view"/>
+
+        <menuitem id="menu_op_digital_library_enrollment"
+                  name="Enrollment"
+                  parent="menu_op_digital_library_main_root"
+                  sequence="25"
+                  action="act_open_op_digital_library_enrollment_view"/>
+
+        <record id="website_menu_digital_library_menu" model="website.menu">
+            <field name="name">Library</field>
+            <field name="url">/digital-library</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">25</field>
+        </record>
+
+
+
+</odoo>

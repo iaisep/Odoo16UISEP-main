@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="report_student_progression" model="ir.actions.report">
+            <field name="name">Progression Report</field>
+            <field name="model">op.student.progression</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">openeducat_student_progress_enterprise.student_progression_report</field>
+            <field name="report_file">openeducat_student_progress_enterprise.student_progression_report</field>
+        </record>
+
+</odoo>

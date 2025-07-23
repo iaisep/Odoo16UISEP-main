@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_practice_type_form_center_kanban" model="ir.ui.view">
+        <field name="name">practice.type.form.center.kanban</field>
+        <field name="model">practice.type.form.center</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="status_form_center" quick_create="false">
+                <field name="status_form_center"/>
+                <field name="name"/>
+                <field name="coordinator"/>
+                <field name="email"/>
+                <progressbar field="status_form_center" colors='{"not generated":"warning","generated":"success","problems to be generated":"danger"}'/>
+                <template>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_content oe_kanban_global_click">
+                            <div>
+                                <strong class="o_kanban_record_title"><span><field name="name"/></span></strong>
+                            </div>
+                            <div>
+                                <span class="o_kanban_record_subtitle"><field name="coordinator"/></span>
+                            </div>
+                            <div>
+                                <field name="email"/>
+                            </div>
+                        </div>
+                    </t>
+                </template>
+
+            </kanban>
+        </field>
+    </record>
+
+    <!-- View practice.type.form.center View Tree -->
+    <record id="view_practice_type_form_center_tree" model="ir.ui.view">
+        <field name="name">view.practice.type.form.center.tree</field>
+        <field name="model">practice.type.form.center</field>
+        <field name="arch" type="xml">
+            <tree string="TypeForm Center">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- View practice.type.form.center form -->
+    <record id="view_practice_type_form_center_form" model="ir.ui.view">
+        <field name="name">view.practice.type.form.center.form</field>
+        <field name="model">practice.type.form.center</field>
+        <field name="arch" type="xml">
+            <form string="TypeForm Center">
+                <header>
+                    <button name="generateCenter" type="object" string="Generar Centro"
+                        class="oe_highlight"/>
+                    <field name="status_form_center" widget="statusbar" statusbar_visible="not generated,generated,problems to be generated" statusbar_colors='{"invoice_except":"red","waiting_date":"blue"}'/><!--clickable="True"-->
+                </header>
+                <sheet>
+                    <group>
+                        <group string="Datos del Centro">
+                            <field name="name" required="1"/>
+                            <field name="official_name" required="1"/>
+                            <field name="coordinator" required="1"/>
+                            <field name="signatory_name" required="1"/>
+                            <field name="postal_code" required="1"/>
+                            <field name="province" required="1"/>
+                            <field name="city" required="1"/>
+                            <field name="street" required="1"/>
+                            <field name="number_places" required="1"/>
+                            <field name="phone" required="1"/>
+                            <field name="mobil"/>
+                            <field name="email" required="1"/>
+                            <field name="website"/>
+                            <field name="turn" required="1"/>
+                            <field name="days" required="1"/>
+                            <field name="day_order"/>
+                        </group>
+                        <group string="Actualizar Datos">
+                            <field name="update"/>
+                            <!-- <field name="update_zip" attrs="{'invisible':[('update','=',False)]}"/>
+                            <field name="update_country" attrs="{'invisible':[('update','=',False)]}"/>
+                            <field name="update_province" attrs="{'invisible':[('update','=',False)]}"/>
+                            <field name="update_city" attrs="{'invisible':[('update','=',False)]}"/>
+                            <field name="update_code" attrs="{'invisible':[('update','=',False)]}"/> -->
+                            <field name="create_schedule"/>
+                            <field name="practice_schedule_id" attrs="{'invisible':[('create_schedule','=',False)]}"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- View practice.type.form.center search -->
+    <record id="view_practice_type_form_center_search" model="ir.ui.view">
+        <field name="name">view.practice.type.form.center.search</field>
+        <field name="model">practice.type.form.center</field>
+        <field name="arch" type="xml">
+            <search string="TypeForm Center">
+                <field name="name"/>
+                <group expand="1" string="Group By">
+                    <filter string="Name" name="name" domain="[]" context="{'group_by':'name'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action practice.type.form.center -->
+    <record id="action_practice_type_form_center" model="ir.actions.act_window">
+        <field name="name">Practice Type Form Center</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">practice.type.form.center</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                There is no examples click here to add new Practice Type Form Center.
+            </p>
+        </field>
+    </record>
+
+</odoo>

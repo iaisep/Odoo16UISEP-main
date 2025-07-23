@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <data>
+        <!-- El producto predeterminado está configurado para tarifas de reserva -->
+        <record id="product_category_appointment" model="product.category">
+            <field name="name">Tarifas de Cita en linea</field>
+        </record>
+        <record id="default_booking_product" model="product.product">
+            <field name="name">Tarifas de Cita en Linea</field>
+            <field name="standard_price">0.00</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="list_price">50.00</field>
+            <field name="detailed_type">tarifas_cita_en_linea</field>
+            <field name="purchase_ok" eval="False"/>
+            <field name="categ_id" ref="product_category_appointment"/>
+        </record>
+    </data>
+
+</odoo>

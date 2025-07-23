@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="slide_content_detailed_inherit_local_external" inherit_id="website_slides.slide_content_detailed">
+            
+            <div class="ratio ratio-16x9 embed-responsive-item mb8" position="before">
+                <div t-if="slide.slide_category == 'local_external'" class="ratio ratio-16x9 embed-responsive-item mb8">
+                    <t t-out="slide.embed_code"/>
+                </div>
+            </div>        
+        </template>
+
+        
+        <template id="slide_icon_local_external" inherit_id="website_slides.slide_icon">
+            <i t-if="slide.slide_type == 'quiz'" position="after">
+                <i t-if="slide.slide_type == 'local_external'" t-att-class="'fa fa-youtube-play %s' % icon_class"></i>
+            </i>
+        </template>
+        <template id="slide_fullscreen_sidebar_category_local_external_inherit" inherit_id="website_slides.slide_fullscreen_sidebar_category">
+            <li t-attf-class="o_wslides_fs_sidebar_list_item d-flex py-1 #{'active' if slide.id == current_slide.id else ''}" position="attributes">
+                <attribute name="t-att-data-embed-code">slide.embed_code if slide.slide_category in ['video', 'document', 'infographic','local_external','bunny','scorm'] else False</attribute>
+            </li>
+        </template>
+    </data>
+</odoo>

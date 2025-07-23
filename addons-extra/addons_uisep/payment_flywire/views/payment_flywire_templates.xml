@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="redirect_form">
+        <form t-att-action="api_url" method="POST" />
+    </template>
+
+    <!-- Página de sesión Flywire -->
+    <template id="flywire_session_page" name="Flywire Session">
+        <t t-call="website.layout">
+            <div class="container text-center">
+                <iframe t-att-src="session_url" id="checkout" title="checkout" class="my-iframe" height="928" width="660" />
+            </div>
+
+              <script>
+const tx = "<t t-esc='tx'/>";
+window.addEventListener("message", (event) => {
+    // IMPORTANTE: Verificar el origen de los datos para asegurarse de que sean de Flywire
+    // El uso de indexOf garantiza que el origen termine en ".flywire.com"
+    if (event.origin.indexOf(".flywire.com")) {
+        // Si el mensaje se envió desde Flywire:
+        // Extraer los datos del evento
+        const result = event.data;
+        if (result.source !== 'checkout_session') {
+            return;
+        }
+
+        // Verifique si la sesión fue exitosa y confirm_url está presente:
+        if (result.success) {
+            if (result.confirm_url) {
+                console.log("Pago completado con éxito:", result);
+                // Redirigir o mostrar un mensaje de éxito
+                window.location.href = `/payment/flywire/sessions/${tx}/status`;
+                console.log("Confirm URL:", result.confirm_url.url);
+            } else {
+                console.error("Falta confirm_url:", result);
+            }
+        } else {
+            console.error("Sesión fallida:", result);
+        }
+    }
+});
+            </script>
+        </t>
+    </template>
+
+
+    <template id="flywire_payment_status" name="Flywire Session success">
+        <t t-call="website.layout">
+
+
+                    <div class="d-flex justify-content-center align-items-center p-5"> 
+                <div class="col-md-4"> 
+                    <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th colspan="3">Detalle de Operación</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="3" class="text-left" style="text-align: left !important;">
+                                <span>
+                                                        <strong><span class="o_small-fs">Nombre: </span></strong>
+                                                        <span class="o_small-fs"><span t-esc="name"/><br/>
+                                                </span>
+                                                <span style="text-align: left;">
+                                                        <strong><span class="o_small-fs">Referencia: </span></strong>
+                                                        <span class="o_small-fs"><span t-esc="ref"/><br/>
+                                                </span>
+                                                <span style="text-align: left;">
+                                                        <strong><span class="o_small-fs">Fecha: </span></strong>
+                                                        <span class="o_small-fs"><span t-esc="date"/><br/><br/>
+                                                </span>
+                                                <span style="text-align: left;">
+                                                        <strong><span class="o_small-fs">Estado: </span></strong>
+                                                        <br/>
+                                                </span>
+                                                  
+                                                <p class="alert alert-success" t-if="state == 'done'" role="status">
+                                                    Operación exitosa.
+                                                </p>
+                                                <p class="alert alert-info" t-if="state in ('draft','pending','authorized')" role="status">
+                                                    Operación en proceso.
+                                                </p>
+                                                <p class="alert alert-danger" t-if="state in ('cancel','error')" role="status">
+                                                    Operación rechazada.
+                                                </p>
+                            </span></span></span></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <div class="d-flex justify-content-center">
+                                        <a type="button" href="/my/home" class="btn btn-primary mx-2">
+                                            <i class="fa fas fa-home"/> Ir a Portal
+                                        </a>
+                                        <a type="button" class="btn btn-info mx-2" onclick="location.reload();">
+                                            <i class="fa fas fa-refresh"/> Actualizar
+                                        </a>
+                                        <a type="button" href="/my/invoices" class="btn btn-secondary mx-2">
+                                            <i class="fa fas fa-file"/> Ver facturas
+                                        </a>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            </div>
+
+
+
+
+        </t>
+    </template>
+
+
+
+</odoo>

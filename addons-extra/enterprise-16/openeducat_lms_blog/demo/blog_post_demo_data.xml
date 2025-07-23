@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo noupdate="1">
+
+        <record id="python" model="ir.attachment">
+            <field name="public" eval="True"/>
+            <field name="name">Blog Post Cover 3</field>
+            <field name="res_model">ir.ui.view</field>
+            <field name="type">url</field>
+            <field name="url">/openeducat_lms_blog/static/src/img/demo/python.png</field>
+        </record>
+
+        <record id="sales" model="ir.attachment">
+            <field name="public" eval="True"/>
+            <field name="name">Blog Post Cover 5</field>
+            <field name="res_model">ir.ui.view</field>
+            <field name="type">url</field>
+            <field name="url">/openeducat_lms_blog/static/src/img/demo/salesgoals.jpg</field>
+        </record>
+
+        <record id="blog_post_1" model="blog.post">
+            <field name="name">Easy Learning with e-learning</field>
+            <field name="subtitle">Ideas behind the e-learning tools.</field>
+            <field name="blog_id" ref="openeducat_lms_blog.blog_1"/>
+            <field name="course_id" ref="openeducat_lms.demo_course_1"/>
+            <field name="website_published" eval="True"/>
+            <field name="published_date" eval="time.strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="website_meta_keywords">e-learning</field>
+            <field name="website_meta_description">Study With e-learning</field>
+            <field name="cover_properties">{"background-image": "url(/web/image/openeducat_lms_blog.python)",
+                "resize_class": "cover container cover_narrow", "background-color": "oe_black", "opacity": "0.0"}
+            </field>
+            <field name="tag_ids" eval="[
+                   (6,0,[
+                   ref('openeducat_lms_blog.blog_tag_1'),
+                   ref('openeducat_lms_blog.blog_tag_2')
+                   ])]"/>
+            <field name="content"><![CDATA[
+<section class="s_text_block">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 mb16 mt16">
+                <iframe width="100%" height="250" src="http://www.youtube.com/embed/EkbBFmIWoTE" frameborder="0" allowfullscreen></iframe>
+                <p>
+                    Python is powerful language.
+                </p>
+                <p>
+                    An interpreted language, Python has a design philosophy which emphasizes code readability (notably using whitespace indentation to delimit code blocks rather than curly braces or keywords), and a syntax which allows programmers to express concepts in fewer lines of code than possible in languages such as C++ or Java.
+                </p>
+                <p>
+                    Python is a general purpose programming language created in the late 1980s, and named after Monty Python, that's used by thousands of people to do things from testing microchips at Intel, to powering Instagram, to building video games with the PyGame library.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+]]>
+            </field>
+        </record>
+
+        <record id="blog_post_2" model="blog.post">
+            <field name="name">Starts management with some GOAL</field>
+            <field name="subtitle">Are you sure about your goal?</field>
+            <field name="blog_id" ref="openeducat_lms_blog.blog_2"/>
+            <field name="course_id" ref="openeducat_lms.demo_course_3"/>
+            <field name="website_published" eval="True"/>
+            <field name="published_date" eval="time.strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="website_meta_keywords">e-learning</field>
+            <field name="website_meta_description">Study With e-learning</field>
+            <field name="cover_properties">{"background-image": "url(/web/image/openeducat_lms_blog.sales)",
+                "resize_class": "cover container cover_narrow", "background-color": "oe_black", "opacity": "0.0"}
+            </field>
+            <field name="tag_ids" eval="[
+                   (6,0,[
+                   ref('openeducat_lms_blog.blog_tag_2')
+                   ])]"/>
+            <field name="content"><![CDATA[
+<section class="s_text_block">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 mb16 mt16">
+                <iframe width="100%" height="250" src="http://www.youtube.com/embed/EkbBFmIWoTE" frameborder="0" allowfullscreen></iframe>
+                <p>
+                    Setup goal.
+                </p>
+                <p>
+                    Success with content marketing goes well beyond research, writing, and publishing. Measuring the impact of your content marketing is the only way to know that what you’re doing is working.
+                </p>
+                <p>
+                    Brand awareness is one of the most common goals for content marketing – businesses want their audience to see the valuable content and follow it back to them.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+]]>
+            </field>
+        </record>
+
+</odoo>

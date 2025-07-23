@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+         <!-- Plantilla de correo en español-->
+        <record id="automatic_studens_document_success_email_months4" model="mail.template">
+            <field name="name">Automatic document success email months4 (Spanish)
+</field>
+            <field name="model_id" ref="base.model_res_partner"/>
+            <field name="subject">Recordatorio de documentos</field>
+            <field name="email_from">{{  user.company_id.email }}</field>
+            <field name="email_to">{{ object.email_formatted }}</field>
+          
+            <field name="body_html" type="html">
+
+               <table border="0" cellpadding="0" cellspacing="0">
+                     <tr style='background-color: #002F5D;'>
+                        <td>
+                            <h1 style="margin: 0; font-size: 24px; color:#EF660E;">Universidad Isep</h1>
+                        </td>
+                        <td>
+                          <img src="Automation_student_documents_email/static/src/img/Logo-ISEP-Anaranjado.png" alt="Logo de tu Empresa" style="max-width: 150px; margin-bottom: 10px;"/>                            
+                        </td>
+                    </tr>
+                    <tr>
+                       <td>
+                       <p> <strong style='font-size:16px'>¡Hola <t t-out="object.name or ''">Nombre</t>!  </strong></p>
+                       <p>
+                         Este es un recordatorio crítico: ahora estás en el último mes para enviar los documentos pendientes para tu expediente. 
+                         Es esencial que completes este paso para continuar tu educación sin interrupciones.
+                        </p>
+                         <p>
+                          <t t-set="formatted_time" t-value="object.date_time_next.strftime('%d:%m:%Y')"/>
+                         <strong> No dejes pasar la fecha límite:</strong> Tienes hasta <t t-out="formatted_time or ''">Fecha</t> para enviar tus documentos.
+                         </p> 
+                         <p>
+                           Si te encuentras con algún obstáculo para cumplir con esta solicitud, por favor, comunícate conmigo de inmediato a través del 
+                           correo <a t-att-href="'https://orientacionuniversitaria@universidadisep.com'">orientacionuniversitaria@universidadisep.com</a> orientacionuniversitaria@universidadisep.com o por Whatsapp al número: 523334008005. Estamos aquí para apoyarte en cada 
+                           paso del proceso. 
+                         </p>                         
+                        <p>Un saludo afectuoso,</p>
+                        <p>Equipo de Orientación Universitaria</p>
+                        <p>Universidad ISEP</p> 
+                       </td>
+                    </tr>
+                    <tr style='background-color: #002F5D;'>
+                      <td style='color:#EF660E; font-size:16px;'>
+                           <p style="margin: 5px 0;">© 2024 Universidad Isep. Todos los derechos reservados.</p>
+                           
+                      </td>
+                       <td></td> 
+                    </tr>
+                </table>
+
+
+            </field>
+              <field name="lang">es_ES</field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+         <!-- Plantilla de correo en inglés -->
+          <record id="automatic_studens_document_success_email_months4_en" model="mail.template">
+            <field name="name">Automatic Document Success Email - Last Month Reminder (English)</field>
+            <field name="model_id" ref="base.model_res_partner"/>
+            <field name="subject">Document Reminder</field>
+            <field name="email_from">{{  user.company_id.email }}</field>
+            <field name="email_to">{{ object.email_formatted }}</field>
+          
+            <field name="body_html" type="html">
+
+               <table border="0" cellpadding="0" cellspacing="0">
+                     <tr style='background-color: #002F5D;'>
+                        <td>
+                            <h1 style="margin: 0; font-size: 24px; color:#EF660E;">Universidad Isep</h1>
+                        </td>
+                        <td>
+                          <img src="Automation_student_documents_email/static/src/img/Logo-ISEP-Anaranjado.png" alt="Your Company Logo" style="max-width: 150px; margin-bottom: 10px;"/>                            
+                        </td>
+                    </tr>
+                    <tr>
+                       <td>
+                       <p> <strong style='font-size:16px'>Hello <t t-out="object.name or ''">Name</t>!  </strong></p>
+                       <p>
+                         This is a critical reminder: you are now in the final month to submit the pending documents for your file. 
+                         It is essential to complete this step to continue your education without interruptions.
+                        </p>
+                         <p>
+                          <t t-set="formatted_time" t-value="object.date_time_next.strftime('%d:%m:%Y')"/>
+                         <strong> Don’t miss the deadline:</strong> You have until <t t-out="formatted_time or ''">Date</t> to submit your documents.
+                         </p> 
+                         <p>
+                           If you encounter any obstacles in fulfilling this request, please contact me immediately via 
+                           <a t-att-href="'mailto:orientacionuniversitaria@universidadisep.com'">orientacionuniversitaria@universidadisep.com</a> or via WhatsApp at: 523334008005. We are here to support you every step of the way. 
+                         </p>                         
+                        <p>Warm regards,</p>
+                        <p>University Guidance Team</p>
+                        <p>Universidad ISEP</p> 
+                       </td>
+                    </tr>
+                    <tr style='background-color: #002F5D;'>
+                      <td style='color:#EF660E; font-size:16px;'>
+                           <p style="margin: 5px 0;">© 2024 Universidad Isep. All rights reserved.</p>
+                           
+                      </td>
+                       <td></td> 
+                    </tr>
+                </table>
+
+            </field>
+             <field name="lang">en_US</field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+        <!-- Plantilla de correo en portugués de Brasil -->
+        <record id="automatic_studens_document_success_email_months4_pt_br" model="mail.template">
+            <field name="name">E-mail Automático de Sucesso de Documento - Último Mês de Lembrete (Portuguese)</field>
+            <field name="model_id" ref="base.model_res_partner"/>
+            <field name="subject">Lembrete de Documentos</field>
+            <field name="email_from">{{  user.company_id.email }}</field>
+            <field name="email_to">{{ object.email_formatted }}</field>
+          
+            <field name="body_html" type="html">
+
+               <table border="0" cellpadding="0" cellspacing="0">
+                     <tr style='background-color: #002F5D;'>
+                        <td>
+                            <h1 style="margin: 0; font-size: 24px; color:#EF660E;">Universidade Isep</h1>
+                        </td>
+                        <td>
+                          <img src="Automation_student_documents_email/static/src/img/Logo-ISEP-Anaranjado.png" alt="Logo da Sua Empresa" style="max-width: 150px; margin-bottom: 10px;"/>                            
+                        </td>
+                    </tr>
+                    <tr>
+                       <td>
+                       <p> <strong style='font-size:16px'>Olá <t t-out="object.name or ''">Nome</t>!  </strong></p>
+                       <p>
+                         Este é um lembrete crítico: você está agora no último mês para enviar os documentos pendentes para o seu expediente. 
+                         É essencial que você complete esta etapa para continuar sua educação sem interrupções.
+                        </p>
+                         <p>
+                          <t t-set="formatted_time" t-value="object.date_time_next.strftime('%d:%m:%Y')"/>
+                         <strong> Não perca o prazo:</strong> Você tem até <t t-out="formatted_time or ''">Data</t> para enviar seus documentos.
+                         </p> 
+                         <p>
+                           Se você encontrar algum obstáculo para cumprir esta solicitação, entre em contato comigo imediatamente pelo 
+                           e-mail <a t-att-href="'mailto:orientacionuniversitaria@universidadisep.com'">orientacionuniversitaria@universidadisep.com</a> ou pelo WhatsApp no número: 523334008005. Estamos aqui para apoiar você a cada etapa do processo.
+                         </p>                         
+                        <p>Atenciosamente,</p>
+                        <p>Equipe de Orientação Universitária</p>
+                        <p>Universidade ISEP</p> 
+                       </td>
+                    </tr>
+                    <tr style='background-color: #002F5D;'>
+                      <td style='color:#EF660E; font-size:16px;'>
+                           <p style="margin: 5px 0;">© 2024 Universidade Isep. Todos os direitos reservados.</p>
+                           
+                      </td>
+                       <td></td> 
+                    </tr>
+                </table>
+
+            </field>
+            <field name="lang">pt_BR</field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,27 @@
+<odoo>
+    <data>      
+        <record id="view_imagen_inherit_notice_board" model="ir.ui.view">
+            <field name="name">view.imagen.inherit.notice.board</field>
+            <field name="model">op.notice</field>
+            <field name="inherit_id" ref="openeducat_notice_board_enterprise.op_notice_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='notice_number']" position="after">
+                    <field name="preview" widget="image" class="oe_avatar" />
+                </xpath>
+            </field>
+        </record>   
+
+
+
+        <record id="view_imagen_inherit_notice_board_circular" model="ir.ui.view">
+            <field name="name">view.imagen.inherit.circular.board</field>
+            <field name="model">op.circular</field>
+            <field name="inherit_id" ref="openeducat_notice_board_enterprise.op_circular_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='circular_number']" position="after">
+                    <field name="preview" widget="image" class="oe_avatar" />
+                </xpath>
+            </field>
+        </record>       
+    </data>
+</odoo>

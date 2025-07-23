@@ -1,0 +1,19 @@
+<odoo>
+
+        <record id="view_op_batch_tree_view_inherit_grading" model="ir.ui.view">
+            <field name="name">op.batch.tree</field>
+            <field name="model">op.batch</field>
+            <field name="type">tree</field>
+            <field name="inherit_id" ref="openeducat_core.view_op_batch_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='course_id']" position="after">
+                    <button name="open_grade_book_grid"
+                            type="object"
+                            class="btn btn-primary"
+                            string="GradeBook">
+                    </button>
+                </xpath>
+            </field>
+        </record>
+
+</odoo>

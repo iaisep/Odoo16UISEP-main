@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="view_op_result_template_inherited_tree" model="ir.ui.view">
+            <field name="name">op.result.template.inherited.tree</field>
+            <field name="model">op.result.template</field>
+            <field name="inherit_id" ref="openeducat_exam.view_op_result_template_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='exam_session_id']" position="after">
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record id="view_op_result_template_inherited_form" model="ir.ui.view">
+            <field name="name">op.result.template.inherited.form</field>
+            <field name="model">op.result.template</field>
+            <field name="inherit_id" ref="openeducat_exam.view_op_result_template_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='exam_session_id']" position="after">
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_op_result_template_inherited_search" model="ir.ui.view">
+            <field name="name">op.result.template.inherited.search</field>
+            <field name="model">op.result.template</field>
+            <field name="inherit_id" ref="openeducat_exam.view_op_result_template_search"/>
+            <field name="arch" type="xml">
+                <xpath expr="." position="inside">
+                    <searchpanel>
+                        <field name="exam_session_id" icon="fa fa-pencil-square-o"/>
+                    </searchpanel>
+                </xpath>
+            </field>
+        </record>
+
+
+</odoo>

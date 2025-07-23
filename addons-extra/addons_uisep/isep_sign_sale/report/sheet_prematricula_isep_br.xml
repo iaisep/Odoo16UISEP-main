@@ -1,0 +1,666 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+
+    <record id="report_sheet_prematricula_international_br" model="ir.actions.report">
+       <field name="name">Pré Matrícula Brasil</field>
+       <field name="model">sale.order</field>
+       <field name="report_type">qweb-pdf</field>
+       <field name="report_name">isep_sign_sale.prematricula_isep_international_br</field>
+       <field name="report_file">isep_sign_sale.prematricula_isep_international_br</field>
+       <field name="paperformat_id" ref="isep_sign_sale.sheet_prematricula_custom_paperformat" />
+       <field name="binding_type">report</field>
+       <field name="binding_model_id" ref="model_sale_order"/> 
+   </record>
+    
+
+    <template id="prematricula_isep_international_br">
+        <t t-call="web.html_container">
+           
+
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.basic_layout">
+                    <div class="page" name="first_page" style="font-family:Arial, serif;page-break-after:always;">
+                        <div class="header">
+                            <hr style="border:5px solid #002d5f;margin-bottom:1px;margin-top:-3px"/>
+                            <div class="row" style="margin-bottom:5px;">
+                                <div class="col-12">
+                                    <img class="img-fluid logo" style="height:100px;padding-top:2px;" src="/isep_sign_sale/static/src/img/laramie/header.jpg"/>
+                                </div>                               
+                            </div>
+                        </div>
+                        <!-- <br/> -->
+                        <hr style="border:2px solid #002d5f;margin-top:-2px;margin-bottom:1px;"/><br/><br/>
+                        <div class="row">
+                            <div class="col-5" style="background-color: #32364e;border-bottom-right-radius:5px;">
+                                <strong style="color:white; margin-left:5px;font-size:10px;">DADOS PESSOAIS DO ALUNO</strong>
+                            </div>
+                        </div>
+                        <div id="personal_information" class="row personal_information" style="font-size:10px;">
+                            <!-- First row-->
+                            <div class="row container-fluid">
+                            <!--First columna-->
+                            <div class="col-2">
+                                <strong>Nome:</strong><br/>
+                            </div>
+                            <!--Second column-->
+                            <div class="col-4">
+                                <span t-field="o.partner_id.name"/><br/>
+                            </div>
+
+                            </div><!--First row-->
+                        </div>
+
+                        <div id="personal_information1" class="row personal_information" style="font-size:10px;">
+                            <!-- First row-->
+                            <div class="row container-fluid">
+                            <!--First columna-->
+                            <div class="col-2">
+                                <strong>Identificação:</strong><br/>
+                            </div>
+                            <!--Second column-->
+                            <div class="col-3">
+                                <span t-field="o.partner_id.vat"/>
+                                
+                            </div>
+                            <!--Third column-->
+                           
+                            <div class="col-3">
+                            </div>
+                            </div><!--First row-->
+                        </div>
+
+                        <div id="personal_information2" class="row personal_information" style="font-size:10px;">
+                             <div class="row container-fluid">
+                            <!--First columna-->
+                            <div class="col-2">
+                                <strong>Domicilio:</strong><br/>
+                            </div>
+                            <!--Second column-->
+                            <div class="col-7">
+                                <span t-field="o.partner_id.street"/><br/>
+                            </div>
+                            <!--Third column-->
+                            <div class="col-1">
+                                <strong>C.P:</strong><br/>
+                            </div>
+                            <!--Fourth column-->
+                            <div class="col-2">
+                                <span t-field="o.partner_id.zip"/><br/>
+                            </div>
+                            </div><!--First row-->
+                        </div>
+
+                        <div id="personal_information3" class="row personal_information" style="font-size:10px;">
+                            <div class="row container-fluid">
+                            <!--First columna-->
+                            <div class="col-2">
+                                <strong>População:</strong><br/>
+                                <strong>Móbil:</strong><br/>
+                                <strong>E-mail:</strong><br/>
+                                <!-- <strong>Estudos:</strong><br/>
+                                <strong>Universidad:</strong> -->
+                            </div>
+                            <!--Second column-->
+                            <div class="col-3">
+                                <span t-field="o.partner_id.city"/><br/>
+                                <span t-field="o.partner_id.mobile"/><br/>
+                                <span t-field="o.partner_id.email"/><br/>
+                                <!-- <span t-field="o.partner_id.titulacion"/><br/>
+                                <span t-field="o.partner_id.university"/> -->
+                            </div>
+                            <!--Third column-->
+                            <div class="col-2">
+                                <strong>Estado:</strong><br/>
+                                <strong>Telefone:</strong><br/>
+                                <!-- <strong>Finalizados:</strong><br/>
+                                <strong>Profissão:</strong><br/> -->
+                                <strong>Orientador:</strong><br/>
+                            </div>
+                            <!--Fourth column-->
+                            <div class="col-2">
+                                <span t-field="o.partner_id.state_id"/><br/>
+                                <span t-field="o.partner_id.phone"/><br/>
+                                <!-- <span t-field="o.partner_id.finalizacionestudios"/><br/>
+                                <span t-field="o.partner_id.profession"/><br/>  -->
+                                <span t-field="o.user_id.name"/><br/>
+                            </div>
+                            <!--Fourth column-->
+                            <div class="col-1">
+                                <strong>Pais:</strong><br/>
+                            </div>
+                            <!--Fifth column-->
+                            <div class="col-2">
+                                <span t-field="o.partner_id.country_id"/><br/>
+                            </div>
+                            </div><!--First row-->
+                        </div> <!--"personal_information"-->
+
+                        <br/>
+                        <hr style="border:2px solid #002d5f;margin-top:-2px;margin-bottom:1px;margin-top:-15px"/>
+                        <div class="row">
+                            <div class="col-4" style="background-color: #32364e;border-bottom-right-radius:5px;">
+                                <strong style="color:white; margin-left:5px;font-size:10px;">DADOS DA FATURAÇÃO</strong>
+                            </div>
+                        </div>
+
+                        <div id="facturacion" class="row personal_information" style="font-size:10px;">
+                            <!-- Second row-->
+                            <div class="row container-fluid">
+                            <!--First columna-->
+                            <div class="col-2">
+                                <strong>Nome:</strong><br/>
+                            </div>
+                            <!--Second column-->
+                            <div class="col-3">
+                                <span t-field="o.partner_invoice_id.name"/><br/>
+                            </div>
+                            </div><!--First row-->
+                        </div>
+
+                        <div id="facturacion1" class="row personal_information" style="font-size:10px;">
+                            <div class="row container-fluid">
+                                <!--First columna-->
+                                <div class="col-2">
+                                    <strong>Identificação:</strong><br/>
+                                </div>
+                                <!--Second column-->
+                                <div class="col-3">
+                                    <span t-field="o.partner_invoice_id.vat"/>
+                                    
+                                    <br/>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="facturacion2" class="row personal_information" style="font-size:10px;">
+                            <div class="row container-fluid">
+                            <div class="col-2">
+                                <strong>Domicilio:</strong><br/>
+                            </div>
+                            <div class="col-7">
+                                <span t-field="o.partner_invoice_id.street"/>
+                            </div>
+                            <div class="col-1">
+                                <strong>C.P.:</strong><br/>
+                            </div>
+                            <div class="col-2">
+                                <span t-field="o.partner_invoice_id.zip"/>
+                            </div>
+                            </div>
+                        </div> <!--"facturacion"-->
+
+                        <div id="facturacion3" class="row personal_information" style="font-size:10px;">
+                            <div class="row container-fluid">
+                            <div class="col-2">
+                                <strong>População:</strong><br/>
+                                <strong>Móbil: E-</strong><br/>
+                                <strong>mail:</strong><br/>
+                            </div>
+                            <div class="col-3">
+                                <span t-field="o.partner_invoice_id.city"/><br/>
+                                <span t-field="o.partner_invoice_id.mobile"/><br/>
+                                <span t-field="o.partner_invoice_id.email"/>
+                            </div>
+                            <div class="col-2">
+                                <strong>Estado:</strong><br/>
+                                <strong>Telefone:</strong><br/>
+                            </div>
+                            <div class="col-2">
+                                <span t-field="o.partner_invoice_id.state_id"/><br/>
+                                <span t-field="o.partner_invoice_id.phone"/>
+                            </div>
+                            </div>
+                        </div> <!--"facturacion"-->
+
+                        <br/>
+                        <hr style="border:1px solid #002d5f;margin-bottom:1px;margin-top:-20px"/>
+                        <div class="row">
+                            <div class="col-12">
+                            <p style="font-size:10px;">Após ter recebido previamente as informações detalhadas sobre as características do curso, conteúdo e outras questões relacionadas, o aluno/titular aceita as
+condições gerais e acadêmicas amparadas neste contrato:</p>
+                            </div>
+                        </div>
+                        <div class="row" style="font-size:10px;">
+                             <div class="col-12">
+                                <ul>
+                                    <t t-foreach="o.order_line" t-as="l">
+                                        <li><span t-field="l.product_id"/></li>
+                                    </t>
+                                </ul>
+                             </div>
+                        </div>
+                        <hr style="border:2px solid #002d5f;margin-bottom:1px;margin-top:5px"/>
+                        <div class="row">
+                            <div class="col-7" style="background-color: #32364e;border-bottom-right-radius:5px;">
+                                <strong style="color:white; margin-left:5px;font-size:10px;">CONDIÇÕES ACEITAS PARA O PAGAMENTO DO CURSO</strong>
+                            </div>
+                        </div>
+                        
+                        <t t-set="amount_recurring" t-value="0"/>
+                        <t t-set="amount_no_recurring" t-value="0"/>
+                        <t t-foreach="o.order_line" t-as="line">
+                          <t t-if="line.product_template_id.recurring_invoice == True">
+                            <t t-set="amount_recurring" t-value="amount_recurring+line.price_reduce_taxinc"/>
+                          </t>
+                          <t t-if="line.product_template_id.recurring_invoice == False">
+                            <t t-set="amount_no_recurring" t-value="amount_no_recurring+line.price_reduce_taxinc"/>
+                          </t>
+                        </t>
+                              
+                        <div class="row" style="font-size:10px;">
+                            <div class="col-3">
+                                <strong>Prazo de pagamento:</strong><br/>
+                                <strong>Pagamento recorrente:</strong><br/>
+                                <strong>Pagamento não recorrente:</strong><br/>
+                                <strong>Método de Pagamento:</strong><br/>
+                            </div>
+                            <div class="col-3"> 
+                                <span t-field="o.term_number"/> Meses <br/>
+                                <span t-esc="amount_recurring" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/> <span t-field="o.currency_id.name"/> por <span t-field="o.term_number"/> Meses<br/>
+                                <span t-esc="amount_no_recurring" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/> <span t-field="o.currency_id.name"/><br/>
+                                <span t-field="o.payment_term_id.name"/>
+                            </div>
+
+                            <div class="col-6">
+                                <br/><br/><br/>
+                                <strong>Data do primeiro pagamento:</strong>
+                                <span t-field="o.start_date" style="margin-left:20px"/>
+                            </div>
+                        </div>
+                        <br/><br/>
+                        <hr style="border:1px solid #002d5f;margin-bottom:1px;margin-top:-30px"/>
+                        <div class="row">
+                            <div class="col-12">
+                                <p style="font-size:10px;">
+                                   
+
+                                    <br/>
+                                    Lido e de acordo com as condições gerais e meus direitos e deveres que estão anexados (recebo uma cópia).
+                                </p>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="row container-fluid">
+                           <img style="z-index:-1;position:relative;margin-top:2px;margin-bottom:0px;" src="/isep_sign_sale/static/src/img/laramie/content.jpg"/>
+                       </div>
+
+                        
+                        <!-- End sign page 1 -->
+                        <div class="footer container-fluid">
+                          <br/>
+                          <div class="row sign">
+                              <div class="col-4" style="font-size:18px;text-align:center;"><strong>ASSINATURA DO ALUNO TITULAR</strong></div>
+                              <div class="col-4" style="font-size:18px;text-align:center;"><strong>ASSINATURA DO<br/>(Se é diferente do aluno)</strong></div>
+                              <div class="col-4" style="font-size:18px;text-align:center;"><strong>Laramie University</strong></div>
+                          </div>
+                          <div class="row">
+                              <div class="col-8"/>
+                              <div class="col-4">
+                                  <img class="img-fluid img-sign" style="height:150px;display:block;margin-left:auto;margin-right:auto;margin-bottom:-10px;" src="/isep_sign_sale/static/src/img/laramie/firma.png"/>
+                              </div>
+                          </div>
+                          <div class="row sign">
+                              <div class="col-4" style="font-size:18px;text-align:center;">
+                                  <strong><span t-field="o.partner_id.name"/></strong>
+                                  <br/>
+                                  <span t-field="o.partner_id.vat"/>
+                              </div>
+                              <div class="col-4" style="font-size:18px;text-align:center;">
+                                  <strong><span t-field="o.partner_invoice_id.company_name"/>
+                                  </strong><br/>
+                              </div>
+                              <div class="col-4" style="font-size:18px;text-align:center;">
+                                  <strong> S. J. Flannery</strong>
+                              </div>
+                          </div>
+                              <!--<div class="row container-fluid">-->
+                              <img src="/isep_sign_sale/static/src/img/laramie/footer.jpg"/>
+                              <!--</div>-->
+                          </div> <!--footer-->
+                      </div>
+
+                    <div class="page" name="second_page" style="font-family:Arial, serif;font-size:11px;text-align:justify;page-break-after:always;">
+                        <br/>
+
+                        <strong>INFORMAÇÃO PRÉVIA</strong>
+                        <br/>
+                            O aluno e o titular do contrato receberam da Laramie University, no momento da 
+                            assinatura deste, as informações necessárias sobre o programa a seguir, tanto acadêmica,
+                            econômica e administrativamente.
+
+                        <br/>
+                        <strong>FORMALIZAÇÃO E CUMPRIMENTO DO CONTRATO</strong>
+                        <br/>
+                        <ol start="1" style="margin-left:11px">
+                            <li>
+
+                                O contrato fica formalizado com a aceitação destas condições. As partes 
+                                consideram que nenhum acordo verbal foi realizado. Estas cláusulas
+                                prevalecem sobre outros acordos escritos que as contradigam.
+
+                                </li>
+                            <li>
+                                Após a formalização do contrato, o aluno compromete-se a fornecer a 
+                                documentação necessária (incluindo a comprovação da qualificação
+                                universitária necessária) no prazo e da forma solicitada pela Laramie University.
+                                </li>
+                            <li>
+                                O aluno matriculado terá 3 dias naturais a partir da assinatura deste contrato 
+                                para desistir do mesmo. Nesse caso, a Laramie University reterá as
+                                taxas acadêmicas para cobrir despesas administrativas e reserva de vaga. Após esse prazo, 
+                                todos os pagamentos deverão ser efetuados.
+                                </li>
+                            <li>
+
+                                O titular autoriza a Laramie University a efetuar as cobranças de 
+                                acordo com as condições aceitas para o pagamento.
+
+                                </li>
+                            <li>
+                                O contrato fica formalizado com a aceitação destas condições. 
+                                As partes consideram que nenhum acordo verbal foi realizado. 
+                                Estas cláusulas prevalecem sobre outros acordos escritos que 
+                                as contradigam.
+                                </li>
+                            <li>
+                                Após a formalização do contrato, o aluno compromete-se a fornecer a 
+                                documentação necessária (incluindo a comprovação da qualificação
+                                universitária necessária) no prazo e da forma solicitada pela Universidade ISE
+                                </li>
+
+                            <li>
+
+                                O aluno matriculado terá 3 dias naturais a partir da assinatura deste contrato para desistir do 
+                                mesmo. Nesse caso, a Laramie University reterá as taxas acadêmicas para cobrir despesas 
+                                administrativas e reserva de vaga. Após esse prazo, todos os pagamentos deverão ser efetuados.
+
+                                </li>
+                            <li>
+                                O titular autoriza a Laramie University a efetuar as cobranças de 
+                                acordo com as condições aceitas para o pagamento.
+                                </li>
+                        </ol>
+
+                        <strong style="margin-top:-40px">ACADÊMICA E CERTIFICADOS</strong>
+
+                        <ol start="9" style="margin-left:11px">
+
+                            <li>
+                                O aluno poderá alumno/a podrá solicitar a emissão do diploma da Laramie University 
+                                uma vez que tenha cumprido os requisitos acadêmicos do curso e atendido aos demais 
+                                requisitos (financeiros, administrativos, entrega de documentos no prazo estipulado, etc.).
+                                </li>
+                            <li>
+                                O aluno compromete-se a fornecer a documentação solicitada pela instituição no prazo e da 
+                                forma necessários para o processo de registro. A Laramie University compromete-se a 
+                                informar o aluno o mais rápido possível para que ele tenha tempo de entregá-la à Laramie University.
+                                O aluno poderá solicitar a emissão do diploma da Laramie University uma vez que tenha cumprido os 
+                                requisitos acadêmicos do curso e atendido aos demais requisitos 
+                                (financeiros, administrativos, entrega de documentos no prazo estipulado, etc.).
+                                </li>
+                            <li>
+                                O custo de emissão de diplomas, 
+                                certificados ou outros documentos não está incluído no valor do programa.
+                                </li>
+                        </ol>
+
+                        <strong style="margin-top:-40px">PROPRIEDADE INTELECTUAL E DIREITOS DE IMAGEM</strong>
+
+                        <ol start="12" style="margin-left:11px">
+
+                            <li>
+                                O aluno, exclusivamente para uso pessoal e respeitando os direitos de propriedade intelectual, poderá fazer o download de conteúdo, copiar ou
+                                imprimir qualquer página do site e do campus virtual da Laramie University aos quais tenha acesso (incluindo material didático). Em nenhum caso
+                                poderá transmitir, alterar, modificar ou suprimir o conteúdo sem a autorização prévia por escrito da Laramie University.
+                                </li>
+                            <li>
+                                Para fins educacionais, de avaliação, pesquisa e divulgação, a Laramie University reserva-se o direito de tratar, 
+                                processar, adaptar, reproduzir ou comunicar publicamente as contribuições feitas em exercícios, fóruns, casos práticos e 
+                                trabalhos elaborados pelo aluno durante a formação. O aluno concede sua autorização expressa para isso, mantendo, em todos os casos, 
+                                o direito ao reconhecimento da autoria dos trabalhos elaborados durante seus estudos
+                                </li>
+                            <li>
+                                Quando o aluno participar em atividades presenciais, autoriza a Laramie University a capturar sua imagem (fotografia, áudio e vídeo), 
+                                bem como a sua transcrição e a comunicação pública dessas gravações ou transcrições por meio do site, redes sociais ou outros meios de comunicação.
+                                </li>
+                        </ol>
+
+                        <strong style="margin-top:-40px">DURAÇÃO DO CONTRATO</strong>
+
+                        <ol start="15" style="margin-left:11px">
+
+                            <li>
+                                A vigência desta matrícula é a mesma que o calendário do programa. Nos programas online, a duração corresponde ao período da formação
+                                inscrita. O contrato não é automaticamente renovado. As renovações, condicionadas à disponibilidade por parte da Laramie University, não estão
+                                incluídas no preço.
+                                </li>
+                        </ol>
+
+                        <strong style="margin-top:-40px">DADOS PESSOAIS</strong>
+
+                        <ol start="16" style="margin-left:11px">
+
+                            <li>
+                                Seus dados são incorporados ao sistema de responsabilidade da Laramie University para gerenciar seu registro acadêmico. Quando necessário
+                                para a prestação do serviço, seus dados serão comunicados a administrações públicas, bancos/caixas e a entidades com as quais a comunicação seja
+                                necessária. Você pode exercer seus direitos de acesso, retificação, limitação, exclusão, portabilidade e oposição, ou revogar seu consentimento,
+                                entrando em contato com a Laramie University, bem como recorrer à Autoridade de Controle, se for o caso.
+                                </li>
+                        </ol>
+
+                        <strong style="margin-top:-40px">LEGISLAÇÃO APLICÁVEL E JURISDIÇÃO</strong>
+
+                        <ol start="17" style="margin-left:11px">
+
+                            <li>
+                                Este contrato é considerado formalizado nos Estados Unidos. A este contrato e às relações jurídicas que possam surgir de sua aplicação e
+                                interpretação, será aplicada a lei norte-americana.
+                                </li>
+                            <li>
+                                Se alguma cláusula incluída neste contrato for declarada nula ou ineficaz (total ou parcialmente), tal nulidade ou ineficácia afetará apenas a
+                                referida disposição ou a parte dela que for considerada nula ou ineficaz (sendo considerada não escrita), e as demais condições pactuadas
+                                permanecerão em vigor.
+                            </li>
+                        </ol>
+
+                        <br/>
+                        <!-- Sign page 2 -->
+                       
+                            <!-- End sign page 2 -->
+                    </div> <!--second_page-->
+
+                    <div class="page" t-if="o.card == True" name="third_page" style="font-family:Arial, serif;font-size:15px;text-align:justify;page-break-after:always;">
+                        <div class="row container-fluid">
+                            <div class="col-2">
+                                <strong>Nome:</strong><br/>
+                                <strong>Programa:</strong>
+                            </div>
+                            <div class="col-4" style="margin-left:-20px;">
+                                <span t-field="o.partner_id.name"/><br/>
+                                <div class="row" style="font-size:13px;">
+                                    
+                                        <t t-foreach="o.order_line" t-as="l">
+                                          <ul>
+                                            <li><span t-if="l.product_template_id.recurring_invoice" t-field="l.product_id"/></li>
+                                          </ul>
+                                        </t>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        Autorizo na Laramie University efetuar os seguintes débitos:<br/><br/>
+                        
+                        
+                        
+                        <t t-set="abc" t-value="['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']"/>
+                        <t t-set="index" t-value="0"/>
+                        <t t-foreach="o.order_line" t-as="line">
+                          <p>
+                             <span t-esc="abc[index]"/>) <span t-field="line.name"/> 
+                             <span t-if="line.product_template_id.recurring_invoice == False"> (Pagamento único de <span t-field="line.price_reduce_taxinc"/> <span t-field="o.currency_id.name"/>)</span>
+                             <span t-if="line.product_template_id.recurring_invoice"> (Débito recorrente de <span t-field="line.price_reduce_taxinc"/> <span t-field="o.currency_id.name"/> por <span t-field="o.term_number"/> meses)</span> .
+                           </p>
+                           <t t-set="index" t-value="index+1"/>
+                        </t>
+                       
+
+
+                            Nome completo do titular da conta:
+                            <t t-foreach="o.partner_invoice_id.card_ids" t-as="line_c">
+                                <t t-if="line_c.use == True">
+                                    <strong style="font-size:14px;"><span t-field="line_c.name"/>
+                                    </strong>
+                                </t>
+                            </t>
+                            
+                            <br/>                      
+
+                            <br/>
+                            <div class="row" style="text-align:justify;">
+                                <div class="col-6">
+                                    Número do cartão de crédito:
+                                    <t t-foreach="o.partner_invoice_id.card_ids" t-as="line_cc">
+                                        <t t-if="line_cc.use == True">
+                                            <t t-if="line_cc.number_target">
+                                                <span t-esc="line_cc.number_target[:8]"/>
+                                                ****
+                                            </t>
+                                        </t>
+                                    </t>
+                                </div>
+                            </div>
+                            Se o cartão for de débito, indique o número da Clave Bancária Padronizada "CLABE".<br/>
+                            <br/>
+                            <p>
+                                No caso de não possuir um cartão de débito ou crédito habilitado para débitos automáticos, 
+                                comprometo-me a efetuar meus pagamentos através dos seguintes meios:
+                            </p>
+                            <p>
+                                <strong>Dados Bancários Oficiais da Laramie University</strong>
+                            </p>
+                            <p>
+                                https://laramieuniversity.com/bank-data/
+                            </p>
+                            <p>
+                                <strong>OBSERVAÇÃO: </strong> 
+                                É muito importante adicionar o nome completo ou o número de matrícula para identificar o pagamento. Caso contrário, o pagamento pode não ser refletido em seu registro.
+                            </p>
+                            <p>
+                                Solicito e autorizo a Laramie University a realizar e gerenciar, em meu nome, qualquer trâmite 
+                                administrativo, pagamentos acadêmicos e de titulação na universidade em que formalizei a 
+                                inscrição, uma vez que não disponho de um cartão de crédito habilitado para débitos 
+                                internacionais e para evitar custos bancários com transferências internacionais para esses pagamentos.
+                            </p>
+                            <div class="row container-fluid" style="text-align:center">
+                                <div class="col-12">
+                                Entregar este formulário ao seu representante comercial.<br/>
+                                Li e autorizei o que foi declarado na presente ordem de pagamento.
+                                <br/><br/><br/>
+                                </div>
+                            </div>
+                            <!-- Sign page 3 -->
+                            <!-- <div class="row container-fluid" style="position:absolute; top:2800px; width:93%; page-break-inside: avoid">
+                                <div class="col-12" style="text-align:center">
+                                <strong>FIRMA TITULAR:</strong>
+                                <br/><br/><br/><br/>
+
+                                <strong style="font-size:14px;"><span t-field="o.partner_invoice_id.name"/>
+                                      </strong><br/>
+                                
+
+                                <br/><br/>
+                                <strong>Fecha:</strong><br/>
+                                <t t-esc="time.strftime('%d/%m/%Y')"/>
+
+                                </div>
+
+                            </div> -->
+
+                        </div> <!--third_page-->
+
+                        <div class="page" name="fourd_page" style="font-family:Arial, serif;font-size:11px;text-align:justify;">
+                            <div class="row container-fluid" style="font-size:14px;text-align:justify;">
+                                <div class="col" style="text-align:center">
+                                FUNÇAO DE PAGAMENTO:<span t-field="o.name" style="margin-left:5px;"/>
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="row container-fluid" style="text-align:right;">
+                                <div class="col" style="text-align:right">
+                                    <strong>Culiacán, Sinaloa, </strong><t t-esc="time.strftime('%d/%m/%Y')"/>
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="row container-fluid" style="text-align:justify;">
+
+
+                                Devo e pagarei incondicionalmente esta série de
+                                <span t-esc="o.term_number" style="margin:0 5px"/>
+                                notas promissórias em favor da Laramie University, na cidade de Culiacán, Sinaloa, México, com
+                                endereço na Av. Teniente Juan de la Barrera Nte. 1349.
+                                <br/><br/>
+
+                                Devo efetuar os pagamentos da seguinte maneira:
+
+                                <br/><br/>
+
+
+                            </div>
+
+                            <div class="row container-fluid" style="text-align:justify;font-size:14px">
+                                <t t-if="o.recurrence_id and o.start_date">
+
+                                    <tr t-foreach="o.subscription_schedule" t-as="l">
+                                        PAGARÉ Pago
+                                        <span t-esc="l.term_label" style="margin:0 0px"/>, o dia
+
+                                        <span t-esc="l.date_due"  t-options="{&quot;format&quot;: &quot;dd-MM-yyyy&quot;, 'widget': 'date'}"/>
+                                        a quantidade de <span t-field="l.currency_id.symbol"/>
+                                        <span t-esc="o.amount_recurring_taxinc" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                                        <br/>
+                                    </tr>
+                                </t>
+                                
+
+
+
+                            </div>
+
+                            <div class="row container-fluid" style="text-align:justify;">
+
+                               <br/>
+                                    Na falta de pagamento de qualquer um deles na data de vencimento, todos os seguintes, além dos já vencidos, serão exigíveis. No caso de não
+									cumprimento do pagamento na data acordada, cada título gerará uma taxa de juros ordinária de 2% ao mês e uma taxa de juros moratórios equivalente
+									a 2% ao mês a partir da data em que entrar em mora até sua liquidação total.
+
+                                <br/><br/>
+                                    Os devedores renunciam ao foro que, por razão de seu domicílio presente ou futuro, possa corresponder-lhes 
+                                    e submetem-se à jurisdição dos tribunais competentes do Estado de Sinaloa, México
+
+                                <br/><br/>
+                                    Subscritor (Devedor principal) :
+                                    <span t-field="o.partner_id.name"/>
+
+                                <br/><br/>
+                                    Endereço: :
+                                    <span t-field="o.partner_id.street"/>
+
+                                <br/><br/>
+                                    Cidade :
+                                    <span t-field="o.partner_id.city" style="margin:02px"/>
+                                    <span t-field="o.partner_id.state_id" style="margin:0 2px"/>
+                                    <span t-field="o.partner_id.country_id" style="margin:0 2px"/>
+
+                            </div>
+
+                            
+                            <!-- End sign page 4 -->
+                        </div><!-- fourd_page-->
+                </t>
+            </t>
+
+        </t>
+    </template>
+
+</odoo>

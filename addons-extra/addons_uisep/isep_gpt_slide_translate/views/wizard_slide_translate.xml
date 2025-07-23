@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_wizard_slide_translate_form" model="ir.ui.view">
+        <field name="name">wizard.slide.translate.form</field>
+        <field name="model">wizard.slide.translate</field>
+        <field name="arch" type="xml">
+            <form string="Asistente de Traducción">
+                <header>
+                    <button string="Traducir con GPT" type="object" name="action_translate" class="btn-primary"/>
+                    <button string="Aceptar propuesta" confirm="Aceptar propuesta de traducción?" type="object" name="action_done" class="btn-success"/>
+
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="langs_id" string="Idiomas a traducir" widget="many2many_checkboxes"/>
+                        </group>
+                        <group>
+                            <field name="slide_id" readonly="1" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="html_es_mx" string="Español">
+                            <group>
+                                <field name="name" style="background: #ffe7004a"/>
+                            </group>
+
+                            <field name="html_es_mx" readonly="0" />
+                        </page>
+                        <page name="html_pt_br" string="Portugues">
+                            <group>
+                                <field name="name_pt_br" style="background: #ffe7004a"/>
+                            </group>
+                            <field name="html_pt_br" readonly="0" />
+                        </page>
+                        <page name="html_en_us" string="Ingles">
+                            <group>
+                                <field name="name_en_us" style="background: #ffe7004a"/>
+                            </group>
+                            <field name="html_en_us" readonly="0" />
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_wizard_slide_translate" model="ir.actions.act_window">
+        <field name="name">Asistente de Traducción</field>
+        <field name="res_model">wizard.slide.translate</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_wizard_slide_translate_form"/>
+        <field name="target">current</field>
+    </record>
+
+
+</odoo>

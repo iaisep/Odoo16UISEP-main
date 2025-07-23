@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="db_registration" name="Register Database">
+        <!-- <t t-call="website.layout">
+            <center><h2>Instance Registration</h2></center>
+            <form class="form-horizontal col-md-12 mt64 mb64" action="/db_register" method="post">
+                <div id="register_instance_key" class="col-md-6 col-md-offset-3" t-if="not hash_allow">
+                    <div class="card bg-warning" t-if="invalid_instance">
+                        <div class="card-header">Invalid Instance Key!</div>
+                    </div>
+                    <label class="col-md-3 col-sm-4 control-label" for="instance_key">Instance Key *</label>
+                    <div class="col-md-7 col-sm-8">
+                        <input type="text" class="form-control"
+                               id="instance_key"
+                               name="instance_key" required="required"
+                               autofocus="autofocus" autocapitalize="off"/>
+                        <button class="btn btn-primary mt8 mb8">Get Instance Hash Key</button>
+                    </div>
+                </div>
+                <div id="register_instance_hash_key" class="col-md-6 col-md-offset-3" t-if="hash_allow">
+                    <div class="card bg-warning" t-if="invalid_hash">
+                        <div class="card-header">Instance key and Instance Hash key mismatch!</div>
+                    </div>
+                    <div class="card bg-success text-white" t-if="not invalid_hash">
+                        <div class="card-header">Check your mail! OpenEduCat Instance Hash key has been sent successfully.</div>
+                    </div>
+                    <label class="col-md-3 col-sm-4 control-label" for="instance_hash_key">Instance Hash Key*</label>
+                    <div class="col-md-7 col-sm-8">
+                        <input type="text" class="form-control"
+                               id="instance_hash_key" name="instance_hash_key"
+                               required="required" autofocus="autofocus"
+                               autocapitalize="off"/>
+                        <button class="btn btn-primary mt8 mb8">Register Instance Hash Key.</button>
+                    </div>
+                </div>
+            </form>
+        </t> -->
+    </template>
+</odoo>

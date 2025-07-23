@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="view_op_admission_register_search_inherit" model="ir.ui.view">
+            <field name="name">op.admission.register.search.inherit</field>
+            <field name="model">op.admission.register</field>
+            <field name="inherit_id" ref="openeducat_admission.view_op_admission_register_search"/>
+            <field name="arch" type="xml">
+                <xpath expr="." position="inside">
+                    <searchpanel>
+                        <field name="course_id" icon="fa fa-book"/>
+                    </searchpanel>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_op_tree_onboarding" model="ir.ui.view">
+            <field name="name">op.admission.register.tree.inherit</field>
+            <field name="model">op.admission.register</field>
+            <field name="inherit_id" ref="openeducat_admission.view_op_admission_register_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree" position="attributes">
+                    <attribute name="banner_route">/openeducat_admission_enterprise/openeducat_admission_onboarding
+                    </attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_admission_kanban">
+            <field name="name">view.admission.kanban</field>
+            <field name="model">op.admission.register</field>
+            <field name="arch" type="xml">
+                <kanban string="Admission Register"
+                        class="o_emphasize_colors o_kanban_dashboard oe_background_grey o_kanban_dashboard o_account_kanban o_slide_kanban breadcrumb_item active"
+                        edit="false" js_class="account_dashboard_kanban">
+                    <field name="color"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="#{kanban_color(0)} oe_kanban_global_click">
+                                <div class="o_kanban_card_header">
+                                    <div class="o_kanban_card_header_title mb16">
+                                        <div class="o_primary">
+                                            <a type="edit" class="me-auto">
+                                                <field name="name" class="o_primary"/>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="container o_kanban_card_content mt0">
+                                    <div class="row mb16">
+                                        <div class="col-12 o_kanban_primary_right">
+                                            <div class="d-flex">
+                                                <span class="me-auto mb0">
+                                                   Start Date
+                                                </span>
+                                                <field name="start_date"/>
+                                            </div>
+                                            <div class="d-flex">
+                                                <span class="me-auto mb0">
+                                                    End Date
+                                                </span>
+                                                <field name="end_date"/>
+                                            </div>
+
+                                            <div class="d-flex">
+                                                <span class="me-auto mb0">
+                                                    Maximum Admissions
+                                                </span>
+                                                <field name="max_count"/>
+                                            </div>
+
+                                            <div class="d-flex">
+                                                <span class="me-auto mb0">
+                                                    Minimum Admissions
+
+                                                </span>
+                                                <field name="min_count"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a name="action_view_applications" type="object">
+                                        <div class="o_field_widget o_stat_info">
+                                            <span class="o_stat_value">
+                                                <field name="admission_count"/>
+                                            </span>
+                                            <span name="total_slides_label" class="o_stat_text">Applications</span>
+                                        </div>
+                                    </a>
+                                    <div name="graph_section" class="o_kanban_graph_section">
+                                        <field name="kanban_admission_dashboard_graph" t-att-graph_type="'bar'"
+                                               widget="dashboard_graph"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+        <record id="openeducat_admission.act_open_op_admission_register_view" model="ir.actions.act_window">
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">kanban,tree,form,pivot,graph</field>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_open_admission_view_kanban">
+            <field name="act_window_id" ref="openeducat_admission.act_open_op_admission_register_view"/>
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">kanban</field>
+            <field name="view_id" ref="view_admission_kanban"/>
+        </record>
+
+</odoo>

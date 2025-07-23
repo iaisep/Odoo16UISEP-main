@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <!-- View res.partner form -->
+    <record id="view_res_partner_sepyc_form" model="ir.ui.view">
+        <field name="name">view.res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="isep_form_data.view_res_partner_form_extends"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='information_card']" position='after'>
+                <page name="record" string="Historial">
+                    <group>
+                        <field name="record"/>
+                    </group>
+                </page>
+
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

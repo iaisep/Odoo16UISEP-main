@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+        <record id="openeducat_assignment.op_assignment_sub_line_2" model="op.assignment.sub.line">
+            <field name="state">accept</field>
+            <field name="assignment_id" ref="op_assignment_1"/>
+            <field name="marks">79.5</field>
+            <field name="rubric_element_line" eval="[(6,0,[
+                   ref('openeducat_assignment_rubrics.assignment_rubrics_sub_line4'),
+                   ref('openeducat_assignment_rubrics.assignment_rubrics_sub_line5'),
+                   ref('openeducat_assignment_rubrics.assignment_rubrics_sub_line6'),
+                   ref('openeducat_assignment_rubrics.assignment_rubrics_sub_line7'),
+                   ])]"/>
+        </record>
+
+        <record id="openeducat_assignment.op_assignment_sub_line_3" model="op.assignment.sub.line">
+            <field name="state">accept</field>
+            <field name="assignment_id" ref="openeducat_assignment.op_assignment_1"/>
+            <field name="marks">77.5</field>
+            <field name="rubric_element_line" eval="[(6,0,[
+                   ref('openeducat_assignment_rubrics.assignment_rubrics_sub_line1'),
+                   ref('openeducat_assignment_rubrics.assignment_rubrics_sub_line2'),
+                   ref('openeducat_assignment_rubrics.assignment_rubrics_sub_line3'),
+                   ])]"/>
+        </record>
+
+</odoo>

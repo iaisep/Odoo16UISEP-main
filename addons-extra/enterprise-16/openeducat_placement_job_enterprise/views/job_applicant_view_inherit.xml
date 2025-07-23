@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_op_job_applicant_inherit_form" model="ir.ui.view">
+        <field name="name">op.job.applicant.form</field>
+        <field name="model">op.job.applicant</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="openeducat_job_enterprise.view_op_jobpost_applicant_form"/>
+        <field name="arch" type="xml">
+            <field name="post_id" position="after">
+                <field name="activity_id"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_op_job_applicant_inherit_tree" model="ir.ui.view">
+        <field name="name">op.job.applicant.tree</field>
+        <field name="model">op.job.applicant</field>
+        <field name="type">tree</field>
+        <field name="inherit_id" ref="openeducat_job_enterprise.view_op_jobpost_applicant_tree"/>
+        <field name="arch" type="xml">
+            <field name="post_id" position="after">
+                <field name="activity_id"/>
+            </field>
+        </field>
+    </record>
+</odoo>

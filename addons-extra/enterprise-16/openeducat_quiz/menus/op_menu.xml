@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <!-- Quiz Main Menu -->
+        <menuitem id="op_quiz_main_menu"
+                  sequence="20"
+                  name="Quiz"
+                  groups="openeducat_quiz.group_op_quiz_admin,openeducat_quiz.group_op_quiz_user"
+                  web_icon="openeducat_quiz,static/description/icon.png"/>
+
+        <!-- Quiz Sub Menu -->
+        <menuitem id="op_quiz_menu"
+                  parent="op_quiz_main_menu"
+                  sequence="10"
+                  name="Quiz"/>
+
+        <!-- Question Bank -->
+        <menuitem id="op_question_bank_menu"
+                  parent="op_quiz_main_menu"
+                  sequence="20"
+                  name="Question Bank"/>
+
+        <!-- Quiz Configuration -->
+        <menuitem id="op_quiz_config_menu"
+                  parent="op_quiz_main_menu"
+                  sequence="50"
+                  name="Configuration"/>
+
+        <!-- Quiz -->
+        <menuitem id="menu_op_quiz"
+                  parent="op_quiz_menu"
+                  sequence="10"
+                  action="act_open_op_quiz_view"/>
+
+        <!-- Results -->
+        <menuitem id="menu_op_quiz_result"
+                  parent="op_quiz_menu"
+                  sequence="20"
+                  groups="openeducat_quiz.group_op_quiz_admin,openeducat_quiz.group_op_quiz_user"
+                  action="act_open_op_quiz_result_view"/>
+
+        <!-- Quiz Category -->
+        <menuitem id="menu_op_quiz_category"
+                  parent="op_quiz_config_menu"
+                  sequence="10"
+                  groups="openeducat_quiz.group_op_quiz_admin,openeducat_quiz.group_op_quiz_user"
+                  action="act_open_op_quiz_category_view"/>
+
+        <!-- Grades -->
+        <menuitem id="menu_op_answer_grade"
+                  parent="op_quiz_config_menu"
+                  sequence="20"
+                  groups="openeducat_quiz.group_op_quiz_admin,openeducat_quiz.group_op_quiz_user"
+                  action="act_open_op_answer_grade_view"/>
+
+        <!-- Question Bank -->
+        <menuitem id="menu_op_question_bank"
+                  parent="op_question_bank_menu"
+                  sequence="10"
+                  groups="openeducat_quiz.group_op_quiz_admin,openeducat_quiz.group_op_quiz_user"
+                  action="act_open_op_question_bank_view"/>
+
+        <!-- Question Bank Type -->
+        <menuitem id="menu_op_question_bank_type"
+                  parent="op_quiz_config_menu"
+                  sequence="20"
+                  groups="openeducat_quiz.group_op_quiz_admin,openeducat_quiz.group_op_quiz_user"
+                  action="act_open_op_question_bank_type_view"/>
+
+        <!-- Website Views -->
+
+        <record id="website_menu_quiz_menu" model="website.menu">
+            <field name="name">Exams</field>
+            <field name="url">/online-exams</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">25</field>
+        </record>
+
+        <menuitem id="menu_op_quiz_analysis_reporting"
+                  parent="op_quiz_main_menu"
+                  name="Reporting"
+                  sequence="40"/>
+
+        <menuitem id="menu_op_quiz_analysis"
+                  name="Quiz Result Analysis"
+                  parent="menu_op_quiz_analysis_reporting"
+                  sequence="10"
+                  action="openeducat_quiz.act_quiz_analysis_pivot_view"/>
+
+</odoo>

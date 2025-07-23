@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="grade_scale_1" model="op.grade.scale">
+            <field name="name">Letter Grades (default grading scale)</field>
+            <field name="op_grade_type_ids"
+                   eval="[(4,ref('openeducat_grading.grade_type_1')),(4,ref('openeducat_grading.grade_type_2')), (4,ref('openeducat_grading.grade_type_3')), (4,ref('openeducat_grading.grade_type_4')), (4,ref('openeducat_grading.grade_type_5')), (4,ref('openeducat_grading.grade_type_6')), (4,ref('openeducat_grading.grade_type_7')),
+                   (4,ref('openeducat_grading.grade_type_8')), (4,ref('openeducat_grading.grade_type_9')), (4,ref('openeducat_grading.grade_type_10')), (4,ref('openeducat_grading.grade_type_11')), (4,ref('openeducat_grading.grade_type_12')), (4,ref('openeducat_grading.grade_type_13'))]"/>
+        </record>
+
+        <record id="grade_scale_2" model="op.grade.scale">
+            <field name="name">Elementary School (custom grading scale)</field>
+            <field name="op_grade_type_ids"
+                   eval="[(4,ref('openeducat_grading.grade_type_14')),(4,ref('openeducat_grading.grade_type_15')),
+                    (4,ref('openeducat_grading.grade_type_16'))]"/>
+        </record>
+
+</odoo>

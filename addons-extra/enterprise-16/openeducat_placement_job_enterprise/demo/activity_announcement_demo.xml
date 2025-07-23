@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="activity_announcement_demo1" model="op.activity.announcement">
+        <field name="name">Campus Recruitment By Mnc For Computer Engineering Branch</field>
+        <field name="partner_id" ref="base.main_partner"/>
+        <field name="job_post_id" eval="[(6,0,[ref('openeducat_job_enterprise.job_post_demo1')])]"/>
+        <field name="skill_id" eval="[(6,0,[ref('openeducat_skill_enterprise.skill_demo1')])]"/>
+        <field name="team_id" ref="openeducat_placement_enterprise.placement_cell_demo1"/>
+        <field name="start_date"
+                eval="(DateTime.today() + relativedelta(days=-3)).strftime('%Y-%m-%d 05:30:00')"/>
+        <field name="end_date"
+                eval="(DateTime.today() + relativedelta(days=-3)).strftime('%Y-%m-%d 05:30:00')"/>
+        <field name="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        </field>
+    </record>
+    <record id="activity_announcement_demo2" model="op.activity.announcement">
+        <field name="name">Campus Recruitment For Civil Engineering Branch</field>
+        <field name="partner_id" ref="base.res_partner_10"/>
+        <field name="job_post_id" eval="[(6,0,[ref('openeducat_job_enterprise.job_post_demo3'),ref('openeducat_job_enterprise.job_post_demo4')])]"/>
+        <field name="skill_id" eval="[(6,0,[ref('openeducat_skill_enterprise.skill_demo1'),ref('openeducat_skill_enterprise.skill_demo2')])]"/>
+        <field name="team_id" ref="openeducat_placement_enterprise.placement_cell_demo2"/>
+        <field name="start_date"
+                eval="(DateTime.today() + relativedelta(days=-3)).strftime('%Y-%m-%d 05:30:00')"/>
+        <field name="end_date"
+                eval="(DateTime.today() + relativedelta(days=-3)).strftime('%Y-%m-%d 05:30:00')"/>
+        <field name="description">There are many variations of passages of Lorem Ipsum available,
+            but the majority have suffered alteration in some form, by injected humour,
+            or randomised words which don't look even slightly believable.
+        </field>
+    </record>
+    <record id="activity_announcement_demo3" model="op.activity.announcement">
+        <field name="name">Campus Recruitment For Mechanical Engineering Branch</field>
+        <field name="partner_id" ref="base.res_partner_12"/>
+        <field name="job_post_id" eval="[(6,0,[ref('openeducat_job_enterprise.job_post_demo7')])]"/>
+        <field name="skill_id" eval="[(6,0,[ref('openeducat_skill_enterprise.skill_demo1')])]"/>
+        <field name="team_id" ref="openeducat_placement_enterprise.placement_cell_demo1"/>
+        <field name="start_date"
+                eval="(DateTime.today() + relativedelta(days=-3)).strftime('%Y-%m-%d 05:30:00')"/>
+        <field name="end_date"
+                eval="(DateTime.today() + relativedelta(days=-3)).strftime('%Y-%m-%d 05:30:00')"/>
+        <field name="description">There are many variations of passages of Lorem Ipsum available,
+            but the majority have suffered alteration in some form, by injected humour,
+            or randomised words which don't look even slightly believable.
+        </field>
+    </record>
+    <record id="activity_announcement_demo4" model="op.activity.announcement">
+        <field name="name">Campus Recruitment For Electrical Engineering Branch</field>
+        <field name="partner_id" ref="base.res_partner_18"/>
+        <field name="job_post_id" eval="[(6,0,[ref('openeducat_job_enterprise.job_post_demo5'),ref('openeducat_job_enterprise.job_post_demo6')])]"/>
+        <field name="skill_id" eval="[(6,0,[ref('openeducat_skill_enterprise.skill_demo2')])]"/>
+        <field name="team_id" ref="openeducat_placement_enterprise.placement_cell_demo2"/>
+        <field name="start_date"
+                eval="(DateTime.today() + relativedelta(days=-3)).strftime('%Y-%m-%d 05:30:00')"/>
+        <field name="end_date"
+                eval="(DateTime.today() + relativedelta(days=-3)).strftime('%Y-%m-%d 05:30:00')"/>
+        <field name="description">There are many variations of passages of Lorem Ipsum available,
+            but the majority have suffered alteration in some form, by injected humour,
+            or randomised words which don't look even slightly believable.
+        </field>
+    </record>
+</odoo>

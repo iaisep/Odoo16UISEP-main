@@ -1,0 +1,99 @@
+<templates>
+    <t t-name="grade_book_portal_template">
+        <div id="jqxgrid">
+        </div>
+    </t>
+
+    <t t-name="export_button_template">
+        <div class="d-flex">
+            <button class="btn btn-primary" id="export_csv">
+                Export
+            </button>
+            <div class="m-2 form-check form-switch">
+                <input type="checkbox" id="assignment_toggle" class="form-check-input" checked="1"/>
+                <label class="form-check-label" for="assignment_toggle">
+                    Assignment Summary
+                </label>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="grade_book_widget_template">
+        <div id="jqxgrid">
+        </div>
+    </t>
+
+    <t t-name="grade_book_comment_table_template">
+        <div id="grid_book_comment_table"/>
+    </t>
+
+    <t t-name="grade_book_comment_table_portal_template">
+        <div id="grid_book_comment_table"/>
+    </t>
+
+
+    <t t-name="grade_book_no_data_template">
+        <div class="container pt-5 w-25">
+            <div style="font-size:34px;">
+                No Data Available!
+            </div>
+        </div>
+    </t>
+    <t t-name="student_selection_template">
+        <div class="col-md-6 d-flex p-3 d-lg-none">
+            <label for="student_selection" class="col-md-3">
+                Select Student:
+            </label>
+            <select name="student_selection" class="col-md-5" id="student_selection">
+                <option value="">Select Student</option>
+            </select>
+        </div>
+    </t>
+
+    <t t-name="course_selection_template">
+        <div class="col-md-6 d-flex p-3">
+            <label for="student_selection" class="col-md-3">
+                Select Course:
+            </label>
+            <select name="student_selection" class="col-md-5" id="student_selection">
+                <option value="">Select Course</option>
+            </select>
+        </div>
+    </t>
+
+    <t t-name="batch_selection_template">
+        <div class="col-md-6 d-flex p-3">
+            <label for="student_selection" class="col-md-3">
+                Select Batch:
+            </label>
+            <select name="student_selection" class="col-md-5" id="student_selection">
+                <option value="">Select Batch</option>
+            </select>
+        </div>
+    </t>
+
+    <t t-name="subject_selection_template">
+        <div class="col-md-6 d-flex p-3">
+            <label for="student_selection" class="col-md-3">
+                Select Subject:
+            </label>
+            <select name="student_selection" class="col-md-5" id="student_selection">
+                <option value="">Select Subject</option>
+            </select>
+        </div>
+    </t>
+
+    <t t-name="grade_book_view_drop_down">
+        <div class="col-md-6 p-3 d-none">
+            <label for="grade_book_view" class="col-md-3">
+                Select View Option:
+            </label>
+            <select name="grade_book_view" class="col-md-5" id="grid_view_drop_down">
+                <option value="assignment">Assignment</option>
+<!--                <option value="semester">Semester/Term Wise</option>-->
+<!--                <option value="subject">Subject Wise</option>-->
+<!--                <option value="term_subject">Term &amp; Subject Wise</option>-->
+            </select>
+        </div>
+    </t>
+</templates>

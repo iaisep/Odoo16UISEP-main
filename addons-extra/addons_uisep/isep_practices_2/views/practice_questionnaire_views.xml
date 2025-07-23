@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <!-- Tree View -->
+    <record id="view_practice_questionnaire_tree" model="ir.ui.view">
+        <field name="name">practice.questionnaire.tree</field>
+        <field name="model">practice.questionnaire</field>
+        <field name="arch" type="xml">
+            <tree string="Practice Questionnaires">
+                <field name="name_student"/>
+                <field name="modality"/>
+                <field name="campus"/>
+                <field name="name_tutor"/>
+                <field name="performed_hours"/>
+                <field name="assessment_18"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_practice_questionnaire_form" model="ir.ui.view">
+        <field name="name">practice.questionnaire.form</field>
+        <field name="model">practice.questionnaire</field>
+        <field name="arch" type="xml">
+            <form string="Practice Questionnaire">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="practice_request_id"/>
+                            <field name="name_student" readonly="1"/>
+                            <field name="modality" readonly="1"/>
+
+                            <field name="practice_center_id" readonly="1"/>
+                            <field name="tutor_id" readonly="1"/>
+
+                        </group>
+                        <group>
+
+                            <field name="number_hours_practice"/>
+                            <field name="performed_hours"/>
+                            <field name="campus"/>
+
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Assessments">
+                            <group>
+                                <field name="assessment_1" widget="priority"/>
+                                <field name="assessment_2" widget="priority"/>
+                                <field name="assessment_3" widget="priority"/>
+                                <field name="assessment_18" widget="priority"/>
+                            </group>
+                        </group>
+                        <!--                        attrs="{'invisible': [('typology_practices', '=', False)]}"-->
+                        <group string="Online Assessments">
+                            <group>
+                                <field name="assessment_4" widget="priority"/>
+                                <field name="assessment_5" widget="priority"/>
+                                <field name="assessment_6" widget="priority"/>
+                                <field name="assessment_7" widget="priority"/>
+                                <field name="assessment_8" widget="priority"/>
+                            </group>
+                        </group>
+                        <!--                        attrs="{'invisible': [('typology_practices', '=', 'Seguimiento de un caso (online)')]}"-->
+                        <group string="Center Assessments">
+                            <group>
+                                <field name="assessment_9" widget="priority"/>
+                                <field name="assessment_10" widget="priority"/>
+                                <field name="assessment_11" widget="priority"/>
+                                <field name="assessment_12" widget="priority"/>
+                            </group>
+                        </group>
+                        <group string="Observations">
+                            <field name="observations"/>
+                            <field name="observations_suggestions"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_practice_questionnaire_search" model="ir.ui.view">
+        <field name="name">practice.questionnaire.search</field>
+        <field name="model">practice.questionnaire</field>
+        <field name="arch" type="xml">
+            <search string="Practice Questionnaires">
+                <field name="name_student"/>
+                <field name="name_tutor"/>
+                <field name="modality"/>
+                             <filter string="A1. Service Presentation (Information, Documentation)"
+                    name="groupby_assessment_1"
+                    domain="[]"
+                    context="{'group_by': 'assessment_1'}"/>
+            <filter string="A2. Practice Coordination by ISEP"
+                    name="groupby_assessment_2"
+                    domain="[]"
+                    context="{'group_by': 'assessment_2'}"/>
+            <filter string="A3. Support During Practice Process by ISEP"
+                    name="groupby_assessment_3"
+                    domain="[]"
+                    context="{'group_by': 'assessment_3'}"/>
+            <filter string="A4. Relation of Practices with Program Content"
+                    name="groupby_assessment_14"
+                    domain="[]"
+                    context="{'group_by': 'assessment_14'}"/>
+            <filter string="A5. Opportunity to Broaden Knowledge"
+                    name="groupby_assessment_15"
+                    domain="[]"
+                    context="{'group_by': 'assessment_15'}"/>
+            <filter string="A6. Valid Experience for Job Search"
+                    name="groupby_assessment_16"
+                    domain="[]"
+                    context="{'group_by': 'assessment_16'}"/>
+            <filter string="A7. Fulfillment of Expectations"
+                    name="groupby_assessment_17"
+                    domain="[]"
+                    context="{'group_by': 'assessment_17'}"/>
+            <filter string="A8. Overall Practice Evaluation"
+                    name="groupby_assessment_18"
+                    domain="[]"
+                    context="{'group_by': 'assessment_18'}"/>
+            <filter string="B1. Virtual Environment"
+                    name="groupby_assessment_4"
+                    domain="[]"
+                    context="{'group_by': 'assessment_4'}"/>
+            <filter string="B2. Information: Presentation, Methodology, Calendar, Guide"
+                    name="groupby_assessment_5"
+                    domain="[]"
+                    context="{'group_by': 'assessment_5'}"/>
+            <filter string="B3. Materials: Videos, Reflection Questions, Other Resources"
+                    name="groupby_assessment_6"
+                    domain="[]"
+                    context="{'group_by': 'assessment_6'}"/>
+            <filter string="B4. Communication Tools: Forums, Online Clinical Sessions"
+                    name="groupby_assessment_7"
+                    domain="[]"
+                    context="{'group_by': 'assessment_7'}"/>
+            <filter string="B5. Tutor: Responsiveness, Quality, Engagement"
+                    name="groupby_assessment_8"
+                    domain="[]"
+                    context="{'group_by': 'assessment_8'}"/>
+            <filter string="C1. Center: Facilities, Location, Services"
+                    name="groupby_assessment_9"
+                    domain="[]"
+                    context="{'group_by': 'assessment_9'}"/>
+            <filter string="C2. Practice Tutor: Support, Guidance"
+                    name="groupby_assessment_10"
+                    domain="[]"
+                    context="{'group_by': 'assessment_10'}"/>
+            <filter string="C3. Tasks Performed"
+                    name="groupby_assessment_11"
+                    domain="[]"
+                    context="{'group_by': 'assessment_11'}"/>
+            <filter string="C4. Student Contribution to Center Activities"
+                    name="groupby_assessment_12"
+                    domain="[]"
+                    context="{'group_by': 'assessment_12'}"/>
+
+            <filter string="op_student_course_course_id"
+                    name="groupby_op_student_course_course_id"
+                    domain="[]"
+                    context="{'group_by': 'op_student_course_course_id'}"/>
+            </search>
+
+        </field>
+    </record>
+
+    <!-- Kanban View -->
+    <record id="view_practice_questionnaire_kanban" model="ir.ui.view">
+        <field name="name">practice.questionnaire.kanban</field>
+        <field name="model">practice.questionnaire</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_example">
+                <field name="name_student"/>
+                <field name="modality"/>
+                <field name="performed_hours"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card">
+                            <div class="o_kanban_primary_center">
+                                <strong>
+                                    <field name="name_student"/>
+                                </strong>
+                            </div>
+                            <div>
+                                <field name="modality"/>
+                            </div>
+                            <div>
+                                <span>Hours:</span>
+                                <field name="performed_hours"/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+<record id="view_practice_questionnaire_pivot" model="ir.ui.view">
+    <field name="name">practice.questionnaire.pivot</field>
+    <field name="model">practice.questionnaire</field>
+    <field name="arch" type="xml">
+        <pivot string="Questionnaire Analysis">
+            <field name="assessment_1" type="col"/>
+            <field name="tutor_id" type="row"/>
+            <field name="name_student" type="row"/>
+        </pivot>
+    </field>
+</record>
+
+    <record id="view_practice_questionnaire_graph" model="ir.ui.view">
+    <field name="name">practice.questionnaire.graph</field>
+    <field name="model">practice.questionnaire</field>
+    <field name="arch" type="xml">
+        <graph string="Questionnaire Results" type="pie">
+            <field name="assessment_1" type="col"/>
+        </graph>
+    </field>
+</record>
+
+    <!-- Action -->
+    <record id="action_practice_questionnaire" model="ir.actions.act_window">
+        <field name="name">Practice Questionnaires</field>
+        <field name="res_model">practice.questionnaire</field>
+        <field name="view_mode">graph,pivot,kanban,tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_create">
+                Click to create a new practice questionnaire.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu -->
+
+    <menuitem id="menu_practice_questionnaires" name="Cuestionarios" parent="menu_practice_management"
+              action="action_practice_questionnaire" sequence="2"/>
+</odoo>
+
+

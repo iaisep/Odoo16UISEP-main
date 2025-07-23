@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_helpdesk_category_form_inherit" model="ir.ui.view">
+        <field name="name">helpdesk.category.form.inherit</field>
+        <field name="model">helpdesk.category</field>
+        <field name="inherit_id" ref="sh_all_in_one_helpdesk.helpdesk_category_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@class='oe_title']" position="after">
+                <group>
+                    <field name="public_site"/>
+                    <field name="help_teams_id" widget="many2many_tags"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_helpdesk_category_search_inherit" model="ir.ui.view">
+        <field name="name">helpdesk.category.tree.inherit</field>
+        <field name="model">helpdesk.category</field>
+        <field name="inherit_id" ref="sh_all_in_one_helpdesk.helpdesk_category_view_tree" />
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="public_site" />
+                <field name="help_teams_id" widget="many2many_tags"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_helpdesk_subcategory_form_inherit" model="ir.ui.view">
+        <field name="name">helpdesk.subcategory.form.inherit</field>
+        <field name="model">helpdesk.subcategory</field>
+        <field name="inherit_id" ref="sh_all_in_one_helpdesk.helpdesk_subcategory_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='parent_category_id']" position="after">
+                <field name="public_site"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_helpdesk_subcategory_search_inherit" model="ir.ui.view">
+        <field name="name">helpdesk.category.tree.inherit</field>
+        <field name="model">helpdesk.subcategory</field>
+        <field name="inherit_id" ref="sh_all_in_one_helpdesk.helpdesk_subcategory_view_tree" />
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="public_site" />
+            </field>
+        </field>
+    </record>
+    
+    <record id="view_sh_helpdesk_team_inherit" model="ir.ui.view">
+        <field name="name">sh.helpdesk.team.from.inherit</field>
+        <field name="model">sh.helpdesk.team</field>
+        <field name="inherit_id" ref="sh_all_in_one_helpdesk.sh_helpdesk_team_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='team_head']" position="after">
+                <field name="users_leads_ids" widget="many2many_tags"/>
+                <label for="mail1"/>
+                <div name="mail1">
+                    <field name="mail1" class="oe_inline"/>@<field name="alias_domain" class="oe_inline" readonly="1"/>
+                </div>
+                <label for="mail2"/>
+                <div name="mail2">
+                    <field name="mail2" class="oe_inline"/>@<field name="alias_domain" class="oe_inline" readonly="1"/>
+                </div>
+                <label for="mail3"/>
+                <div name="mail3">
+                    <field name="mail3" class="oe_inline"/>@<field name="alias_domain" class="oe_inline" readonly="1"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="sh_helpdesk_ticket_form_view_inherit" model="ir.ui.view">
+        <field name="name">sh.helpdesk.ticket.from.inherit</field>
+        <field name="model">sh.helpdesk.ticket</field>
+        <field name="inherit_id" ref="sh_all_in_one_helpdesk.sh_helpdesk_ticket_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='sh_user_ids']" position="replace">
+                <field name="sh_user_ids" widget="many2many_tags"  groups="sh_all_in_one_helpdesk.helpdesk_group_team_leader,sh_all_in_one_helpdesk.helpdesk_group_manager"   string="Lideres"/>
+            </xpath>
+            <xpath expr="//field[@name='ticket_type']" position="attributes">
+                <attribute name="attrs">{'required': 1}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='user_id']" position="attributes">
+                <attribute name="attrs">{'required': 1}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='subject_id']" position="attributes">
+                <attribute name="attrs">{'required': 1}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='tag_ids']" position="attributes">
+                <attribute name="attrs">{'required': 1}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='priority']" position="attributes">
+                <attribute name="attrs">{'required': 1}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='team_id']" position="after">
+                <field name="team_members_ids" invisible="1"/>
+            </xpath>
+            <xpath expr="//field[@name='user_id']" position="attributes">
+                <attribute name="domain">[('id', 'in', team_members_ids)]</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="sh_helpdesk_sla_policies_form_view_inherit" model="ir.ui.view">
+        <field name="name">sh.helpdesk.sla.from.inherit</field>
+        <field name="model">sh.helpdesk.sla</field>
+        <field name="inherit_id" ref="sh_all_in_one_helpdesk.sh_helpdesk_sla_policies_form_view"/>
+        <field name="arch" type="xml">
+             <xpath expr="//field[@name='sh_team_id']" position="replace">
+                <field name="sh_team_id" widget="many2many_tags"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

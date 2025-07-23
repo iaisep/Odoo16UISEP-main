@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <!-- View op.admission form -->
+    <record id="view_op_admission_form_make" model="ir.ui.view">
+        <field name="name">view.op.admission.form</field>
+        <field name="model">op.admission</field>
+        <field name="inherit_id" ref="openeducat_admission.view_op_admission_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='admission_detail']/group/group/field[@name='fees_start_date']" position="after">
+
+                <field name="order_id"
+                domain="[('partner_id', '=', partner_id), ('state', '=', 'sale')]" 
+                context="{'show_partner_name_make': True}"/>
+                
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

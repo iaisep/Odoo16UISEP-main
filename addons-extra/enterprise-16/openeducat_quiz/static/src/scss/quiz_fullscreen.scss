@@ -1,0 +1,306 @@
+#breadcrumbs{
+ul.breadcrumb {
+  list-style: none;
+  background-color: unset;
+}
+
+ul.breadcrumb li {
+  display: inline;
+  font-size: 14px;
+  color: theme-color('epsilon');
+}
+
+ul.breadcrumb li+li:before {
+  padding: 8px;
+  color: #666;
+  content: "/\00a0";
+}
+
+ul.breadcrumb li a {
+  color: theme-color('epsilon');
+  text-decoration: none;
+  font-weight: normal;
+}
+
+ul.breadcrumb li a:hover {
+  color: theme-color('delta');
+  text-decoration: none;
+}
+}
+
+@media(max-width: 440px){
+    #breadcrumbs{
+        display: none;
+    }
+}
+
+.fullscreen-page{
+    #top,#bottom,.o_header_affix{
+        display:none;
+    }
+}
+
+#from_quiz_dynamic{
+
+    .card{
+        background: theme-color('gamma');
+        border-radius: 0 !important;
+    }
+
+    .que_card .card-body h4{
+        border-bottom: 1px solid #e7e7e7;
+        padding: 5px 0 20px;
+        font-size: 20px;
+    }
+
+    .que_card .que_no{
+        padding: 20px 15px;
+    }
+
+    .que_card .switch-btn .btn{
+        background: map-get($theme-colors, 'primary');
+        border: 0;
+        border-radius: 0;
+        padding: 11px 45px;
+        font-size: 13px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: map-get($theme-colors, 'secondary');
+    }
+
+    .btn:focus {
+        outline: 0;
+        box-shadow: unset;
+    }
+
+    .btn-primary:not(:disabled):not(.disabled):active:focus{
+        box-shadow: unset;
+    }
+
+    .que_card input[type="radio"], input[type="checkbox"] {
+        transform: scale(1.3);
+    }
+
+    .que_grid .btn{
+       border: 1px solid #e7e7e7;
+       border-radius: 0;
+       padding: 5px;
+       margin: 5px 2px;
+    }
+
+    .que_grid .card-body h4{
+        padding: 0 0 10px 0;
+        font-size: 18px;
+    }
+
+    #progressBar {
+        background-color: unset;
+        border: 1px solid #e7e7e7;
+        height: 35px;
+    }
+
+    .que_timer{
+        padding: 20px 15px;
+
+        .heading-digit {
+            font-size: 24px;
+            color: map-get($theme-colors, 'secondary');
+            display: inline-block;
+            margin: 0;
+        }
+    }
+
+    @media(max-width:768px) and (min-width:425px){
+        .timer-desktop{
+            display: none;
+        }
+    }
+
+    @media(min-width: 769px){
+        .que_timer{
+            display: none !important;
+        }
+    }
+
+    @media(max-width: 425px){
+        .que_timer{
+            display: none !important;
+        }
+
+        .que_card{
+            order:12;
+        }
+    }
+}
+
+.exam-title{
+    .overlay {
+        background: map-get($theme-colors, 'secondary') none repeat 0 0;
+        content: "";
+        height: 100%;
+        left: 0;
+        opacity: 0.5;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+
+    .search-box{
+        ::placeholder {
+            color: white !important;
+            opacity: 1;
+        }
+
+        :-ms-input-placeholder {
+             color: white !important;
+        }
+
+        ::-ms-input-placeholder {
+             color: white !important;
+        }
+    }
+
+    .form-control {
+        background-color: transparent;
+        border: 1px solid #ffffff;
+        color: #ffffff;
+    }
+
+    .form-control:focus {
+        outline: 0;
+        box-shadow: unset;
+    }
+
+    .btn:focus {
+        outline: 0;
+        box-shadow: unset;
+    }
+
+    .input-group-btn {
+        background: transparent;
+        padding: 3px 4px;
+        border-top: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+        border-right: 1px solid #fff;
+    }
+
+    .input-group-btn .btn i {
+        color: #fff;
+    }
+
+    .icon-btn{
+        font-size: 30px;
+        background: transparent;
+        color: #fff;
+        border: 0;
+    }
+
+    .btn-light:not(:disabled):not(.disabled):active, .btn-light:not(:disabled):not(.disabled).active, .show > .btn-light.dropdown-toggle {
+        color: #fff;
+        background-color: transparent;
+        border-color: transparent;
+    }
+}
+
+#quiz_form_view{
+
+    .profile .card{
+        border-radius: 0 !important;
+    }
+
+    .quiz-round .card{
+        background: theme-color('gamma');
+        box-shadow: 0 8px 6px -6px #a7a7a7;
+        border-bottom-left-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+    }
+
+    .profile .card-body{
+        border-top: 1px solid #e7e7e7;
+        background: #f7f8fa !important;
+    }
+
+    .feature_title{
+        padding: 20px 15px;
+    }
+
+    .btn{
+        background: map-get($theme-colors, 'primary');
+        border: 0;
+        border-radius: 0;
+        padding: 10px 15px;
+        font-size: 12px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: map-get($theme-colors, 'secondary');
+    }
+
+    .btn:focus {
+        outline: 0;
+        box-shadow: unset;
+    }
+
+    .user-name{
+        color: map-get($theme-colors, 'secondary');
+        font-size: 18px;
+    }
+
+    .content_ellipsis{
+        color: theme-color('epsilon');
+        display: block;
+        display: -webkit-box;
+        max-width: 100%;
+        margin: 0 auto;
+        height: 45px;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+.quiz_starting_page{
+    .card{
+        background: theme-color('gamma');
+        box-shadow: 0 8px 6px -6px #a7a7a7;
+        border-radius: 0 !important;
+    }
+
+    .quiz_title{
+        padding: 20px 15px;
+        color: map-get($theme-colors, 'secondary');
+    }
+
+    .btn-start-exam{
+        background: map-get($theme-colors, 'primary');
+        border: 0;
+        border-radius: 0;
+        padding: 11px 26px;
+        font-size: 13px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: map-get($theme-colors, 'secondary');
+    }
+
+    .btn:focus {
+        outline: 0;
+        box-shadow: unset;
+    }
+}
+
+#from_quiz_dynamic{
+    .embed-responsive-16by9::before {
+        padding-top: unset !important;
+    }
+
+    .embed-responsive iframe{
+        position: relative !important;
+        height: 420px !important;
+    }
+
+    @media(max-width:425px){
+        .embed-responsive iframe {
+            height: auto !important;
+        }
+        }
+}

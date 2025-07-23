@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<odoo>
+    <!-- Menus -->
+    <menuitem id="menu_meeting"
+              name="Meeting"
+              sequence="2"
+              action="calendar.action_calendar_event"
+              web_icon="openeducat_meeting_enterprise,static/description/icon.png"
+              groups="openeducat_core.group_op_back_office_admin,openeducat_core.group_op_faculty,openeducat_parent.group_op_parent"/>
+
+</odoo>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_recognition_certificate" model="ir.actions.report">
+            <field name="name">Certificado de reconocimiento cuatrimestre</field>
+            <field name="model">appisep.gradebook.summary</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">isep_gradebook.action_report_certificate_recognition_id</field>
+            <field name="report_file">isep_gradebook.action_report_certificate_recognition_id</field>
+            <field name="binding_model_id" ref="model_appisep_gradebook_summary"/>
+            <field name="binding_type">report</field>
+            <field name="print_report_name">(object.student_id.name)</field>
+        </record>
+
+        <record id="paperformat_recognition_certificate" model="report.paperformat">
+            <field name="name">Formato certificado reconocimiento cuatrimestre</field>
+            <field name="default" eval="True"/>
+            <field name="format">custom</field>
+            <field name="orientation">Landscape</field>
+            <field name="page_width">198</field> 
+            <field name="page_height">279</field>
+            <field name="margin_top">0</field>
+            <field name="margin_bottom">0</field>
+            <field name="margin_left">0</field>
+            <field name="margin_right">0</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">0</field>
+            <field name="dpi">90</field>
+            <field name="report_ids" eval="[(4, ref('action_recognition_certificate'))]"/>
+        </record>
+    </data>
+</odoo>

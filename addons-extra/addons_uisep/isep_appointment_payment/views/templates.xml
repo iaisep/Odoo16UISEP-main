@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Modificación: Mostrar tarifas de cita si tiene configuración de pago -->
+    <template id="custom_appointment_info"
+              inherit_id="website_appointment.appointments_cards">
+        <xpath expr="//div[hasclass('o_wappointment_card_staff_users')]"
+               position="after">
+            <div t-if="appointment.product_id"
+                 class="d-flex py-1 px-0 bg-transparent o-custom-text border-0">
+                <i class="fa fa-credit-card text-center text-muted fs-5 me-2"/>
+                <span t-esc="appointment.product_id.lst_price"
+                      t-options="{'widget': 'monetary', 'display_currency': appointment.product_id.currency_id}"/>
+            </div>
+        </xpath>
+    </template>
+
+    <!-- Modificación: Personalización del formulario de citas -->
+    <template id="custom_appointment_form" inherit_id="appointment.appointment_form">
+        <xpath expr="//button[hasclass('btn-primary')]" position="replace">
+            <button t-if="appointment_type.has_payment_step and appointment_type.product_id.lst_price"
+                    type="submit"
+                    class="btn btn-primary o_custom_form_confirm_btn">
+                Proceder al Pago
+            </button>
+            <button t-else="" type="submit"
+                    class="btn btn-primary o_custom_form_confirm_btn">
+                Confirmar Cita
+            </button>
+        </xpath>
+    </template>
+
+    <!-- Modificación: Métodos de pago para citas -->
+    <template id="custom_appointment_payment" name="Custom Payment Methods for Appointments">
+        <t t-set="no_breadcrumbs" t-value="True"/>
+        <t t-call="portal.portal_layout">
+            <div id="wrap"
+                 class="bg-o-color-4 h-100 mt-4 pb-4 px-4 rounded-3 border">
+                <div t-if="not providers" class="mt-2">
+                    <a role="button" class="btn-link"
+                       groups="base.group_system"
+                       t-attf-href="/web#action=#{payment_action_id}">
+                        <i class="fa fa-arrow-right"></i>
+                        Add Payment Providers
+                    </a>
+                </div>
+                <div t-else="" class="oe_structure container o_custom_appointment_payment">
+                    <div t-call="payment.checkout"/>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- Modificación: Información de cita con pago -->
+    <template id="custom_appointment_info_payment"
+              inherit_id="appointment.appointment_form">
+        <xpath expr="//div[hasclass('o_appointment_attendee_form_details')]"
+               position="inside">
+            <div t-if="appointment_type.product_id"
+                 class="d-flex py-1 px-0 bg-transparent o-custom-text border-0">
+                <i class="fa fa-credit-card o_custom_fa_width text-center fs-5 me-2"/>
+                <span t-esc="appointment_type.product_id.lst_price"
+                      t-options="{'widget': 'monetary', 'display_currency': appointment_type.product_id.currency_id}"/>
+            </div>
+        </xpath>
+    </template>
+
+
+</odoo>
+
+
+
+

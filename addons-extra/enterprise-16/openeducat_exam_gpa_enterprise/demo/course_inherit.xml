@@ -1,0 +1,248 @@
+<odoo noupdate="0">
+
+
+        <record id="op_subject_21" model="op.subject">
+            <field name="code">BBA-001</field>
+            <field name="name">Financial Accounting</field>
+            <field name="type">theory</field>
+            <field name="department_id" ref="openeducat_core.op_department_3"/>
+        </record>
+
+        <record id="op_subject_22" model="op.subject">
+            <field name="code">BBA-002</field>
+            <field name="name">Taxation</field>
+            <field name="type">theory</field>
+            <field name="department_id" ref="openeducat_core.op_department_3"/>
+        </record>
+
+        <record id="op_subject_23" model="op.subject">
+            <field name="code">BBA-003</field>
+            <field name="name">Law &amp; Ethics</field>
+            <field name="type">theory</field>
+            <field name="department_id" ref="openeducat_core.op_department_3"/>
+        </record>
+
+        <record id="op_subject_24" model="op.subject">
+            <field name="code">BBA-004</field>
+            <field name="name">Business Management</field>
+            <field name="type">theory</field>
+            <field name="department_id" ref="openeducat_core.op_department_3"/>
+        </record>
+
+        <record id="op_course_7" model="op.course">
+            <field name="code">BBA</field>
+            <field name="name"> Bachelor of Business Administration</field>
+            <field name="evaluation_type">GPA</field>
+            <field name="department_id" ref="openeducat_core.op_department_3"/>
+            <!-- <field name="parent_id" ref="openeducat_core.op_course_7"/> -->
+            <field name="subject_ids" eval="[(6,0, [ref('op_subject_21'), ref('op_subject_22'), ref('op_subject_23'), ref('op_subject_24')])]"/>
+            <!-- <field name="department_id" ref="openeducat_core.op_department_3"/> -->
+        </record>
+
+        <!-- Student course details -->
+
+        <record id="op_student_course_25" model="op.student.course">
+            <field name="student_id" ref="openeducat_core.op_student_1"/>
+            <field name="course_id" ref="op_course_7"/>
+            <field name="batch_id" ref="openeducat_core.op_batch_1"/>
+            <field name="roll_number">001</field>
+        </record>
+        <record id="op_student_course_26" model="op.student.course">
+            <field name="student_id" ref="openeducat_core.op_student_2"/>
+            <field name="course_id" ref="op_course_7"/>
+            <field name="batch_id" ref="openeducat_core.op_batch_1"/>
+            <field name="roll_number">002</field>
+        </record>
+        <record id="op_student_course_27" model="op.student.course">
+            <field name="student_id" ref="openeducat_core.op_student_3"/>
+            <field name="course_id" ref="op_course_7"/>
+            <field name="batch_id" ref="openeducat_core.op_batch_1"/>
+            <field name="roll_number">003</field>
+        </record>
+        <record id="op_student_course_28" model="op.student.course">
+            <field name="student_id" ref="openeducat_core.op_student_4"/>
+            <field name="course_id" ref="op_course_7"/>
+            <field name="batch_id" ref="openeducat_core.op_batch_1"/>
+            <field name="roll_number">004</field>
+        </record>
+
+        <!-- exam session -->
+        <record id="op_exam_venus" model="res.partner">
+            <field name="name">Block 1</field>
+            <field name="is_venue" eval="True"/>
+        </record>
+
+        <record id="op_exam_session_4" model="op.exam.session">
+            <field name="exam_code">BBA-E01</field>
+            <field name="name">BBA-Exam-001</field>
+            <field name="evaluation_type">grade</field>
+            <field name="venue" ref="openeducat_exam.op_exam_venus"/>
+            <field name="exam_type" ref="openeducat_exam.op_exam_type_1"/>
+            <field name="course_id" ref="op_course_7"/>
+            <field name="batch_id" ref="openeducat_core.op_batch_1"/>
+            <field name="start_date" eval="(DateTime.today() - relativedelta(months=2)).strftime('%Y-%m-20 %H:%M')"/>
+            <field name="end_date" eval="(DateTime.today() - relativedelta(months=2)).strftime('%Y-%m-23 %H:%M')"/>
+            <field name="state">done</field>
+        </record>
+
+        <!-- Exam type -->
+        <record id="op_exam_13" model="op.exam">
+            <field name="exam_code">E01</field>
+            <field name="name">BBA-E1-01</field>
+            <field name="state">done</field>
+            <field name="min_marks">35</field>
+            <field name="total_marks">100</field>
+            <field name="session_id" ref="op_exam_session_4"/>
+            <field name="subject_id" ref="op_subject_21"/>
+            <field name="start_time" eval="(DateTime.today() - relativedelta(months=2)).strftime('%Y-%m-20 04:30')"/>
+            <field name="end_time" eval="(DateTime.today() - relativedelta(months=2)).strftime('%Y-%m-20 06:30')"/>
+        </record>
+        <record id="op_exam_14" model="op.exam">
+            <field name="exam_code">E02</field>
+            <field name="name">BBA-E1-02</field>
+            <field name="state">done</field>
+            <field name="min_marks">35</field>
+            <field name="total_marks">100</field>
+            <field name="session_id" ref="op_exam_session_4"/>
+            <field name="subject_id" ref="op_subject_22"/>
+            <field name="start_time" eval="(DateTime.today() - relativedelta(months=2)).strftime('%Y-%m-21 04:30')"/>
+            <field name="end_time" eval="(DateTime.today() - relativedelta(months=2)).strftime('%Y-%m-21 06:30')"/>
+        </record>
+        <record id="op_exam_15" model="op.exam">
+            <field name="exam_code">E03</field>
+            <field name="name">BBA-E1-03</field>
+            <field name="state">done</field>
+            <field name="min_marks">35</field>
+            <field name="total_marks">100</field>
+            <field name="session_id" ref="op_exam_session_4"/>
+            <field name="subject_id" ref="op_subject_23"/>
+            <field name="start_time" eval="(DateTime.today() - relativedelta(months=2)).strftime('%Y-%m-22 04:30')"/>
+            <field name="end_time" eval="(DateTime.today() - relativedelta(months=2)).strftime('%Y-%m-22 06:30')"/>
+        </record>
+        <record id="op_exam_16" model="op.exam">
+            <field name="exam_code">E04</field>
+            <field name="name">BBA-E1-04</field>
+            <field name="state">done</field>
+            <field name="min_marks">35</field>
+            <field name="total_marks">100</field>
+            <field name="session_id" ref="op_exam_session_4"/>
+            <field name="subject_id" ref="op_subject_24"/>
+            <field name="start_time" eval="(DateTime.today() - relativedelta(months=2)).strftime('%Y-%m-23 04:30')"/>
+            <field name="end_time" eval="(DateTime.today() - relativedelta(months=2)).strftime('%Y-%m-23 06:30')"/>
+        </record>
+
+        <!-- Exam attendees -->
+        <!-- 1 -->
+        <record id="op_exam_attendees_34" model="op.exam.attendees">
+            <field name="status">present</field>
+            <field name="marks">55</field>
+            <field name="exam_id" ref="op_exam_13"/>
+            <field name="student_id" ref="openeducat_core.op_student_1"/>
+        </record>
+
+        <record id="op_exam_attendees_35" model="op.exam.attendees">
+            <field name="status">present</field>
+            <field name="marks">59</field>
+            <field name="exam_id" ref="op_exam_13"/>
+            <field name="student_id" ref="openeducat_core.op_student_2"/>
+        </record>
+
+        <record id="op_exam_attendees_36" model="op.exam.attendees">
+            <field name="status">present</field>
+            <field name="marks">75</field>
+            <field name="exam_id" ref="op_exam_13"/>
+            <field name="student_id" ref="openeducat_core.op_student_3"/>
+        </record>
+
+        <record id="op_exam_attendees_37" model="op.exam.attendees">
+            <field name="status">present</field>
+            <field name="marks">67</field>
+            <field name="exam_id" ref="op_exam_13"/>
+            <field name="student_id" ref="openeducat_core.op_student_4"/>
+        </record>
+        <!-- 2 -->
+        <record id="op_exam_attendees_38" model="op.exam.attendees">
+            <field name="status">present</field>
+            <field name="marks">55</field>
+            <field name="exam_id" ref="op_exam_14"/>
+            <field name="student_id" ref="openeducat_core.op_student_1"/>
+        </record>
+
+        <record id="op_exam_attendees_39" model="op.exam.attendees">
+            <field name="status">present</field>
+            <field name="marks">59</field>
+            <field name="exam_id" ref="op_exam_14"/>
+            <field name="student_id" ref="openeducat_core.op_student_2"/>
+        </record>
+
+        <record id="op_exam_attendees_40" model="op.exam.attendees">
+            <field name="status">present</field>
+            <field name="marks">75</field>
+            <field name="exam_id" ref="op_exam_14"/>
+            <field name="student_id" ref="openeducat_core.op_student_3"/>
+        </record>
+
+        <record id="op_exam_attendees_41" model="op.exam.attendees">
+            <field name="status">present</field>
+            <field name="marks">67</field>
+            <field name="exam_id" ref="op_exam_14"/>
+            <field name="student_id" ref="openeducat_core.op_student_4"/>
+        </record>
+        <!-- 3 -->
+        <record id="op_exam_attendees_42" model="op.exam.attendees">
+            <field name="status">present</field>
+            <field name="marks">55</field>
+            <field name="exam_id" ref="op_exam_15"/>
+            <field name="student_id" ref="openeducat_core.op_student_1"/>
+        </record>
+
+        <record id="op_exam_attendees_43" model="op.exam.attendees">
+            <field name="status">present</field>
+            <field name="marks">59</field>
+            <field name="exam_id" ref="op_exam_15"/>
+            <field name="student_id" ref="openeducat_core.op_student_2"/>
+        </record>
+
+        <record id="op_exam_attendees_44" model="op.exam.attendees">
+            <field name="status">present</field>
+            <field name="marks">75</field>
+            <field name="exam_id" ref="op_exam_15"/>
+            <field name="student_id" ref="openeducat_core.op_student_3"/>
+        </record>
+
+        <record id="op_exam_attendees_45" model="op.exam.attendees">
+            <field name="status">present</field>
+            <field name="marks">67</field>
+            <field name="exam_id" ref="op_exam_15"/>
+            <field name="student_id" ref="openeducat_core.op_student_4"/>
+        </record>
+        <!-- 4 -->
+        <record id="op_exam_attendees_46" model="op.exam.attendees">
+            <field name="status">present</field>
+            <field name="marks">55</field>
+            <field name="exam_id" ref="op_exam_16"/>
+            <field name="student_id" ref="openeducat_core.op_student_1"/>
+        </record>
+
+        <record id="op_exam_attendees_47" model="op.exam.attendees">
+            <field name="status">present</field>
+            <field name="marks">59</field>
+            <field name="exam_id" ref="op_exam_16"/>
+            <field name="student_id" ref="openeducat_core.op_student_2"/>
+        </record>
+
+        <record id="op_exam_attendees_48" model="op.exam.attendees">
+            <field name="status">present</field>
+            <field name="marks">75</field>
+            <field name="exam_id" ref="op_exam_16"/>
+            <field name="student_id" ref="openeducat_core.op_student_3"/>
+        </record>
+
+        <record id="op_exam_attendees_49" model="op.exam.attendees">
+            <field name="status">present</field>
+            <field name="marks">67</field>
+            <field name="exam_id" ref="op_exam_16"/>
+            <field name="student_id" ref="openeducat_core.op_student_4"/>
+        </record>
+
+</odoo>

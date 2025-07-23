@@ -1,0 +1,2077 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* openeducat_grievance_enterprise
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-13 12:02+0000\n"
+"PO-Revision-Date: 2022-12-13 12:02+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: openeducat_grievance_enterprise
+#: model:mail.template,subject:openeducat_grievance_enterprise.mail_template_gms_assign
+#: model:mail.template,subject:openeducat_grievance_enterprise.mail_template_gms_for_resolution
+#: model:mail.template,subject:openeducat_grievance_enterprise.mail_template_gms_rejection
+msgid "\"{{ object.subject }}\""
+msgstr "\"{{object.subject}}\""
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.gms_grievance_kanban_view
+msgid ""
+"<br/>\n"
+"                                        <strong>\n"
+"                                            <span>Subject:</span>\n"
+"                                        </strong>"
+msgstr ""
+"<br/>\n"
+"                                        <strong>\n"
+"                                            <span> Assunto: </span>\n"
+"                                        </strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_team_kanban_view
+msgid "<i class=\"fa fa-ellipsis-v\" title=\"xyz\"/>"
+msgstr "<i class=\"fa fa-elipsis-v\" title=\"xyz\"/>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+msgid ""
+"<span class=\"badge badge-pill badge-danger\">\n"
+"                                                <i class=\"fa fa-fw fa-check\" aria-label=\"Approved\" title=\"Done\" role=\"img\"/>\n"
+"                                                <span class=\"d-none d-md-inline\">Reject</span>\n"
+"                                            </span>"
+msgstr ""
+"<span class=\"Danger de distintivo de crachá de crachá\">&gt;\n"
+"                                                <i class=\"fa fa-fw fa-check\" aria-label=\"aprovado\" title=\"done\" role=\"img\"/>\n"
+"                                                <span class=\"d-none d-md-inline\"> rejeitar </span>\n"
+"                                            </span>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+msgid ""
+"<span class=\"badge badge-pill badge-info\">\n"
+"                                                <i class=\"fa fa-fw fa-check\" aria-label=\"Draft\" title=\"Draft\" role=\"img\"/>\n"
+"                                                <span class=\"d-none d-md-inline\">Action</span>\n"
+"                                            </span>"
+msgstr ""
+"<span class=\"crachá-badge-pill badge-info\">\n"
+"                                                <i class=\"fa fa-fw fa-check\" aria-label=\"draft\" title=\"draft\" fun=\"\"/>\n"
+"                                                <span class=\"d-none d-md-inline\"> ação </span>\n"
+"                                            </span>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+msgid ""
+"<span class=\"badge badge-pill badge-info\">\n"
+"                                                <i class=\"fa fa-fw fa-check\" aria-label=\"Draft\" title=\"Draft\" role=\"img\"/>\n"
+"                                                <span class=\"d-none d-md-inline\">Resolve</span>\n"
+"                                            </span>"
+msgstr ""
+"<span class=\"crachá-badge-pill badge-info\">\n"
+"                                                <i class=\"fa fa-fw fa-check\" aria-label=\"draft\" title=\"draft\" fun=\"\"/>\n"
+"                                                <span class=\"d-none d-md-inline\"> resolve </span>\n"
+"                                            </span>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+msgid ""
+"<span class=\"badge badge-pill badge-info\">\n"
+"                                                <i class=\"fa fa-fw fa-check\" aria-label=\"Draft\" title=\"Draft\" role=\"img\"/>\n"
+"                                                <span class=\"d-none d-md-inline\">Submitted</span>\n"
+"                                            </span>"
+msgstr ""
+"<span class=\"crachá-badge-pill badge-info\">\n"
+"                                                <i class=\"fa fa-fw fa-check\" aria-label=\"draft\" title=\"draft\" fun=\"\"/>\n"
+"                                                <span class=\"d-none d-md-inline\"> enviado </span>\n"
+"                                            </span>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+msgid ""
+"<span class=\"badge badge-pill badge-info\">\n"
+"                                                <i class=\"fa fa-fw fa-clock-o\" aria-label=\"Draft\" title=\"Draft\" role=\"img\"/>\n"
+"                                                <span class=\"d-none d-md-inline\">Draft</span>\n"
+"                                            </span>"
+msgstr ""
+"<span class=\"crachá-badge-pill badge-info\">\n"
+"                                                <i class=\"fa fa-fw fa-clock-o\" aria-label=\"draft\" title=\"draft\" fun=\"\"/>\n"
+"                                                <span class=\"d-none d-md-inline\"> draft </span>\n"
+"                                            </span>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+msgid ""
+"<span class=\"badge badge-pill badge-primary\">\n"
+"                                                <i class=\"fa fa-fw fa-clock-o\" aria-label=\"In Progress\" title=\"In Progress\" role=\"img\"/>\n"
+"                                                <span class=\"d-none d-md-inline\">In Review</span>\n"
+"                                            </span>"
+msgstr ""
+"<span class=\"crachá-pílula de crachá-primária\">\n"
+"                                                <i class=\"fa fa-fw fa-clock-o\" aria-label=\"in androght\" title=\"in andrond\" role=\"img\"/>\n"
+"                                                <span class=\"d-none d-md-inline\"> em revisão </span>\n"
+"                                            </span>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+msgid ""
+"<span class=\"badge badge-pill badge-success\">\n"
+"                                                <i class=\"fa fa-fw fa-check\" aria-label=\"Approved\" title=\"Done\" role=\"img\"/>\n"
+"                                                <span class=\"d-none d-md-inline\">Close</span>\n"
+"                                            </span>"
+msgstr ""
+"<span class=\"crachá-pílula de crachá-success\">\n"
+"                                                <i class=\"fa fa-fw fa-check\" aria-label=\"aprovado\" title=\"done\" role=\"img\"/>\n"
+"                                                <span class=\"d-none d-md-inline\"> feche </span>\n"
+"                                            </span>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.gms_grievance_kanban_view
+msgid ""
+"<span>\n"
+"                                                    <u>Academic</u>\n"
+"                                                </span>"
+msgstr ""
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.gms_grievance_kanban_view
+msgid ""
+"<span>\n"
+"                                                    <u>Non-Academic</u>\n"
+"                                                </span>"
+msgstr ""
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_my_home_menu_grievance
+msgid "<span>Grievances</span>"
+msgstr "<span> queixas </span>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.gms_grievance_kanban_view
+msgid ""
+"<strong>\n"
+"                                                <span>Grievance By:</span>\n"
+"                                            </strong>"
+msgstr ""
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "<strong>Academic Term:</strong>"
+msgstr "<strong> termo acadêmico: </strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "<strong>Academic Year:</strong>"
+msgstr "<strong> ano acadêmico: </strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "<strong>Action Taken:</strong>"
+msgstr "<strong> Ação tomada: </strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "<strong>Attachment:</strong>"
+msgstr "<strong> Anexo: </strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "<strong>Batch:</strong>"
+msgstr "<strong> lote: </strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "<strong>Category:</strong>"
+msgstr "<strong> categoria: </strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "<strong>Course:</strong>"
+msgstr "<strong> Claro: </strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "<strong>Created Date:</strong>"
+msgstr "<strong> Data criada: </strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "<strong>Description:</strong>"
+msgstr "<strong> Descrição: </strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_team_kanban_view
+msgid "<strong>Grievance Category</strong>"
+msgstr "<strong> categoria de queixa </strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "<strong>Grievance Subject:</strong>"
+msgstr "<strong> Assunto da queixa: </strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "<strong>Student:</strong>"
+msgstr "<strong> aluno: </strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_team_kanban_view
+msgid "<strong>Total Grievances</strong>"
+msgstr "<strong> Total de queixas </strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model:mail.template,body_html:openeducat_grievance_enterprise.mail_template_gms_assign
+msgid ""
+"<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;\">\n"
+"                    <tr>\n"
+"                        <td align=\"center\">\n"
+"                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"padding: 16px; background-color: white; color: #454748; border-collapse:separate;\">\n"
+"                                <tbody>\n"
+"                                    <tr>\n"
+"                                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                                                <tr>\n"
+"                                                    <td valign=\"middle\">\n"
+"                                                        <span style=\"font-size: 10px;\">Grievance Number</span>\n"
+"                                                        <br/>\n"
+"                                                        <span style=\"font-size: 20px; font-weight: bold;\">\n"
+"                                                            <t t-out=\"object.name or ''\"/>\n"
+"                                                        </span>\n"
+"                                                    </td>\n"
+"                                                    <td valign=\"middle\" align=\"right\">\n"
+"                                                        <img t-att-src=\"'/logo.png?company=%s' % object.company_id.id\" style=\"padding: 0px; margin: 0px; height: auto; width: 80px;\" t-att-alt=\"'%s' % object.company_id.name\"/>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                                <tr>\n"
+"                                                    <td colspan=\"2\" style=\"text-align:center;\">\n"
+"                                                        <hr width=\"100%\" style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin:16px 0px 16px 0px;\"/>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </table>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                    <tr>\n"
+"                                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                                                <tr>\n"
+"                                                    <td valign=\"top\" style=\"font-size: 13px;\">\n"
+"                                                        <div>\n"
+"                                                            Hello\n"
+"                                                            <t t-if=\"object.grievance_for == 'student'\">\n"
+"                                                                |\n"
+"                                                                <t t-out=\"object.student_id.name or ''\"/>\n"
+"                                                            </t>\n"
+"                                                            <t t-if=\"object.grievance_for == 'faculty'\">\n"
+"                                                                |\n"
+"                                                                <t t-out=\"object.faculty_id.name or ''\"/>\n"
+"                                                            </t>\n"
+"                                                            <t t-if=\"object.grievance_for == 'parent'\">\n"
+"                                                                |\n"
+"                                                                <t t-out=\"object.parent_id.name.name or ''\"/>\n"
+"                                                            </t>\n"
+"                                                            <br/>\n"
+"                                                            <p>Your Grievance has been received and is being reviewed by\n"
+"                                                                our team\n"
+"                                                                <b>\n"
+"                                                                    <t t-out=\"object.grievance_team_id.name or ''\"/>\n"
+"                                                                </b>\n"
+"                                                            </p>\n"
+"                                                            <br/>\n"
+"                                                            <a t-att-href=\"'/my/grievance/detail/%s' % object.id\" target=\"_blank\" style=\"background-color:#875A7B; padding: 2px; text-decoration: none; color: #fff; border-radius: 2px;\">\n"
+"                                                                View Grievance\n"
+"                                                            </a>\n"
+"\n"
+"                                                            <br/>\n"
+"                                                            <p>Yours faithfully,</p>\n"
+"                                                            <p>\n"
+"                                                                <t t-out=\"object.company_id.name or ''\"/>\n"
+"                                                            </p>\n"
+"                                                        </div>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                                <tr>\n"
+"                                                    <td style=\"text-align:center;\">\n"
+"                                                        <hr width=\"100%\" style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;\"/>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </table>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                    <tr>\n"
+"                                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                                                <tr>\n"
+"                                                    <td valign=\"middle\" align=\"left\">\n"
+"                                                        <t t-out=\"object.company_id.name or ''\"/>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                                <tr>\n"
+"                                                    <td valign=\"middle\" align=\"left\" style=\"opacity: 0.7;\">\n"
+"                                                        <t t-out=\"object.company_id.phone or ''\"/>\n"
+"                                                        <t t-if=\"object.company_id.email\">\n"
+"                                                            |\n"
+"                                                            <a href=\"'mailto:%s' % {{ object.company_id.email }}\" style=\"text-decoration:none; color: #454748;\">\n"
+"                                                                <t t-out=\"object.company_id.email or ''\"/>\n"
+"                                                            </a>\n"
+"                                                        </t>\n"
+"                                                        <t t-if=\"object.company_id.website\">\n"
+"                                                            |\n"
+"                                                            <a href=\"'%s' % {{ object.company_id.website }}\" style=\"text-decoration:none; color: #454748;\">\n"
+"                                                                <t t-out=\"object.company_id.website or ''\"/>\n"
+"                                                            </a>\n"
+"                                                        </t>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </table>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                </tbody>\n"
+"                            </table>\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                </table>\n"
+"            "
+msgstr ""
+"<tabela border = \"0\" CellPadding = \"0\" CellSpacing = \"0\" style = \"Padding-top: 16px; Collor-Color: #f1f1f1; Font-Family: Verdana, Arial, Sans-Serif; cor: #454748; Largura: 100%; colapso da borda: separado; \">\n"
+"                    <tr>\n"
+"                        <td align = \"Center\">\n"
+"                            <tabela border = \"0\" CellPadding = \"0\" CellSpacing = \"0\" width = \"590\" style = \"preenchimento: 16px; cor de fundo: branco; cor: #454748; colapso da borda: separado;\">\n"
+"                                <Tbody>\n"
+"                                    <tr>\n"
+"                                        <td align = \"Center\" style = \"Min-lar: 590px;\">\n"
+"                                            <tabela borda = \"0\" CellPadding = \"0\" CellSpacing = \"0\" width = \"590\" style = \"min-lar: 590px; cor de fundo: branco; preenchimento: 0px 8px 0px 8px; colapso da borda: separado; \">\n"
+"                                                <tr>\n"
+"                                                    <td valign = \"meio\">\n"
+"                                                        <span style = \"font-size: 10px;\"> Número de queixas </span>\n"
+"                                                        <br/>\n"
+"                                                        <span style = \"font-size: 20px; font-weight: Bold;\">\n"
+"                                                            <t the-out = \"Object.name ou ''\"/>\n"
+"                                                        </span>\n"
+"                                                    </td>\n"
+"                                                    <td Valign = \"Middle\" align = \"Right\">\n"
+"                                                        <img t-at-src = \"'/logo.png? Company = % s' % object.company_id.id\" style = \"estofamento: 0px; margem: 0px; altura: auto; largura: 80px;\" t-at-alt = \"' % s' % object.company_id.name\"/>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                                <tr>\n"
+"                                                    <td colspan = \"2\" style = \"text-align: Center;\">\n"
+"                                                        <h width = \"100%\" style = \"cor de fundo: rgb (204.204.204); borda: médio nenhum; claro: ambos; exibição: bloco; font-tamanho: 0px; min-height: 1px; altura da linha: 0 ; margem: 16px 0px 16px 0px; \"/>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </tabela>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                    <tr>\n"
+"                                        <td align = \"Center\" style = \"Min-lar: 590px;\">\n"
+"                                            <tabela borda = \"0\" CellPadding = \"0\" CellSpacing = \"0\" width = \"590\" style = \"min-lar: 590px; cor de fundo: branco; preenchimento: 0px 8px 0px 8px; colapso da borda: separado; \">\n"
+"                                                <tr>\n"
+"                                                    <td valign = \"top\" style = \"font-size: 13px;\">\n"
+"                                                        <div>\n"
+"                                                            Olá\n"
+"                                                            <t t-if = \"Object.Grievance_for == 'Student'\">\n"
+"                                                                |\n"
+"                                                                <t the-out = \"object.student_id.name ou ''\"/>\n"
+"                                                            </t>\n"
+"                                                            <t t-if = \"Object.Grievance_for == 'Faculty'\">\n"
+"                                                                |\n"
+"                                                                <t the-out = \"Object.faculty_id.name ou ''\"/>\n"
+"                                                            </t>\n"
+"                                                            <t t-if = \"Object.Grievance_for == 'Parent'\">\n"
+"                                                                |\n"
+"                                                                <t the-out = \"object.parent_id.name.name ou ''\"/>\n"
+"                                                            </t>\n"
+"                                                            <br/>\n"
+"                                                            <p> Sua queixa foi recebida e está sendo revisada por\n"
+"                                                                nosso time\n"
+"                                                                <b>\n"
+"                                                                    <t the-out = \"Object.Grievance_team_id.name ou ''\"/>\n"
+"                                                                </b>\n"
+"                                                            </p>\n"
+"                                                            <br/>\n"
+"                                                            <a t-att-href = \"'/my/grievance/detalhe/ % s' % object.id\" target = \"_ Blank\" style = \"cor de fundo:#875A7B; preenchimento: 2px; decoração de texto: nenhum; Cor: #FFF; Radio de fronteira: 2px; \">\n"
+"                                                                Ver queixas\n"
+"                                                            </a>\n"
+"\n"
+"                                                            <br/>\n"
+"                                                            <p> Atenciosamente, </p>\n"
+"                                                            <p>\n"
+"                                                                <t t-out = \"object.company_id.name ou ''\"/>\n"
+"                                                            </p>\n"
+"                                                        </div>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                                <tr>\n"
+"                                                    <td style = \"text-align: Center;\">\n"
+"                                                        <h width = \"100%\" style = \"cor de fundo: rgb (204.204.204); borda: médio nenhum; claro: ambos; exibição: bloco; font-tamanho: 0px; min-height: 1px; altura da linha: 0 ; margem: 16px 0px 16px 0px; \"/>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </tabela>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                    <tr>\n"
+"                                        <td align = \"Center\" style = \"Min-lar: 590px;\">\n"
+"                                            <tabela borda = \"0\" CellPadding = \"0\" CellSpacing = \"0\" width = \"590\" style = \"min-lar: 590px; cor de fundo: branco; tamanho da fonte: 11px; preenchimento: 0px 8px 0px 8px; colapso da fronteira: separado; \">\n"
+"                                                <tr>\n"
+"                                                    <td valign = \"middle\" align = \"esquerda\">\n"
+"                                                        <t t-out = \"object.company_id.name ou ''\"/>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                                <tr>\n"
+"                                                    <td valign = \"middle\" align = \"esquerdo\" style = \"opacidade: 0,7;\">\n"
+"                                                        <t t-out = \"object.company_id.phone ou ''\"/>\n"
+"                                                        <t t-if = \"object.company_id.email\">\n"
+"                                                            |\n"
+"                                                            <a href=\"'Mailto:%s' % {{object.company_id.email} }\" style=\"text-decoration:none; color: #454748 ;\">\n"
+"                                                                <t t-out = \"object.company_id.mail ou ''\"/>\n"
+"                                                            </a>\n"
+"                                                        </t>\n"
+"                                                        <t t-if = \"object.company_id.website\">\n"
+"                                                            |\n"
+"                                                            <a href=\"'%S' % {{object.company_id.website}} }\" style=\"text-secoration:None; color: #454748; furos\n"
+"                                                                <t t-out = \"object.company_id.website ou ''\"/>\n"
+"                                                            </a>\n"
+"                                                        </t>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </tabela>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                </tbody>\n"
+"                            </tabela>\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                </tabela>\n"
+"            "
+
+#. module: openeducat_grievance_enterprise
+#: model:mail.template,body_html:openeducat_grievance_enterprise.mail_template_gms
+msgid ""
+"<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;\">\n"
+"                    <tr>\n"
+"                        <td align=\"center\">\n"
+"                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"padding: 16px; background-color: white; color: #454748; border-collapse:separate;\">\n"
+"                                <tbody>\n"
+"                                    <tr>\n"
+"                                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                                                <tr>\n"
+"                                                    <td valign=\"middle\">\n"
+"                                                        <span style=\"font-size: 10px;\">Grievance Number</span>\n"
+"                                                        <br/>\n"
+"                                                        <span style=\"font-size: 20px; font-weight: bold;\">\n"
+"                                                            <t t-out=\"object.name or ''\"/>\n"
+"                                                        </span>\n"
+"                                                    </td>\n"
+"                                                    <td valign=\"middle\" align=\"right\">\n"
+"                                                        <img t-att-src=\"'/logo.png?company=%s' % object.company_id.id\" style=\"padding: 0px; margin: 0px; height: auto; width: 80px;\" t-att-alt=\"'%s' % object.company_id.name\"/>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                                <tr>\n"
+"                                                    <td colspan=\"2\" style=\"text-align:center;\">\n"
+"                                                        <hr width=\"100%\" style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin:16px 0px 16px 0px;\"/>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </table>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                    <tr>\n"
+"                                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                                                <tr>\n"
+"                                                    <td valign=\"top\" style=\"font-size: 13px;\">\n"
+"                                                        <div>\n"
+"                                                            Hello,\n"
+"                                                            <br/>\n"
+"                                                            <p>\n"
+"                                                                <t t-if=\"object.grievance_for == 'student'\">\n"
+"                                                                    <t t-out=\"object.student_id.name or ''\"/>\n"
+"                                                                </t>\n"
+"                                                                <t t-if=\"object.grievance_for == 'faculty'\">\n"
+"                                                                    <t t-out=\"object.faculty_id.name or ''\"/>\n"
+"                                                                </t>\n"
+"                                                                <t t-if=\"object.grievance_for == 'parent'\">\n"
+"                                                                    <t t-out=\"object.parent_id.name.name or ''\"/>\n"
+"                                                                </t>\n"
+"                                                                has submitted a Grievance on\n"
+"                                                                <t t-out=\"object.created_date.strftime('%m-%d-%Y')\"/>\n"
+"                                                            </p>\n"
+"                                                            <p>\n"
+"                                                                <b>Category:</b>\n"
+"                                                                <t t-out=\"object.grievance_category_id.complete_name or ''\"/>\n"
+"                                                            </p>\n"
+"                                                            <p>\n"
+"                                                                <b>Grievance Description:</b>\n"
+"                                                                <t t-out=\"object.description or ''\"/>\n"
+"                                                            </p>\n"
+"                                                            <br/>\n"
+"                                                            <p>\n"
+"                                                                The Grievance has been assign to your Team\n"
+"                                                                <b><t t-out=\"object.grievance_team_id.name or ''\"/>.\n"
+"                                                                </b>\n"
+"                                                            </p>\n"
+"                                                            <br/>\n"
+"                                                            <p>Yours faithfully,</p>\n"
+"                                                            <p>\n"
+"                                                                <t t-out=\"object.company_id.name or ''\"/>\n"
+"                                                            </p>\n"
+"\n"
+"                                                        </div>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                                <tr>\n"
+"                                                    <td style=\"text-align:center;\">\n"
+"                                                        <hr width=\"100%\" style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;\"/>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </table>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                    <tr>\n"
+"                                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                                                <tr>\n"
+"                                                    <td valign=\"middle\" align=\"left\">\n"
+"                                                        <t t-out=\"object.company_id.name or ''\"/>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                                <tr>\n"
+"                                                    <td valign=\"middle\" align=\"left\" style=\"opacity: 0.7;\">\n"
+"                                                        <t t-out=\"object.company_id.phone or ''\"/>\n"
+"                                                        <t t-if=\"object.company_id.email\">\n"
+"                                                            |\n"
+"                                                            <a href=\"'mailto:%s' % {{ object.company_id.email }}\" style=\"text-decoration:none; color: #454748;\">\n"
+"                                                                <t t-out=\"object.company_id.email or ''\"/>\n"
+"                                                            </a>\n"
+"                                                        </t>\n"
+"                                                        <t t-if=\"object.company_id.website\">\n"
+"                                                            |\n"
+"                                                            <a href=\"'%s' % {{ object.company_id.website }}\" style=\"text-decoration:none; color: #454748;\">\n"
+"                                                                <t t-out=\"object.company_id.website or ''\"/>\n"
+"                                                            </a>\n"
+"                                                        </t>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </table>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                </tbody>\n"
+"                            </table>\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                </table>\n"
+"            "
+msgstr ""
+"<tabela border = \"0\" CellPadding = \"0\" CellSpacing = \"0\" style = \"Padding-top: 16px; Collor-Color: #f1f1f1; Font-Family: Verdana, Arial, Sans-Serif; cor: #454748; Largura: 100%; colapso da borda: separado; \">\n"
+"                    <tr>\n"
+"                        <td align = \"Center\">\n"
+"                            <tabela border = \"0\" CellPadding = \"0\" CellSpacing = \"0\" width = \"590\" style = \"preenchimento: 16px; cor de fundo: branco; cor: #454748; colapso da borda: separado;\">\n"
+"                                <Tbody>\n"
+"                                    <tr>\n"
+"                                        <td align = \"Center\" style = \"Min-lar: 590px;\">\n"
+"                                            <tabela borda = \"0\" CellPadding = \"0\" CellSpacing = \"0\" width = \"590\" style = \"min-lar: 590px; cor de fundo: branco; preenchimento: 0px 8px 0px 8px; colapso da borda: separado; \">\n"
+"                                                <tr>\n"
+"                                                    <td valign = \"meio\">\n"
+"                                                        <span style = \"font-size: 10px;\"> Número de queixas </span>\n"
+"                                                        <br/>\n"
+"                                                        <span style = \"font-size: 20px; font-weight: Bold;\">\n"
+"                                                            <t the-out = \"Object.name ou ''\"/>\n"
+"                                                        </span>\n"
+"                                                    </td>\n"
+"                                                    <td Valign = \"Middle\" align = \"Right\">\n"
+"                                                        <img t-at-src = \"'/logo.png? Company = % s' % object.company_id.id\" style = \"estofamento: 0px; margem: 0px; altura: auto; largura: 80px;\" t-at-alt = \"' % s' % object.company_id.name\"/>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                                <tr>\n"
+"                                                    <td colspan = \"2\" style = \"text-align: Center;\">\n"
+"                                                        <h width = \"100%\" style = \"cor de fundo: rgb (204.204.204); borda: médio nenhum; claro: ambos; exibição: bloco; font-tamanho: 0px; min-height: 1px; altura da linha: 0 ; margem: 16px 0px 16px 0px; \"/>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </tabela>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                    <tr>\n"
+"                                        <td align = \"Center\" style = \"Min-lar: 590px;\">\n"
+"                                            <tabela borda = \"0\" CellPadding = \"0\" CellSpacing = \"0\" width = \"590\" style = \"min-lar: 590px; cor de fundo: branco; preenchimento: 0px 8px 0px 8px; colapso da borda: separado; \">\n"
+"                                                <tr>\n"
+"                                                    <td valign = \"top\" style = \"font-size: 13px;\">\n"
+"                                                        <div>\n"
+"                                                            Olá,\n"
+"                                                            <br/>\n"
+"                                                            <p>\n"
+"                                                                <t t-if = \"Object.Grievance_for == 'Student'\">\n"
+"                                                                    <t the-out = \"object.student_id.name ou ''\"/>\n"
+"                                                                </t>\n"
+"                                                                <t t-if = \"Object.Grievance_for == 'Faculty'\">\n"
+"                                                                    <t the-out = \"Object.faculty_id.name ou ''\"/>\n"
+"                                                                </t>\n"
+"                                                                <t t-if = \"Object.Grievance_for == 'Parent'\">\n"
+"                                                                    <t the-out = \"object.parent_id.name.name ou ''\"/>\n"
+"                                                                </t>\n"
+"                                                                enviou uma queixa em\n"
+"                                                                <t the-out = \"object.created_date.strftime ('%m-%d-%y')\"/>\n"
+"                                                            </p>\n"
+"                                                            <p>\n"
+"                                                                <b> Categoria: </b>\n"
+"                                                                <t the-out = \"Object.Grievance_category_id.complete_name ou ''\"/>\n"
+"                                                            </p>\n"
+"                                                            <p>\n"
+"                                                                <b> Descrição da queixa: </b>\n"
+"                                                                <t the-out = \"Object.Description ou ''\"/>\n"
+"                                                            </p>\n"
+"                                                            <br/>\n"
+"                                                            <p>\n"
+"                                                                A queixa foi designada para sua equipe\n"
+"                                                                <b> <t the-out = \"Object.Grievance_team_id.name ou ''\"/>.\n"
+"                                                                </b>\n"
+"                                                            </p>\n"
+"                                                            <br/>\n"
+"                                                            <p> Atenciosamente, </p>\n"
+"                                                            <p>\n"
+"                                                                <t t-out = \"object.company_id.name ou ''\"/>\n"
+"                                                            </p>\n"
+"\n"
+"                                                        </div>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                                <tr>\n"
+"                                                    <td style = \"text-align: Center;\">\n"
+"                                                        <h width = \"100%\" style = \"cor de fundo: rgb (204.204.204); borda: médio nenhum; claro: ambos; exibição: bloco; font-tamanho: 0px; min-height: 1px; altura da linha: 0 ; margem: 16px 0px 16px 0px; \"/>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </tabela>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                    <tr>\n"
+"                                        <td align = \"Center\" style = \"Min-lar: 590px;\">\n"
+"                                            <tabela borda = \"0\" CellPadding = \"0\" CellSpacing = \"0\" width = \"590\" style = \"min-lar: 590px; cor de fundo: branco; tamanho da fonte: 11px; preenchimento: 0px 8px 0px 8px; colapso da fronteira: separado; \">\n"
+"                                                <tr>\n"
+"                                                    <td valign = \"middle\" align = \"esquerda\">\n"
+"                                                        <t t-out = \"object.company_id.name ou ''\"/>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                                <tr>\n"
+"                                                    <td valign = \"middle\" align = \"esquerdo\" style = \"opacidade: 0,7;\">\n"
+"                                                        <t t-out = \"object.company_id.phone ou ''\"/>\n"
+"                                                        <t t-if = \"object.company_id.email\">\n"
+"                                                            |\n"
+"                                                            <a href=\"'Mailto:%s' % {{object.company_id.email} }\" style=\"text-decoration:none; color: #454748 ;\">\n"
+"                                                                <t t-out = \"object.company_id.mail ou ''\"/>\n"
+"                                                            </a>\n"
+"                                                        </t>\n"
+"                                                        <t t-if = \"object.company_id.website\">\n"
+"                                                            |\n"
+"                                                            <a href=\"'%S' % {{object.company_id.website}} }\" style=\"text-secoration:None; color: #454748; furos\n"
+"                                                                <t t-out = \"object.company_id.website ou ''\"/>\n"
+"                                                            </a>\n"
+"                                                        </t>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </tabela>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                </tbody>\n"
+"                            </tabela>\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                </tabela>\n"
+"            "
+
+#. module: openeducat_grievance_enterprise
+#: model:mail.template,body_html:openeducat_grievance_enterprise.mail_template_gms_for_resolution
+msgid ""
+"<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;\">\n"
+"                    <tr>\n"
+"                        <td align=\"center\">\n"
+"                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"padding: 16px; background-color: white; color: #454748; border-collapse:separate;\">\n"
+"                                <tbody>\n"
+"                                    <tr>\n"
+"                                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                                                <tr>\n"
+"                                                    <td valign=\"middle\">\n"
+"                                                        <span style=\"font-size: 10px;\">Grievance Number</span>\n"
+"                                                        <br/>\n"
+"                                                        <span style=\"font-size: 20px; font-weight: bold;\">\n"
+"                                                            <t t-out=\"object.name\"/>\n"
+"\n"
+"                                                        </span>\n"
+"                                                    </td>\n"
+"                                                    <td valign=\"middle\" align=\"right\">\n"
+"                                                        <img t-att-src=\"'/logo.png?company=%s' % object.company_id.id\" style=\"padding: 0px; margin: 0px; height: auto; width: 80px;\" t-att-alt=\"'%s' % object.company_id.name\"/>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                                <tr>\n"
+"                                                    <td colspan=\"2\" style=\"text-align:center;\">\n"
+"                                                        <hr width=\"100%\" style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin:16px 0px 16px 0px;\"/>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </table>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                    <tr>\n"
+"                                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                                                <tr>\n"
+"                                                    <td valign=\"top\" style=\"font-size: 13px;\">\n"
+"                                                        <div>\n"
+"                                                            <t t-if=\"object.grievance_for == 'student'\">\n"
+"                                                                <t t-out=\"object.student_id.name or ''\"/>\n"
+"                                                            </t>\n"
+"                                                            <t t-if=\"object.grievance_for == 'faculty'\">\n"
+"                                                                <t t-out=\"object.faculty_id.name or ''\"/>\n"
+"                                                            </t>\n"
+"                                                            <t t-if=\"object.grievance_for == 'parent'\">\n"
+"                                                                <t t-out=\"object.parent_id.name or ''\"/>\n"
+"                                                            </t>\n"
+"                                                            <br/>\n"
+"                                                            <p>Your Grievance has been resolved\n"
+"                                                                by our Team\n"
+"                                                                <t t-out=\"object.grievance_team_id.name\"/>\n"
+"                                                            </p>\n"
+"                                                            <p>\n"
+"                                                                <b>Grievance Description:</b>\n"
+"                                                                <t t-out=\"object.description\"/>\n"
+"                                                            </p>\n"
+"                                                            <p>\n"
+"                                                                <b>This is the action taken against the grievance:</b>\n"
+"                                                                <t t-out=\"object.action_taken\"/>\n"
+"                                                            </p>\n"
+"                                                            <br/>\n"
+"                                                            <br/>\n"
+"                                                            <a t-att-href=\"'/my/grievance/detail/%s' % object.id\" target=\"_blank\" style=\"background-color:#875A7B; padding: 2px; text-decoration: none; color: #fff; border-radius: 2px;\">\n"
+"                                                                View Grievance\n"
+"                                                            </a>\n"
+"                                                            <br/>\n"
+"                                                            <p>Yours faithfully,</p>\n"
+"                                                            <p>Team Leader</p>\n"
+"                                                            <t t-if=\"object.grievance_team_id.team_leader.signature\">\n"
+"                                                                <t t-out=\"object.grievance_team_id.team_leader.signature\"/>\n"
+"                                                            </t>\n"
+"                                                            <p>\n"
+"                                                                <t t-out=\"object.grievance_team_id.team_leader.name\"/>\n"
+"                                                            </p>\n"
+"                                                        </div>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                                <tr>\n"
+"                                                    <td style=\"text-align:center;\">\n"
+"                                                        <hr width=\"100%\" style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;\"/>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </table>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                    <tr>\n"
+"                                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                                                <tr>\n"
+"                                                    <td valign=\"middle\" align=\"left\">\n"
+"                                                        <t t-out=\"object.company_id.name or ''\"/>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                                <tr>\n"
+"                                                    <td valign=\"middle\" align=\"left\" style=\"opacity: 0.7;\">\n"
+"                                                        <t t-out=\"object.company_id.phone or ''\"/>\n"
+"                                                        <t t-if=\"object.company_id.email\">\n"
+"                                                            |\n"
+"                                                            <a href=\"'mailto:%s' % {{ object.company_id.email }}\" style=\"text-decoration:none; color: #454748;\">\n"
+"                                                                <t t-out=\"object.company_id.email or ''\"/>\n"
+"                                                            </a>\n"
+"                                                        </t>\n"
+"                                                        <t t-if=\"object.company_id.website\">\n"
+"                                                            |\n"
+"                                                            <a href=\"'%s' % {{ object.company_id.website }}\" style=\"text-decoration:none; color: #454748;\">\n"
+"                                                                <t t-out=\"object.company_id.website or ''\"/>\n"
+"                                                            </a>\n"
+"                                                        </t>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </table>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                </tbody>\n"
+"                            </table>\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                </table>\n"
+"            "
+msgstr ""
+"<tabela border = \"0\" CellPadding = \"0\" CellSpacing = \"0\" style = \"Padding-top: 16px; Collor-Color: #f1f1f1; Font-Family: Verdana, Arial, Sans-Serif; cor: #454748; Largura: 100%; colapso da borda: separado; \">\n"
+"                    <tr>\n"
+"                        <td align = \"Center\">\n"
+"                            <tabela border = \"0\" CellPadding = \"0\" CellSpacing = \"0\" width = \"590\" style = \"preenchimento: 16px; cor de fundo: branco; cor: #454748; colapso da borda: separado;\">\n"
+"                                <Tbody>\n"
+"                                    <tr>\n"
+"                                        <td align = \"Center\" style = \"Min-lar: 590px;\">\n"
+"                                            <tabela borda = \"0\" CellPadding = \"0\" CellSpacing = \"0\" width = \"590\" style = \"min-lar: 590px; cor de fundo: branco; preenchimento: 0px 8px 0px 8px; colapso da borda: separado; \">\n"
+"                                                <tr>\n"
+"                                                    <td valign = \"meio\">\n"
+"                                                        <span style = \"font-size: 10px;\"> Número de queixas </span>\n"
+"                                                        <br/>\n"
+"                                                        <span style = \"font-size: 20px; font-weight: Bold;\">\n"
+"                                                            <t the-out = \"object.name\"/>\n"
+"\n"
+"                                                        </span>\n"
+"                                                    </td>\n"
+"                                                    <td Valign = \"Middle\" align = \"Right\">\n"
+"                                                        <img t-at-src = \"'/logo.png? Company = % s' % object.company_id.id\" style = \"estofamento: 0px; margem: 0px; altura: auto; largura: 80px;\" t-at-alt = \"' % s' % object.company_id.name\"/>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                                <tr>\n"
+"                                                    <td colspan = \"2\" style = \"text-align: Center;\">\n"
+"                                                        <h width = \"100%\" style = \"cor de fundo: rgb (204.204.204); borda: médio nenhum; claro: ambos; exibição: bloco; font-tamanho: 0px; min-height: 1px; altura da linha: 0 ; margem: 16px 0px 16px 0px; \"/>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </tabela>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                    <tr>\n"
+"                                        <td align = \"Center\" style = \"Min-lar: 590px;\">\n"
+"                                            <tabela borda = \"0\" CellPadding = \"0\" CellSpacing = \"0\" width = \"590\" style = \"min-lar: 590px; cor de fundo: branco; preenchimento: 0px 8px 0px 8px; colapso da borda: separado; \">\n"
+"                                                <tr>\n"
+"                                                    <td valign = \"top\" style = \"font-size: 13px;\">\n"
+"                                                        <div>\n"
+"                                                            <t t-if = \"Object.Grievance_for == 'Student'\">\n"
+"                                                                <t the-out = \"object.student_id.name ou ''\"/>\n"
+"                                                            </t>\n"
+"                                                            <t t-if = \"Object.Grievance_for == 'Faculty'\">\n"
+"                                                                <t the-out = \"Object.faculty_id.name ou ''\"/>\n"
+"                                                            </t>\n"
+"                                                            <t t-if = \"Object.Grievance_for == 'Parent'\">\n"
+"                                                                <t t-out = \"object.parent_id.name ou ''\"/>\n"
+"                                                            </t>\n"
+"                                                            <br/>\n"
+"                                                            <p> Sua queixa foi resolvida\n"
+"                                                                pela nossa equipe\n"
+"                                                                <t the-out = \"Object.Grievance_team_id.name\"/>\n"
+"                                                            </p>\n"
+"                                                            <p>\n"
+"                                                                <b> Descrição da queixa: </b>\n"
+"                                                                <t t-out = \"object.Description\"/>\n"
+"                                                            </p>\n"
+"                                                            <p>\n"
+"                                                                <b> Esta é a ação tomada contra a queixa: </b>\n"
+"                                                                <t the-out = \"object.action_taken\"/>\n"
+"                                                            </p>\n"
+"                                                            <br/>\n"
+"                                                            <br/>\n"
+"                                                            <a t-att-href = \"'/my/grievance/detalhe/ % s' % object.id\" target = \"_ Blank\" style = \"cor de fundo:#875A7B; preenchimento: 2px; decoração de texto: nenhum; Cor: #FFF; Radio de fronteira: 2px; \">\n"
+"                                                                Ver queixas\n"
+"                                                            </a>\n"
+"                                                            <br/>\n"
+"                                                            <p> Atenciosamente, </p>\n"
+"                                                            <p> líder da equipe </p>\n"
+"                                                            <t t-if = \"Object.Grievance_team_id.team_leader.signature\">\n"
+"                                                                <t the-out = \"Object.Grievance_team_id.team_leader.signature\"/>\n"
+"                                                            </t>\n"
+"                                                            <p>\n"
+"                                                                <t the-out = \"Object.Grievance_team_id.team_leader.name\"/>\n"
+"                                                            </p>\n"
+"                                                        </div>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                                <tr>\n"
+"                                                    <td style = \"text-align: Center;\">\n"
+"                                                        <h width = \"100%\" style = \"cor de fundo: rgb (204.204.204); borda: médio nenhum; claro: ambos; exibição: bloco; font-tamanho: 0px; min-height: 1px; altura da linha: 0 ; margem: 16px 0px 16px 0px; \"/>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </tabela>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                    <tr>\n"
+"                                        <td align = \"Center\" style = \"Min-lar: 590px;\">\n"
+"                                            <tabela borda = \"0\" CellPadding = \"0\" CellSpacing = \"0\" width = \"590\" style = \"min-lar: 590px; cor de fundo: branco; tamanho da fonte: 11px; preenchimento: 0px 8px 0px 8px; colapso da fronteira: separado; \">\n"
+"                                                <tr>\n"
+"                                                    <td valign = \"middle\" align = \"esquerda\">\n"
+"                                                        <t t-out = \"object.company_id.name ou ''\"/>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                                <tr>\n"
+"                                                    <td valign = \"middle\" align = \"esquerdo\" style = \"opacidade: 0,7;\">\n"
+"                                                        <t t-out = \"object.company_id.phone ou ''\"/>\n"
+"                                                        <t t-if = \"object.company_id.email\">\n"
+"                                                            |\n"
+"                                                            <a href=\"'Mailto:%s' % {{object.company_id.email} }\" style=\"text-decoration:none; color: #454748 ;\">\n"
+"                                                                <t t-out = \"object.company_id.mail ou ''\"/>\n"
+"                                                            </a>\n"
+"                                                        </t>\n"
+"                                                        <t t-if = \"object.company_id.website\">\n"
+"                                                            |\n"
+"                                                            <a href=\"'%S' % {{object.company_id.website}} }\" style=\"text-secoration:None; color: #454748; furos\n"
+"                                                                <t t-out = \"object.company_id.website ou ''\"/>\n"
+"                                                            </a>\n"
+"                                                        </t>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </tabela>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                </tbody>\n"
+"                            </tabela>\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                </tabela>\n"
+"            "
+
+#. module: openeducat_grievance_enterprise
+#: model:mail.template,body_html:openeducat_grievance_enterprise.mail_template_gms_rejection
+msgid ""
+"<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;\">\n"
+"                    <tr>\n"
+"                        <td align=\"center\">\n"
+"                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"padding: 16px; background-color: white; color: #454748; border-collapse:separate;\">\n"
+"                                <tbody>\n"
+"                                    <tr>\n"
+"                                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                                                <tr>\n"
+"                                                    <td valign=\"middle\">\n"
+"                                                        <span style=\"font-size: 10px;\">Grievance Number</span>\n"
+"                                                        <br/>\n"
+"                                                        <span style=\"font-size: 20px; font-weight: bold;\">\n"
+"                                                            <t t-out=\"object.name\"/>\n"
+"                                                        </span>\n"
+"                                                    </td>\n"
+"                                                    <td valign=\"middle\" align=\"right\">\n"
+"                                                        <img t-att-src=\"'/logo.png?company=%s' % object.company_id.id\" style=\"padding: 0px; margin: 0px; height: auto; width: 80px;\" t-att-alt=\"'%s' % object.company_id.name\"/>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                                <tr>\n"
+"                                                    <td colspan=\"2\" style=\"text-align:center;\">\n"
+"                                                        <hr width=\"100%\" style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin:16px 0px 16px 0px;\"/>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </table>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                    <tr>\n"
+"                                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                                                <tr>\n"
+"                                                    <td valign=\"top\" style=\"font-size: 13px;\">\n"
+"                                                        <div>\n"
+"                                                            Hello\n"
+"                                                            <t t-if=\"object.grievance_for == 'student'\">\n"
+"                                                                |\n"
+"                                                                <t t-out=\"object.student_id.name or ''\"/>\n"
+"                                                            </t>\n"
+"                                                            <t t-if=\"object.grievance_for == 'faculty'\">\n"
+"                                                                |\n"
+"                                                                <t t-out=\"object.faculty_id.name or ''\"/>\n"
+"                                                            </t>\n"
+"                                                            <t t-if=\"object.grievance_for == 'parent'\">\n"
+"                                                                |\n"
+"                                                                <t t-out=\"object.parent_id.name.name or ''\"/>\n"
+"                                                            </t>\n"
+"\n"
+"                                                            <br/>\n"
+"                                                            <p>You posted a Grievance on\n"
+"                                                                <t t-out=\"object.created_date.strftime('%m-%d-%Y')\"/>\n"
+"                                                                .\n"
+"                                                            </p>\n"
+"                                                            <p>\n"
+"                                                                <b>Grievance Description:</b>\n"
+"                                                                <t t-out=\"object.description\"/>\n"
+"                                                                .\n"
+"                                                            </p>\n"
+"                                                            <br/>\n"
+"                                                            <p>Sorry, Your Grievance is not valid so it\n"
+"                                                                has been rejected.\n"
+"                                                            </p>\n"
+"                                                            <br/>\n"
+"                                                            <a t-att-href=\"'/my/grievance/detail/%s' % object.id\" target=\"_blank\" style=\"background-color:#875A7B; padding: 2px; text-decoration: none; color: #fff; border-radius: 2px;\">\n"
+"                                                                View Grievance\n"
+"                                                            </a>\n"
+"                                                            <br/>\n"
+"                                                            <p>Yours faithfully,</p>\n"
+"                                                            <p>\n"
+"                                                                <t t-out=\"object.company_id.name\"/>\n"
+"                                                            </p>\n"
+"                                                        </div>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                                <tr>\n"
+"                                                    <td style=\"text-align:center;\">\n"
+"                                                        <hr width=\"100%\" style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;\"/>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </table>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                    <tr>\n"
+"                                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                                                <tr>\n"
+"                                                    <td valign=\"middle\" align=\"left\">\n"
+"                                                        <t t-out=\"object.company_id.name or ''\"/>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                                <tr>\n"
+"                                                    <td valign=\"middle\" align=\"left\" style=\"opacity: 0.7;\">\n"
+"                                                        <t t-out=\"object.company_id.phone or ''\"/>\n"
+"                                                        <t t-if=\"object.company_id.email\">\n"
+"                                                            |\n"
+"                                                            <a href=\"'mailto:%s' % {{ object.company_id.email }}\" style=\"text-decoration:none; color: #454748;\">\n"
+"                                                                <t t-out=\"object.company_id.email or ''\"/>\n"
+"                                                            </a>\n"
+"                                                        </t>\n"
+"                                                        <t t-if=\"object.company_id.website\">\n"
+"                                                            |\n"
+"                                                            <a href=\"'%s' % {{ object.company_id.website }}\" style=\"text-decoration:none; color: #454748;\">\n"
+"                                                                <t t-out=\"object.company_id.website or ''\"/>\n"
+"                                                            </a>\n"
+"                                                        </t>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </table>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                </tbody>\n"
+"                            </table>\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                </table>\n"
+"            "
+msgstr ""
+"<tabela border = \"0\" CellPadding = \"0\" CellSpacing = \"0\" style = \"Padding-top: 16px; Collor-Color: #f1f1f1; Font-Family: Verdana, Arial, Sans-Serif; cor: #454748; Largura: 100%; colapso da borda: separado; \">\n"
+"                    <tr>\n"
+"                        <td align = \"Center\">\n"
+"                            <tabela border = \"0\" CellPadding = \"0\" CellSpacing = \"0\" width = \"590\" style = \"preenchimento: 16px; cor de fundo: branco; cor: #454748; colapso da borda: separado;\">\n"
+"                                <Tbody>\n"
+"                                    <tr>\n"
+"                                        <td align = \"Center\" style = \"Min-lar: 590px;\">\n"
+"                                            <tabela borda = \"0\" CellPadding = \"0\" CellSpacing = \"0\" width = \"590\" style = \"min-lar: 590px; cor de fundo: branco; preenchimento: 0px 8px 0px 8px; colapso da borda: separado; \">\n"
+"                                                <tr>\n"
+"                                                    <td valign = \"meio\">\n"
+"                                                        <span style = \"font-size: 10px;\"> Número de queixas </span>\n"
+"                                                        <br/>\n"
+"                                                        <span style = \"font-size: 20px; font-weight: Bold;\">\n"
+"                                                            <t the-out = \"object.name\"/>\n"
+"                                                        </span>\n"
+"                                                    </td>\n"
+"                                                    <td Valign = \"Middle\" align = \"Right\">\n"
+"                                                        <img t-at-src = \"'/logo.png? Company = % s' % object.company_id.id\" style = \"estofamento: 0px; margem: 0px; altura: auto; largura: 80px;\" t-at-alt = \"' % s' % object.company_id.name\"/>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                                <tr>\n"
+"                                                    <td colspan = \"2\" style = \"text-align: Center;\">\n"
+"                                                        <h width = \"100%\" style = \"cor de fundo: rgb (204.204.204); borda: médio nenhum; claro: ambos; exibição: bloco; font-tamanho: 0px; min-height: 1px; altura da linha: 0 ; margem: 16px 0px 16px 0px; \"/>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </tabela>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                    <tr>\n"
+"                                        <td align = \"Center\" style = \"Min-lar: 590px;\">\n"
+"                                            <tabela borda = \"0\" CellPadding = \"0\" CellSpacing = \"0\" width = \"590\" style = \"min-lar: 590px; cor de fundo: branco; preenchimento: 0px 8px 0px 8px; colapso da borda: separado; \">\n"
+"                                                <tr>\n"
+"                                                    <td valign = \"top\" style = \"font-size: 13px;\">\n"
+"                                                        <div>\n"
+"                                                            Olá\n"
+"                                                            <t t-if = \"Object.Grievance_for == 'Student'\">\n"
+"                                                                |\n"
+"                                                                <t the-out = \"object.student_id.name ou ''\"/>\n"
+"                                                            </t>\n"
+"                                                            <t t-if = \"Object.Grievance_for == 'Faculty'\">\n"
+"                                                                |\n"
+"                                                                <t the-out = \"Object.faculty_id.name ou ''\"/>\n"
+"                                                            </t>\n"
+"                                                            <t t-if = \"Object.Grievance_for == 'Parent'\">\n"
+"                                                                |\n"
+"                                                                <t the-out = \"object.parent_id.name.name ou ''\"/>\n"
+"                                                            </t>\n"
+"\n"
+"                                                            <br/>\n"
+"                                                            <p> Você postou uma queixa em\n"
+"                                                                <t the-out = \"object.created_date.strftime ('%m-%d-%y')\"/>\n"
+"                                                                .\n"
+"                                                            </p>\n"
+"                                                            <p>\n"
+"                                                                <b> Descrição da queixa: </b>\n"
+"                                                                <t t-out = \"object.Description\"/>\n"
+"                                                                .\n"
+"                                                            </p>\n"
+"                                                            <br/>\n"
+"                                                            <p> Desculpe, sua queixa não é válida, então\n"
+"                                                                foi rejeitado.\n"
+"                                                            </p>\n"
+"                                                            <br/>\n"
+"                                                            <a t-att-href = \"'/my/grievance/detalhe/ % s' % object.id\" target = \"_ Blank\" style = \"cor de fundo:#875A7B; preenchimento: 2px; decoração de texto: nenhum; Cor: #FFF; Radio de fronteira: 2px; \">\n"
+"                                                                Ver queixas\n"
+"                                                            </a>\n"
+"                                                            <br/>\n"
+"                                                            <p> Atenciosamente, </p>\n"
+"                                                            <p>\n"
+"                                                                <t t-out = \"object.company_id.name\"/>\n"
+"                                                            </p>\n"
+"                                                        </div>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                                <tr>\n"
+"                                                    <td style = \"text-align: Center;\">\n"
+"                                                        <h width = \"100%\" style = \"cor de fundo: rgb (204.204.204); borda: médio nenhum; claro: ambos; exibição: bloco; font-tamanho: 0px; min-height: 1px; altura da linha: 0 ; margem: 16px 0px 16px 0px; \"/>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </tabela>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                    <tr>\n"
+"                                        <td align = \"Center\" style = \"Min-lar: 590px;\">\n"
+"                                            <tabela borda = \"0\" CellPadding = \"0\" CellSpacing = \"0\" width = \"590\" style = \"min-lar: 590px; cor de fundo: branco; tamanho da fonte: 11px; preenchimento: 0px 8px 0px 8px; colapso da fronteira: separado; \">\n"
+"                                                <tr>\n"
+"                                                    <td valign = \"middle\" align = \"esquerda\">\n"
+"                                                        <t t-out = \"object.company_id.name ou ''\"/>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                                <tr>\n"
+"                                                    <td valign = \"middle\" align = \"esquerdo\" style = \"opacidade: 0,7;\">\n"
+"                                                        <t t-out = \"object.company_id.phone ou ''\"/>\n"
+"                                                        <t t-if = \"object.company_id.email\">\n"
+"                                                            |\n"
+"                                                            <a href=\"'Mailto:%s' % {{object.company_id.email} }\" style=\"text-decoration:none; color: #454748 ;\">\n"
+"                                                                <t t-out = \"object.company_id.mail ou ''\"/>\n"
+"                                                            </a>\n"
+"                                                        </t>\n"
+"                                                        <t t-if = \"object.company_id.website\">\n"
+"                                                            |\n"
+"                                                            <a href=\"'%S' % {{object.company_id.website}} }\" style=\"text-secoration:None; color: #454748; furos\n"
+"                                                                <t t-out = \"object.company_id.website ou ''\"/>\n"
+"                                                            </a>\n"
+"                                                        </t>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </tabela>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                </tbody>\n"
+"                            </tabela>\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                </tabela>\n"
+"            "
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_search_view
+msgid "Academic"
+msgstr "Acadêmico"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__academic_term_id
+msgid "Academic Term"
+msgstr "Termo acadêmico"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_registration
+msgid "Academic Term:"
+msgstr "Termo acadêmico:"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__academic_year_id
+msgid "Academic Year"
+msgstr "Ano acadêmico"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_registration
+msgid "Academic Year:"
+msgstr "Ano acadêmico:"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__state__action
+msgid "Action"
+msgstr "Ação"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_needaction
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_needaction
+msgid "Action Needed"
+msgstr "Ação necessária"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.actions.act_window,name:openeducat_grievance_enterprise.action_wizard_action_taken
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__action_taken
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_wizard_action_taken__action_taken
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.wizard_action_taken
+msgid "Action Taken"
+msgstr "Medida tomada"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__activity_ids
+msgid "Activities"
+msgstr "Atividades"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Decoração de exceção de atividade"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__activity_state
+msgid "Activity State"
+msgstr "Estado de atividade"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Ícone do tipo de atividade"
+
+#. module: openeducat_grievance_enterprise
+#. odoo-python
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#, python-format
+msgid "All"
+msgstr "Tudo"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_search_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "Appeal"
+msgstr "Apelo"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "Are you satisfied with the given resolution?"
+msgstr "Você está satisfeito com a resolução dada?"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_registration
+msgid "Attachment"
+msgstr "Acessório"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_attachment_count
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_attachment_count
+msgid "Attachment Count"
+msgstr "Contagem de anexos"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__attachment_ids
+msgid "Attachments"
+msgstr "Anexos"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_team_form_view
+msgid "Avatar"
+msgstr ""
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__batch_id
+msgid "Batch"
+msgstr "Lote"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_registration
+msgid "Batch:"
+msgstr "Lote:"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__can_publish
+msgid "Can Publish"
+msgstr "Pode publicar"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__state__cancel
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_search_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.wizard_action_taken
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: openeducat_grievance_enterprise
+#. odoo-python
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+#, python-format
+msgid "Category"
+msgstr "Categoria"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_registration
+msgid "Category:"
+msgstr "Categoria:"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__state__close
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_search_view
+msgid "Close"
+msgstr "Perto"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__color
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__color
+msgid "Color Index"
+msgstr "Índice de cores"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__company_id
+msgid "Company"
+msgstr "Companhia"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category__complete_name
+msgid "Complete Name"
+msgstr "Nome completo"
+
+#. module: openeducat_grievance_enterprise
+#. odoo-python
+#: code:addons/openeducat_grievance_enterprise/models/grievance.py:0
+#, python-format
+msgid "Compose Email"
+msgstr "Escrever um email"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.ui.menu,name:openeducat_grievance_enterprise.menu_action_configuration_gms
+msgid "Configuration"
+msgstr "Configuração"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__course_id
+msgid "Course"
+msgstr "Curso"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_registration
+msgid "Course:"
+msgstr "Curso:"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__created_date
+msgid "Created Date"
+msgstr "Data de criação"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__create_uid
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category__create_uid
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_root_cause__create_uid
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__create_uid
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_wizard_action_taken__create_uid
+msgid "Created by"
+msgstr "Criado por"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__create_date
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category__create_date
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_root_cause__create_date
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__create_date
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_wizard_action_taken__create_date
+msgid "Created on"
+msgstr "Criado em"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.gms_grievance_kanban_view
+msgid "Delete"
+msgstr "Excluir"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__description
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_registration
+msgid "Description"
+msgstr "Descrição"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__display_name
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category__display_name
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_root_cause__display_name
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__display_name
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_wizard_action_taken__display_name
+msgid "Display Name"
+msgstr "Nome em Exibição"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "Do you wish to appeal?"
+msgstr "Deseja apelar?"
+
+#. module: openeducat_grievance_enterprise
+#. odoo-python
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__state__draft
+#, python-format
+msgid "Draft"
+msgstr "Rascunho"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.gms_grievance_kanban_view
+msgid "Dropdown menu"
+msgstr "Menu suspenso"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.gms_grievance_kanban_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "Edit"
+msgstr "Editar"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__faculty_id
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__grievance_for__faculty
+msgid "Faculty"
+msgstr "Faculdade"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_follower_ids
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_follower_ids
+msgid "Followers"
+msgstr "Seguidores"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_partner_ids
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Seguidores (parceiros)"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Ícone de fonte incrível, por exemplo FA-Tasks"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model,name:openeducat_grievance_enterprise.model_grievance
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category__name
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+msgid "Grievance"
+msgstr "Queixa"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "Grievance :"
+msgstr "Queixa:"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model,name:openeducat_grievance_enterprise.model_wizard_action_taken
+msgid "Grievance Action Taken"
+msgstr "Ação de queixas tomadas"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__grievance_for
+msgid "Grievance By"
+msgstr "Queixa por"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.actions.act_window,name:openeducat_grievance_enterprise.action_grievance_category_list
+#: model:ir.model,name:openeducat_grievance_enterprise.model_grievance_category
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__grievance_category_id
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__grievance_category_id
+#: model:ir.ui.menu,name:openeducat_grievance_enterprise.menu_action_grievance_category_list
+msgid "Grievance Category"
+msgstr "Categoria de queixas"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_category_form_view
+msgid "Grievance Category Form"
+msgstr "Formulário de categoria de queixas"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_category_list_view
+msgid "Grievance Category Tree"
+msgstr "Árvore da categoria de queixas"
+
+#. module: openeducat_grievance_enterprise
+#: model:mail.template,name:openeducat_grievance_enterprise.mail_template_gms
+msgid "Grievance Mail"
+msgstr "Correio de queixas"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_pivot_view
+msgid "Grievance Pivot"
+msgstr "Pivô de queixas"
+
+#. module: openeducat_grievance_enterprise
+#: model:mail.template,name:openeducat_grievance_enterprise.mail_template_gms_rejection
+msgid "Grievance Rejection"
+msgstr "Rejeição de queixas"
+
+#. module: openeducat_grievance_enterprise
+#: model:mail.template,name:openeducat_grievance_enterprise.mail_template_gms_for_resolution
+msgid "Grievance Resolution Email"
+msgstr "Email de resolução de queixas"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model,name:openeducat_grievance_enterprise.model_grievance_root_cause
+msgid "Grievance Root Cause"
+msgstr "Causa da raiz da queixa"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_search_view
+msgid "Grievance Search"
+msgstr "Pesquisa de queixas"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model,name:openeducat_grievance_enterprise.model_grievance_team
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_res_users__grievance_team_id
+msgid "Grievance Team"
+msgstr "Equipe de queixas"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_team_form_view
+msgid "Grievance Team Form"
+msgstr "Formulário da equipe de queixas"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_team_search_view
+msgid "Grievance Team Search"
+msgstr "Pesquisa em equipe de reclamações"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_team_list_view
+msgid "Grievance Team Tree"
+msgstr "Árvore da equipe de queixas"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_team_form_view
+msgid "Grievance Team name..."
+msgstr "Nome da equipe de queixas ..."
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_list_view
+msgid "Grievance Tree"
+msgstr "Árvore de queixas"
+
+#. module: openeducat_grievance_enterprise
+#: model:mail.template,name:openeducat_grievance_enterprise.mail_template_gms_assign
+msgid "Grievance receive confirmation"
+msgstr "Queixas recebem confirmação"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.actions.act_window,name:openeducat_grievance_enterprise.action_grievance_list
+#: model:ir.ui.menu,name:openeducat_grievance_enterprise.menu_action_gms
+#: model:ir.ui.menu,name:openeducat_grievance_enterprise.menu_action_grievance_list
+#: model:openeducat.portal.menu,name:openeducat_grievance_enterprise.website_menu_gms_portal_menu
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_team_kanban_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_my_home_grievance
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_my_home_menu_grievance
+msgid "Grievances"
+msgstr "Queixas"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_search_view
+msgid "Group by Date"
+msgstr "Grupo por data"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__has_message
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__has_message
+msgid "Has Message"
+msgstr "Tem mensagem"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "History"
+msgstr "História"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__id
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category__id
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_root_cause__id
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__id
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_wizard_action_taken__id
+msgid "ID"
+msgstr "EU IRIA"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__activity_exception_icon
+msgid "Icon"
+msgstr "Ícone"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Ícone para indicar uma atividade de exceção."
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__message_needaction
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance_team__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Se verificado, novas mensagens exigem sua atenção."
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__message_has_error
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__message_has_sms_error
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance_team__message_has_error
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance_team__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Se verificado, algumas mensagens têm um erro de entrega."
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_search_view
+msgid "In Action"
+msgstr "Em ação"
+
+#. module: openeducat_grievance_enterprise
+#. odoo-python
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__state__in_review
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_search_view
+#, python-format
+msgid "In Review"
+msgstr "Em revisão"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__is_academic
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category__is_academic
+msgid "Is Academic"
+msgstr "É acadêmico"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__is_appeal
+msgid "Is Appeal"
+msgstr "É apelo"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_is_follower
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_is_follower
+msgid "Is Follower"
+msgstr "É seguidor"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__is_published
+msgid "Is Published"
+msgstr "Está publicado"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__is_satisfied
+msgid "Is Satisfied"
+msgstr "É satisfeito"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance____last_update
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category____last_update
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_root_cause____last_update
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team____last_update
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_wizard_action_taken____last_update
+msgid "Last Modified on"
+msgstr "Último modificado em"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__write_uid
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category__write_uid
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_root_cause__write_uid
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__write_uid
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_wizard_action_taken__write_uid
+msgid "Last Updated by"
+msgstr "Última atualização por"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__write_date
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category__write_date
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_root_cause__write_date
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__write_date
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_wizard_action_taken__write_date
+msgid "Last Updated on"
+msgstr "Última atualização em"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_main_attachment_id
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Anexo principal"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__member_ids
+msgid "Members"
+msgstr "Membros"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_has_error
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_has_error
+msgid "Message Delivery error"
+msgstr "Erro de entrega da mensagem"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_ids
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_ids
+msgid "Messages"
+msgstr "Mensagens"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Meu prazo de atividade"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__name
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_root_cause__name
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__name
+msgid "Name"
+msgstr "Nome"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__subject
+msgid "Name/Subject"
+msgstr "Nome/assunto"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_registration
+msgid "Name/Subject:"
+msgstr "Nome/Assunto:"
+
+#. module: openeducat_grievance_enterprise
+#. odoo-python
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#, python-format
+msgid "Newest"
+msgstr "O mais novo"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_registration
+msgid ""
+"Next\n"
+"                                            <span class=\"fa fa-long-arrow-right\"/>"
+msgstr ""
+"Próximo\n"
+"                                            <span class=\"fa fa fa-long-arrow-right\"/>"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "Próximo evento do calendário de atividades"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Próximo prazo de atividade"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__activity_summary
+msgid "Next Activity Summary"
+msgstr "Próxima atividade Resumo"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__activity_type_id
+msgid "Next Activity Type"
+msgstr "Próximo tipo de atividade"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__is_satisfied__no
+msgid "No"
+msgstr "Não"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_search_view
+msgid "Non-Academic"
+msgstr "Não acadêmico"
+
+#. module: openeducat_grievance_enterprise
+#. odoo-python
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#, python-format
+msgid "None"
+msgstr "Nenhum"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "Not-Satisfied 🙁"
+msgstr "Não satisfeito 🙁"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_needaction_counter
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Número de ações"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_has_error_counter
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_has_error_counter
+msgid "Number of errors"
+msgstr "Número de erros"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__message_needaction_counter
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance_team__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Número de mensagens que requer uma ação"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__message_has_error_counter
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance_team__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Número de mensagens com erro de entrega"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__parent_id
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__grievance_for__parent
+msgid "Parent"
+msgstr "Pai"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category__parent_id
+msgid "Parent Category"
+msgstr "Categoria Parental"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__grievance_parent_id
+msgid "Parent Grievance"
+msgstr "Queixa dos pais"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_registration
+msgid "Parent Grievance:"
+msgstr "Queixa dos pais:"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category__parent_path
+msgid "Parent Path"
+msgstr "Caminho dos pais"
+
+#. module: openeducat_grievance_enterprise
+#. odoo-python
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__state__reject
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+#, python-format
+msgid "Reject"
+msgstr "Rejeitar"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+msgid "Resolution"
+msgstr "Resolução"
+
+#. module: openeducat_grievance_enterprise
+#. odoo-python
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__state__resolve
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+#, python-format
+msgid "Resolve"
+msgstr "Resolver"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__activity_user_id
+msgid "Responsible User"
+msgstr "Usuário responsável"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__root_cause_id
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_wizard_action_taken__root_cause_id
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+msgid "Root Cause"
+msgstr "Causa raiz"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_has_sms_error
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Erro de entrega do SMS"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "Satisfied 😄"
+msgstr "Satisfeito 😄"
+
+#. module: openeducat_grievance_enterprise
+#. odoo-python
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#, python-format
+msgid "Search in All"
+msgstr "Pesquisar em todos"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+msgid "Send mail"
+msgstr "Enviar correio"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_team_kanban_view
+msgid "Settings"
+msgstr "Definições"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__state
+msgid "State"
+msgstr "Estado"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+msgid "Status"
+msgstr ""
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Status com base em atividades\n"
+"Vencido: a data de vencimento já foi aprovada\n"
+"Hoje: a data da atividade é hoje\n"
+"Planejado: atividades futuras."
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__student_id
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__grievance_for__student
+msgid "Student"
+msgstr "Aluna"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_registration
+msgid "Student Name:"
+msgstr "Nome do aluno:"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.wizard_action_taken
+msgid "Submit"
+msgstr "Enviar"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+msgid "Submit Grievance"
+msgstr "Enviar queixas"
+
+#. module: openeducat_grievance_enterprise
+#. odoo-python
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__state__submitted
+#, python-format
+msgid "Submitted"
+msgstr "Submetido"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+msgid "Take Action"
+msgstr "Tome uma atitude"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__grievance_team_id
+msgid "Team"
+msgstr "Equipe"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__team_leader
+msgid "Team Leader"
+msgstr "Lider do Time"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_team_form_view
+msgid "Team Members"
+msgstr "Membros do time"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.actions.act_window,name:openeducat_grievance_enterprise.action_grievance_team_list
+#: model:ir.ui.menu,name:openeducat_grievance_enterprise.menu_action_grievance_team_list
+msgid "Teams"
+msgstr "Equipes"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__website_url
+msgid "The full URL to access the document through the website."
+msgstr "O URL completo para acessar o documento através do site."
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+msgid "There are no Grievances"
+msgstr "Não há queixas"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__grievance_count
+msgid "Total Grievances"
+msgstr "Queixas totais"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Tipo de atividade de exceção registrada."
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+msgid ""
+"Update\n"
+"                                        <span class=\"fa fa-long-arrow-right\"/>"
+msgstr ""
+"Atualizar\n"
+"                                        <span class=\"fa fa fa-long-arrow-right\"/>"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model,name:openeducat_grievance_enterprise.model_res_users
+msgid "User"
+msgstr "Do utilizador"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__website_published
+msgid "Visible on current website"
+msgstr "Visível no site atual"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__website_message_ids
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__website_message_ids
+msgid "Website Messages"
+msgstr "Mensagens do site"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__website_url
+msgid "Website URL"
+msgstr "URL do site"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__website_message_ids
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance_team__website_message_ids
+msgid "Website communication history"
+msgstr "Histórico de comunicação do site"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__is_satisfied__yes
+msgid "Yes"
+msgstr "Sim"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_access_denied
+msgid "You are not Allowed to Access this data."
+msgstr "Você não tem permissão para acessar esses dados."
+
+#. module: openeducat_grievance_enterprise
+#. odoo-python
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#, python-format
+msgid "close"
+msgstr "perto"
+
+#. module: openeducat_grievance_enterprise
+#. odoo-python
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#, python-format
+msgid "grievance category search"
+msgstr "pesquisa de categoria de reclamação"
+
+#. module: openeducat_grievance_enterprise
+#. odoo-python
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#, python-format
+msgid "search in Batch"
+msgstr "pesquisar em lote"
+
+#. module: openeducat_grievance_enterprise
+#. odoo-python
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#, python-format
+msgid "search in Course"
+msgstr "pesquisar no curso"
+
+#. module: openeducat_grievance_enterprise
+#: model:mail.template,subject:openeducat_grievance_enterprise.mail_template_gms
+msgid "{{ object.subject }}"
+msgstr "{{object.subject}}"

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <!-- View account.move form -->
+    <record id="view_account_move_form" model="ir.ui.view">
+        <field name="name">view.account.move.form</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='other_info']/group[@id='other_tab_group']/group[@name='sale_info_group']/field[@name='ref']" position="after">
+                <group>
+                    <field name="link_payment" invisible="0"/>
+                    <field name="is_sent_mail" />
+                    <field name="link_payment_static" invisible="1"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- View account.move tree -->
+    <record id="view_account_move_tree_inherit" model="ir.ui.view">
+        <field name="name">view.account.move.tree</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account_edi.view_out_invoice_tree_inherit"/>
+        <field name="arch" type="xml">
+            <field name="edi_state" position="before">
+                    <field name="is_sent_mail" 
+                        optional="hide"
+                        widget="badge"
+                        decoration-success="is_sent_mail == 'is_sent'"
+                        decoration-danger="is_sent_mail == 'not_sent'"/>
+                </field>
+        </field>
+    </record>
+
+
+    <!-- View account.move search -->
+    <record id="view_account_invoice_filter_inherit" model="ir.ui.view">
+        <field name="name">account.invoice.select.inherit</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='invoice_date']" position="before">
+                <filter string="Facturas Publicadas con Link Pago No Enviado"
+                        domain="[('is_sent_mail', '=', 'not_send'), ('state', '=', 'posted')]"
+                        name="invoices_published_with_payment_link_not_sent"/>
+                <separator/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="account.action_move_out_invoice_type" model="ir.actions.act_window">
+        <field name="context">{'search_default_invoices_published_with_payment_link_not_sent': 0}</field>
+    </record>
+
+</odoo>

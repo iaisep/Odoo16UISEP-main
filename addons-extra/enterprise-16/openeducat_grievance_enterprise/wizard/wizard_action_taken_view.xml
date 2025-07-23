@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="wizard_action_taken" model="ir.ui.view">
+            <field name="name">Action Taken</field>
+            <field name="model">wizard.action.taken</field>
+            <field name="arch" type="xml">
+                <form string="Action Taken">
+                    <group>
+                        <field name="action_taken"/>
+                        <field name="root_cause_id"/>
+                    </group>
+                    <footer>
+                        <button name="submit_action" string="Submit" type="object" class="btn-primary"/>
+                        <button special="cancel" string="Cancel" class="btn-secondary"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_wizard_action_taken" model="ir.actions.act_window">
+            <field name="name">Action Taken</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wizard.action.taken</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+</odoo>

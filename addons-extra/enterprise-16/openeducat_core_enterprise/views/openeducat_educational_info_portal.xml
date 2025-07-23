@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="student_portal_educational_information"
+              inherit_id="openeducat_core_enterprise.openeducat_enterprise_student_portal"
+              priority="10">
+        <xpath expr="//ul[hasclass('nav-pills')]" position="inside">
+            <li class="ed_info">
+                <a href="#education_info" aria-expanded="false" data-bs-toggle="tab" role="tab">
+                    <h5 class="mb0">
+                        Educational
+                    </h5>
+                </a>
+            </li>
+        </xpath>
+        <xpath expr="//div[hasclass('tab-content')]" position="inside">
+            <div class="tab-pane fade" id="education_info">
+                <div t-if="student.gr_no" class="row col-md-12">
+                    <div>
+                        <strong>Gr Number:</strong>
+                    </div>
+                    <div class="col-md-8">
+                        <span t-esc="student.gr_no"/>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <h4>Admission Detail</h4>
+                </div>
+                <table class="mt16 table table-condensed">
+                    <thead>
+                        <tr>
+                            <th>Course</th>
+                            <th>Batch</th>
+                            <th>Roll Number</th>
+                            <th>Subjects</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="student.course_detail_ids" t-as="course_detail">
+                            <tr>
+                                <td>
+                                    <span t-esc="course_detail.course_id.name"/>
+                                </td>
+                                <td>
+                                    <span t-esc="course_detail.batch_id.name"/>
+                                </td>
+
+                                <td>
+                                    <span t-esc="course_detail.roll_number"/>
+                                </td>
+                                <td>
+                                    <t t-foreach="course_detail.subject_ids" t-as="subject">
+                                        <li style=" list-style-type: none;" t-esc="subject.name"/>
+                                    </t>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="portal_my_home_menu_academic_calendar"
+              name="Portal layout : Academic Calendar"
+              inherit_id="openeducat_core_enterprise.portal_breadcrumbs_inhetrite" priority="10">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="page_name == 'academic_calendar' or academic_calendar"
+                t-attf-class="breadcrumb-item #{'active ' if not notice_board else ''}">
+                <t t-if="user_id.sudo().is_student">
+                    <a t-if="academic_calendar or academic_calendar"
+                       t-attf-href="/my/academic-calendar/?{{ keep_query() }}">
+                        <span>Academic Calendar</span>
+                    </a>
+                    <t t-else=" ">
+                        <span>Academic Calendar</span>
+                    </t>
+                </t>
+                <t t-else=" ">
+                    <a t-if="academic_calendar or academic_calendar"
+                       t-attf-href="/my/academic-calendar/#{current_stud_id}?{{ keep_query() }}">
+                        <span>Academic Calendar</span>
+                    </a>
+                    <t t-else=" ">
+                        <span>Academic Calendar</span>
+                    </t>
+                </t>
+            </li>
+        </xpath>
+    </template>
+
+    <template id="academic_calendar_portal">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Timetable List</t>
+            </t>
+            <div class="stud_id_academic_calendar" t-att-current_stud_id="current_stud_id"/>
+            <div class="academic_calendar_portal active">
+                <div id="academic_calendar_portal_kendo"/>
+            </div>
+            <script id="event-template" type="text/x-kendo-template">
+                <div class="project-template">
+                    <h4>#: title #</h4>
+                </div>
+            </script>
+            <script id="day-event-template" type="text/x-kendo-template">
+                <div class="project-template-day-event-template">
+                    <h4>#: title #</h4>
+                    <!-- <h4>#: faculty #</h4> -->
+                    <p>
+                        #: kendo.toString(start, "dd/MM:dddd") # - #: kendo.toString(end, "dd/MM:dddd") #
+                    </p>
+                </div>
+            </script>
+            <script id="editor" type="text/x-kendo-template">
+                <div style="padding-left:30px;">
+                    <!-- <h3>Lecture Detail</h3> -->
+                    <p>Subject: <span data-bind="text: title"/>  </p>
+                    <!-- <p>
+                        Start Date:
+                            <span data-bind="text: start"/>
+                    </p>
+                    <p>
+                        End Date:
+                            <span data-bind="text: end"/>
+                    </p> -->
+                </div>
+            </script>
+        </t>
+    </template>
+</odoo>

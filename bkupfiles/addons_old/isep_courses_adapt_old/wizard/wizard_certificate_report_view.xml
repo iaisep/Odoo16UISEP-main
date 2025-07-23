@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_isep_certifies_report_from" model="ir.ui.view">
+        <field name='name'>isep.certifies.report.form</field>
+        <field name='model'>isep.certifies.report</field>
+        <field name='arch' type='xml'>
+            <form string='Automatic Merge Wizard'>
+                <sheet>
+                    <group>
+                        <field name="student_id" options="{'no_create': True, 'no_open': True}" readonly="1"/>
+                        <field name="batch_id"   options="{'no_create': True, 'no_open': True}" />
+                        <field name="course_id"   invisible="1" />
+                        <field name="file_id" options="{'no_create': True, 'no_open': True}"/>
+                        <field name="batch_ids" invisible="1"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="print_diploma_certify" string="IMPRIMIR" type="object" class="btn-primary"/>
+                    <button special="cancel" string="Cerrar" type="object" class="btn btn-secondary oe_inline"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

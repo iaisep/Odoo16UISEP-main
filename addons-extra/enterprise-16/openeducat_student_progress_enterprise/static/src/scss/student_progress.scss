@@ -1,0 +1,90 @@
+#wrapwrap.o_portal {
+    background-color: #fff !important;
+}
+
+#student-progression{
+    .tab-content-box{
+        background: #fff;
+        padding: 30px 30px;
+        box-shadow: 0 8px 6px -6px #a7a7a7;
+        -webkit-box-shadow: 0 8px 6px -6px #a7a7a7;
+        -moz-box-shadow: 0 8px 6px -6px #a7a7a7;
+        border: 1px solid #e7e7e7;
+    }
+
+    .nav a{
+        border-radius: 0 !important;
+        background: theme-color('gamma');
+        width: 100%;
+        display: block;
+        padding: 10px 15px;
+        margin-bottom: 1px;
+    }
+
+    .nav a h5{
+        font-size: 16px;
+    }
+
+    .nav li{
+        width: 100%;
+    }
+
+    .nav-pills .nav-link {
+        border-bottom: 1px solid #fff;
+    }
+
+    a.active,
+        .a:hover,
+        .a:focus{
+            border-left: 4px solid map-get($theme-colors, 'secondary') !important;
+            padding: 10px;
+    }
+
+    .tab-content .profile-fields{
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+    }
+
+    .tab-content .profile-fields td{
+        border: 1px solid #e7e7e7;
+        padding: 15px;
+        vertical-align: middle;
+        text-align: left;
+    }
+
+    .tab-content .profile-fields .label{
+        width: 30%;
+        font-weight: bold;
+    }
+
+    .tab-content .table-condensed{
+        //width: 100%;
+        //border-collapse: collapse;
+        //table-layout: fixed;
+
+        thead{
+            background: theme-color('gamma');
+            color: map-get($theme-colors, 'secondary')
+        }
+
+        td,th{
+            border: 1px solid #d0d0d0;
+            //padding: 15px;
+            vertical-align: middle;
+            //text-align:center;
+        }
+
+        .numspan{
+            text-align:right;
+        }
+    }
+    @media(max-width:768px){
+        .tab-content .table-condensed{
+            display: block;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+    }
+}

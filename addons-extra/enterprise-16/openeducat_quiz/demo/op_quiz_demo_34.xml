@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="op_ans_grd_100p5" model="op.answer.grade">
+            <field name="name">+100%</field>
+            <field name="value">100</field>
+        </record>
+
+        <record id="op_ans_grd_50p5" model="op.answer.grade">
+            <field name="name">+50%</field>
+            <field name="value">50</field>
+        </record>
+
+        <record id="op_ans_grd_25p5" model="op.answer.grade">
+            <field name="name">+25%</field>
+            <field name="value">25</field>
+        </record>
+
+        <record id="op_ans_grd_05" model="op.answer.grade">
+            <field name="name">0</field>
+            <field name="value">0</field>
+        </record>
+
+        <record id="op_ans_grd_100n5" model="op.answer.grade">
+            <field name="name">-100%</field>
+            <field name="value">-100</field>
+        </record>
+
+        <record id="op_ans_grd_50n5" model="op.answer.grade">
+            <field name="name">-50%</field>
+            <field name="value">-50</field>
+        </record>
+
+        <record id="op_ans_grd_25n5" model="op.answer.grade">
+            <field name="name">-25%</field>
+            <field name="value">-25</field>
+        </record>
+
+
+        <record id="op_qz_ctg_s" model="op.quiz.category">
+            <field name="name">Category Speaking</field>
+            <field name="code">CS</field>
+        </record>
+
+
+        <record id="op_qz_s1" model="op.quiz">
+            <field name="name">Speaking Quiz</field>
+            <field name="categ_id" ref="op_qz_ctg_s"/>
+            <field name="quiz_config">quiz_bank_selected</field>
+            <field name="time_config">True</field>
+            <field name="time_limit_hr">1</field>
+            <field name="time_limit_minute">30</field>
+            <field name="no_of_attempt">1</field>
+            <field name="description">This quiz is based on Public Speaking and Presentations
+            </field>
+            <field name="state">open</field>
+            <field name="quiz_html">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
+                but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in
+                the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with
+                desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </field>
+
+        </record>
+
+        <record id="op_qu_bnk_typ_s" model="op.question.bank.type">
+            <field name="name">Speaking and Presentations</field>
+        </record>
+
+        <record id="op_qu_bnk_s" model="op.question.bank">
+            <field name="name">Public Speaking and Presentations</field>
+            <field name="bank_type_id" ref="op_qu_bnk_typ_s"/>
+        </record>
+
+        <record id="op_c_qs1" model="op.question.bank.line">
+            <field name="name"> What is the maximum time for a short speech?</field>
+            <field name="mark" type="float">1.0</field>
+             <field name="material_type">infographic</field>
+            <field name="datas" type="base64"
+                   file="openeducat_quiz/demo/files/speech.jpg"/>
+            <field name="bank_id" ref="op_qu_bnk_s"/>
+        </record>
+
+        <record id="op_c_qs1_a01" model="op.question.bank.answer">
+            <field name="name">Ten minutes</field>
+            <field name="grade_id" ref="op_ans_grd_100p5"/>
+            <field name="question_id" ref="op_c_qs1"/>
+        </record>
+
+        <record id="op_c_qs1_a02" model="op.question.bank.answer">
+            <field name="name">Thirty minutes</field>
+            <field name="grade_id" ref="op_ans_grd_05"/>
+            <field name="question_id" ref="op_c_qs1"/>
+        </record>
+
+        <record id="op_c_qs1_a03" model="op.question.bank.answer">
+            <field name="name">Forty- five minutes</field>
+            <field name="grade_id" ref="op_ans_grd_05"/>
+            <field name="question_id" ref="op_c_qs1"/>
+        </record>
+
+        <record id="op_c_qs1_a04" model="op.question.bank.answer">
+            <field name="name">none of these</field>
+            <field name="grade_id" ref="op_ans_grd_05"/>
+            <field name="question_id" ref="op_c_qs1"/>
+        </record>
+
+
+        <record id="op_qz_ln_s1" model="op.quiz.line">
+            <field name="name">What is the maximum time for a short speech?</field>
+            <field name="mark" type="float">1.0</field>
+             <field name="material_type">infographic</field>
+            <field name="datas" type="base64"
+                   file="openeducat_quiz/demo/files/speech.jpg"/>
+            <field name="quiz_id" ref="op_qz_s1"/>
+            <field name="que_id" ref="op_c_qs1"/>
+        </record>
+
+        <record id="op_qz_ln_s1_c_qm1_am1" model="op.quiz.answer">
+            <field name="name">Ten minutes</field>
+            <field name="grade_id" ref="op_ans_grd_100p5"/>
+            <field name="line_id" ref="op_qz_ln_s1"/>
+        </record>
+
+        <record id="op_qz_ln_s1_c_qm1_am2" model="op.quiz.answer">
+            <field name="name">Thirty minutes</field>
+            <field name="grade_id" ref="op_ans_grd_05"/>
+            <field name="line_id" ref="op_qz_ln_s1"/>
+        </record>
+
+        <record id="op_qz_ln_s1_c_qm1_am3" model="op.quiz.answer">
+            <field name="name">Forty- five minutes</field>
+            <field name="grade_id" ref="op_ans_grd_05"/>
+            <field name="line_id" ref="op_qz_ln_s1"/>
+        </record>
+
+        <record id="op_qz_ln_s1_c_qm1_am4" model="op.quiz.answer">
+            <field name="name">none of these</field>
+            <field name="grade_id" ref="op_ans_grd_05"/>
+            <field name="line_id" ref="op_qz_ln_s1"/>
+        </record>
+
+        <record id="op_c_qs2" model="op.question.bank.line">
+            <field name="name">Which of these is not a type of public speech?</field>
+            <field name="mark" type="float">1.0</field>
+             <field name="material_type">infographic</field>
+            <field name="datas" type="base64"
+                   file="openeducat_quiz/demo/files/publicspeach.jpg"/>
+            <field name="bank_id" ref="op_qu_bnk_s"/>
+        </record>
+
+        <record id="op_c_qs2_a01" model="op.question.bank.answer">
+            <field name="name">Short speech</field>
+            <field name="grade_id" ref="op_ans_grd_05"/>
+            <field name="question_id" ref="op_c_qs2"/>
+        </record>
+
+        <record id="op_c_qs2_a02" model="op.question.bank.answer">
+            <field name="name">Informal speech</field>
+            <field name="grade_id" ref="op_ans_grd_05"/>
+            <field name="question_id" ref="op_c_qs2"/>
+        </record>
+
+        <record id="op_c_qs2_a03" model="op.question.bank.answer">
+            <field name="name">Written speech</field>
+            <field name="grade_id" ref="op_ans_grd_100p5"/>
+            <field name="question_id" ref="op_c_qs2"/>
+        </record>
+
+        <record id="op_c_qs2_a04" model="op.question.bank.answer">
+            <field name="name">Professional speech</field>
+            <field name="grade_id" ref="op_ans_grd_05"/>
+            <field name="question_id" ref="op_c_qs2"/>
+        </record>
+
+
+        <record id="op_qz_ln_s2" model="op.quiz.line">
+            <field name="name">Which of these is not a type of public speech?</field>
+            <field name="mark" type="float">1.0</field>
+             <field name="material_type">infographic</field>
+            <field name="datas" type="base64"
+                   file="openeducat_quiz/demo/files/publicspeach.jpg"/>
+            <field name="quiz_id" ref="op_qz_s1"/>
+            <field name="que_id" ref="op_c_qs2"/>
+        </record>
+
+        <record id="op_qz_ln_s1_c_qm2_am1" model="op.quiz.answer">
+            <field name="name">Short speech</field>
+            <field name="grade_id" ref="op_ans_grd_05"/>
+            <field name="line_id" ref="op_qz_ln_s2"/>
+        </record>
+
+        <record id="op_qz_ln_s1_c_qm2_am2" model="op.quiz.answer">
+            <field name="name">Informal speech</field>
+            <field name="grade_id" ref="op_ans_grd_05"/>
+            <field name="line_id" ref="op_qz_ln_s2"/>
+        </record>
+
+        <record id="op_qz_ln_s1_c_qm2_am3" model="op.quiz.answer">
+            <field name="name">Written speech</field>
+            <field name="grade_id" ref="op_ans_grd_100p5"/>
+            <field name="line_id" ref="op_qz_ln_s2"/>
+        </record>
+
+        <record id="op_qz_ln_s1_c_qm2_am4" model="op.quiz.answer">
+            <field name="name">Professional speech</field>
+            <field name="grade_id" ref="op_ans_grd_05"/>
+            <field name="line_id" ref="op_qz_ln_s2"/>
+        </record>
+
+
+        <record id="op_c_qs3" model="op.question.bank.line">
+            <field name="name">Which of these is not a type of means of speech delivery?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_s"/>
+        </record>
+
+        <record id="op_c_qs3_a01" model="op.question.bank.answer">
+            <field name="name">Reading</field>
+            <field name="grade_id" ref="op_ans_grd_05"/>
+            <field name="question_id" ref="op_c_qs3"/>
+        </record>
+
+        <record id="op_c_qs3_a02" model="op.question.bank.answer">
+            <field name="name">Memorization</field>
+            <field name="grade_id" ref="op_ans_grd_05"/>
+            <field name="question_id" ref="op_c_qs3"/>
+        </record>
+
+        <record id="op_c_qs3_a03" model="op.question.bank.answer">
+            <field name="name">Scolding</field>
+            <field name="grade_id" ref="op_ans_grd_100p5"/>
+            <field name="question_id" ref="op_c_qs3"/>
+        </record>
+
+        <record id="op_c_qs3_a04" model="op.question.bank.answer">
+            <field name="name">Impromptu</field>
+            <field name="grade_id" ref="op_ans_grd_05"/>
+            <field name="question_id" ref="op_c_qs3"/>
+        </record>
+
+
+        <record id="op_qz_ln_s3" model="op.quiz.line">
+            <field name="name">Which of these is not a type of means of speech delivery?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="quiz_id" ref="op_qz_s1"/>
+            <field name="que_id" ref="op_c_qs3"/>
+        </record>
+
+        <record id="op_qz_ln_s1_c_qm3_am1" model="op.quiz.answer">
+            <field name="name">Reading</field>
+            <field name="grade_id" ref="op_ans_grd_05"/>
+            <field name="line_id" ref="op_qz_ln_s3"/>
+        </record>
+
+        <record id="op_qz_ln_s1_c_qm3_am2" model="op.quiz.answer">
+            <field name="name">Memorization</field>
+            <field name="grade_id" ref="op_ans_grd_05"/>
+            <field name="line_id" ref="op_qz_ln_s3"/>
+        </record>
+
+        <record id="op_qz_ln_s1_c_qm3_am3" model="op.quiz.answer">
+            <field name="name">Scolding</field>
+            <field name="grade_id" ref="op_ans_grd_100p5"/>
+            <field name="line_id" ref="op_qz_ln_s3"/>
+        </record>
+
+        <record id="op_qz_ln_s1_c_qm3_am4" model="op.quiz.answer">
+            <field name="name">Impromptu</field>
+            <field name="grade_id" ref="op_ans_grd_05"/>
+            <field name="line_id" ref="op_qz_ln_s3"/>
+        </record>
+
+        <record id="op_c_qs4" model="op.question.bank.line">
+            <field name="name">Which of these should be avoided for an effective speech?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_s"/>
+        </record>
+
+        <record id="op_c_qs4_a01" model="op.question.bank.answer">
+            <field name="name">Planning of speech</field>
+            <field name="grade_id" ref="op_ans_grd_05"/>
+            <field name="question_id" ref="op_c_qs4"/>
+        </record>
+
+        <record id="op_c_qs4_a02" model="op.question.bank.answer">
+            <field name="name">Preparation of speech</field>
+            <field name="grade_id" ref="op_ans_grd_05"/>
+            <field name="question_id" ref="op_c_qs4"/>
+        </record>
+
+        <record id="op_c_qs4_a03" model="op.question.bank.answer">
+            <field name="name">Long sentences</field>
+            <field name="grade_id" ref="op_ans_grd_100p5"/>
+            <field name="question_id" ref="op_c_qs4"/>
+        </record>
+
+        <record id="op_c_qs4_a04" model="op.question.bank.answer">
+            <field name="name">Organisation</field>
+            <field name="grade_id" ref="op_ans_grd_05"/>
+            <field name="question_id" ref="op_c_qs4"/>
+        </record>
+
+
+        <record id="op_qz_ln_s4" model="op.quiz.line">
+            <field name="name">Which of these should be avoided for an effective speech?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="quiz_id" ref="op_qz_s1"/>
+            <field name="que_id" ref="op_c_qs4"/>
+        </record>
+
+        <record id="op_qz_ln_s1_c_qm4_am1" model="op.quiz.answer">
+            <field name="name">Planning of speech</field>
+            <field name="grade_id" ref="op_ans_grd_05"/>
+            <field name="line_id" ref="op_qz_ln_s4"/>
+        </record>
+
+        <record id="op_qz_ln_s1_c_qm4_am2" model="op.quiz.answer">
+            <field name="name">Preparation of speech</field>
+            <field name="grade_id" ref="op_ans_grd_05"/>
+            <field name="line_id" ref="op_qz_ln_s4"/>
+        </record>
+
+        <record id="op_qz_ln_s1_c_qm4_am3" model="op.quiz.answer">
+            <field name="name">Long sentences</field>
+            <field name="grade_id" ref="op_ans_grd_100p5"/>
+            <field name="line_id" ref="op_qz_ln_s4"/>
+        </record>
+
+        <record id="op_qz_ln_s1_c_qm4_am4" model="op.quiz.answer">
+            <field name="name">Organisation</field>
+            <field name="grade_id" ref="op_ans_grd_05"/>
+            <field name="line_id" ref="op_qz_ln_s4"/>
+        </record>
+
+        <record id="op_c_qs5" model="op.question.bank.line">
+            <field name="name">Which of these should be avoided during the delivery of a speech?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_s"/>
+        </record>
+
+        <record id="op_c_qs5_a01" model="op.question.bank.answer">
+            <field name="name">Confidence</field>
+            <field name="grade_id" ref="op_ans_grd_05"/>
+            <field name="question_id" ref="op_c_qs5"/>
+        </record>
+
+        <record id="op_c_qs5_a02" model="op.question.bank.answer">
+            <field name="name">Clarity</field>
+            <field name="grade_id" ref="op_ans_grd_05"/>
+            <field name="question_id" ref="op_c_qs5"/>
+        </record>
+
+        <record id="op_c_qs5_a03" model="op.question.bank.answer">
+            <field name="name">Pauses</field>
+            <field name="grade_id" ref="op_ans_grd_05"/>
+            <field name="question_id" ref="op_c_qs5"/>
+        </record>
+
+        <record id="op_c_qs5_a04" model="op.question.bank.answer">
+            <field name="name">Rudeness</field>
+            <field name="grade_id" ref="op_ans_grd_100p5"/>
+            <field name="question_id" ref="op_c_qs5"/>
+        </record>
+
+
+        <record id="op_qz_ln_s5" model="op.quiz.line">
+            <field name="name">Which of these should be avoided during the delivery of a speech?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="quiz_id" ref="op_qz_s1"/>
+            <field name="que_id" ref="op_c_qs5"/>
+        </record>
+
+        <record id="op_qz_ln_s1_c_qm5_am1" model="op.quiz.answer">
+            <field name="name">Confidence</field>
+            <field name="grade_id" ref="op_ans_grd_05"/>
+            <field name="line_id" ref="op_qz_ln_s5"/>
+        </record>
+
+        <record id="op_qz_ln_s1_c_qm5_am2" model="op.quiz.answer">
+            <field name="name">Clarity</field>
+            <field name="grade_id" ref="op_ans_grd_05"/>
+            <field name="line_id" ref="op_qz_ln_s5"/>
+        </record>
+
+        <record id="op_qz_ln_s1_c_qm5_am3" model="op.quiz.answer">
+            <field name="name">Pauses</field>
+            <field name="grade_id" ref="op_ans_grd_05"/>
+            <field name="line_id" ref="op_qz_ln_s5"/>
+        </record>
+
+        <record id="op_qz_ln_s1_c_qm5_am4" model="op.quiz.answer">
+            <field name="name">Rudeness</field>
+            <field name="grade_id" ref="op_ans_grd_100p5"/>
+            <field name="line_id" ref="op_qz_ln_s5"/>
+        </record>
+
+
+</odoo>

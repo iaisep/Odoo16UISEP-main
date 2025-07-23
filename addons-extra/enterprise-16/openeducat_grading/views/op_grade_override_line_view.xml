@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="view_op_grade_override_line_tree" model="ir.ui.view">
+            <field name="name">op.grade.override.line.tree</field>
+            <field name="model">op.grade.override.line</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree editable="top">
+                    <field name="grade_grade_id"/>
+                    <field name="year"/>
+                    <field name="term"/>
+                    <field name="subject"/>
+                    <field name="calculated"/>
+                    <field name="grade"/>
+                    <field name="override"/>
+                    <field name="final"/>
+                    <field name="comment"/>
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_op_grade_override_line_form" model="ir.ui.view">
+            <field name="name">op.grade.override.line.form</field>
+            <field name="model">op.grade.override.line</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Grade Override Line">
+                    <sheet>
+                        <group>
+                            <field name="year"/>
+                            <field name="term"/>
+                            <field name="subject"/>
+                            <field name="calculated"/>
+                            <field name="grade"/>
+                            <field name="override"/>
+                            <field name="final"/>
+                            <field name="comment"/>
+                            <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_op_grade_override_line_search" model="ir.ui.view">
+            <field name="name">op.grade.override.line.search</field>
+            <field name="model">op.grade.override.line</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Grade Override Line">
+                    <field name="year"/>
+                    <field name="term"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_op_grade_override_line_view">
+            <field name="name">Grade Override Line</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.grade.override.line</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_op_grade_override_line_search"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_op_grade_override_line_view_form">
+            <field name="act_window_id" ref="act_op_grade_override_line_view"/>
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_op_grade_override_line_form"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_op_grade_override_line_view_tree">
+            <field name="act_window_id" ref="act_op_grade_override_line_view"/>
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_op_grade_override_line_tree"/>
+        </record>
+
+</odoo>

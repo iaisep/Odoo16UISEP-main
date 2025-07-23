@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-inherit="mail.ChannelInvitationForm" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('o_ChannelInvitationForm')]" position="inside">
+            <t t-if="messaging">
+                <t t-if="messaging.rtc">
+                    <t t-if="messaging.rtc.currentRtcSession">
+                        <t t-if="messaging.rtc.currentRtcSession.isHost">
+                            <div class="mb24 mx-0 mt-2">
+                                <div class="col-12">
+                                    <label class="my-1 mx-3 o_RtcConfigurationMenu_optionLabel" title="Password" aria-label="Password">
+                                        <p class="o_RtcConfigurationMenu_optionName my-2 font-weight-normal">
+                                            <input style="vertical-align: middle;" type="checkbox" id="checked" name="Password" value="Password" t-on-change="channelInvitationForm._password" t-att-checked="messaging.rtc.currentRtcSession.isPassword ? 'checked' : ''"/>
+                                            <span class="mx-2 text-600">Password</span>
+                                        </p>
+                                    </label>
+                                </div>
+
+                                <div class="mx-3 my-2">
+                                    <t t-if="messaging.rtc.currentRtcSession.isPassword">
+                                        <input type="text" t-att-value="messaging.rtc.currentRtcSession.iscreatedpassword" style="padding: 8px 4px;" readonly="true"/>
+                                    </t>
+                                </div>
+                            </div>
+                        </t>
+                    </t>
+                </t>
+            </t>
+        </xpath>
+    </t>
+</templates>

@@ -1,0 +1,1777 @@
+
+msgid ""
+msgstr ""
+"Project-Id-Version:Odoo Server 15.0"
+"Report-Msgid-Bugs-To:"
+"POT-Creation-Date:2022-09-23 07:04+0000"
+"PO-Revision-Date:2022-09-23 07:04+0000"
+"Last-Translator:"
+"Language-Team:"
+"MIME-Version:1.0"
+"Content-Type:text/plain; charset=UTF-8"
+"Content-Transfer-Encoding:"
+"Plural-Forms:"
+
+#. module: openeducat_grading
+#: code:addons/openeducat_grading/controllers/main.py:0
+#, python-format
+msgid "%s is not the reference of a report"
+msgstr "%s nie jest odniesieniem do raportu"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.honor_roll_list
+msgid "<b>Academic Year:</b>"
+msgstr "<b>Rok akademicki:</b>"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.statistics
+msgid "<b>Assignment :</b>"
+msgstr "<b>Zadanie:</b>"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.honor_roll_list
+msgid "<b>Course:</b>"
+msgstr "<b>Kurs:</b>"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.statistics
+msgid "<b>Point :</b>"
+msgstr "<b>Punkt:</b>"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.student_statistics
+msgid ""
+"<br/>\n"
+"                                <span style=\"font-size: 14px;\">\n"
+"                                    <b>GradeBook :</b>\n"
+"                                </span>"
+msgstr ""
+"<br/>\n"
+" <span style=\"font-size: 14px;\">\n"
+" <b>Dziennik ocen:</b>\n"
+" </span>"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.honor_certi_data
+msgid ""
+"<br/>\n"
+"                    <span style=\"margin-left: 17px;\">DATE</span>"
+msgstr ""
+"<br/>\n"
+" <span style=\"margin-left: 17px;\">DATA</span>"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_assignment_form
+msgid "<span class=\"o_stat_text\">Grade</span>"
+msgstr "<span class=\"o_stat_text\">Ocena</span>"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.grading_smart_button_op_student_inherit
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_gradebook_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_course_inherited_grade_form_view
+msgid "<span class=\"o_stat_text\">GradeBook</span>"
+msgstr "<span class=\"o_stat_text\">Dziennik ocen</span>"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_gradebook_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_assignment_form
+msgid "<span class=\"o_stat_text\">Statistics</span>"
+msgstr "<span class=\"o_stat_text\">Statystyki</span>"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.student_statistics
+msgid ""
+"<span style=\"font-size: 14px;\">\n"
+"                                    <b>Student :</b>\n"
+"                                </span>"
+msgstr ""
+"<span style=\"font-size: 14px;\">\n"
+" <b>Student:</b>\n"
+" </span>"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.student_grade_report
+msgid ""
+"<strong>\n"
+"                                                Report Card\n"
+"                                            </strong>"
+msgstr ""
+"<strong>\n"
+" Karta raportu\n"
+" </strong>"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.honor_roll_list
+msgid "<strong>Honor Roll</strong>"
+msgstr "<strong>Rolka honorowa</strong>"
+
+#. module: openeducat_grading
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__attendance_weight_line__attendance_type__absent
+msgid "Absent"
+msgstr "Nieobecny"
+
+#. module: openeducat_grading
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__attendance_weight_line__attendance_type__excuse
+msgid "Absent Excused"
+msgstr "Nieobecny Usprawiedliwiony"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__academic_year_ids
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__academic_year_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__year_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_wizard__academic_year_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_assignment__year_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template_line__academic_years_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__year_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll_line__year_id
+msgid "Academic Year"
+msgstr "Rok akademicki"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__message_needaction
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__message_needaction
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__message_needaction
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__message_needaction
+msgid "Action Needed"
+msgstr "Potrzebne działanie"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__active
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_table__active
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__active
+msgid "Active"
+msgstr "Aktywny"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__activity_ids
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__activity_ids
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__activity_ids
+msgid "Activities"
+msgstr "Zajęcia"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__activity_exception_decoration
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__activity_exception_decoration
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Dekoracja wyjątku aktywności"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__activity_state
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__activity_state
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__activity_state
+msgid "Activity State"
+msgstr "Stan aktywności"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__activity_type_icon
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__activity_type_icon
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Ikona typu aktywności"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.student_statistics
+msgid "Archive"
+msgstr "Archiwum"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_assignment_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_assignment_search
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_grade_table_search
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_honor_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_honor_search
+msgid "Archived"
+msgstr "Zarchiwizowane"
+
+#. module: openeducat_grading
+#. openerp-web
+#: code:addons/openeducat_grading/static/src/xml/grid_book_widget.xml:0
+#: model:ir.actions.act_window,name:openeducat_grading.act_assignment_wizard_view
+#: model:ir.model,name:openeducat_grading.model_op_assignment
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_wizard__assignment_ids
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__grade_assigment_id
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.student_statistics
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_assignment_wizard_form
+#, python-format
+msgid "Assignment"
+msgstr "Zadanie"
+
+#. module: openeducat_grading
+#: model:ir.model,name:openeducat_grading.model_assignment_statistics
+msgid "Assignment Statistics"
+msgstr "Statystyki przydziału"
+
+#. module: openeducat_grading
+#. openerp-web
+#: code:addons/openeducat_grading/static/src/xml/grid_book_widget.xml:0
+#, python-format
+msgid "Assignment Summary"
+msgstr "Podsumowanie przydziału"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_type_weight_line__assignment_type_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__assignment_type_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template_line__assignment_type_id
+msgid "Assignment Type"
+msgstr "Typ przypisania"
+
+#. module: openeducat_grading
+#: model:ir.model,name:openeducat_grading.model_assignment_type_weight_line
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_assignment_type_weight_line_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_assignment_type_weight_line_search
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_assignment_type_weight_line_tree
+msgid "Assignment Type Weight Line"
+msgstr "Typ przypisania Waga Linia"
+
+#. module: openeducat_grading
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__op_grade_template_line__weightage__aasignment_type
+msgid "Assignment Type Weightage"
+msgstr "Rodzaj przypisania Waga"
+
+#. module: openeducat_grading
+#: model:ir.ui.menu,name:openeducat_grading.menu_op_assignment_type
+msgid "Assignment Types"
+msgstr "Rodzaje przydziałów"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template_line__assignment_type_weight_ids
+msgid "Assignment Weight"
+msgstr "Waga przypisania"
+
+#. module: openeducat_grading
+#: model:ir.model,name:openeducat_grading.model_assignment_wizard
+msgid "Assignment Wizard"
+msgstr "Kreator przydziałów"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__message_attachment_count
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__message_attachment_count
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__message_attachment_count
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__message_attachment_count
+msgid "Attachment Count"
+msgstr "Liczba załączników"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.student_statistics
+msgid "Attendance"
+msgstr "Frekwencja"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_attendance_weight_line__attendance_type
+msgid "Attendance Type"
+msgstr "Rodzaj obecności"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template_line__attendance_type_weight_ids
+msgid "Attendance Weight"
+msgstr "Waga frekwencji"
+
+#. module: openeducat_grading
+#: model:ir.model,name:openeducat_grading.model_attendance_weight_line
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_attendance_line_search
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_attendance_weight_line_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_attendance_weight_line_tree
+msgid "Attendance Weight Line"
+msgstr "Linia wagi obecności"
+
+#. module: openeducat_grading
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__op_grade_template_line__weightage__attendance_type
+msgid "Attendance Weightage"
+msgstr "Waga obecności"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.statistics
+msgid "Average"
+msgstr "Przeciętny"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__background
+msgid "Background Image"
+msgstr "Zdjęcie w tle"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.student_statistics
+msgid "CATEGORY STATISTICS"
+msgstr "STATYSTYKI KATEGORII"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_override_line__calculated
+msgid "Calculated"
+msgstr "Obliczony"
+
+#. module: openeducat_grading
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__op_honorroll__state__cancel
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_assignment_wizard_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_gradebook_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_wizard_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_honor_form
+msgid "Cancel"
+msgstr "Anulować"
+
+#. module: openeducat_grading
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__gradebook_gradebook__state__cancelled
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__gradebook_line__state__cancelled
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__grading_assignment__state__cancelled
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_gradebook_line_form
+msgid "Cancelled"
+msgstr "Anulowany"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.student_statistics
+msgid "Category"
+msgstr "Kategoria"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_assignment_form
+msgid "Close"
+msgstr "Blisko"
+
+#. module: openeducat_grading
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__grading_assignment__state__closed_for_submission
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_assignment_form
+msgid "Closed For Submission"
+msgstr "Zamknięte do przesyłania"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_override_line__comment
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.report_comment
+msgid "Comment"
+msgstr "Komentarz"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.report_comment
+msgid "Comments"
+msgstr "Uwagi"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_type_weight_line__company_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_attendance_weight_line__company_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__company_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__company_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_override_line__company_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_scale__company_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_table__company_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_table_line__company_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template__company_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template_line__company_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_type__company_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__company_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_subterm_weight_line__company_id
+msgid "Company"
+msgstr "Firma"
+
+#. module: openeducat_grading
+#: model:ir.ui.menu,name:openeducat_grading.menu_config_root
+msgid "Configuration"
+msgstr "Konfiguracja"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_assignment_wizard_form
+msgid "Confirm"
+msgstr "Potwierdzać"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.statistics
+msgid "Count"
+msgstr "Liczyć"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__course_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__course_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__course_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_wizard__course_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_assignment__course_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__course_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll_line__course_id
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_assignment_search
+msgid "Course"
+msgstr "Kurs"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_statistics__create_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_type_weight_line__create_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_wizard__create_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_attendance_weight_line__create_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__create_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__create_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_wizard__create_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_override_line__create_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_scale__create_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_table__create_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_table_line__create_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template__create_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template_line__create_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_type__create_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__create_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll_line__create_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_student_statistics__create_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_subterm_weight_line__create_uid
+msgid "Created by"
+msgstr "Stworzone przez"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_statistics__create_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_type_weight_line__create_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_wizard__create_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_attendance_weight_line__create_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__create_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__create_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_wizard__create_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_override_line__create_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_scale__create_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_table__create_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_table_line__create_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template__create_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template_line__create_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_type__create_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__create_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll_line__create_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_student_statistics__create_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_subterm_weight_line__create_date
+msgid "Created on"
+msgstr "Utworzono dnia"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.double_col_report
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.double_col_trans
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.single_col_report
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.single_col_trans
+msgid "Credits"
+msgstr "Kredyty"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.student_transcript
+msgid "Cumulative GPA:"
+msgstr "Łączny GPA:"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,help:openeducat_grading.field_gradebook_gradebook__report_access_url
+msgid "Customer Portal URL"
+msgstr "URL portalu klienta"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.double_col_report
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.single_col_report
+msgid "Date __________"
+msgstr "Data __________"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__description
+msgid "Description"
+msgstr "Opis"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_statistics__display_name
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_type_weight_line__display_name
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_wizard__display_name
+#: model:ir.model.fields,field_description:openeducat_grading.field_attendance_weight_line__display_name
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__display_name
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__display_name
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_wizard__display_name
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_override_line__display_name
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_scale__display_name
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_table__display_name
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_table_line__display_name
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template__display_name
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template_line__display_name
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_type__display_name
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__display_name
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll_line__display_name
+#: model:ir.model.fields,field_description:openeducat_grading.field_student_statistics__display_name
+#: model:ir.model.fields,field_description:openeducat_grading.field_subterm_weight_line__display_name
+msgid "Display Name"
+msgstr "Wyświetlana nazwa"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.grade_book_view_portal
+msgid "Download Unofficial Report"
+msgstr "Pobierz nieoficjalny raport"
+
+#. module: openeducat_grading
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__gradebook_gradebook__state__draft
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__gradebook_line__state__draft
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__grading_assignment__state__draft
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__op_honorroll__state__draft
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_gradebook_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_gradebook_line_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_assignment_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_honor_form
+msgid "Draft"
+msgstr "Projekt"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_type__earn_credits
+msgid "Earn Credits"
+msgstr "Zarabiaj kredyty"
+
+#. module: openeducat_grading
+#. openerp-web
+#: code:addons/openeducat_grading/static/src/xml/grid_book_widget.xml:0
+#, python-format
+msgid "Export"
+msgstr "Eksport"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_type__factor
+msgid "Factor"
+msgstr "Czynnik"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.double_col_report
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.single_col_report
+msgid "Faculty Signature __________"
+msgstr "Podpis wydziału __________"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_override_line__final
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__gradebook_line__state__final
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_gradebook_line_form
+msgid "Final"
+msgstr "Finał"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_course__grade_scale_id
+msgid "Final Grade"
+msgstr "Ocena końcowa"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__grade_override
+msgid "Final Grades"
+msgstr "Oceny końcowe"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__message_follower_ids
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__message_follower_ids
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__message_follower_ids
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__message_follower_ids
+msgid "Followers"
+msgstr "Obserwujący"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__message_partner_ids
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__message_partner_ids
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__message_partner_ids
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Obserwatorzy (Partnerzy)"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,help:openeducat_grading.field_gradebook_gradebook__activity_type_icon
+#: model:ir.model.fields,help:openeducat_grading.field_grading_assignment__activity_type_icon
+#: model:ir.model.fields,help:openeducat_grading.field_op_honorroll__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Niesamowita ikona czcionki, np. fa-zadania"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_type__form_factor
+msgid "Form Factor"
+msgstr "Współczynnik kształtu"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__from_per
+msgid "From Percentage"
+msgstr "Od procentu"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_type__gpa_value
+msgid "GPA"
+msgstr "GPA"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.statistics
+msgid "GRADE DISTRIBUTION"
+msgstr "DYSTRYBUCJA KLAS"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_gradebook_form
+msgid "Generate Final Grade"
+msgstr "Wygeneruj ocenę końcową"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_honor_form
+msgid "Generate Honor Roll"
+msgstr "Generuj rzut honoru"
+
+#. module: openeducat_grading
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__op_honorroll__state__generate
+msgid "Generated"
+msgstr "Wygenerowane"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__marks
+msgid "Given Marks"
+msgstr "Podane znaki"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__grade
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__grade
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_assignment__grade
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_override_line__grade
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.double_col_report
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.double_col_trans
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.single_col_report
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.single_col_trans
+msgid "Grade"
+msgstr "Gatunek"
+
+#. module: openeducat_grading
+#: model:ir.actions.act_window,name:openeducat_grading.act_gradebook_gradebook_view
+#: model:ir.model,name:openeducat_grading.model_gradebook_gradebook
+#: model:ir.ui.menu,name:openeducat_grading.menu_gradebook_gradebook
+#: model:ir.ui.menu,name:openeducat_grading.menu_op_grading_root
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_gradebook_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_gradebook_search
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_gradebook_tree
+msgid "Grade Book"
+msgstr "Książka ocen"
+
+#. module: openeducat_grading
+#: model:ir.actions.act_window,name:openeducat_grading.act_gradebook_line_view
+#: model:ir.model,name:openeducat_grading.model_gradebook_line
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_gradebook_line_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_gradebook_line_search
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_gradebook_line_tree
+msgid "Grade Book Line"
+msgstr "Linia zeszytu ocen"
+
+#. module: openeducat_grading
+#: model:ir.ui.menu,name:openeducat_grading.student_progress_grade_book_view_by_batch_menu
+msgid "Grade By Batch"
+msgstr "Klasa według partii"
+
+#. module: openeducat_grading
+#: model:ir.ui.menu,name:openeducat_grading.student_progress_grade_book_view_by_course_menu
+msgid "Grade By Course"
+msgstr "Ocena według kursu"
+
+#. module: openeducat_grading
+#: model:ir.ui.menu,name:openeducat_grading.student_progress_grade_book_view_by_subject_menu
+msgid "Grade By Subject"
+msgstr "Ocena według tematu"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_table__grade_table_ids
+msgid "Grade Lines"
+msgstr "Niwelety"
+
+#. module: openeducat_grading
+#: model:ir.actions.act_window,name:openeducat_grading.act_op_grade_override_line_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_grade_override_line_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_grade_override_line_search
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_grade_override_line_tree
+msgid "Grade Override Line"
+msgstr "Linia nadpisania spadku"
+
+#. module: openeducat_grading
+#: model:ir.actions.report,name:openeducat_grading.action_report_gradebook
+msgid "Grade Report"
+msgstr "Raport ocen"
+
+#. module: openeducat_grading
+#: model:ir.actions.act_window,name:openeducat_grading.act_op_grade_scale_view
+#: model:ir.ui.menu,name:openeducat_grading.menu_grade_scale
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_grade_scale_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_grade_scale_search
+msgid "Grade Scale"
+msgstr "Skala ocen"
+
+#. module: openeducat_grading
+#: model:ir.actions.act_window,name:openeducat_grading.act_assignment_type_weight_line_view
+#: model:ir.actions.act_window,name:openeducat_grading.act_attendance_weight_line_view
+#: model:ir.actions.act_window,name:openeducat_grading.act_op_grade_table_line_view
+#: model:ir.actions.act_window,name:openeducat_grading.act_op_grade_table_view
+#: model:ir.actions.act_window,name:openeducat_grading.act_subterm_weight_line_view
+#: model:ir.model,name:openeducat_grading.model_op_grade_table
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__grade_table_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_table_line__grade_table_id
+#: model:ir.ui.menu,name:openeducat_grading.menu_grade_table
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_grade_table_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_grade_table_search
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_grade_table_tree
+msgid "Grade Table"
+msgstr "Tabela ocen"
+
+#. module: openeducat_grading
+#: model:ir.model,name:openeducat_grading.model_op_grade_table_line
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__grade_table_line_id
+msgid "Grade Table Line"
+msgstr "Linia gradacji tabeli"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_grade_table_line_tree
+msgid "Grade Table Lines"
+msgstr "Linie tabeli ocen"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_grade_table_line_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_grade_table_line_search
+msgid "Grade Table lines"
+msgstr "Linie tabeli ocen"
+
+#. module: openeducat_grading
+#: model:ir.actions.act_window,name:openeducat_grading.act_grade_template_view
+#: model:ir.model,name:openeducat_grading.model_op_grade_template
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_type_weight_line__grade_templates_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_attendance_weight_line__grade_templates_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_course__grade_template_ids
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template_line__grade_template_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_subject__grade_template_ids
+#: model:ir.model.fields,field_description:openeducat_grading.field_subterm_weight_line__grade_template_id
+#: model:ir.ui.menu,name:openeducat_grading.menu_grade_template
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grade_template_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grade_template_search
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grade_template_tree
+msgid "Grade Template"
+msgstr "Szablon oceny"
+
+#. module: openeducat_grading
+#: model:ir.actions.act_window,name:openeducat_grading.act_grade_template_line_view
+#: model:ir.model,name:openeducat_grading.model_op_grade_template_line
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grade_template_line_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grade_template_line_search
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grade_template_line_tree
+msgid "Grade Template Line"
+msgstr "Linia szablonu oceny"
+
+#. module: openeducat_grading
+#: model:ir.actions.act_window,name:openeducat_grading.act_op_grade_type_view
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_scale__op_grade_type_ids
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_grade_type_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_grade_type_search
+msgid "Grade Type"
+msgstr "Rodzaj klasy"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_type__op_grade_scale_id
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_grade_scale_tree
+msgid "Grade scale"
+msgstr "Skala ocen"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_grade_type_tree
+msgid "Grade type"
+msgstr "Rodzaj klasy"
+
+#. module: openeducat_grading
+#. openerp-web
+#: code:addons/openeducat_grading/models/gradebook_gradebook.py:0
+#: code:addons/openeducat_grading/models/op_batch.py:0
+#: code:addons/openeducat_grading/models/op_course.py:0
+#: code:addons/openeducat_grading/models/op_student.py:0
+#: code:addons/openeducat_grading/models/op_subject.py:0
+#: code:addons/openeducat_grading/models/student_grade_progress.py:0
+#: code:addons/openeducat_grading/static/src/js/grade_book_by_subject.js:0
+#: code:addons/openeducat_grading/static/src/js/grade_book_grid_view.js:0
+#: code:addons/openeducat_grading/static/src/js/gradebook_by_batch.js:0
+#: code:addons/openeducat_grading/static/src/js/gradebook_by_course.js:0
+#: code:addons/openeducat_grading/static/src/js/grid_grade_book.js:0
+#: model:ir.actions.client,name:openeducat_grading.grade_book_action_window
+#: model:ir.actions.client,name:openeducat_grading.grade_book_action_window_by_batch
+#: model:ir.actions.client,name:openeducat_grading.grade_book_action_window_by_course
+#: model:ir.actions.client,name:openeducat_grading.grade_book_action_window_by_subject
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_student_progression__grade_book
+#: model:openeducat.portal.menu,name:openeducat_grading.portal_menu_grades
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_batch_tree_view_inherit_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_course_inherited_grade_tree_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_subject_inherited_grade_tree_view
+#, python-format
+msgid "GradeBook"
+msgstr "Dziennik ocen"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__gradebook
+msgid "Gradebook"
+msgstr "Dziennik ocen"
+
+#. module: openeducat_grading
+#: model:ir.ui.menu,name:openeducat_grading.gradebook_excel_report_menu
+msgid "Gradebook Excel Report"
+msgstr "Dziennik ocen Raport programu Excel"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__gradebook_line_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__gradebook_line_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_assignment__gradebook_line_id
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_gradebook_line_pivot
+msgid "Gradebook Line"
+msgstr "Linia dziennika ocen"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.statistics
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.student_statistics
+msgid "Graded"
+msgstr "Ocenione"
+
+#. module: openeducat_grading
+#: model:ir.ui.menu,name:openeducat_grading.grades_analysis
+msgid "Grades Analysis"
+msgstr "Analiza ocen"
+
+#. module: openeducat_grading
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__grading_assignment__state__grades_published
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.student_statistics
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_assignment_form
+msgid "Grades Published"
+msgstr "Oceny opublikowane"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_wizard_form
+msgid "Grading"
+msgstr "Cieniowanie"
+
+#. module: openeducat_grading
+#: model:ir.model,name:openeducat_grading.model_grading_assignment
+msgid "Grading Assigment"
+msgstr "Zadanie oceniania"
+
+#. module: openeducat_grading
+#: model:ir.actions.act_window,name:openeducat_grading.act_grading_assignment_view
+#: model:ir.ui.menu,name:openeducat_grading.menu_grading_assignment
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_assignment_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_assignment_search
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_assignment_tree
+msgid "Grading Assignment"
+msgstr "Zadanie oceniania"
+
+#. module: openeducat_grading
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__grading_assignment__state__grading_closed
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_assignment_form
+msgid "Grading Closed"
+msgstr "Ocenianie zamknięte"
+
+#. module: openeducat_grading
+#: model:ir.model,name:openeducat_grading.model_op_grade_override_line
+msgid "Grading Override Line"
+msgstr "Linia nadpisania skarpy"
+
+#. module: openeducat_grading
+#: model:ir.model,name:openeducat_grading.model_op_grade_scale
+msgid "Grading Scale"
+msgstr "Skala ocen"
+
+#. module: openeducat_grading
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__grading_assignment__state__grading_started
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_assignment_form
+msgid "Grading Started"
+msgstr "Rozpoczęto ocenianie"
+
+#. module: openeducat_grading
+#: model:ir.model,name:openeducat_grading.model_op_grade_type
+msgid "Grading Type"
+msgstr "Rodzaj oceny"
+
+#. module: openeducat_grading
+#: model:ir.model,name:openeducat_grading.model_grading_wizard
+msgid "Grading Wizard"
+msgstr "Kreator oceniania"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_assignment_search
+msgid "Group By..."
+msgstr "Grupuj według..."
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__has_message
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__has_message
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__has_message
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__has_message
+msgid "Has Message"
+msgstr "Ma wiadomość"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__hide
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__hide
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_assignment__hide
+msgid "Hide"
+msgstr "Ukrywać"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__hide_sub
+msgid "Hide Sub"
+msgstr "Ukryj sub"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__hide_subject
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_assignment__hide_subject
+msgid "Hide Subject"
+msgstr "Ukryj temat"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll_line__honor_id
+msgid "Honor"
+msgstr "Zaszczyt"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__honor_line_id
+msgid "Honor Line"
+msgstr "Linia honoru"
+
+#. module: openeducat_grading
+#: model:ir.actions.act_window,name:openeducat_grading.act_op_honorroll_view
+#: model:ir.model,name:openeducat_grading.model_op_honorroll
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_honor_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_honor_search
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_honor_tree
+msgid "Honor Roll"
+msgstr "Rolka honorowa"
+
+#. module: openeducat_grading
+#: model:ir.actions.act_window,name:openeducat_grading.act_op_honorroll_line_view
+#: model:ir.model,name:openeducat_grading.model_op_honorroll_line
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_honor_line_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_honor_line_search
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_honor_line_tree
+msgid "Honor Roll Line"
+msgstr "Honor Roll Line"
+
+#. module: openeducat_grading
+#: model:ir.ui.menu,name:openeducat_grading.honor_roll_main
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.honor_certi_data
+msgid "Honour Roll"
+msgstr "Rolka honorowa"
+
+#. module: openeducat_grading
+#: model:ir.actions.report,name:openeducat_grading.action_honour_roll_certificate
+msgid "Honour Roll Certificate"
+msgstr "Certyfikat Rolki Honorowej"
+
+#. module: openeducat_grading
+#: model:ir.actions.report,name:openeducat_grading.action_honour_roll_list
+msgid "Honour Roll List"
+msgstr "Lista zaszczytów"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_statistics__id
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_type_weight_line__id
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_wizard__id
+#: model:ir.model.fields,field_description:openeducat_grading.field_attendance_weight_line__id
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__id
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__id
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_wizard__id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_override_line__id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_scale__id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_table__id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_table_line__id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template__id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template_line__id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_type__id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll_line__id
+#: model:ir.model.fields,field_description:openeducat_grading.field_student_statistics__id
+#: model:ir.model.fields,field_description:openeducat_grading.field_subterm_weight_line__id
+msgid "ID"
+msgstr "ID"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__activity_exception_icon
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__activity_exception_icon
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__activity_exception_icon
+msgid "Icon"
+msgstr "Ikona"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,help:openeducat_grading.field_gradebook_gradebook__activity_exception_icon
+#: model:ir.model.fields,help:openeducat_grading.field_grading_assignment__activity_exception_icon
+#: model:ir.model.fields,help:openeducat_grading.field_op_honorroll__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Ikona wskazująca działanie wyjątku."
+
+#. module: openeducat_grading
+#: model:ir.model.fields,help:openeducat_grading.field_gradebook_gradebook__message_needaction
+#: model:ir.model.fields,help:openeducat_grading.field_gradebook_gradebook__message_unread
+#: model:ir.model.fields,help:openeducat_grading.field_gradebook_line__message_needaction
+#: model:ir.model.fields,help:openeducat_grading.field_gradebook_line__message_unread
+#: model:ir.model.fields,help:openeducat_grading.field_grading_assignment__message_needaction
+#: model:ir.model.fields,help:openeducat_grading.field_grading_assignment__message_unread
+#: model:ir.model.fields,help:openeducat_grading.field_op_honorroll__message_needaction
+#: model:ir.model.fields,help:openeducat_grading.field_op_honorroll__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "Jeśli zaznaczone, nowe wiadomości wymagają Twojej uwagi."
+
+#. module: openeducat_grading
+#: model:ir.model.fields,help:openeducat_grading.field_gradebook_gradebook__message_has_error
+#: model:ir.model.fields,help:openeducat_grading.field_gradebook_gradebook__message_has_sms_error
+#: model:ir.model.fields,help:openeducat_grading.field_gradebook_line__message_has_error
+#: model:ir.model.fields,help:openeducat_grading.field_gradebook_line__message_has_sms_error
+#: model:ir.model.fields,help:openeducat_grading.field_grading_assignment__message_has_error
+#: model:ir.model.fields,help:openeducat_grading.field_grading_assignment__message_has_sms_error
+#: model:ir.model.fields,help:openeducat_grading.field_op_honorroll__message_has_error
+#: model:ir.model.fields,help:openeducat_grading.field_op_honorroll__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Jeśli zaznaczone, niektóre wiadomości mają błąd dostarczenia."
+
+#. module: openeducat_grading
+#: code:addons/openeducat_grading/models/gradebook_line.py:0
+#, python-format
+msgid "Import Template for GradeBook Line"
+msgstr "Importuj szablon dla linii dziennika ocen"
+
+#. module: openeducat_grading
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__gradebook_gradebook__state__inprogress
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_gradebook_form
+msgid "In Progress"
+msgstr "W trakcie"
+
+#. module: openeducat_grading
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__gradebook_line__state__in_review
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_gradebook_line_form
+msgid "In Review"
+msgstr "W recenzji"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.honor_certi_data
+msgid "In honour of your outstanding academic performance"
+msgstr "Na cześć twoich wybitnych wyników w nauce"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_type__include_gpa
+msgid "Include GPA"
+msgstr "Uwzględnij GPA"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__sequence
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_assignment__sequence
+msgid "Index"
+msgstr "Indeks"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_gradebook_form
+msgid "Initialize"
+msgstr "Zainicjuj"
+
+#. module: openeducat_grading
+#: code:addons/openeducat_grading/controllers/main.py:0
+#, python-format
+msgid "Invalid report type: %s"
+msgstr "Nieprawidłowy typ raportu: %s"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__message_is_follower
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__message_is_follower
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__message_is_follower
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__message_is_follower
+msgid "Is Follower"
+msgstr "Jest Obserwatorem"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__issued_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_assignment__issued_date
+msgid "Issued Date"
+msgstr "Data wydania"
+
+#. module: openeducat_grading
+#: model:ir.model,name:openeducat_grading.model_op_course
+msgid "LMS Course"
+msgstr "Kurs LMS"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_statistics____last_update
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_type_weight_line____last_update
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_wizard____last_update
+#: model:ir.model.fields,field_description:openeducat_grading.field_attendance_weight_line____last_update
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook____last_update
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line____last_update
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_wizard____last_update
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_override_line____last_update
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_scale____last_update
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_table____last_update
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_table_line____last_update
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template____last_update
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template_line____last_update
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_type____last_update
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll____last_update
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll_line____last_update
+#: model:ir.model.fields,field_description:openeducat_grading.field_student_statistics____last_update
+#: model:ir.model.fields,field_description:openeducat_grading.field_subterm_weight_line____last_update
+msgid "Last Modified on"
+msgstr "Ostatnia modyfikacja dnia"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_statistics__write_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_type_weight_line__write_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_wizard__write_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_attendance_weight_line__write_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__write_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__write_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_wizard__write_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_override_line__write_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_scale__write_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_table__write_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_table_line__write_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template__write_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template_line__write_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_type__write_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__write_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll_line__write_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_student_statistics__write_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_subterm_weight_line__write_uid
+msgid "Last Updated by"
+msgstr "Ostatnia aktualizacja przez"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_statistics__write_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_type_weight_line__write_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_wizard__write_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_attendance_weight_line__write_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__write_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__write_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_wizard__write_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_override_line__write_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_scale__write_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_table__write_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_table_line__write_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template__write_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template_line__write_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_type__write_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__write_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll_line__write_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_student_statistics__write_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_subterm_weight_line__write_date
+msgid "Last Updated on"
+msgstr "Ostatnia aktualizacja"
+
+#. module: openeducat_grading
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__attendance_weight_line__attendance_type__late
+msgid "Late"
+msgstr "Późno"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__message_main_attachment_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__message_main_attachment_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__message_main_attachment_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Główny załącznik"
+
+#. module: openeducat_grading
+#: code:addons/openeducat_grading/models/gradebook_line.py:0
+#, python-format
+msgid "Marks should be less than or equal to {}"
+msgstr "Znaki powinny być mniejsze lub równe {}"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_type__max_percentage
+msgid "Maximum Percentage"
+msgstr "Maksymalny procent"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.statistics
+msgid "Maximum Value"
+msgstr "Maksymalna wartość"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.statistics
+msgid "Median"
+msgstr "Mediana"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__message_has_error
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__message_has_error
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__message_has_error
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__message_has_error
+msgid "Message Delivery error"
+msgstr "Błąd dostarczania wiadomości"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__message_ids
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__message_ids
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__message_ids
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__message_ids
+msgid "Messages"
+msgstr "Wiadomości"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_type__min_percentage
+msgid "Minimum Percentage"
+msgstr "Minimalny procent"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.statistics
+msgid "Minimum Value"
+msgstr "Minimalna wartość"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__my_activity_date_deadline
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__my_activity_date_deadline
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Termin mojej aktywności"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_assignment_search
+msgid "My Assignments"
+msgstr "Moje zadania"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__name
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__name
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_assignment__name
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_scale__name
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_table__name
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_table_line__name
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template__name
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_type__name
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__name
+msgid "Name"
+msgstr "Nazwa"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.statistics
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.student_statistics
+msgid "Needs Grading"
+msgstr "Wymaga klasyfikacji"
+
+#. module: openeducat_grading
+#: code:addons/openeducat_grading/models/gradebook_gradebook.py:0
+#: code:addons/openeducat_grading/models/grading_assignment.py:0
+#: code:addons/openeducat_grading/models/op_honor_roll.py:0
+#, python-format
+msgid "New"
+msgstr "Nowy"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__activity_calendar_event_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__activity_calendar_event_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "Następne wydarzenie w kalendarzu aktywności"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__activity_date_deadline
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__activity_date_deadline
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Termin następnej aktywności"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__activity_summary
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__activity_summary
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__activity_summary
+msgid "Next Activity Summary"
+msgstr "Podsumowanie następnej aktywności"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__activity_type_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__activity_type_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__activity_type_id
+msgid "Next Activity Type"
+msgstr "Następny rodzaj aktywności"
+
+#. module: openeducat_grading
+#. openerp-web
+#: code:addons/openeducat_grading/static/src/xml/grid_book_widget.xml:0
+#, python-format
+msgid "No Data Available!"
+msgstr "Brak dostępnych danych!"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__message_needaction_counter
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__message_needaction_counter
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__message_needaction_counter
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Liczba akcji"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__message_has_error_counter
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__message_has_error_counter
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__message_has_error_counter
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__message_has_error_counter
+msgid "Number of errors"
+msgstr "Liczba błędów"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,help:openeducat_grading.field_gradebook_gradebook__message_needaction_counter
+#: model:ir.model.fields,help:openeducat_grading.field_gradebook_line__message_needaction_counter
+#: model:ir.model.fields,help:openeducat_grading.field_grading_assignment__message_needaction_counter
+#: model:ir.model.fields,help:openeducat_grading.field_op_honorroll__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Liczba wiadomości wymagających działania"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,help:openeducat_grading.field_gradebook_gradebook__message_has_error_counter
+#: model:ir.model.fields,help:openeducat_grading.field_gradebook_line__message_has_error_counter
+#: model:ir.model.fields,help:openeducat_grading.field_grading_assignment__message_has_error_counter
+#: model:ir.model.fields,help:openeducat_grading.field_op_honorroll__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Liczba wiadomości z błędem dostarczenia"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,help:openeducat_grading.field_gradebook_gradebook__message_unread_counter
+#: model:ir.model.fields,help:openeducat_grading.field_gradebook_line__message_unread_counter
+#: model:ir.model.fields,help:openeducat_grading.field_grading_assignment__message_unread_counter
+#: model:ir.model.fields,help:openeducat_grading.field_op_honorroll__message_unread_counter
+msgid "Number of unread messages"
+msgstr "Liczba nieprzeczytanych wiadomości"
+
+#. module: openeducat_grading
+#: model:ir.model,name:openeducat_grading.model_op_batch
+msgid "OpenEduCat Batch"
+msgstr "Partia OpenEduCat"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_override_line__override
+msgid "Override"
+msgstr "Nadpisanie"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__override_hide
+msgid "Override Hide"
+msgstr "Zastąp Ukryj"
+
+#. module: openeducat_grading
+#: model:ir.actions.act_window,name:openeducat_grading.assignment_action_view
+#: model:ir.actions.act_window,name:openeducat_grading.student_action_view
+msgid "Overview"
+msgstr "Przegląd"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.double_col_report
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.single_col_report
+msgid "Parent Signature __________"
+msgstr "Podpis rodzica __________"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_subject__parent_sub_id
+msgid "Parent Subject"
+msgstr "Temat nadrzędny"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__percentage
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__percentage
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_table_line__percentage
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template_line__percentage
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll_line__percentage
+msgid "Percentage"
+msgstr "Odsetek"
+
+#. module: openeducat_grading
+#: code:addons/openeducat_grading/models/gradebook_gradebook.py:0
+#: code:addons/openeducat_grading/models/gradebook_gradebook.py:0
+#, python-format
+msgid "Please Recheck Your Template Configuration"
+msgstr "Sprawdź ponownie konfigurację szablonu"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__point
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_assignment__point
+msgid "Points"
+msgstr "Zwrotnica"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__report_access_url
+msgid "Portal Access URL Report"
+msgstr "Raport URL dostępu do portalu"
+
+#. module: openeducat_grading
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__attendance_weight_line__attendance_type__present
+msgid "Present"
+msgstr "Teraźniejszość"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_wizard_form
+msgid "Print"
+msgstr "Wydrukować"
+
+#. module: openeducat_grading
+#: model:ir.actions.act_window,name:openeducat_grading.act_grading_wizard_view
+msgid "Print Grading Excel Report"
+msgstr "Wydrukuj raport oceniania w Excelu"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.honor_roll_list
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.student_transcript
+msgid "Printed:"
+msgstr "Drukowane:"
+
+#. module: openeducat_grading
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__gradebook_gradebook__state__publish
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_gradebook_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_assignment_form
+msgid "Publish"
+msgstr "Publikować"
+
+#. module: openeducat_grading
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__grading_assignment__state__published
+msgid "Published"
+msgstr "Opublikowany"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.statistics
+msgid "Range"
+msgstr "Zasięg"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_gradebook_form
+msgid "Recompute"
+msgstr "Przelicz"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__report_type
+msgid "Report Type"
+msgstr "Typ raportu"
+
+#. module: openeducat_grading
+#: model:ir.ui.menu,name:openeducat_grading.student_gradebook_view
+msgid "Reports"
+msgstr "Raporty"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__activity_user_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__activity_user_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__activity_user_id
+msgid "Responsible User"
+msgstr "Odpowiedzialny użytkownik"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__message_has_sms_error
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__message_has_sms_error
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__message_has_sms_error
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Błąd dostarczania SMS"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.statistics
+msgid "STATISTICS"
+msgstr "STATYSTYKA"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.statistics
+msgid "STATUS DISTRIBUTION"
+msgstr "DYSTRYBUCJA STANU"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__access_token
+msgid "Security Token"
+msgstr "Token bezpieczeństwa"
+
+#. module: openeducat_grading
+#. openerp-web
+#: code:addons/openeducat_grading/static/src/xml/grid_book_widget.xml:0
+#, python-format
+msgid "Select Batch"
+msgstr "Wybierz partię"
+
+#. module: openeducat_grading
+#. openerp-web
+#: code:addons/openeducat_grading/static/src/xml/grid_book_widget.xml:0
+#, python-format
+msgid "Select Batch:"
+msgstr "Wybierz partię:"
+
+#. module: openeducat_grading
+#. openerp-web
+#: code:addons/openeducat_grading/static/src/xml/grid_book_widget.xml:0
+#, python-format
+msgid "Select Course"
+msgstr "Wybierz kurs"
+
+#. module: openeducat_grading
+#. openerp-web
+#: code:addons/openeducat_grading/static/src/xml/grid_book_widget.xml:0
+#, python-format
+msgid "Select Course:"
+msgstr "Wybierz kurs:"
+
+#. module: openeducat_grading
+#. openerp-web
+#: code:addons/openeducat_grading/static/src/xml/grid_book_widget.xml:0
+#, python-format
+msgid "Select Student"
+msgstr "Wybierz ucznia"
+
+#. module: openeducat_grading
+#. openerp-web
+#: code:addons/openeducat_grading/static/src/xml/grid_book_widget.xml:0
+#, python-format
+msgid "Select Student:"
+msgstr "Wybierz ucznia:"
+
+#. module: openeducat_grading
+#. openerp-web
+#: code:addons/openeducat_grading/static/src/xml/grid_book_widget.xml:0
+#, python-format
+msgid "Select Subject"
+msgstr "Wybierz temat"
+
+#. module: openeducat_grading
+#. openerp-web
+#: code:addons/openeducat_grading/static/src/xml/grid_book_widget.xml:0
+#, python-format
+msgid "Select Subject:"
+msgstr "Wybierz temat:"
+
+#. module: openeducat_grading
+#. openerp-web
+#: code:addons/openeducat_grading/static/src/xml/grid_book_widget.xml:0
+#, python-format
+msgid "Select View Option:"
+msgstr "Wybierz opcję widoku:"
+
+#. module: openeducat_grading
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__gradebook_gradebook__report_type__single
+msgid "Single Column"
+msgstr "Pojedyncza kolumna"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.statistics
+msgid "Standard Deviation"
+msgstr "Odchylenie standardowe"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_assignment_form
+msgid "Start Grading"
+msgstr "Rozpocznij ocenianie"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__state
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__state
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__state
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__state
+msgid "State"
+msgstr "Państwo"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__state_hide
+msgid "State Hide"
+msgstr "Ukryj stan"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,help:openeducat_grading.field_gradebook_gradebook__activity_state
+#: model:ir.model.fields,help:openeducat_grading.field_grading_assignment__activity_state
+#: model:ir.model.fields,help:openeducat_grading.field_op_honorroll__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Stan na podstawie działań\n"
+"Zaległy: Termin już minął\n"
+"Dzisiaj: Data działania to dzisiaj\n"
+"Planowane: Przyszłe działania."
+
+#. module: openeducat_grading
+#: model:ir.model,name:openeducat_grading.model_op_student
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__student_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__gradebook_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_override_line__grade_grade_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll_line__student_id
+msgid "Student"
+msgstr "Student"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.honor_roll_list
+msgid "Student Name"
+msgstr "Imię i nazwisko ucznia"
+
+#. module: openeducat_grading
+#: model:ir.model,name:openeducat_grading.model_student_statistics
+msgid "Student Statistics"
+msgstr "Statystyki uczniów"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.student_transcript
+msgid "Student Transcript"
+msgstr "Transkrypcja studencka"
+
+#. module: openeducat_grading
+#: model:ir.model,name:openeducat_grading.model_op_student_progression
+msgid "Student progression"
+msgstr "Postępy uczniów"
+
+#. module: openeducat_grading
+#: model:ir.model,name:openeducat_grading.model_subterm_weight_line
+msgid "Sub Term Weight Line"
+msgstr "Podterminowa linia wagi"
+
+#. module: openeducat_grading
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__op_grade_template_line__weightage__sub_term
+msgid "Sub Term weightage"
+msgstr "Waga podokresowa"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_subterm_weight_line__academic_sub_term_id
+msgid "Sub Terms"
+msgstr "Warunki podrzędne"
+
+#. module: openeducat_grading
+#: model:ir.model,name:openeducat_grading.model_op_subject
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__subject_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__subject_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_assignment__subject_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_override_line__subject
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__subject_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll_line__subject_id
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.double_col_report
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.double_col_trans
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.report_comment
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.single_col_report
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.single_col_trans
+msgid "Subject"
+msgstr "Temat"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template_line__subterm_weight_ids
+msgid "Subterm Weight"
+msgstr "Waga podokresowa"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_subterm_weight_line_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_subterm_weight_line_search
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_subterm_weight_line_tree
+msgid "Subterm Weight Line"
+msgstr "Podterminowa linia wagi"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template__template_line_ids
+msgid "Template Line"
+msgstr "Linia szablonu"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__academic_term_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__term_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_assignment__term_id
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.report_comment
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_assignment_search
+msgid "Term"
+msgstr "Termin"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_override_line__term
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template_line__academic_term_id
+msgid "Terms"
+msgstr "Semestry"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.honor_certi_data
+msgid "This Certificate is Proudly Presented to"
+msgstr "Niniejszy certyfikat jest z dumą przedstawiany"
+
+#. module: openeducat_grading
+#: code:addons/openeducat_grading/controllers/main.py:0
+#, python-format
+msgid "This document does not exist."
+msgstr "Ten dokument nie istnieje."
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__to_per
+msgid "To Percentage"
+msgstr "Do procentu"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.student_transcript
+msgid ""
+"Total\n"
+"                                    Earned Credits:"
+msgstr ""
+"Łącznie\n"
+" zarobione kredyty:"
+
+#. module: openeducat_grading
+#: model:ir.actions.report,name:openeducat_grading.action_transcript
+msgid "Transcript"
+msgstr "Transkrypcja"
+
+#. module: openeducat_grading
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__gradebook_gradebook__report_type__double
+msgid "Two Column"
+msgstr "Dwie kolumny"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,help:openeducat_grading.field_gradebook_gradebook__activity_exception_decoration
+#: model:ir.model.fields,help:openeducat_grading.field_grading_assignment__activity_exception_decoration
+#: model:ir.model.fields,help:openeducat_grading.field_op_honorroll__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Typ zarejestrowanego działania wyjątku."
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__message_unread
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__message_unread
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__message_unread
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__message_unread
+msgid "Unread Messages"
+msgstr "Nieprzeczytane wiadomości"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__message_unread_counter
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__message_unread_counter
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__message_unread_counter
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Licznik nieprzeczytanych wiadomości"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_subject__default_template
+msgid "Use Default Course Template"
+msgstr "Użyj domyślnego szablonu kursu"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__user_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_assignment__user_id
+msgid "User"
+msgstr "Użytkownik"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.statistics
+msgid "Variance"
+msgstr "Zmienność"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__website_message_ids
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__website_message_ids
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__website_message_ids
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__website_message_ids
+msgid "Website Messages"
+msgstr "Wiadomości na stronie internetowej"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,help:openeducat_grading.field_gradebook_gradebook__website_message_ids
+#: model:ir.model.fields,help:openeducat_grading.field_gradebook_line__website_message_ids
+#: model:ir.model.fields,help:openeducat_grading.field_grading_assignment__website_message_ids
+#: model:ir.model.fields,help:openeducat_grading.field_op_honorroll__website_message_ids
+msgid "Website communication history"
+msgstr "Historia komunikacji w witrynie"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_type_weight_line__weightage
+#: model:ir.model.fields,field_description:openeducat_grading.field_attendance_weight_line__weightage
+#: model:ir.model.fields,field_description:openeducat_grading.field_subterm_weight_line__weightage
+msgid "Weightage"
+msgstr "Waga"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template_line__weightage
+msgid "Weightage Type"
+msgstr "Rodzaj wagi"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__academic_year_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_override_line__year
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_assignment_search
+msgid "Year"
+msgstr "Rok"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.honor_certi_data
+msgid "academic session"
+msgstr "sesja akademicka"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.honor_certi_data
+msgid "in the"
+msgstr "w"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_assignment_wizard_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_wizard_form
+msgid "or"
+msgstr "lub"
+
+#. module: openeducat_grading
+#: code:addons/openeducat_grading/wizard/assignment_wizard.py:0
+#, python-format
+msgid "{} Assignment already added"
+msgstr "{} Zadanie zostało już dodane"

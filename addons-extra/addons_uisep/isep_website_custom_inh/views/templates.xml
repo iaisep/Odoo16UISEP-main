@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <!--Acceso Bloqueado-->
+    <template id="campus_pending_payments" name="Campus Pending Payments ">
+        <t t-call="website.layout">
+	    <div class="container mb32 mt48">
+
+		<div class="row">
+                    <div class="col-sm-12">
+                        <div class="bs-component">
+                            <div class="alert alert-dismissible alert-warning">
+                                 <h4 class="alert-heading">Tienes Facturas Pendientes de Pago!</h4>
+                                 <p class="mb-0">Favor de realizar el pago a la brevedad para habilitar tu acceso</p>
+
+
+
+                             </div>
+                        </div>
+                        <p class="bs-component">
+                                <a href="/my/invoices" class="btn btn-primary btn-lg">Revisar Facturas</a>
+                                <a href="/my/home" class="btn btn-secondary btn-lg">Regresar</a>
+                         </p>
+                   </div>
+                </div>	
+           </div>
+        </t>
+    </template>
+</odoo>

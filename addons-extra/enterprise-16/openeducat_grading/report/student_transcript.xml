@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <template id="student_transcript">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="font">
+                        <div class="container-fluid" style="width:100%;">
+                            <div id="oe_structure" class="oe_structure"/>
+                            <div style="display: block;">
+                                <br/>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <div>
+                                    <p style="color: black;text-align: right;">Printed:
+                                        <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d')"/>
+                                    </p>
+                                    <h4 style="margin-top:40px; text-align: right;">
+                                        Student Transcript
+                                    </h4>
+                                </div>
+                                <div style="margin-top:60px">
+                                    <hr style="border-bottom: 2px solid #615c5c;"/>
+                                    <t t-set="total" t-value="[]"/>
+                                    <t t-set="cgpa_total" t-value="[]"/>
+                                    <t t-foreach="docs" t-as="o">
+                                        <t t-set="grade_book" t-value="o.get_json_data_in_report(o.id)"/>
+                                        <div>
+                                            <b style="font-size:15px; padding-left:2%">
+                                                <t t-esc="o.student_id.name"/>
+                                            </b>
+                                            <b style="font-size:15px; padding-left:2%; float:right;">
+                                                <t t-esc="o.academic_year_id.name"/>
+                                            </b>
+                                            <hr style="3px solid #615c5c"/>
+                                        </div>
+                                        <div style="display: inline-block; width: 100%;">
+                                            <t t-foreach="grade_book" t-as="grade">
+                                                <t style="width:50%;">
+                                                    <t t-if="o.report_type == 'single'">
+                                                        <t t-call="openeducat_grading.single_col_trans"/>
+                                                    </t>
+                                                    <t t-if="o.report_type == 'double'">
+                                                        <t t-call="openeducat_grading.double_col_trans"/>
+                                                    </t>
+                                                </t>
+                                                <t t-if="'total_credit' in grade">
+                                                    <t t-set="total"
+                                                       t-value="grade['total_credit']"/>
+                                                </t>
+                                                <t t-if="'semester_gpa' in grade">
+                                                    <t t-set="cgpa_total"
+                                                       t-value="cgpa_total + [float(grade['semester_gpa'])]"/>
+                                                </t>
+                                            </t>
+                                        </div>
+                                    </t>
+                                </div>
+                            </div>
+                            <hr/>
+                            <div class="earned_credits" style="float:right;">
+                                <t class="float-right mt-5" style="font-size: 18px;">Total
+                                    Earned Credits:
+                                    <t t-if="total" t-esc="total"/>
+                                </t>
+                                <br/>
+                                <t t-if="cgpa_total" class="float-right mt-5" style="font-size: 18px; display:block;">
+                                    Cumulative GPA:
+                                    <t t-esc="'{:0.2f}'.format(sum(cgpa_total) / len(cgpa_total))"/>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+        <template id="single_col_trans">
+            <table style="width:50%; min-height:120px; margin-top: 30px;"
+                   t-if="not sem in ['semester_gpa', 'semester_total', 'semester_name', 'total_credit']">
+                <t t-foreach="grade" t-as="sem">
+                    <th t-if="(not grade in ['semester_gpa', 'semester_total', 'semester_name', 'total_credit'])and (
+                    not sem in ['semester_gpa', 'semester_total', 'semester_name', 'total_credit'])">
+                        <span t-if="sem" t-esc="sem"/>
+                        <tr>
+                            <th style="text-align: left;">Subject</th>
+                            <th style="width:20%;">Credits</th>
+                            <th style="width:20%;">Grade</th>
+                        </tr>
+                    </th>
+                    <t t-if="not sem in ['semester_gpa', 'semester_total', 'semester_name', 'total_credit']">
+                        <t t-foreach="sem_value" t-as="subjects">
+                            <tr>
+                                <t t-foreach="subjects" t-as="sub">
+                                    <td t-if="'subject_name' == sub"
+                                        style="text-align: left;">
+                                        <t t-esc="sub_value"/>
+                                    </td>
+                                    <td t-if="'subject_grade' == sub"
+                                        style="padding-left:5%">
+                                        <t t-esc="sub_value"/>
+                                    </td>
+                                    <td t-if="'subject_credit' == sub"
+                                        style="padding-left:5%">
+                                        <t t-esc="sub_value"/>
+                                    </td>
+                                </t>
+                            </tr>
+                        </t>
+                    </t>
+                </t>
+                <tr>
+                    <td colspan="3">
+                        <span t-if="'semester_gpa' in grade" style="float: right;">
+                            <t t-if="'semester_name' in grade" t-esc="grade['semester_name']"/>
+                            GPA:
+                            <t t-esc="grade['semester_gpa']"/>
+                        </span>
+                    </td>
+                </tr>
+
+            </table>
+        </template>
+
+        <template id="double_col_trans">
+            <table style="width:50%; min-height:120px; margin-top: 30px; float: left;"
+                   t-if="((not grade in ['semester_gpa', 'semester_total', 'semester_name', 'total_credit']) and (
+                   not sem in ['semester_gpa', 'semester_total', 'semester_name', 'total_credit'])) or (
+                   sem == 'semester_gpa')">
+                <t t-foreach="grade" t-as="sem">
+                    <th t-if="(not grade in ['semester_gpa', 'semester_total', 'semester_name', 'total_credit']) and (
+                    not sem in ['semester_gpa', 'semester_total', 'semester_name', 'total_credit'])">
+                        <span t-if="sem" t-esc="sem"/>
+                        <tr>
+                            <th style="text-align: left;">Subject</th>
+                            <th>Credits</th>
+                            <th>Grade</th>
+                        </tr>
+                    </th>
+                    <t t-if="not sem in ['semester_gpa', 'semester_total', 'semester_name', 'total_credit']">
+                        <t t-foreach="sem_value" t-as="subjects">
+                            <tr>
+                                <t t-foreach="subjects" t-as="sub">
+                                    <td t-if="'subject_name' == sub"
+                                        style="text-align: left;">
+                                        <t t-esc="sub_value"/>
+                                    </td>
+                                    <td t-if="'subject_grade' == sub"
+                                        style="padding-left:5%">
+                                        <t t-esc="sub_value"/>
+                                    </td>
+                                    <td t-if="'subject_credit' == sub"
+                                        style="padding-left:5%">
+                                        <t t-esc="sub_value"/>
+                                    </td>
+                                </t>
+                            </tr>
+                        </t>
+                    </t>
+                </t>
+                <tr>
+                    <td colspan="3">
+                        <span t-if="'semester_gpa' in grade" style="float: right;">
+                            <t t-if="'semester_name' in grade" t-esc="grade['semester_name']"/>
+                            GPA:
+                            <t t-esc="grade['semester_gpa']"/>
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </template>
+
+
+</odoo>

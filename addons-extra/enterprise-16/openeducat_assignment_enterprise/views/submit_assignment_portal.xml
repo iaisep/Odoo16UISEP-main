@@ -1,0 +1,575 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="portal_my_home_menu_assignment_submission" name="Portal layout : Assignment Submission"
+              inherit_id="openeducat_core_enterprise.portal_breadcrumbs_inhetrite" priority="10">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <t t-if=" user_id.sudo().is_parent">
+                <li t-if="page_name == 'submission_list'"
+                    t-attf-class="breadcrumb-item #{'active ' if not invoice else ''}">
+                    <a t-if="id" t-attf-href="/student/assignment/details/#{stud_id}/?{{ keep_query() }}">
+                        Assignments
+                    </a>
+                    <t t-else="">Assignments</t>
+                </li>
+                <li t-if="page_name == 'submission_list' or submission_list"
+                    t-attf-class="breadcrumb-item #{'active ' if not submission_list else ''}">
+                    <a t-if="submission_ids"
+                       t-attf-href="/submited/assignment/list/#{stud_id}/#{id}/?{{ keep_query() }}">
+                        Submitted Assignments
+                    </a>
+                    <t t-else="">Submitted Assignments</t>
+                </li>
+                <li t-if="page_name == 'submission_info' or submission_info "
+                    t-attf-class="breadcrumb-item #{'active ' if not assignment_info else ''}">
+                    <a t-if="assignment_ids"
+                       t-attf-href="/submited/assignment/list/#{student}/#{assignment_ids.assignment_id.id}/?{{ keep_query() }}">
+                        Submitted Assignments
+                    </a>
+                    <t t-else="">Submitted Assignments</t>
+                </li>
+            </t>
+            <t t-if=" user_id.sudo().is_student">
+                <li t-if="page_name == 'submission_list'"
+                    t-attf-class="breadcrumb-item #{'active ' if not invoice else ''}">
+                    <a t-if="id" t-attf-href="/student/assignment/details/?{{ keep_query() }}">
+                        Assignments
+                    </a>
+                    <t t-else="">Assignments</t>
+                </li>
+                <li t-if="page_name == 'submission_list' or submission_list"
+                    t-attf-class="breadcrumb-item #{'active ' if not submission_list else ''}">
+                    <a t-if="submission_ids" t-attf-href="/submited/assignment/list/#{id}/?{{ keep_query() }}">
+                        Submitted Assignments
+                    </a>
+                    <t t-else="">Submitted Assignments</t>
+                </li>
+                <li t-if="page_name == 'submission_info' or submission_info "
+                    t-attf-class="breadcrumb-item #{'active ' if not assignment_info else ''}">
+                    <a t-if="assignment_ids"
+                       t-attf-href="/submited/assignment/list/#{assignment_ids.assignment_id.id}/?{{ keep_query() }}">
+                        Submitted Assignments
+                    </a>
+                    <t t-else="">Submitted Assignments</t>
+                </li>
+            </t>
+            <li t-if="page_name == 'submission_info' or submission_info"
+                class="breadcrumb-item active">
+                <span t-field="assignment_ids.assignment_id.name"/>
+            </li>
+        </xpath>
+    </template>
+
+    <template id="portal_my_home_menu_assignment_submission_form" name="Portal layout : Assignment Submission Form"
+              inherit_id="openeducat_core_enterprise.portal_breadcrumbs_inhetrite" priority="10">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="page_name == 'submit_assignment_form' or submit_assignment_form"
+                t-attf-class="breadcrumb-item #{'active ' if not submit_assignment_form else ''}">
+                <a t-attf-href="/submited/assignment/list/#{assignment_id}/?{{ keep_query() }}">
+                    Submitted Assignments
+                </a>
+            </li>
+            <li t-if="page_name == 'submit_assignment_form' or submit_assignment_form"
+                class="breadcrumb-item active">
+                Assignment Submission
+            </li>
+        </xpath>
+    </template>
+
+    <template id="portal_my_home_menu_assignment" name="Portal layout :Allocated Assignment"
+              inherit_id="openeducat_core_enterprise.portal_breadcrumbs_inhetrite" priority="10">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+
+            <t t-if="user_id.sudo().is_parent">
+                <li t-if="page_name == 'Student_assignment'"
+                    t-attf-class="breadcrumb-item #{'active ' if not invoice else ''}">
+                    <a t-if="assignment_id" t-attf-href="/student/assignment/details/#{stud_id}/?{{ keep_query() }}">
+                        Assignments
+                    </a>
+                    <t t-else="">Assignments</t>
+                </li>
+                <li t-if="page_name == 'assignment_info' or assignment_info "
+                    t-attf-class="breadcrumb-item #{'active ' if not assignment_info else ''}">
+                    <a t-if="assignment" t-attf-href="/student/assignment/details/#{student}/?{{ keep_query() }}">
+                        Assignments
+                    </a>
+                    <t t-else="">Assignments</t>
+                </li>
+            </t>
+            <t t-if="user_id.sudo().is_student">
+                <li t-if="page_name == 'Student_assignment'"
+                    t-attf-class="breadcrumb-item #{'active ' if not invoice else ''}">
+                    <a t-if="assignment_id" t-attf-href="/student/assignment/details/?{{ keep_query() }}">
+                        Assignments
+                    </a>
+                    <t t-else="">Assignments</t>
+                </li>
+                <li t-if="page_name == 'assignment_info' or assignment_info "
+                    t-attf-class="breadcrumb-item #{'active ' if not assignment_info else ''}">
+                    <a t-if="assignment" t-attf-href="/student/assignment/details/?{{ keep_query() }}">
+                        Assignments
+                    </a>
+                    <t t-else="">Assignments</t>
+                </li>
+            </t>
+            <li t-if="assignment" class="breadcrumb-item active">
+                <span t-field="assignment.name"/>
+            </li>
+
+        </xpath>
+    </template>
+
+    <template id="portal_student_submit_assignment_data">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Submit Assignment</t>
+            </t>
+            <t t-if="not student_ids">
+                <p>There are currently no information for your account!!!</p>
+            </t>
+
+            <t t-if="student_ids">
+                <div style="background-color:white; padding: 20px 40px 20px 40px;">
+                    <div class="mt16">
+                        <form t-att-action="'/assignment/submited/%s'%(assignment_id)" method="post" role="form"
+                              enctype="multipart/form-data">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="row col-md-12">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label" for="Name">
+                                                <strong>Name:</strong>
+                                            </label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="hidden" name="stud_id" t-att-value="student_ids.id"/>
+                                            <input type="Text" name="name" t-attf-class="form-control"
+                                                   t-att-value="student_ids.name" readonly="1"/>
+                                        </div>
+                                    </div>
+                                    <div class="row mt8 col-md-12">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label" for="Date">
+                                                <strong>Submit Date:</strong>
+                                            </label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="text" name="Date" t-attf-class="form-control "
+                                                   t-att-value="submit_date" readonly="1"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row  col-md-12">
+                                        <div class="col-md-4 mt8">
+                                            <label for="assignment_id">Assignment:</label>
+                                        </div>
+                                        <div class=" col-md-8">
+                                            <select class="form-control" name="assignment_id" required="1">
+                                                <t t-foreach="submit_assignment_ids or []" t-as="assignment">
+                                                    <option class="selected" t-att-value="assignment.id">
+                                                        <t t-esc="assignment.name"/>
+                                                    </option>
+                                                </t>
+                                                <t t-if="not submit_assignment_ids">
+                                                    <option value="" class="disabled selected">
+                                                        <lable>Assignment Not Publish</lable>
+                                                    </option>
+                                                </t>
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group mt8 row col-md-12">
+                                        <div class="col-md-4 mt8">
+                                            <label>Attachments:</label>
+                                        </div>
+                                        <div class="col-md-8 mt8">
+                                            <input type="file" multiple="true" name="attachments"
+                                                   class="inputfile"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="col-md-4">
+                                        <label class="col-form-label" for="Description">
+                                            <strong>Description:</strong>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <textarea class="form-control o_website_form_input" name="Description"
+                                                  required="1"/>
+                                    </div>
+                                </div>
+                                <div class="mt8 col-md-12">
+                                    <div class="col-md-4">
+                                        <label class="col-form-label" for="Note">
+                                            <strong>Note:</strong>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <textarea class="form-control o_website_form_input" name="Note"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix mt16 mb16 row col-md-12">
+                                <div class="col-md-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        SUBMIT
+                                        <span class="fa fa-long-arrow-right"/>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <!-- List of Assignment After submit   -->
+    <template id="portal_submited_assignment_list">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Submitted Assignments</t>
+            </t>
+
+            <t t-if="not grouped_tasks">
+                <div class="alert alert-warning mt8" role="alert">
+                    There are no records.
+                </div>
+            </t>
+
+            <div t-if="user_id.sudo().is_student" class="mt16 mb16 text-left portal_buttons">
+                <div>
+                    <t t-if="assin_id.state != 'finish'">
+                        <t t-if="assin_id.attempt_type == 'multiple'">
+                            <t t-if="total_attempt &lt; assin_id.max_attempt">
+                                <a t-attf-href="/assignment/submit/#{id}">
+                                    <button>Submit Assignment</button>
+                                </a>
+                            </t>
+                            <t t-if="assin_id.max_attempt == False">
+                                <a t-attf-href="/assignment/submit/#{id}">
+                                    <button>Submit Assignment</button>
+                                </a>
+                            </t>
+                            <t t-if="total_attempt &lt; additional_attempt and total_attempt &gt;= assin_id.max_attempt">
+                                <t t-if="assin_id.max_attempt != False">
+                                    <a t-attf-href="/assignment/submit/#{id}">
+                                        <button>Submit Assignment</button>
+                                    </a>
+                                </t>
+                            </t>
+
+                        </t>
+                        <t t-if="assin_id.attempt_type == 'single'">
+                            <t t-if="total_attempt &lt; assin_id.max_attempt">
+                                <a t-attf-href="/assignment/submit/#{id}">
+                                    <button>Submit Assignment</button>
+                                </a>
+                            </t>
+                             <t t-if="total_attempt &lt;= allow_attempt.allowed_attempt and total_attempt &gt;= assin_id.max_attempt">
+                                 <a t-attf-href="/assignment/submit/#{id}">
+                                    <button>Submit Assignment</button>
+                                </a>
+                            </t>
+                        </t>
+                    </t>
+                </div>
+            </div>
+
+            <div class="row col-12">
+                <div id="attempt" class=" col-md-6 mt8 mb16">
+                    <strong>Number of Attempt:</strong>
+                    <span t-esc="{False:False, 'multiple':'Multiple Attempt', 'single':'Single Attempt'}[assin_id.attempt_type]"/>
+                </div>
+            </div>
+            <div class="row col-12">
+                <div t-if="assin_id.max_attempt != 0" class=" col-md-6 mb16">
+                    <strong>Maximum Attempt:</strong>
+                    <span t-esc="assin_id.max_attempt"/>
+                </div>
+                <div t-if="extra_attempts != 0" class="col-md-6 mb16">
+                    <strong>Additional Attempt:</strong>
+                    <span t-esc="extra_attempts"/>
+                </div>
+            </div>
+
+            <t t-if="grouped_tasks">
+                <t t-if="submission_ids" t-call="portal.portal_table">
+                    <t t-foreach="grouped_tasks" t-as="tasks">
+                        <thead>
+                            <tr t-attf-class="{{'thead-light' if not groupby == 'none' else ''}}">
+                                <th t-if="groupby == 'none'">Assignment</th>
+                                <th t-else="">
+                                    <em class="font-weight-normal text-muted">Submission For:</em>
+                                    <span t-field="tasks[0].sudo().assignment_id.name"/>
+                                </th>
+                                <th>Submission date</th>
+                                <th>Status</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-if="tasks" t-foreach="tasks" t-as="assignment_list">
+                                <tr>
+                                    <td>
+                                        <a t-attf-href="/assignment/data/#{stud_id}/#{assignment_list.id}">
+                                            <span id="assignment_name" t-esc="assignment_list.assignment_id.name"/>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <span t-esc="assignment_list.submission_date"
+                                              t-options="{'widget': 'datetime'}"/>
+                                    </td>
+                                    <td>
+                                        <t t-if="assignment_list.state == 'draft'">
+                                            <span class="badge badge-pill text-bg-info">
+                                                <i class="fa fa-fw fa-clock-o" aria-label="Publish" title="Publish"
+                                                   role="img"></i>
+                                                <span class="d-none d-md-inline">Draft</span>
+                                            </span>
+                                        </t>
+                                        <t t-if="assignment_list.state == 'change'">
+                                            <span class="badge badge-pill text-bg-warning">
+                                                <i class="fa fa-fw fa-clock-o" aria-label="Publish" title="Publish"
+                                                   role="img"></i>
+                                                <span class="d-none d-md-inline">Change Required</span>
+                                            </span>
+                                        </t>
+                                        <t t-if="assignment_list.state == 'submit'">
+                                            <span class="badge badge-pill text-bg-primary">
+                                                <i class="fa fa-fw fa-clock-o" aria-label="Request" title="Request"
+                                                   role="img"></i>
+                                                <span class="d-none d-md-inline">Submitted</span>
+                                            </span>
+                                        </t>
+                                        <t t-if="assignment_list.state == 'accept'">
+                                            <span class="badge badge-pill text-bg-success">
+                                                <i class="fa fa-fw fa-check" aria-label="Accepted" title="Accepted"
+                                                   role="img"></i>
+                                                <span class="d-none d-md-inline">Accepted</span>
+                                            </span>
+                                        </t>
+                                        <t t-if="assignment_list.state == 'reject'">
+                                            <span class="badge badge-pill text-bg-danger">
+                                                <i class="fa fa-fw fa-remove" aria-label="Rejected" title="Rejected"
+                                                   role="img"></i>
+                                                <span class="d-none d-md-inline">Rejected</span>
+                                            </span>
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <span t-if="assignment_list.ignore" style="color:red;">Ignored*</span>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </t>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <template id="assignment_data">
+        <t t-call="portal.portal_layout">
+            <t t-set="o_portal_fullwidth_alert" groups="project.group_project_user">
+                <t t-call="portal.portal_back_in_edit_mode">
+                    <t t-set="backend_url"
+                       t-value="'/web#model=op.assignment.sub.line&amp;id=%s&amp;view_type=form' % (assignment_ids.id)"/>
+                </t>
+            </t>
+            <t t-call="portal.portal_record_layout">
+                <t t-set="card_header">
+                    <h5 class="mb-0">
+                        <small class="text-muted">Submission Information</small>
+                    </h5>
+                </t>
+            </t>
+
+            <div t-if="assignment_ids" style="background-color:white; padding: 20px 40px 20px 40px;">
+                <div class="mt16">
+                    <div t-if="assignment_ids.student_id" class="row col-md-12">
+                        <div class=" col-md-6">
+                            <div class="row col-md-12">
+                                <div class="col-md-5">
+                                    <strong>Name:</strong>
+                                </div>
+                                <div class="col-md-7">
+                                    <span t-esc="assignment_ids.student_id.name"/>
+                                </div>
+                            </div>
+                            <div class="row mt8 col-md-12">
+                                <div t-if="assignment_ids.submission_date" class="col-md-5">
+                                    <strong>Submission Date:</strong>
+                                </div>
+                                <div class="col-md-7">
+                                    <span t-esc="assignment_ids.submission_date" t-options="{'widget': 'datetime'}"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div t-if="assignment_ids.assignment_id.name" class="row col-md-12">
+                                <div class="col-md-5">
+                                    <strong>Assignments:</strong>
+                                </div>
+                                <div class="col-md-7">
+                                    <span id="name" t-esc="assignment_ids.assignment_id.name"/>
+                                </div>
+                            </div>
+                            <div id="grades" t-if="attachment_ids" class="row mt8 col-md-12">
+                                <div class="col-md-5">
+                                    <strong>Attachments:</strong>
+                                </div>
+                                <div class="col-md-7">
+                                    <t t-if="attachment_ids" t-foreach="attachment_ids" t-as="attachment">
+                                        <a t-attf-href="/assignment/submission/download/#{attachment.id}">
+                                            <t t-if="attachment.name" t-esc="attachment.name"/>
+                                            <i t-if="attachment.name" class="fa fa-download"/>
+                                        </a>
+                                        <br/>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt32 mb16">
+                        <div t-if="assignment_ids.description" class="mt8 col-md-12">
+                            <div class="col-md-4">
+                                <strong>Description:</strong>
+                            </div>
+                            <div class="col-md-12">
+                                <span t-esc="assignment_ids.description"/>
+                            </div>
+                        </div>
+                        <div t-if="assignment_ids.note" class="mt8 col-md-12">
+                            <div class="col-md-4">
+                                <strong>Note:</strong>
+                            </div>
+                            <div class="col-md-12">
+                                <span t-esc="assignment_ids.note"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="assignment_line_communication" class="mt8">
+                <h2>Communication</h2>
+                <t t-call="portal.message_thread">
+                    <xpath expr="//div[@id='discussion']" position="attributes">
+                        <attribute name="t-att-data-display_rating">display_rating or False</attribute>
+                        <t t-set="object" t-value="assignment_ids"/>
+                    </xpath>
+                </t>
+            </div>
+        </t>
+    </template>
+
+
+    <template id="openeducat_student_assignments">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Assignments Information</t>
+            </t>
+            <t t-if="not grouped_tasks">
+                <div class="alert alert-warning mt8" role="alert">
+                    There are no records.
+                </div>
+            </t>
+            <t t-if="grouped_tasks">
+                <t t-if="assignment_id" t-call="portal.portal_table">
+                    <t t-foreach="grouped_tasks" t-as="tasks">
+                        <thead>
+                            <tr t-attf-class="{{'thead-light' if not groupby == 'none' else ''}}">
+                                <th>Name</th>
+                                <th t-if="groupby == 'none'">Course</th>
+                                <th t-else="">
+                                    <em class="font-weight-normal text-muted">Assignment For:</em>
+                                    <span t-field="tasks[0].sudo().course_id.name"/>
+                                </th>
+                                <th>Assignent Type</th>
+                                <th>Issued Date</th>
+                                <th>Submission Date</th>
+                                <th>State</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="tasks" t-as="assignment">
+                                <tr>
+                                    <td>
+                                        <a t-attf-href="/assignment/details/#{stud_id}/#{assignment.id}">
+                                            <span t-esc="assignment.name"/>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <span t-esc="assignment.course_id.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="assignment.assignment_type.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="assignment.issued_date"
+                                              t-options="{'widget': 'datetime'}"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="assignment.submission_date"
+                                              t-options="{'widget': 'datetime'}"/>
+                                    </td>
+                                    <td>
+                                        <t t-if="assignment.state == 'draft'">
+                                            <span class="badge badge-pill text-bg-info">
+                                                <i class="fa fa-fw fa-clock-o" aria-label="Draft" title="Draft"
+                                                   role="img"></i>
+                                                <span class="d-none d-md-inline">Draft</span>
+                                            </span>
+                                        </t>
+                                        <t t-if="assignment.state == 'publish'">
+                                            <span class="badge badge-pill text-bg-primary">
+                                                <i class="fa fa-fw fa-clock-o" aria-label="Publish" title="Publish"
+                                                   role="img"></i>
+                                                <span class="d-none d-md-inline">Publish</span>
+                                            </span>
+                                        </t>
+                                        <t t-if="assignment.state == 'finish'">
+                                            <span class="badge badge-pill text-bg-success">
+                                                <i class="fa fa-fw fa-check" aria-label="Finished" title="Finished"
+                                                   role="img"></i>
+                                                <span class="d-none d-md-inline">Finished</span>
+                                            </span>
+                                        </t>
+                                        <t t-if="assignment.state == 'cancel'">
+                                            <span class="badge badge-pill text-bg-danger">
+                                                <i class="fa fa-fw fa-remove" aria-label="Cancel" title="Cancel"
+                                                   role="img"></i>
+                                                <span class="d-none d-md-inline">Cancel</span>
+                                            </span>
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <t t-if="assignment.state != 'draft' and assignment.state != 'cancel'">
+                                            <a t-attf-href="/submited/assignment/list/#{stud_id}/#{assignment.id}">
+                                                <button>Submit Assignment</button>
+                                            </a>
+                                        </t>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </t>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

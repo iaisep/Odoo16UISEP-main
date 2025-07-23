@@ -1,0 +1,311 @@
+<odoo>
+    <record model="ir.actions.act_window" id="action_window_approval_request_to_review_kanban">
+        <field name="name">Approval Request</field>
+        <field name="res_model">multi.request</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('line_ids.user_id','=',uid),('request_status','=','pending'),('approval_type_id',
+            '=', active_id)]
+        </field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new Approval Request, the first step of a new Approval Request!
+            </p>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_kanban_approval_type">
+        <field name="name">Approval Types</field>
+        <field name="model">multi.approval.type</field>
+        <field name="arch" type="xml">
+            <kanban class="o_modules_kanban">
+                <field name="name"/>
+                <field name="id"/>
+                <field name="image"/>
+                <field name="apply_for_model"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_module_vignette">
+                            <t t-if="record.id">
+                                <img t-att-src="kanban_image('multi.approval.type', 'image', record.id.raw_value)"
+                                        alt="Approval Type Image" class="oe_kanban_avatar float-left mr-3" width="64"
+                                        height="64"/>
+                            </t>
+                            <div role="menuitem">
+                                <a class="o_kanban_manage_toggle_button float-right oe_kanban_action oe_kanban_action_a"
+                                    href="#" data-type="edit">
+                                    <i class="fa fa-edit" role="img" aria-label="Manage" title="Manage"/>
+                                </a>
+                            </div>
+                            <div class="oe_module_desc">
+                                <h4 class="o_kanban_record_title">
+                                    <field name="name"/>
+                                </h4>
+                                <p class="oe_module_name">
+                                    <field name="description"/>
+                                </p>
+                                <div class="oe_module_action" t-if="!selection_mode">
+                                    <button type="object" class="btn btn-primary btn-sm" name="create_request"
+                                            context="{'approval_type_id':'active_id'}"
+                                            attrs="{'invisible': [('apply_for_model', '=', True)]}">New Request
+                                    </button>
+                                    <button type="action" class="btn btn-sm btn-secondary float-right"
+                                            name="%(openeducat_multi_approval.action_window_approval_request_to_review_kanban)d"
+                                            groups="openeducat_multi_approval.group_approval_user">To Review:
+                                        <field name="request_to_validate_count"/>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- explicit form view definition -->
+
+    <record model="ir.ui.view" id="view_from_approval_type">
+        <field name="name">Approval Types</field>
+        <field name="model">multi.approval.type</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_configure" type="object" string="Configure"
+                            attrs="{'invisible': ['|', '|', ('active', '=', False), ('is_configured', '=', True), ('apply_for_model', '=', False)]}"
+                            class="oe_highlight"/>
+                    <button name="create_request" type="object" string="Create New Request" class="oe_highlight"
+                            attrs="{'invisible': [('apply_for_model', '=', True)]}"/>
+                </header>
+                <div class="alert alert-info" role="alert" style="margin-bottom:0px;"
+                        attrs="{'invisible': [('is_configured', '=', False)]}">
+                    This type has been configured!
+                </div>
+                <sheet>
+                    <div class="oe_avatar">
+                        <field name="image" widget="image"
+                                options="{'preview_image': 'category_image', 'size': [80, 80]}"/>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name" string="Approval Type"/>
+                        <h1>
+                            <field name="name" placeholder="e.g. Procurement" required="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="description"/>
+                        <field name="priority"/>
+                        <field name="apply_for_model"/>
+                        <field name="is_configured" invisible="1"/>
+                        <field name="active" invisible="1"/>
+                    </group>
+                    <notebook>
+                        <page string="Options" name="options">
+                            <group string="Fields" name="option_settings"
+                                    attrs="{'invisible': [('apply_for_model', '=', True)]}">
+                                <group>
+                                    <field name="document_opt" widget="radio" options="{'horizontal': true}"/>
+                                    <field name="partner_opt" widget="radio" options="{'horizontal': true}"/>
+                                    <field name="date_opt" widget="radio" options="{'horizontal': true}"/>
+                                    <field name="period_opt" widget="radio" options="{'horizontal': true}"/>
+                                    <field name="product_opt" widget="radio" options="{'horizontal': true}"/>
+                                </group>
+                                <group>
+                                    <field name="quantity_opt" widget="radio" options="{'horizontal': true}"/>
+                                    <field name="amount_opt" widget="radio" options="{'horizontal': true}"/>
+                                    <field name="payment_opt" widget="radio" options="{'horizontal': true}"/>
+                                    <field name="reference_opt" widget="radio" options="{'horizontal': true}"/>
+                                    <field name="location_opt" widget="radio" options="{'horizontal': true}"/>
+                                </group>
+                            </group>
+                            <group string="Model Settings" name="model_settings"
+                                    attrs="{'invisible': [('apply_for_model', '=', False)]}">
+                                <field name="model_id"
+                                        attrs="{'required': [('apply_for_model', '=', True)], 'readonly': [('is_configured', '=', True)]}"
+                                        require="1"/>
+                                <field name="model_name" invisible="1"/>
+                                <field name="domain" widget="domain" options="{'model':'model_name'}"
+                                        attrs="{'required': [('apply_for_model', '=', True)], 'readonly': [('is_configured', '=', True)]}"/>
+                                <field name="hide_button"/>
+                            </group>
+                            <group>
+                                <field name="approve_python_code" placeholder="Python code" widget="ace"
+                                        options="{'mode': 'python'}"
+                                        attrs="{'invisible': [('apply_for_model', '=', False)]}"/>
+                            </group>
+                            <group>
+                                <field name="refuse_python_code" placeholder="Python code" widget="ace"
+                                        options="{'mode': 'python'}"
+                                        attrs="{'invisible': [('apply_for_model', '=', False)]}"/>
+                            </group>
+                            <group string="Approvers" name="approvers">
+                                <group>
+                                    <field name="approval_minimum"/>
+                                </group>
+                                <field name="line_ids">
+                                    <tree editable="bottom">
+                                        <field name="user_id"/>
+                                        <field name="require_opt"/>
+                                        <field name="approve_tmpl_id"/>
+                                        <field name="reject_tmpl_id"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </page>
+                        <page string="Help" attrs="{'invisible': [('apply_for_model', '=', False)]}">
+                            <group>
+                                <div style="margin-top: 4px;">
+                                    <h3>Help with Python expressions</h3>
+                                    <p>Various fields may use Python code or Python expressions. The following
+                                        variables can be used:
+                                    </p>
+                                    <ul>
+                                        <li><code>env</code>: Odoo Environment on which the action is triggered
+                                        </li>
+                                        <li><code>model</code>: Odoo Model of the record on which the action is
+                                            triggered; is a void recordset
+                                        </li>
+                                        <li><code>record</code>: record on which the action is triggered; may be be
+                                            void
+                                        </li>
+                                        <li><code>records</code>: recordset of all records on which the action is
+                                            triggered in multi mode; may be void
+                                        </li>
+                                        <li><code>time</code>, <code>datetime</code>, <code>dateutil</code>, <code>
+                                            timezone</code>: useful Python libraries
+                                        </li>
+                                        <li><code>log(message, level='info')</code>:logging function to record debug
+                                            information in <code>ir.logging</code> table
+                                        </li>
+                                        <li><code>UserError</code>: Warning Exception to use with
+                                            <code>raise</code>
+                                        </li>
+                                        <li>To return an action, assign:
+                                            <code>action = {...}</code>
+                                        </li>
+                                    </ul>
+                                    <div>
+                                        <p>Example of Python code</p>
+                                        <code style="white-space: pre-wrap">
+                                            partner_name = record.name + '_code'
+                                            env['res.partner'].create({'name': partner_name})
+                                        </code>
+                                    </div>
+                                </div>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="view_tree_approval_type">
+        <field name="name">Approval Types</field>
+        <field name="model">multi.approval.type</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="action_window_approval_type">
+        <field name="name">Approval Types</field>
+        <field name="res_model">multi.approval.type</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new Approval Types, the first step of a new Approval!
+            </p>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_window_approval_request_my_request">
+        <field name="name">Approval Request</field>
+        <field name="res_model">multi.request</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('user_id', '=', uid)]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new Approval Request, the first step of a new Approval Request!
+            </p>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_window_approval_request_to_review">
+        <field name="name">Approval Request</field>
+        <field name="res_model">multi.request</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('line_ids.user_id','=',uid),('request_status','=','pending')]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new Approval Request, the first step of a new Approval Request!
+            </p>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_window_approval_request">
+        <field name="name">Approval Request</field>
+        <field name="res_model">multi.request</field>
+        <field name="view_mode">search,tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new Approval Request, the first step of a new Approval Request!
+            </p>
+        </field>
+    </record>
+
+    <record model="ir.actions.server" id="action_window_approval_request_view_approval">
+        <field name="name">View Approval Request</field>
+        <field name="model_id" ref="openeducat_multi_approval.model_multi_request"/>
+        <field name="state">code</field>
+        <field name="code">action = model.action_view_approval()</field>
+    </record>
+
+    <!-- Top menu item -->
+
+    <menuitem name="Approvals"
+                id="openeducat_multi_approval.menu_root"
+                web_icon="openeducat_multi_approval,static/description/icon.png"
+                sequence="1"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Approval Types"
+                id="openeducat_multi_approval.menu_approval_types"
+                parent="openeducat_multi_approval.menu_root"
+                action="openeducat_multi_approval.action_window_approval_type"/>
+
+    <menuitem name="Approvals"
+                id="openeducat_multi_approval.menu_approvals"
+                parent="openeducat_multi_approval.menu_root"/>
+
+    <menuitem name="My Request"
+                id="openeducat_multi_approval.menu_my_request"
+                parent="openeducat_multi_approval.menu_approvals"
+                action="openeducat_multi_approval.action_window_approval_request_my_request"
+                sequence="1"/>
+
+    <menuitem name="To Review"
+                id="openeducat_multi_approval.menu_to_review"
+                parent="openeducat_multi_approval.menu_approvals"
+                action="openeducat_multi_approval.action_window_approval_request_to_review"
+                sequence="2"/>
+
+    <menuitem name="All Approval"
+                id="openeducat_multi_approval.menu_all_approval"
+                parent="openeducat_multi_approval.menu_approvals"
+                action="openeducat_multi_approval.action_window_approval_request"
+                sequence="3"/>
+
+    <menuitem id="multi_approval_menu_config_activity_type"
+                name="Activity Types"
+                parent="openeducat_multi_approval.menu_root"
+                action="openeducat_multi_approval.mail_activity_type_action_config_approval"
+                groups="openeducat_multi_approval.group_approval_manager"/>
+</odoo>

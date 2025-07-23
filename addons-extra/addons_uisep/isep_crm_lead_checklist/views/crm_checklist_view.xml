@@ -1,0 +1,131 @@
+<odoo>
+
+    <record id="check_list_tree_view" model="ir.ui.view">
+        <field name="name">crm.checklist.tree.view</field>
+        <field name="model">crm.checklist</field>
+        <field name="arch" type="xml">
+            <tree create="0" delete="0" edit="0"  >
+                
+                <field name="date" readonly="1" force_save="1" />
+                <field name="team_id"/>
+                <field name="user_id"/>
+                <field name="checklist_id"/>
+                <field name="note" optional="hide" />
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="check_list_form_view" model="ir.ui.view">
+        <field name="name">crm.checklist.form.view</field>
+        <field name="model">crm.checklist</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>                        
+                        <field name="checklist_id"  options="{'no_open':True,'no_create': True}" />
+                        <field name="note" placeholder="Descripcion o captura de pantalla en caso de ser necesario"/>
+                        
+                    </group>
+                        <div>Puede tomar captura de pantalla selectiva de la siguiente manera:</div>
+                        <div>En Windows: <span style="font-weight: bold;" >Inicio + Shift + S</span></div>
+                        <div>En Linux: <span style="font-weight: bold;" >Shift + ImpPnt</span></div>
+                        <div>Puede pegar lo capturado en el campo "Notas" con <span style="font-weight: bold;" >Control + V</span></div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="check_list_pivot_view" model="ir.ui.view">
+        <field name="name">crm.checklist.pivot.view</field>
+        <field name="model">crm.checklist</field>
+        <field name="arch" type="xml">
+            <pivot string="Pipeline Analysis" sample="1">
+                    <field name="user_id" type="row"/>
+                    <field name="checklist_id" type="col" />
+            </pivot>
+        </field>
+    </record>
+
+
+    <record id="check_list_search_view" model="ir.ui.view">
+        <field name="name">crm.checklist.search.view</field>
+        <field name="model">crm.checklist</field>
+        <field name="arch" type="xml">
+            <search string="Search Opportunities"  >
+                    <field name="user_id"/>
+                    <field name="team_id"/>                    
+
+                    <group expand="0" string="Group By" colspan="16">
+                        <filter string="Asesor" name="asesor" context="{'group_by':'user_id'}"/>
+                        <filter string="Equipo" name="team" context="{'group_by':'team_id'}"/>
+                    </group>
+                    
+            </search>
+        </field>
+    </record>
+
+
+
+
+    
+
+
+    
+    <record model="ir.actions.act_window" id="action_property_lead_check">
+        <field name="name">Checklist Registros</field>
+        <field name="res_model">crm.checklist</field>
+        <field name="view_mode">tree,pivot</field>
+    </record>
+    <menuitem id="checklist_crm" name="Checklist Registros" parent="crm.crm_menu_report"
+              action="action_property_lead_check"/>
+
+
+
+
+
+    <record id="check_list_line_tree_view" model="ir.ui.view">
+        <field name="name">crm.checklist.line.tree.view</field>
+        <field name="model">crm.checklist.line</field>
+        <field name="arch" type="xml">
+            <tree editable="top" >
+                <field name="sequence" widget="handle"/>
+                 <field name="type"/>                        
+                <field name="name"/>
+                <field name="team_ids" widget="many2many_tags"/>
+                <field name="qty"/>                
+                <field name="evaluar" widget="boolean_toggle"  />                    
+            </tree>
+        </field>
+    </record>
+
+
+
+    <record id="check_list_line_form_view" model="ir.ui.view">
+        <field name="name">crm.checklist.line.form.view</field>
+        <field name="model">crm.checklist.line</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>                        
+                        <field name="name"/>
+                        <field name="evaluar"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+
+    
+    <record model="ir.actions.act_window" id="action_property_lead_line">
+        <field name="name">Checklist</field>
+        <field name="res_model">crm.checklist.line</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="checklist_line_crm" name="Checklist" parent="crm.crm_menu_config"
+              action="action_property_lead_line"/>
+</odoo>

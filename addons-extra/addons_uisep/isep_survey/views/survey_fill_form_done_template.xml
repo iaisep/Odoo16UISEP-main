@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+        <template id="custom_survey_fill_form_done" inherit_id="survey.survey_fill_form_done">
+            <xpath expr="//t[@t-if='answer.scoring_success']" position="attributes">
+                <attribute name="t-if">answer.scoring_percentage &gt;= survey.scoring_success_min</attribute>
+            </xpath>
+        </template>
+
+    </data>
+</odoo>

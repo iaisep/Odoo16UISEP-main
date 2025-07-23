@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="view_student_form_inherit_student_attendance" model="ir.ui.view">
+            <field name="name">op.student</field>
+            <field name="model">op.student</field>
+            <field name="inherit_id" ref="openeducat_core.view_op_student_form"/>
+            <field name="priority">10</field>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='personal_detail']" position="after">
+                    <group string="Attendance">
+                        <group>
+                            <field name="pin" string="PIN"/>
+                        </group>
+                        <group>
+                            <label for="barcode"/>
+                            <div class="o_row">
+                                <field name="barcode"/>
+                                <button string="Generate" class="btn btn-link" type="object"
+                                        name="generate_random_barcode"
+                                        attrs="{'invisible': [('barcode', '!=', False)]}"/>
+                            </div>
+                        </group>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="student_view_kanban" model="ir.ui.view">
+            <field name="name">op.student.kanban</field>
+            <field name="model">op.student</field>
+            <field name="priority">100</field>
+            <field name="arch" type="xml">
+                <kanban class="o_op_student_attendance_kanban" create="false">
+                    <field name="id"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <div class="o_kanban_image">
+                                    <img t-att-src="kanban_image('op.student', 'image_1920', record.id.raw_value)"
+                                         alt="Student"/>
+                                </div>
+                                <div class="oe_kanban_details">
+                                    <div id="textbox">
+                                        <strong>
+                                            <field name="name"/>
+                                        </strong>
+                                    </div>
+                                    <ul>
+                                        <li t-if="record.contact_address.raw_value">
+                                            <field name="contact_address"/>
+                                        </li>
+                                        <li t-if="record.mobile.raw_value">
+                                            <field name="mobile"/>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="student_attendance_action_kanban" model="ir.actions.act_window">
+            <field name="name">Students</field>
+            <field name="res_model">op.student</field>
+            <field name="view_mode">kanban,tree,activity</field>
+            <field name="view_id" ref="student_view_kanban"/>
+        </record>
+
+</odoo>

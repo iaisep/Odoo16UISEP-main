@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_sale_subscription_due_template">
+            <t t-call="web.basic_layout">
+                <t t-foreach="docs" t-as="o">
+                    <div class="page">
+                        <t t-set="field_name" t-value="o._fields['date_field'].selection"/>
+                        <t t-set="readable" t-value="dict(field_name).get(o.date_field)"/>
+                        <div>
+                            <p style="text-align: center; font-weight: bold;">
+                                Rango de fechas:
+                                <t t-esc="o.date_from.strftime('%d/%m/%Y')"/> a 
+                                <t t-esc="o.date_to.strftime('%d/%m/%Y')"/> - 
+                                <t t-esc="readable"/>
+                            </p>
+                        </div>
+
+                        <h3 style="text-align: center;">RESUMEN</h3>
+                        <t t-if="o.date_field != 'subscription_schedule_due'">                         
+                            <h5 style="text-align: center;">MONEDA AGRUPADO</h5>
+                            <table class="table table-sm table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>MONEDA</th>
+                                        <th>BASE IMPONIBLE</th>
+                                        <th>TOTAL</th>
+                                        <th>IMPORTE RECURRENTE</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="o.get_currency_summary()" t-as="line">
+                                        <tr>
+                                            <td><t t-esc="line['currency']"/></td>
+                                            <td><t t-esc="line['amount_untaxed']"/></td>
+                                            <td><t t-esc="line['amount_total']"/></td>
+                                            <td><t t-esc="line['amount_recurring']"/></td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </t>
+
+                        <h5 style="text-align: center;">COBRAR CLIENTES</h5>
+
+                        <t t-foreach="o.get_due_lines_grouped()" t-as="client">
+                            <p>
+                                <strong>CLIENTE:</strong> <t t-esc="client['partner']"/> |
+                                <strong>COMERCIAL:</strong> <t t-esc="client['user']"/> |
+                                <strong>IMPORTE RECURRENTE:</strong> <t t-esc="client['amount_recurent']"/> |
+                                <strong>FECHA PEDIDO:</strong> <t t-esc="client['order_date']"/> |
+                                <strong>SIGUIENTE FACTURA:</strong> <t t-esc="client['next_date_invoice']"/>
+                            </p>
+
+                            <table class="table table-sm table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>REFERENCIA</th>
+                                        <th>PLAZO</th>
+                                        <th>MONEDA</th>
+                                        <th>ESTADO</th>
+                                        <th>FECHA VENCE</th>
+                                        <th>TOTAL COBRAR</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="client['lines']" t-as="line">
+                                        <tr>
+                                            <td><t t-esc="line['order_name']"/></td>
+                                            <td><t t-esc="line['term']"/></td>
+                                            <td><t t-esc="line['currency']"/></td>
+                                            <td><t t-esc="line['state']"/></td>
+                                            <td><t t-esc="line['due_date']"/></td>
+                                            <td><t t-esc="line['amount']"/></td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+
+                            <p><strong>Total cliente:</strong> <t t-esc="client['total']"/></p>
+                        </t>
+
+                        <h6 style="text-align: center;">TOTAL GENERAL</h6>
+                        <table class="table table-sm table-bordered" style="width: 40%; float: right;">
+                            <thead>
+                                <tr>
+                                    <th>MONEDA</th>
+                                    <th>TOTAL A COBRAR</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="o.get_total_by_currency().items()" t-as="total_item">
+                                    <tr>
+                                        <td><t t-esc="total_item[0]"/></td>
+                                        <td><t t-esc="total_item[1]"/></td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

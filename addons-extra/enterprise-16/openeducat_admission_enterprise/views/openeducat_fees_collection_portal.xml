@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--        Hidiing addons menus on porta l-->
+    <template id="account.portal_my_home_invoice" name="Show Invoices &amp; Bills" inherit_id="portal.portal_my_home"
+              customize_show="True" priority="30">
+
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+        <t t-if="not (user_id.sudo().is_student or user_id.sudo().is_parent)">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">Invoices &amp; Bills</t>
+                <t t-set="url" t-value="'/my/invoices'"/>
+                <t t-set="placeholder_count" t-value="'invoice_count'"/>
+            </t>
+        </t>
+        </xpath>
+
+    </template>
+
+
+    <template id="student_portal_fees_collection_details"
+              inherit_id="openeducat_core_enterprise.openeducat_enterprise_student_portal" priority="40">
+        <xpath expr="//ul[hasclass('nav-pills')]" position="inside">
+            <li class="ed_info">
+                <a href="#fees_detais" aria-expanded="false" data-bs-toggle="tab" role="tab">
+                    <h5 class="mb0">
+                        Fees Collection Details
+                    </h5>
+                </a>
+            </li>
+        </xpath>
+        <xpath expr="//div[hasclass('tab-content')]" position="inside">
+            <div class="tab-pane fade" id="fees_detais">
+                <div class="mb-4">
+                    <h4>Fees Collection Details</h4>
+                </div>
+                <table class="mt16 table table-condensed">
+                    <thead>
+                        <tr>
+                            <th>Submit Date</th>
+                            <th>Fees Amount</th>
+                            <th>Status</th>
+                            <th>Invoice</th>
+                            <th t-if="user_id.sudo().is_student"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="student.fees_detail_ids" t-as="fees_detail">
+                            <tr>
+                                <td>
+                                    <span t-esc="fees_detail.date" t-options="{'widget': 'date'}"/>
+                                </td>
+                                <td class="numspan">
+                                    <span t-esc="fees_detail.amount"
+                                          t-options="{'widget': 'monetary', 'display_currency': fees_detail.currency_id}"/>
+                                </td>
+                                <td>
+                                    <span t-esc="{False: False, 'draft': 'Draft',
+                                                'invoice': 'Invoice Created', 'cancel': 'Cancel'}
+                                                [fees_detail.state]"/>
+                                </td>
+                                <td>
+                                    <t t-if="fees_detail.invoice_id.state == 'draft'">
+                                        <span class="badge badge-pill badge-muted">
+                                            <i class="fa fa-fw fa-clock-o" aria-label="Draft" title="Draft"
+                                               role="img"></i>
+                                            <span class="d-none d-md-inline">Draft</span>
+                                        </span>
+                                    </t>
+                                    <t t-if="fees_detail.invoice_id.state == 'posted' and fees_detail.invoice_id.payment_state != 'paid'">
+                                        <span class="badge badge-pill badge-info">
+                                            <i class="fa fa-fw fa-clock-o" aria-label="Opened" title="Opened"
+                                               role="img"></i>
+                                            <span class="d-none d-md-inline">Waiting for Payment</span>
+                                        </span>
+                                    </t>
+                                    <t t-if="fees_detail.invoice_id.state == 'posted' and fees_detail.invoice_id.payment_state == 'paid' ">
+                                        <span class="badge badge-pill badge-success">
+                                            <i class="fa fa-fw fa-check" aria-label="Paid" title="Paid" role="img"></i>
+                                            <span class="d-none d-md-inline">Paid</span>
+                                        </span>
+                                    </t>
+                                    <t t-if="fees_detail.invoice_id.state == 'cancel'">
+                                        <span class="badge badge-pill badge-warning">
+                                            <i class="fa fa-fw fa-remove" aria-label="Cancelled" title="Cancelled"
+                                               role="img"></i>
+                                            <span class="d-none d-md-inline">Cancelled</span>
+                                        </span>
+                                    </t>
+                                </td>
+                                <td t-if="user_id.sudo().is_student">
+                                    <a t-if="fees_detail.invoice_state == 'posted'"
+                                       t-attf-href="/my/invoices/#{fees_detail.invoice_id.id}">
+                                        <button>View invoice</button>
+                                    </a>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </xpath>
+    </template>
+</odoo>

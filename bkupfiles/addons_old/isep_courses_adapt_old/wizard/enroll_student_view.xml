@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_moodle_admission_wizard_from" model="ir.ui.view">
+        <field name='name'>moodle.admission.wizard.form</field>
+        <field name='model'>moodle.admission.wizard</field>
+        <field name='arch' type='xml'>
+            <form string='Automatic Merge Wizard'>
+                <sheet>
+                    <div class="container mt16 mb16">
+                        <h5 style="color: #666666">Esta ventana se encarga de matricular al alumno en los modulos de Campus Isep que sean
+                        seleccionados en la parte de abajo. Puedes seleccionar mas de uno.</h5>
+                    </div>
+                    <group>
+                        <field name="admission_id" readonly="1" options="{'no_open': True}"/>
+                    </group>
+                    <notebook>
+                        <page name="moodle_courses" string="Moodle courses">
+                            <field name="moodle_course_line_ids" colspan="2" nolabel="1">
+                                <tree string="Moodle course Details" create="false" delete="false">
+                                    <field name="selected" widget="boolean_toggle"/>
+                                    <field name="course_name"/>
+                                    <field name="moodle_course_id"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <footer>
+                    <button name='enroll_student' string='MATRICULAR ESTUDIANTE' class='oe_highlight' type='object'/>
+                    <button special="cancel" string="Cerrar" type="object" class="btn btn-secondary oe_inline"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

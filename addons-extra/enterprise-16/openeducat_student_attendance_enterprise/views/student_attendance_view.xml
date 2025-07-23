@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="view_student_attendance_tree" model="ir.ui.view">
+            <field name="name">student.attendance.tree</field>
+            <field name="model">op.attendance.line</field>
+            <field name="inherit_id" ref="openeducat_attendance.view_op_attendance_line_tree"/>
+
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='student_id']" position="after">
+                    <field name="check_in"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_student_attendance_kanban" model="ir.ui.view">
+            <field name="name">student.attendance.kanban</field>
+            <field name="model">op.attendance.line</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_mobile">
+                    <field name="student_id"/>
+                    <field name="check_in"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div>
+                                    <img t-att-src="kanban_image('op.student', 'image_small', record.student_id.raw_value)"
+                                         t-att-title="record.student_id.value" t-att-alt="record.student_id.value"
+                                         width="24" height="24" class="oe_kanban_avatar mr4"/>
+                                    <span class="o_kanban_record_title">
+                                        <strong>
+                                            <t t-esc="record.student_id.value"/>
+                                        </strong>
+                                    </span>
+                                </div>
+                                <hr class="mt4 mb8"/>
+                                <div class="o_kanban_record_subtitle">
+                                    <i class="fa fa-calendar" aria-label="Period" role="img" title="Period"></i>
+                                    <t t-esc="record.check_in.value"/>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="student_attendance_view_form" model="ir.ui.view">
+            <field name="name">student.attendance.form</field>
+            <field name="model">op.attendance.line</field>
+            <field name="inherit_id" ref="openeducat_attendance.view_op_attendance_line_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet/group/group/field[@name='company_id']" position="after">
+                    <field name="check_in"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="student_attendance_action" model="ir.actions.act_window">
+            <field name="name">Student Attendances</field>
+            <field name="res_model">op.attendance.line</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,kanban,form</field>
+        </record>
+
+        <record id="open_view_student_list_my" model="ir.actions.act_window">
+            <field name="name">Students</field>
+            <field name="res_model">op.student</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">kanban,tree,form,activity</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="view_id" ref="openeducat_core.kanban_view_student"/>
+        </record>
+
+
+        <record id="student_attendance_action_kiosk_mode" model="ir.actions.client">
+            <field name="name">Student Attendances</field>
+            <field name="tag">student_attendance_kiosk_mode</field>
+            <field name="target">fullscreen</field>
+        </record>
+
+        <record id="student_attendance_action_greeting_message" model="ir.actions.client">
+            <field name="name">Message</field>
+            <field name="tag">student_attendance_greeting_message</field>
+        </record>
+
+        <record id="student_attendance_progression_form_inherite" model="ir.ui.view">
+            <field name="name">op.student.progression.form</field>
+            <field name="model">op.student.progression</field>
+            <field name="inherit_id"
+                   ref="openeducat_attendance_enterprise.view_op_student_progress_attendance_form_inherite"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='attendance_id']" position="after">
+                    <field name="check_in"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_op_attendance_sheet_inherited_form_view_kiosk" model="ir.ui.view">
+            <field name="name">op.attendance.sheet.inherited.form.kiosk</field>
+            <field name="model">op.attendance.sheet</field>
+            <field name="inherit_id" ref="openeducat_attendance.view_op_attendance_sheet_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='session_id']" position="after">
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                </xpath>
+                <xpath expr="//header/button[@name='attendance_start']" position="before">
+                    <button type="object" name="enable_kiosk"
+                            states="draft" string="Enable Kiosk"
+                            class="oe_highlight"/>
+                </xpath>
+            </field>
+        </record>
+
+
+</odoo>

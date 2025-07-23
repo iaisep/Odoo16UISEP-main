@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="student_progression_attendance_portal_inherit"
+              inherit_id="openeducat_student_progress_enterprise.openeducat_student_progression_portal_data"
+              priority="30">
+
+        <xpath expr="//ul[hasclass('nav-pills')]" position="inside">
+            <li class="activity_info bg-100 nav-link">
+                <a href="#attendance" aria-expanded="false" data-bs-toggle="tab" role="tab">
+                    <h5 class="mb0">
+                        Attendance
+                    </h5>
+                </a>
+            </li>
+        </xpath>
+        <xpath expr="//div[hasclass('tab-content')]" position="inside">
+            <div class="tab-pane fade" id="attendance">
+                <div t-if="progression.attendance_lines">
+                    <table t-if="progression.attendance_lines" class="mt8 table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Attendance Sheet</th>
+                                <th class="timesheet">Present?</th>
+                                <th>Remark</th>
+                                <th>Course</th>
+                                <th>Batch</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="progression.attendance_lines.sorted(key=lambda record: record.attendance_date, reverse=False)"
+                               t-as="attendance">
+                                <tr>
+                                    <td>
+                                        <span t-esc="attendance.attendance_date" t-options="{'widget': 'date'}"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="attendance.attendance_id.name"/>
+                                    </td>
+                                    <td class="timesheet">
+                                        <span t-esc="attendance.present"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="attendance.remark"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="attendance.course_id.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="attendance.batch_id.name"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="demo_course_06" model="op.course">
+            <field name="name">French for Middle Schoolers</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="code">FMS</field>
+            <field name="sequence">13</field>
+            <field name="faculty_ids"
+                   eval="[(6,0,[ref('openeducat_core.op_faculty_1')])]"/>
+            <field name="category_ids"
+                   eval="[(6,0,[ref('openeducat_core_enterprise.category_1')])]"/>
+            <field name="visibility">public</field>
+            <field name="level_id" ref="op_course_level_intermediate"/>
+            <field name="navigation_policy">free_learn</field>
+            <field name="state">open</field>
+            <field name="online_course" eval="True"/>
+            <field name="confirm_date" eval="(DateTime.today() - relativedelta(days=11))"/>
+            <field name="image_1920" type="base64"
+                   file="openeducat_lms/static/src/img/french.jpg"/>
+            <field name="full_description"><![CDATA[
+            <div class="description__title">
+            <div>
+                <p>French for Middle Schoolers is a fun, informative, and simple course for middle schoolers that</p>
+                <p>allows them to learn the basics of the French language FOR FREE! By following this course to the end,</p>
+                <p>you will definitely have a much more thorough understanding of French and will be</p>
+                <p>inspired to continue learning French through high school! This course will help you learn and</p>
+                <p>improve in the following areas:</p>
+                <p>Alphabet</p>
+                <p>Numbers
+                <p>Vocabulary</p>
+                <p>Basic grammar</p>
+            </div>
+            ]]></field>
+        </record>
+
+
+        <record id="op_course_section_french_intro" model="op.course.section">
+            <field name="sequence" type="int">1</field>
+            <field name="name">Introduction</field>
+            <field name="course_id" ref="demo_course_06"/>
+        </record>
+
+        <record id="op_course_section_french_alnum" model="op.course.section">
+            <field name="sequence" type="int">2</field>
+            <field name="name">Alphabet/Number</field>
+            <field name="course_id" ref="demo_course_06"/>
+        </record>
+
+        <record id="op_course_section_french_vocabulary" model="op.course.section">
+            <field name="sequence" type="int">3</field>
+            <field name="name">Vocabulary</field>
+            <field name="course_id" ref="demo_course_06"/>
+        </record>
+
+        <record id="op_course_section_french_grammer" model="op.course.section">
+            <field name="sequence" type="int">4</field>
+            <field name="name">Grammer</field>
+            <field name="course_id" ref="demo_course_06"/>
+        </record>
+
+        <record id="op_course_section_french_quiz" model="op.course.section">
+            <field name="sequence" type="int">6</field>
+            <field name="name">Quiz</field>
+            <field name="course_id" ref="demo_course_06"/>
+        </record>
+
+
+        <!--Course Material for Python-->
+        <record id="material_french_intro" model="op.material">
+            <field name="name">Introduction</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">15.14</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=ioYxmPf9zmQ'"/>
+            <field name="document_id">ioYxmPf9zmQ</field>
+        </record>
+
+        <record id="material_french_alphabet" model="op.material">
+            <field name="name">Alphabet</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">document</field>
+            <field name="total_time" type="float">5.00</field>
+            <field name="datas" type="base64"
+                   file="openeducat_lms/demo/files/french_alphabet.pdf"/>
+        </record>
+        <record id="material_french_number" model="op.material">
+            <field name="name">Numbers 0-100</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">xls</field>
+            <field name="total_time" type="float">10.00</field>
+            <field name="datas" type="base64"
+                   file="openeducat_lms/demo/files/french_numbers.xlsx"/>
+        </record>
+
+        <record id="material_french_vocabulary" model="op.material">
+            <field name="name">Vocabulary (with practice sets)</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">document</field>
+            <field name="total_time" type="float">10.00</field>
+            <field name="datas" type="base64"
+                   file="openeducat_lms/demo/files/french_vocabulary.pdf"/>
+        </record>
+
+        <record id="material_french_avoir" model="op.material">
+            <field name="name">Avoir/Être</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">15.45</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=84olv0BM4oY'"/>
+            <field name="document_id">84olv0BM4oY</field>
+        </record>
+
+        <record id="material_french_articles" model="op.material">
+            <field name="name">Articles</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">5.60</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=7Q9WGQd4JLQ'"/>
+            <field name="document_id">7Q9WGQd4JLQ</field>
+        </record>
+
+        <record id="material_french_verb" model="op.material">
+            <field name="name">Verb Conjugations</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">7.47</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=beN7mtNHAd8'"/>
+            <field name="document_id">beN7mtNHAd8</field>
+        </record>
+
+        <record id="material_french_types" model="op.material">
+            <field name="name">Types of Adjectives</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">7.10</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=I1RUF472SFY'"/>
+            <field name="document_id">I1RUF472SFY</field>
+        </record>
+
+        <record id="material_french_negation" model="op.material">
+            <field name="name">Negation</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">7.92</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=Rymbg3PnyL0'"/>
+            <field name="document_id">Rymbg3PnyL0</field>
+        </record>
+
+        <record id="material_french_positions" model="op.material">
+            <field name="name">Prepositions/Conjunctions</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">2.72</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=97Hswi8tqPc'"/>
+            <field name="document_id">97Hswi8tqPc</field>
+        </record>
+
+        <record id="material_french_adjective" model="op.material">
+            <field name="name">Adjective Agreement</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">2.15</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=tuHdTQonl1c'"/>
+            <field name="document_id">tuHdTQonl1c</field>
+        </record>
+
+        <record id="material_french_irregularer" model="op.material">
+            <field name="name">Irregular - ER Verbs</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">14.15</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=2IJQ-_gdc4Y'"/>
+            <field name="document_id">2IJQ-_gdc4Y</field>
+        </record>
+        <record id="material_french_irregular" model="op.material">
+            <field name="name">Irregular verbs</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">8.72</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=1Nv-gKU0t2U'"/>
+            <field name="document_id">1Nv-gKU0t2U</field>
+        </record>
+
+
+        <!--                Course For Python-->
+        <record id="op_course_material_french_intro" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_french_intro"/>
+            <field name="section_id" ref="op_course_section_french_intro"/>
+            <field name="preview" eval="False"/>
+        </record>
+        <record id="op_course_material_french_alphabet" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_french_alphabet"/>
+            <field name="section_id" ref="op_course_section_french_alnum"/>
+            <field name="preview" eval="False"/>
+        </record>
+        <record id="op_course_material_french_number" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_french_number"/>
+            <field name="section_id" ref="op_course_section_french_alnum"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_french_vocabulary" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_french_vocabulary"/>
+            <field name="section_id" ref="op_course_section_french_vocabulary"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_french_avoir" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_french_avoir"/>
+            <field name="section_id" ref="op_course_section_french_grammer"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_french_articles" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_french_articles"/>
+            <field name="section_id" ref="op_course_section_french_grammer"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_french_verb" model="op.course.material">
+            <field name="sequence" type="int">3</field>
+            <field name="material_id" ref="material_french_verb"/>
+            <field name="section_id" ref="op_course_section_french_grammer"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_french_types" model="op.course.material">
+            <field name="sequence" type="int">4</field>
+            <field name="material_id" ref="material_french_types"/>
+            <field name="section_id" ref="op_course_section_french_grammer"/>
+            <field name="preview" eval="True"/>
+        </record>
+
+        <record id="op_course_material_french_negation" model="op.course.material">
+            <field name="sequence" type="int">5</field>
+            <field name="material_id" ref="material_french_negation"/>
+            <field name="section_id" ref="op_course_section_french_grammer"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_french_positions" model="op.course.material">
+            <field name="sequence" type="int">6</field>
+            <field name="material_id" ref="material_french_positions"/>
+            <field name="section_id" ref="op_course_section_french_grammer"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_french_adjective" model="op.course.material">
+            <field name="sequence" type="int">7</field>
+            <field name="material_id" ref="material_french_adjective"/>
+            <field name="section_id" ref="op_course_section_french_grammer"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_french_irregularer" model="op.course.material">
+            <field name="sequence" type="int">9</field>
+            <field name="material_id" ref="material_french_irregularer"/>
+            <field name="section_id" ref="op_course_section_french_grammer"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_french_irregular" model="op.course.material">
+            <field name="sequence" type="int">10</field>
+            <field name="material_id" ref="material_french_irregular"/>
+            <field name="section_id" ref="op_course_section_french_grammer"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="material_french_quiz_q5" model="op.material">
+            <field name="name">French Quiz</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">quiz</field>
+            <field name="total_time" type="float">90.00</field>
+            <field name="quiz_id" ref="openeducat_quiz.op_qz_l1"/>
+        </record>
+        <record id="op_course_material_french_quiz" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_french_quiz_q5"/>
+            <field name="section_id" ref="op_course_section_french_quiz"/>
+            <field name="preview" eval="True"/>
+        </record>
+
+
+        <record id="op_user_student_50" model="res.users" context="{'no_reset_password': True}">
+            <field name="name">Stive</field>
+            <field name="password">openeducat</field>
+            <field name="login">stive@openeducat.com</field>
+            <field name="groups_id"
+                   eval="[(4,ref('openeducat_lms.group_op_lms_admin'))]"/>
+        </record>
+
+        <record id="demo_enrollment_free_french_class" model="op.course.enrollment">
+            <field name="course_id" ref="openeducat_lms.demo_course_06"/>
+            <field name="user_id" ref="openeducat_lms.op_user_student_50"/>
+            <field name="state">in_progress</field>
+            <field name="enrollment_date" eval="(DateTime.today() - relativedelta(days=1))"/>
+        </record>
+
+
+</odoo>

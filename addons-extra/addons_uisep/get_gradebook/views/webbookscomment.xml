@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+  <template id="webbooks_comment_template" name="Webbooks Comment" inherit_id="isep_gradebook.portal_my_gradebook">
+    <xpath expr="//table[hasclass('table')]/thead/tr/th[4]" position="before">
+        <th scope="col">Observación</th>
+    </xpath>   
+     <xpath expr="//table[hasclass('table')]/tbody/t/tr/td[3]" position="before">
+         <td>
+         <span t-esc="result.comment"/>
+         </td>
+    </xpath>   
+    </template>
+</odoo>

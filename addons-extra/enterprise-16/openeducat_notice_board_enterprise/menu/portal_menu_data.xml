@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="website_menu_notice_board_request" model="openeducat.portal.menu">
+        <field name="name">Notice Board</field>
+        <field name="menu_ref_name">Notice Board</field>
+        <field name="link">/my/notice_board/notice/</field>
+        <field name="active">True</field>
+        <field name="sequence" type="int">50</field>
+        <field name="background_color">#304cd5</field>
+        <field name="icon_image" type="base64"
+               file="openeducat_notice_board_enterprise/static/img/notice_board.png"/>
+    </record>
+</odoo>

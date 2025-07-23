@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="op_faculty_from_view_inherited">
+        <field name="name">op.faculty.form.view.inherited</field>
+        <field name="model">op.faculty</field>
+        <field name="inherit_id" ref="openeducat_core.view_op_faculty_form"/>
+        <field name="priority" eval="9"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button class="btn oe_stat_button"
+                        type="object"
+                        name="get_courses"
+                        style="border-right: 1px solid;"
+                        icon="fa-book"
+                        string="Courses">
+                </button>
+                <button class="btn oe_stat_button"
+                        type="object"
+                        name="get_subjects"
+                        style="border-right: 1px solid;"
+                        icon="fa-pencil-square-o">
+                    <field string="Subjects" name="subject_count" widget="statinfo"/>
+                </button>
+            </xpath>
+            <xpath expr="//field[@name='emergency_contact']" position="after">
+                <field name="company_id" groups="base.group_multi_company" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="op_faculty_tree_view_inherited">
+        <field name="name">op.faculty.tree.view.inherited</field>
+        <field name="model">op.faculty</field>
+        <field name="inherit_id" ref="openeducat_core.view_op_faculty_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='emergency_contact']" position="after">
+                <field name="company_id" groups="base.group_multi_company" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

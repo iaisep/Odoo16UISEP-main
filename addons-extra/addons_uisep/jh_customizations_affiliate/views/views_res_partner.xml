@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- Vista heredada de afiliados -->
+        <record id="view_partner_form2_inherit_commission" model="ir.ui.view">
+            <field name="name">res.partner.form.inherit.jh_commission</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="affiliate_management.view_partner_form2"/>
+            <field name="arch" type="xml">
+                <!-- Insertamos debajo de 'approved_amt' -->
+                <xpath expr="//field[@name='approved_amt']" position="after">
+                    <field name="jh_monthly_fee_check"/>
+                    <field name="jh_monthly_fee"
+                           widget="monetary"
+                           options="{'currency_field': 'jh_currency_id'}"
+                           attrs="{'invisible': [('jh_monthly_fee_check', '=', False)],
+                                   'required': [('jh_monthly_fee_check', '=', True)]}"/>
+                    <field name="jh_fee_percent" widget="percentage"
+                           style="width: 50px"
+                           attrs="{'invisible': [('jh_monthly_fee_check', '=', False)],
+                                   'required': [('jh_monthly_fee_check', '=', True)]}"/>
+                    <field name="jh_commission_apply_once"
+                           attrs="{'invisible': [('jh_monthly_fee_check', '=', False)],
+                                   'required': [('jh_monthly_fee_check', '=', True)]}"/>
+                    <field name="jh_currency_id" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Herencia de la vista personalizada del formulario de res.partner -->
+        <record id="view_Affiliate_partner_inherit_detail_form_jh" model="ir.ui.view">
+            <field name="name">res.partner.property.form.inherit.jh_commission</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="affiliate_management.view_Affiliate_partner_inherit_detail_form" />
+            <field name="arch" type="xml">
+
+                <!-- Insertar debajo del campo approved_amt -->
+                <xpath expr="//field[@name='approved_amt']" position="after">
+                    <field name="jh_monthly_fee_check"/>
+                    <field name="jh_monthly_fee"
+                           widget="monetary"
+                           options="{'currency_field': 'jh_currency_id'}"
+                           attrs="{'invisible': [('jh_monthly_fee_check', '=', False)],
+                                   'required': [('jh_monthly_fee_check', '=', True)]}"/>
+                    <field name="jh_fee_percent" widget="percentage"
+                           style="width: 50px"
+                           attrs="{'invisible': [('jh_monthly_fee_check', '=', False)],
+                                   'required': [('jh_monthly_fee_check', '=', True)]}"/>
+                    <field name="jh_commission_apply_once"
+                           attrs="{'invisible': [('jh_monthly_fee_check', '=', False)],
+                                   'required': [('jh_monthly_fee_check', '=', True)]}"/>
+                    <field name="jh_currency_id" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

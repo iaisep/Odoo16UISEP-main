@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <template id="report_isep_gradebook">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <!-- Información del Estudiante -->
+                            
+                            
+                            <t t-set="estudiante" t-value="o.student_id.name"/>
+                            <t t-set="curso" t-value="o.course_id.name"/>
+                            <t t-set="cod_curso" t-value="o.course_id.code"/>
+                            <t t-set="grupo" t-value="o.batch_id.name"/>
+                            <t t-set="admision" t-value="o.admission_id.application_number"/>
+
+                            <div t-if="o.gradebook_id.content_pdf_top" >                                
+                                <t t-esc="o.gradebook_id.content_pdf_top.replace('#estudiante#', estudiante).replace('#curso#', curso).replace('#cod_curso#', cod_curso).replace('#grupo#', grupo).replace('#admision#', admision)"
+                                />
+                            </div>
+                            <br/>
+                            <!-- Tabla de Asignaturas y Promedios -->
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th style="width:10%;text-align: left;">Codigo</th>
+                                        <th style="width:75%;text-align: left;">Asignatura</th>
+                                        <th style="width:15%">Calificación</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="o.gradebook_subject_ids" t-as="subject">
+                                        <tr>
+                                            <td><t t-esc="subject.op_subject_id.code"/></td>
+                                            <td><t t-esc="subject.op_subject_id.name"/></td>
+                                            <td style="text-align: right;"><t t-esc="'{0:,.2f}'.format(subject.final_subject_note)"/></td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                            <br/>
+                            
+                            <div t-if="o.gradebook_id.content_pdf_bottom" >                                
+                                <t t-esc="o.gradebook_id.content_pdf_bottom.replace('#estudiante#', estudiante).replace('#curso#', curso).replace('#cod_curso#', cod_curso).replace('#grupo#', grupo).replace('#admision#', admision)"
+                                />
+                            </div>
+
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+
+        <record id="action_report_report_gradebook_student" model="ir.actions.report">
+            <field name="name">Libreta de Notas</field>
+            <field name="model">app.gradebook.student</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">isep_gradebook.report_isep_gradebook</field>
+            <field name="report_file">isep_gradebook.report_isep_gradebook</field>
+            <field name="binding_type">report</field>
+            <field name="binding_model_id" ref="model_app_gradebook_student"/>
+        </record>
+    </data>
+</odoo>

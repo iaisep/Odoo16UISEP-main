@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="action_report_lesson" model="ir.actions.report">
+            <field name="name">Lesson planning</field>
+            <field name="model">op.lesson</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">openeducat_lesson.report_lesson_planning</field>
+            <field name="report_file">openeducat_lesson.report_lesson_planning</field>
+        </record>
+
+</odoo>

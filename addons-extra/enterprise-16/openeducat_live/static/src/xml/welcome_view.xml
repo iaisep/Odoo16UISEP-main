@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-inherit="mail.WelcomeView" t-inherit-mode="extension" owl="1">
+        <xpath expr="//*[@t-name='mail.WelcomeView']" position="replace">
+
+            <t t-name="mail.WelcomeView" owl="1">
+                <div class="o_WelcomeView d-flex flex-column justify-content-center align-items-center">
+                    <t t-if="welcomeView">
+                        <h1 class="font-weight-light">
+                            <span t-if="welcomeView.callDemoView">You've been invited to a live classroom</span>
+                            <span t-if="!welcomeView.callDemoView">You've been invited to a chat!</span>
+                        </h1>
+                        <h2 class="m-5" t-esc="messaging.companyName"/>
+                        <div class="card-body shadow-lg p-0 mt-5 mb-5 bg-white rounded" style="align-self: center;">
+                            <div class="d-flex justify-content-center">
+                                <CallDemoView t-if="welcomeView.callDemoView" className="'me-5'" record="welcomeView.callDemoView"/>
+                                <div class="d-flex flex-column justify-content-center me-5" style="min-width: 300px;">
+                                    <t t-if="messaging.currentGuest">
+                                        <label class="o_WelcomeView_guestNameInputLabel" t-att-for="welcomeView.guestNameInputUniqueId">What's your name?</label>
+                                        <input class="form-control mb-3" type="text" placeholder="Your name" t-att-name="welcomeView.guestNameInputUniqueId" t-att-id="welcomeView.guestNameInputUniqueId" t-att-value="welcomeView.pendingGuestName" t-ref="guestNameInput" t-on-input="welcomeView.onInputGuestNameInput" t-on-keydown="welcomeView.onKeydownGuestNameInput"/>
+                                    </t>
+                                    <t t-if="messaging.currentUser">
+                                        <p class="o_WelcomeView_loggedAsStatus">Logged as <span t-esc="messaging.currentUser.nameOrDisplayName"/>
+                                        </p>
+                                    </t>
+                                    <input class="form-control d-none input_password" name="password" type="password" id="password" placeholder="password" t-on-keydown="welcomeView.onKeydownGuestNameInput" style="width: 100%;"/>
+                                    <div id="pass" class="invalid-feedback" style="display:none;margin-top: 10px;">
+                                        <h4>
+                                            <i class="fa fa-exclamation-triangle"></i>
+                                    Please Enter a valid password.
+                                        </h4>
+                                    </div>
+                                    <button title="Join Channel" class="btn btn-primary" style=" margin: 10; margin-top: 10px; height: 40px;" t-att-disabled="welcomeView.isJoinButtonDisabled" t-on-click="welcomeView.onClickJoinButton">Join Live Classes</button>
+                                    <h1 class="font-weight-light">
+                                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-body">
+                                                        <h3 style="margin-top: 10px;text-align: center;">NO ALLOW TO ENTRY</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+            </t>
+        </xpath>
+    </t>
+</templates>

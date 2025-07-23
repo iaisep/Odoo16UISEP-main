@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template id="extra_info_website_sale_custom_fix" inherit_id="isep_website_sale_custom.extra_info_website_sale_custom">
+
+        <xpath expr="//div[@class='s_website_form_field mb-3 col-12 col-lg-6 s_website_form_custom s_website_form_required']" position="replace">
+            <t t-set="product_ids" t-value="order.order_line.mapped('product_id.product_tmpl_id').ids"/>
+            <t t-set="has_course" t-value="request.env['op.course'].sudo().search_count([('product_template_id', 'in', product_ids)]) > 0"/>
+
+            <t t-if="has_course">
+                <div class="s_website_form_field mb-3 col-12 col-lg-6 s_website_form_custom s_website_form_required" data-type="selection" data-name="admission_date">
+                    <label class="s_website_form_label" style="width: 200px">
+                        <span class="s_website_form_label_content">Fecha de Inicio</span>
+                        <span class="s_website_form_mark"> *</span>
+                    </label>
+                    <select name="admission_date" required="1" class="form-control s_website_form_input">
+                        
+
+                        <option value="">Seleccione un periodo...</option>
+                        <t t-foreach="request.env['sale.order'].get_admission_availability()" t-as="date_option">
+                            <option t-att-value="date_option[0]"
+                                    t-att-selected="order and order.admission_date and date_option[0] == order.admission_date.strftime('%Y-%m-%d')">
+                                <t t-esc="date_option[1]"/>
+                            </option>
+                        </t>
+                    </select>
+                </div>
+            </t>
+
+        </xpath>
+    </template>
+</odoo>

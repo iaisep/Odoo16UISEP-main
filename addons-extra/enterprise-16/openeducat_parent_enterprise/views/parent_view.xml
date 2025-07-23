@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_op_parent_inherited_form_view" model="ir.ui.view">
+        <field name="name">op.parent.view.form.inherit</field>
+        <field name="model">op.parent</field>
+        <field name="inherit_id" ref="openeducat_parent.view_op_parent_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='mobile']" position="after">
+                <field name="company_id" groups="base.group_multi_company" optional="show"/>
+            </xpath>
+            <xpath expr="//field[@name='relationship_id']" position="after">
+                <field name="tag_ids" widget="many2many_tags"/>
+            </xpath>
+            <xpath expr="//form/sheet" position="after">
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_op_tree_onboarding_parent" model="ir.ui.view">
+        <field name="name">op.parent.view.tree.inherit</field>
+        <field name="model">op.parent</field>
+        <field name="inherit_id" ref="openeducat_parent.view_op_parent_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="banner_route">/openeducat_parent_enterprise/openeducat_parent_onboarding_panel
+                </attribute>
+            </xpath>
+            <xpath expr="//field[@name='student_ids']" position="after">
+                <field name="tag_ids" widget="many2many_tags" optional="hide"/>
+                <field name="company_id" groups="base.group_multi_company" optional="show"/>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

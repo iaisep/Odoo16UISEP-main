@@ -1,0 +1,49 @@
+<odoo>
+
+    <record id="view_op_marksheet_line_inherited_tree_gpa" model="ir.ui.view">
+      <field name="name">op.marksheet.line.inherited.tree</field>
+      <field name="model">op.marksheet.line</field>
+      <field name="inherit_id" ref="openeducat_exam.view_op_marksheet_line_tree"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='percentage']" position="after">
+          <field name="gpa_count"/>
+           <field name="total_points" string="Total Points" optional="hide"/>
+        </xpath>
+      </field>
+    </record>
+
+
+    <record id="view_op_marksheet_line_inherited_form_gpa" model="ir.ui.view">
+      <field name="name">op.marksheet.line.inherited.form</field>
+      <field name="model">op.marksheet.line</field>
+      <field name="inherit_id" ref="openeducat_exam.view_op_marksheet_line_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='percentage']" position="after">
+          <field name="gpa_count"/>
+        </xpath>
+      </field>
+    </record>
+
+    <record id="view_op_subject_inherited_form_gpa" model="ir.ui.view">
+      <field name="name">op.subject.inherited.form</field>
+      <field name="model">op.subject</field>
+      <field name="inherit_id" ref="openeducat_core.view_op_subject_form"/>
+      <field name="arch" type="xml">
+        <field name="subject_type" position="after">
+          <field name="subject_credit" />
+        </field>
+      </field>
+    </record>
+
+    <record id="view_op_subject_inherited_tree_gpa" model="ir.ui.view">
+      <field name="name">op.subject.inherited.tree</field>
+      <field name="model">op.subject</field>
+      <field name="inherit_id" ref="openeducat_core.view_op_subject_tree"/>
+      <field name="arch" type="xml">
+        <field name="subject_type" position="after">
+          <field name="subject_credit" />
+        </field>
+      </field>
+    </record>
+
+</odoo>

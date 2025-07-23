@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="portal_menu_grades" model="openeducat.portal.menu">
+        <field name="background_color">#02b0e0</field>
+        <field name="name">GradeBook</field>
+        <field name="menu_ref_name">GradeBook</field>
+        <field name="sequence" type="int">10</field>
+        <field name="link">/grade-book</field>
+        <field name="icon_code">20</field>
+        <field name="active">True</field>
+        <field name="icon_image" type="base64"
+               file="openeducat_grading/static/img/grades.png"/>
+    </record>
+</odoo>

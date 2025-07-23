@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- View reconcile.wizard form -->
+    <record id="view_reconcile_wizard_form" model="ir.ui.view">
+        <field name="name">view.reconcile.wizard.form</field>
+        <field name="model">reconcile.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Reconcile Invoices with Bank Statements">
+                <group>
+                    <field name="csv_file" filename="csv_filename"/>
+                    <field name="csv_filename" invisible="1"/>
+                </group>
+                <footer>
+                    <button string="Conciliar" type="object" name="action_reconcile" class="btn-primary"/>
+                    <button string="Deshacer Conciliación" type="object" name="action_unreconcile" class="btn-primary"/>
+                    <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action reconcile.wizard -->
+    <record id="action_reconcile_wizard" model="ir.actions.act_window">
+        <field name="name">Reconcile Wizard</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">reconcile.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="csv_import_invoice_concilie"
+        name="Importar CSV Para Conciliar"
+        action="action_reconcile_wizard"
+        sequence="50"
+        parent="account.menu_finance_entries_actions"/>
+
+</odoo>

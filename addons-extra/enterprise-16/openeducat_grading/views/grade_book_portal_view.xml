@@ -1,0 +1,20 @@
+<odoo>
+    <template name="Grade Book" id="grade_book_view_portal">
+        <t t-call="portal.portal_layout">
+            <div class="grade_book_view_main" style="padding-top:20px;">
+                <div style="float: right;">
+                    <t t-foreach="data" t-as="datas" class="float-right">
+                        <a t-att-href="datas['report']" title="Download Unofficial Report">
+                            <i class="fa fa-2x fa-download"/>
+                        </a>
+                    </t>
+                </div>
+                <br/>
+                <br/>
+                <input type="hidden" id="grade_book_json_value" t-att-value="student_progression_id"/>
+                <div class="grade_book_assignment_table_div"/>
+                <div class="grade_book_comment_table_div" style="padding-top:30px;"/>
+            </div>
+        </t>
+    </template>
+</odoo>

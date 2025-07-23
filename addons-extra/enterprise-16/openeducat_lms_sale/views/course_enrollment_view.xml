@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_op_course_enrollment_form" model="ir.ui.view">
+        <field name="name">op.course.enrollment.form</field>
+        <field name="model">op.course.enrollment</field>
+        <field name="inherit_id" ref="openeducat_lms.view_op_course_enrollment_form"/>
+        <field name="arch" type="xml">
+            <field name="navigation_policy" position="after">
+                <field name="order_id"/>
+            </field>
+        </field>
+    </record>
+    <record id="view_op_course_enrollment_sale_tree" model="ir.ui.view">
+        <field name="name">op.course.enrollment.sale.tree</field>
+        <field name="model">op.course.enrollment</field>
+        <field name="inherit_id" ref="openeducat_lms.view_op_course_enrollment_tree"/>
+        <field name="arch" type="xml">
+            <field name="state" position="before">
+                <field name="order_id" optional="hide"/>
+            </field>
+        </field>
+    </record>
+</odoo>

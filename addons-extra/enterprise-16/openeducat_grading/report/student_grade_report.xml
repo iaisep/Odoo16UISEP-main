@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <template id="student_grade_report">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <br/>
+                    <br/>
+                    <div class="font">
+                        <div class="container-fluid">
+                            <div class="page">
+                                <div class="row text-center">
+                                    <div class="col-md-12">
+                                        <h4 style="width:100%;">
+                                            <strong>
+                                                Report Card
+                                            </strong>
+                                        </h4>
+                                    </div>
+                                </div>
+                                <hr/>
+                                <t t-foreach="docs" t-as="o">
+                                    <div style="font-size:15px; padding-left:2%">
+                                        <t t-esc="o.student_id.name"/><br/>
+                                        <t t-foreach="o.academic_year_id" t-as="year">
+                                            <t t-esc="year.name"/>
+                                        </t>
+                                    </div>
+                                    <t t-if="o.report_type == 'single'">
+                                        <t t-call="openeducat_grading.single_col_report"/>
+                                    </t>
+                                    <t t-if="o.report_type == 'double'">
+                                        <t t-call="openeducat_grading.double_col_report"/>
+                                    </t>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+        <template id="single_col_report">
+            <!--            <t t-foreach="docs" t-as="o">-->
+            <t t-set="grade_book" t-value="o.get_json_data_in_report(o.id)"/>
+            <t t-foreach="grade_book" t-as="grade">
+                <t t-foreach="grade" t-as="sem">
+                    <t style="width:50%;" t-if="not sem in ['semester_gpa', 'semester_total',
+                     'semester_name', 'total_credit']">
+                        <table style="width:50%; min-height:120px; margin-top: 30px;">
+                            <th t-if="not grade in ['semester_gpa', 'semester_total', 'semester_name',
+                             'total_credit']">
+                                <span t-if="sem" t-esc="sem"/>
+                                <tr>
+                                    <th>Subject</th>
+                                    <th>Credits</th>
+                                    <th>Grade</th>
+                                </tr>
+                            </th>
+                            <t t-foreach="sem_value" t-as="subjects">
+                                <tr>
+                                    <t t-foreach="subjects" t-as="sub">
+                                        <td t-if="'subject_name' == sub">
+                                            <t t-esc="sub_value"/>
+                                        </td>
+                                        <td t-if="'subject_grade' == sub">
+                                            <t t-esc="sub_value"/>
+                                        </td>
+                                        <td t-if="'subject_credit' == sub">
+                                            <t t-esc="sub_value"/>
+                                            <t t-set="total"
+                                               t-value="sub_value"/>
+                                        </td>
+                                    </t>
+                                </tr>
+                            </t>
+                        </table>
+                    </t>
+                </t>
+            </t>
+            <br/>
+            <br/>
+            <t t-call="openeducat_grading.report_comment"/>
+            <br/><br/>
+            <div style="width:100%;">
+                <span style="float: left;">
+                    <p>
+                        Faculty Signature __________
+                    </p>
+                    <p>
+                        Date __________
+                    </p>
+                </span>
+                <span style="float: right;">
+                    <p>
+                        Parent Signature __________
+                    </p>
+                    <p>
+                        Date __________
+                    </p>
+                </span>
+            </div>        </template>
+
+        <template id="double_col_report">
+            <!--            <t t-foreach="docs" t-as="o">-->
+            <t t-set="grade_book" t-value="o.get_json_data_in_report(o.id)"/>
+            <t t-foreach="grade_book" t-as="grade">
+                <t t-foreach="grade" t-as="sem">
+                    <t style="width:50%;" t-if="not sem in ['semester_gpa', 'semester_total', 'semester_name',
+                     'total_credit']">
+                        <table style="float:left; width:50%; min-height:120px; margin-top: 30px;">
+                            <th t-if="not grade in ['semester_gpa', 'semester_total', 'semester_name',
+                             'total_credit']">
+                                <span t-if="sem" t-esc="sem"/>
+                                <tr>
+                                    <th>Subject</th>
+                                    <th>Credits</th>
+                                    <th>Grade</th>
+                                </tr>
+                            </th>
+                            <t t-foreach="sem_value" t-as="subjects">
+                                <tr>
+                                    <t t-foreach="subjects" t-as="sub">
+                                        <td t-if="'subject_name' == sub">
+                                            <t t-esc="sub_value"/>
+                                        </td>
+                                        <td t-if="'subject_grade' == sub">
+                                            <t t-esc="sub_value"/>
+                                        </td>
+                                        <td t-if="'subject_credit' == sub">
+                                            <t t-esc="sub_value"/>
+                                            <t t-set="total"
+                                               t-value="sub_value"/>
+                                        </td>
+                                    </t>
+                                </tr>
+                            </t>
+                        </table>
+                    </t>
+                </t>
+            </t>
+            <br/>
+            <br/>
+            <t t-call="openeducat_grading.report_comment"/>
+            <br/><br/>
+            <div style="width:100%;">
+                <span style="float: left;">
+                    <p>
+                        Faculty Signature __________
+                    </p>
+                    <p>
+                        Date __________
+                    </p>
+                </span>
+                <span style="float: right;">
+                    <p>
+                        Parent Signature __________
+                    </p>
+                    <p>
+                        Date __________
+                    </p>
+                </span>
+            </div>
+
+        </template>
+
+
+        <template id="report_comment">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 style="width:100%;">
+                        Comments
+                    </h4>
+                </div>
+            </div>
+            <hr/>
+            <t t-set="grade_comment" t-value="o.get_json_data_comment_report(o.id)"/>
+            <table class="table table-bordered"
+                   style="width:100%;padding:10pt;font-size: 14px; line-height: 1.0;">
+                <tr>
+                    <th clss="text-center">Term</th>
+                    <th clss="text-left">Subject</th>
+                    <th clss="text-center">Comment</th>
+                </tr>
+                <t t-foreach="grade_comment" t-as="comment">
+                    <tr>
+                        <td class="text-center">
+                            <span t-if="comment['semester']" t-esc="comment['semester']"/>
+                        </td>
+                        <t t-foreach="comment['subject_data']" t-as="sub_comment">
+                            <td class="text-center">
+                                <t t-if="sub_comment['subject_name']"
+                                   t-esc="sub_comment['subject_name']"/>
+                            </td>
+                            <td class="text-center">
+                                <t t-if="sub_comment['subject_comment']"
+                                   t-esc="sub_comment['subject_comment']"/>
+                            </td>
+                        </t>
+                    </tr>
+                </t>
+            </table>
+        </template>
+
+</odoo>

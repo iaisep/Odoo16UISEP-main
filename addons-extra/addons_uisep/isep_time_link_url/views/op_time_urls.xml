@@ -1,0 +1,16 @@
+<odoo>
+ <data>
+     <record id="isep_custom_time_links_form" model="ir.ui.view">
+            <field name="name">op.session.tree</field>
+            <field name="model">op.session</field>
+            <field name="inherit_id" ref="openeducat_timetable.view_op_session_form"/>        
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='type']" position="before">
+                    <field name="time_url_metting"/>  
+                    <field name="time_url_recoding"/>                                    
+                </xpath>
+            </field>
+        </record>
+
+ </data>
+</odoo>

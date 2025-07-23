@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="view_op_student_skill_assessment_line_tree" model="ir.ui.view">
+            <field name="name">op.student.skill.assessment.line.tree</field>
+            <field name="model">op.student.skill.assessment.line</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="student_skill_type_id" invisible="1"/>
+                    <field name="student_skill_id"/>
+                    <field name="student_skill_level_id"/>
+                    <field name="progress" widget="progressbar" class="d-inline-block text-end"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_op_student_skill_assessment_line_form" model="ir.ui.view">
+            <field name="name">op.student.skill.assessment.line.form</field>
+            <field name="model">op.student.skill.assessment.line</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Student Skill Assessment Line">
+                    <sheet>
+                        <group col="4">
+                            <field name="student_skill_type_id" invisible="1"/>
+                            <field name="student_skill_id"/>
+                            <field name="student_skill_level_id"/>
+                            <field name="progress" widget="progressbar"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_op_student_skill_assessment_line_search" model="ir.ui.view">
+            <field name="name">op.student.skill.assessment.line.search</field>
+            <field name="model">op.student.skill.assessment.line</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Student Skill Assessment Line">
+                    <field name="student_skill_id"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="view_op_student_skill_assessment_line_pivot" model="ir.ui.view">
+            <field name="name">op.student.skill.assessment.line.pivot</field>
+            <field name="model">op.student.skill.assessment.line</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <pivot string="Student Skill Assessment Line">
+                    <field name="student_skill_type_id" type="row"/>
+                    <field name="student_skill_assessment_id" type="col"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record id="act_op_student_skill_assessment_line_pivot_view" model="ir.actions.act_window">
+            <field name="name">Skill Assessment Analysis</field>
+            <field name="res_model">op.student.skill.assessment.line</field>
+            <field name="view_mode">pivot</field>
+            <field name="view_id" ref="view_op_student_skill_assessment_line_pivot"/>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_op_student_skill_assessment_line_view">
+            <field name="name">Skill Assessment Line</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.student.skill.assessment.line</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form,pivot</field>
+            <field name="search_view_id" ref="view_op_student_skill_assessment_line_search"/>
+        </record>
+
+</odoo>

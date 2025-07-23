@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="view_op_student_skill_level_tree" model="ir.ui.view">
+            <field name="name">op.student.skill.level.tree</field>
+            <field name="model">op.student.skill.level</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="student_skill_level_name_id"/>
+                    <field name="progress" widget="progressbar"/>
+                    <field name="student_skill_type_id" optional="hide"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_op_student_skill_level_form" model="ir.ui.view">
+            <field name="name">op.student.skill.level.form</field>
+            <field name="model">op.student.skill.level</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Student Skill Level">
+                    <sheet>
+                        <group>
+                            <field name="student_skill_level_name_id"/>
+                            <field name="progress"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_op_student_skill_level_search" model="ir.ui.view">
+            <field name="name">op.student.skill.level.search</field>
+            <field name="model">op.student.skill.level</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Student Skill Level">
+                    <field name="student_skill_level_name_id"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_op_student_skill_level_view">
+            <field name="name">Student Skill Level</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.student.skill.level</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_op_student_skill_level_search"/>
+        </record>
+
+</odoo>

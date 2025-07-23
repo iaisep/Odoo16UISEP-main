@@ -1,0 +1,25 @@
+<odoo>
+    <data>        
+        <record id="tag_parser_config_mail_2" model="mail.parser.config">            
+            <field name="reference">hotmail-android</field>
+            <field name="tag">div</field>
+            <field name="attribute">dir</field>
+            <field name="attribute_value">auto</field>
+            <field name="sequence">1</field>
+        </record>
+        <record id="tag_parser_config_mail_3" model="mail.parser.config">            
+            <field name="reference">hotmail-re</field>
+            <field name="tag">div</field>
+            <field name="attribute"></field>
+            <field name="attribute_value"></field>
+            <field name="sequence">2</field>
+        </record>
+        <record id="tag_parser_config_mail_1" model="mail.parser.config">            
+            <field name="reference">gmail-1</field>
+            <field name="tag">div</field>
+            <field name="attribute">dir</field>
+            <field name="attribute_value">ltr</field>
+            <field name="sequence">3</field>
+        </record>
+    </data>
+</odoo>

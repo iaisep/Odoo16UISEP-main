@@ -1,0 +1,1076 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!--    <template id="assets_frontend" inherit_id="website.assets_frontend" name="Calendar Template">-->
+<!--        <xpath expr="." position="inside">-->
+<!--            <script type="text/javascript" src="/openeducat_alumni_job_enterprise/static/src/js/datepicker.js"></script>-->
+<!--        </xpath>-->
+<!--    </template>-->
+
+    <template id="portal_my_home_menu_alumni_job" name="Portal layout : Alumni Job"
+              inherit_id="openeducat_core_enterprise.portal_breadcrumbs_inhetrite" priority="10">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <t t-if="user_id.sudo().is_student">
+                <li t-if="page_name == 'Alumni_List'"
+                    t-attf-class="breadcrumb-item #{'active ' if not invoice else ''}">
+                    <a t-if="alumni" t-attf-href="/alumni/job/list?{{ keep_query() }}">
+                        Alumni Job
+                    </a>
+                    <t t-else="">Alumni Job</t>
+                </li>
+                <li t-if="page_name == 'alumni_job_info' or alumni_job_info "
+                    t-attf-class="breadcrumb-item #{'active ' if not alumni_job_info else ''}">
+                    <a t-if="alumni_data" t-attf-href="/alumni/job/list?{{ keep_query() }}">
+                        Alumni Job
+                    </a>
+                    <t t-else="">Alumni Job</t>
+                </li>
+            </t>
+            <t t-if="user_id.sudo().is_parent">
+                <li t-if="page_name == 'Alumni_List'"
+                    t-attf-class="breadcrumb-item #{'active ' if not invoice else ''}">
+                    <a t-if="alumni" t-attf-href="/alumni/job/list/#{stud_id}?{{ keep_query() }}">
+                        Alumni Job
+                    </a>
+                    <t t-else="">Alumni Job</t>
+                </li>
+                <li t-if="page_name == 'alumni_job_info' or alumni_job_info "
+                    t-attf-class="breadcrumb-item #{'active ' if not alumni_job_info else ''}">
+                    <a t-if="alumni_data" t-attf-href="/alumni/job/list/#{student}?{{ keep_query() }}">
+                        Alumni Job
+                    </a>
+                    <t t-else="">Alumni Job</t>
+                </li>
+            </t>
+            <li t-if="alumni_data" class="breadcrumb-item active">
+                <span t-field="alumni_data.name"/>
+            </li>
+        </xpath>
+    </template>
+
+    <!--    Create Form   -->
+    <template id="portal_student_alumni_job">
+        <t t-call="portal.portal_layout">
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Alumni Job Post</t>
+            </t>
+
+            <div style="background-color:white; padding: 20px 40px 20px 40px;" class="js_get_data">
+                <div class="mt32">
+                    <form action="/alumni/job/submit" method="post" role="form" enctype="multipart/form-data">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row col-md-12">
+                                    <h4>Job Position</h4>
+                                </div>
+                                <div class="row col-md-12">
+                                    <div class="col-md-4" style="padding-left:0px;">
+                                        <label class="col-form-label" for="Name">
+                                            <strong>Job Position:</strong>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="Text" name="job_post" t-attf-class="form-control"
+                                               placeholder="Job Position" required="1"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row col-md-12">
+                                    <h4>Address Detail</h4>
+                                </div>
+                                <div class="row col-md-12">
+                                    <div class="col-md-4" style="padding-left:0px;">
+                                        <label class="col-form-label" for="Name">
+                                            <strong>Address:</strong>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" name="street" t-attf-class="form-control"
+                                               placeholder="street"
+                                               required="1"/>
+                                        <input type="text" name="street2" t-attf-class="mt8 form-control"
+                                               placeholder="street2"
+                                               required="1"/>
+                                        <div class="mt8 row">
+                                            <div class="col-md-6">
+                                                <input type="text" name="city" t-attf-class="form-control"
+                                                       placeholder="city"
+                                                       required="1"/>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="text" name="zip" t-attf-class="form-control"
+                                                       placeholder="zip"
+                                                       required="1"/>
+                                            </div>
+                                        </div>
+                                        <div class="mt8 col-md-6" style="padding-left:0;">
+                                            <select id="country_dropdown" name="country_id" class="form-control">
+                                                <option value="" class="disabled selected">
+                                                    <lable>Select Country</lable>
+                                                </option>
+                                                <t t-foreach="country_obj" t-as="country">
+                                                    <option t-att-value="country.id">
+                                                        <span t-esc="country.name"/>
+                                                    </option>
+                                                </t>
+                                            </select>
+                                        </div>
+                                        <div class="mt8 col-md-6" style="padding-left:0;">
+                                            <select class="form-control states" id="states_on_country"
+                                                    name="state_id.name">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt32 row">
+                            <div class="col-md-6">
+                                <div class="row mt16 col-md-12">
+                                    <h4>Offer</h4>
+                                </div>
+                                <div class="row col-md-12">
+                                    <div class="col-md-4" style="padding-left:0px;">
+                                        <label class="col-form-label" for="Name">
+                                            <strong>Salary From:</strong>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="number" name="salary_from" t-attf-class="form-control"
+                                               required="1"/>
+                                    </div>
+                                </div>
+                                <div class="mt8 row col-md-12">
+                                    <div class="col-md-4" style="padding-left:0px;">
+                                        <label class="col-form-label" for="Name">
+                                            <strong>Salary Upto:</strong>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="number" name="salary_upto" t-attf-class="form-control"
+                                               required="1"/>
+                                    </div>
+                                </div>
+                                <div class="row mt8 col-md-12">
+                                    <div class="col-md-4 mt8" style="padding-left:0px;">
+                                        <label for="payable_at">Payable At:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <select class="form-control" name="payable_at">
+                                            <option value="" class="disabled selected">
+                                                <lable>Select your option</lable>
+                                            </option>
+                                            <option value="weekly">Weekly</option>
+                                            <option value="monthly">Monthly</option>
+                                            <option value="yearly">Yearly</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mt8 col-md-12" style="padding-left:0px;">
+                                    <div class="col-md-4 mt8">
+                                        <label for="employment_type">Employment Type:</label>
+                                    </div>
+                                    <div class=" col-md-8" style="padding-left:25px;">
+                                        <select class="form-control" name="employment_type">
+                                            <option value="" class="disabled selected">
+                                                <lable>Select your option</lable>
+                                            </option>
+                                            <t t-foreach="emp_type" t-as="ep">
+                                                <option t-att-value="ep.id">
+                                                    <span id="emp_type" t-esc="ep.name"/>
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mt8 col-md-12">
+                                    <div class="col-md-4 mt8" style="padding-left:0px;">
+                                        <label for="skill_ids">Skills:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <select class="js-example-basic-multiple form-control" name="skill_ids"
+                                                multiple="multiple">
+                                            <t t-foreach="skill_obj" t-as="skill">
+                                                <option t-att-value="skill.id">
+                                                    <span t-esc="skill.name"/>
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
+                                </div>
+                                <script>
+                                    $(function()
+                                    {
+                                    $(".js-example-basic-multiple").select2()
+                                    });
+                                </script>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row mt16 col-md-12">
+                                    <h4>Other Information</h4>
+                                </div>
+
+                                <div class="row col-md-12">
+                                    <div class="col-md-4 mt8" style="padding-left:0px;">
+                                        <label for="created_by">Created by:</label>
+                                    </div>
+                                    <div class=" col-md-8">
+                                        <select class="form-control" name="created_by" required="1">
+                                            <option value="" class="disabled selected">
+                                                <lable>Select your option</lable>
+                                            </option>
+                                            <option value="placement">Placement</option>
+                                            <option value="alumni">Alumni</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mt8 col-md-12">
+                                    <div class="col-md-4" style="padding-left:0px;">
+                                        <label class="col-form-label" for="Name">
+                                            <strong>Start Date:</strong>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" name="start_date" placeholder="MM/DD/YYYY"
+                                               t-attf-class="form-control" id="start" required="1"/>
+                                    </div>
+                                </div>
+                                <div class="mt8 row col-md-12">
+                                    <div class="col-md-4" style="padding-left:0px;">
+                                        <label class="col-form-label" for="Name">
+                                            <strong>End Date:</strong>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" name="end_date" placeholder="MM/DD/YYYY"
+                                               t-attf-class="form-control" id="end" required="1"/>
+                                    </div>
+                                </div>
+                                <div class="row col-md-12">
+                                    <div class="col-md-4" style="padding-left:0px;">
+                                        <label class="col-form-label" for="Name">
+                                            <strong>
+                                                Estimated New
+                                                <br/>
+                                                Employees:
+                                            </strong>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-8 mt8">
+                                        <input type="number" name="expected_employees" t-attf-class="form-control"
+                                               placeholder="Required Employe Number"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt32 row">
+                            <div class="row col-md-12">
+                                <div class="col-md-2">
+                                    <label class="col-form-label" for="Name">
+                                        <strong>Description</strong>
+                                        <span style="float: right;text-align: right;">:</span>
+                                    </label>
+                                </div>
+                                <div class="col-md-10">
+                                    <input type="Text" name="description" t-attf-class="form-control"
+                                           placeholder="Job description"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix mt16 row col-md-12">
+                            <div class="col-md-4" style="padding-left:0px;">
+                                <button type="submit" class="btn btn-primary mb32 ">
+                                    SUBMIT
+                                    <span class="fa fa-long-arrow-right"/>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!--    list of job post    -->
+    <template id="portal_student_alumni_job_list">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Alumni Job List</t>
+            </t>
+            <t t-if="not grouped_tasks">
+                <div class="alert alert-warning mt8" role="alert">
+                    There are no records.
+                </div>
+            </t>
+
+            <t t-if="grouped_tasks">
+                <t t-if="alumni" t-call="portal.portal_table">
+                    <t t-foreach="grouped_tasks" t-as="tasks">
+                        <thead>
+                            <tr t-attf-class="{{'thead-light' if not groupby == 'none' else ''}}">
+                                <th t-if="groupby == 'none'">Name</th>
+                                <th t-else="">
+                                    <em class="font-weight-normal text-muted">Created By:</em>
+                                    <span t-field="tasks[0].sudo().created_by"/>
+                                </th>
+                                <th>Job Position</th>
+                                <th>Salary From</th>
+                                <th>Salary Upto</th>
+                                <th>Payable At</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th>Created By</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-if="tasks" t-foreach="tasks" t-as="alumni_data">
+                                <tr>
+                                    <td>
+                                        <a t-attf-href="/alumni/job/details/#{stud_id}/#{alumni_data.id}">
+                                            <span t-esc="alumni_data.name"/>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <span t-esc="alumni_data.job_post"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="alumni_data.salary_from"
+                                              t-options="{'widget': 'monetary', 'display_currency': alumni_data.currency_id}"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="alumni_data.salary_upto"
+                                              t-options="{'widget': 'monetary', 'display_currency': alumni_data.currency_id}"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="{false:false, 'weekly':'Weekly', 'monthly':'Monthly',
+                                    'yearly':'Yearly'}[alumni_data.payable_at]"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="alumni_data.start_date" t-options="{'widget': 'date'}"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="alumni_data.end_date" t-options="{'widget': 'date'}"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="{false:false, 'alumni':'Alumni', 'placement':'Placement',}[alumni_data.created_by]"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </t>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <!--    Edit form      -->
+    <template id="portal_alumni_job_list_data">
+
+        <t t-call="portal.portal_layout">
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Alumni Job Post</t>
+            </t>
+            <t t-if="not alumni_data">
+                <p>there is no data available for your account!!!</p>
+            </t>
+
+            <div style="background-color:white; padding: 20px 40px 20px 40px;" class="js_get_data">
+                <div class="mt32">
+                    <form t-attf-action="/alumni/job/update/#{alumni_data.id}" method="post" role="form"
+                          enctype="multipart/form-data">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row col-md-12">
+                                    <h4>Job Position</h4>
+                                </div>
+                                <div class="row col-md-12">
+                                    <div class="col-md-4">
+                                        <label class="col-form-label" for="Name">
+                                            <strong>Job Position:</strong>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="Text" name="job_post" t-attf-class="form-control"
+                                               t-att-value="alumni_data.job_post" required="1"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row col-md-12">
+                                    <h4>Address Detail</h4>
+                                </div>
+                                <div class="row col-md-12">
+                                    <div class="col-md-4">
+                                        <label class="col-form-label" for="Name">
+                                            <strong>Address:</strong>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" name="street" t-attf-class="form-control"
+                                               t-att-value="alumni_data.street"
+                                               required="1"/>
+                                        <input type="text" name="street2" t-attf-class="mt8 form-control"
+                                               t-att-value="alumni_data.street2"
+                                               required="1"/>
+                                        <div class="mt8 row">
+                                            <div class="col-md-6">
+                                                <input type="text" name="city" t-attf-class="form-control"
+                                                       t-att-value="alumni_data.city"
+                                                       required="1"/>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="text" name="zip" t-attf-class="form-control"
+                                                       t-att-value="alumni_data.zip"
+                                                       required="1"/>
+                                            </div>
+                                        </div>
+                                        <div class="mt8 col-md-6" style="padding-left:0;">
+                                            <select id="country_dropdown" class="form-control" name="country_id">
+                                                <option value="" class="disabled selected"></option>
+                                                <t t-foreach="alumni_data.country_id" t-as="country">
+                                                    <option t-att-value="country.id" t-att-selected="country.name">
+                                                        <span t-esc="country.name"/>
+                                                    </option>
+                                                </t>
+                                                <t t-foreach="country_obj" t-as="country_id">
+                                                    <t t-if="alumni_data.country_id.name != country_id.name">
+                                                        <option t-att-value="country_id.id">
+                                                            <span t-esc="country_id.name"/>
+                                                        </option>
+                                                    </t>
+                                                </t>
+                                            </select>
+                                        </div>
+                                        <div class="mt8 col-md-6" style="padding-left:0;">
+                                            <select class="form-control custom states" id="states_on_country"
+                                                    name="state_id">
+                                                <option value="" class="disabled selected"></option>
+                                                <t t-foreach="alumni_data.state_id" t-as="state">
+                                                    <option t-att-value="state.id" t-att-selected="state.name">
+                                                        <span t-esc="state.name"/>
+                                                    </option>
+                                                </t>
+                                                <t t-foreach="state_obj" t-as="state_id">
+                                                    <t t-if="alumni_data.country_id.name != state_id.name">
+                                                        <option t-att-value="state_id.id">
+                                                            <span t-esc="state_id.name"/>
+                                                        </option>
+                                                    </t>
+                                                </t>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt32 row">
+                            <div class="col-md-6">
+                                <div class="row mt16 col-md-12">
+                                    <h4>Offer</h4>
+                                </div>
+                                <div class="row col-md-12">
+                                    <div class="col-md-4">
+                                        <label class="col-form-label" for="Name">
+                                            <strong>Salary From:</strong>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="number" name="salary_from" t-attf-class="form-control"
+                                               t-att-value="alumni_data.salary_from" required="1"/>
+                                    </div>
+                                </div>
+                                <div class="mt8 row col-md-12">
+                                    <div class="col-md-4">
+                                        <label class="col-form-label" for="Name">
+                                            <strong>Salary Upto:</strong>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="number" name="salary_upto" t-attf-class="form-control"
+                                               t-att-value="alumni_data.salary_upto" required="1"/>
+                                    </div>
+                                </div>
+                                <div class="row mt8 col-md-12">
+                                    <div class="col-md-4 mt8">
+                                        <label for="payable_at">Payable At:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <select class="form-control" name="payable_at">
+                                            <option value="" class="disabled selected"></option>
+                                            <option t-att-value="alumni_data.payable_at"
+                                                    t-att-selected="alumni_data.payable_at">
+                                                <span t-esc="{false:false, 'weekly':'Weekly',
+                                                'monthly':'Monthly', 'yearly':'Yearly'}[alumni_data.payable_at]"/>
+                                            </option>
+                                            <t t-if="alumni_data.payable_at != 'weekly'">
+                                                <option value="weekly">Weekly</option>
+                                            </t>
+                                            <t t-if="alumni_data.payable_at != 'monthly'">
+                                                <option value="monthly">Monthly</option>
+                                            </t>
+                                            <t t-if="alumni_data.payable_at != 'yearly'">
+                                                <option value="yearly">Yearly</option>
+                                            </t>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mt8 col-md-12">
+                                    <div class="col-md-4 mt8">
+                                        <label for="employment_type">Employment Type:</label>
+                                    </div>
+                                    <div class=" col-md-8">
+                                        <select class="form-control" name="employment_type">
+                                            <option value="" class="disabled selected"></option>
+                                            <option t-att-value="alumni_data.employment_type.id"
+                                                    t-att-selected="alumni_data.employment_type.name">
+                                                <span t-esc="alumni_data.employment_type.name"/>
+                                            </option>
+                                            <t t-foreach="emp_type" t-as="emp">
+                                                <t t-if="alumni_data.employment_type.name != emp.name">
+                                                    <option t-att-value="emp.id">
+                                                        <span t-esc="emp.name"/>
+                                                    </option>
+                                                </t>
+                                            </t>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mt8 col-md-12">
+                                    <div class="col-md-4">
+                                        <label for="skill_ids">Skills:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <select class="form-control js-example-basic-multiple" name="skill_ids"
+                                                multiple="multiple">
+                                            <t t-foreach="alumni_data.skill_ids" t-as="skill">
+                                                <option t-att-value="skill.id" t-att-selected="skill.id">
+                                                    <span t-esc="skill.name"/>
+                                                </option>
+                                            </t>
+                                            <t t-foreach="skill_obj" t-as="skills">
+                                                <t t-foreach="alumni_data.skill_ids" t-as="skill">
+                                                    <t t-if=" skill.name != skills.name">
+                                                        <option t-att-value="skills.id">
+                                                            <span t-esc="skills.name"/>
+                                                        </option>
+                                                    </t>
+                                                </t>
+                                                <t t-if="not alumni_data.skill_ids">
+                                                    <option t-att-value="skills.id">
+                                                        <span t-esc="skills.name"/>
+                                                    </option>
+                                                </t>
+                                            </t>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="row mt16 col-md-12">
+                                    <h4>Other Information</h4>
+                                </div>
+                                <div class="row col-md-12">
+                                    <div class="mt8 col-md-4">
+                                        <label for="created_by">Created by:</label>
+                                    </div>
+                                    <div class=" col-md-8">
+                                        <select class="form-control" name="created_by" required="1">
+                                            <option value="" class="disabled selected"></option>
+                                            <option t-att-value="alumni_data.created_by"
+                                                    t-att-selected="alumni_data.created_by">
+                                                <span t-esc="{false:false,'alumni':'Alumni',
+                                                'placement':'Placement',}[alumni_data.created_by]"/>
+                                            </option>
+
+
+                                            <t t-if="alumni_data.created_by != 'placement'">
+                                                <option value="placement">
+                                                    Placement
+                                                </option>
+                                            </t>
+                                            <t t-if="alumni_data.created_by != 'alumni'">
+                                                <option value="alumni">
+                                                    Alumni
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mt8 col-md-12">
+                                    <div class="col-md-4">
+                                        <label class="col-form-label" for="Name">
+                                            <strong>Start Date:</strong>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" name="start_date" t-att-value="alumni_data.start_date"
+                                               t-attf-class="form-control a fa-calendar" id="start" required="1"
+                                               t-options="{'widget': 'date'}"/>
+                                    </div>
+                                </div>
+                                <div class="mt8 row col-md-12">
+                                    <div class="col-md-4">
+                                        <label class="col-form-label" for="Name">
+                                            <strong>End Date:</strong>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" name="end_date" t-att-value="alumni_data.end_date"
+                                               t-attf-class="form-control a fa-calendar" id="end" required="1"
+                                               t-options="{'widget': 'date'}"/>
+                                    </div>
+                                </div>
+                                <div class=" row col-md-12">
+                                    <div class="col-md-4 ">
+                                        <label class="col-form-label" for="Name">
+                                            <strong>
+                                                Estimated New
+                                                <br/>
+                                                Employees:
+                                            </strong>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-8 mt8">
+                                        <input type="number" name="expected_employees" t-attf-class="form-control"
+                                               t-att-value="alumni_data.expected_employees"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt32 mb16 row">
+                            <div class="row col-md-12">
+                                <div class="col-md-2">
+                                    <label class="col-form-label" for="Name">
+                                        <strong>Description:</strong>
+                                    </label>
+                                </div>
+                                <div class="col-md-10">
+                                    <input type="Text" name="description" t-attf-class="form-control"
+                                           t-att-value="alumni_data.description"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div t-if="user_id.sudo().is_student" class="clearfix row col-md-12">
+                            <div class="col-md-4">
+                                <button type="submit" class="btn btn-primary mb32 ">
+                                    SUBMIT
+                                    <span class="fa fa-long-arrow-right"/>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </t>
+    </template>
+
+
+    <!--   only reding data-->
+    <template id="porta_alumni_list_details">
+
+        <t t-call="portal.portal_layout">
+            <t t-set="o_portal_fullwidth_alert" groups="project.group_project_user">
+                <t t-call="portal.portal_back_in_edit_mode">
+                    <t t-set="backend_url"
+                       t-value="'/web#model=calendar.event&amp;id=%s&amp;view_type=form' % (alumni_data.id)"/>
+                </t>
+            </t>
+            <t t-call="portal.portal_record_layout">
+                <t t-set="card_header">
+                    <h5 class="mb-0">
+                        <small class="text-muted">Alumni Job Post -</small>
+                        <span t-field="alumni_data.name"/>
+                    </h5>
+                </t>
+            </t>
+
+            <div style="background-color:white; padding: 20px 40px 20px 40px;">
+                <div class="mt32">
+                    <form t-attf-action="/alumni/job/update/#{alumni_data.id}" method="post" role="form"
+                          enctype="multipart/form-data">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row col-md-12">
+                                    <h4>Job Position</h4>
+                                </div>
+                                <div class="row col-md-12">
+                                    <div class="col-md-4">
+                                        <strong>Job Position:</strong>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <span t-esc="alumni_data.job_post"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row col-md-12">
+                                    <h4>Address Detail</h4>
+                                </div>
+                                <div class="row col-md-12">
+                                    <div class="col-md-4">
+                                        <strong>Address:</strong>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <span t-esc="alumni_data.street"/>
+                                        <span t-esc="alumni_data.street2"/>
+                                        <div class="mt8 row">
+                                            <div class="col-md-12">
+                                                <span id="alumni_city" t-esc="alumni_data.city"/>
+                                                <t t-if="alumni_data.zip">
+                                                    -
+                                                    <span t-esc="alumni_data.zip"/>
+                                                </t>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div t-if="alumni_data.country_id" class="col-md-4">
+                                        <label class="col-form-label" for="Name">
+                                            <strong>Country:</strong>
+                                        </label>
+                                    </div>
+                                    <div t-if="alumni_data.country_id" class="col-md-8">
+                                        <div class="mt8 col-md-6" style="padding-left:0;">
+                                            <t t-foreach="alumni_data.country_id" t-as="country">
+                                                <span t-esc="country.name"/>
+                                            </t>
+                                        </div>
+                                    </div>
+                                    <div t-if="alumni_data.state_id" class="col-md-4">
+                                        <label class="col-form-label" for="Name">
+                                            <strong>State:</strong>
+                                        </label>
+                                    </div>
+                                    <div t-if="alumni_data.state_id" class="col-md-8">
+                                        <div class="mt8 col-md-6" style="padding-left:0;">
+                                            <t t-foreach="alumni_data.state_id" t-as="state">
+                                                <span t-esc="state.name"/>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt32 row">
+                            <div class="col-md-6">
+                                <div class="row mt16 col-md-12">
+                                    <h4>Offer</h4>
+                                </div>
+                                <div class="row col-md-12">
+                                    <div class="col-md-4">
+                                        <strong>Salary From:</strong>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <t t-esc="alumni_data.salary_from"
+                                           t-options="{'widget': 'monetary', 'display_currency': alumni_data.currency_id}"/>
+                                    </div>
+                                </div>
+                                <div class="mt8 row col-md-12">
+                                    <div class="col-md-4">
+                                        <strong>Salary Upto:</strong>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <t t-esc="alumni_data.salary_upto"
+                                           t-options="{'widget': 'monetary', 'display_currency': alumni_data.currency_id}"/>
+                                    </div>
+                                </div>
+                                <div class="row mt8 col-md-12">
+                                    <div t-if="alumni_data.payable_at" class="col-md-4 ">
+                                        <label for="payable_at">
+                                            <strong>
+                                                Payable At:
+                                            </strong>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <span t-esc="{false:false, 'weekly':'Weekly',
+                                                'monthly':'Monthly', 'yearly':'Yearly'}[alumni_data.payable_at]"/>
+                                    </div>
+                                </div>
+                                <div class="row col-md-12">
+                                    <div t-if="alumni_data.employment_type" class="col-md-4 ">
+                                        <label for="employment_type">
+                                            <strong>
+                                                Employment Type:
+                                            </strong>
+                                        </label>
+                                    </div>
+                                    <div class=" col-md-8">
+                                        <span t-esc="alumni_data.employment_type.name"/>
+                                    </div>
+                                </div>
+                                <div class="row col-md-12">
+                                    <div t-if="alumni_data.skill_ids" class="col-md-4 ">
+                                        <label for="skill_ids">
+                                            <strong>
+                                                Skills:
+                                            </strong>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <t t-foreach="alumni_data.skill_ids" t-as="skill">
+                                            <span t-esc="skill.name"/>
+                                            <br/>
+                                        </t>
+                                    </div>
+                                </div>
+                                <script>
+                                    $(function()
+                                    {
+                                    $(".js-example-basic-multiple").select2()
+                                    });
+                                </script>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="row mt16 col-md-12">
+                                    <h4>Other Information</h4>
+                                </div>
+                                <div class="row col-md-12">
+                                    <div class="col-md-4 ">
+                                        <label for="created_by">Created by:</label>
+                                    </div>
+                                    <div class=" col-md-8">
+                                        <span t-esc="{false:false,'alumni':'Alumni',
+                                                 'placement':'Placement',}[alumni_data.created_by]"/>
+                                    </div>
+                                </div>
+
+                                <div class="row col-md-12">
+                                    <div class="col-md-4">
+                                        <strong>Start Date:</strong>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <span t-esc="alumni_data.start_date" t-options="{'widget':'date'}"/>
+                                    </div>
+                                </div>
+                                <div class="mt8 row col-md-12">
+                                    <div class="col-md-4">
+                                        <strong>End Date:</strong>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <span t-esc="alumni_data.end_date" t-options="{'widget':'date'}"/>
+                                    </div>
+                                </div>
+                                <div t-if="alumni_data.payable_at" class=" row col-md-12">
+                                    <div class="col-md-4">
+                                        <label class="col-form-label" for="Name">
+                                            <strong>
+                                                Estimated New
+                                                <br/>
+                                                Employees:
+                                            </strong>
+                                        </label>
+                                    </div>
+                                    <div class="mt16 col-md-8">
+                                        <span t-esc="alumni_data.expected_employees"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt32 mb16 row">
+                            <div t-if="alumni_data.description" class="row col-md-12">
+                                <div class="col-md-2">
+                                    <strong>Description:</strong>
+                                </div>
+                                <div class="col-md-10">
+                                    <span t-esc="alumni_data.description"/>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!--  alumni & Others record list  -->
+    <template id="Alumni_posted_job_list">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Alumni Job List</t>
+            </t>
+            <h4>Job(s) Create by You</h4>
+            <div t-if="alumni_student == True" class="mt16 mb16 portal_buttons">
+                <a href="/alumni/job">
+                    <button>Alumni Job Post</button>
+                </a>
+            </div>
+            <t t-if="not grouped_tasks_student">
+                <div class="alert alert-warning mt8" role="alert">
+                    There are no records.
+                </div>
+            </t>
+
+            <t t-if="grouped_tasks_student">
+                <t t-if="grouped_tasks_student" t-call="portal.portal_table">
+                    <t t-foreach="grouped_tasks_student" t-as="tasks">
+                        <thead>
+                            <tr t-attf-class="{{'thead-light' if not groupby == 'none' else ''}}">
+                                <th t-if="groupby == 'none'">Name</th>
+                                <th t-else="">
+                                    <em class="font-weight-normal text-muted">Created By:</em>
+                                    <span t-field="tasks[0].sudo().created_by"/>
+                                </th>
+                                <th>Job Position</th>
+                                <th>Salary From</th>
+                                <th>Salary Upto</th>
+                                <th>Payable At</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th>Created By</th>
+                                <th t-if="alumni_student == True">
+                                    <i class="badge badge-pill badge-success fa fa-fw fa-check"/>
+                                </th>
+                                <th t-if="alumni_student == True">
+                                    <i class="badge badge-pill badge-success fa fa-fw fa-remove"/>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-if="tasks" t-foreach="tasks" t-as="alumni_data">
+                                <tr>
+                                    <td>
+                                        <a t-attf-href="/alumni/job/details/#{alumni_data.id}">
+                                            <span t-esc="alumni_data.name"/>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <span t-esc="alumni_data.job_post"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="alumni_data.salary_from"
+                                              t-options="{'widget': 'monetary', 'display_currency': alumni_data.currency_id}"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="alumni_data.salary_upto"
+                                              t-options="{'widget': 'monetary', 'display_currency': alumni_data.currency_id}"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="{false:false, 'weekly':'Weekly', 'monthly':'Monthly',
+                                        'yearly':'Yearly'}[alumni_data.payable_at]"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="alumni_data.start_date" t-options="{'widget': 'date'}"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="alumni_data.end_date" t-options="{'widget': 'date'}"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="{false:false, 'alumni':'Alumni', 'placement':'Placement',}[alumni_data.created_by]"/>
+                                    </td>
+                                    <td t-if="alumni_student == True">
+                                        <a t-attf-href="/alumni/job/data/#{alumni_data.id}">
+                                            <button style="color:Green;">Edit</button>
+                                        </a>
+                                    </td>
+                                    <td t-if="alumni_student == True">
+                                        <button id="delete_content" class="delete_content btn btn-danger"
+                                                t-att-data-job_id="alumni_data.id">
+                                            Delete
+                                        </button>
+                                        <div class="modal fade" id="open_modal" role="dialog">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-body">
+                                                        <p>Are you sure you want to delete this record ?</p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <a href=""
+                                                           style="color:gray;"
+                                                           class="btn btn-default ok_button">
+                                                            OK
+                                                        </a>
+                                                        <button type="button" class="btn btn-default close_button"
+                                                                data-dismiss="modal">Close
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </t>
+                </t>
+            </t>
+            <div t-if="alumni_student == True" class="mt16">
+                <h4>Job(s) Create by Others</h4>
+            </div>
+            <t t-if="not grouped_tasks">
+                <div class="alert alert-warning mt8" role="alert">
+                    There are no records.
+                </div>
+            </t>
+
+            <t t-if="grouped_tasks">
+                <t t-if="grouped_tasks" t-call="portal.portal_table">
+                    <t t-foreach="grouped_tasks" t-as="tasks">
+                        <thead>
+                            <tr t-attf-class="{{'thead-light' if not groupby == 'none' else ''}}">
+                                <th t-if="groupby == 'none'">Name</th>
+                                <th t-else="">
+                                    <em class="font-weight-normal text-muted">Created By:</em>
+                                    <span t-field="tasks[0].sudo().created_by"/>
+                                </th>
+                                <th>Job Position</th>
+                                <th>Salary From</th>
+                                <th>Salary Upto</th>
+                                <th>Payable At</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th>Created By</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-if="tasks" t-foreach="tasks" t-as="alumni_data">
+                                <tr>
+                                    <td>
+                                        <a t-attf-href="/alumni/job/details/#{alumni_data.id}">
+                                            <span t-esc="alumni_data.name"/>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <span t-esc="alumni_data.job_post"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="alumni_data.salary_from"
+                                              t-options="{'widget': 'monetary', 'display_currency': alumni_data.currency_id}"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="alumni_data.salary_upto"
+                                              t-options="{'widget': 'monetary', 'display_currency': alumni_data.currency_id}"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="{false:false, 'weekly':'Weekly', 'monthly':'Monthly',
+                                        'yearly':'Yearly'}[alumni_data.payable_at]"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="alumni_data.start_date" t-options="{'widget': 'date'}"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="alumni_data.end_date" t-options="{'widget': 'date'}"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="{false:false, 'alumni':'Alumni', 'placement':'Placement',}[alumni_data.created_by]"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </t>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

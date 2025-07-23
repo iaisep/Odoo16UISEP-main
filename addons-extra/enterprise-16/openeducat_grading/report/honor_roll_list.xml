@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <template id="honor_roll_list">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <t t-foreach="docs" t-as="o">
+                        <div class="font">
+                            <div class="page">
+                                <br/>
+                                <br/>
+<!--                                <br/>-->
+                                <div style="float:right;">
+                                    <p style="color: black;">Printed:
+                                        <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d-%m-%Y')"/>
+                                    </p>
+                                </div>
+                                <div class="text-center" style="margin-top: 30px;">
+                                    <h3>
+                                        <strong>Honor Roll</strong>
+                                    </h3>
+                                </div>
+                                <div class="row mt24">
+                                    <div style="width:100%; margin-left:15px; padding:10px;">
+                                        <span>
+                                            <b>Course:</b>
+                                            <t t-esc="o.course_id.name"/>
+                                        </span>
+                                        <span style="float:right; margin-right:15px;">
+                                            <b>Academic Year:</b>
+                                            <t t-esc="o.year_id.name"/>
+                                        </span>
+                                    </div>
+                                </div>
+                                <br></br>
+                                <div style="margin-left:20px;">
+                                    <span t-esc="o.description"/>
+                                </div>
+                                <br/>
+                                <br/>
+                                <div style="width: 40%; margin-left: 225px;">
+                                    <table class="table table-bordered">
+                                        <thead class="text-center"
+                                               style="background-color:#eeeeee; font-size:16px; font-weight:600;">
+                                            <th>Student Name</th>
+                                        </thead>
+                                        <tbody class="text-center" style="font-size:14px;">
+                                            <tr t-foreach="o.honor_line_id" t-as="line">
+                                                <td>
+                                                    <span t-esc="line.student_id.name"/>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <br></br>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+</odoo>

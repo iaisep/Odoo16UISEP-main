@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- View data_flywire View Tree -->
+    <record id="view_data_flywire_tree" model="ir.ui.view">
+        <field name="name">view.data_flywire.tree</field>
+        <field name="model">data.flywire</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- View data_flywire form -->
+    <record id="view_data_flywire_form" model="ir.ui.view">
+        <field name="name">view.data_flywire.form</field>
+        <field name="model">data.flywire</field>
+        <field name="arch" type="xml">
+            <form string="Data flywire">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="Name..."/>
+                        </h1>
+                        <group>
+                            <field name="api_key"/>
+                            <field name="url_create_session"/>
+                            <field name="url_create_payment"/>
+                            <field name="shared_secret"/>
+                            <field name="url_website_webhook"/>
+                            <field name="active_url_website_webhook"/>
+                            <field name="active"/>
+                        </group>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- Action data_flywire -->
+    <record id="action_data_flywire" model="ir.actions.act_window">
+        <field name="name">Data flywire</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">data.flywire</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                There is no examples click here to add new Data_flywire.
+            </p>
+        </field>
+    </record>
+
+        <menuitem id="data_flywire_menu"
+              name="Data Flywire"
+              action="action_data_flywire"
+              sequence="10"
+              parent="account.root_payment_menu"/>
+
+</odoo>

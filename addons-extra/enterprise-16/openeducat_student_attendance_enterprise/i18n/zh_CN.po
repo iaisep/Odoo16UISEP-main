@@ -1,0 +1,382 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* openeducat_student_attendance_enterprise
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-09-26 06:45+0000\n"
+"PO-Revision-Date: 2019-09-26 06:45+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.actions.client,name:openeducat_student_attendance_enterprise.student_attendance_action_kiosk_mode
+msgid " Student Attendances"
+msgstr ""
+
+#. module: openeducat_student_attendance_enterprise
+#: code:addons/openeducat_student_attendance_enterprise/models/student_attendance.py:39
+#, python-format
+msgid "%(stu_name)s signed in at % (check_in) s"
+msgstr "％（stu_name）s的％（CHECK_IN）签署以s"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:99
+#, python-format
+msgid "<b>Warning! Last check in was over 12 hours ago.</b><br/>If this isn't right, please contact Human Resource staff"
+msgstr "<b>警告！在最后一次检查是在12小时前。</ B> <BR/>如果这是不正确的，请联系人力资源工作人员"
+
+#. module: openeducat_student_attendance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_student_attendance_enterprise.view_student_attendance_kanban
+msgid "<i class=\"fa fa-calendar\" aria-label=\"Period\" role=\"img\" title=\"Period\"/>"
+msgstr "<I类= “FA FA-日历” 咏叹调标签= “周期” 角色= “IMG” 标题= “周期”/>"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:114
+#, python-format
+msgid "An apple a day keeps the doctor away"
+msgstr "一天一苹果，医生远离我"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:103
+#, python-format
+msgid "Another good day's work! See you soon!"
+msgstr "另一个好一天的工作！再见！"
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.model.fields,field_description:openeducat_student_attendance_enterprise.field_op_student__attendance_ids
+#: model_terms:ir.ui.view,arch_db:openeducat_student_attendance_enterprise.view_student_form_inherit_student_attendance
+msgid "Attendance"
+msgstr "勤"
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.model,name:openeducat_student_attendance_enterprise.model_op_attendance_line
+msgid "Attendance Lines"
+msgstr "考勤线"
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.model.fields,field_description:openeducat_student_attendance_enterprise.field_op_attendance_line__attendance_id
+msgid "Attendance Sheet"
+msgstr "考勤表"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:49
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:155
+#, python-format
+msgid "Attendance Sheets"
+msgstr "签到表"
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.model.fields,field_description:openeducat_student_attendance_enterprise.field_op_attendance_line__check_in
+msgid "Attendance Time"
+msgstr "考勤时间"
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.model.fields,field_description:openeducat_student_attendance_enterprise.field_op_student__barcode
+msgid "Badge ID"
+msgstr ""
+
+#. module: openeducat_student_attendance_enterprise
+#: code:addons/openeducat_student_attendance_enterprise/models/op_student.py:148
+#, python-format
+msgid "Cannot perform sign in on multiple students."
+msgstr "不能进行登录到多个学生。"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:10
+#, python-format
+msgid "Company Logo"
+msgstr "公司标志"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:120
+#, python-format
+msgid "Early to bed and early to rise, makes a man healthy, wealthy and wise"
+msgstr "早睡早起，使人健康，富有和聪明"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:112
+#, python-format
+msgid "Eat breakfast as a king, lunch as a merchant and supper as a beggar"
+msgstr "吃早餐作为一个国王，午餐作为一个商人和晚餐乞丐"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:97
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:186
+#, python-format
+msgid "Error: could not find corresponding student."
+msgstr "错误：无法找到对应的学生。"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:76
+#, python-format
+msgid "First come, first served"
+msgstr "先到先得"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:35
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:36
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:128
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:141
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:142
+#, python-format
+msgid "Go back"
+msgstr "回去"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:83
+#, python-format
+msgid "Good afternoon"
+msgstr "下午好"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:85
+#, python-format
+msgid "Good evening"
+msgstr "晚上好"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:79
+#, python-format
+msgid "Good morning"
+msgstr "早上好"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:70
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:87
+#, python-format
+msgid "Good night"
+msgstr "晚安"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:117
+#, python-format
+msgid "Have a good afternoon"
+msgstr "有一个很好的下午"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:108
+#, python-format
+msgid "Have a good day!"
+msgstr "祝你有美好的一天！"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:122
+#, python-format
+msgid "Have a good evening"
+msgstr "有一个晚上好"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:110
+#, python-format
+msgid "Have a nice lunch!"
+msgstr "吃一顿美味的午餐！"
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.model.fields,help:openeducat_student_attendance_enterprise.field_op_student__barcode
+msgid "ID used for student identification"
+msgstr ""
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:127
+#, python-format
+msgid "Invalid request, please return to the main menu."
+msgstr "无效的请求，请返回到主菜单。"
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.ui.menu,name:openeducat_student_attendance_enterprise.menu_student_attendance_kiosk_mode
+msgid "Kiosk Mode"
+msgstr "Kiosk模式"
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.model.fields,field_description:openeducat_student_attendance_enterprise.field_op_student__last_attendance_id
+msgid "Last Attendance"
+msgstr "最后出席"
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.actions.client,name:openeducat_student_attendance_enterprise.student_attendance_action_greeting_message
+msgid "Message"
+msgstr "信息"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:92
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:181
+#, python-format
+msgid "No open Attendance Sheet."
+msgstr "没有开放的考勤表。"
+
+#. module: openeducat_student_attendance_enterprise
+#: code:addons/openeducat_student_attendance_enterprise/models/op_student.py:57
+#, python-format
+msgid "No student corresponding to barcode % (barcode) s"
+msgstr "没有相应的条码％（条形码）学生小号"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:123
+#, python-format
+msgid "OK"
+msgstr ""
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.model.fields,field_description:openeducat_student_attendance_enterprise.field_op_student__pin
+msgid "PIN"
+msgstr "销"
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.model.fields,help:openeducat_student_attendance_enterprise.field_op_student__pin
+msgid "PIN used to Sign In in Kiosk Mode"
+msgstr "PIN用于登录Kiosk模式"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:92
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:181
+#, python-format
+msgid "Please contact the administrator."
+msgstr "请联系管理员。"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:74
+#, python-format
+msgid "Please enter your PIN to check in"
+msgstr "请输入您的PIN码进行检查"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:97
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:186
+#, python-format
+msgid "Please return to the main menu."
+msgstr "请返回到主菜单。"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:14
+#, python-format
+msgid "Scan your badge"
+msgstr "扫描您的徽章"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:21
+#, python-format
+msgid "Select Student"
+msgstr "选择学生"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:116
+#, python-format
+msgid "Signed in at"
+msgstr "在签名中"
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.model,name:openeducat_student_attendance_enterprise.model_op_student
+#: model:ir.model.fields,field_description:openeducat_student_attendance_enterprise.field_op_attendance_line__student_id
+#: model_terms:ir.ui.view,arch_db:openeducat_student_attendance_enterprise.student_view_kanban
+msgid "Student"
+msgstr "学生"
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.actions.act_window,name:openeducat_student_attendance_enterprise.student_attendance_action
+#: model:ir.ui.menu,name:openeducat_student_attendance_enterprise.menu_root_stu_att
+msgid "Student Attendances"
+msgstr "学生出勤"
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.actions.act_window,name:openeducat_student_attendance_enterprise.open_view_student_list_my
+#: model:ir.actions.act_window,name:openeducat_student_attendance_enterprise.student_attendance_action_kanban
+msgid "Students"
+msgstr "学生们"
+
+#. module: openeducat_student_attendance_enterprise
+#: sql_constraint:op.student:0
+msgid "The Badge ID must be unique,                          this one is already assigned to another student."
+msgstr "该徽章ID必须是唯一的，这一个已经分配给其他学生。"
+
+#. module: openeducat_student_attendance_enterprise
+#: code:addons/openeducat_student_attendance_enterprise/models/op_student.py:110
+#, python-format
+msgid "The PIN must be a sequence of digits."
+msgstr "PIN必须是数字序列。"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:74
+#, python-format
+msgid "The early bird catches the worm"
+msgstr "早起的鸟儿有虫吃"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:114
+#, python-format
+msgid "Welcome"
+msgstr "欢迎"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:8
+#, python-format
+msgid "Welcome to"
+msgstr "欢迎来到"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:46
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:152
+#, python-format
+msgid "Welcome!"
+msgstr "欢迎！"
+
+#. module: openeducat_student_attendance_enterprise
+#: code:addons/openeducat_student_attendance_enterprise/models/op_student.py:116
+#, python-format
+msgid "Wrong PIN"
+msgstr "PIN码错误"
+
+#. module: openeducat_student_attendance_enterprise
+#: code:addons/openeducat_student_attendance_enterprise/models/student_attendance.py:51
+#, python-format
+msgid "You cannot duplicate an attendance."
+msgstr "您不能复制的出席。"
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.model.fields,help:openeducat_student_attendance_enterprise.field_op_student__attendance_ids
+msgid "list of attendances for students"
+msgstr "求诊的学生名单"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:17
+#, python-format
+msgid "or"
+msgstr ""

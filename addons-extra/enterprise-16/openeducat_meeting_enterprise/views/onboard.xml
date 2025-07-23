@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- openeducat_core module STEPS -->
+    <!-- meeting record view starts -->
+    <template id="onboarding_meeting_layout_step">
+        <t t-call="base.onboarding_step">
+            <t t-set="title">Meeting Layout Configuration</t>
+            <t t-set="description">See how to create a Meeting Layout.</t>
+            <t t-set="done_icon" t-value="'fa-star'"/>
+            <t t-set="done_text">Looks great!</t>
+            <t t-set="btn_text">Customize</t>
+            <t t-set="method" t-value="'action_onboarding_meeting_layout'"/>
+            <t t-set="model" t-value="'res.company'"/>
+            <t t-set="state" t-value="state.get('onboarding_meeting_layout_state')"/>
+        </t>
+    </template>
+   <record id="view_op_meeting_form_onboard" model="ir.ui.view">
+        <field name="name">op.meeting.form</field>
+        <field name="model">op.meeting</field>
+        <field name="priority" eval="1"/>
+        <field name="arch" type="xml">
+            <form string="Meetings">
+                <sheet>
+<!--                    <field name="state" invisible="1"/>-->
+                    <field name="attendee_ids" widget="one2many">
+                                <tree editable="top" create="false" delete="false">
+                                    <field name="state"/>
+                                </tree>
+                    </field>
+<!--                    <field name="is_attendee" invisible="1"/>-->
+                    <field name="attendee_status" invisible="1"/>
+                    <div class="oe_title">
+                        <div class="oe_edit_only"><label for="name"/></div>
+                        <h1><field name="name" placeholder="e.g. Business Lunch"/></h1>
+                        <label for="partner_ids" string="Attendees" class="oe_edit_only"/>
+                        <h2>
+                            <field name="partner_ids" widget="many2manyattendee"
+                                   placeholder="Select attendees..."
+                                   context="{'force_email':True}" class="oe_inline"/>
+                        </h2>
+                    </div>
+                    <notebook>
+                        <page name="meeting_details" string="Meeting Details">
+                            <group>
+                                <group>
+                                    <field name="start" invisible="1"/>
+                                    <field name="stop" invisible="1"/>
+                                    <field name="id" invisible="1"/>
+                                    <field name="start_date" string="Starting at"
+                                           attrs="{'invisible': [('allday','=',False)], 'readonly': [('id', '!=', False)]}"/>
+                                    <field name="stop_date" string="Ending at"
+                                           attrs="{'invisible': [('allday','=',False)], 'readonly': [('id', '!=', False)]}"/>
+<!--                                    <field name="start_datetime" string="Starting at"-->
+<!--                                           attrs="{'invisible': [('allday','=',True)]}"/>-->
+<!--                                    <field name="stop_datetime" invisible="1"/>-->
+                                    <label for="duration" attrs="{'invisible': [('allday','=',True)]}"/>
+                                    <div attrs="{'invisible': [('allday','=',True)]}">
+                                        <field name="duration" widget="float_time" string="Duration" class="oe_inline"/>
+                                        <span>hours</span>
+                                    </div>
+                                    <field name="allday"/>
+                                </group>
+                                <group>
+                                    <field name="categ_ids" widget="many2many_tags" options="{'no_create_edit': True}"/>
+                                    <field name="alarm_ids" widget="many2many_tags"/>
+                                    <field name="location"/>
+                                </group>
+                            </group>
+                            <label for="description"/>
+                            <field name="description"/>
+                        </page>
+                        <page string="Options" name="meeting_options">
+                            <group>
+                                <group>
+                                    <field name="privacy"/>
+                                    <field name="show_as"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page name="meeting_invitations" string="Invitations" groups="base.group_no_one">
+<!--                            <button name="action_sendmail" type="object" string="Send mail" icon="fa-envelope" class="oe_link"/>-->
+                            <field name="attendee_ids" widget="one2many">
+                                <tree editable="top" create="false" delete="false">
+                                    <field name="partner_id"/>
+                                    <field name="state"/>
+                                    <field name="email" widget="email"/>
+                                    <button name="do_tentative" states="needsAction,declined,accepted"
+                                            string="Uncertain" type="object" icon="fa-asterisk"/>
+                                    <button name="do_accept" string="Accept"
+                                            states="needsAction,tentative,declined"
+                                            type="object" icon="fa-check text-success"/>
+                                    <button name="do_decline" string="Decline" states="needsAction,tentative,accepted"
+                                            type="object" icon="fa-times-circle text-danger"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="meeting_misc" string="Misc" groups="base.group_no_one">
+                            <group>
+                                <label for="user_id" string="Owner"/>
+                                <field name="user_id" nolabel="1"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <footer>
+<!--                    <button string="Apply" class="btn btn-primary" type="object"-->
+<!--                            name="action_onboarding_meeting_layout"/>-->
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_onboarding_meeting_layout" model="ir.actions.act_window">
+        <field name="name">Meeting Record Configuration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">op.meeting</field>
+        <field name="view_mode">form</field>
+        <field name="binding_view_types">form</field>
+        <field name="view_id" ref="view_op_meeting_form_onboard"/>
+        <field name="target">new</field>
+    </record>
+
+
+    <!-- ONBOARDING PANEL-->
+    <template id="openeducat_meeting_onboarding_panel" name="openeducat_discpline.quotation.onboarding.panel">
+        <t t-call="base.onboarding_container" >
+            <t t-set="classes" t-value="'o_onboarding_violet'"/>
+            <t t-set="bg_image" t-value="'/sale/static/src/img/sale_quotation_onboarding_bg.jpg'"/>
+            <t t-set="close_method" t-value="'action_close_meeting_panel_onboarding'"/>
+            <t t-set="close_model" t-value="'res.company'"/>
+            <t t-call="openeducat_meeting_enterprise.onboarding_meeting_layout_step" name="meeting_step"/>
+
+
+        </t>
+    </template>
+</odoo>

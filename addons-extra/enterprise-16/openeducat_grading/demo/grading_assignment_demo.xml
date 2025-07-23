@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="Assignment_1" model="grading.assignment">
+            <field name="name">Essay On Horse</field>
+            <field name="issued_date">2020-02-13</field>
+            <field name="year_id" ref="openeducat_core.academic_year_3"/>
+            <field name="term_id" ref="openeducat_core.academic_term_6"/>
+            <field name="course_id" ref="openeducat_core.op_course_2"/>
+            <field name="subject_id" ref="openeducat_core.op_subject_1"/>
+            <field name="assignment_type" ref="openeducat_assignment.Assignment_type_1"/>
+            <field name="grade" ref="openeducat_grading.grade_table_6"/>
+            <field name="point">10</field>
+            <field name="state">grades_published</field>
+            <field name="faculty_id" ref="openeducat_core.op_faculty_1"/>
+            <field name="user_id" ref="openeducat_core.op_user_faculty"/>
+        </record>
+
+        <record id="Assignment_2" model="grading.assignment">
+            <field name="name">Presentation on USA</field>
+            <field name="issued_date">2020-03-13</field>
+            <field name="year_id" ref="openeducat_core.academic_year_3"/>
+            <field name="term_id" ref="openeducat_core.academic_term_6"/>
+            <field name="course_id" ref="openeducat_core.op_course_2"/>
+            <field name="subject_id" ref="openeducat_core.op_subject_1"/>
+            <field name="assignment_type" ref="openeducat_assignment.Assignment_type_7"/>
+            <field name="grade" ref="openeducat_grading.grade_table_6"/>
+            <field name="point">10</field>
+            <field name="state">grades_published</field>
+            <field name="faculty_id" ref="openeducat_core.op_faculty_1"/>
+            <field name="user_id" ref="openeducat_core.op_user_faculty"/>
+        </record>
+
+        <record id="Assignment_3" model="grading.assignment">
+            <field name="name">Weekly Test - 1</field>
+            <field name="issued_date">2020-08-03</field>
+            <field name="year_id" ref="openeducat_core.academic_year_3"/>
+            <field name="term_id" ref="openeducat_core.academic_term_9"/>
+            <field name="course_id" ref="openeducat_core.op_course_2"/>
+            <field name="subject_id" ref="openeducat_core.op_subject_3"/>
+            <field name="assignment_type" ref="openeducat_assignment.Assignment_type_5"/>
+            <field name="grade" ref="openeducat_grading.grade_table_6"/>
+            <field name="point">20</field>
+            <field name="state">grades_published</field>
+            <field name="faculty_id" ref="openeducat_core.op_faculty_1"/>
+            <field name="user_id" ref="openeducat_core.op_user_faculty"/>
+        </record>
+
+        <record id="Assignment_4" model="grading.assignment">
+            <field name="name">Essay on Cow</field>
+            <field name="issued_date" eval="DateTime.now()"/>
+            <field name="year_id" ref="openeducat_core.academic_year_3"/>
+            <field name="term_id" ref="openeducat_core.academic_term_9"/>
+            <field name="course_id" ref="openeducat_core.op_course_2"/>
+            <field name="subject_id" ref="openeducat_core.op_subject_3"/>
+            <field name="assignment_type" ref="openeducat_assignment.Assignment_type_1"/>
+            <field name="grade" ref="openeducat_grading.grade_table_6"/>
+            <field name="point">30</field>
+            <field name="faculty_id" ref="openeducat_core.op_faculty_1"/>
+            <field name="user_id" ref="openeducat_core.op_user_faculty"/>
+        </record>
+
+        <record id="Assignment_5" model="grading.assignment">
+            <field name="name">Create Windmill</field>
+            <field name="issued_date">2020-05-05</field>
+            <field name="year_id" ref="openeducat_core.academic_year_3"/>
+            <field name="term_id" ref="openeducat_core.academic_term_7"/>
+            <field name="course_id" ref="openeducat_core.op_course_2"/>
+            <field name="subject_id" ref="openeducat_core.op_subject_2"/>
+            <field name="assignment_type" ref="openeducat_assignment.Assignment_type_3"/>
+            <field name="grade" ref="openeducat_grading.grade_table_6"/>
+            <field name="point">20</field>
+            <field name="state">grades_published</field>
+            <field name="faculty_id" ref="openeducat_core.op_faculty_1"/>
+            <field name="user_id" ref="openeducat_core.op_user_faculty"/>
+        </record>
+
+        <record id="Assignment_6" model="grading.assignment">
+            <field name="name">Weekly Test - 2</field>
+            <field name="issued_date">2020-11-05</field>
+            <field name="year_id" ref="openeducat_core.academic_year_3"/>
+            <field name="term_id" ref="openeducat_core.academic_term_10"/>
+            <field name="course_id" ref="openeducat_core.op_course_2"/>
+            <field name="subject_id" ref="openeducat_core.op_subject_4"/>
+            <field name="assignment_type" ref="openeducat_assignment.Assignment_type_5"/>
+            <field name="grade" ref="openeducat_grading.grade_table_6"/>
+            <field name="point">10</field>
+            <field name="faculty_id" ref="openeducat_core.op_faculty_1"/>
+            <field name="user_id" ref="openeducat_core.op_user_faculty"/>
+        </record>
+
+        <record id="Assignment_7" model="grading.assignment">
+            <field name="name">Make a PPT on India</field>
+            <field name="issued_date" eval="DateTime.now()"/>
+            <field name="year_id" ref="openeducat_core.academic_year_3"/>
+            <field name="term_id" ref="openeducat_core.academic_term_10"/>
+            <field name="course_id" ref="openeducat_core.op_course_2"/>
+            <field name="subject_id" ref="openeducat_core.op_subject_4"/>
+            <field name="assignment_type" ref="openeducat_assignment.Assignment_type_7"/>
+            <field name="grade" ref="openeducat_grading.grade_table_6"/>
+            <field name="point">20</field>
+            <field name="faculty_id" ref="openeducat_core.op_faculty_1"/>
+            <field name="user_id" ref="openeducat_core.op_user_faculty"/>
+        </record>
+
+        <record id="Assignment_8" model="grading.assignment">
+            <field name="name">PPT on China</field>
+            <field name="issued_date" eval="DateTime.now()"/>
+            <field name="year_id" ref="openeducat_core.academic_year_3"/>
+            <field name="term_id" ref="openeducat_core.academic_term_10"/>
+            <field name="course_id" ref="openeducat_core.op_course_2"/>
+            <field name="subject_id" ref="openeducat_core.op_subject_4"/>
+            <field name="assignment_type" ref="openeducat_assignment.Assignment_type_7"/>
+            <field name="grade" ref="openeducat_grading.grade_table_6"/>
+            <field name="point">20</field>
+            <field name="faculty_id" ref="openeducat_core.op_faculty_1"/>
+            <field name="user_id" ref="openeducat_core.op_user_faculty"/>
+        </record>
+
+        <record id="Assignment_9" model="grading.assignment">
+            <field name="name">Monthly Quiz - 1</field>
+            <field name="issued_date" eval="DateTime.now()"/>
+            <field name="year_id" ref="openeducat_core.academic_year_3"/>
+            <field name="term_id" ref="openeducat_core.academic_term_9"/>
+            <field name="course_id" ref="openeducat_core.op_course_2"/>
+            <field name="subject_id" ref="openeducat_core.op_subject_3"/>
+            <field name="assignment_type" ref="openeducat_assignment.Assignment_type_4"/>
+            <field name="grade" ref="openeducat_grading.grade_table_6"/>
+            <field name="point">10</field>
+            <field name="state">grades_published</field>
+            <field name="faculty_id" ref="openeducat_core.op_faculty_1"/>
+            <field name="user_id" ref="openeducat_core.op_user_faculty"/>
+        </record>
+
+        <record id="Assignment_10" model="grading.assignment">
+            <field name="name">Create Greenhouse</field>
+            <field name="issued_date" eval="DateTime.now()"/>
+            <field name="year_id" ref="openeducat_core.academic_year_3"/>
+            <field name="term_id" ref="openeducat_core.academic_term_6"/>
+            <field name="course_id" ref="openeducat_core.op_course_2"/>
+            <field name="subject_id" ref="openeducat_core.op_subject_1"/>
+            <field name="assignment_type" ref="openeducat_assignment.Assignment_type_3"/>
+            <field name="grade" ref="openeducat_grading.grade_table_6"/>
+            <field name="point">10</field>
+            <field name="faculty_id" ref="openeducat_core.op_faculty_1"/>
+            <field name="user_id" ref="openeducat_core.op_user_faculty"/>
+        </record>
+
+        <record id="Assignment_11" model="grading.assignment">
+            <field name="name">Essay On Horse</field>
+            <field name="issued_date" eval="DateTime.now()"/>
+            <field name="year_id" ref="openeducat_core.academic_year_1"/>
+            <field name="term_id" ref="openeducat_core.academic_term_1"/>
+            <field name="course_id" ref="openeducat_core.op_course_3"/>
+            <field name="subject_id" ref="openeducat_core.op_subject_5"/>
+            <field name="assignment_type" ref="openeducat_assignment.Assignment_type_1"/>
+            <field name="grade" ref="openeducat_grading.grade_table_6"/>
+            <field name="point">10</field>
+            <field name="faculty_id" ref="openeducat_core.op_faculty_1"/>
+            <field name="user_id" ref="openeducat_core.op_user_faculty"/>
+        </record>
+
+        <record id="Assignment_12" model="grading.assignment">
+            <field name="name">Presentation on USA</field>
+            <field name="issued_date" eval="DateTime.now()"/>
+            <field name="year_id" ref="openeducat_core.academic_year_1"/>
+            <field name="term_id" ref="openeducat_core.academic_term_1"/>
+            <field name="course_id" ref="openeducat_core.op_course_3"/>
+            <field name="subject_id" ref="openeducat_core.op_subject_5"/>
+            <field name="assignment_type" ref="openeducat_assignment.Assignment_type_7"/>
+            <field name="grade" ref="openeducat_grading.grade_table_6"/>
+            <field name="point">10</field>
+            <field name="faculty_id" ref="openeducat_core.op_faculty_1"/>
+            <field name="user_id" ref="openeducat_core.op_user_faculty"/>
+        </record>
+
+        <record id="Assignment_13" model="grading.assignment">
+            <field name="name">Weekly Test - 1</field>
+            <field name="issued_date" eval="DateTime.now()"/>
+            <field name="year_id" ref="openeducat_core.academic_year_1"/>
+            <field name="term_id" ref="openeducat_core.academic_term_1"/>
+            <field name="course_id" ref="openeducat_core.op_course_3"/>
+            <field name="subject_id" ref="openeducat_core.op_subject_5"/>
+            <field name="assignment_type" ref="openeducat_assignment.Assignment_type_5"/>
+            <field name="grade" ref="openeducat_grading.grade_table_6"/>
+            <field name="point">20</field>
+            <field name="faculty_id" ref="openeducat_core.op_faculty_1"/>
+            <field name="user_id" ref="openeducat_core.op_user_faculty"/>
+        </record>
+
+        <record id="Assignment_14" model="grading.assignment">
+            <field name="name">Essay on Cow</field>
+            <field name="issued_date" eval="DateTime.now()"/>
+            <field name="year_id" ref="openeducat_core.academic_year_1"/>
+            <field name="term_id" ref="openeducat_core.academic_term_2"/>
+            <field name="course_id" ref="openeducat_core.op_course_3"/>
+            <field name="subject_id" ref="openeducat_core.op_subject_6"/>
+            <field name="assignment_type" ref="openeducat_assignment.Assignment_type_1"/>
+            <field name="grade" ref="openeducat_grading.grade_table_6"/>
+            <field name="point">30</field>
+            <field name="faculty_id" ref="openeducat_core.op_faculty_1"/>
+            <field name="user_id" ref="openeducat_core.op_user_faculty"/>
+        </record>
+
+        <record id="Assignment_15" model="grading.assignment">
+            <field name="name">Create Windmill</field>
+            <field name="issued_date" eval="DateTime.now()"/>
+            <field name="year_id" ref="openeducat_core.academic_year_1"/>
+            <field name="term_id" ref="openeducat_core.academic_term_2"/>
+            <field name="course_id" ref="openeducat_core.op_course_3"/>
+            <field name="subject_id" ref="openeducat_core.op_subject_6"/>
+            <field name="assignment_type" ref="openeducat_assignment.Assignment_type_3"/>
+            <field name="grade" ref="openeducat_grading.grade_table_6"/>
+            <field name="point">20</field>
+            <field name="faculty_id" ref="openeducat_core.op_faculty_1"/>
+            <field name="user_id" ref="openeducat_core.op_user_faculty"/>
+        </record>
+
+        <record id="Assignment_16" model="grading.assignment">
+            <field name="name">Weekly Test - 2</field>
+            <field name="issued_date" eval="DateTime.now()"/>
+            <field name="year_id" ref="openeducat_core.academic_year_1"/>
+            <field name="term_id" ref="openeducat_core.academic_term_2"/>
+            <field name="course_id" ref="openeducat_core.op_course_3"/>
+            <field name="subject_id" ref="openeducat_core.op_subject_6"/>
+            <field name="assignment_type" ref="openeducat_assignment.Assignment_type_5"/>
+            <field name="grade" ref="openeducat_grading.grade_table_6"/>
+            <field name="point">10</field>
+            <field name="state">grades_published</field>
+            <field name="active">False</field>
+            <field name="faculty_id" ref="openeducat_core.op_faculty_1"/>
+            <field name="user_id" ref="openeducat_core.op_user_faculty"/>
+        </record>
+
+        <record id="Assignment_17" model="grading.assignment">
+            <field name="name">Make a PPT on India</field>
+            <field name="issued_date" eval="DateTime.now()"/>
+            <field name="year_id" ref="openeducat_core.academic_year_1"/>
+            <field name="term_id" ref="openeducat_core.academic_term_1"/>
+            <field name="course_id" ref="openeducat_core.op_course_3"/>
+            <field name="assignment_type" ref="openeducat_assignment.Assignment_type_7"/>
+            <field name="grade" ref="openeducat_grading.grade_table_6"/>
+            <field name="point">20</field>
+            <field name="faculty_id" ref="openeducat_core.op_faculty_1"/>
+            <field name="user_id" ref="openeducat_core.op_user_faculty"/>
+        </record>
+
+        <record id="Assignment_18" model="grading.assignment">
+            <field name="name">PPT on China</field>
+            <field name="issued_date" eval="DateTime.now()"/>
+            <field name="year_id" ref="openeducat_core.academic_year_1"/>
+            <field name="term_id" ref="openeducat_core.academic_term_1"/>
+            <field name="course_id" ref="openeducat_core.op_course_3"/>
+            <field name="assignment_type" ref="openeducat_assignment.Assignment_type_7"/>
+            <field name="grade" ref="openeducat_grading.grade_table_6"/>
+            <field name="point">20</field>
+            <field name="faculty_id" ref="openeducat_core.op_faculty_1"/>
+            <field name="user_id" ref="openeducat_core.op_user_faculty"/>
+        </record>
+
+        <record id="Assignment_19" model="grading.assignment">
+            <field name="name">Monthly Quiz - 1</field>
+            <field name="issued_date" eval="DateTime.now()"/>
+            <field name="year_id" ref="openeducat_core.academic_year_1"/>
+            <field name="term_id" ref="openeducat_core.academic_term_2"/>
+            <field name="course_id" ref="openeducat_core.op_course_3"/>
+            <field name="assignment_type" ref="openeducat_assignment.Assignment_type_4"/>
+            <field name="grade" ref="openeducat_grading.grade_table_6"/>
+            <field name="point">10</field>
+            <field name="faculty_id" ref="openeducat_core.op_faculty_1"/>
+            <field name="user_id" ref="openeducat_core.op_user_faculty"/>
+        </record>
+
+        <record id="Assignment_20" model="grading.assignment">
+            <field name="name">Create Greenhouse</field>
+            <field name="issued_date" eval="DateTime.now()"/>
+            <field name="year_id" ref="openeducat_core.academic_year_1"/>
+            <field name="term_id" ref="openeducat_core.academic_term_1"/>
+            <field name="course_id" ref="openeducat_core.op_course_3"/>
+            <field name="assignment_type" ref="openeducat_assignment.Assignment_type_3"/>
+            <field name="grade" ref="openeducat_grading.grade_table_6"/>
+            <field name="point">10</field>
+            <field name="faculty_id" ref="openeducat_core.op_faculty_1"/>
+            <field name="user_id" ref="openeducat_core.op_user_faculty"/>
+        </record>
+
+        <record id="openeducat_assignment.op_assignment_1" model="op.assignment">
+            <field name="year_id" ref="openeducat_core.academic_year_3"/>
+            <field name="term_id" ref="openeducat_core.academic_term_6"/>
+        </record>
+
+        <record id="openeducat_assignment.op_assignment_2" model="op.assignment">
+            <field name="year_id" ref="openeducat_core.academic_year_2"/>
+            <field name="term_id" ref="openeducat_core.academic_term_3"/>
+        </record>
+
+        <record id="openeducat_assignment.op_assignment_3" model="op.assignment">
+            <field name="year_id" ref="openeducat_core.academic_year_2"/>
+            <field name="term_id" ref="openeducat_core.academic_term_3"/>
+        </record>
+
+
+
+</odoo>

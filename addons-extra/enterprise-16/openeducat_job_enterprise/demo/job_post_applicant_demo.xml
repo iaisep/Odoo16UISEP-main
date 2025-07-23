@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="job_applicant_demo1" model="op.job.applicant">
+        <field name="user_id" ref="openeducat_core.op_student_1"/>
+        <field name="post_id" ref="job_post_demo1"/>
+        <field name="stage_id" ref="stage_job1"></field>
+        <field name="salary_expected">15000.0</field>
+        <field name="salary_proposed">11000.0</field>
+    </record>
+    <record id="job_applicant_demo2" model="op.job.applicant">
+        <field name="user_id" ref="openeducat_core.op_student_2"/>
+        <field name="post_id" ref="job_post_demo2"/>
+        <field name="stage_id" ref="stage_job2"></field>
+        <field name="salary_expected">15000.0</field>
+        <field name="salary_proposed">11000.0</field>
+    </record>
+</odoo>

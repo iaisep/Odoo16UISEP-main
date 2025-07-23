@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_my_home_menu_meeting" name="Portal layout : Meeting"
+              inherit_id="openeducat_core_enterprise.portal_breadcrumbs_inhetrite" priority="10">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+
+            <t t-if="user_id.sudo().is_parent">
+                <li t-if="page_name == 'meeting' or meeting "
+                    t-attf-class="breadcrumb-item #{'active ' if not meeting else ''}">
+                    <a t-if="meeting" t-attf-href="/meeting/information/#{student}?{{ keep_query() }}">
+                        Meetings
+                    </a>
+                    <t t-else="">Meetings</t>
+                </li>
+                <li t-if="page_name == 'Meetings_detail' or Meetings_detail"
+                    t-attf-class="breadcrumb-item #{'active ' if not Meetings_detail else ''}">
+                    <a t-if="meeting_ids" t-attf-href="/meeting/information/#{stud_id}?{{ keep_query() }}">Meetings</a>
+                    <t t-else="">Meetings</t>
+                </li>
+            </t>
+
+            <t t-if="user_id.sudo().is_student">
+                <li t-if="page_name == 'Meetings_detail' or Meetings_detail"
+                    t-attf-class="breadcrumb-item #{'active ' if not Meetings_detail else ''}">
+                    <a t-if="meeting_ids" t-attf-href="/meeting/information/?{{ keep_query() }}">Meetings</a>
+                    <t t-else="">Meetings</t>
+                </li>
+                <li t-if="page_name == 'meeting' or meeting "
+                    t-attf-class="breadcrumb-item #{'active ' if not meeting else ''}">
+                    <a t-if="meeting" t-attf-href="/meeting/information/?{{ keep_query() }}">
+                        Meetings
+                    </a>
+                    <t t-else="">Meetings</t>
+                </li>
+            </t>
+            <li t-if="meeting" class="breadcrumb-item active">
+                <span t-field="meeting.name"/>
+            </li>
+
+        </xpath>
+    </template>
+
+    <template id="openeducat_meeting_portal" name="Meetings">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Meeting List</t>
+            </t>
+            <div class="stud_id_meeting_parent" t-att-id="stud_id"/>
+            <div class="meeting_schedule_portal active">
+                <div id="meeting_portal_kendo"/>
+            </div>
+            <script id="event-template" type="text/x-kendo-template">
+                <a href="#: url #" class="project-template">
+                    <h4>#: title #</h4>
+                </a>
+            </script>
+            <script id="day-event-template" type="text/x-kendo-template">
+                <a href="#: url #" class="project-template-day-event-template">
+                    <h4>#: title #</h4>
+                    <p>
+                        #: kendo.toString(start, "dd/MM:dddd") # - #: kendo.toString(end, "dd/MM:dddd") #
+                    </p>
+                </a>
+            </script>
+            <script id="editor" type="text/x-kendo-template">
+                <div style="padding-left:30px;">
+                    <h3>Lecture Detail</h3>
+                    <p>
+                        Start Time:
+                            <span data-bind="text: start"/>
+                    </p>
+                    <p>
+                        End Time:
+                            <span data-bind="text: end"/>
+                    </p>
+                    <p>
+                        Duration:
+                            <span data-bind="text: duration_time"/>
+                    </p>
+                    <p>
+                        Meeting Url:
+                            <a href="#: meeting_url #" data-bind="text: meeting_url"/>
+                    </p>
+                </div>
+            </script>
+        </t>
+
+    </template>
+
+    <template id="openeducat_meeting_portal_data">
+        <t t-call="portal.portal_layout">
+
+            <t t-set="o_portal_fullwidth_alert" groups="project.group_project_user">
+                <t t-call="portal.portal_back_in_edit_mode">
+                    <t t-set="backend_url"
+                       t-value="'/web#model=op.meeting&amp;id=%s&amp;view_type=form' % (meeting.id)"/>
+                </t>
+            </t>
+            <t t-call="portal.portal_record_layout">
+                <t t-set="card_header">
+                    <h5 class="mb-0">
+                        <small class="text-muted">Meeting Data Information</small>
+                    </h5>
+                </t>
+            </t>
+
+            <t t-if="meeting" t-foreach="meeting" t-as="meeting_data">
+                <div style="background-color:white; padding: 20px 40px 20px 40px;">
+                    <div class="mt16">
+                        <div t-if="meeting_data.name" class="row col-md-12">
+                            <div class="col-md-2">
+                                <strong>Meeting Subject:</strong>
+                            </div>
+                            <div class="col-md-10">
+                                <span id="meeting_name" t-esc="meeting_data.name"/>
+                            </div>
+                        </div>
+                        <div t-if="meeting_data.partner_ids" class="row col-md-12">
+                            <div class="col-md-2">
+                                <strong>Attendees:</strong>
+                            </div>
+                            <div class="col-md-10">
+                                <t t-foreach="meeting_data.partner_ids" t-as="meet">
+                                    <span t-esc="meet.name"/>
+                                    <br></br>
+                                </t>
+                            </div>
+                        </div>
+                        <div class="row mt16 col-md-12">
+                            <div class="col-md-6">
+                                <h4>Meeting-Deatils</h4>
+                                <div class="row">
+                                    <div t-if="meeting_data.duration" class="col-md-4">
+                                        <strong>Duration:</strong>
+                                    </div>
+                                    <div t-if="meeting_data.duration" class="col-md-8">
+                                        <span t-esc="meeting_data.duration" t-options="{'widget': 'float_time'}"/>
+                                    </div>
+                                    <div t-if="meeting_data.start" class="col-md-4">
+                                        <strong>Starting at:</strong>
+                                    </div>
+                                    <div t-if="meeting_data.start" class="col-md-8">
+                                        <span t-esc="meeting_data.start" t-options="{'widget': 'datetime'}"/>
+                                    </div>
+                                    <div t-if="meeting_data.description" class="col-md-4">
+                                        <strong>Description:</strong>
+                                    </div>
+                                    <div t-if="meeting_data.description" class="col-md-8">
+                                        <span t-esc="meeting_data.description"/>
+                                    </div>
+                                    <div t-if="meeting_data.location" class="col-md-4">
+                                        <strong>Location:</strong>
+                                    </div>
+                                    <div t-if="meeting_data.location" class="col-md-8">
+                                        <span t-esc="meeting_data.location"/>
+                                    </div>
+                                    <div t-if="meeting_data.allday" class="col-md-4">
+                                        <strong>All Day:</strong>
+                                    </div>
+                                    <div t-if="meeting_data.allday" class="col-md-8">
+                                        <span t-esc="meeting_data.allday"/>
+                                    </div>
+                                    <div t-if="meeting_data.alarm_ids.name" class="col-md-4">
+                                        <strong>Reminders:</strong>
+                                    </div>
+                                    <div t-if="meeting_data.alarm_ids.name" class="col-md-8">
+                                        <span t-esc="meeting_data.alarm_ids.name"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h4>Options</h4>
+                                <div class="row">
+                                    <div t-if="meeting_data.privacy" class="col-md-4">
+                                        <strong>Privacy:</strong>
+                                    </div>
+                                    <div t-if="meeting_data.privacy" class="col-md-8">
+                                        <span t-esc="meeting_data.privacy"/>
+                                    </div>
+                                    <div t-if="meeting_data.show_as" class="col-md-4">
+                                        <strong>Show Time as:</strong>
+                                    </div>
+                                    <div t-if="meeting_data.show_as" class="col-md-8">
+                                        <span t-esc="meeting_data.show_as"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

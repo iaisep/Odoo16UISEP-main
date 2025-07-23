@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <!-- View op.student form -->
+    <record id="view_op_student_sepyc_form" model="ir.ui.view">
+        <field name="name">view.op.student.form</field>
+        <field name="model">op.student</field>
+        <field name="inherit_id" ref="isep_student_filter.view_op_student_form_filter_inherit"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='details_admission']/field[@name='op_admission_ids']/tree/field[@name='batch_id']" position="after">
+                <field name="sepyc_program"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

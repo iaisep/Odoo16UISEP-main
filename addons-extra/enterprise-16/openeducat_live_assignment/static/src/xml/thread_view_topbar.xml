@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t t-inherit="mail.ThreadViewTopbar" t-inherit-mode="extension" owl="1">
+        <xpath expr="//button[hasclass('o_ThreadViewTopbar_inviteButton')]" position="before">
+            <t t-if="threadViewTopbar.messaging.rtc.currentRtcSession and threadViewTopbar.messaging.rtc.currentRtcSession.isHost">
+                <button class="border-none btn o_ThreadViewTopbar_button o_ThreadViewTopbar_inviteButton px-2 rounded shadow-none" id="Assignment" title="Assignment" t-on-click="threadViewTopbar.messaging.discuss.openform">
+                    <img src="/openeducat_live/static/img/assignment.png" style="width:24px;"/>
+                </button>
+            </t>
+        </xpath>
+    </t>
+</templates>

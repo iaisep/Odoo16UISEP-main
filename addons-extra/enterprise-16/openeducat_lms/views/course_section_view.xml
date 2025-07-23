@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="view_op_course_section_tree" model="ir.ui.view">
+            <field name="name">op.course.section.tree</field>
+            <field name="model">op.course.section</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="sequence"/>
+                    <field name="name"/>
+                    <field name="course_id" optional="hide"/>
+                    <!--                    <field name="material_count" optional="hide"/>-->
+                    <field name="section_material_ids" optional="hide"/>
+                    <field name="total_time" widget="float_time"/>
+                    <!--                    <field name="display_time" widget="float_time" optional="hide"/>-->
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_op_course_section_form" model="ir.ui.view">
+            <field name="name">op.course.section.form</field>
+            <field name="model">op.course.section</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Course Section Detail">
+                    <header/>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box" width="100%">
+                            <button name="action_view_section_material"
+                                    class="oe_stat_button pull-right"
+                                    icon="fa-files-o"
+                                    type="object"
+                                    groups="openeducat_lms.group_op_lms_admin,openeducat_lms.group_op_lms_user">
+                                <field string="Material" name="material_count" widget="statinfo"/>
+                            </button>
+                        </div>
+                        <group>
+                            <group col="4">
+                                <field name="sequence"/>
+                            </group>
+                            <group col="4">
+                                <field name="name"/>
+                            </group>
+                        </group>
+                            <notebook>
+                                <page string="Materials" style="width:100%; display: block;">
+                                    <field name="section_material_ids" nolabel="1" style="width:100%;">
+                                        <tree default_order="sequence"
+                                            editable="bottom">
+                                            <field name="sequence"/>
+                                            <field name="material_id" domain="[('user_id','=',uid)]"/>
+                                            <field name="preview"/>
+                                            <field name="total_time" widget="float_time" readonly="1"/>
+                                        </tree>
+                                    </field>
+                                </page>
+                            </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_open_op_course_section_view">
+            <field name="name">Course Section Detail</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.course.section</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+</odoo>

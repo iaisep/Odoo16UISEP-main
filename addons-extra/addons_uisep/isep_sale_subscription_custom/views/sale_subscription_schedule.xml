@@ -1,0 +1,246 @@
+<odoo>
+    <record id="sale_subscription_schedule_view_tree" model="ir.ui.view">
+        <field name="name">sale.subscription.schedule.view.tree</field>
+        <field name="model">sale.subscription.schedule</field>
+        <field name="arch" type="xml">
+            <tree string="Plazos" decoration-warning="warning_count > 0" >
+                <button string="Ver" class="oe_stat_button" name="action_open_order" type="object"/>
+                <field name="order_id" optional="show" />
+                <field name="term_label" optional="show" />
+                <field name="partner_id" optional="show" />
+                <field name="partner_invoice_id" optional="hide" />                
+                <field name="date_due" widget="remaining_days"/>  
+                <field name="warning_count" attrs="{'invisible': [('warning_count', '=', 0)]}" string="Wg"  decoration-warning="warning_count > 0"  />
+                <button class="oe_stat_button text-warning" attrs="{'invisible': [('warning_count', '=', 0)]}"                                     
+                name="open_full_view_term"  type="object" icon="fa-exclamation-triangle text-warning" />
+                <field name="activity_ids" widget="list_activity" optional="show"/>                      
+                <field name="amount_recurring_taxinc" />
+                <field name="total_invoiced" />
+                <field name="total_paid" />
+                <field name="currency_id"/>
+                <field name="invoice_ids" options="{'no_create': True}"/>
+                <field name="payment_state" widget="badge" 
+                    decoration-danger="payment_state == 'not_paid'"
+                    decoration-warning="payment_state == 'partial'" 
+                    decoration-success="payment_state == 'paid'"  
+                     />
+                   
+            </tree>
+        </field>
+    </record>
+
+    <record id="sale_subscription_schedule_view_form" model="ir.ui.view">
+        <field name="name">sale.subscription.schedule.view.form</field>
+        <field name="model">sale.subscription.schedule</field>
+        <field name="arch" type="xml">
+            <form string="Plazos">
+                <header>                                  
+                    <field name="payment_state" widget="statusbar" statusbar_visible="not_paid,partial,paid"/>
+                </header>   
+                <div class="alert alert-warning mb-0" role="alert" attrs="{'invisible': [('warning_count', '=', 0)]}">                                        
+                    <field name="warning_count" invisible="1" />
+                    <field name="warning_msn"/>
+                </div>          
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" name="action_view_source_sale_order" type="object" icon="fa-pencil-square-o" >
+                            <span string="Suscripción" widget="statinfo">Suscripción</span>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                      <h3 class="pb-3" >
+                          <field name="name" readonly="1"/>
+                      </h3>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="partner_id" />
+                            <field name="partner_invoice_id" />
+                            <field name="user_id" invisible="1" />
+                            <field name="currency_id"/>
+                            <field name="total_invoiced"  />   
+                        </group>
+                        <group>
+                            <field name="payment_state" widget="badge" 
+                                decoration-danger="payment_state == 'not_paid'"
+                                decoration-warning="payment_state == 'partial'" 
+                                decoration-success="payment_state == 'paid'"  
+                                />
+                            <field name="date_due" widget="remaining_days"/>
+                            <field name="amount_recurring_taxinc" />
+                            
+                            <field name="total_paid"/>
+                            <field name="total_residual"/>
+                            
+                        </group>
+                    </group>
+                     <button name="action_add_invoices" type="object" string="Agregar Facturas"/>
+                     <button name="action_aux_disassociate" type="object" string="Desvincular"/>
+                    <notebook>
+                        
+                        <page string="Facturas" name="invoice_lines" >
+                             <field name="invoice_ids"  context="{'form_view_ref': 'account.view_move_form', 'default_move_type': 'out_invoice'}"  >
+                                <tree delete="0" create="0" >
+                                    
+                                    <button class="oe_stat_button" name="open_full_view_invoice" type="object" icon="fa-arrow-right" />
+                     
+                                    <field name="made_sequence_hole" invisible="1" />
+                                    <field name="name" decoration-bf="1" decoration-danger="made_sequence_hole" string="Factura" />
+                                    <field name="invoice_partner_display_name"  groups="base.group_user" string="Cliente"/>
+                                    <field name="invoice_date" string="Fecha"/>
+                                    <field name="invoice_date_due" string="Vencimiento" widget="remaining_days" optional="show" attrs="{'invisible': [['payment_state', 'in', ('paid', 'in_payment', 'reversed')]]}"/>
+                                    <field name="invoice_origin" optional="hide" string="Source Document"/>
+                                    <field name="invoice_user_id" optional="hide" invisible="context.get('default_move_type') not in ('out_invoice', 'out_refund','out_receipt')" string="Salesperson" widget="many2one_avatar_user"/>
+                                    <field name="activity_ids" string="Actividad" widget="list_activity" optional="hide"/>
+                                    <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}" optional="hide"/>
+                                    <field name="company_id" groups="!base.group_multi_company" invisible="1"/>
+                                    <field name="amount_total" string="Total" sum="Total" decoration-bf="1" optional="show"/>
+                                    <field name="amount_residual" string="Deuda" sum="Amount Due" optional="hide"/>
+                                    <field name="currency_id" groups="base.group_multi_currency" optional="hide"/>
+                                    <field name="company_currency_id" invisible="1"/>
+                                    <field name="payment_state" widget="badge" decoration-danger="payment_state == 'not_paid'" decoration-warning="payment_state in ('partial', 'in_payment')" decoration-success="payment_state in ('paid', 'reversed')" attrs="{'invisible': [('payment_state', 'in', ('invoicing_legacy'))]}" optional="show"/>
+                                    <field name="state" widget="badge" decoration-success="state == 'posted'" decoration-info="state == 'draft'" optional="show"/>
+                                    <field name="move_type" invisible="context.get('default_move_type', True)"/>
+                                    <!-- <button name="disassociate_record" confirm="¿Desvincular registro?" title="¿Desvincular" icon="fa-times" type="object"/> -->
+                                    <field name="aux_disassociate"  widget="boolean_toggle"  /> 
+                                </tree>
+                             </field>
+                           
+                            <field name="note" placeholder="Nota Interna" colspan="2" nolabel="1"/>
+                                   
+                              
+                        </page>
+
+                        <page string="Otros pagos/facturas" name="others_payments">
+                           <field name="payment_legacy_ids">
+                                <tree editable="top" create="1" delete="0" edit="1" >
+                                    <field name="schedule_id" invisible="1" />
+                                    <field name="name"  required="1" />
+                                    <field name="note" />
+                                    <field name="currency_id"  readonly="1" options="{'no_open': True}" groups="base.group_multi_currency" optional="hide" />      
+                                    <field name="invoice_date" />                                                                  
+                                    <field name="amount_total_invoice" string="Total Facturado" />                                    
+                                    <field name="payment_date" />
+                                    <field name="amount_total_payment" />
+                                    <field name="amount_residual" />                                    
+                                    <field name="payment_state" widget="badge" 
+                                        decoration-danger="payment_state == 'not_paid'"
+                                        decoration-warning="payment_state == 'partial'" 
+                                        decoration-success="payment_state == 'paid'"  
+                                        />
+                                    <button name="unlink" confirm="¿Eliminar registro?" title="Eliminar" icon="fa-times" type="object" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="sale_subscription_schedule_view_search" model="ir.ui.view">
+        <field name="name">sale.subscription.schedule.view.search</field>
+        <field name="model">sale.subscription.schedule</field>
+        <field name="arch" type="xml">
+            <search string="Employees">
+                    <field name="name" string="Suscripción" filter_domain="['|', ('order_id', 'ilike', self), ('name', 'ilike', self)]"/>
+                    <field name="partner_id" string="Cliente" filter_domain="['|', ('partner_id', 'ilike', self), ('partner_invoice_id', 'ilike', self)]"/>
+                    <field name="term_label"  string="Plazo" />                    
+                    <separator/>
+                    <filter string="Sin pagar" name="payment_state" domain="[('payment_state', '=', 'not_paid')]"/>
+                    <filter string="Parcialmente pagado" name="payment_state" domain="[('payment_state', '=', 'partial')]"/>
+                    <filter string="Pagado" name="payment_state" domain="[('payment_state', '=', 'paid')]"/>
+                    
+                    <!-- <separator/>
+                    <filter invisible="1" string="Late Activities" name="activities_overdue" domain="[('my_activity_date_deadline', '&lt;', context_today().strftime('%Y-%m-%d'))]"/>
+                    <filter invisible="1" string="Today Activities" name="activities_today" domain="[('my_activity_date_deadline', '=', context_today().strftime('%Y-%m-%d'))]"/>
+                    <filter invisible="1" string="Future Activities" name="activities_upcoming_all" domain="[('my_activity_date_deadline', '&gt;', context_today().strftime('%Y-%m-%d'))]"/>
+                    <separator/> -->
+                    
+                    <group expand="0" string="Group By">
+                        <filter name="group_order_id" string="Suscripción" domain="[]" context="{'group_by': 'order_id'}"/>
+                        <filter name="group_partner_id" string="Cliente" domain="[]" context="{'group_by': 'partner_id'}"/>
+                        <filter name="group_payment_state" string="Estado" domain="[]" context="{'group_by': 'payment_state'}"/>
+                        <filter name="group_stage_id" string="Etapa" domain="[]" context="{'group_by': 'stage_id'}"/>
+                    </group>
+                    <searchpanel>
+                        <field name="company_id" groups="base.group_multi_company" icon="fa-building" enable_counters="1"/>
+                        <field name="payment_state" icon="fa-dollar" enable_counters="1"/>
+                        <field name="stage_id" icon="fa-bars" enable_counters="1"/>
+                        
+                    </searchpanel>
+                </search>
+        </field>
+    </record>
+
+
+
+    <record id="sale_subscription_schedule_action" model="ir.actions.act_window">
+        <field name="name">Suscripción Plazos</field>
+        <field name="res_model">sale.subscription.schedule</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="isep_sale_subscription_custom.sale_subscription_schedule_view_tree"/>
+    </record>
+
+
+    <menuitem
+        id="model_sale_subscription_schedule_menu"
+        name="Suscripción Plazos"
+        parent="sale_subscription.menu_sale_subscription_root"
+        sequence="6"/>
+
+    <menuitem
+        id="model_sale_subscription_schedule_submenu"
+        name="Suscripción Plazos"
+        parent="model_sale_subscription_schedule_menu"
+        action="isep_sale_subscription_custom.sale_subscription_schedule_action"
+        sequence="1"/>
+
+    <record id="sale_subscription_schedule_view_grid2" model="ir.ui.view">
+        <field name="name">sale.subscription.schedule.grid2</field>
+        <field name="model">sale.subscription.schedule</field>
+        <field name="arch" type="xml">
+            <grid string="Cobros Programados" js_class="subscription_report_grid" create="false" delete="false" edit="false" >
+                <field name="order_id" type="row"/>
+                <field name="partner_id" type="row"/>
+                <field name="currency_id" type="row" />
+                <field name="total_recurring" type="row"/>
+                <field name="total_paid_new" type="row"/>
+                <field name="total_diff" type="row"/>
+                <field name="token_exist" type="row"/>
+                <field name="date_due" type="col">
+                    <range name="week" string="Semana" span="week" step="day"/>
+                    <range name="month" string="Mes" span="month" step="day"/>
+                </field>
+                <field name="total_residual" type="measure"/>
+            </grid>
+        </field>
+    </record>
+    <record id="sale_subscription_schedule_grid_action" model="ir.actions.act_window">
+        <field name="name">Cartera</field>
+        <field name="res_model">sale.subscription.schedule</field>
+        <field name="view_mode">grid</field>
+        <field name="view_id" ref="sale_subscription_schedule_view_grid2"/>
+        <field name="context">{
+            'search_default_filter_not_paid': 1,
+            'grid_anchor': (datetime.date.today()).strftime('%Y-%m-%d'),
+            'graph_groupbys': ['date:day', 'payment_state'],
+            'grid_range': 'month'
+        }</field>
+    </record>
+    <menuitem
+        id="model_sale_subscription_schedule_grid_submenu"
+        name="Cartera"
+        parent="model_sale_subscription_schedule_menu"
+        action="isep_sale_subscription_custom.sale_subscription_schedule_grid_action"
+        sequence="2"/>
+    
+  
+</odoo>

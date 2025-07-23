@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="assignment_action_view" model="ir.actions.act_window">
+        <field name="name">Overview</field>
+        <field name="res_model">assignment.statistics</field>
+        <field name="view_mode">qweb</field>
+    </record>
+
+
+    <record id="statistics" model="ir.ui.view">
+        <field name="name">Statistics</field>
+        <field name="type">qweb</field>
+        <field name="model">assignment.statistics</field>
+        <field name="arch" type="xml">
+            <qweb>
+                <div class="o_form_view o_form_readonly">
+                    <div class="o_form_sheet_bg">
+                        <div class="o_form_sheet">
+                            <div style="padding-bottom: 40px;">
+                                <div style="font-size:14px;">
+                                    <b>Assignment :</b>
+                                    <t t-esc="assignment_name"/>
+                                </div>
+                                <div style="font-size:14px;">
+                                    <b>Point :</b>
+                                    <t t-esc="assignment_point"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    <h5 class="text-center">STATISTICS</h5>
+                                    <table class="table" style="margin-top: 14px;">
+                                        <tbody>
+                                            <tr>
+                                                <td style="padding: 5px !important;">Count</td>
+                                                <td style="padding: 5px !important;">
+                                                    <t t-esc="count"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 5px !important;">Minimum Value</td>
+                                                <td style="padding: 5px !important;">
+                                                    <t t-esc="minimum_value"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 5px !important;">Maximum Value</td>
+                                                <td style="padding: 5px !important;">
+                                                    <t t-esc="maximum_value"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 5px !important;">Range</td>
+                                                <td style="padding: 5px !important;">
+                                                    <t t-esc="sta_range"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 5px !important;">Average</td>
+                                                <td style="padding: 5px !important;">
+                                                    <t t-esc="average"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 5px !important;">Median</td>
+                                                <td style="padding: 5px !important;">
+                                                    <t t-esc="median"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 5px !important;">Standard Deviation</td>
+                                                <td style="padding: 5px !important;">
+                                                    <t t-esc="std_deviation"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 5px !important;">Variance</td>
+                                                <td style="padding: 5px !important;">
+                                                    <t t-esc="variances"/>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-4">
+                                    <h5 class="text-center">STATUS DISTRIBUTION</h5>
+                                    <table class="table" style="margin-top: 14px;">
+                                        <tbody>
+                                            <tr>
+                                                <td style="padding: 5px !important;">Graded</td>
+                                                <td style="padding: 5px !important;">
+                                                    <t t-esc="graded"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 5px !important;">Needs Grading</td>
+                                                <td style="padding: 5px !important;">
+                                                    <t t-esc="need_grade"/>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-4">
+                                    <h5 class="text-center">GRADE DISTRIBUTION</h5>
+                                    <table class="table" style="margin-top: 14px;">
+                                        <tbody>
+                                            <t t-foreach="grade_count" t-as="grade">
+                                                <tr>
+                                                    <td style="padding: 5px !important;">
+                                                        <t t-esc="grade"/>
+                                                    </td>
+                                                    <td style="padding: 5px !important;">
+                                                        <t t-esc="grade_value"/>
+                                                    </td>
+                                                </tr>
+                                            </t>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </qweb>
+        </field>
+    </record>
+</odoo>

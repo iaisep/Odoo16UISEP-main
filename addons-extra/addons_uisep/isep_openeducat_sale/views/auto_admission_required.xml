@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_auto_admission_required_form" model="ir.ui.view">
+        <field name="name">auto.admission.required.form</field>
+        <field name="model">auto.admission.required</field>
+        <field name="arch" type="xml">
+            <form string="Configuracion de Auto Admission" create="0" delete="0"  >
+                <field name="name" invisible="1" />
+                <sheet>
+                    <group>
+                    
+                        <group string="Creacion para grupos de México">
+                        
+                            <field name="mx_active"/>
+                            <field name="mx_auto_email_welcome"/>
+                            <field name="mx_state_admission_done"/>                            
+                            <field name="mx_tutor_id"/>
+                            <field name="mx_professor_id"/>
+                            <field name="mx_coordinator"/>
+                            <field name="mx_teams_domain"/>
+                            <field name="mx_teams_link"/>
+                            <field name="mx_teams_msg"/>
+                            <field name="mx_modality_id"/>
+                        </group>
+
+                        <group string="Creacion para grupos de Brasil">
+                            <field name="br_active"/>
+                            <field name="br_auto_email_welcome"/>
+                            <field name="br_state_admission_done"/>               
+                            <field name="br_tutor_id"/>
+                            <field name="br_professor_id"/>
+                            <field name="br_coordinator"/>
+                            <field name="br_teams_domain"/>
+                            <field name="br_teams_link"/>
+                            <field name="br_teams_msg"/>
+                            <field name="br_modality_id"/>
+
+                        </group>
+
+
+                    </group>
+
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_auto_admission_required" model="ir.actions.act_window">
+        <field name="name">Configuración de auto admisión</field>
+        <field name="res_model">auto.admission.required</field>
+        <field name="view_mode">form</field>
+        <field name="target">current</field>
+        <field name="res_id" ref="auto_admission_required_record"/>
+    </record>
+
+   
+    <menuitem id="menu_auto_admission_required"
+              name="Auto Admisión"
+              parent="openeducat_core.menu_op_school_config"
+              action="action_auto_admission_required"
+              sequence="0"/>
+</odoo>

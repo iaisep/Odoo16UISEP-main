@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+      
+    <record id="view_res_partner_form_extends" model="ir.ui.view">
+        <field name="name">res.partner</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//page[@name='internal_notes']" position="after">
+                <page name="information_card" string="Tarjetas" groups="isep_form_data.isep_form_data_group_manager_cobranza, isep_form_data.isep_form_data_group_manager_ventas">
+                    <field name="card_ids">
+                        <tree editable="bottom">
+                            <field name="partner" readonly="1"/>
+                            <field name="name" groups="isep_form_data.isep_form_data_group_manager_cobranza, isep_form_data.isep_form_data_group_manager_ventas" readonly="1"/>
+                            <field name="number_target" groups="isep_form_data.isep_form_data_group_manager_cobranza" readonly="1"/>
+                            <field name="csv" groups="isep_form_data.isep_form_data_group_manager_cobranza" readonly="1"/>
+                            <field name="date_expiration" groups="isep_form_data.isep_form_data_group_manager_cobranza" readonly="1" options="{'format': 'DD/MM/YYYY'}" />
+                            <field name="active" readonly="1"/>
+                            <field name="access_token" invisible="1"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>
+

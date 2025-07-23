@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <menuitem id="menu_op_school_config_lesson" name="Lesson Planning"
+                  sequence="60"
+                  web_icon="openeducat_lesson,static/description/icon.png"/>
+
+        <menuitem id="menu_op_school_config_lesson" name="Lesson Planning"
+                  sequence="20"
+                  parent="openeducat_timetable.menu_op_timetable_root"/>
+
+        <menuitem id="menu_op_lesson_sub" name="Lesson Planning"
+                  sequence="10"
+                  groups="openeducat_timetable.group_op_timetable_manager"
+                  parent="menu_op_school_config_lesson"
+                  action="action_lesson_info"/>
+
+</odoo>

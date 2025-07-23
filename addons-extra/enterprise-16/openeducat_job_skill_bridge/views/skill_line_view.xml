@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_op_skill_line_tree" model="ir.ui.view">
+        <field name="name">op.skill.line.tree</field>
+        <field name="model">op.skill.line</field>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="skill_type_id"/>
+                <field name="level_id"/>
+                <field name="progress" widget="progressbar"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_op_skill_line_form" model="ir.ui.view">
+        <field name="name">op.skill.line.form</field>
+        <field name="model">op.skill.line</field>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <form string="Skills">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="skill_type_id"/>
+                            <field name="level_id"/>
+                        </group>
+                        <group>
+                            <field name="student_id"/>
+                            <field name="progress" widget="progressbar"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="act_open_op_skill_line_view">
+        <field name="name">Skills</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">op.skill.line</field>
+        <field name="binding_view_types">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window.view" id="act_open_op_skill_line_view_form">
+        <field name="act_window_id" ref="act_open_op_skill_line_view"/>
+        <field name="sequence" eval="20"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_op_skill_line_form"/>
+    </record>
+
+    <record model="ir.actions.act_window.view" id="act_open_op_skill_line_view_tree">
+        <field name="act_window_id" ref="act_open_op_skill_line_view"/>
+        <field name="sequence" eval="10"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_op_skill_line_tree"/>
+    </record>
+</odoo>

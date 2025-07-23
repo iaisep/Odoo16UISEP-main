@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record forcecreate="True" id="ir_cron_material_reminder_action" model="ir.cron">
+            <field name="name">Material Reminder</field>
+            <field name="model_id" ref="model_material_reminder"/>
+            <field name="state">code</field>
+            <field name="code">model.send_reminder()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field eval="False" name="doall"/>
+        </record>
+
+        <record id="email_template_material_publish_mail" model="mail.template">
+            <field name="name">Material Publish</field>
+            <field name="model_id" ref="openeducat_lms.model_op_course_enrollment"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="email_from">{{ user.email or '' }}</field>
+        </record>
+
+</odoo>

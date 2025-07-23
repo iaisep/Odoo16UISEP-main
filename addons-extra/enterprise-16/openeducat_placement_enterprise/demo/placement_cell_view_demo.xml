@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="placement_cell_demo1" model="op.placement.cell">
+        <field name="name">Team 1</field>
+        <field name="user_id" ref="openeducat_core.op_user_boa"/>
+        <field name="member_ids"
+                eval="[(4,ref('openeducat_core.op_user_faculty'))]"/>
+        <field name="department_id" ref="openeducat_core.op_department_3"/>
+    </record>
+    <record id="placement_cell_demo2" model="op.placement.cell">
+        <field name="name">Team 2</field>
+        <field name="user_id" ref="openeducat_core.op_user_bo"/>
+        <field name="member_ids"
+                eval="[(4,ref('base.demo_user0'))]"/>
+        <field name="department_id" ref="openeducat_core.op_department_3"/>
+    </record>
+</odoo>

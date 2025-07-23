@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="portal_menu_tree" model="ir.ui.view">
+            <field name="name">portal.menu.tree</field>
+            <field name="model">openeducat.portal.menu</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="sequence" widget="handle"/>
+                    <field name="website_id" options="{'no_create': True}" groups="website.group_multi_website"/>
+                    <field name="name"/>
+                    <field name="link"/>
+                    <field name="icon_image"/>
+                    <field name="active"/>
+                    <field name="is_visible_to_student"/>
+                    <field name="is_visible_to_parent"/>
+                    <field name="group_ids" widget="many2many_tags"/>
+                    <field name="background_color"/>
+                    <field name="menu_ref_name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="portal_menu_search" model="ir.ui.view">
+            <field name="name">portal.menu.search</field>
+            <field name="model">openeducat.portal.menu</field>
+            <field name="arch" type="xml">
+                <search string="Search Menus">
+                    <field name="name"/>
+                    <field name="link"/>
+                    <field name="website_id" groups="website.group_multi_website"/>
+                    <group string="Group By">
+                        <filter string="name" name="group_by_name" domain="[]" context="{'group_by':'name'}"/>
+                        <filter string="link" name="group_by_url" domain="[]" context="{'group_by':'link'}"/>
+                        <filter string="website" name="my_websites" domain="[]" context="{'group_by':'website_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_portal_menu_configuration" model="ir.actions.act_window">
+            <field name="name">Portal Menu</field>
+            <field name="res_model">openeducat.portal.menu</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'search_default_my_websites':1}</field>
+            <field name="binding_view_types">tree</field>
+            <field name="view_id" ref="portal_menu_tree"/>
+            <field name="target">current</field>
+        </record>
+
+
+        <menuitem id="portal_menu_dashboard"
+                  name="Portal menu"
+                  parent="website.menu_website_global_configuration"
+                  action="action_portal_menu_configuration"
+                  sequence="45"
+                  groups="openeducat_core.group_op_back_office_admin"/>
+
+
+</odoo>

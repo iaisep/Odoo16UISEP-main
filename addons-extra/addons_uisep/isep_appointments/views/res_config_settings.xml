@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('settings')]" position="inside">
+                    <div class="app_settings_block" data-string="Appointments" string="Appointments" data-key="isp_appointment">
+                        <div class="row mt16 o_settings_container" name="appointments_isp">
+                            <div class="col-12 o_setting_box">
+                                <div class="o_setting_left_pane"/>
+                                <div class="o_setting_right_pane">
+                                    <span class="o_form_label">Time Before Meeting</span>
+                                    <div class="text-muted">
+                                        Time to show link reunion in minutes, before the time start.
+                                    </div>
+                                    <div class="content-group">
+                                        <div class="row mt16">
+                                            <field name="isp_time_before_reunion" nolabel="1"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <span class="o_form_label">Time After Meeting</span>
+                                    <div class="text-muted">
+                                        Time to show link reunion in minutes, after the time start.
+                                    </div>
+                                    <div class="content-group">
+                                        <div class="row mt16">
+                                            <field name="isp_time_after_reunion" nolabel="1"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+</odoo>

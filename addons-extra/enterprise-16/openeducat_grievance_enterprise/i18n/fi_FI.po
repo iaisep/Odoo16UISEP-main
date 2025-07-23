@@ -1,0 +1,1162 @@
+
+msgid ""
+msgstr ""
+"Project-Id-Version:Odoo Server 15.0"
+"Report-Msgid-Bugs-To:"
+"POT-Creation-Date:2022-09-22 05:54+0000"
+"PO-Revision-Date:2022-09-22 05:54+0000"
+"Last-Translator:"
+"Language-Team:"
+"MIME-Version:1.0"
+"Content-Type:text/plain; charset=UTF-8"
+"Content-Transfer-Encoding:"
+"Plural-Forms:"
+
+#. module: openeducat_grievance_enterprise
+#: model:mail.template,subject:openeducat_grievance_enterprise.mail_template_gms_assign
+#: model:mail.template,subject:openeducat_grievance_enterprise.mail_template_gms_for_resolution
+#: model:mail.template,subject:openeducat_grievance_enterprise.mail_template_gms_rejection
+msgid "\"{{ object.subject }}\""
+msgstr "\"{{ objekti.aihe }}\""
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.gms_grievance_kanban_view
+msgid ""
+"<br/>\n"
+"                                        <strong>\n"
+"                                            <span>Subject:</span>\n"
+"                                        </strong>"
+msgstr ""
+"<br/>\n"
+" <strong>\n"
+" <span>Aihe:</span>\n"
+" </strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_team_kanban_view
+msgid "<i class=\"fa fa-ellipsis-v\" title=\"xyz\"/>"
+msgstr "<i class=\"fa fa-ellipsis-v\" title=\"xyz\"/>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+msgid ""
+"<span class=\"badge badge-pill badge-danger\">\n"
+"                                                <i class=\"fa fa-fw fa-check\" aria-label=\"Approved\" title=\"Done\" role=\"img\"/>\n"
+"                                                <span class=\"d-none d-md-inline\">Reject</span>\n"
+"                                            </span>"
+msgstr ""
+"<span class=\"badge badge-pill badge-danger\">\n"
+" <i class=\"fa fa-fw fa-check\" aria-label=\"Hyväksytty\" title=\"Valmis\" rooli =\"img\"/>\n"
+" <span class=\"d-none d-md-inline\">Hylkää</span>\n"
+" </span>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+msgid ""
+"<span class=\"badge badge-pill badge-info\">\n"
+"                                                <i class=\"fa fa-fw fa-check\" aria-label=\"Draft\" title=\"Draft\" role=\"img\"/>\n"
+"                                                <span class=\"d-none d-md-inline\">Action</span>\n"
+"                                            </span>"
+msgstr ""
+"<span class=\"badge badge-pill badge-info\">\n"
+" <i class=\"fa fa-fw fa-check\" aria-label=\"Luonnos\" title=\"Draft\" rooli =\"img\"/>\n"
+" <span class=\"d-none d-md-inline\">Toiminto</span>\n"
+" </span>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+msgid ""
+"<span class=\"badge badge-pill badge-info\">\n"
+"                                                <i class=\"fa fa-fw fa-check\" aria-label=\"Draft\" title=\"Draft\" role=\"img\"/>\n"
+"                                                <span class=\"d-none d-md-inline\">Resolve</span>\n"
+"                                            </span>"
+msgstr ""
+"<span class=\"badge badge-pill badge-info\">\n"
+" <i class=\"fa fa-fw fa-check\" aria-label=\"Luonnos\" title=\"Draft\" rooli =\"img\"/>\n"
+" <span class=\"d-none d-md-inline\">Ratkaise</span>\n"
+" </span>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+msgid ""
+"<span class=\"badge badge-pill badge-info\">\n"
+"                                                <i class=\"fa fa-fw fa-check\" aria-label=\"Draft\" title=\"Draft\" role=\"img\"/>\n"
+"                                                <span class=\"d-none d-md-inline\">Submitted</span>\n"
+"                                            </span>"
+msgstr ""
+"<span class=\"badge badge-pill badge-info\">\n"
+" <i class=\"fa fa-fw fa-check\" aria-label=\"Luonnos\" title=\"Draft\" rooli =\"img\"/>\n"
+" <span class=\"d-none d-md-inline\">Lähetetty</span>\n"
+" </span>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+msgid ""
+"<span class=\"badge badge-pill badge-info\">\n"
+"                                                <i class=\"fa fa-fw fa-clock-o\" aria-label=\"Draft\" title=\"Draft\" role=\"img\"/>\n"
+"                                                <span class=\"d-none d-md-inline\">Draft</span>\n"
+"                                            </span>"
+msgstr ""
+"<span class=\"badge badge-pill badge-info\">\n"
+" <i class=\"fa fa-fw fa-clock-o\" aria-label=\"Luonnos\" title=\"Luonnos\" \" role=\"img\"/>\n"
+" <span class=\"d-none d-md-inline\">Luonnos</span>\n"
+" </span>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+msgid ""
+"<span class=\"badge badge-pill badge-primary\">\n"
+"                                                <i class=\"fa fa-fw fa-clock-o\" aria-label=\"In Progress\" title=\"In Progress\" role=\"img\"/>\n"
+"                                                <span class=\"d-none d-md-inline\">In Review</span>\n"
+"                                            </span>"
+msgstr ""
+"<span class=\"badge badge-pill badge-primary\">\n"
+" <i class=\"fa fa-fw fa-clock-o\" aria-label=\"Käynnissä\" title=\"Käynnissä Progress\" role=\"img\"/>\n"
+" <span class=\"d-none d-md-inline\">Tarkistusvaiheessa</span>\n"
+" </span>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+msgid ""
+"<span class=\"badge badge-pill badge-success\">\n"
+"                                                <i class=\"fa fa-fw fa-check\" aria-label=\"Approved\" title=\"Done\" role=\"img\"/>\n"
+"                                                <span class=\"d-none d-md-inline\">Close</span>\n"
+"                                            </span>"
+msgstr ""
+"<span class=\"badge badge-pill badge-success\">\n"
+" <i class=\"fa fa-fw fa-check\" aria-label=\"Hyväksytty\" title=\"Valmis\" rooli =\"img\"/>\n"
+" <span class=\"d-none d-md-inline\">Sulje</span>\n"
+" </span>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.gms_grievance_kanban_view
+msgid ""
+"<span>\n"
+"                                                    <u>Academic</u>\n"
+"                                                </span>"
+msgstr ""
+"<span>\n"
+" <u>Akateeminen</u>\n"
+" </span>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.gms_grievance_kanban_view
+msgid ""
+"<span>\n"
+"                                                    <u>Non-Academic</u>\n"
+"                                                </span>"
+msgstr ""
+"<span>\n"
+" <u>Ei akateeminen</u>\n"
+" </span>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_my_home_menu_grievance
+msgid "<span>Grievances</span>"
+msgstr "<span>Epäkohdat</span>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.gms_grievance_kanban_view
+msgid ""
+"<strong>\n"
+"                                                <span>Grievance By:</span>\n"
+"                                            </strong>"
+msgstr ""
+"<strong>\n"
+" <span>Epäkohta:</span>\n"
+" </strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "<strong>Academic Term:</strong>"
+msgstr "<strong>Akateeminen lukukausi:</strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "<strong>Academic Year:</strong>"
+msgstr "<strong>Lukuvuosi:</strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "<strong>Action Taken:</strong>"
+msgstr "<strong>Toimenpiteet:</strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "<strong>Attachment:</strong>"
+msgstr "<strong>Liite:</strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "<strong>Batch:</strong>"
+msgstr "<strong>Erä:</strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "<strong>Category:</strong>"
+msgstr "<strong>Luokka:</strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "<strong>Course:</strong>"
+msgstr "<strong>Kurssi:</strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "<strong>Created Date:</strong>"
+msgstr "<strong>Luintipäivä:</strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "<strong>Description:</strong>"
+msgstr "<strong>Kuvaus:</strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_team_kanban_view
+msgid "<strong>Grievance Category</strong>"
+msgstr "<strong>Epäkohta</strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "<strong>Grievance Subject:</strong>"
+msgstr "<strong>Epäkohdan aihe:</strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "<strong>Student:</strong>"
+msgstr "<strong>Oppilas:</strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_team_kanban_view
+msgid "<strong>Total Grievances</strong>"
+msgstr "<strong>Epäkohdat yhteensä</strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_search_view
+msgid "Academic"
+msgstr "Akateeminen"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__academic_term_id
+msgid "Academic Term"
+msgstr "Akateeminen termi"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_registration
+msgid "Academic Term:"
+msgstr "Akateeminen lukukausi:"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__academic_year_id
+msgid "Academic Year"
+msgstr "Lukuvuosi"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_registration
+msgid "Academic Year:"
+msgstr "Lukuvuosi:"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__state__action
+msgid "Action"
+msgstr "Toiminta"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_needaction
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_needaction
+msgid "Action Needed"
+msgstr "Toimenpiteitä tarvitaan"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.actions.act_window,name:openeducat_grievance_enterprise.action_wizard_action_taken
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__action_taken
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_wizard_action_taken__action_taken
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.wizard_action_taken
+msgid "Action Taken"
+msgstr "Toimet"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__activity_ids
+msgid "Activities"
+msgstr "Aktiviteetit"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Aktiviteettipoikkeuskoristelu"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__activity_state
+msgid "Activity State"
+msgstr "Toimintatila"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Toimintotyypin kuvake"
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#, python-format
+msgid "All"
+msgstr "Kaikki"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_search_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "Appeal"
+msgstr "Vetoomus"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "Are you satisfied with the given resolution?"
+msgstr "Oletko tyytyväinen annettuun resoluutioon?"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_registration
+msgid "Attachment"
+msgstr "Liite"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_attachment_count
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_attachment_count
+msgid "Attachment Count"
+msgstr "Liitteiden määrä"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__attachment_ids
+msgid "Attachments"
+msgstr "Liitteet"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_team_form_view
+msgid "Avatar"
+msgstr "hahmo"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__batch_id
+msgid "Batch"
+msgstr "Erä"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_registration
+msgid "Batch:"
+msgstr "Erä:"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__can_publish
+msgid "Can Publish"
+msgstr "Saa julkaista"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__state__cancel
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_search_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.wizard_action_taken
+msgid "Cancel"
+msgstr "Peruuttaa"
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+#, python-format
+msgid "Category"
+msgstr "Kategoria"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_registration
+msgid "Category:"
+msgstr "Kategoria:"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__state__close
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_search_view
+msgid "Close"
+msgstr "kiinni"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__color
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__color
+msgid "Color Index"
+msgstr "Väriindeksi"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__company_id
+msgid "Company"
+msgstr "Yhtiö"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category__complete_name
+msgid "Complete Name"
+msgstr "Koko nimi"
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/models/grievance.py:0
+#, python-format
+msgid "Compose Email"
+msgstr "Kirjoita sähköposti"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.ui.menu,name:openeducat_grievance_enterprise.menu_action_configuration_gms
+msgid "Configuration"
+msgstr "Kokoonpano"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__course_id
+msgid "Course"
+msgstr "Kurssi"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_registration
+msgid "Course:"
+msgstr "Kurssi:"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__created_date
+msgid "Created Date"
+msgstr "Luomispäivämäärä"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__create_uid
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category__create_uid
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_root_cause__create_uid
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__create_uid
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_wizard_action_taken__create_uid
+msgid "Created by"
+msgstr "Luonut"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__create_date
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category__create_date
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_root_cause__create_date
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__create_date
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_wizard_action_taken__create_date
+msgid "Created on"
+msgstr "Luotu"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.gms_grievance_kanban_view
+msgid "Delete"
+msgstr "Poistaa"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__description
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_registration
+msgid "Description"
+msgstr "Kuvaus"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__display_name
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category__display_name
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_root_cause__display_name
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__display_name
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_wizard_action_taken__display_name
+msgid "Display Name"
+msgstr "Näyttönimi"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "Do you wish to appeal?"
+msgstr "Haluatko valittaa?"
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__state__draft
+#, python-format
+msgid "Draft"
+msgstr "Luonnos"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.gms_grievance_kanban_view
+msgid "Dropdown menu"
+msgstr "Pudotusvalikosta"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.gms_grievance_kanban_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "Edit"
+msgstr "Muokata"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__faculty_id
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__grievance_for__faculty
+msgid "Faculty"
+msgstr "Henkilöstö"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_follower_ids
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_follower_ids
+msgid "Followers"
+msgstr "Seuraajat"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_partner_ids
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Seuraajat (kumppanit)"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Fontti mahtava kuvake esim. fa-tehtävät"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model,name:openeducat_grievance_enterprise.model_grievance
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category__name
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+msgid "Grievance"
+msgstr "Epäkohta"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "Grievance :"
+msgstr "Epäkohta:"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model,name:openeducat_grievance_enterprise.model_wizard_action_taken
+msgid "Grievance Action Taken"
+msgstr "Valitustoimet toteutettu"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__grievance_for
+msgid "Grievance By"
+msgstr "Valitus Tekijä"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.actions.act_window,name:openeducat_grievance_enterprise.action_grievance_category_list
+#: model:ir.model,name:openeducat_grievance_enterprise.model_grievance_category
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__grievance_category_id
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__grievance_category_id
+#: model:ir.ui.menu,name:openeducat_grievance_enterprise.menu_action_grievance_category_list
+msgid "Grievance Category"
+msgstr "Valituksen luokka"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_category_form_view
+msgid "Grievance Category Form"
+msgstr "Valitusluokkalomake"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_category_list_view
+msgid "Grievance Category Tree"
+msgstr "Valitusluokkapuu"
+
+#. module: openeducat_grievance_enterprise
+#: model:mail.template,name:openeducat_grievance_enterprise.mail_template_gms
+msgid "Grievance Mail"
+msgstr "Valitusposti"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_pivot_view
+msgid "Grievance Pivot"
+msgstr "Valituksen Pivot"
+
+#. module: openeducat_grievance_enterprise
+#: model:mail.template,name:openeducat_grievance_enterprise.mail_template_gms_rejection
+msgid "Grievance Rejection"
+msgstr "Valituksen hylkääminen"
+
+#. module: openeducat_grievance_enterprise
+#: model:mail.template,name:openeducat_grievance_enterprise.mail_template_gms_for_resolution
+msgid "Grievance Resolution Email"
+msgstr "Valituksen ratkaisusähköposti"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model,name:openeducat_grievance_enterprise.model_grievance_root_cause
+msgid "Grievance Root Cause"
+msgstr "Valituksen perimmäinen syy"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_search_view
+msgid "Grievance Search"
+msgstr "Valitushaku"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model,name:openeducat_grievance_enterprise.model_grievance_team
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_res_users__grievance_team_id
+msgid "Grievance Team"
+msgstr "Valitustiimi"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_team_form_view
+msgid "Grievance Team Form"
+msgstr "Valitusryhmälomake"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_team_search_view
+msgid "Grievance Team Search"
+msgstr "Valitustiimihaku"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_team_list_view
+msgid "Grievance Team Tree"
+msgstr "Valitusryhmäpuu"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_team_form_view
+msgid "Grievance Team name..."
+msgstr "Valitusryhmän nimi..."
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_list_view
+msgid "Grievance Tree"
+msgstr "Valituspuu"
+
+#. module: openeducat_grievance_enterprise
+#: model:mail.template,name:openeducat_grievance_enterprise.mail_template_gms_assign
+msgid "Grievance receive confirmation"
+msgstr "Valitus saa vahvistuksen"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.actions.act_window,name:openeducat_grievance_enterprise.action_grievance_list
+#: model:ir.ui.menu,name:openeducat_grievance_enterprise.menu_action_gms
+#: model:ir.ui.menu,name:openeducat_grievance_enterprise.menu_action_grievance_list
+#: model:openeducat.portal.menu,name:openeducat_grievance_enterprise.website_menu_gms_portal_menu
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_team_kanban_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_my_home_grievance
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_my_home_menu_grievance
+msgid "Grievances"
+msgstr "Epäkohdat"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_search_view
+msgid "Group by Date"
+msgstr "Ryhmittele päivämäärän mukaan"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__has_message
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__has_message
+msgid "Has Message"
+msgstr "On Viesti"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "History"
+msgstr "Historia"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__id
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category__id
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_root_cause__id
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__id
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_wizard_action_taken__id
+msgid "ID"
+msgstr "ID"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__activity_exception_icon
+msgid "Icon"
+msgstr "Kuvake"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Poikkeustoimintaa osoittava kuvake."
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__message_needaction
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__message_unread
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance_team__message_needaction
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance_team__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "Jos tämä on valittuna, uudet viestit vaativat huomiota."
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__message_has_error
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__message_has_sms_error
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance_team__message_has_error
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance_team__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Jos tämä on valittuna, joissakin viesteissä on toimitusvirhe."
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_search_view
+msgid "In Action"
+msgstr "Toiminnassa"
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__state__in_review
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_search_view
+#, python-format
+msgid "In Review"
+msgstr "Arvostelussa"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__is_academic
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category__is_academic
+msgid "Is Academic"
+msgstr "On akateeminen"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__is_appeal
+msgid "Is Appeal"
+msgstr "Onko valitus"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_is_follower
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_is_follower
+msgid "Is Follower"
+msgstr "On Seuraaja"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__is_published
+msgid "Is Published"
+msgstr "Julkaistu"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__is_satisfied
+msgid "Is Satisfied"
+msgstr "On tyytyväinen"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance____last_update
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category____last_update
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_root_cause____last_update
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team____last_update
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_wizard_action_taken____last_update
+msgid "Last Modified on"
+msgstr "Viimeksi muokattu"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__write_uid
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category__write_uid
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_root_cause__write_uid
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__write_uid
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_wizard_action_taken__write_uid
+msgid "Last Updated by"
+msgstr "Viimeksi päivittänyt"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__write_date
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category__write_date
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_root_cause__write_date
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__write_date
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_wizard_action_taken__write_date
+msgid "Last Updated on"
+msgstr "Viimeksi päivitetty"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_main_attachment_id
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Pääliite"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__member_ids
+msgid "Members"
+msgstr "Jäsenet"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_has_error
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_has_error
+msgid "Message Delivery error"
+msgstr "Viestin toimitusvirhe"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_ids
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_ids
+msgid "Messages"
+msgstr "Viestit"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Aktiviteettini takaraja"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__name
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_root_cause__name
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__name
+msgid "Name"
+msgstr "Nimi"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__subject
+msgid "Name/Subject"
+msgstr "Nimi/aihe"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_registration
+msgid "Name/Subject:"
+msgstr "Nimi/aihe:"
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#, python-format
+msgid "Newest"
+msgstr "Uusin"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_registration
+msgid ""
+"Next\n"
+"                                            <span class=\"fa fa-long-arrow-right\"/>"
+msgstr ""
+"Seuraava\n"
+" <span class=\"fa fa-long-arrow-right\"/>"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "Seuraava aktiviteettikalenteritapahtuma"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Seuraavan toiminnan määräaika"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__activity_summary
+msgid "Next Activity Summary"
+msgstr "Seuraavan toiminnan yhteenveto"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__activity_type_id
+msgid "Next Activity Type"
+msgstr "Seuraava toimintotyyppi"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__is_satisfied__no
+msgid "No"
+msgstr "Ei"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_search_view
+msgid "Non-Academic"
+msgstr "Ei-akateeminen"
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#, python-format
+msgid "None"
+msgstr "Ei mitään"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "Not-Satisfied 🙁"
+msgstr "Tyytymätön 🙁"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_needaction_counter
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Toimien määrä"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_has_error_counter
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_has_error_counter
+msgid "Number of errors"
+msgstr "Virheiden määrä"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__message_needaction_counter
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance_team__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Toimia vaativien viestien määrä"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__message_has_error_counter
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance_team__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Toimitusvirheitä sisältävien viestien määrä"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__message_unread_counter
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance_team__message_unread_counter
+msgid "Number of unread messages"
+msgstr "Lukemattomien viestien määrä"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__parent_id
+msgid "Parent"
+msgstr "Vanhempi"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category__parent_id
+msgid "Parent Category"
+msgstr "Vanhempi luokka"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__grievance_parent_id
+msgid "Parent Grievance"
+msgstr "Vanhempien valitus"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_registration
+msgid "Parent Grievance:"
+msgstr "Vanhempien valitus:"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category__parent_path
+msgid "Parent Path"
+msgstr "Vanhemman polku"
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__state__reject
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+#, python-format
+msgid "Reject"
+msgstr "Hylätä"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+msgid "Resolution"
+msgstr "Resoluutio"
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__state__resolve
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+#, python-format
+msgid "Resolve"
+msgstr "Ratkaista"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__activity_user_id
+msgid "Responsible User"
+msgstr "Vastuullinen käyttäjä"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__root_cause_id
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_wizard_action_taken__root_cause_id
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+msgid "Root Cause"
+msgstr "Pohjimmainen syy"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_has_sms_error
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "SMS-toimitusvirhe"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "Satisfied 😄"
+msgstr "Tyytyväinen 😄"
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#, python-format
+msgid "Search in All"
+msgstr "Hae kaikista"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+msgid "Send mail"
+msgstr "Lähetä postia"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_team_kanban_view
+msgid "Settings"
+msgstr "asetukset"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__state
+msgid "State"
+msgstr "Osavaltio"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+msgid "Status"
+msgstr "Tila"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Tilanne perustuu toimintaan\n"
+"Myöhässä: Eräpäivä on jo umpeutunut\n"
+"Tänään: Toimintapäivä on tänään\n"
+"Suunniteltu: Tulevat toimet."
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__student_id
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__grievance_for__student
+msgid "Student"
+msgstr "Opiskelija"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_registration
+msgid "Student Name:"
+msgstr "Opiskelijan nimi:"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.wizard_action_taken
+msgid "Submit"
+msgstr "Lähetä"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+msgid "Submit Grievance"
+msgstr "Lähetä valitus"
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__state__submitted
+#, python-format
+msgid "Submitted"
+msgstr "Lähetetty"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+msgid "Take Action"
+msgstr "Toimia"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__grievance_team_id
+msgid "Team"
+msgstr "Tiimi"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__team_leader
+msgid "Team Leader"
+msgstr "Tiimin johtaja"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_team_form_view
+msgid "Team Members"
+msgstr "Ryhmän jäsenet"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.actions.act_window,name:openeducat_grievance_enterprise.action_grievance_team_list
+#: model:ir.ui.menu,name:openeducat_grievance_enterprise.menu_action_grievance_team_list
+msgid "Teams"
+msgstr "Joukkueet"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__website_url
+msgid "The full URL to access the document through the website."
+msgstr "Täysi URL-osoite asiakirjan käyttämiseen verkkosivuston kautta."
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+msgid "There are no Grievances"
+msgstr "Ei ole valituksia"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__grievance_count
+msgid "Total Grievances"
+msgstr "Valitukset yhteensä"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Tallennetun poikkeustoiminnan tyyppi."
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_unread
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_unread
+msgid "Unread Messages"
+msgstr "Lukemattomat viestit"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_unread_counter
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Lukemattomien viestien laskuri"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+msgid ""
+"Update\n"
+"                                        <span class=\"fa fa-long-arrow-right\"/>"
+msgstr ""
+"Päivitä\n"
+" <span class=\"fa fa-long-arrow-right\"/>"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model,name:openeducat_grievance_enterprise.model_res_users
+msgid "Users"
+msgstr "Käyttäjät"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__website_published
+msgid "Visible on current website"
+msgstr "Näkyy nykyisellä verkkosivulla"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__website_message_ids
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__website_message_ids
+msgid "Website Messages"
+msgstr "Verkkosivuston viestit"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__website_url
+msgid "Website URL"
+msgstr "Nettisivun URL"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__website_message_ids
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance_team__website_message_ids
+msgid "Website communication history"
+msgstr "Verkkosivuston viestintähistoria"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__is_satisfied__yes
+msgid "Yes"
+msgstr "Joo"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_access_denied
+msgid "You are not Allowed to Access this data."
+msgstr "Sinulla ei ole lupaa käyttää näitä tietoja."
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#, python-format
+msgid "close"
+msgstr "kiinni"
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#, python-format
+msgid "grievance category search"
+msgstr "valituskategorian haku"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__grievance_for__parent
+msgid "parent"
+msgstr "vanhempi"
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#, python-format
+msgid "search in Batch"
+msgstr "Etsi Batchista"
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#, python-format
+msgid "search in Course"
+msgstr "haku Kurssista"
+
+#. module: openeducat_grievance_enterprise
+#: model:mail.template,subject:openeducat_grievance_enterprise.mail_template_gms
+msgid "{{ object.subject }}"
+msgstr "{{ objekti.aihe }}"

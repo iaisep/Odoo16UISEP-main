@@ -1,0 +1,305 @@
+<odoo noupdate="1">
+
+
+        <record id="default_element_1" model="dashboard_pro.element">
+            <field name="name">Approved</field>
+            <field name="type_of_element">tile</field>
+            <field name="dashboard_pro_dashboard_id" eval="ref('openeducat_dashboard_kpi.demo_template1_dashboard')"/>
+            <field name="data_calculation_type">count</field>
+            <field name="model_id" eval="ref('base.model_res_country')"/>
+            <field name="domain">[["id","&lt;",10]]</field>
+            <field name="default_icon">check-circle-o</field>
+            <field name="background_color">#5f9823,0.99</field>
+            <field name="font_color">#ffffff,0.99</field>
+            <field name="default_icon_color">#ffffff,0.99</field>
+            <field name="layout">state_layout_1</field>
+            <field name="state_layout_state">approved</field>
+            <field name="company_id" eval="0"/>
+        </record>
+
+        <record id="default_element_2" model="dashboard_pro.element">
+            <field name="name">Pending</field>
+            <field name="type_of_element">tile</field>
+            <field name="dashboard_pro_dashboard_id" eval="ref('openeducat_dashboard_kpi.demo_template1_dashboard')"/>
+            <field name="data_calculation_type">count</field>
+            <field name="model_id" eval="ref('base.model_res_country')"/>
+            <field name="domain">[["id","&lt;",5]]</field>
+            <field name="default_icon">clock-o</field>
+            <field name="background_color">#e3c034,0.99</field>
+            <field name="font_color">#ffffff,0.99</field>
+            <field name="default_icon_color">#ffffff,0.99</field>
+            <field name="layout">state_layout_1</field>
+            <field name="state_layout_state">pending</field>
+            <field name="company_id" eval="0"/>
+        </record>
+
+        <record id="default_element_3" model="dashboard_pro.element">
+            <field name="name">Rejected</field>
+            <field name="type_of_element">tile</field>
+            <field name="dashboard_pro_dashboard_id" eval="ref('openeducat_dashboard_kpi.demo_template1_dashboard')"/>
+            <field name="data_calculation_type">count</field>
+            <field name="model_id" eval="ref('base.model_res_country')"/>
+            <field name="domain">[["id","&lt;",15]]</field>
+            <field name="default_icon">times-circle-o</field>
+            <field name="background_color">#882525,0.99</field>
+            <field name="font_color">#000000,0.99</field>
+            <field name="default_icon_color">#000000,0.99</field>
+            <field name="layout">state_layout_2</field>
+            <field name="state_layout_state">rejected</field>
+            <field name="company_id" eval="0"/>
+        </record>
+
+        <record id="default_element_4" model="dashboard_pro.element">
+            <field name="name">Waiting</field>
+            <field name="type_of_element">tile</field>
+            <field name="dashboard_pro_dashboard_id" eval="ref('openeducat_dashboard_kpi.demo_template1_dashboard')"/>
+            <field name="data_calculation_type">count</field>
+            <field name="model_id" eval="ref('base.model_res_country')"/>
+            <field name="domain">[["id","&lt;",4]]</field>
+            <field name="default_icon">question</field>
+            <field name="background_color">#3279b6,0.99</field>
+            <field name="font_color">#000000,0.99</field>
+            <field name="default_icon_color">#000000,0.99</field>
+            <field name="layout">state_layout_2</field>
+            <field name="state_layout_state">custom</field>
+            <field name="company_id" eval="0"/>
+        </record>
+
+        <record id="default_element_5" model="dashboard_pro.element">
+            <field name="name">Element 1</field>
+            <field name="type_of_element">tile</field>
+            <field name="dashboard_pro_dashboard_id" eval="ref('demo_template1_dashboard')"/>
+            <field name="data_calculation_type">count</field>
+            <field name="model_id" eval="ref('base.model_res_country')"/>
+            <field name="default_icon">users</field>
+            <field name="element_theme">red</field>
+            <field name="background_color">#5cb85c,0.99</field>
+            <field name="font_color">#ffffff,0.99</field>
+            <field name="default_icon_color">#ffffff,0.99</field>
+            <field name="layout">layout3</field>
+            <field name="company_id" eval="0"/>
+        </record>
+
+        <record id="default_element_6" model="dashboard_pro.element">
+            <field name="name">Element 2</field>
+            <field name="type_of_element">tile</field>
+            <field name="data_calculation_type">count</field>
+            <field name="model_id" eval="ref('base.model_res_country')"/>
+            <field name="dashboard_pro_dashboard_id" eval="ref('demo_template1_dashboard')"/>
+            <field name="domain">[["id","&lt;",50]]</field>
+            <field name="default_icon">money</field>
+            <field name="element_theme">green</field>
+            <field name="background_color">#d9534f,0.99</field>
+            <field name="font_color">#ffffff,0.99</field>
+            <field name="default_icon_color">#ffffff,0.99</field>
+            <field name="layout">layout5</field>
+            <field name="company_id" eval="0"/>
+        </record>
+
+        <record id="default_element_7" model="dashboard_pro.element">
+            <field name="type_of_element">add_text</field>
+            <field name="dashboard_pro_dashboard_id" eval="ref('demo_template1_dashboard')"/>
+            <field name="add_text_main_content">This Is Add Text Element</field>
+            <field name="background_color">#60c3a3,0.99</field>
+            <field name="font_color">#ffffff,0.99</field>
+            <field name="default_icon_color">#ffffff,0.99</field>
+            <field name="company_id" eval="0"/>
+        </record>
+
+        <record id="default_element_8" model="dashboard_pro.element">
+            <field name="name">Google</field>
+            <field name="type_of_element">add_link</field>
+            <field name="dashboard_pro_dashboard_id" eval="ref('demo_template1_dashboard')"/>
+            <field name="add_link_content">www.google.com</field>
+            <field name="add_link_title">True</field>
+            <field name="background_color">#376090,0.99</field>
+            <field name="font_color">#ffffff,0.99</field>
+            <field name="company_id" eval="0"/>
+        </record>
+
+        <record id="default_element_9" model="dashboard_pro.element">
+            <field name="name">Element 4 Line Chart</field>
+            <field name="data_calculation_type_chart">sum</field>
+            <field name="group_chart_field">relational_type</field>
+            <field name="dashboard_pro_dashboard_id" eval="ref('demo_template1_dashboard')"/>
+            <field name="model_id" eval="ref('base.model_res_country')"/>
+            <field name="chart_data_calculation_field" eval="[(6, 0, [ref('base.field_res_country__phone_code')])]"/>
+            <field name="group_chart_relation" eval="ref('base.field_res_country__currency_id')"/>
+            <field name="domain">[["id","&lt;",10]]</field>
+            <field name="type_of_element">line_chart</field>
+            <field name="company_id" eval="0"/>
+        </record>
+
+        <record id="default_element_10" model="dashboard_pro.element">
+            <field name="name">Element 5 Pie Chart</field>
+            <field name="data_calculation_type_chart">sum</field>
+            <field name="group_chart_field">relational_type</field>
+            <field name="model_id" eval="ref('base.model_res_country')"/>
+            <field name="dashboard_pro_dashboard_id" eval="ref('demo_template1_dashboard')"/>
+            <field name="chart_data_calculation_field" eval="[(6, 0, [ref('base.field_res_country__phone_code')])]"/>
+            <field name="group_chart_relation" eval="ref('base.field_res_country__currency_id')"/>
+            <field name="domain">[["id","&lt;",10]]</field>
+            <field name="type_of_element">pie_chart</field>
+            <field name="company_id" eval="0"/>
+        </record>
+
+        <record id="admission_dashboard_demo_1" model="dashboard_pro.element">
+            <field name="name">Admissions</field>
+            <field name="data_calculation_type_chart">count</field>
+            <field name="group_chart_field">relational_type</field>
+            <field name="model_id" eval="ref('openeducat_admission.model_op_admission')"/>
+            <field name="dashboard_pro_dashboard_id" eval="ref('demo_admission_dashboard')"/>
+            <field name="group_chart_relation" eval="ref('openeducat_admission.field_op_admission__course_id')"/>
+            <field name="type_of_element">pie_chart</field>
+            <field name="company_id" eval="0"/>
+        </record>
+
+        <record id="admission_dashboard_demo_2" model="dashboard_pro.element">
+            <field name="name">Admissions</field>
+            <field name="data_calculation_type_chart">count</field>
+            <field name="group_chart_field">relational_type</field>
+            <field name="model_id" eval="ref('openeducat_admission.model_op_admission')"/>
+            <field name="dashboard_pro_dashboard_id" eval="ref('demo_admission_dashboard')"/>
+            <field name="list_fields_data" eval="[(6,0,[ref('openeducat_admission.field_op_admission__course_id'),ref('openeducat_admission.field_op_admission__name'),ref('openeducat_admission.field_op_admission__gender')])]"/>
+            <field name="type_of_element">list_view</field>
+            <field name="domain">[('state','=','done')]</field>
+            <field name="company_id" eval="0"/>
+        </record>
+
+        <record id="admission_dashboard_demo_3" model="dashboard_pro.element">
+            <field name="name">Admissions</field>
+            <field name="data_calculation_type">count</field>
+            <field name="model_id" eval="ref('openeducat_admission.model_op_admission')"/>
+            <field name="dashboard_pro_dashboard_id" eval="ref('demo_admission_dashboard')"/>
+            <field name="group_chart_field">relational_type</field>
+            <field name="default_icon">users</field>
+            <field name="background_color">#AAB7AF,0.99</field>
+            <field name="font_color">#000000,0.99</field>
+            <field name="default_icon_color">#000000,0.99</field>
+            <field name="domain">[('state','=','done')]</field>
+            <field name="is_goal_enable">TRUE</field>
+            <field name="goal_value_field">50.00</field>
+            <field name="target_view">Progress Bar</field>
+            <field name="type_of_element">kpi</field>
+            <field name="company_id" eval="0"/>
+        </record>
+
+        <record id="admission_dashboard_demo_4" model="dashboard_pro.element">
+            <field name="name">Fees</field>
+            <field name="data_calculation_type_chart">sum</field>
+            <field name="model_id" eval="ref('openeducat_admission.model_op_admission')"/>
+            <field name="store_field_data" eval="ref('openeducat_admission.field_op_admission__fees')"/>
+            <field name="dashboard_pro_dashboard_id" eval="ref('demo_admission_dashboard')"/>
+            <field name="group_chart_field">relational_type</field>
+            <field name="default_icon">money</field>
+            <field name="background_color">#D9534F,0.99</field>
+            <field name="font_color">#ffffff,0.99</field>
+            <field name="default_icon_color">#ffffff,0.99</field>
+            <field name="layout">layout2</field>
+            <field name="type_of_element">tile</field>
+            <field name="company_id" eval="0"/>
+        </record>
+
+        <record id="admission_dashboard_demo_5" model="dashboard_pro.element">
+            <field name="name">Admissions</field>
+            <field name="data_calculation_type_chart">sum</field>
+            <field name="group_chart_field">relational_type</field>
+            <field name="model_id" eval="ref('openeducat_admission.model_op_admission')"/>
+            <field name="chart_data_calculation_field" eval="[(6, 0, [ref('openeducat_admission.field_op_admission__fees')])]"/>
+            <field name="dashboard_pro_dashboard_id" eval="ref('demo_admission_dashboard')"/>
+            <field name="group_chart_relation" eval="ref('openeducat_admission.field_op_admission__first_name')"/>
+            <field name="sorting_selection_by_field" eval="ref('openeducat_admission.field_op_admission__first_name')"/>
+            <field name="type_of_element">line_chart</field>
+            <field name="domain">[('state','=','done')]</field>
+            <field name="company_id" eval="0"/>
+        </record>
+
+        <record id="admission_dashboard_demo_6" model="dashboard_pro.element">
+            <field name="name">Attendance</field>
+            <field name="data_calculation_type_chart">count</field>
+            <field name="group_chart_field">relational_type</field>
+            <field name="model_id" eval="ref('openeducat_attendance.model_op_attendance_line')"/>
+            <field name="dashboard_pro_dashboard_id" eval="ref('demo_admission_dashboard')"/>
+            <field name="group_chart_relation" eval="ref('openeducat_attendance.field_op_attendance_line__student_id')"/>
+            <field name="type_of_element">bar_chart</field>
+            <field name="company_id" eval="0"/>
+        </record>
+
+        <record id="admission_dashboard_demo_7" model="dashboard_pro.element">
+            <field name="name">Done</field>
+            <field name="data_calculation_type">count</field>
+            <field name="model_id" eval="ref('openeducat_admission.model_op_admission')"/>
+            <field name="dashboard_pro_dashboard_id" eval="ref('demo_admission_dashboard')"/>
+            <field name="group_chart_field">relational_type</field>
+            <field name="layout">state_layout_1</field>
+            <field name="default_icon">check-circle-o</field>
+            <field name="background_color">#5f9823,0.99</field>
+            <field name="font_color">#ffffff,0.99</field>
+            <field name="default_icon_color">#ffffff,0.99</field>
+            <field name="state_layout_state">approved</field>
+            <field name="type_of_element">tile</field>
+            <field name="domain">[('state','=','done')]</field>
+            <field name="company_id" eval="0"/>
+        </record>
+
+        <record id="admission_dashboard_demo_8" model="dashboard_pro.element">
+            <field name="name">Draft</field>
+            <field name="data_calculation_type">count</field>
+            <field name="model_id" eval="ref('openeducat_admission.model_op_admission')"/>
+            <field name="dashboard_pro_dashboard_id" eval="ref('demo_admission_dashboard')"/>
+            <field name="group_chart_field">relational_type</field>
+            <field name="layout">state_layout_1</field>
+            <field name="default_icon">clock-o</field>
+            <field name="background_color">#e3c034,0.99</field>
+            <field name="font_color">#ffffff,0.99</field>
+            <field name="default_icon_color">#ffffff,0.99</field>
+            <field name="state_layout_state">pending</field>
+            <field name="type_of_element">tile</field>
+            <field name="domain">[('state','=','draft')]</field>
+            <field name="company_id" eval="0"/>
+        </record>
+
+        <record id="admission_dashboard_demo_9" model="dashboard_pro.element">
+            <field name="name">Quiz</field>
+            <field name="data_calculation_type_chart">sum</field>
+            <field name="group_chart_field">relational_type</field>
+            <field name="model_id" eval="ref('openeducat_quiz.model_op_quiz')"/>
+            <field name="chart_data_calculation_field" eval="[(6, 0, [ref('openeducat_quiz.field_op_quiz__total_marks')])]"/>
+            <field name="dashboard_pro_dashboard_id" eval="ref('demo_admission_dashboard')"/>
+            <field name="group_chart_relation" eval="ref('openeducat_quiz.field_op_quiz__name')"/>
+            <field name="type_of_element">area_chart</field>
+            <field name="company_id" eval="0"/>
+        </record>
+
+        <record id="admission_dashboard_demo_10" model="dashboard_pro.element">
+            <field name="name">Classroom</field>
+            <field name="data_calculation_type_chart">sum</field>
+            <field name="group_chart_field">relational_type</field>
+            <field name="model_id" eval="ref('openeducat_classroom.model_op_classroom')"/>
+            <field name="chart_data_calculation_field" eval="[(6, 0, [ref('openeducat_classroom.field_op_classroom__capacity')])]"/>
+            <field name="dashboard_pro_dashboard_id" eval="ref('demo_admission_dashboard')"/>
+            <field name="group_chart_relation" eval="ref('openeducat_classroom.field_op_classroom__name')"/>
+            <field name="type_of_element">polarArea_chart</field>
+            <field name="company_id" eval="0"/>
+        </record>
+
+        <record id="admission_dashboard_demo_11" model="dashboard_pro.element">
+            <field name="name">Fees</field>
+            <field name="data_calculation_type">sum</field>
+            <field name="model_id" eval="ref('openeducat_admission.model_op_admission')"/>
+            <field name="store_field_data" eval="ref('openeducat_admission.field_op_admission__fees')"/>
+            <field name="dashboard_pro_dashboard_id" eval="ref('demo_admission_dashboard')"/>
+            <field name="group_chart_field">relational_type</field>
+            <field name="default_icon">line-chart</field>
+            <field name="background_color">#5CB85C,0.99</field>
+            <field name="font_color">#ffffff,0.99</field>
+            <field name="default_icon_color">#ffffff,0.99</field>
+            <field name="domain">[('state','=','done')]</field>
+            <field name="ir_model_field_2" eval="ref('openeducat_admission.model_op_admission')"/>
+            <field name="store_field_data_2" eval="ref('openeducat_admission.field_op_admission__fees')"/>
+            <field name="type_of_element">kpi</field>
+            <field name="company_id" eval="0"/>
+        </record>
+
+
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record forcecreate="True" id="ir_cron_auto_score_ia_gpt" model="ir.cron">
+        <field name="name">Calificacion automatica ChatGPT IA certificaciones</field>
+        <field name="user_id" ref="base.user_root" />
+        <field name="interval_number">5</field>
+        <field name="interval_type">hours</field>
+        <field name="numbercall">-1</field>
+        <field name="doall">1</field>
+        <field name="model_id" ref="model_survey_user_input"/>
+        <field name="state">code</field>
+        <field name="active" eval="True"/>
+        <field name="code">model.cron_ia_score_survey(1)</field>
+    </record>
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="0">
+
+        <record id="onboarding_step_1" model="oe.onboarding.steps">
+            <field name="plan_id" ref="openeducat_onboarding.onboarding_plan_1"/>
+            <field name="step_name">Exam Types</field>
+            <field name="action_id" ref="openeducat_exam.act_open_op_exam_type_view"/>
+            <field name="image" type="base64" file="openeducat_exam_enterprise/static/img/Exam.png"/>
+            <field name="doc_link">
+                https://doc.openeducat.org/applications/exam/exam-configuration.html#configure-exam-types
+            </field>
+            <field name="youtube_link">https://youtu.be/0ALkmcD0l24</field>
+        </record>
+
+</odoo>

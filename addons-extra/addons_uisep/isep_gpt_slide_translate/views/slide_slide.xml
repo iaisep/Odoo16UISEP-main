@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_slide_slide_translate_tree_2_inherit" model="ir.ui.view">
+        <field name="name">slide.slide.translate.tree.inherit</field>
+        <field name="model">slide.slide</field>
+        <field name="inherit_id" ref="website_slides.slide_slide_view_tree_report" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='completion_time']" position="after">
+                <field name="slide_category" invisible="1" /> 
+                <button name="action_open_translation_wizard" attrs="{'invisible':[('slide_category', '!=', 'article')]}"  type="object" icon="fa-language" string=" Traducir" class="btn-link mb-1 px-0" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_slide_slide_translate_tree_1_inherit" model="ir.ui.view">
+        <field name="name">slide.slide.translate.tree.inherit</field>
+        <field name="model">slide.slide</field>
+        <field name="inherit_id" ref="website_slides.view_slide_slide_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='completion_time']" position="after">
+                <field name="slide_category" invisible="1" /> 
+                <button name="action_open_translation_wizard"  attrs="{'invisible':[('slide_category', '!=', 'article')]}"  type="object" icon="fa-language" string=" Traducir" class="btn-link mb-1 px-0" />
+            </xpath>
+        </field>
+    </record>
+
+<!-- 
+    <record id="view_slide_slide_translate_form_1_inherit" model="ir.ui.view">
+        <field name="name">slide.slide.translate.form.inherit</field>
+        <field name="model">slide.slide</field>
+        <field name="inherit_id" ref="website_slides.view_slide_slide_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_view_embeds']" position="before">
+                <button  name="action_open_translation_wizard" type="object" class="oe_stat_button"   icon="fa-language" attrs="{'invisible':[('slide_category', '!=', 'article')]}" >
+                    <span class="o_stat_value">
+                        Traducir
+                    </span>
+                </button>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="view_slide_channel_translate_form_1_inherit" model="ir.ui.view">
+        <field name="name">slide.channel.translate.form.inherit</field>
+        <field name="model">slide.channel</field>
+        <field name="inherit_id" ref="website_slides.view_slide_channel_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='is_preview']" position="after">
+                <button name="action_open_translation_wizard" attrs="{'invisible':[('slide_category', '!=', 'article')]}" type="object" icon="fa-language" string=" Traducir" class="btn-link mb-1 px-0 me-2"/>
+            </xpath>            
+            <xpath expr="//field[@name='is_preview']" position="attributes"> 
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    
+
+    
+    <record id="view_slide_slide_translate_kanban_1_inherit" model="ir.ui.view">
+        <field name="name">slide.slide.translate.kanban.inherit</field>
+        <field name="model">slide.slide</field>
+        <field name="inherit_id" ref="website_slides.slide_slide_view_kanban" />
+        <field name="arch" type="xml">
+            <xpath expr="//kanban//templates//field[@name='user_id']" position="after">
+                <span t-if="record.slide_category.raw_value == 'article'">
+                    <a name="action_open_translation_wizard" type="object" icon="fa-language" string=" Traducir" class="mb-1 px-0 me-2"/>
+                </span>
+            </xpath>
+        </field>
+    </record>
+
+-->
+</odoo>

@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="op_gk_q01" model="op.question.bank.line">
+            <field name="name">Which is the largest land animal in the world?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_gk"/>
+        </record>
+
+        <record id="op_gk_q01_a01" model="op.question.bank.answer">
+            <field name="name">Elephant</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="question_id" ref="op_gk_q01"/>
+        </record>
+
+        <record id="op_gk_q01_a02" model="op.question.bank.answer">
+            <field name="name">Giraffe</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_gk_q01"/>
+        </record>
+
+        <record id="op_gk_q01_a03" model="op.question.bank.answer">
+            <field name="name">Camel</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_gk_q01"/>
+        </record>
+
+        <record id="op_gk_q01_a04" model="op.question.bank.answer">
+            <field name="name">Hippo</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_gk_q01"/>
+        </record>
+
+
+        <record id="op_gk_q02" model="op.question.bank.line">
+            <field name="name">Which is the highest mountain peak in the world?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_gk"/>
+        </record>
+
+        <record id="op_gk_q02_a01" model="op.question.bank.answer">
+            <field name="name">K2</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_gk_q02"/>
+        </record>
+
+        <record id="op_gk_q02_a02" model="op.question.bank.answer">
+            <field name="name">Kanchenjunga</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_gk_q02"/>
+        </record>
+
+        <record id="op_gk_q02_a03" model="op.question.bank.answer">
+            <field name="name">Mount Everest</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="question_id" ref="op_gk_q02"/>
+        </record>
+
+        <record id="op_gk_q02_a04" model="op.question.bank.answer">
+            <field name="name">Lhotse</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_gk_q02"/>
+        </record>
+
+
+        <record id="op_gk_q03" model="op.question.bank.line">
+            <field name="name">Which is the largest continent by Area?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_gk"/>
+        </record>
+
+        <record id="op_gk_q03_a01" model="op.question.bank.answer">
+            <field name="name">Africa</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_gk_q03"/>
+        </record>
+
+        <record id="op_gk_q03_a02" model="op.question.bank.answer">
+            <field name="name">Asia</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="question_id" ref="op_gk_q03"/>
+        </record>
+
+        <record id="op_gk_q03_a03" model="op.question.bank.answer">
+            <field name="name">Europe</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_gk_q03"/>
+        </record>
+
+        <record id="op_gk_q03_a04" model="op.question.bank.answer">
+            <field name="name">North America</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_gk_q03"/>
+        </record>
+
+
+        <record id="op_gk_q04" model="op.question.bank.line">
+            <field name="name">Which country has the highest population?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_gk"/>
+        </record>
+
+        <record id="op_gk_q04_a01" model="op.question.bank.answer">
+            <field name="name">India</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_gk_q04"/>
+        </record>
+
+        <record id="op_gk_q04_a02" model="op.question.bank.answer">
+            <field name="name">China</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="question_id" ref="op_gk_q04"/>
+        </record>
+
+        <record id="op_gk_q04_a03" model="op.question.bank.answer">
+            <field name="name">USA</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_gk_q04"/>
+        </record>
+
+        <record id="op_gk_q04_a04" model="op.question.bank.answer">
+            <field name="name">Russia</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_gk_q04"/>
+        </record>
+
+
+        <record id="op_gk_q05" model="op.question.bank.line">
+            <field name="name">Which is the tallest building in the world?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_gk"/>
+        </record>
+
+        <record id="op_gk_q05_a01" model="op.question.bank.answer">
+            <field name="name">Eiffel Tower</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_gk_q05"/>
+        </record>
+
+        <record id="op_gk_q05_a02" model="op.question.bank.answer">
+            <field name="name">Sanghai Tower</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_gk_q05"/>
+        </record>
+
+        <record id="op_gk_q05_a03" model="op.question.bank.answer">
+            <field name="name">Petronas twin towers</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_gk_q05"/>
+        </record>
+
+        <record id="op_gk_q05_a04" model="op.question.bank.answer">
+            <field name="name">Burj Khalifa</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="question_id" ref="op_gk_q05"/>
+        </record>
+
+
+        <record id="op_gk_q06" model="op.question.bank.line">
+            <field name="name">Largest living creature in world?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_gk"/>
+        </record>
+
+        <record id="op_gk_q06_a01" model="op.question.bank.answer">
+            <field name="name">Elephant</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_gk_q06"/>
+        </record>
+
+        <record id="op_gk_q06_a02" model="op.question.bank.answer">
+            <field name="name">Giraffe</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_gk_q06"/>
+        </record>
+
+        <record id="op_gk_q06_a03" model="op.question.bank.answer">
+            <field name="name">Blue Whale</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="question_id" ref="op_gk_q06"/>
+        </record>
+
+        <record id="op_gk_q06_a04" model="op.question.bank.answer">
+            <field name="name">Camel</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_gk_q06"/>
+        </record>
+
+
+        <record id="op_gk_q07" model="op.question.bank.line">
+            <field name="name">Which is the largest bird in the world?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_gk"/>
+        </record>
+
+        <record id="op_gk_q07_a01" model="op.question.bank.answer">
+            <field name="name">Emu</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_gk_q07"/>
+        </record>
+
+        <record id="op_gk_q07_a02" model="op.question.bank.answer">
+            <field name="name">Northern cassowary</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_gk_q07"/>
+        </record>
+
+        <record id="op_gk_q07_a03" model="op.question.bank.answer">
+            <field name="name">Southern cassowary</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_gk_q07"/>
+        </record>
+
+        <record id="op_gk_q07_a04" model="op.question.bank.answer">
+            <field name="name">Ostrich</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="question_id" ref="op_gk_q07"/>
+        </record>
+
+        <record id="op_gk_q08" model="op.question.bank.line">
+            <field name="name">Which is the smallest bird in the world?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_gk"/>
+        </record>
+
+        <record id="op_gk_q08_a01" model="op.question.bank.answer">
+            <field name="name">The Weebill</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_gk_q08"/>
+        </record>
+
+        <record id="op_gk_q08_a02" model="op.question.bank.answer">
+            <field name="name">The Pardalote</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_gk_q08"/>
+        </record>
+
+        <record id="op_gk_q08_a03" model="op.question.bank.answer">
+            <field name="name">The Bee hummingbird</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="question_id" ref="op_gk_q08"/>
+        </record>
+
+        <record id="op_gk_q08_a04" model="op.question.bank.answer">
+            <field name="name">The Goldcrest</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_gk_q08"/>
+        </record>
+
+        <record id="op_gk_q09" model="op.question.bank.line">
+            <field name="name">Which planet is also known as the Red planet?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_gk"/>
+        </record>
+
+        <record id="op_gk_q09_a01" model="op.question.bank.answer">
+            <field name="name">Mars</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="question_id" ref="op_gk_q09"/>
+        </record>
+
+        <record id="op_gk_q09_a02" model="op.question.bank.answer">
+            <field name="name">Earth</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_gk_q09"/>
+        </record>
+
+        <record id="op_gk_q09_a03" model="op.question.bank.answer">
+            <field name="name">Jupiter</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_gk_q09"/>
+        </record>
+
+        <record id="op_gk_q09_a04" model="op.question.bank.answer">
+            <field name="name">Saturn</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_gk_q09"/>
+        </record>
+
+
+        <record id="op_gk_q10" model="op.question.bank.line">
+            <field name="name">Which is the smallest planet in our solar system?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_gk"/>
+        </record>
+
+        <record id="op_gk_q10_a01" model="op.question.bank.answer">
+            <field name="name">Mercury</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="question_id" ref="op_gk_q10"/>
+        </record>
+
+        <record id="op_gk_q10_a02" model="op.question.bank.answer">
+            <field name="name">Mars</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_gk_q10"/>
+        </record>
+
+        <record id="op_gk_q10_a03" model="op.question.bank.answer">
+            <field name="name">Jupitor</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_gk_q10"/>
+        </record>
+
+        <record id="op_gk_q10_a04" model="op.question.bank.answer">
+            <field name="name">Pluto</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_gk_q10"/>
+        </record>
+
+</odoo>

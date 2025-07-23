@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_op_course_form_inherit" model="ir.ui.view">
+            <field name="name">op.course.form.inh</field>
+            <field name="model">op.course</field>
+            <field name="inherit_id" ref="openeducat_core.view_op_course_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='parent_id']" position="after">
+                    <field name="op_category_id"/>
+                </xpath>
+                <xpath expr="//page[@name='subject']" position="replace">
+                    <page string="Subjects" name="subject" invisible="1">
+                        <field name="subject_ids" nolabel="1" readonly="1">
+                        </field>
+                    </page>
+                </xpath>
+                <xpath expr="//page[@name='subject']" position="after">
+                    <page name="batch" string="Grupos">
+                        <field name="batch_ids" readonly="1">
+                            <tree string="Grupos" editable="bottom">
+                                <field name="name"/>
+                                <field name="code"/>
+                                <field name="start_date"/>
+                                <field name="end_date"/>
+                                <field name="modality_id"/>
+                            </tree>
+                        </field>
+                    </page>                
+                    <page name="moodle" string="Moodle Categorias">
+                        <field name="moodle_category_ids">
+                            <tree string="Categorias" editable="bottom">
+                                <field name="code_moodle" placeholder="ELR"/>
+                                <field name="category_moodle_number" placeholder="234"/>
+                                <field name="option"/>
+                                <field name="modules_ids"/>
+                                <field name="category_moodle" placeholder="https://campus.universidadisep.com/course/index.php?categoryid=234"/>
+                                <field name="company_ids"   widget="many2many_tags"  options="{'no_create_edit': True}"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_op_course_tree_uisep" model="ir.ui.view">
+            <field name="name">op.course.form.inh</field>
+            <field name="model">op.course</field>
+            <field name="inherit_id" ref="openeducat_core.view_op_course_tree"/>
+            <field name="arch" type="xml">
+                <field name="subject_ids" position="replace">
+                    <field name="subject_ids" invisible="1"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</odoo>

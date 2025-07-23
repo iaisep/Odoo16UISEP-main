@@ -1,0 +1,151 @@
+<?xml version="1.0" ?>
+<odoo>
+    <template id="openeducat_quiz.slide_embed_assets" name="Website slides embed assets">
+        <link type="text/scss" rel='stylesheet' href='/web/static/lib/bootstrap/scss/bootstrap.scss'/>
+        <link type="text/scss" href="/openeducat_quiz/static/src/scss/website_slides.scss"
+              rel="stylesheet" t-ignore="true"/>
+        <t t-call="web.pdf_js_lib"></t>
+        <script type="text/javascript"
+                src="/openeducat_quiz/static/lib/pdfslidesviewer/PDFSlidesViewer.js"></script>
+        <script type="text/javascript" src="/openeducat_quiz/static/src/js/slides_embed.js"></script>
+    </template>
+
+
+    <template id="embed_material" name="Embedded Material Page">
+        <html>
+            <head t-if="not private">
+                <title>
+                    <t t-esc="material.name"/>
+                </title>
+                <t t-call-assets="web.assets_common" t-js="false"/>
+                <t t-call-assets="openeducat_quiz.slide_embed_assets" t-js="false"/>
+                <t t-call-assets="web.assets_common" t-css="false"/>
+                <t t-call-assets="openeducat_quiz.slide_embed_assets" t-css="false"/>
+            </head>
+            <body>
+                <div id="PDFViewer" class="d-flex flex-column h-100 border"
+                     style="overflow:auto; background: lightgrey;">
+                    <!-- PDF Viewer Header : contains the name, and the share links -->
+                    <div t-if="is_embedded" class="navbar-default oe_slides_share_bar">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-lg-8 col-4 text-left">
+                                    <div class="oe_slides_ellipsis">
+                                        <a target="_new" t-att-href="material.website_url">
+                                            <span t-esc="material.name" t-att-title="material.name"/>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--  PDF Viewer Body : contains the canvas, the loader, or the image-->
+                    <div id="PDFSlideViewer" class="text-center position-relative flex-grow-1 mb-5"
+                         style="height: 0; display:contents;"
+                         t-attf-data-slideid="#{material.id}"
+                         t-attf-data-slideurl="/quiz/material/#{material.id}/pdf_content"
+                         t-att-data-defaultpage="page">
+                        <div id="slide_suggest" class="oe_slide_embed_option">
+                            <t t-foreach="related_slides" t-as="suggest_slide">
+                                <div class="col-4 oe_slides_suggestion_media">
+                                    <a t-att-href="suggest_slide.website_url" target="_new">
+                                        <div class="oe_slides_suggestion_caption">
+                                            <h4>
+                                                <t t-esc="suggest_slide.name"/>
+                                            </h4>
+                                        </div>
+                                        <span class="oe-image-thumbnail">
+                                            op.material/#{material.id}/image_medium
+                                            <img class="img-fluid"
+                                                 t-attf-src="/web/image/op.quiz.line/#{material.id}/image_medium"
+                                                 alt="suggest_slide.name"/>
+                                        </span>
+                                    </a>
+
+                                </div>
+                            </t>
+                        </div>
+                        <t t-if="material.material_type == 'document'">
+                            <div id="PDFViewerLoader" class="oe_slides_loader">
+                                <img class="img-fluid"
+                                     t-attf-src="/web/image/op.quiz.line/#{material.id}/image_medium"
+                                     style="margin:auto;height:100%" alt="suggest_slide.name"/>
+                                <h4 class="text-center">
+                                    <i class="fa fa-spinner fa-spin"></i>
+                                    Loading ...
+                                </h4>
+                            </div>
+                            <canvas id="PDFViewerCanvas" class="img-fluid mb-5 mt-2"
+                                    style="margin: auto; display: none;"></canvas>
+                        </t>
+                        <t t-if="material.material_type in ('infographic')">
+                            <img t-attf-src="/web/image/op.quiz.line/#{material.id}/datas" class="img-fluid"
+                                 style="width: 100%" alt="Slide image"/>
+                        </t>
+                    </div>
+<!--                    Fixed bottom navbar-->
+                    <div class="pt-2 pb-2 bg-light" role="navigation" t-if="material.material_type == 'document'">
+                        <div class="fixed-bottom bg-white container-fluid oe_slides_panel_footer">
+                            <div class="row">
+                                <div class="col-auto me-auto text-left mt-2 mb-2">
+                                    <input type="number" class="text-center" id="page_number" value="1"/>
+                                    /
+                                    <span id="page_count"></span>
+                                </div>
+                                <div class="col-auto o_slide_navigation_buttons mt-2 mb-2">
+                                    <span id="first" class="ms-2 me-2" title="First slide" role="img"
+                                          aria-label="First slide">
+                                        <i class="fa fa-step-backward fa-2x"></i>
+                                    </span>
+                                    <a id="previous" class="ms-2 me-2" title="Previous slide"
+                                       aria-label="Previous slide" role="button">
+                                        <i class="fa fa-arrow-circle-left fa-2x"></i>
+                                    </a>
+                                    <a id="next" class="ms-2 me-2" title="Next slide" aria-label="Next slide"
+                                       role="button">
+                                        <i class="fa fa-arrow-circle-right fa-2x"></i>
+                                    </a>
+                                    <a id="last" class="ms-2 me-2" title="Last slide" aria-label="Last slide"
+                                       role="button">
+                                        <i class="fa fa-step-forward fa-2x"></i>
+                                    </a>
+                                </div>
+                                <div class="col-auto text-right ms-auto mt-2 mb-2">
+                                    <span id="fullscreen" title="View fullscreen" role="img"
+                                          aria-label="Fullscreen">
+                                        <i class="fa fa-arrows-alt fa-2x"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </body>
+        </html>
+    </template>
+
+    <template id="embed_material_forbidden" name="Forbidden Embedded Slide">
+        <html>
+            <head t-if="not private">
+                <title>
+                    <t t-esc="material.name"/>
+                </title>
+                <t t-call-assets="openeducat_quiz.slide_embed_assets" t-js="false"/>
+            </head>
+            <body>
+                <title>
+                    <t t-esc="material.name"/>
+                </title>
+                <div class="slide-private-view">
+                    <h3 style="border-bottom: 1px solid !important;padding-bottom: 10px;">
+                        <i class="fa fa-exclamation-triangle"></i>
+                        This
+                        <t t-esc="material.material_type"/>
+                        is private.
+                    </h3>
+                </div>
+            </body>
+        </html>
+    </template>
+
+</odoo>

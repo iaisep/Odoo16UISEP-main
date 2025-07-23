@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-inherit="web.NameAndSignature" owl="1" t-inherit-mode="extension">
+        <xpath expr="//div[@t-if='state.showSignatureArea']" position="replace">
+            <div t-if="state.showSignatureArea" class="o_web_sign_signature_group bg-white card mt-3" style="overflow: hidden;">
+                <div class="card-header">
+                    <div class="row g-0">                        
+                        <div class="col-auto">
+                            <a role="button" href="#" t-on-click.prevent="() => this.setMode('draw')" t-attf-class="o_web_sign_draw_button me-2 btn btn-light {{ state.signMode === 'draw' ? 'active': '' }}">
+                                Draw
+                            </a>
+                        </div>
+                        
+                        <div t-if="state.signMode === 'draw'" t-attf-class="o_web_sign_draw_clear col-auto ms-auto">
+                            <a role="button" href="#" t-on-click.prevent="onClickSignDrawClear" class="btn btn-link">
+                                Clear
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="o_signature_stroke position-absolute"/>
+
+                <div t-if="state.showSignatureArea" t-ref="signature" t-att-style="signatureStyle" class="o_web_sign_signature p-0 bg-transparent position-relative"/>
+
+                <div t-if="loadIsInvalid" t-attf-class="o_web_sign_load_invalid card-footer d-none">
+                    <div class="alert alert-danger mb-0" role="alert">
+                        This file is invalid. Please select an image.
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </t>
+</templates>

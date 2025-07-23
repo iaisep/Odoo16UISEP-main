@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- View practice.practice View Tree -->
+    <record id="view_practice_practice_tree" model="ir.ui.view">
+        <field name="name">view.practice.practice.tree</field>
+        <field name="model">practice.practice</field>
+        <field name="arch" type="xml">
+            <tree string="Practice">
+                <field name="op_student_id" string="Estudiante"/>
+                <field name="op_course_id" string="Curso"/>
+                <field name="create_date" string="Fecha de Creación"/>
+                <field name="start_date" string="Fecha Inicio"/>
+                <field name="final_date" string="Fecha final"/>
+                <field name="status_phase" string="Estado"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- View practice.practice form -->
+    <record id="view_practice_practice_form" model="ir.ui.view">
+        <field name="name">view.practice.practice.form</field>
+        <field name="model">practice.practice</field>
+        <field name="arch" type="xml">
+            <form string="Practice">
+                <header>
+                    <!-- <button name="email_framework_agreement" type="object" string="email_framework_agreement"
+                        class="oe_highlight"/>
+                    <button name="email_specific_agreement" type="object" string="email_specific_agreement"
+                        class="oe_highlight"/> -->
+                    <button name="action_create_signature_request" type="object" string="Enviar a firmar"
+                        class="oe_highlight"/>
+                    <field name="status_phase" widget="statusbar" statusbar_visible="in progress,started,pending by rating,finished" statusbar_colors='{"invoice_except":"red","waiting_date":"blue"}'/><!--clickable="True"-->
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object"
+                                class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button"
+                                    options='{"terminology": "archive"}'/>
+                        </button>
+                    </div>
+                    <group>
+                        <group string="Datos Academicos">
+                            <field name="op_student_id" required="1" string="Estudiante"/>
+                            <field name="op_admission_id" required="1" string="Admisión"/>
+                            <field name="op_course_id" required="1" string="Curso"/>
+                        </group>
+                        <group string="Datos de la Práctica">
+                            <field name="status_sign_framework" 
+                                string="Convenio Marco"
+                                style="border-radius:20px; border-style:none; padding:5px;" 
+                                class="oe_inline" widget="label_selection" 
+                                options="{'classes': {'cancelled': 'danger','Signatures Pending': 'warning','Fully Signed': 'success'}}"/>
+                            <field name="status_sign_specific"
+                                string="Convenio Específico" 
+                                style="border-radius:20px; border-style:none; padding:5px;" 
+                                class="oe_inline" widget="label_selection" 
+                                options="{'classes': {'cancelled': 'danger','Signatures Pending': 'warning','Fully Signed': 'success'}}"/>
+                            <field name="morning" string="Mañana"/>
+                            <field name="afternoon" string="Tarde"/>
+                            <field name="center_id" required="1" string="Centro"/>
+                            <field name="tutor_id" required="1" string="Tutor"/>
+                            <field name="total_hours" />
+                            <field name="weekly_hours" />
+                            <field name="start_date" required="1" string="Fecha Inicio"/>
+                            <field name="final_date" required="1" string="Fecha Final"/>
+                            <field name="remuneration_center"
+                                string="Monto a Pagar" 
+                                attrs="{'invisible': [('payment_center','=', False)], 'required': [('payment_center','=', True)]}"/>
+                            <field name="payment_center" string="Pago al Centro"/>
+                            <field name="sign_request_specific_agrement_id" invisible="1"/>
+                            <field name="sign_request_framework_agrement_id" invisible="1"/>
+                            <field name="email_send" invisible="1"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- View practice.practice search -->
+    <record id="view_practice_practice_search" model="ir.ui.view">
+        <field name="name">view.practice.practice.search</field>
+        <field name="model">practice.practice</field>
+        <field name="arch" type="xml">
+            <search string="Practice">
+                <field name="op_student_id" string="Estudiante"/>
+                <field name="op_course_id" string="Curso"/>
+                <field name="tutor_id" string="Tutor"/>
+                <!-- <field name="status_phase" /> -->
+                <field name="center_id" string="Centro"/>
+
+                <group expand="1" string="Group By">
+                    <filter string="Estudiante" name="op_student_id" domain="[]" context="{'group_by':'op_student_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action practice.practice -->
+    <record id="action_practice_practice" model="ir.actions.act_window">
+        <field name="name">Practice Practice</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">practice.practice</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                There is no examples click here to add new Practice Practice.
+            </p>
+        </field>
+    </record>
+
+</odoo>

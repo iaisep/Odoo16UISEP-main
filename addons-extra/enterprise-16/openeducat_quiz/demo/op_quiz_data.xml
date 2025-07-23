@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="op_qz_1" model="op.quiz">
+            <field name="name">Quiz Round 1</field>
+            <field name="categ_id" ref="op_qz_ctg_1"/>
+            <field name="quiz_config">quiz_bank_selected</field>
+            <field name="time_config">True</field>
+            <field name="time_limit_hr">1</field>
+            <field name="time_limit_minute">30</field>
+            <field name="no_of_attempt">1</field>
+            <field name="description">This quiz is based on aptitude level question
+            </field>
+            <field name="quiz_html">It is a long established fact that a reader will be distracted by the readable
+                content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a
+                more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it
+                look like readable English.
+            </field>
+
+        </record>
+
+        <record id="op_qz_2" model="op.quiz">
+            <field name="name">Quiz Round 2</field>
+            <field name="categ_id" ref="op_qz_ctg_2"/>
+            <field name="quiz_config">quiz_bank_selected</field>
+            <field name="time_config">True</field>
+            <field name="time_limit_hr">1</field>
+            <field name="time_limit_minute">30</field>
+            <field name="no_of_attempt">1</field>
+            <field name="description">This quiz is based on General Knowledge.
+            </field>
+            <field name="state">open</field>
+            <field name="quiz_html">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
+                but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in
+                the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with
+                desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </field>
+        </record>
+
+        <record id="op_qz_3" model="op.quiz">
+            <field name="name">Quiz Round 3</field>
+            <field name="categ_id" ref="op_qz_ctg_3"/>
+            <field name="quiz_config">quiz_bank_selected</field>
+            <field name="time_config">True</field>
+            <field name="time_limit_hr">1</field>
+            <field name="time_limit_minute">30</field>
+            <field name="no_of_attempt">1</field>
+            <field name="description">This quiz is based on General Knowledge.
+            </field>
+            <field name="state">open</field>
+            <field name="exit_allow">True</field>
+            <field name="quiz_html">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
+                but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in
+                the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with
+                desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </field>
+        </record>
+
+
+</odoo>

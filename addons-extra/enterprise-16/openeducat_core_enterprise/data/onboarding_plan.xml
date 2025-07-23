@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="0">
+
+        <record id="onboarding_step_1" model="oe.onboarding.steps">
+            <field name="plan_id" ref="openeducat_onboarding.onboarding_plan_1"/>
+            <field name="step_name">Academic Year</field>
+            <field name="action_id" ref="openeducat_core.act_op_academic_year_view"/>
+            <field name="image" type="base64" file="openeducat_core_enterprise/static/img/academic_year.png"/>
+            <field name="doc_link">
+                https://doc.openeducat.org/applications/Gradebook/academic-year.html?highlight=academic#details-of-academic-year
+            </field>
+            <field name="youtube_link">https://youtu.be/GkprRxZx5B4</field>
+        </record>
+        <record id="onboarding_step_2" model="oe.onboarding.steps">
+            <field name="plan_id" ref="openeducat_onboarding.onboarding_plan_1"/>
+            <field name="step_name">Academic Term</field>
+            <field name="action_id" ref="openeducat_core.act_op_academic_term_view"/>
+            <field name="image" type="base64" file="openeducat_core_enterprise/static/img/academic.png"/>
+            <field name="doc_link">
+                https://doc.openeducat.org/applications/Gradebook/academic-year.html?highlight=academic#create-terms
+            </field>
+            <field name="youtube_link">https://youtu.be/FbN7BVwiyHM</field>
+        </record>
+        <record id="onboarding_step_4" model="oe.onboarding.steps">
+            <field name="plan_id" ref="openeducat_onboarding.onboarding_plan_1"/>
+            <field name="step_name">Course</field>
+            <field name="action_id" ref="openeducat_core.act_open_op_course_view"/>
+            <field name="image" type="base64" file="openeducat_core_enterprise/static/img/courses.png"/>
+            <field name="doc_link">https://doc.openeducat.org/openeducat/course-openeducat.html#course-management
+            </field>
+            <field name="youtube_link">https://youtu.be/KgP8f2Wycgk</field>
+        </record>
+        <record id="onboarding_step_5" model="oe.onboarding.steps">
+            <field name="plan_id" ref="openeducat_onboarding.onboarding_plan_1"/>
+            <field name="step_name">Batch</field>
+            <field name="action_id" ref="openeducat_core.act_open_op_batch_view"/>
+            <field name="image" type="base64" file="openeducat_core_enterprise/static/img/batch.png"/>
+            <field name="doc_link">https://doc.openeducat.org/openeducat/course-openeducat.html#configure-batch
+            </field>
+            <field name="youtube_link">https://youtu.be/MC3f37un04s</field>
+        </record>
+        <record id="onboarding_step_6" model="oe.onboarding.steps">
+            <field name="plan_id" ref="openeducat_onboarding.onboarding_plan_1"/>
+            <field name="step_name">Subject</field>
+            <field name="action_id" ref="openeducat_core.act_open_op_subject_view"/>
+            <field name="image" type="base64" file="openeducat_core_enterprise/static/img/subject.png"/>
+            <field name="doc_link">https://doc.openeducat.org/openeducat/subject-openeducat.html#configure-subject
+            </field>
+            <field name="youtube_link">https://youtu.be/DBo3JE_SniE</field>
+        </record>
+
+</odoo>

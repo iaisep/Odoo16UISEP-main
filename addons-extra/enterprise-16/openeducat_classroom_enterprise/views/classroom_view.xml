@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+
+        <record id="view_op_classroom_inherited_form_view" model="ir.ui.view">
+            <field name="name">op.classroom.inherited.form.view</field>
+            <field name="model">op.classroom</field>
+            <field name="inherit_id" ref="openeducat_classroom.view_op_classroom_form"/>
+            <field name="priority" eval="10"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='batch_id']" position="after">
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                </xpath>
+                <field name="product_uom_qty" position="after">
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_op_classroom_inherited_tree_view" model="ir.ui.view">
+            <field name="name">op.classroom.inherited.tree.view</field>
+            <field name="model">op.classroom</field>
+            <field name="inherit_id" ref="openeducat_classroom.view_op_classroom_tree"/>
+            <field name="priority" eval="10"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='facilities']" position="after">
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_op_classroom_inherited_search_view" model="ir.ui.view">
+            <field name="name">op.classroom.inherited.search.view</field>
+            <field name="model">op.classroom</field>
+            <field name="inherit_id" ref="openeducat_classroom.view_op_classroom_search"/>
+            <field name="priority" eval="10"/>
+            <field name="arch" type="xml">
+                <xpath expr="." position="inside">
+                    <searchpanel>
+                        <field name="course_id" icon="fa fa-book"/>
+                    </searchpanel>
+                </xpath>
+            </field>
+        </record>
+
+
+</odoo>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+
+    <template id="template_restrict_batch" name="slide restrict batch">
+        <t t-call="website.layout">
+
+
+ <div id="wrap" class="oe_structure oe_empty"><section class="s_text_image pb128 o_colored_level pt120" data-oe-shape-data="{&quot;shape&quot;:&quot;web_editor/Blobs/03&quot;,&quot;flip&quot;:[]}" data-snippet="s_image_text" data-name="Imagen - Texto" style="background-image: none;">
+        <div class="o_we_shape o_web_editor_Blobs_03" style=""/>
+        <div class="container">
+            <div class="row o_grid_mode" data-row-count="6">  
+    
+
+                <div class="o_colored_level o_grid_item g-col-lg-5 g-height-6 col-lg-5 o_grid_item_image" style="grid-area: 1 / 2 / 7 / 7; z-index: 1;"><img src="/web_editor/shape/theme_cobalt/s_image_text.svg?c1=%23E17726" alt="Marketing" loading="lazy" data-bs-original-title="" title="" aria-describedby="tooltip853701"/></div>
+                
+            <div class="o_colored_level o_grid_item g-col-lg-5 g-height-4 col-lg-5" style="z-index: 2; grid-area: 2 / 7 / 6 / 12;">
+                    <h4>
+         Fecha de grupo expirada.&amp;nbsp;<br/></h4>
+                    <p><strong>Grupo: </strong><span t-esc="name"/><br/><strong>Fecha de inicio: </strong><span t-esc="start_date"/><br/><strong>Fecha de finalización:&amp;nbsp;</strong><span t-esc="end_date"/></p><p class="o_default_snippet_text"><br/></p>
+                    <p/>
+                </div><div class="o_grid_item g-height-1 o_colored_level g-col-lg-3 col-lg-3" style="z-index: 3; grid-area: 5 / 7 / 6 / 10;"><a href="/my/home" class="mb-2 btn btn-primary" data-bs-original-title="" title="">Ir a mi cuenta</a></div></div>
+        </div>
+    </section></div>
+
+        </t>
+    </template>
+
+
+
+</odoo>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<template id="elearning_custom" inherit_id="website_slides.course_sidebar" >
+        <xpath expr="//div" position="after">
+
+            <a href="/online-exams" style="margin-bottom: 3px" t-attf-class=" #{'btn btn-outline-primary  w-100 ' if channel.is_member else 'btn d-md-none'}"   >
+                        Evaluaciones</a>
+                        
+            <a href="/student/assignment/details" style="margin-bottom: 3px" t-attf-class=" #{'btn btn-outline-primary  w-100 ' if channel.is_member else 'btn d-md-none'}" >
+                Tareas</a>
+    
+
+        </xpath>
+    </template>
+
+    <record id="colorpicker" model="ir.ui.view">
+    <field name="key">website_airproof.colorpicker</field>
+    <field name="name">Custom Gradients</field>
+    <field name="type">qweb</field>
+    <field name="inherit_id" ref="web_editor.colorpicker"/>
+    <field name="website_id">1</field>
+    <field name="arch" type="xml">
+        <xpath expr="//*[@data-name='predefined_gradients']/*" position="before">
+            <button class="w-50 o_we_color_btn" style="background-image: linear-gradient(145deg, rgb(5, 85, 94) 0%, rgb(0, 131, 148) 100%);" data-color="linear-gradient(145deg, rgb(5, 85, 94) 0%, rgb(0, 131, 148) 100%)"></button>
+        </xpath>
+    </field>
+</record>

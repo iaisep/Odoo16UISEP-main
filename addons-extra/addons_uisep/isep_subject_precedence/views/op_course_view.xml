@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_op_course_form_inh" model="ir.ui.view">
+            <field name="model">op.course</field>
+            <field name="inherit_id" ref="openeducat_core.view_op_course_form"/>
+            <field name="arch" type="xml">
+                <notebook position="before">
+                    <group>
+                        <group>
+                            <field name="modality"/>
+                        </group>
+                    </group>
+                </notebook>
+                <field name="subject_ids" position="replace">
+                    <field name="subject_ids"  domain="[('id','=',0)]" options="{'unlink': False, 'no_create': True, 'no_quick_create': True}" >
+                        <tree editable="bottom" create="0">
+                             <field name="sequence" widget="handle"/>
+                             <field name="name" readonly="1" />
+                             <field name="code" readonly="1" />
+                             <field name="subject_type" readonly="1" />
+                             <field name="parent_subject_id" domain="[('id', 'in', parent.subject_ids)]"/>
+                             <field name="type"  readonly="1"/>
+                             <field name="grade_weightage"  readonly="1" />
+                        </tree>
+                    </field>
+                </field>
+               
+                
+
+            </field>
+
+    </record>
+</odoo>

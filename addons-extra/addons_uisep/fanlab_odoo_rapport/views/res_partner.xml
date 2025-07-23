@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="fanlab_llamadas_view_partner_form" model="ir.ui.view">
+            <field name="name">view_partner_form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="isep_custom.view_partner_form"/>
+	    <field name="arch" type="xml">
+		    <xpath expr="//page[last()]" position="after">
+			    <page string="Llamadas">
+				    <field name="call_ids" context="{'tree_view_ref' : 'voip.voip_phonecall_tree_view'}" ref="voip.voip_phonecall_tree_view"/>
+			    </page>
+
+		    <!--		<xpath expr="//field[@name='sales_price']" position="after">
+		    <field name="your_new_field"/>-->
+		</xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

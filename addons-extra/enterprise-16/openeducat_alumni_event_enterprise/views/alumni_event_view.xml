@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record model="ir.ui.view" id="alumni_event_form_view">
+            <field name="name">op.alumni.event.form</field>
+            <field name="model">op.alumni.group</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="openeducat_alumni_enterprise.alumni_group_form_view"/>
+            <field name="arch" type="xml">
+                <field name="description" position="after">
+                    <separator string="Events"/>
+                    <field name="event_ids"/>
+                </field>
+            </field>
+        </record>
+
+</odoo>

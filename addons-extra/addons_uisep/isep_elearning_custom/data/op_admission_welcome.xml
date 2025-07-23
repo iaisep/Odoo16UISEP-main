@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+  <record id="email_op_admission_confirm" model="mail.template">
+    <field name="name">Confirmación de admisión Elearning</field>
+    <field name="subject">¡Bienvenido! {{ object.name or '' }}</field>
+    <field name="email_from">{{ user.email or '' }}</field>
+    <field name="email_to">{{ object.email }}</field>
+    <field name="model_id" ref="openeducat_admission.model_op_admission"/>
+    <field name="auto_delete" eval="True"/>
+    <field name="body_html" type="html">
+
+
+
+      <table cellpadding="0" cellspacing="0" border="0" role="presentation" bgcolor="white" width="100%" style="-webkit-border-vertical-spacing:0px;-webkit-border-horizontal-spacing:0px;box-sizing: border-box; border-collapse: collapse; caption-side: bottom; border-radius: 20px; background-color: white; width: 100%; border-spacing: 0px; font-family: 'DM Sans';">
+        <tbody style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+          <tr style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+            <td align="center" valign="top" width="100%" style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;padding-top: 88px; padding-bottom: 71px; width: 100%">
+              <table cellpadding="0" cellspacing="0" border="0" role="presentation" width="100%" style="-webkit-border-vertical-spacing:0px;-webkit-border-horizontal-spacing:0px;box-sizing: border-box; border-collapse: collapse; caption-side: bottom; width: 100%; border-spacing: 0px; font-family: 'DM Sans';">
+                <tbody style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                  <tr style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                    <td class="force-w100 remove-gutter" style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;padding-left: 45px; padding-right: 45px">
+                      <table class="force-w100 remove-gutter" cellpadding="0" cellspacing="0" border="0" role="presentation" width="792" style="-webkit-border-vertical-spacing:0px;-webkit-border-horizontal-spacing:0px;box-sizing: border-box; border-collapse: collapse; caption-side: bottom; width: 792px; border-spacing: 0px; font-family: 'DM Sans';">
+                        <tbody style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                          <tr style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                            <td align="center" style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;padding-bottom: 14.5px">
+                              <p style="box-sizing:border-box;font-size: 28px; font-weight: 600; color: #1f1f1f; margin: 0; padding: 0; line-height: 37px; mso-line-height-rule: exactly">Estimado <span style="font-size: 28px; font-weight: 600; color: #ff6900">
+                                <t t-out="object.partner_id.name or ''">Estudiante</t>
+                              </span>,
+                            </p>
+                          </td>
+                        </tr>
+                        <tr style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                          <td align="left" class="force-w100" style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;padding-top: 14.5px; padding-bottom: 16px">
+                            <table class="force-w100" cellpadding="0" cellspacing="0" border="0" role="presentation" style="-webkit-border-vertical-spacing:0px;-webkit-border-horizontal-spacing:0px;box-sizing: border-box; border-collapse: collapse; caption-side: bottom; border-spacing: 0px; font-family: 'DM Sans';">
+                              <tbody style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                                <tr style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                                  <td class="force-w100 force-w100-leaf remove-gutter" style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;padding-left: 77px; padding-right: 78px">
+
+                                    <p width="637" style="box-sizing:border-box;font-size: 22px; font-weight: 400; text-align: justify; line-height: 29px; color: #7d828b; mso-line-height-rule: exactly; margin: 0; padding: 0; width: 637px">
+                                      <span style="font-size: 22px; font-weight: 700; text-align: justify; line-height: 29px; mso-line-height-rule: exactly">¡Bienvenido a la Universidad ISEP! </span>Estamos emocionados de tenerte como parte de nuestra comunidad académica y esperamos que tu experiencia aquí sea enriquecedora y llena de aprendizaje.<br/>
+A continuación, te proporcionamos información clave para que puedas comenzar tu trayecto académico de la mejor manera posible:
+                                    </p>
+
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                        <tr style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                          <td align="left" class="remove-gutter" style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;padding-top: 45px; padding-bottom: 8.5px; padding-left: 77px">
+                            <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="-webkit-border-vertical-spacing:0px;-webkit-border-horizontal-spacing:0px;box-sizing: border-box; border-collapse: collapse; caption-side: bottom; border-spacing: 0px; font-family: 'DM Sans';">
+                              <tbody style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                                <tr style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                                  <td valign="middle" style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;padding-right: 3px">
+                                    <img src="/isep_elearning_custom/static/src/img_mail/table_14.png" class="img img-fluid o_we_custom_image" style="height:auto;box-sizing:border-box;vertical-align:middle;max-width: initial; width: 36px; display: block mso-hide: all;" width="36" />
+                                  </td>
+                                  <td valign="middle" style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;padding-left: 8px">
+                                    <p style="box-sizing:border-box;font-size: 24px; font-weight: 600; color: #1f1f1f; margin: 0; padding: 0; line-height: 36px; mso-line-height-rule: exactly">Número de Matrícula: <t t-out="object.application_number or ''">Matricula</t>
+                                    </p>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                        <tr style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                          <td align="left" class="force-w100" style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;padding-top: 8.5px; padding-bottom: 16px">
+                            <table class="force-w100" cellpadding="0" cellspacing="0" border="0" role="presentation" style="-webkit-border-vertical-spacing:0px;-webkit-border-horizontal-spacing:0px;box-sizing: border-box; border-collapse: collapse; caption-side: bottom; border-spacing: 0px; font-family: 'DM Sans';">
+                              <tbody style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                                <tr style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                                  <td class="force-w100 force-w100-leaf remove-gutter" style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;padding-left: 77px; padding-right: 78px">
+
+                                    <p width="637" style="box-sizing:border-box;font-size: 19px; font-weight: 400; text-align: justify; line-height: 29px; color: #7d828b; mso-line-height-rule: exactly; margin: 0; padding: 0; width: 637px">Este será tu identificador único durante tu tiempo en la universidad. Asegúrate de tenerlo presente al realizar trámites y consultas académicas. ¡será tu pase mágico durante tu tiempo en la universidad!</p>
+
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                        <tr style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                          <td align="left" class="remove-gutter" style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;padding-top: 54px; padding-bottom: 9px; padding-left: 77px">
+                            <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="-webkit-border-vertical-spacing:0px;-webkit-border-horizontal-spacing:0px;box-sizing: border-box; border-collapse: collapse; caption-side: bottom; border-spacing: 0px; font-family: 'DM Sans';">
+                              <tbody style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                                <tr style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                                  <td valign="middle" style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;padding-right: 3px">
+                                    <img src="/isep_elearning_custom/static/src/img_mail/table_15.png" class="img img-fluid o_we_custom_image" style="height:auto;box-sizing:border-box;vertical-align:middle;max-width: initial; width: 36px; display: block mso-hide: all;" width="36" />
+                                  </td>
+                                  <td valign="middle" style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;padding-left: 8px">
+                                    <p style="box-sizing:border-box;font-size: 24px; font-weight: 600; color: #1f1f1f; margin: 0; padding: 0; line-height: 36px; mso-line-height-rule: exactly">Campus Virtual:</p>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                        <tr style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                          <td align="left" class="force-w100" style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;padding-top: 9px; padding-bottom: 14px">
+                            <table class="force-w100" cellpadding="0" cellspacing="0" border="0" role="presentation" style="-webkit-border-vertical-spacing:0px;-webkit-border-horizontal-spacing:0px;box-sizing: border-box; border-collapse: collapse; caption-side: bottom; border-spacing: 0px; font-family: 'DM Sans';">
+                              <tbody style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                                <tr style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                                  <td class="force-w100 force-w100-leaf remove-gutter" style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;padding-left: 77px; padding-right: 78px">
+
+                                    <p width="637" style="box-sizing:border-box;font-size: 19px; font-weight: 400; text-align: justify; line-height: 29px; color: #7d828b; mso-line-height-rule: exactly; margin: 0; padding: 0; width: 637px">Aquí encontrarás recursos esenciales, ingreso a tus clases, información del curso, y herramientas para tu éxito académico. Asegúrate de explorar todas las funcionalidades disponibles. A continuación te compartimos tus claves de acceso:</p>
+
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+
+
+                        <tr style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                          <td align="left" class="force-w100" style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;padding-top: 19px; padding-bottom: 16px">
+                            <table class="force-w100" cellpadding="0" cellspacing="0" border="0" role="presentation" style="-webkit-border-vertical-spacing:0px;-webkit-border-horizontal-spacing:0px;box-sizing: border-box; border-collapse: collapse; caption-side: bottom; border-spacing: 0px; font-family: 'DM Sans';">
+                              <tbody style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                                <tr style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                                  <td class="force-w100 force-w100-leaf remove-gutter" style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;padding-left: 77px; padding-right: 73px">
+
+                                    <p width="642" style="box-sizing:border-box;font-size: 19px; font-weight: 400; text-align: justify; color: #7d828b; margin: 0; padding: 0; width: 642px; line-height: 19px; mso-line-height-rule: exactly">Accede a nuestro campus virtual a través del siguiente botón.</p>
+
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                        <tr style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                          <td align="center" style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;padding-top: 22px; padding-bottom: 16px">
+
+                            <div role="button" width="255" style="box-sizing:border-box;cursor:pointer;width: 255px">
+                              <a href="https://app.universidadisep.com/campus" target="_blank" rel="noopener noreferrer" bgcolor="#ff6900" style="border-style:none;box-sizing:border-box;color:#008f8c;border: none; border-radius: 500px; background-color: #ff6900; cursor: pointer; line-height: 60px; min-width: 251px; mso-line-height-rule: exactly; display: block; text-align: center; text-decoration: none">
+                                <span style="font-size: 22px; font-weight: 600; letter-spacing: -0.66px; color: white">Acceder a mi campus</span>
+                              </a>
+                            </div>
+
+
+                            <br/>
+                            <div style="padding: 10px;background: #d3e1f1;border-left: 6px solid #002e5d; ">
+                              <div style="text-align: center;">
+                                <spam style="font-size: 24px; font-weight: normal;color: #002e5d;">
+                                       Recuerda que puedes restablecer tu clave siempre desde: 
+                                  <b>
+                                    <a t-att-href="website_url+'/web/reset_password'" t-out="website_url+'/web/reset_password' or ''">http://suempresa.odoo.com/web/reset_password</a>
+                                  </b>
+                                  <br/>
+Su correo electrónico de inicio de sesión es: 
+                                  <b>
+                                    <a t-attf-href="/web/login?login={{ object.email }}" target="_blank" t-out="object.email or ''">mark.brown23@ejemplo.com</a>
+                                  </b>
+
+                                </spam>
+                              </div>
+                            </div>
+                            <br/>
+                            <br/>
+
+
+
+                          </td>
+                        </tr>
+                        <tr style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                          <td align="left" class="remove-gutter" style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;padding-top: 54px; padding-bottom: 8.5px; padding-left: 77px">
+                            <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="-webkit-border-vertical-spacing:0px;-webkit-border-horizontal-spacing:0px;box-sizing: border-box; border-collapse: collapse; caption-side: bottom; border-spacing: 0px; font-family: 'DM Sans';">
+                              <tbody style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                                <tr style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                                  <td valign="middle" style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;padding-right: 3px">
+                                    <img src="/isep_elearning_custom/static/src/img_mail/table_16.png" class="img img-fluid o_we_custom_image" style="height:auto;box-sizing:border-box;vertical-align:middle;max-width: initial; width: 36px; display: block mso-hide: all;" width="36" />
+                                  </td>
+                                  <td valign="middle" style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;padding-left: 8px">
+                                    <p style="box-sizing:border-box;font-size: 24px; font-weight: 600; color: #1f1f1f; margin: 0; padding: 0; line-height: 36px; mso-line-height-rule: exactly">Tutor Asignado: <t t-out="object.tutor_id.name or ''">Nombre de Tutor</t>
+                                    </p>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                        <tr style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                          <td align="left" class="force-w100" style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;padding-top: 8.5px; padding-bottom: 16px">
+                            <table class="force-w100" cellpadding="0" cellspacing="0" border="0" role="presentation" style="-webkit-border-vertical-spacing:0px;-webkit-border-horizontal-spacing:0px;box-sizing: border-box; border-collapse: collapse; caption-side: bottom; border-spacing: 0px; font-family: 'DM Sans';">
+                              <tbody style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                                <tr style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                                  <td class="force-w100 force-w100-leaf remove-gutter" style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;padding-left: 77px; padding-right: 73px">
+                                    <p width="642" style="box-sizing:border-box;font-size: 19px; font-weight: 400; text-align: justify; line-height: 29px; color: #7d828b; mso-line-height-rule: exactly; margin: 0; padding: 0; width: 642px">Si tienes alguna pregunta relacionada con tus estudios, orientación académica o necesitas asistencia, no dudes en contactar a tu tutor. Están aquí para ayudarte a tener éxito, ¡No dudes en ponerte en contacto!</p>
+
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+
+                        <tr style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                          <td align="left" class="remove-gutter" style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;padding-top: 57px; padding-bottom: 8.5px; padding-left: 77px">
+                            <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="-webkit-border-vertical-spacing:0px;-webkit-border-horizontal-spacing:0px;box-sizing: border-box; border-collapse: collapse; caption-side: bottom; border-spacing: 0px; font-family: 'DM Sans';">
+                              <tbody style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                                <tr style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                                  <td valign="middle" style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;padding-right: 3px">
+                                    <img src="/isep_elearning_custom/static/src/img_mail/table_17.png" class="img img-fluid o_we_custom_image" style="height:auto;box-sizing:border-box;vertical-align:middle;max-width: initial; width: 36px; display: block mso-hide: all;" width="36" />
+                                  </td>
+                                  <td valign="middle" style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;padding-left: 8px">
+                                    <p style="box-sizing:border-box;font-size: 24px; font-weight: 600; color: #1f1f1f; margin: 0; padding: 0; line-height: 36px; mso-line-height-rule: exactly">Grupo Asignado: <t t-out="object.batch_id.name or ''">GRUPO</t>
+                                    </p>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                        <tr style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                          <td align="left" class="force-w100" style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;padding-top: 8.5px; padding-bottom: 16px">
+                            <table class="force-w100" cellpadding="0" cellspacing="0" border="0" role="presentation" style="-webkit-border-vertical-spacing:0px;-webkit-border-horizontal-spacing:0px;box-sizing: border-box; border-collapse: collapse; caption-side: bottom; border-spacing: 0px; font-family: 'DM Sans';">
+                              <tbody style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                                <tr style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                                  <td class="force-w100 force-w100-leaf remove-gutter" style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;padding-left: 77px; padding-right: 73px">
+                                    <p width="642" style="box-sizing:border-box;font-size: 19px; font-weight: 400; text-align: justify; line-height: 29px; color: #7d828b; mso-line-height-rule: exactly; margin: 0; padding: 0; width: 642px">Este será tu grupo de referencia para actividades académicas y eventos relacionados con el curso. Fomentamos la colaboración entre los miembros del grupo, así que no dudes en conocer a tus compañeros.</p>
+
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                        <tr style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                          <td align="center" style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;padding-top: 64px">
+                            <p style="box-sizing:border-box;font-size: 20px; font-weight: 600; color: #1f1f1f; margin: 0; padding: 0; line-height: 26px; mso-line-height-rule: exactly">Inicio de clases:</p>
+                          </td>
+                        </tr>
+                        <tr style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                          <td align="center" style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;padding-bottom: 16px">
+                            <p style="box-sizing:border-box;font-size: 40px; font-weight: 600; color: #ff6900; margin: 0; padding: 0; line-height: 52px; mso-line-height-rule: exactly">
+
+                              <t t-out="format_date(object.batch_id.start_date) or ''">FECHA</t>
+                            </p>
+                          </td>
+                        </tr>
+
+                        <tr style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                          <td width="100%" style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;padding-top: 64px; padding-bottom: 16px; width: 100%">
+                            <table cellpadding="0" cellspacing="0" border="0" role="presentation" bgcolor="#f8f8f8" width="100%" style="-webkit-border-vertical-spacing:0px;-webkit-border-horizontal-spacing:0px;box-sizing: border-box; border-collapse: collapse; caption-side: bottom; border-radius: 20px; background-color: #f8f8f8; width: 100%; border-spacing: 0px; font-family: 'DM Sans';">
+                              <tbody style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                                <tr style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                                  <td align="center" valign="top" class="force-w100" style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;padding-top: 37px; padding-bottom: 51px">
+                                    <table class="force-w100" cellpadding="0" cellspacing="0" border="0" role="presentation" style="-webkit-border-vertical-spacing:0px;-webkit-border-horizontal-spacing:0px;box-sizing: border-box; border-collapse: collapse; caption-side: bottom; border-spacing: 0px; font-family: 'DM Sans';">
+                                      <tbody style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                                        <tr style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                                          <td class="force-w100 remove-gutter" style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;padding-left: 36px; padding-right: 36px">
+                                            <table class="force-w100 remove-gutter" cellpadding="0" cellspacing="0" border="0" role="presentation" width="720" style="-webkit-border-vertical-spacing:0px;-webkit-border-horizontal-spacing:0px;box-sizing: border-box; border-collapse: collapse; caption-side: bottom; width: 720px; border-spacing: 0px; font-family: 'DM Sans';">
+                                              <tbody style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                                                <tr style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                                                  <td align="center" class="force-w100 force-w100-leaf" style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;padding-bottom: 16px">
+                                                    <p width="720" style="box-sizing:border-box;font-size: 16px; font-weight: 400; text-align: center; line-height: 26px; color: #7d828b; mso-line-height-rule: exactly; margin: 0; padding: 0; width: 720px">Estamos comprometidos a proporcionarte un ambiente de aprendizaje estimulante y a apoyarte en cada paso de tu viaje académico. <span style="font-size: 16px; font-weight: 700; letter-spacing: -0.48px; text-align: center; line-height: 26px; mso-line-height-rule: exactly">Si tienes alguna pregunta o necesitas ayuda adicional, no dudes en ponerte en contacto con nosotros.</span>
+                                                    </p>
+
+                                                  </td>
+                                                </tr>
+                                                <tr style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                                                  <td align="left" class="force-w100" style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;padding-top: 25px">
+                                                    <table class="force-w100" cellpadding="0" cellspacing="0" border="0" role="presentation" style="-webkit-border-vertical-spacing:0px;-webkit-border-horizontal-spacing:0px;box-sizing: border-box; border-collapse: collapse; caption-side: bottom; border-spacing: 0px; font-family: 'DM Sans';">
+                                                      <tbody style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                                                        <tr style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                                                          <td class="h-responsive force-w100 remove-gutter" style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;padding-left: 123px; padding-right: 116px">
+                                                            <table class="h-responsive force-w100 remove-gutter" cellpadding="0" cellspacing="0" border="0" role="presentation" style="-webkit-border-vertical-spacing:0px;-webkit-border-horizontal-spacing:0px;box-sizing: border-box; border-collapse: collapse; caption-side: bottom; border-spacing: 0px; font-family: 'DM Sans';">
+                                                              <tbody style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                                                                <tr style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;">
+                                                                  <td valign="top" style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;padding-right: 6px; min-width: 54px">
+                                                                    <img src="/isep_elearning_custom/static/src/img_mail/table_18.png" class="img img-fluid o_we_custom_image" style="height:auto;box-sizing:border-box;vertical-align:middle;max-width: initial; width: 54px; display: block mso-hide: all;" width="54" />
+                                                                  </td>
+                                                                  <td valign="top" class="force-w100" width="178" style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;padding-top: 19px; padding-bottom: 22px; padding-left: 8px; width: 178px; min-width: 113px">
+                                                                    <p style="box-sizing:border-box;font-size: 16px; font-weight: 700; color: #7d828b; margin: 0; padding: 0">+52 3334008005</p>
+                                                                  </td>
+                                                                  <td valign="top" style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;padding-left: 8px; padding-right: 6px; min-width: 54px">
+                                                                    <img src="/isep_elearning_custom/static/src/img_mail/table_19.png" class="img img-fluid o_we_custom_image" style="height:auto;box-sizing:border-box;vertical-align:middle;max-width: initial; width: 54px; display: block mso-hide: all;" width="54"/>
+                                                                  </td>
+                                                                  <td valign="middle" style="border-style:solid;box-sizing:border-box;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;border-left-color:inherit;border-bottom-color:inherit;border-right-color:inherit;border-top-color:inherit;padding-left: 8px; min-width: 159px">
+                                                                    <p style="box-sizing:border-box;font-size: 16px; font-weight: 700; color: #7d828b; margin: 0; padding: 0; line-height: 54px; mso-line-height-rule: exactly">mexico@universidadisep.com</p>
+                                                                  </td>
+                                                                </tr>
+                                                              </tbody>
+                                                            </table>
+                                                          </td>
+                                                        </tr>
+                                                      </tbody>
+                                                    </table>
+                                                  </td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+
+
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+  </field>
+</record>
+
+
+
+</odoo>

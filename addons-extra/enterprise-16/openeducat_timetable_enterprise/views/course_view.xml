@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="view_op_course_form_inherit_view" model="ir.ui.view">
+            <field name="name">op.course.form</field>
+            <field name="model">op.course</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="openeducat_core.view_op_course_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='button_box']" position="inside">
+                    <button class="btn oe_stat_button"
+                            type="object"
+                            name="action_get_session"
+                            style="border-right: 1px solid;"
+                            icon="fa-clock-o">
+                        <field string="Time Table" name="timetable_count" widget="statinfo"/>
+                    </button>
+                </xpath>
+            </field>
+        </record>
+
+</odoo>

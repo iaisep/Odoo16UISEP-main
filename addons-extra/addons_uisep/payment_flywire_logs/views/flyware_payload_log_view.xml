@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="flywire_payload_log_view_tree" model="ir.ui.view">
+            <field name="name">flywire_payload_log_view_tree</field>
+            <field name="model">flywire.payload.log</field>
+            <field name="arch" type="xml">
+                <tree string="Log flywire" create="true" delete="false" edit="false">
+                    <field name="transaction_id"/>
+                    <field name="date_sent"/>
+                </tree>
+            </field>
+        </record>
+        <record id="flywire_payload_log_view_form" model="ir.ui.view">
+            <field name="name">flywire_payload_log_view_form</field>
+            <field name="model">flywire.payload.log</field>
+            <field name="arch" type="xml">
+                <form string="Log flywire" create="false" delete="false" edit="false">
+                    <sheet>
+                        <group>
+                            <field name="transaction_id"/>
+                            <field name="date_sent"/>                            
+                        </group>
+                        <notebook>
+                            <page name="json" string="JSON enviado">
+                                <group>
+                                    <field name="payload_json" widget="monospace"/>
+                                </group>
+                            </page>
+                            <page name="error" string="Error" attrs="{'invisible': [('payload_json', '!=', False)]}">
+                                <group>
+                                    <field name="error_message" widget="monospace"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="flywire_payload_log_action" model="ir.actions.act_window">
+            <field name="name">Log flywire</field>
+            <field name="res_model">flywire.payload.log</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="flywire_payload_log_view_tree"/>
+        </record>
+        <menuitem id="flywire_payload_log_menu"
+              name="Custom flywire"
+              sequence="50"
+              parent="base.menu_custom"
+              groups="base.group_system"/>
+        <menuitem id="flywire_payload_log_submenu" name="Log flywire" parent="flywire_payload_log_menu" action="flywire_payload_log_action"/>  
+    </data>
+</odoo>

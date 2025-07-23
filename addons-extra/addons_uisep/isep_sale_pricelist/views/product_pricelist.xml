@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo> 
+       <!-- Transfer Lead form View  -->
+	<record id="sale_product_pricelist_view_tree" model="ir.ui.view">
+		<field name="name">product.pricelist.tree</field>
+		<field name="model">product.pricing</field>
+		<field name="arch" type="xml">
+			<tree string="Recurring Pricelist Rules" >
+				<field name="pricelist_id" optional="show" />
+				<field name="product_template_id" string="Products" options="{'no_create': 1}" required="1"/>
+				<field name="product_variant_ids" widget="many2many_tags" string="Variants" groups="product.group_product_variant" domain="[('product_tmpl_id', '=', product_template_id)]" options="{'no_create': 1}"/>
+				<field name="recurrence_id" string="Period"/>
+				<field name="currency_id" invisible="1"/>
+				<field name="price" widget="monetary"/>
+				<field name="company_id" optional="show"/>
+			</tree>
+		</field>
+	</record>
+    
+    <record id="sale_product_pricelist_action" model="ir.actions.act_window">
+        <field name="name">Precios en el tiempo</field>
+        <field name="res_model">product.pricing</field>
+        <field name="view_mode">tree</field>
+        <field name="target">current</field>
+    </record>
+
+    <record id="custom_product_pricelist_form_inherit_s" model="ir.ui.view">
+        <field name="name">product.pricelist.form.inherit</field>
+        <field name="model">product.pricelist</field>
+        <field name="inherit_id" ref="product.product_pricelist_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('oe_title')]" position="before">
+                <div class="oe_button_box" name="button_box">
+                    <button name="action_show_product_pricelist" type="object" class="oe_stat_button" icon="fa-pencil-square-o">
+                        <span class="o_stat_text">Reglas segun el tiempo</span>
+                    </button>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
+
+

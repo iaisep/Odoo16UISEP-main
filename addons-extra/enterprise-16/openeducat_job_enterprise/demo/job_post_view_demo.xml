@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="job_post_demo1" model="op.job.post">
+        <field name="job_post">Application Engineer</field>
+        <field name="street">602 Suyojan Complex</field>
+        <field name="street2">Near President Hotel</field>
+        <field name="city">Ahmedabad</field>
+        <field name="zip">69945-000</field>
+        <field name="state_id" ref="base.state_br_ac"/>
+        <field name="country_id" ref="base.br"/>
+        <field name="salary_from">10000</field>
+        <field name="salary_upto">20000</field>
+        <field name="payable_at">monthly</field>
+        <field name="employment_type" ref="openeducat_job_enterprise.job_type_demo2"/>
+        <field name="start_date"
+                eval="(DateTime.today() + relativedelta(days=-10)).strftime('%Y-%m-%d 05:30:00')"/>
+        <field name="end_date"
+                eval="(DateTime.today() + relativedelta(days=3)).strftime('%Y-%m-%d 05:30:00')"/>
+        <field name="states">submit</field>
+        <field name="created_by">placement</field>
+        <field name="expected_employees">4</field>
+        <field name="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        </field>
+        <field name="department_id" ref="openeducat_core.op_department_3"/>
+    </record>
+    <record id="job_post_demo2" model="op.job.post">
+        <field name="job_post">Network Designer</field>
+        <field name="street">802 exsilios Complex</field>
+        <field name="street2">Near President Hotel</field>
+        <field name="city">Ahmedabad</field>
+        <field name="zip">69945-000</field>
+        <field name="state_id" ref="base.state_br_ac"/>
+        <field name="country_id" ref="base.br"/>
+        <field name="salary_from">40000</field>
+        <field name="salary_upto">60000</field>
+        <field name="payable_at">yearly</field>
+        <field name="employment_type" ref="openeducat_job_enterprise.job_type_demo1"/>
+        <field name="start_date"
+                eval="(DateTime.today() + relativedelta(days=-12)).strftime('%Y-%m-%d 05:30:00')"/>
+        <field name="end_date"
+                eval="(DateTime.today() + relativedelta(days=1)).strftime('%Y-%m-%d 05:30:00')"/>
+        <field name="created_by">alumni</field>
+        <field name="states">submit</field>
+        <field name="expected_employees">3</field>
+        <field name="description">There are many variations of passages of Lorem Ipsum available,
+            but the majority have suffered alteration in some form, by injected humour,
+            or randomised words which don't look even slightly believable.
+        </field>
+        <field name="department_id" ref="openeducat_core.op_department_3"/>
+    </record>
+    <record id="job_post_demo3" model="op.job.post">
+        <field name="job_post">Site Engineer</field>
+        <field name="street">72 Santa Clara Lane Coatesville</field>
+        <field name="street2">PA 19320</field>
+        <field name="city">Sau Paulo</field>
+        <field name="zip">695-4000</field>
+        <field name="state_id" ref="base.state_br_ac"/>
+        <field name="country_id" ref="base.br"/>
+        <field name="salary_from">10000</field>
+        <field name="salary_upto">20000</field>
+        <field name="payable_at">monthly</field>
+        <field name="employment_type" ref="openeducat_job_enterprise.job_type_demo1"/>
+        <field name="start_date"
+                eval="(DateTime.today() + relativedelta(days=-15)).strftime('%Y-%m-%d 05:30:00')"/>
+        <field name="end_date"
+                eval="(DateTime.today() + relativedelta(days=3)).strftime('%Y-%m-%d 05:30:00')"/>
+        <field name="created_by">placement</field>
+        <field name="states">done</field>
+        <field name="expected_employees">10</field>
+        <field name="description">There are many variations of passages of Lorem Ipsum available,
+            but the majority have suffered alteration in some form, by injected humour,
+            or randomised words which don't look even slightly believable.
+        </field>
+        <field name="department_id" ref="openeducat_core.op_department_3"/>
+    </record>
+    <record id="job_post_demo4" model="op.job.post">
+        <field name="job_post">Construction Manager</field>
+        <field name="street">75 Lexington St. Langhorne</field>
+        <field name="street2">PA 19047</field>
+        <field name="city">Manaus</field>
+        <field name="zip">693-5000</field>
+        <field name="state_id" ref="base.state_br_ac"/>
+        <field name="country_id" ref="base.br"/>
+        <field name="salary_from">50000</field>
+        <field name="salary_upto">60000</field>
+        <field name="payable_at">monthly</field>
+        <field name="employment_type" ref="openeducat_job_enterprise.job_type_demo1"/>
+        <field name="start_date"
+                eval="(DateTime.today() + relativedelta(days=-10)).strftime('%Y-%m-%d 05:30:00')"/>
+        <field name="end_date"
+                eval="(DateTime.today() + relativedelta(days=1)).strftime('%Y-%m-%d 05:30:00')"/>
+        <field name="created_by">alumni</field>
+        <field name="states">cancel</field>
+        <field name="expected_employees">15</field>
+        <field name="description">There are many variations of passages of Lorem Ipsum available,
+            but the majority have suffered alteration in some form, by injected humour,
+            or randomised words which don't look even slightly believable.
+        </field>
+        <field name="department_id" ref="openeducat_core.op_department_3"/>
+    </record>
+    <record id="job_post_demo5" model="op.job.post">
+        <field name="job_post">Electrical Sales Engineer</field>
+        <field name="street">4 West Thatcher Drive Maumee</field>
+        <field name="street2">OH 43537</field>
+        <field name="city">Brasilia</field>
+        <field name="zip">299-5000</field>
+        <field name="state_id" ref="base.state_br_ac"/>
+        <field name="country_id" ref="base.br"/>
+        <field name="salary_from">30000</field>
+        <field name="salary_upto">40000</field>
+        <field name="payable_at">monthly</field>
+        <field name="employment_type" ref="openeducat_job_enterprise.job_type_demo1"/>
+        <field name="start_date"
+                eval="(DateTime.today() + relativedelta(days=-17)).strftime('%Y-%m-%d 05:30:00')"/>
+        <field name="end_date"
+                eval="(DateTime.today() + relativedelta(days=5)).strftime('%Y-%m-%d 05:30:00')"/>
+        <field name="created_by">placement</field>
+        <field name="expected_employees">5</field>
+        <field name="description">There are many variations of passages of Lorem Ipsum available,
+            but the majority have suffered alteration in some form, by injected humour,
+            or randomised words which don't look even slightly believable.
+        </field>
+    </record>
+    <record id="job_post_demo6" model="op.job.post">
+        <field name="job_post">Electrical design Engineer</field>
+        <field name="street">84 Lake Court Hattiesburg</field>
+        <field name="street2">MS 39401</field>
+        <field name="city">Porto Alegre</field>
+        <field name="zip">299-6000</field>
+        <field name="state_id" ref="base.state_br_ac"/>
+        <field name="country_id" ref="base.br"/>
+        <field name="salary_from">80000</field>
+        <field name="salary_upto">90000</field>
+        <field name="payable_at">monthly</field>
+        <field name="employment_type" ref="openeducat_job_enterprise.job_type_demo1"/>
+        <field name="start_date"
+                eval="(DateTime.today() + relativedelta(days=-17)).strftime('%Y-%m-%d 05:30:00')"/>
+        <field name="end_date"
+                eval="(DateTime.today() + relativedelta(days=5)).strftime('%Y-%m-%d 05:30:00')"/>
+        <field name="created_by">alumni</field>
+        <field name="expected_employees">15</field>
+        <field name="description">There are many variations of passages of Lorem Ipsum available,
+            but the majority have suffered alteration in some form, by injected humour,
+            or randomised words which don't look even slightly believable.
+        </field>
+    </record>
+    <record id="job_post_demo7" model="op.job.post">
+        <field name="job_post">Quality Control Engineer</field>
+        <field name="street">464 San Pablo Ave. Port Richey</field>
+        <field name="street2">FL 34668</field>
+        <field name="city">Vitoria</field>
+        <field name="zip">299-7000</field>
+        <field name="state_id" ref="base.state_br_ac"/>
+        <field name="country_id" ref="base.br"/>
+        <field name="salary_from">10000</field>
+        <field name="salary_upto">30000</field>
+        <field name="payable_at">monthly</field>
+        <field name="employment_type" ref="openeducat_job_enterprise.job_type_demo1"/>
+        <field name="start_date"
+                eval="(DateTime.today() + relativedelta(days=-17)).strftime('%Y-%m-%d 05:30:00')"/>
+        <field name="end_date"
+                eval="(DateTime.today() + relativedelta(days=5)).strftime('%Y-%m-%d 05:30:00')"/>
+        <field name="created_by">placement</field>
+        <field name="expected_employees">5</field>
+        <field name="description">There are many variations of passages of Lorem Ipsum available,
+            but the majority have suffered alteration in some form, by injected humour,
+            or randomised words which don't look even slightly believable.
+        </field>
+    </record>
+</odoo>

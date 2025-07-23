@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_op_course_form_inh" model="ir.ui.view">
+            <field name="model">op.course</field>
+            <field name="inherit_id" ref="openeducat_core.view_op_course_form"/>
+            <field name="arch" type="xml">
+                <field name="code" position="after">
+                    <field name="faculty_id"/>
+                </field>
+            </field>
+    </record>
+</odoo>

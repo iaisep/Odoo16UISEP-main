@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+       <record id="view_moodle_credential_tree" model="ir.ui.view">
+            <field name="name">moodle.credential.tree</field>
+            <field name="model">moodle.credential</field>
+            <field name="arch" type="xml">
+                <tree string="Moodle Credential">
+                    <field name="request_url"/>
+                    <field name="company_ids" widget="many2many_tags"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_moodle_credential_from" model="ir.ui.view">
+            <field name="name">moodle.credential.form</field>
+            <field name="model">moodle.credential</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Moodle">
+                    <sheet>
+                        <group>
+                            <group string="Moodle API">
+                                <field name="request_url"/>
+                                <field name="access_token" password="True"/>
+                                <field name="company_ids"  widget="many2many_tags"/>
+                            </group>
+                            <group>
+                            </group> 
+                            <group string="Modulos Predeterminados" name="moodle" >
+                                <field name="moodle_modules_ids" nolabel="1" colspan="2">
+                                    <tree string="Modulos" editable="bottom">
+                                        <field name="name"/>
+                                        <field name="moodle_category"/>
+                                        <field name="number_id"/>
+                                    </tree>
+                                </field>   
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_moodle_setting" model="ir.actions.act_window">
+            <field name="name">Moodle</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">moodle.credential</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    No orders to upsell found.
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_moodle_setting"
+                name="Moodle"
+                parent="base.menu_users"
+                action="action_moodle_setting"/>
+
+    </data>
+</odoo>

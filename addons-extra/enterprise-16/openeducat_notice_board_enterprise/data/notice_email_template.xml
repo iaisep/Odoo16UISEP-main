@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="email_notice_template" model="mail.template">
+        <field name="name">Notice Template</field>
+        <field name="subject">{{ object.subject }}</field>
+        <field name="email_from">{{ user.email or '' }}</field>
+        <field name="email_to"></field>
+        <field name="model_id" ref="openeducat_notice_board_enterprise.model_op_notice"/>
+        <field name="auto_delete" eval="True"/>
+        <field name="body_html" type="html">
+            <table border="0" cellpadding="0" cellspacing="0"
+                    style="padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;">
+                <tr>
+                    <td align="center">
+                        <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                style="padding: 16px; background-color: white; color: #454748; border-collapse:separate;">
+                            <tbody>
+                                <tr>
+                                    <td align="center" style="min-width: 590px;">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                            <tr>
+                                                <td valign="middle">
+                                                    <span style="font-size: 10px;">Notice Number
+                                                    </span>
+                                                    <br/>
+                                                    <span style="font-size: 20px; font-weight: bold;">
+                                                        <t t-out="object.notice_number"/>
+                                                    </span>
+                                                </td>
+                                                <td valign="middle" align="right">
+                                                    <img t-att-src="'/logo.png?company=%s' % object.company_id.id"
+                                                            style="padding: 0px; margin: 0px; height: auto; width: 80px;"
+                                                            t-att-alt="'%s' % object.company_id.name"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="text-align:center;">
+                                                    <hr width="100%"
+                                                        style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin:16px 0px 16px 0px;"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center" style="min-width: 590px;">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                            <tr style="color:black; font-size:14px">
+                                                <td align="left" width="50%">
+                                                    <b>
+                                                        <span style="right-margin:5px">Name:</span>
+                                                    </b>
+                                                    <span>
+                                                        <t t-out="object.name"/>
+                                                    </span>
+                                                </td>
+                                                <td align="left" width="50%">
+                                                    <b>
+                                                        <span style="right-margin:5px">Notice Sender:
+                                                        </span>
+                                                    </b>
+                                                    <span>
+                                                        <t t-out="object.created_by.name or ' '"/>
+                                                    </span>
+                                                </td>
+                                            </tr>
+
+                                            <tr style="color:black; font-size:14px">
+                                                <td align="left" width="50%">
+                                                    <b>
+                                                        <span style="right-margin:5px">Start Date:
+                                                        </span>
+                                                    </b>
+                                                    <span>
+                                                        <t t-out="object.start_date.strftime('%m-%d-%Y')"/>
+                                                    </span>
+                                                </td>
+                                                <t t-if="object.end_date">
+                                                    <td align="left" width="50%">
+                                                        <b>
+                                                            <span style="right-margin:5px">End Date:</span>
+                                                        </b>
+                                                        <span>
+                                                            <t t-out="object.end_date.strftime('%m-%d-%Y')"/>
+                                                            <!--<t t-out="object.end_date.strftime('%m-%d-%Y')"/>-->
+                                                        </span>
+                                                    </td>
+                                                </t>
+                                            </tr>
+
+                                            <tr style="color:black; font-size:14px">
+                                                <td align="left" width="50%">
+                                                    <b>
+                                                        <span style="right-margin:5px">Academic Year:
+                                                        </span>
+                                                    </b>
+                                                    <span>
+                                                        <t t-out="object.academic_year_id.name"/>
+                                                    </span>
+                                                </td>
+                                                <td align="left" width="50%">
+                                                    <b>
+                                                        <span style="right-margin:5px">Academic Term:
+                                                        </span>
+                                                    </b>
+                                                    <span>
+                                                        <t t-out="object.academic_term_id.name"/>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span style="margin:5px"/>
+                                                </td>
+                                            </tr>
+                                            <tr style="top-margin:20px; color:black; font-size:14px">
+                                                <td align="left" colspan="2">
+                                                    <b>
+                                                        <span style="right-margin:5px">Subject:</span>
+                                                    </b>
+                                                    <span>
+                                                        <t t-out="object.subject"/>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span style="margin:5px"/>
+                                                </td>
+                                            </tr>
+                                            <tr style="top-margin:20px; color:black; font-size:14px">
+                                                <td align="left" colspan="2">
+                                                    <b>
+                                                        <span style="right-margin:5px">Description:
+                                                        </span>
+                                                    </b>
+                                                    <span>
+                                                        <t t-out="object.description"/>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="text-align:center;">
+                                                    <hr width="100%"
+                                                        style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin:16px 0px 16px 0px;"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td align="center" style="min-width: 590px;">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                style="min-width: 590px; background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                            <tr>
+                                                <td valign="middle" align="left">
+                                                    <t t-out="object.company_id.name"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td valign="middle" align="left" style="opacity: 0.7;">
+                                                    <t t-out="object.company_id.phone"/>
+                                                    <t t-if="object.company_id.email">
+                                                        |
+                                                        <a href="'mailto:%s' %  {{ object.company_id.email }}"
+                                                            style="text-decoration:none; color: #454748;">
+                                                            <t t-out="object.company_id.email"/>
+                                                        </a>
+                                                    </t>
+                                                    <t t-if="object.company_id.website">
+                                                        |
+                                                        <a href="'%s' % {{ object.company_id.website }}"
+                                                            style="text-decoration:none; color: #454748;">
+                                                            <t t-out="object.company_id.website"/>
+                                                        </a>
+                                                    </t>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </field>
+    </record>
+
+    <record id="email_circular_template" model="mail.template">
+        <field name="name">Circular Template</field>
+        <field name="subject">{{ object.subject }}</field>
+        <field name="email_from">{{ user.email or '' }}</field>
+        <field name="email_to"></field>
+        <field name="model_id" ref="openeducat_notice_board_enterprise.model_op_circular"/>
+        <field name="auto_delete" eval="True"/>
+        <field name="body_html" type="html">
+            <table border="0" cellpadding="0" cellspacing="0"
+                    style="padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;">
+                <tr>
+                    <td align="center">
+                        <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                style="padding: 16px; background-color: white; color: #454748; border-collapse:separate;">
+                            <tbody>
+                                <tr>
+                                    <td align="center" style="min-width: 590px;">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                            <tr>
+                                                <td valign="middle">
+                                                    <span style="font-size: 10px;">Circular Number
+                                                    </span>
+                                                    <br/>
+                                                    <span style="font-size: 20px; font-weight: bold;">
+                                                        <t t-out="object.circular_number"/>
+                                                    </span>
+                                                </td>
+                                                <td valign="middle" align="right">
+                                                    <img t-att-src="'/logo.png?company=%s' % object.company_id.id"
+                                                            style="padding: 0px; margin: 0px; height: auto; width: 80px;"
+                                                            t-att-alt="'%s' % object.company_id.name"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="text-align:center;">
+                                                    <hr width="100%"
+                                                        style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin:16px 0px 16px 0px;"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td align="center" style="min-width: 590px;">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                            <tr style="color:black; font-size:14px">
+                                                <td align="left" width="50%">
+                                                    <b>
+                                                        <span style="right-margin:5px">Name:</span>
+                                                    </b>
+                                                    <span>
+                                                        <t t-out="object.name"/>
+                                                    </span>
+                                                </td>
+                                                <td align="left" width="50%">
+                                                    <b>
+                                                        <span style="right-margin:5px">Notice Sender:
+                                                        </span>
+                                                    </b>
+                                                    <span>
+                                                        <t t-out="object.created_by.name"/>
+                                                    </span>
+                                                </td>
+                                            </tr>
+
+                                            <tr style="color:black; font-size:14px">
+                                                <td align="left" width="50%">
+                                                    <b>
+                                                        <span style="right-margin:5px">Start Date:
+                                                        </span>
+                                                    </b>
+                                                    <span>
+                                                        <t t-out="object.start_date.strftime('%m-%d-%Y')"/>
+                                                    </span>
+                                                </td>
+                                                <td align="left" width="50%">
+                                                    <t t-if="object.end_date">
+                                                        <b>
+                                                            <span style="right-margin:5px">End Date:</span>
+                                                        </b>
+                                                        <span>
+                                                            <t t-out="object.end_date.strftime('%m-%d-%Y')"/>
+                                                        </span>
+                                                    </t>
+                                                </td>
+                                            </tr>
+
+                                            <tr style="color:black; font-size:14px">
+                                                <td align="left" width="50%">
+                                                    <b>
+                                                        <span style="right-margin:5px">Academic Year:
+                                                        </span>
+                                                    </b>
+                                                    <span>
+                                                        <t t-out="object.academic_year_id.name"/>
+                                                    </span>
+                                                </td>
+                                                <td align="left" width="50%">
+                                                    <b>
+                                                        <span style="right-margin:5px">Academic Term:
+                                                        </span>
+                                                    </b>
+                                                    <span>
+                                                        <t t-out="object.academic_term_id.name"/>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span style="margin:5px"/>
+                                                </td>
+                                            </tr>
+                                            <tr style="top-margin:20px; color:black; font-size:14px">
+                                                <td align="left" colspan="2">
+                                                    <b>
+                                                        <span style="right-margin:5px">Subject:</span>
+                                                    </b>
+                                                    <span>
+                                                        <t t-out="object.subject"/>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span style="margin:5px"/>
+                                                </td>
+                                            </tr>
+                                            <tr style="top-margin:20px; color:black; font-size:14px">
+                                                <td align="left" colspan="2">
+                                                    <b>
+                                                        <span style="right-margin:5px">Description:
+                                                        </span>
+                                                    </b>
+                                                    <span>
+                                                        <t t-out="object.description"/>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="text-align:center;">
+                                                    <hr width="100%"
+                                                        style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin:16px 0px 16px 0px;"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td align="center" style="min-width: 590px;">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                style="min-width: 590px; background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                            <tr>
+                                                <td valign="middle" align="left">
+                                                    <t t-out="object.company_id.name"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td valign="middle" align="left" style="opacity: 0.7;">
+                                                    <t t-out="object.company_id.phone"/>
+                                                    <t t-if="object.company_id.email">
+                                                        |
+                                                        <a href="'mailto:%s' % {{ object.company_id.email }}"
+                                                            style="text-decoration:none; color: #454748;">
+                                                            <t t-out="object.company_id.email"/>
+                                                        </a>
+                                                    </t>
+                                                    <t t-if="object.company_id.website">
+                                                        |
+                                                        <a href="'%s' % {{ object.company_id.website }}"
+                                                            style="text-decoration:none; color: #454748;">
+                                                            <t t-out="object.company_id.website"/>
+                                                        </a>
+                                                    </t>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </field>
+    </record>
+</odoo>

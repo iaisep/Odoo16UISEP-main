@@ -1,0 +1,24 @@
+<odoo>
+
+    <record id="isep_survey_attachment_inherit_survey_user_input_line_form"
+            model="ir.ui.view">
+        <field name="name">survey.user_input.line.form (isep_survey_attachment)</field>
+        <field name="model">survey.user_input.line</field>
+        <field name="inherit_id" ref="survey.survey_user_input_line_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='answer_type']" position="after">
+                 <field name="filename"/>
+            </xpath>
+            <field name="suggested_answer_id" position="after">
+                <field name="answer_type" invisible="1"/>
+                <field name="value_file_ids" widget="many2many_binary" attrs="{'invisible': [('answer_type', '!=', 'file')]}">
+                    <tree create="0" edit="0">
+                        <field name="name" invisible="1"/>
+                        <field name="datas" widget="binary" filename="name"/>
+                    </tree>
+                </field>
+            </field>
+        </field>
+    </record>
+
+</odoo>

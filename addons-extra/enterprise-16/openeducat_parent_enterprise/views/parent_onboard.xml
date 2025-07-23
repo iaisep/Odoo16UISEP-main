@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- openeducat_core module STEPS -->
+    <!-- parent type view starts -->
+    <template id="onboarding_parent_layout_step">
+        <t t-call="base.onboarding_step">
+            <t t-set="title">Parent Type Configuration</t>
+            <t t-set="description">See how to create a Parent.</t>
+            <t t-set="done_icon" t-value="'fa-star'"/>
+            <t t-set="done_text">Looks great!</t>
+            <t t-set="btn_text">Customize</t>
+            <t t-set="method" t-value="'action_onboarding_parent_layout'"/>
+            <t t-set="model" t-value="'res.company'"/>
+            <t t-set="state" t-value="state.get('core_onboarding_parent_layout_state')"/>
+        </t>
+    </template>
+    <record id="view_op_parent_form_onboard" model="ir.ui.view">
+            <field name="name">op.parent.form</field>
+            <field name="model">op.parent</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Parent">
+                    <header>
+                        <button type="object" name="create_parent_user"
+                                string="Create Parent User"
+                                groups="openeducat_core.group_op_back_office_admin"
+                                class="oe_highlight"
+                                attrs="{'invisible':[('user_id','!=',False)]}"/>
+                    </header>
+                    <sheet>
+                        <group col="4">
+                            <field name="name" placeholder="Parent Name"/>
+                            <field name="user_id" readonly="1"/>
+                            <field name="mobile" required="1"/>
+                        </group>
+                        <separator colspan="4" string="Student(s)"/>
+                        <field name="student_ids"/>
+                    </sheet>
+                    <footer>
+                        <button string="Apply" class="btn btn-primary" type="object"
+                            name="action_onboarding_parent_layout"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+    <record id="action_onboarding_parent_layout" model="ir.actions.act_window">
+        <field name="name">parent Type Configuration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">op.parent</field>
+        <field name="view_mode">form</field>
+        <field name="binding_view_types">form</field>
+        <field name="view_id" ref="view_op_parent_form_onboard"/>
+        <field name="target">new</field>
+    </record>
+
+    <!-- ONBOARDING PANEL-->
+    <template id="openeducat_parent_onboarding_panel" name="openeducat.parent.quotation.onboarding.panel">
+        <t t-call="base.onboarding_container">
+            <t t-set="classes" t-value="'o_onboarding_violet'"/>
+            <t t-set="bg_image" t-value="'/sale/static/src/img/sale_quotation_onboarding_bg.jpg'"/>
+            <t t-set="close_method" t-value="'action_close_parent_panel_onboarding'"/>
+            <t t-set="close_model" t-value="'res.company'"/>
+            <t t-call="openeducat_parent_enterprise.onboarding_parent_layout_step" name="company_step_parent"></t>
+        </t>
+    </template>
+</odoo>

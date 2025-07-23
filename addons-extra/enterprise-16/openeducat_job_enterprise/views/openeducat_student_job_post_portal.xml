@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="student_portal_job_post_detail"
+              inherit_id="openeducat_core_enterprise.openeducat_enterprise_student_portal"
+              priority="20">
+        <xpath expr="//ul[hasclass('nav-pills')]" position="inside">
+            <li>
+                <a href="#job_post_detail" aria-expanded="false" data-bs-toggle="tab" role="tab">
+                    <h5 class="mb0">
+                        Job Post Detail
+                    </h5>
+                </a>
+            </li>
+        </xpath>
+        <xpath expr="//div[hasclass('tab-content')]" position="inside">
+            <div class="tab-pane fade" id="job_post_detail">
+                <div class="mb-4">
+                    <h4>Job Post Detail</h4>
+                </div>
+                <table class="mt16 table table-condensed">
+                    <thead>
+                        <tr>
+                            <th>Application Number</th>
+                            <th>Job Post</th>
+                            <th>Salary Proposed</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="student.job_post_ids" t-as="job">
+                            <tr>
+                                <td>
+                                    <span t-esc="job.name"/>
+                                </td>
+                                <td>
+                                    <span t-esc="job.post_id.name"/>
+                                </td>
+                                <td class="numspan">
+                                    <span t-esc="job.salary_proposed" t-options="{'widget': 'monetary', 'display_currency': job.currency_id}"/>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </xpath>
+    </template>
+</odoo>

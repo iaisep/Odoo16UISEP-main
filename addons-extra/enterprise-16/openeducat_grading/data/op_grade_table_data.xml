@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="grade_table_1" model="op.grade.table">
+            <field name="name">Check</field>
+            <field name="grade_table_ids" eval="[(4,ref('openeducat_grading.grade_table_line_1')),
+             (4,ref('openeducat_grading.grade_table_line_2')), (4,ref('openeducat_grading.grade_table_line_3'))]"/>
+        </record>
+
+         <record id="grade_table_2" model="op.grade.table">
+            <field name="name">Complete/Incomplete</field>
+            <field name="grade_table_ids" eval="[(4,ref('openeducat_grading.grade_table_line_4')),
+             (4,ref('openeducat_grading.grade_table_line_5'))]"/>
+        </record>
+
+        <record id="grade_table_3" model="op.grade.table">
+            <field name="name">Custom Grade Scale</field>
+            <field name="grade_table_ids" eval="[(4,ref('openeducat_grading.grade_table_line_6')),
+             (4,ref('openeducat_grading.grade_table_line_7')), (4,ref('openeducat_grading.grade_table_line_8')), (4,ref('openeducat_grading.grade_table_line_9'))]"/>
+        </record>
+
+         <record id="grade_table_4" model="op.grade.table">
+            <field name="name">Custom Grade Scale</field>
+            <field name="grade_table_ids" eval="[(4,ref('openeducat_grading.grade_table_line_10')),
+             (4,ref('openeducat_grading.grade_table_line_11'))]"/>
+        </record>
+
+         <record id="grade_table_5" model="op.grade.table">
+            <field name="name">Letter Grades</field>
+            <field name="grade_table_ids" eval="[(4,ref('openeducat_grading.grade_table_line_12')),
+             (4,ref('openeducat_grading.grade_table_line_13')), (4,ref('openeducat_grading.grade_table_line_14')), (4,ref('openeducat_grading.grade_table_line_15')),
+             (4,ref('openeducat_grading.grade_table_line_16')), (4,ref('openeducat_grading.grade_table_line_17')),
+             (4,ref('openeducat_grading.grade_table_line_18')), (4,ref('openeducat_grading.grade_table_line_19')),
+             (4,ref('openeducat_grading.grade_table_line_20')), (4,ref('openeducat_grading.grade_table_line_21')),
+             (4,ref('openeducat_grading.grade_table_line_22')), (4,ref('openeducat_grading.grade_table_line_23')),
+             (4,ref('openeducat_grading.grade_table_line_24'))]"/>
+        </record>
+
+        <record id="grade_table_6" model="op.grade.table">
+            <field name="name">Point</field>
+        </record>
+
+</odoo>

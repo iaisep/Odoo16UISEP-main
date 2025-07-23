@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="link_sign_card_template_sale_order" model="mail.template">
+            <field name="name">Link de registro de tarjetas</field>
+            <field name="model_id" ref="isep_form_card_link.model_sale_order"/>
+            <field name="email_from"></field>
+            <field name="email_to">{{ object.partner_id.email_formatted }}</field>
+            <field name="subject">Link de registro de tarjetas</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        <p>Estimado <t t-out="object.partner_id.name"></t>,</p>
+                        <p>Con el fin de facilitar el pago de las cuotas, ofrecemos una nueva opción:</p>
+                        <p>El débito automático en la tarjeta de crédito. Ahora puedes pagar tus mensualidades</p>
+                        <p>directamente con tu tarjeta, evitando retrasos y garantizando una mayor comodidad.</p>
+                        <p>Estos son los beneficios de esta opción:</p>
+                        <p>1. Practicidad: El pago es automático, sin necesidad de emitir comprobantes ni realizar transferencias.</p>
+                        <p>2. Seguridad: Tu tarjeta de crédito ya cuenta con medidas de seguridad, que protegen tu información financiera.</p>
+                        <p>3. Flexibilidad: Elija la mejor fecha de débito que se adapte a su flujo de caja.<br/></p>
+                        <p>Aquí tienes el enlace si eliges pagar con tarjeta: <t t-out="object.link_card"></t><br/></p>
+                        <p>Te recordemos que esta opción está disponible para todos los estudiantes. Si tiene alguna pregunta o necesita ayuda,
+                            nuestro equipo está disponible para ayudarlo. 
+                        </p>
+                        <p>Les agradecemos su confianza en nuestra institución y esperamos que esta alternativa les facilite aún más su vida académica.</p>
+                        <p>Atenciosamente, </p>
+                        
+                    </p>
+                </div>
+            </field>
+        </record>
+    </data>
+
+    
+
+</odoo>

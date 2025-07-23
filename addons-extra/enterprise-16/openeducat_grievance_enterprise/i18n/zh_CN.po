@@ -1,0 +1,1162 @@
+
+msgid ""
+msgstr ""
+"Project-Id-Version:Odoo Server 15.0"
+"Report-Msgid-Bugs-To:"
+"POT-Creation-Date:2022-09-22 05:54+0000"
+"PO-Revision-Date:2022-09-22 05:54+0000"
+"Last-Translator:"
+"Language-Team:"
+"MIME-Version:1.0"
+"Content-Type:text/plain; charset=UTF-8"
+"Content-Transfer-Encoding:"
+"Plural-Forms:"
+
+#. module: openeducat_grievance_enterprise
+#: model:mail.template,subject:openeducat_grievance_enterprise.mail_template_gms_assign
+#: model:mail.template,subject:openeducat_grievance_enterprise.mail_template_gms_for_resolution
+#: model:mail.template,subject:openeducat_grievance_enterprise.mail_template_gms_rejection
+msgid "\"{{ object.subject }}\""
+msgstr "\"{{ object.subject }}\""
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.gms_grievance_kanban_view
+msgid ""
+"<br/>\n"
+"                                        <strong>\n"
+"                                            <span>Subject:</span>\n"
+"                                        </strong>"
+msgstr ""
+"<br/>\n"
+" <strong>\n"
+" <span>主题：</span>\n"
+" </strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_team_kanban_view
+msgid "<i class=\"fa fa-ellipsis-v\" title=\"xyz\"/>"
+msgstr "<i class=\"fa fa-ellipsis-v\" title=\"xyz\"/>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+msgid ""
+"<span class=\"badge badge-pill badge-danger\">\n"
+"                                                <i class=\"fa fa-fw fa-check\" aria-label=\"Approved\" title=\"Done\" role=\"img\"/>\n"
+"                                                <span class=\"d-none d-md-inline\">Reject</span>\n"
+"                                            </span>"
+msgstr ""
+"<span class=\"badge badge-pill badge-danger\">\n"
+" <i class=\"fa fa-fw fa-check\" aria-label=\"Approved\" title=\"Done\" 角色=\"img\"/>\n"
+" <span class=\"d-none d-md-inline\">拒绝</span>\n"
+" </span>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+msgid ""
+"<span class=\"badge badge-pill badge-info\">\n"
+"                                                <i class=\"fa fa-fw fa-check\" aria-label=\"Draft\" title=\"Draft\" role=\"img\"/>\n"
+"                                                <span class=\"d-none d-md-inline\">Action</span>\n"
+"                                            </span>"
+msgstr ""
+"<span class=\"badge badge-pill badge-info\">\n"
+" <i class=\"fa fa-fw fa-check\" aria-label=\"Draft\" title=\"Draft\" 角色=\"img\"/>\n"
+" <span class=\"d-none d-md-inline\">动作</span>\n"
+" </span>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+msgid ""
+"<span class=\"badge badge-pill badge-info\">\n"
+"                                                <i class=\"fa fa-fw fa-check\" aria-label=\"Draft\" title=\"Draft\" role=\"img\"/>\n"
+"                                                <span class=\"d-none d-md-inline\">Resolve</span>\n"
+"                                            </span>"
+msgstr ""
+"<span class=\"badge badge-pill badge-info\">\n"
+" <i class=\"fa fa-fw fa-check\" aria-label=\"Draft\" title=\"Draft\" 角色=\"img\"/>\n"
+" <span class=\"d-none d-md-inline\">解决</span>\n"
+" </span>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+msgid ""
+"<span class=\"badge badge-pill badge-info\">\n"
+"                                                <i class=\"fa fa-fw fa-check\" aria-label=\"Draft\" title=\"Draft\" role=\"img\"/>\n"
+"                                                <span class=\"d-none d-md-inline\">Submitted</span>\n"
+"                                            </span>"
+msgstr ""
+"<span class=\"badge badge-pill badge-info\">\n"
+" <i class=\"fa fa-fw fa-check\" aria-label=\"Draft\" title=\"Draft\" 角色=\"img\"/>\n"
+" <span class=\"d-none d-md-inline\">已提交</span>\n"
+" </span>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+msgid ""
+"<span class=\"badge badge-pill badge-info\">\n"
+"                                                <i class=\"fa fa-fw fa-clock-o\" aria-label=\"Draft\" title=\"Draft\" role=\"img\"/>\n"
+"                                                <span class=\"d-none d-md-inline\">Draft</span>\n"
+"                                            </span>"
+msgstr ""
+"<span class=\"badge badge-pill badge-info\">\n"
+" <i class=\"fa fa-fw fa-clock-o\" aria-label=\"Draft\" title=\"Draft\\ \" role=\"img\"/>\n"
+" <span class=\"d-none d-md-inline\">草稿</span>\n"
+" </span>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+msgid ""
+"<span class=\"badge badge-pill badge-primary\">\n"
+"                                                <i class=\"fa fa-fw fa-clock-o\" aria-label=\"In Progress\" title=\"In Progress\" role=\"img\"/>\n"
+"                                                <span class=\"d-none d-md-inline\">In Review</span>\n"
+"                                            </span>"
+msgstr ""
+"<span class=\"badge badge-pill badge-primary\">\n"
+" <i class=\"fa fa-fw fa-clock-o\" aria-label=\"In Progress\" title=\"In进度\" role=\"img\"/>\n"
+" <span class=\"d-none d-md-inline\">审查中</span>\n"
+" </span>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+msgid ""
+"<span class=\"badge badge-pill badge-success\">\n"
+"                                                <i class=\"fa fa-fw fa-check\" aria-label=\"Approved\" title=\"Done\" role=\"img\"/>\n"
+"                                                <span class=\"d-none d-md-inline\">Close</span>\n"
+"                                            </span>"
+msgstr ""
+"<span class=\"badge badge-pill badge-success\">\n"
+" <i class=\"fa fa-fw fa-check\" aria-label=\"Approved\" title=\"Done\" 角色=\"img\"/>\n"
+" <span class=\"d-none d-md-inline\">关闭</span>\n"
+" </span>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.gms_grievance_kanban_view
+msgid ""
+"<span>\n"
+"                                                    <u>Academic</u>\n"
+"                                                </span>"
+msgstr ""
+"<span>\n"
+" <u>学术</u>\n"
+" </span>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.gms_grievance_kanban_view
+msgid ""
+"<span>\n"
+"                                                    <u>Non-Academic</u>\n"
+"                                                </span>"
+msgstr ""
+"<span>\n"
+" <u>非学术</u>\n"
+" </span>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_my_home_menu_grievance
+msgid "<span>Grievances</span>"
+msgstr "<span>申诉</span>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.gms_grievance_kanban_view
+msgid ""
+"<strong>\n"
+"                                                <span>Grievance By:</span>\n"
+"                                            </strong>"
+msgstr ""
+"<strong>\n"
+" <span>申诉人：</span>\n"
+" </strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "<strong>Academic Term:</strong>"
+msgstr "<strong>学期：</strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "<strong>Academic Year:</strong>"
+msgstr "<strong>学年：</strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "<strong>Action Taken:</strong>"
+msgstr "<strong>采取的措施：</strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "<strong>Attachment:</strong>"
+msgstr "<strong>附件：</strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "<strong>Batch:</strong>"
+msgstr "<strong>批次：</strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "<strong>Category:</strong>"
+msgstr "<strong>类别：</strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "<strong>Course:</strong>"
+msgstr "<strong>课程：</strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "<strong>Created Date:</strong>"
+msgstr "<strong>创建日期：</strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "<strong>Description:</strong>"
+msgstr "<strong>说明：</strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_team_kanban_view
+msgid "<strong>Grievance Category</strong>"
+msgstr "<strong>申诉类别</strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "<strong>Grievance Subject:</strong>"
+msgstr "<strong>申诉主题：</strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "<strong>Student:</strong>"
+msgstr "<strong>学生：</strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_team_kanban_view
+msgid "<strong>Total Grievances</strong>"
+msgstr "<strong>申诉总数</strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_search_view
+msgid "Academic"
+msgstr "学术的"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__academic_term_id
+msgid "Academic Term"
+msgstr "学期"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_registration
+msgid "Academic Term:"
+msgstr "学期："
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__academic_year_id
+msgid "Academic Year"
+msgstr "学年"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_registration
+msgid "Academic Year:"
+msgstr "学年："
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__state__action
+msgid "Action"
+msgstr "行动"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_needaction
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_needaction
+msgid "Action Needed"
+msgstr "需要采取的行动"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.actions.act_window,name:openeducat_grievance_enterprise.action_wizard_action_taken
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__action_taken
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_wizard_action_taken__action_taken
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.wizard_action_taken
+msgid "Action Taken"
+msgstr "采取的行动"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__activity_ids
+msgid "Activities"
+msgstr "活动"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "活动异常装饰"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__activity_state
+msgid "Activity State"
+msgstr "活动状态"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "活动类型图标"
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#, python-format
+msgid "All"
+msgstr "全部"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_search_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "Appeal"
+msgstr "上诉"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "Are you satisfied with the given resolution?"
+msgstr "您对给定的分辨率满意吗？"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_registration
+msgid "Attachment"
+msgstr "附件"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_attachment_count
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_attachment_count
+msgid "Attachment Count"
+msgstr "附件计数"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__attachment_ids
+msgid "Attachments"
+msgstr "附件"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_team_form_view
+msgid "Avatar"
+msgstr "阿凡达"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__batch_id
+msgid "Batch"
+msgstr "批"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_registration
+msgid "Batch:"
+msgstr "批："
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__can_publish
+msgid "Can Publish"
+msgstr "可以发布"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__state__cancel
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_search_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.wizard_action_taken
+msgid "Cancel"
+msgstr "取消"
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+#, python-format
+msgid "Category"
+msgstr "类别"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_registration
+msgid "Category:"
+msgstr "类别："
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__state__close
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_search_view
+msgid "Close"
+msgstr "关"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__color
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__color
+msgid "Color Index"
+msgstr "颜色索引"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__company_id
+msgid "Company"
+msgstr "公司"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category__complete_name
+msgid "Complete Name"
+msgstr "全名"
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/models/grievance.py:0
+#, python-format
+msgid "Compose Email"
+msgstr "写邮件"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.ui.menu,name:openeducat_grievance_enterprise.menu_action_configuration_gms
+msgid "Configuration"
+msgstr "配置"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__course_id
+msgid "Course"
+msgstr "课程"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_registration
+msgid "Course:"
+msgstr "课程："
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__created_date
+msgid "Created Date"
+msgstr "创建日期"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__create_uid
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category__create_uid
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_root_cause__create_uid
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__create_uid
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_wizard_action_taken__create_uid
+msgid "Created by"
+msgstr "由...制作"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__create_date
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category__create_date
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_root_cause__create_date
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__create_date
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_wizard_action_taken__create_date
+msgid "Created on"
+msgstr "创建于"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.gms_grievance_kanban_view
+msgid "Delete"
+msgstr "删除"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__description
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_registration
+msgid "Description"
+msgstr "描述"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__display_name
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category__display_name
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_root_cause__display_name
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__display_name
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_wizard_action_taken__display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "Do you wish to appeal?"
+msgstr "你想上诉吗？"
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__state__draft
+#, python-format
+msgid "Draft"
+msgstr "草稿"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.gms_grievance_kanban_view
+msgid "Dropdown menu"
+msgstr "下拉式菜单"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.gms_grievance_kanban_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "Edit"
+msgstr "编辑"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__faculty_id
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__grievance_for__faculty
+msgid "Faculty"
+msgstr "学院"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_follower_ids
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_follower_ids
+msgid "Followers"
+msgstr "追随者"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_partner_ids
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "追随者（合作伙伴）"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "字体真棒图标，例如任务"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model,name:openeducat_grievance_enterprise.model_grievance
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category__name
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+msgid "Grievance"
+msgstr "申诉"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "Grievance :"
+msgstr "申诉："
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model,name:openeducat_grievance_enterprise.model_wizard_action_taken
+msgid "Grievance Action Taken"
+msgstr "采取的申诉行动"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__grievance_for
+msgid "Grievance By"
+msgstr "申诉方"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.actions.act_window,name:openeducat_grievance_enterprise.action_grievance_category_list
+#: model:ir.model,name:openeducat_grievance_enterprise.model_grievance_category
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__grievance_category_id
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__grievance_category_id
+#: model:ir.ui.menu,name:openeducat_grievance_enterprise.menu_action_grievance_category_list
+msgid "Grievance Category"
+msgstr "申诉类别"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_category_form_view
+msgid "Grievance Category Form"
+msgstr "申诉类别表"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_category_list_view
+msgid "Grievance Category Tree"
+msgstr "申诉类别树"
+
+#. module: openeducat_grievance_enterprise
+#: model:mail.template,name:openeducat_grievance_enterprise.mail_template_gms
+msgid "Grievance Mail"
+msgstr "申诉邮件"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_pivot_view
+msgid "Grievance Pivot"
+msgstr "申诉枢轴"
+
+#. module: openeducat_grievance_enterprise
+#: model:mail.template,name:openeducat_grievance_enterprise.mail_template_gms_rejection
+msgid "Grievance Rejection"
+msgstr "申诉拒绝"
+
+#. module: openeducat_grievance_enterprise
+#: model:mail.template,name:openeducat_grievance_enterprise.mail_template_gms_for_resolution
+msgid "Grievance Resolution Email"
+msgstr "申诉解决电子邮件"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model,name:openeducat_grievance_enterprise.model_grievance_root_cause
+msgid "Grievance Root Cause"
+msgstr "申诉根本原因"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_search_view
+msgid "Grievance Search"
+msgstr "申诉搜索"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model,name:openeducat_grievance_enterprise.model_grievance_team
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_res_users__grievance_team_id
+msgid "Grievance Team"
+msgstr "申诉小组"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_team_form_view
+msgid "Grievance Team Form"
+msgstr "申诉小组表格"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_team_search_view
+msgid "Grievance Team Search"
+msgstr "申诉团队搜索"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_team_list_view
+msgid "Grievance Team Tree"
+msgstr "申诉团队树"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_team_form_view
+msgid "Grievance Team name..."
+msgstr "申诉小组名称..."
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_list_view
+msgid "Grievance Tree"
+msgstr "申诉树"
+
+#. module: openeducat_grievance_enterprise
+#: model:mail.template,name:openeducat_grievance_enterprise.mail_template_gms_assign
+msgid "Grievance receive confirmation"
+msgstr "申诉收到确认"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.actions.act_window,name:openeducat_grievance_enterprise.action_grievance_list
+#: model:ir.ui.menu,name:openeducat_grievance_enterprise.menu_action_gms
+#: model:ir.ui.menu,name:openeducat_grievance_enterprise.menu_action_grievance_list
+#: model:openeducat.portal.menu,name:openeducat_grievance_enterprise.website_menu_gms_portal_menu
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_team_kanban_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_my_home_grievance
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_my_home_menu_grievance
+msgid "Grievances"
+msgstr "委屈"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_search_view
+msgid "Group by Date"
+msgstr "按日期分组"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__has_message
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__has_message
+msgid "Has Message"
+msgstr "有消息"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "History"
+msgstr "历史"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__id
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category__id
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_root_cause__id
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__id
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_wizard_action_taken__id
+msgid "ID"
+msgstr "ID"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__activity_exception_icon
+msgid "Icon"
+msgstr "图标"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "指示异常活动的图标。"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__message_needaction
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__message_unread
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance_team__message_needaction
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance_team__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "如果选中，则需要您注意新消息。"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__message_has_error
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__message_has_sms_error
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance_team__message_has_error
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance_team__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "如果选中，则某些邮件会出现传递错误。"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_search_view
+msgid "In Action"
+msgstr "在行动"
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__state__in_review
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_search_view
+#, python-format
+msgid "In Review"
+msgstr "审查中"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__is_academic
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category__is_academic
+msgid "Is Academic"
+msgstr "是学术的"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__is_appeal
+msgid "Is Appeal"
+msgstr "是上诉"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_is_follower
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_is_follower
+msgid "Is Follower"
+msgstr "是追随者"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__is_published
+msgid "Is Published"
+msgstr "已发布"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__is_satisfied
+msgid "Is Satisfied"
+msgstr "满意"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance____last_update
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category____last_update
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_root_cause____last_update
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team____last_update
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_wizard_action_taken____last_update
+msgid "Last Modified on"
+msgstr "最后修改时间"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__write_uid
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category__write_uid
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_root_cause__write_uid
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__write_uid
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_wizard_action_taken__write_uid
+msgid "Last Updated by"
+msgstr "最后更新者"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__write_date
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category__write_date
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_root_cause__write_date
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__write_date
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_wizard_action_taken__write_date
+msgid "Last Updated on"
+msgstr "最后更新时间"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_main_attachment_id
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "主要附件"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__member_ids
+msgid "Members"
+msgstr "成员"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_has_error
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_has_error
+msgid "Message Delivery error"
+msgstr "消息传递错误"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_ids
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_ids
+msgid "Messages"
+msgstr "留言"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "我的活动截止日期"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__name
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_root_cause__name
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__name
+msgid "Name"
+msgstr "姓名"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__subject
+msgid "Name/Subject"
+msgstr "姓名/主题"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_registration
+msgid "Name/Subject:"
+msgstr "姓名/主题："
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#, python-format
+msgid "Newest"
+msgstr "最新"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_registration
+msgid ""
+"Next\n"
+"                                            <span class=\"fa fa-long-arrow-right\"/>"
+msgstr ""
+"下一个\n"
+" <span class=\"fa fa-long-arrow-right\"/>"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "下一个活动日历事件"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "下次活动截止日期"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__activity_summary
+msgid "Next Activity Summary"
+msgstr "下一个活动总结"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__activity_type_id
+msgid "Next Activity Type"
+msgstr "下一个活动类型"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__is_satisfied__no
+msgid "No"
+msgstr "不"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_search_view
+msgid "Non-Academic"
+msgstr "非学术"
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#, python-format
+msgid "None"
+msgstr "没有任何"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "Not-Satisfied 🙁"
+msgstr "不满意🙁"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_needaction_counter
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_needaction_counter
+msgid "Number of Actions"
+msgstr "操作数"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_has_error_counter
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_has_error_counter
+msgid "Number of errors"
+msgstr "错误数"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__message_needaction_counter
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance_team__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "需要操作的消息数"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__message_has_error_counter
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance_team__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "投递错误的邮件数"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__message_unread_counter
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance_team__message_unread_counter
+msgid "Number of unread messages"
+msgstr "未读消息数"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__parent_id
+msgid "Parent"
+msgstr "家长"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category__parent_id
+msgid "Parent Category"
+msgstr "父类别"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__grievance_parent_id
+msgid "Parent Grievance"
+msgstr "家长申诉"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_registration
+msgid "Parent Grievance:"
+msgstr "家长申诉："
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category__parent_path
+msgid "Parent Path"
+msgstr "父路径"
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__state__reject
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+#, python-format
+msgid "Reject"
+msgstr "拒绝"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+msgid "Resolution"
+msgstr "解析度"
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__state__resolve
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+#, python-format
+msgid "Resolve"
+msgstr "解决"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__activity_user_id
+msgid "Responsible User"
+msgstr "负责任的用户"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__root_cause_id
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_wizard_action_taken__root_cause_id
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+msgid "Root Cause"
+msgstr "根本原因"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_has_sms_error
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "短信发送错误"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "Satisfied 😄"
+msgstr "满意😄"
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#, python-format
+msgid "Search in All"
+msgstr "全部搜索"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+msgid "Send mail"
+msgstr "发邮件"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_team_kanban_view
+msgid "Settings"
+msgstr "设置"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__state
+msgid "State"
+msgstr "状态"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+msgid "Status"
+msgstr "地位"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"基于活动的状态\n"
+"逾期：截止日期已过\n"
+"今天：活动日期为今天\n"
+"计划：未来活动。"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__student_id
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__grievance_for__student
+msgid "Student"
+msgstr "学生"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_registration
+msgid "Student Name:"
+msgstr "学生姓名："
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.wizard_action_taken
+msgid "Submit"
+msgstr "提交"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+msgid "Submit Grievance"
+msgstr "提交申诉"
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__state__submitted
+#, python-format
+msgid "Submitted"
+msgstr "已提交"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+msgid "Take Action"
+msgstr "采取行动"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__grievance_team_id
+msgid "Team"
+msgstr "团队"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__team_leader
+msgid "Team Leader"
+msgstr "队长"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_team_form_view
+msgid "Team Members"
+msgstr "团队成员"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.actions.act_window,name:openeducat_grievance_enterprise.action_grievance_team_list
+#: model:ir.ui.menu,name:openeducat_grievance_enterprise.menu_action_grievance_team_list
+msgid "Teams"
+msgstr "团队"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__website_url
+msgid "The full URL to access the document through the website."
+msgstr "通过网站访问文档的完整 URL。"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+msgid "There are no Grievances"
+msgstr "没有怨言"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__grievance_count
+msgid "Total Grievances"
+msgstr "总申诉"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "记录的异常活动的类型。"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_unread
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_unread
+msgid "Unread Messages"
+msgstr "未读消息"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_unread_counter
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "未读消息计数器"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+msgid ""
+"Update\n"
+"                                        <span class=\"fa fa-long-arrow-right\"/>"
+msgstr ""
+"更新\n"
+" <span class=\"fa fa-long-arrow-right\"/>"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model,name:openeducat_grievance_enterprise.model_res_users
+msgid "Users"
+msgstr "用户"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__website_published
+msgid "Visible on current website"
+msgstr "在当前网站上可见"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__website_message_ids
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__website_message_ids
+msgid "Website Messages"
+msgstr "网站消息"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__website_url
+msgid "Website URL"
+msgstr "网址"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__website_message_ids
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance_team__website_message_ids
+msgid "Website communication history"
+msgstr "网站交流历史"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__is_satisfied__yes
+msgid "Yes"
+msgstr "是的"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_access_denied
+msgid "You are not Allowed to Access this data."
+msgstr "您无权访问此数据。"
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#, python-format
+msgid "close"
+msgstr "关"
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#, python-format
+msgid "grievance category search"
+msgstr "申诉类别搜索"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__grievance_for__parent
+msgid "parent"
+msgstr "父母"
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#, python-format
+msgid "search in Batch"
+msgstr "批量搜索"
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#, python-format
+msgid "search in Course"
+msgstr "在课程中搜索"
+
+#. module: openeducat_grievance_enterprise
+#: model:mail.template,subject:openeducat_grievance_enterprise.mail_template_gms
+msgid "{{ object.subject }}"
+msgstr "{{ object.subject }}"

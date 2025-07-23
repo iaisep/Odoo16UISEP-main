@@ -1,0 +1,57 @@
+<odoo>
+    <record id="view_dv_data_source_tree" model="ir.ui.view">
+        <field name="name">dv.data.source.tree</field>
+        <field name="model">dv.data.source</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="host"/>
+                <field name="port"/>
+                <field name="user"/>
+                <field name="database"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_dv_data_source_form" model="ir.ui.view">
+        <field name="name">dv.data.source.form</field>
+        <field name="model">dv.data.source</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group name="group1" string="Configuracion Database">
+                            <field name="name"/>
+                            <field name="host"/>
+                            <field name="port"/>
+                            <field name="user"/>
+                            <field name="password" widget="password"/>
+                            <field name="database"/> 
+                            <field name="activate_xmlrpc" />                           
+                        </group>
+                        <group name="group2" string="Configuracion XMLRPC" attrs="{'invisible': [('activate_xmlrpc','!=', True)]}" >
+                            <field name="url_rpc" />
+                            <field name="db_rpc" />
+                            <field name="username_rpc" />
+                            <field name="password_rpc" widget="password" />
+                            <button name="call_models_from_remote" type="object" string="Models Migration" class="oe_highlight"/>
+                        </group>                        
+                    </group>
+                    <notebook attrs="{'invisible': [('activate_xmlrpc','!=', True)]}">
+                        <page name="modules_migration" string="Modelos a migrar">
+                            <field name="dv_model_lines_ids" mode="tree" readonly="1">
+                                <tree string="Modelos a migrar">
+                                    <field name="name" />
+                                    <field name="name_db" optional="hide"/>
+                                    <field name="descrip" />
+                                    <field name="type" />
+                                    <field name="model_tran" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>                
+            </form>
+        </field>
+    </record>
+</odoo>

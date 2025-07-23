@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="demo_course_1_forum" model="forum.forum">
+            <field name="name">Introduction To Python Programming</field>
+        </record>
+
+        <record id="openeducat_lms.demo_course_1" model="op.course">
+            <field name="forum_id" ref="openeducat_lms_forum.demo_course_1_forum"/>
+        </record>
+
+        <record id="forum_post_1" model="forum.post">
+            <field name="name">What is the difference between 2.7 search() and 3.1 search()?</field>
+            <field name="state">active</field>
+            <field name="forum_id" ref="demo_course_1_forum"/>
+            <field name="course_id" ref="openeducat_lms.demo_course_1"/>
+        </record>
+
+        <record id="forum_post_2" model="forum.post">
+            <field name="name">Is it possible to develop embaded system with python?</field>
+            <field name="state">active</field>
+            <field name="forum_id" ref="demo_course_1_forum"/>
+            <field name="course_id" ref="openeducat_lms.demo_course_1"/>
+        </record>
+
+        <record id="demo_course_2_forum" model="forum.forum">
+            <field name="name">Learn to Speak: French</field>
+        </record>
+
+        <record id="openeducat_lms.demo_course_2" model="op.course">
+            <field name="forum_id" ref="openeducat_lms_forum.demo_course_2_forum"/>
+        </record>
+
+        <record id="forum_post_3" model="forum.post">
+            <field name="name">The French language is too hard to speak so is there any way to learn?</field>
+            <field name="state">active</field>
+            <field name="forum_id" ref="demo_course_2_forum"/>
+            <field name="course_id" ref="openeducat_lms.demo_course_2"/>
+        </record>
+
+        <record id="forum_post_4" model="forum.post">
+            <field name="name">Is Bonjour meant Hello or any other word is exist for it?</field>
+            <field name="state">active</field>
+            <field name="forum_id" ref="demo_course_2_forum"/>
+            <field name="course_id" ref="openeducat_lms.demo_course_2"/>
+        </record>
+
+        <record id="demo_course_3_forum" model="forum.forum">
+            <field name="name">Learn to Sell Anything</field>
+        </record>
+
+        <record id="openeducat_lms.demo_course_3" model="op.course">
+            <field name="forum_id" ref="openeducat_lms_forum.demo_course_3_forum"/>
+        </record>
+
+        <record id="forum_post_5" model="forum.post">
+            <field name="name">If you say you are good seller then how will you prove your self?</field>
+            <field name="state">active</field>
+            <field name="forum_id" ref="demo_course_3_forum"/>
+            <field name="course_id" ref="openeducat_lms.demo_course_3"/>
+        </record>
+
+        <record id="forum_post_6" model="forum.post">
+            <field name="name">What is the marketing strategy to bring money from co-operate field?</field>
+            <field name="state">active</field>
+            <field name="forum_id" ref="demo_course_3_forum"/>
+            <field name="course_id" ref="openeducat_lms.demo_course_3"/>
+        </record>
+
+</odoo>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="op_admission_form_extended_view_inherit" model="ir.ui.view">
+        <field name="name">op.admission.form.inherit</field>
+        <field name="model">op.admission</field>
+        <field name="inherit_id" ref="openeducat_admission.view_op_admission_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="accepted_percentage" widget="percentage"/>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="op_admission_tree_extended_view_inherit" model="ir.ui.view">
+        <field name="name">op.admission.form.inherit</field>
+        <field name="model">op.admission</field>
+        <field name="inherit_id" ref="openeducat_admission.view_op_admission_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='email']" position="after">
+                <field name="accepted_percentage" optional="hide" widget="percentage"/>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>

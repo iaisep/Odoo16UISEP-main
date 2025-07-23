@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_employee_view_form_extends" model="ir.ui.view">
+        <field name="name">hr.employee.form.inherit</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='coach_id']" position="after">
+                <field name="is_schedules" string="Habilitar Horarios para ChatRoom"/>
+            </xpath>
+            <xpath expr="//page[@name='hr_settings']" position="after">
+                <page string="Horarios para ChatRoom" attrs="{'invisible':[('is_schedules','=',False)]}">
+                    <field name="schedules_ids">
+                        <tree editable="bottom">
+                            <field name="day_selected" string="Día"/>
+                            <field name="entry_time" string="Hora de Ingreso" widget="timesheet_uom"/>
+                            <field name="departure_time" string="Hora de Salida" widget="timesheet_uom"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="category_10" model="op.course.category">
+            <field name="name">General Biology</field>
+            <field name="code">bio-247</field>
+            <field name="icon">fa fa-search</field>
+        </record>
+        <record id="demo_course_biology" model="op.course">
+            <field name="name">General Biology I: Foundations of Biology</field>
+            <field name="code">Biology-1456</field>
+            <field name="sequence">7</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="faculty_ids"
+                   eval="[(6,0,[ref('openeducat_core.op_faculty_4'),ref('openeducat_core.op_faculty_2')])]"/>
+            <field name="category_ids"
+                   eval="[(6,0,[ref('category_10')])]"/>
+            <field name="suggested_course_ids"
+                   eval="[(6,0,[ref('demo_course_vegetable')])]"/>
+            <field name="visibility">logged_user</field>
+            <field name="level_id" ref="op_course_level_advanced"/>
+            <field name="navigation_policy">free_learn</field>
+            <field name="state">open</field>
+            <field name="online_course" eval="True"/>
+            <field name="confirm_date"
+                   eval="(DateTime.today() - relativedelta(days=8))"/>
+            <field name="image_1920" type="base64"
+                   file="openeducat_lms/static/src/img/general-biology-i-foundations-of-biology-min.jpg"/>
+            <field name="full_description"><![CDATA[
+            <div>
+<p>Biology is the study of life. In this course you will learn the concepts of General Biology from two complementary perspectives. First, you will gain the knowledge you need for academic and or professional development. Second, you will learn how Biology relates to day to day living.
+
+The General Biology Series will allows you to Master the principles and concepts of biology at your own pace.
+            </p>
+            </div>
+            ]]></field>
+        </record>
+
+        <record id="op_course_section_biology_variable" model="op.course.section">
+            <field name="name">Introduction</field>
+            <field name="course_id" ref="demo_course_biology"/>
+            <field name="sequence" type="int">1</field>
+        </record>
+        <record id="op_course_section_biology_variable2" model="op.course.section">
+            <field name="name">Introduction Living Systems And Scientific Method</field>
+            <field name="course_id" ref="demo_course_biology"/>
+            <field name="sequence" type="int">2</field>
+        </record>
+        <record id="op_course_section_biology_variable3" model="op.course.section">
+            <field name="name">The Chemistry of Life</field>
+            <field name="course_id" ref="demo_course_biology"/>
+            <field name="sequence" type="int">3</field>
+        </record>
+        <record id="op_course_section_biology_variable4" model="op.course.section">
+            <field name="name">The Molecules of Life</field>
+            <field name="course_id" ref="demo_course_biology"/>
+            <field name="sequence" type="int">4</field>
+        </record>
+        <record id="op_course_section_biology_variable5" model="op.course.section">
+            <field name="name">Quiz</field>
+            <field name="course_id" ref="demo_course_biology"/>
+            <field name="sequence" type="int">5</field>
+        </record>
+
+        <record id="material_biology_introduction1" model="op.material">
+            <field name="name">Welcome. Shall we begin?</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">7.35</field>
+            <field name="url" eval="'https://youtu.be/URUJD5NEXC8'"/>
+            <field name="document_id">URUJD5NEXC8</field>
+        </record>
+
+        <record id="op_course_material_biology_introduction1" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_biology_introduction1"/>
+            <field name="section_id" ref="op_course_section_biology_variable"/>
+            <field name="preview" eval="True"/>
+        </record>
+
+        <record id="material_biology_scientific1" model="op.material">
+            <field name="name">The Characteristics of Life</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">2.15</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=0NnFhY_STFQ'"/>
+            <field name="document_id">0NnFhY_STFQ</field>
+        </record>
+        <record id="material_biology_scientific2" model="op.material">
+            <field name="name">The Diversity of Life on our Planet</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">4.25</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=c_I5qkAviMQ'"/>
+            <field name="document_id">c_I5qkAviMQ</field>
+        </record>
+        <record id="material_biology_scientific3" model="op.material">
+            <field name="name">The Scientific Method</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">21.80</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=KYOYCDNr_HY'"/>
+            <field name="document_id">KYOYCDNr_HY</field>
+        </record>
+
+        <record id="op_course_material_biology_scientific1" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_biology_scientific1"/>
+            <field name="section_id" ref="op_course_section_biology_variable2"/>
+        </record>
+        <record id="op_course_material_biology_scientific2" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_biology_scientific2"/>
+            <field name="section_id" ref="op_course_section_biology_variable2"/>
+            <field name="preview" eval="True"/>
+        </record>
+        <record id="op_course_material_biology_scientific3" model="op.course.material">
+            <field name="sequence" type="int">3</field>
+            <field name="material_id" ref="material_biology_scientific3"/>
+            <field name="section_id" ref="op_course_section_biology_variable2"/>
+        </record>
+
+        <record id="material_biology_chemistry1" model="op.material">
+            <field name="name">Living Systems and The Scientific Method</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">4.10</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=SMGRe824kak'"/>
+            <field name="document_id">SMGRe824kak</field>
+        </record>
+        <record id="material_biology_chemistry2" model="op.material">
+            <field name="name">The Chemistry of Life</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">7.00</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=K0JeZ4c9eYk'"/>
+            <field name="document_id">K0JeZ4c9eYk</field>
+        </record>
+
+        <record id="material_biology_chemistry4" model="op.material">
+            <field name="name">The Elements of Life</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">3.35</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=qdoQ9NHLuAQ'"/>
+            <field name="document_id">qdoQ9NHLuAQ</field>
+        </record>
+        <record id="op_course_material_biology_chemistry1" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_biology_chemistry1"/>
+            <field name="section_id" ref="op_course_section_biology_variable3"/>
+        </record>
+        <record id="op_course_material_biology_chemistry2" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_biology_chemistry2"/>
+            <field name="section_id" ref="op_course_section_biology_variable3"/>
+            <field name="preview" eval="True"/>
+        </record>
+
+        <record id="op_course_material_biology_chemistry4" model="op.course.material">
+            <field name="sequence" type="int">4</field>
+            <field name="material_id" ref="material_biology_chemistry4"/>
+            <field name="section_id" ref="op_course_section_biology_variable3"/>
+        </record>
+
+        <record id="material_biology_molecules1" model="op.material">
+            <field name="name">Overview of The Molecules of Life</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">10.80</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=QWf2jcznLsY'"/>
+            <field name="document_id">QWf2jcznLsY</field>
+        </record>
+        <record id="material_biology_molecules2" model="op.material">
+            <field name="name">Carbohydrates</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">5.20</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=wxzc_2c6GMg'"/>
+            <field name="document_id">wxzc_2c6GMg</field>
+        </record>
+        <record id="material_biology_molecules3" model="op.material">
+            <field name="name">Proteins</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">4.30</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=JGZj6DsUZhE'"/>
+            <field name="document_id">JGZj6DsUZhE</field>
+        </record>
+        <record id="material_biology_molecules4" model="op.material">
+            <field name="name">Lipids</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">6.45</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=5BBYBRWzsLA'"/>
+            <field name="document_id">5BBYBRWzsLA</field>
+        </record>
+
+        <record id="material_biology_molecules5" model="op.material">
+            <field name="name">Nucleic Acids</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">3.10</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=MA-ouz1LtpM'"/>
+            <field name="document_id">MA-ouz1LtpM</field>
+        </record>
+
+        <record id="op_course_material_biology_molecules1" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_biology_molecules1"/>
+            <field name="section_id" ref="op_course_section_biology_variable4"/>
+        </record>
+        <record id="op_course_material_biology_molecules2" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_biology_molecules2"/>
+            <field name="section_id" ref="op_course_section_biology_variable4"/>
+        </record>
+
+        <record id="op_course_material_biology_molecules3" model="op.course.material">
+            <field name="sequence" type="int">3</field>
+            <field name="material_id" ref="material_biology_molecules3"/>
+            <field name="section_id" ref="op_course_section_biology_variable4"/>
+        </record>
+
+        <record id="op_course_material_biology_molecules4" model="op.course.material">
+            <field name="sequence" type="int">4</field>
+            <field name="material_id" ref="material_biology_molecules4"/>
+            <field name="section_id" ref="op_course_section_biology_variable4"/>
+        </record>
+        <record id="op_course_material_biology_molecules5" model="op.course.material">
+            <field name="sequence" type="int">5</field>
+            <field name="material_id" ref="material_biology_molecules5"/>
+            <field name="section_id" ref="op_course_section_biology_variable4"/>
+        </record>
+        <record id="material_biology_quiz" model="op.material">
+            <field name="name">Biology Quiz</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">quiz</field>
+            <field name="total_time" type="float">5.00</field>
+            <field name="quiz_id" ref="openeducat_quiz.op_qz_biology1"/>
+        </record>
+
+        <record id="op_course_material_biology_quiz" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_biology_quiz"/>
+            <field name="section_id" ref="op_course_section_biology_variable5"/>
+        </record>
+        <record id="op_user_student_44" model="res.users" context="{'no_reset_password': True}">
+            <field name="name">Merry</field>
+            <field name="password">openeducatbiology</field>
+            <field name="login">openeducatbiology@openeducat.com</field>
+            <field name="groups_id"
+                   eval="[(4,ref('openeducat_lms.group_op_lms_admin'))]"/>
+        </record>
+
+        <record id="demo_enrollment_biology" model="op.course.enrollment">
+            <field name="course_id" ref="openeducat_lms.demo_course_biology"/>
+            <field name="user_id" ref="openeducat_lms.op_user_student_44"/>
+            <field name="state">in_progress</field>
+            <field name="enrollment_date" eval="(DateTime.today() - relativedelta(days=1))"/>
+        </record>
+
+</odoo>

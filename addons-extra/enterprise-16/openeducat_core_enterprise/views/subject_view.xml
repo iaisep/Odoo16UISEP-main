@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <!-- Dashboard Action -->
+        <record model="ir.actions.act_window" id="act_dashboard_op_subject_view">
+            <field name="name">Subjects</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.subject</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="openeducat_core.view_op_subject_search"/>
+            <field name="domain">[('course_id','in',[active_id])]</field>
+        </record>
+
+        <record id="op_subject_from_view_inherited" model="ir.ui.view">
+            <field name="name">op.subject.form.inherited</field>
+            <field name="model">op.subject</field>
+            <field name="inherit_id" ref="openeducat_core.view_op_subject_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[1]" position="before">
+                    <div class="oe_button_box" name="button_box" width="100%">
+                    </div>
+                </xpath>
+
+                <xpath expr="//field[@name='code']" position="after">
+                    <field name="course_id" required="1"/>
+                </xpath>
+                <xpath expr="//field[@name='grade_weightage']" position="after">
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                </xpath>
+                <xpath expr="//field[@name='type']" position="after">
+                    <field name="credit_point"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="op_subject_search_view_inherited" model="ir.ui.view">
+            <field name="name">op.subject.search.inherited</field>
+            <field name="model">op.subject</field>
+            <field name="inherit_id" ref="openeducat_core.view_op_subject_search"/>
+            <field name="arch" type="xml">
+                <xpath expr="." position="inside">
+                    <searchpanel>
+                        <field name="course_id" icon="fa fa-book"/>
+                    </searchpanel>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="op_subject_tree_view_inherited" model="ir.ui.view">
+            <field name="name">op.subject.tree.inherited</field>
+            <field name="model">op.subject</field>
+            <field name="inherit_id" ref="openeducat_core.view_op_subject_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='grade_weightage']" position="after">
+                    <field name="course_id" optional="hide"/>
+                    <field name="credit_point" optional="hide"/>
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                </xpath>
+            </field>
+        </record>
+
+
+</odoo>

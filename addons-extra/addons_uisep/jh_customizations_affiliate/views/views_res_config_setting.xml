@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="view_affiliate_commission_settings" model="ir.ui.view">
+            <field name="name">res.config.settings.view.affiliate.commission</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="affiliate_management.view_affiliate_config_form"/>
+            <field name="arch" type="xml">
+
+                <!-- Insertamos justo después del bloque de Email Configuration -->
+                <xpath expr="//div[@id='affiliate_program_email']" position="after">
+
+                    <h2>Configuración Global de Comisión Mensual</h2>
+
+                    <div class="row mt16 o_settings_container" id="affiliate_program_commission"
+                         title="Configura el porcentaje global de comisión sobre mensualidades">
+                        <div class="col-xs-12 col-md-6 o_setting_box" id="aff_monthly_commission_setting">
+                            <div class="o_setting_right_pane">
+
+                                <label string="Porcentaje Global de Comisión" for="jh_global_monthly_fee_percent"/>
+                                <div class="text-muted">
+                                    Define el porcentaje de la mensualidad que será otorgado como comisión si no está
+                                    configurado a nivel de producto o contacto.
+                                </div>
+
+                                <div class="mt8">
+                                    <group>
+                                        <field name="jh_monthly_fee_global_check"/>
+                                        <field name="jh_global_commission_apply_once"
+                                               attrs="{'invisible': [('jh_monthly_fee_global_check', '=', False)],
+                                                       'required': [('jh_monthly_fee_global_check', '=', True)]}"/>
+                                        <field name="jh_monthly_global_fee"
+                                               options="{'currency_field': 'jh_currency_id'}"
+                                               attrs="{'invisible': [('jh_monthly_fee_global_check', '=', False)],
+                                                       'required': [('jh_monthly_fee_global_check', '=', True)]}"/>
+                                        <field name="jh_global_monthly_fee_percent" widget="percentage"
+                                               attrs="{'invisible': [('jh_monthly_fee_global_check', '=', False)],
+                                                       'required': [('jh_monthly_fee_global_check', '=', True)]}"/>
+                                        <field name="jh_currency_id" invisible="1"/>
+                                    </group>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

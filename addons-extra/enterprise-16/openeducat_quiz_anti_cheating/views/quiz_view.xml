@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record model="ir.ui.view" id="test_form_view">
+            <field name="name">quiz.test</field>
+            <field name="model">op.quiz</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="openeducat_quiz.view_op_quiz_form"/>
+            <field name="arch" type="xml">
+                <xpath expr='//notebook//page[4]' position="inside">
+                    <group>
+                        <group string="Anti Cheating">
+                            <field name="face_tracking"/>
+                            <field name="warning_limit" string="Warning Limit" attrs="{'invisible': [('face_tracking', '=', False)]}" />
+                            <field name="warning_state" string="Warning State" attrs="{'invisible': [('face_tracking', '=', False)]}"/>
+                            <field name="face_sensitivity" string="Face Sensitivity" attrs="{'invisible': [('face_tracking', '=', False)]}"/>
+                            <field name="copy_paste_allow"/>
+                            <label for="question_time_out" string="Question Time Out" />
+                            <div>
+                                <field name="question_time_out" style="width: 30%;"/>
+                                <label string="In Minutes" style="width: 20%;" for="question_time_out"/>
+                            </div>
+                            <field name="take_screenshot"/>
+                            <label for="random_start" string="Random" attrs="{'invisible': [('take_screenshot', '!=', 'random')]}"/>
+                            <div>
+                                <field name="random_start" style="width: 20%;"
+                                       attrs="{'invisible': [('take_screenshot', '!=', 'random')]}"/>
+                                <label string="Start In Minutes" style="width: 31%;" for="random_start"
+                                       attrs="{'invisible': [('take_screenshot', '!=', 'random')]}"/>
+                                <field name="random_end" style="width: 20%;"
+                                       attrs="{'invisible': [('take_screenshot', '!=', 'random')]}"/>
+                                <label string="End In Minutes" style="width: 26%;" for="random_end"
+                                       attrs="{'invisible': [('take_screenshot', '!=', 'random')]}"/>
+                            </div>
+                            <label for="particular_interval" string="Time Interval" attrs="{'invisible': [('take_screenshot', '!=', 'time_interval')]}" />
+                            <div>
+                                <field name="particular_interval" style="width: 30%;" attrs="{'invisible': [('take_screenshot', '!=', 'time_interval')]}"/>
+                                <label string="In Minutes" style="width: 20%;" for="particular_interval" attrs="{'invisible': [('take_screenshot', '!=', 'time_interval')]}"/>
+                            </div>
+                         </group>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_op_quiz_anti_cheating_tree" model="ir.ui.view">
+            <field name="name">op.quiz.anti.cheating.tree</field>
+            <field name="model">op.quiz</field>
+            <field name="inherit_id" ref="openeducat_quiz.view_op_quiz_tree"/>
+            <field name="arch" type="xml">
+                <field name="active" position="before">
+                    <field name="face_tracking" widget="boolean_toggle" optional="hide"/>
+                    <field name="copy_paste_allow" widget="boolean_toggle" optional="hide"/>
+                </field>
+            </field>
+        </record>
+
+</odoo>

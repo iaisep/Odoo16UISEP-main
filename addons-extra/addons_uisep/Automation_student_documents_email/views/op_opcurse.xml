@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+      
+    <record id="view_documents_studends_opcurse_form_inherit" model="ir.ui.view">
+        <field name="name">documents.studends.opcurse.form.inherit</field>
+        <field name="model">op.course</field>
+        <field name="inherit_id" ref="openeducat_core.view_op_course_form"/>  
+        <field name="arch" type="xml">            
+            <xpath expr="//field[@name='max_unit_load']" position="after">              
+               <field name="official_title"/>  
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

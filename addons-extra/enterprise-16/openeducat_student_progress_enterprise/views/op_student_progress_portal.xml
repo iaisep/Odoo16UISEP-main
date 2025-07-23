@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="portal_student_progresssion" name="Portal layout : student progression"
+              inherit_id="openeducat_core_enterprise.portal_breadcrumbs_inhetrite" priority="10">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <t t-if="user_id.sudo().is_parent">
+                <li t-if="page_name == 'student_progress_info' or student_progress_info"
+                    t-attf-class="breadcrumb-item #{'active ' if not student_progress_info else ''}">
+                    <a t-if="progression" t-attf-href="/student/progression/#{stud_id}?{{ keep_query() }}">
+                        Student Progression
+                    </a>
+                    <t t-else="">Student progression</t>
+                </li>
+            </t>
+            <t t-if="user_id.sudo().is_student">
+                <li t-if="page_name == 'student_progress_info' or student_progress_info"
+                    t-attf-class="breadcrumb-item #{'active ' if not student_progress_info else ''}">
+                    <a t-if="progression" t-attf-href="/student/progression?{{ keep_query() }}">
+                        Student Progression
+                    </a>
+                    <t t-else="">Student progression</t>
+                </li>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="openeducat_student_progression_portal_data">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Student Progression</t>
+            </t>
+            <t t-if="not progression">
+                <div class="alert alert-warning mt8" role="alert">
+                    There are no records.
+                </div>
+            </t>
+
+            <div t-if="progression" style="background-color:white; padding: 20px;">
+                <div class="mt16">
+                    <div t-if="progression.student_id" class="row col-md-12">
+                        <div class="row col-md-6" style="font-size: 16px;">
+                            <div t-if="progression.name" class="col-md-6 mb16 text-secondary">
+                                <b>Progression No:</b>
+                            </div>
+                            <div t-if="progression.name" class="col-md-6 mb16">
+                                <span id="progression_name" t-esc="progression.name"/>
+                            </div>
+                            <div t-if="progression.date" class="col-md-6 mb16 text-secondary">
+                                <b>Date:</b>
+                            </div>
+                            <div t-if="progression.date" class="col-md-6 mb16">
+                                <span t-esc="progression.date" t-options="{'widget': 'date'}"/>
+                            </div>
+                        </div>
+                        <div class="row col-md-6" style="font-size: 16px;">
+                            <div t-if="progression.state" class="col-md-6 mb16 text-secondary">
+                                <b>Status:</b>
+                            </div>
+                            <div t-if="progression.state" class="col-md-6 mb16">
+                                <span t-esc="{false:false, 'draft':'Draft',
+                                'open':'In Progress', 'done':'Done', 'cancel':'Cancel'}[progression.state]"/>
+                            </div>
+                            <div t-if="progression.name" class="col-md-6 mb16 text-secondary">
+                                <b>Created By:</b>
+                            </div>
+                            <div t-if="progression.created_by" class="col-md-6 mb16">
+                                <span id="progression_created_by" t-esc="progression.created_by.name"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt48 mb8 progression_list" style="">
+                    <b style="font-size: 18px" class="text-secondary">Progression Details:</b>
+                    <div class="row pt16" id="student-progression">
+                        <div class="col-md-4 col-lg-3 col-12 mb24">
+                            <ul class="nav nav-pills d-block">
+                            </ul>
+                        </div>
+                        <div class="col-md-8 col-lg-9 col-12 tab-content-box">
+                            <div class="tab-content">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+</odoo>

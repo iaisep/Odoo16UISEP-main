@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <!-- Channel main template: add link to forum test -->
+    <template id="custom_user_profile_content" name="Custom menu to frontend portal" inherit_id="website_profile.user_profile_content">
+
+
+        <xpath expr="//div[hasclass('o_wprofile_sidebar_top')]" position="before">
+
+
+            <div class="o_wprofile_sidebar_top d-flex justify-content-between">
+                <div class="submenu_campus force_block">Mi contenido</div>
+            </div>
+
+            <div class="o_wprofile_sidebar_top d-flex justify-content-between">
+                <div class="d-flex bg-white border force_block">
+                    <a href="/campus"  class="subcampus_item">
+                        <i class="fa fa-fw fa fa-bookmark me-1 small text-mcampus"/>
+                        Programa
+                    </a>                    
+                </div>
+            </div>
+             <div class="o_wprofile_sidebar_top d-flex justify-content-between">
+                <div class="d-flex bg-white border force_block">
+                    <a href="/campus"  class="subcampus_item">
+                        <i class="fa fa-fw fa fa-bookmark me-1 small text-mcampus"/>
+                        Tareas
+                    </a>                    
+                </div>
+            </div>
+             <div class="o_wprofile_sidebar_top d-flex justify-content-between">
+                <div class="d-flex bg-white border force_block">
+                    <a href="/campus"  class="subcampus_item">
+                        <i class="fa fa-fw fa fa-bookmark me-1 small text-mcampus"/>
+                        Exámenes
+                    </a>                    
+                </div>
+            </div>
+             <div class="o_wprofile_sidebar_top d-flex justify-content-between">
+                <div class="d-flex bg-white border force_block">
+                    <a href="/campus"  class="subcampus_item">
+                        <i class="fa fa-fw fa fa-bookmark me-1 small text-mcampus"/>
+                        Calificaciones
+                    </a>                    
+                </div>
+            </div>
+            <div class="o_wprofile_sidebar_top d-flex justify-content-between">
+                <div class="d-flex bg-white border force_block">
+                    <a href="/campus"  class="subcampus_item">
+                        <i class="fa fa-fw fa fa-bookmark me-1 small text-mcampus"/>
+                        Certificaciones
+                    </a>                    
+                </div>
+            </div>
+            <div class="o_wprofile_sidebar_top d-flex justify-content-between">
+                <div class="d-flex bg-white border force_block">
+                    <a href="/campus"  class="subcampus_item">
+                        <i class="fa fa-fw fa fa-bookmark me-1 small text-mcampus"/>
+                        Diplomas
+                    </a>                    
+                </div>
+            </div>
+             <div class="o_wprofile_sidebar_top d-flex justify-content-between">
+               <br/>
+            </div>
+
+
+        </xpath>
+
+
+    </template>
+
+
+
+</odoo>
+

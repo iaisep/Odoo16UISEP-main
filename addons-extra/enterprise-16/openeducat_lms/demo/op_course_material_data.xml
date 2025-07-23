@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <!--Course For Python-->
+        <record id="op_course_material_python_intro" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_python_intro_course"/>
+            <field name="section_id" ref="op_course_section_python_intro"/>
+            <field name="preview" eval="True"/>
+        </record>
+
+        <record id="op_course_material_python_syntax" model="op.course.material">
+            <field name="sequence" type="int">3</field>
+            <field name="material_id" ref="material_python_syntax_pdf"/>
+            <field name="section_id" ref="op_course_section_python_intro"/>
+            <field name="preview" eval="True"/>
+        </record>
+
+        <record id="op_course_material_python_words" model="op.course.material">
+            <field name="sequence" type="int">4</field>
+            <field name="material_id" ref="material_python_words"/>
+            <field name="section_id" ref="op_course_section_python_intro"/>
+            <field name="preview" eval="True"/>
+        </record>
+
+        <record id="op_course_material_python_anaconda_bundle" model="op.course.material">
+            <field name="sequence" type="int">5</field>
+            <field name="material_id" ref="material_python_anaconda_bundle"/>
+            <field name="section_id" ref="op_course_section_python_intro"/>
+            <field name="preview" eval="True"/>
+        </record>
+
+        <record id="op_course_material_python_variable" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_python_variable"/>
+            <field name="section_id" ref="op_course_section_python_variable"/>
+        </record>
+
+        <record id="op_course_material_python_string_number" model="op.course.material">
+            <field name="sequence" type="int">3</field>
+            <field name="material_id" ref="material_python_string_number"/>
+            <field name="section_id" ref="op_course_section_python_variable"/>
+        </record>
+
+        <record id="op_course_material_python_functions" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_python_functions"/>
+            <field name="section_id" ref="op_course_section_python_cnd_fun"/>
+        </record>
+
+        <record id="op_course_material_python_cnd_syntax" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_python_cnd_image"/>
+            <field name="section_id" ref="op_course_section_python_cnd_fun"/>
+        </record>
+
+        <record id="op_course_material_python_sequence_list" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_python_sequence_list"/>
+            <field name="section_id" ref="op_course_python_sequence"/>
+        </record>
+
+        <record id="op_course_material_python_iteration" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_python_iteration"/>
+            <field name="section_id" ref="op_course_python_sequence"/>
+        </record>
+
+        <record id="op_course_material_python_files" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_python_files"/>
+            <field name="section_id" ref="op_course_python_files"/>
+        </record>
+
+        <record id="op_course_material_python_files_rw" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_python_files_rw"/>
+            <field name="section_id" ref="op_course_python_files"/>
+        </record>
+
+        <!--Course For French-->
+        <record id="demo_op_course_material_5" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_french_image"/>
+            <field name="section_id" ref="demo_op_course_section_3"/>
+        </record>
+
+        <record id="demo_op_course_material_6" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_french_pdf"/>
+            <field name="section_id" ref="demo_op_course_section_3"/>
+        </record>
+
+        <record id="demo_op_course_material_7" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_french_video"/>
+            <field name="section_id" ref="demo_op_course_section_4"/>
+        </record>
+
+        <record id="demo_op_course_material_8" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_french_pdf"/>
+            <field name="section_id" ref="demo_op_course_section_4"/>
+        </record>
+
+        <!--Course For Sell-->
+        <record id="demo_op_course_material_9" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_sell_image"/>
+            <field name="section_id" ref="demo_op_course_section_5"/>
+        </record>
+
+        <record id="demo_op_course_material_10" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_sell_pdf"/>
+            <field name="section_id" ref="demo_op_course_section_5"/>
+        </record>
+
+        <record id="demo_op_course_material_11" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_sell_video"/>
+            <field name="section_id" ref="demo_op_course_section_6"/>
+        </record>
+
+        <record id="demo_op_course_material_12" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_sell_pdf"/>
+            <field name="section_id" ref="demo_op_course_section_6"/>
+        </record>
+
+</odoo>

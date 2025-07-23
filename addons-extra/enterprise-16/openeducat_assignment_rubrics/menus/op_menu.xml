@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <menuitem id="menu_op_rubric_element_config" name="Rubrics Element"
+                  parent="openeducat_assignment.menu_op_assignment_configuration" sequence="11"
+                  action="act_op_rubric_element_config_view"
+                  groups="openeducat_assignment.group_op_assignment_manager,openeducat_assignment.group_op_assignment_user"/>
+        <menuitem id="menu_op_rubric_template_config" name="Rubrics Template"
+                  parent="openeducat_assignment.menu_op_assignment_configuration" sequence="10"
+                  action="act_op_rubric_template_config_view"
+                  groups="openeducat_assignment.group_op_assignment_manager,openeducat_assignment.group_op_assignment_user"/>
+
+</odoo>

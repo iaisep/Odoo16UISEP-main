@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="op_notice_group_view_form" model="ir.ui.view">
+        <field name="name">Notice Group Form View</field>
+        <field name="model">op.notice.group</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                    <group col="4">
+                        <field name="created_by" readonly="1"/>
+                        <field name="created_date" widget="date" readonly="1"/>
+                    </group>
+                    <group>
+                        <separator string="Students" colspan="4"/>
+                        <field name="student_visibility" widget="radio" options="{'horizontal': true}"/>
+                        <field name="course_ids"
+                                attrs="{'invisible':[('student_visibility', '!=', 'all_students')]}"
+                                widget="many2many_tags"/>
+                        <field name="batch_ids"
+                                attrs="{'invisible': [('student_visibility', '!=', 'all_students')]}"
+                                widget="many2many_tags"/>
+                        <field name="student_ids" readonly="0"
+                                attrs="{'invisible': [('student_visibility', '!=', 'selected_students')]}"/>
+                    </group>
+                    <group>
+                        <separator string="Parents" colspan="4"/>
+                        <field name="parent_visibility" widget="radio" options="{'horizontal': true}"/>
+                        <field name="parent_course_ids"
+                                attrs="{'invisible':[('parent_visibility', '!=', 'all_parents')]}"
+                                widget="many2many_tags"/>
+                        <field name="parent_batch_ids"
+                                attrs="{'invisible': [('parent_visibility', '!=', 'all_parents')]}"
+                                widget="many2many_tags"/>
+                        <field name="parent_ids" readonly="0"
+                                attrs="{'invisible': [('parent_visibility', '!=', 'selected_parents')]}"/>
+                    </group>
+                    <group>
+                        <separator string="Faculties" colspan="4"/>
+                        <field name="faculty_visibility" widget="radio" options="{'horizontal': true}"/>
+                        <field name="faculty_ids" readonly="0"
+                                attrs="{'invisible': [('faculty_visibility', '!=', 'selected_faculty')]}"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="op_notice_group_view_tree" model="ir.ui.view">
+        <field name="name">Notice Group Tree View</field>
+        <field name="model">op.notice.group</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="student_visibility" optional="hide"/>
+                <field name="student_ids" widget="many2many_tags" optional="hide"/>
+                <field name="parent_visibility" optional="hide"/>
+                <field name="parent_ids" widget="many2many_tags" optional="hide"/>
+                <field name="faculty_visibility" optional="hide"/>
+                <field name="faculty_ids" widget="many2many_tags" optional="hide"/>
+                <field name="created_by"/>
+                <field name="created_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="op_notice_group_action" model="ir.actions.act_window">
+        <field name="name">Notice Group</field>
+        <field name="res_model">op.notice.group</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

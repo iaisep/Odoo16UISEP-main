@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+          <!-- Form -->
+        <record id="portal_leads_form_view" model="ir.ui.view">
+            <field name="name">isep.view.portal.form</field>
+            <field name="model">isep.google.leads</field>
+            <field name="arch" type="xml">
+                <form string="portal Form">
+                    <sheet>
+                        <group>
+                            <field name="name" readonly="1" />
+                            <field name="create_date"/>
+                            <field name="form_id" readonly="1" />
+                            <field name="json" readonly="1" />
+                        </group>
+                       
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- Tree -->
+        <record id="view_tree_portal_leads" model="ir.ui.view">
+            <field name="name">isep.view.portal.tree</field> 
+            <field name="model">isep.google.leads</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" readonly="1" />
+                    <field name="create_date"/>
+                    <field name="form_id"/>
+                </tree>
+            </field>
+        </record>
+      
+        <record id="action_portal_leads_menu" model="ir.actions.act_window">
+            <field name="name">Google lead logs</field>
+            <field name="res_model">isep.google.leads</field>            
+            <field name="view_mode">form,tree</field>  
+            <field name="view_id" ref="view_tree_portal_leads"/>          
+        </record>   
+
+
+
+
+</odoo>

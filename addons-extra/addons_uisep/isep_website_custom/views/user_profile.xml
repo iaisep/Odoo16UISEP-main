@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template id="user_profile_main_custom" inherit_id="website_profile.user_profile_main">
+
+
+        <xpath expr="//div[@id='wrap']" position="replace">
+            <div id="wrap" class="o_wprofile_wrap mt-0">
+                <t t-call="website_profile.user_profile_header"/>
+                
+                <div class="container">
+                    <div class="row">
+                        <!-- ========== SIDEBAR ========== -->
+                        <t t-call="isep_website_custom.user_profile_sidebar"/>
+                        <!-- ========== PROFILE CONTENT ========== -->
+                        <t t-call="isep_website_custom.user_profile_content"/>    
+                    </div>
+                </div>
+            </div>
+
+        </xpath>
+
+
+    </template>
+
+
+
+</odoo>

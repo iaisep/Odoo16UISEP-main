@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="res_company_instance_view_form_inherit" model="ir.ui.view">
+        <field name="name">res.company.instance.view.form.inherit</field>
+        <field name="model">res.company</field>
+        <field name="priority" eval="40"/>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Instance Details" invisible="1">
+                    <group>
+                        <field name="openeducat_instance_key"/>
+                        <field name="openeducat_instance_hash_key"/>
+                        <field name="is_mail_sent"/>
+                        <field name="verify_date"/>
+                        <field name="openeducat_instance_hash_msg"/>
+                        <field name="is_hash_verified"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="res_config_settings_view_form_instance" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.instance</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="40"/>
+        <field name="inherit_id" ref="openeducat_core.res_config_settings_view_form_core"/>
+        <field name="arch" type="xml">
+            <xpath expr="//h2[@id='openeducat_core_apps']" position="before">
+                <h2>OpenEduCat Enterprise</h2>
+                <div class="row mt16 o_settings_container">
+                    <div class="col-xs-12 col-md-12 o_setting_box">
+                        <div class="card" attrs="{'invisible': [('is_mail_sent', '=', False)]}"
+                             style="color: #fff; background-color: #469408; border-color: #d6e9c6; padding: 7px;">
+                            <div class="card-header">
+                                <field name="openeducat_instance_hash_msg" readonly="1"/>
+                                <field name="is_hash_verified" invisible="1"/>
+                            </div>
+                        </div>
+                    </div>
+
+<!--                    <div class="row mt16 o_settings_container" attrs="{'invisible': [('is_mail_sent', '=', True)]}">-->
+                        <div class="col-xs-12 col-md-12 o_setting_box" id="openeducat_licence">
+                            <div class="o_setting_right_pane">
+                                <label for="openeducat_instance_key"/>
+                                <div class="mt16">
+                                    <field name="openeducat_instance_key"/>
+                                    <field name="is_mail_sent" invisible="1"/>
+                                </div>
+                                <div attrs="{'invisible': [('openeducat_instance_key', '=', False)]}">
+                                    <button name="verify_instance"
+                                            class="verify-inteance oe_link fa fa-arrow-right btn btn-sm btn-link"
+                                            type="object">Get Instance Hash Key
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+<!--                    </div>-->
+<!--                        <div class="row mt16 o_settings_container" attrs="{'invisible': [('is_hash_verified', '=', True)]}">-->
+                            <div class="col-xs-12 col-md-12 o_setting_box" id="openeducat_hash_licence">
+                                <div class="o_setting_right_pane" attrs="{'invisible': [('is_mail_sent', '=', False)]}">
+                                    <label for="openeducat_instance_hash_key"/>
+                                    <div class="mt16">
+                                        <field name="openeducat_instance_hash_key"/>
+                                    </div>
+                                    <div attrs="{'invisible': [('openeducat_instance_hash_key', '=', False)]}">
+                                        <button name="verify_hash"
+                                                class="verify-hash oe_link fa fa-arrow-right btn btn-sm btn-link"
+                                                type="object">Verify Hash Key
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+<!--                        </div>-->
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

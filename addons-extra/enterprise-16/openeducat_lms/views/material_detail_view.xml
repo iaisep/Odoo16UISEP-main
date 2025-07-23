@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="lms_quiz_completed" name="Quiz Completed">
+        <div class="wrap">
+            <input type="hidden" class="quiz_completed_no_back"/>
+            <div class="text-center mt128 mb128">
+                <h1 class="fw-bold text-success">Thank you for Quiz</h1>
+                <h2 class="fw-bold text-success">Your answers are recorded</h2>
+            </div>
+        </div>
+    </template>
+
+    <template id="edit_web_page_material" name="Edit Material">
+        <t t-call="website.layout">
+            <div t-field="material.webpage_content"/>
+        </t>
+    </template>
+
+    <template id="material_detail_view" name="Material Detailed View">
+        <t t-call="website.layout">
+        <div t-attf-class="#{'lms_sidebar_disable' if is_full else 'lms_sidebar_enable'}" t-attf-style="#{'padding-left: 0px;' if is_full else 'padding-left: 350px;'}">
+            <t t-set="main_object" t-value="material"/>
+            <div t-attf-class="container-fluid #{'fullscreen' if is_full else 'main-screen'}" id="material_view">
+                <div class="row">
+                    <div class="col-12 course-material-header">
+                        <a class="text-white toggle-content-item fullscreenwidget"
+                           value="0"
+                           style="font-size: 26px;"></a>
+                        <a t-attf-href="/course-detail/#{slug(course)}"
+                           t-if="not enrolled"
+                           class="btn btn-primary fw-bold text-secondary text-uppercase me-md-4 pull-right float-end"
+                           style="font-size: 12px;">
+                            Back To Course
+                        </a>
+                    </div>
+
+                    <div t-attf-class="col-lg-3 col-md-5 col-sm-12 col-xs-12 px-0 lms_course_sidebar #{'active' if is_full else ''}">
+                        <div class="content-width fullscreen-view float-md-end">
+                            <div id="related" class="tab-pane active">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 border-0 dyn-height px-0">
+                                    <div class="text-end sidebar-close-button pr-3">
+                                        <a class="text-white fullscreenwidget"
+                                           value="0"
+                                           style="font-size: 26px;">
+                                            <i class="fa fa-times"/>
+                                        </a>
+                                    </div>
+                                    <div class="collapse active show"
+                                         id="course-curriculum">
+                                        <div id="accordion" role="tablist"
+                                             aria-multiselectable="true">
+                                            <t t-foreach="related_materials"
+                                               t-as="related_section">
+                                                <div class="card card-default">
+                                                    <div class="card-header p-2 bg-o-color-3 rounded-0 w-100 d-flex align-items-center"
+                                                         t-attf-id="#session-heading-#{related_section.id}">
+                                                        <a class="btn btn-block text-start collapsed rounded-0 heading"
+                                                           data-bs-toggle="collapse"
+                                                           aria-expanded="false"
+                                                           data-parent="#accordion"
+                                                           t-attf-data-bs-target="#session-#{related_section.id}"
+                                                           t-attf-aria-controls="session-#{related_section.id}">
+                                                            <t t-out="related_section.name"/>
+                                                        </a>
+                                                        <span t-out="related_section.display_time"
+                                                              class="ms-auto total-time-badge"/>
+                                                    </div>
+                                                    <div t-attf-id="session-#{related_section.id}"
+                                                         t-attf-class="accordion-collapse collapse rounded-0 #{'show' if material in related_materials[related_section]['material'].keys() else ''}"
+                                                         data-parent="#accordion"
+                                                         data-bs-parent="#course-curriculum">
+                                                        <div class="card-body pt-0 pb-0 px-0">
+                                                            <table class="table m-0">
+                                                                <tbody>
+                                                                    <t t-foreach="related_materials[related_section]['material']"
+                                                                       t-as="related_material">
+                                                                        <tr class="mt8 mb8">
+                                                                            <td class="material_icon">
+                                                                                <i t-if="related_material.material_type == 'audio'"
+                                                                                   class="fa fa-headphones"></i>
+                                                                                <i t-if="related_material.material_type == 'video'"
+                                                                                   class="fa fa-play-circle-o"></i>
+                                                                                <i t-if="related_material.material_type == 'document'"
+                                                                                   class="fa fa-file-pdf-o"></i>
+                                                                                <i t-if="related_material.material_type == 'infographic'"
+                                                                                   class="fa fa-file-image-o"></i>
+                                                                                <i t-if="related_material.material_type == 'quiz'"
+                                                                                   class="fa fa-question-circle"></i>
+                                                                                <i t-if="related_material.material_type == 'webpage'"
+                                                                                   class="fa fa-file-text"></i>
+                                                                                <i t-if="related_material.material_type == 'xls'"
+                                                                                   class="fa fa-file-excel-o"></i>
+                                                                                <i t-if="related_material.material_type == 'ppt'"
+                                                                                   class="fa fa-file-powerpoint-o"></i>
+                                                                                <i t-if="related_material.material_type == 'msword'"
+                                                                                   class="fa fa-file-word-o"></i>
+                                                                            </td>
+                                                                            <td>
+                                                                                <a t-attf-href="/course/#{slug(course)}/section/#{slug(related_section)}/material/#{slug(related_material)}">
+                                                                                    <span id="material_name"
+                                                                                          class="item-name"
+                                                                                          t-out="related_material.name"/>
+                                                                                    <div class="course-time float-end">
+                                                                                        <span id="sectionpoint"
+                                                                                              class="hidden-xs hidden-sm pull-right time-badge"
+                                                                                              style="font-size: 12px;"
+                                                                                              t-esc="'%02d:%02d' % (int(str(related_material.total_time).split('.')[0]), int(float(str('%.2f' % related_material.total_time).split('.')[1])/100*60))"
+                                                                                        />
+                                                                                        <span class="float-start me-2">
+                                                                                            <i t-if="related_materials[related_section]['material'][related_material]['completed'] == True"
+                                                                                               class="fa fa-check"></i>
+                                                                                        </span>
+                                                                                    </div>
+                                                                                </a>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </t>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pb48 content-summery">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12 col-12 pb16 pt48">
+                                    <h2 class="mb-lg-0 mb-md-0 text-secondary"
+                                        style="font-size: 24px;font-weight: bold;"
+                                        t-field="material.name"/>
+                                </div>
+                                <div class="course_img_video col-md-12 col-12">
+                                    <t t-if="material.full_description">
+                                        <t t-out="material.full_description"/>
+                                    </t>
+                                    <t t-if="material.material_type == 'url'">
+                                        <div class="website_url">
+                                            <a t-att-href="material.document_url"
+                                               target="_blank">
+                                                <t t-esc="material.document_url"/>
+                                            </a>
+                                        </div>
+                                    </t>
+                                    <t t-if="material.datas and material.material_type == 'infographic'">
+                                        <img t-attf-src="/web/image/op.material/#{material.id}/datas"
+                                             class="img-responsive col-12 col-lg-10 col-md-8 mx-auto"
+                                             style="width:100%"/>
+                                    </t>
+                                    <div t-if="material.material_type in ('presentation', 'document')"
+                                         class="embed-responsive embed-responsive-4by3 embed-responsive-item mb8 col-12 col-lg-10 col-md-12 mx-auto">
+                                        <t t-out="embed_code"/>
+                                    </div>
+                                    <div t-if="material.material_type in ('msword', 'xls')"
+                                         class="embed-responsive embed-responsive-4by3 embed-responsive-item mb8 col-12 col-lg-10 col-md-12 mx-auto">
+                                        <t t-out="embed_code"/>
+                                    </div>
+                                    <div t-if="material.material_type in ('ppt')"
+                                         class="embed-responsive embed-responsive-4by3 embed-responsive-item mb8 col-12 col-lg-10 col-md-12 mx-auto">
+                                        <t t-out="embed_code"/>
+                                    </div>
+                                    <div t-if="material.material_type == 'video' and not material.video_type == 'fileupload' and material.document_id"
+                                         class="embed-responsive embed-responsive-16by9 embed-responsive-item mb8 col-12 col-lg-10 col-md-12 mx-auto">
+                                        <t t-out="embed_code"/>
+                                    </div>
+                                    <div t-if="material.material_type == 'video' and material.video_type == 'fileupload' and material.datas"
+                                         class="embed-responsive embed-responsive-16by9 embed-responsive-item mb8 col-12 col-lg-10 col-md-12 mx-auto">
+                                        <t t-out="embed_code"/>
+                                    </div>
+                                    <div t-if="material.material_type == 'audio'"
+                                         class="embed-responsive embed-responsive-16by9 embed-responsive-item mb8 col-12 col-lg-10 col-md-12 mx-auto">
+                                        <t t-out="embed_code"/>
+                                    </div>
+                                    <div t-if="material.material_type == 'quiz'"
+                                         class="embed-responsive test-result embed-responsive-item mb8 col-12 col-lg-11 col-md-12 mx-auto">
+                                        <t t-if="quiz_limit == 1 and is_result == 0">
+                                            <center>
+                                                <h3>The maximum number of quiz attempts
+                                                    has been reached !
+                                                </h3>
+                                            </center>
+                                        </t>
+                                        <t t-if="is_result == 1 and material.quiz_id.lms == 1 and material.quiz_id.show_result == 0"
+                                           t-call="openeducat_lms.lms_quiz_completed"/>
+                                        <t t-if="is_result == 1 and material.quiz_id.lms == 1 and material.quiz_id.show_result == 1"
+                                           t-call="openeducat_quiz.quiz_results_form"/>
+                                        <t t-if="is_result == 0 and quiz_limit == 0"
+                                           t-call="openeducat_quiz.quiz_web_page_single_form"/>
+                                        <t t-if="is_result == 1 and quiz_limit == 0 and material.quiz_id.lms == 0"
+                                           t-call="openeducat_quiz.quiz_results_form"/>
+                                        <t t-if="is_result == 1 and is_thanks == 1 and quiz_limit == 0"
+                                           t-call="openeducat_quiz.quiz_completed"/>
+                                    </div>
+                                    <div t-if="material.material_type == 'webpage'">
+                                        <t t-out="material.webpage_content"/>
+                                    </div>
+                                    <div class="btn btn-group new_content_here d-block justify-content-around pt64 pb64">
+                                            <a t-attf-href="/course/#{slug(course)}/section/#{slug(section)}/material/#{slug(material)}/-1"
+                                               class="btn btn-lg-block btn-md-block btn-primary btn_course_back me-2">
+                                                Previous
+                                            </a>
+                                            <a t-attf-href="/course/#{slug(course)}/section/#{slug(section)}/material/#{slug(material)}/1"
+                                               t-if="last_material == false"
+                                               class="btn btn-lg-block btn-md-block btn-primary btn_course_next">
+                                                Next
+                                            </a>
+                                            <a t-attf-href="/course/#{slug(course)}/section/#{slug(section)}/material/#{slug(material)}/1"
+                                               t-if="last_material == true"
+                                               class="btn btn-lg-block btn-md-block btn-primary btn_course_next">
+                                                Next
+                                            </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </t>
+    </template>
+</odoo>

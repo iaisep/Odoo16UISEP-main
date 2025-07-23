@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="whatsapp.connector.ChatterTopbar" t-inherit="mail.ChatterTopbar" t-inherit-mode="extension" owl="1">
+        <xpath expr="//button[hasclass('o_ChatterTopbar_buttonSendMessage')]" position="attributes">
+            <attribute name="t-att-class">{
+                'o-active btn-odoo': chatterTopbar.chatter.composerView and !chatterTopbar.chatter.composerView.composer.isLog,
+                'btn-light': chatterTopbar.chatter.composerView and chatterTopbar.chatter.composerView.composer.isLog,
+            }</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('o_ChatterTopbar_controllers')]" position="inside">
+            <t t-if="!chatterTopbar.chatter.isInAcruxChatroom and chatterTopbar.chatter.isChatroomInstalled and chatterTopbar.chatter.chatroomInChatter">
+                <button class="o_ChatterTopbar_button o_ChatterTopbar_buttonChatroom btn text-nowrap"
+                    type="button" t-att-class="{
+                        'o-active btn-odoo': !chatterTopbar.chatter.composerView and chatterTopbar.chatter.isWhatsappTalkVisible,
+                        'btn-light': chatterTopbar.chatter.composerView and !chatterTopbar.chatter.isWhatsappTalkVisible,
+                    }"
+                    t-att-disabled="!chatterTopbar.chatter.hasWriteAccess"
+                    t-on-click="chatterTopbar.chatter.onClickWhatsappTalk">
+                    <i class="fa fa-comments me-1" />
+                    <span>ChatRoom</span>
+                </button>
+            </t>
+        </xpath>
+    </t>
+
+</templates>

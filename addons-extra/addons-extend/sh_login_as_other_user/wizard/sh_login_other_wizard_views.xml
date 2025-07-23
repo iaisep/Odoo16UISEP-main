@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sh_login_other_wizard_form" model="ir.ui.view">
+        <field name="name">sh.login.other.wizard.form</field>
+        <field name="model">login.other.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Login As">
+                <group>
+                    <field name="sh_user_id" options="{'no_create': True, 'no_open': True}" />
+                </group>
+                <group>
+                    <field name="sh_group_ids" />
+                </group>
+                <footer>
+                    <button string="Login" name="action_do_login" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-default" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="sh_login_other_wizard_action" model="ir.actions.act_window">
+        <field name="name">Login as User</field>
+        <field name="res_model">login.other.wizard</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

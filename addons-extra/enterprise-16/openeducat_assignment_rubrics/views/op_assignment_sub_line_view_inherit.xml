@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="view_op_assignment_sub_line_inherit_form" model="ir.ui.view">
+            <field name="name">op.assignment.sub.line.inherit.form</field>
+            <field name="model">op.assignment.sub.line</field>
+            <field name="priority" eval="101"/>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="openeducat_assignment.view_op_assignment_sub_line_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header" position="inside">
+                    <button name="act_to_assess" states="submit" type="object"
+                            string="To Assess" class="oe_highlight"/>
+                </xpath>
+                <xpath expr="//button[@name='act_accept']" position="replace">
+                    <button name="act_accept" states="to_assess" type="object"
+                            string="Accept" groups="openeducat_assignment.group_op_assignment_user" class="oe_highlight"/>
+                </xpath>
+                <xpath expr="//button[@name='act_change_req']" position="replace">
+                    <button name="act_change_req" states="to_assess" type="object"
+                            string="Change Require" groups="openeducat_assignment.group_op_assignment_user"/>
+                </xpath>
+                <xpath expr="//button[@name='act_reject']" position="replace">
+                    <button name="act_reject" states="to_assess" type="object"
+                            string="Reject" groups="openeducat_assignment.group_op_assignment_user"/>
+                </xpath>
+                <xpath expr="//field[@name='description']" position="after">
+                    <notebook>
+                        <page string="Rubric Elements" name="rubric_elements">
+                            <field name="rubric_element_line" attrs="{'readonly': [('state', '!=', 'to_assess')]}">
+                                <tree editable="top">
+                                    <field name="rubric_element_id"/>
+                                    <field name="rubrics_type" invisible="1"/>
+                                    <field name="point" sum="Sum of Points" attrs="{'invisible': [('rubrics_type', '!=', 'points')],
+                                    'required': [('rubrics_type', '=', 'points')]}"/>
+                                    <field name="percentage" sum="Sum of Percentage" attrs="{
+                                    'invisible': [('rubrics_type', '!=', 'percent')],
+                                    'required': [('rubrics_type', '=', 'percent')]}"/>
+                                    <field name="maximum" sum="Total Points" readonly="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </xpath>
+            </field>
+        </record>
+
+</odoo>

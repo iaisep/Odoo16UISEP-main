@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_certificate_log_pivot" model="ir.ui.view">
+         <field name="name">certificate.log.pivot</field>
+         <field name="model">certificate.log</field>
+         <field name="arch" type="xml">
+             <pivot string="Certificate Log" sample="1">
+                 <field name="student_id" type="col"/>
+                 <field name="date" interval="day" type="row"/>
+             </pivot>
+         </field>
+    </record>
+
+    <record id="view_certificate_log_graph" model="ir.ui.view">
+         <field name="name">certificate_log.graph</field>
+         <field name="model">certificate.log</field>
+         <field name="arch" type="xml">
+             <graph string="Certificate Log" type="line" sample="1">
+                 <field name="date" interval="day"/>
+             </graph>
+         </field>
+    </record>
+
+    <record id="certificate_log_view_tree" model="ir.ui.view">
+        <field name="name">certificate.log.view.tree</field>
+        <field name="model">certificate.log</field>
+        <field name="arch" type="xml">
+            <tree string="Certificate Log">
+                <field name="date" widget="date"/>
+                <field name="certificate_name" />
+                <field name="download_from" />
+                <field name="invoice_id" />
+                <field name="student_id" />
+                <field name="user_id" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_certificate_log_search" model="ir.ui.view">
+        <field name="name">certificate.log.search</field>
+        <field name="model">certificate.log</field>
+        <field name="arch" type="xml">
+            <search string="Certificate Log">
+                <field name="certificate_name"/>
+                <field name="date"/>
+                <filter string="Date" name="year" invisible="1" date="date" default_period="this_year"/>
+                <separator/>
+                <filter name="filter_date" date="date" default_period="this_month"/>
+                <separator/>
+                <field name="invoice_id"/>
+                <field name="student_id"/>
+                <field name="user_id"/>
+            </search>
+        </field>
+    </record>
+
+
+    <record id="action_certificate_log" model="ir.actions.act_window">
+        <field name="name">Log de Certificados</field>
+        <field name="res_model">certificate.log</field>
+        <field name="view_mode">tree,pivot,graph</field>
+        <field name="view_id"></field>  <!-- force empty -->
+        <field name="search_view_id" ref="view_certificate_log_search"/> 
+        <field name="context">{'group_by':[]}</field>
+    </record>
+
+        <menuitem id="menu_certificate_log"
+            name="Log de Certificados"
+            action="action_certificate_log"
+            parent="openeducat_core_enterprise.menu_op_course_analysis_reporting" 
+            sequence="90"/>
+
+
+
+
+
+
+</odoo>

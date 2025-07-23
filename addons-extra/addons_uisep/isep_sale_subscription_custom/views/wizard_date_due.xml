@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="schedule_date_due_view_form" model="ir.ui.view">
+        <field name="name">schedule.date.due.view.form</field>
+        <field name="model">schedule.date.due</field>
+        <field name="arch" type="xml">
+            <form string="Prorrogar fechas">
+                <sheet>
+                    <group>
+                        <group string="Fecha actual" >
+                            <field name="order_id" invisible="1" />                            
+                            <field name="next_invoice_date" readonly="1" />
+                            <field name="end_date" readonly="1" />
+                            <field name="recurrence_id" readonly="1" />                            
+                        </group>
+                        <group string="Prorrogar hasta" >
+                            <field name="new_next_invoice_date" />
+                            <field name="new_end_date" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Plazos afectados">
+                            <field name="schedule_due_line_ids"  >
+                                <tree  delete="0" create="0" editable="top"  > 
+                                    <field name="name"  readonly="1" />
+                                    <field name="date_due" readonly="1" strig="Vencimiento" />
+                                    <field name="new_date_due" strig="Vencimiento Prorrogado" /> 
+                                    <field name="total_paid"  readonly="1" /> 
+                                    <field name="total_residual"  readonly="1" /> 
+                                    <field name="currency_id" optional="hide"  readonly="1" />    
+                                    <field name="payment_state" widget="badge"  readonly="1"
+                                        decoration-danger="payment_state == 'not_paid'"
+                                        decoration-warning="payment_state == 'partial'" 
+                                        decoration-success="payment_state == 'paid'"  
+                                        />
+                                    <field name="exclude"  widget="boolean_toggle"  />                            
+                                </tree>
+                            </field>
+                            
+                        </page>
+                    </notebook>                    
+                   
+                </sheet>
+                <footer>
+                    <button name="update_date_due" type="object" string="Confirmar" confirm="Aceptar nuevos plazos, nueva fecha de proxima factura y nueva fecha final" class="oe_highlight" />
+                    <button special="cancel" string="Descartar" type="object"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

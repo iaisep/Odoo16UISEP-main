@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="website_menu_student_profile" model="openeducat.portal.menu">
+        <field name="name">Student Profile</field>
+        <field name="menu_ref_name">Student Profile</field>
+        <field name="link">/student/profile</field>
+        <field name="active">True</field>
+        <field name="sequence" type="int">5</field>
+        <field name="background_color">#304cd5</field>
+        <field name="icon_image" type="base64"
+               file="openeducat_core_enterprise/static/img/student_profile.png"/>
+    </record>
+
+    <record id="poratl_menu_subject_registration" model="openeducat.portal.menu">
+        <field name="name">Subject Registration</field>
+        <field name="menu_ref_name">Subject Registration</field>
+        <field name="link">/subject/registration/</field>
+        <field name="active">True</field>
+        <field name="sequence" type="int">10</field>
+        <field name="background_color">#E959AD</field>
+        <field name="icon_image" type="base64"
+               file="openeducat_core_enterprise/static/img/subject_registration.png"/>
+    </record>
+
+    <record id="website_academic_calendar" model="openeducat.portal.menu">
+        <field name="name">Academic Calendar</field>
+        <field name="menu_ref_name">Academic Calendar</field>
+        <field name="link">/my/academic-calendar/</field>
+        <field name="active">True</field>
+        <field name="sequence" type="int">50</field>
+        <field name="background_color">#304cd5</field>
+        <field name="icon_image" type="base64"
+               file="openeducat_core_enterprise/static/img/academic_calendar.png"/>
+    </record>
+</odoo>

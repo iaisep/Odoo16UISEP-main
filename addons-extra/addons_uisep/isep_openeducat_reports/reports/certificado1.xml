@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="paperformat_certificado1" model="report.paperformat">
+	    <field name="name">Letter Disertacion</field>
+	    <field name="margin_top">0</field>     <!-- No top margin -->
+	    <field name="margin_bottom">0</field>  <!-- No bottom margin -->
+	    <field name="margin_left">0</field>    <!-- No left margin -->
+	    <field name="margin_right">0</field>   <!-- No right margin -->
+	    <field name="header_line" eval="False"/>  <!-- No header line -->
+	    <field name="header_spacing">0</field>    <!-- No header spacing -->
+	    <field name="dpi">90</field>  <!-- DPI settings can be adjusted if needed -->
+	    <field name="orientation">Portrait</field>  <!-- Portrait orientation -->
+	    <field name="format">Letter</field>
+	    <field name="default" eval="True"/>
+        </record>
+
+        <!-- QWeb Reports -->
+        <record id="r_certificado1" model="ir.actions.report">
+            <field name="certificado_web" eval="True"/>
+            <field name="name">Certificado 1</field>
+            <field name="model">op.student</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">isep_openeducat_reports.t_certificado1</field>
+            <field name="report_file">isep_openeducat_reports.t_certificado1</field>
+            <field name="binding_model_id" eval="False"/> 
+<!--            <field name="binding_model_id" ref="openeducat_core.model_op_student"/> -->
+            <field name="binding_type">report</field>
+            <field name="paperformat_id" ref="isep_openeducat_reports.paperformat_certificado1"/>
+            <field name="attachment">(object.name or 'Certificado').replace('/','_')+'.pdf'</field>
+        </record>
+
+        <template id="t_certificado1">
+                       <t t-set="students" t-value="docs or env[doc_model].sudo().browse(student_ids)"/>
+		       <t t-foreach="students" t-as="o">
+			   <t t-call="isep_openeducat_reports.t_certificado1_document" t-lang="o.partner_id.lang"/>
+		       </t>
+        </template>
+
+
+        <template id="t_certificado1_document">
+            <t t-call="web.basic_layout">
+                       <t t-set="libreta" t-value="env['app.gradebook.student'].sudo().search([('student_id','=',o.id),('batch_id','=',batch_id)], limit=1)"/>
+                       <t t-set="admission" t-value="libreta.admission_id"/>
+                      <t t-if="o and libreta and admission">
+                       <t t-set="data_to_stamp" t-value="{'Fecha':today_string,'Estudiante':o.display_name,'Documento':'Confirmación de Disertación y Proceso de Título Oficial', 'Carrera':admission.course_id.display_name, 'Libreta':libreta.display_name, 'Admision':admission.display_name, 'Fecha Disertación':str(o.file_closing_date or '')}"/>
+                       <t t-set="dict_stamp" t-value="env['op.sign_certificate'].sudo().stamp_data(data_to_stamp, o)"/>
+                
+                        <div class="watermark" style="position: absolute; opacity:1.0; width:100%; height:100%; text-align:center; z-index:-1; margin: 0px; ">
+
+                            <img class="border border-light" style="margin: 0px !important; width: 100%;" t-att-src="'/isep_openeducat_reports/static/src/img/background.png'"/>  
+                         </div> 
+
+                        <div class="page" style="width:100%; height:100%; padding-left: 50px; padding-right: 100px; page-break-after:always;">
+
+
+                                <div class="row" style="text-align:right; padding-top:250px;">    
+					<div class="col-12">
+					    <p style='font-size:20px;'>México, a <span t-out="today_string"/> </p>
+                                        </div>
+                                        
+                                </div> 
+                                <div class="row" style="text-align:justify; padding-top: 50px;">     
+					<div class="col-12">
+					    <p style='font-size:20px;'><strong>Asunto: Proceso de Título Oficial </strong></p>
+					    <p style='font-size:20px;'>Estimad<span t-out="'a' if o.gender == 'f' else 'o'"/> <span t-out="o.name"/>,</p>
+                                            <p style='font-size:20px;'>Espero que este mensaje te encuentre bien.</p>
+                                            <p style='font-size:20px;'>Nos complace informarte que has completado exitosamente tu cierre de expediente el dia <span t-out="str(o.file_closing_date or '')"/>, 
+                                            como parte de los requisitos para obtener tu título oficial de la <strong t-out="admission.course_id.display_name"/>.</p>
+                                            <p style='font-size:20px;'>Actualmente, la Universidad está llevando a cabo los procesos correspondientes con la institución pertinente para la emision del título
+                                            oficial que acredite tu formación académica. Queremos asegurarte que estamos trabajando diligentemente para agilizar este procedimiento y que puedas recibir tu título
+                                            a la brevedad posible. Te agradecemos sinceramente por tu dedicación y compromiso durante tu trayectoria académica con nosotros. Estamos seguros de que tu éxito en la 
+                                            disertación es sólo el comienzo de una trayectoria profesional llena de logros y éxitos.</p>
+                                            <p style='font-size:20px;'>Por favor, mantente atent<span t-out="'a' if o.gender == 'f' else 'o'"/> a futuras comunicaciones de nuestra parte con respecto al estado del proceso de emisión del título oficial. 
+                                            Si tienes alguna pregunta o necesitas información adicional, no dudes en ponerte en contacto con nosotros.</p>
+                                            <p style='font-size:20px;'> Recibe un cordial saludo, </p>
+					</div>
+                                </div>
+                                <div class="row" style="text-align:center; padding-top: 50px;">
+                                   
+                                   <div class="col-4">
+	<img alt="Barcode" style="position: relative; left: -25px;" t-att-src="'/report/barcode/?barcode_type=QR&amp;value=%s&amp;width=180&amp;height=180' % quote_plus('%s/verificar_documento?'%(base_url) + keep_query(stamp=dict_stamp.get('stamp',''), certificate_id = dict_stamp.get('certificate_id', 0), data_str = dict_stamp.get('data_str', '')))"/>
+          
+                                </div>
+                                 <div class="col-8">
+
+
+					<div class="row" style="font-size: 20px;">
+					    <div class="col-4"/>
+					    <div class="col-8">
+						    <p>
+						    <strong>ATENTAMENTE</strong></p>
+					    </div>
+					</div>
+
+                                   <div class="row" style="text-align:center; font-size:16px;margin-left:1em;margin-right:1em;">
+                                                                   <div class="col-12">
+
+                                        <img src="/isep_openeducat_reports/static/src/img/firma_decana_isep.png" style="width:132px; height:81px;"/> 
+                                        <img src="/isep_openeducat_reports/static/src/img/sello_isep.png" style="width:82px; height:48px;"/> 
+
+                                        <br/>
+                                        <strong >Dra. B. Nayeli Pérez Tamayo</strong>
+                                        <br></br>
+                                        <strong >Vicerrectora Académica</strong>
+                                    </div>
+                                </div>
+                                </div>
+                             </div>
+
+                          </div>  <!-- fin de page-->
+                      </t> <!--fin de if libreta etc -->
+             </t>
+        </template>
+    </data>
+</odoo>

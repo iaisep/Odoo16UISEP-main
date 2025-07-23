@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <!-- CHATGPT RECORD -->
+        <record id="gpt_integration_1" model="gpt.integration">
+            <field name="name" ref="chatgpt_base.gpt_origin_1"/>
+            <field name="model_id" ref="chatgpt_base.chatgpt_model_gpt_4o_mini"/>
+            <field name="code">SLIDETRANSLATE</field>
+            <field name="description">Traducción de contenido en Elearning</field>
+            <field name="prompt">lang_origin: El idioma original del texto
+translate_to: El idioma al que se debe traducir el texto.
+title: El título del contenido debe ser traducido
+content_dict: El diccionario que contiene los textos a traducir. Las claves pueden ser cualquier string, y los valores son los textos a traducir.
+traduce garantizando que devuelta todas las claves de content_dict y sus valores traducidos  sin excepcion 
+ejemplo : {
+            "lang_origin": lang_origin,
+            "translate_to": translate_to,
+            "title": "Titulo traducido",
+            "content_dict": {"%TS0001%" : "Texto traducido 1","%TS0002%" : "Texto traducido 2"}
+        } 
+Retorna en json</field>
+        </record>
+
+    </data>
+</odoo>

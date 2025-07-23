@@ -1,0 +1,23 @@
+<odoo>
+    <data>
+
+        <record id="planning_slot_view_form" model="ir.ui.view">
+            <field name="name">planning.slot.form</field>
+            <field name="model">planning.slot</field>
+            <field name="inherit_id" ref="project_forecast.planning_slot_view_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='project_id'][last()]" position="after">
+                    <field name="task_id" context="{'default_project_id': project_id}" attrs="{'invisible': [('project_id', '=', False)]}" options="{'no_open': True}"/>
+                </xpath>
+            
+            </field>
+        </record>
+
+
+
+    </data>
+</odoo>
+
+
+ 

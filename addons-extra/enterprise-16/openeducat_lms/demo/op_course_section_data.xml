@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="op_course_section_python_intro" model="op.course.section">
+            <field name="name">Getting Started with Python</field>
+            <field name="course_id" ref="demo_course_1"/>
+            <field name="sequence" type="int">1</field>
+        </record>
+
+        <record id="op_course_section_python_variable" model="op.course.section">
+            <field name="name">Variables, Strings, Integers and Floats</field>
+            <field name="course_id" ref="demo_course_1"/>
+            <field name="sequence" type="int">2</field>
+        </record>
+
+        <record id="op_course_section_python_cnd_fun" model="op.course.section">
+            <field name="name">Conditionals and functions</field>
+            <field name="course_id" ref="demo_course_1"/>
+            <field name="sequence" type="int">3</field>
+        </record>
+
+        <record id="op_course_python_sequence" model="op.course.section">
+            <field name="sequence" type="int">4</field>
+            <field name="name">Sequences, collections and iterations</field>
+            <field name="course_id" ref="demo_course_1"/>
+        </record>
+
+        <record id="op_course_python_files" model="op.course.section">
+            <field name="sequence" type="int">5</field>
+            <field name="name">Working with files</field>
+            <field name="course_id" ref="demo_course_1"/>
+        </record>
+
+        <record id="demo_op_course_section_3" model="op.course.section">
+            <field name="sequence" type="int">1</field>
+            <field name="name">Basic wordings of french</field>
+            <field name="course_id" ref="demo_course_2"/>
+        </record>
+
+        <record id="demo_op_course_section_4" model="op.course.section">
+            <field name="sequence" type="int">2</field>
+            <field name="name">Convensational French Learning</field>
+            <field name="course_id" ref="demo_course_2"/>
+        </record>
+
+        <record id="demo_op_course_section_5" model="op.course.section">
+            <field name="name">How to sell anything</field>
+            <field name="course_id" ref="demo_course_3"/>
+            <field name="sequence" type="int">1</field>
+        </record>
+
+        <record id="demo_op_course_section_6" model="op.course.section">
+            <field name="name">Sell Anything In Compition</field>
+            <field name="course_id" ref="demo_course_3"/>
+            <field name="sequence" type="int">2</field>
+        </record>
+
+</odoo>

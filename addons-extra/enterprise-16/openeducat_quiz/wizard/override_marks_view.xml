@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="view_op_override_mark_wizard_form" model="ir.ui.view">
+            <field name="name">op.override.mark.wizard.form</field>
+            <field name="model">op.override.mark</field>
+            <field name="type">form</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Questions">
+                    <group>
+                        <field name="override" readonly="1"/>
+                        <field name="override_marks"/>
+                    </group>
+                    <footer>
+                        <button string="Confirm" class="oe_highlight" type="object" name="action_confirm_mark"/>
+                        or
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_open_op_override_mark_wizard_view">
+            <field name="name">Override Marks</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.override.mark</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+</odoo>

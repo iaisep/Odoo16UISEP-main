@@ -1,0 +1,14 @@
+<odoo>
+    <template id="custom_survey_fill_form_done" inherit_id="survey.survey_fill_form_done">
+        <xpath expr="//div[@t-field='survey.description_done']" position="after">
+            <div class="mt-3">
+                <div t-if="survey.survey_type == 'exam'" class="mt16 mb16">
+                    <a t-att-href="'/survey/resultss/%s' % answer.access_token" target="_blank">
+                        <i class="fa fa-fw fa-list" role="img" aria-label="Ir a Respuestas" title="Ir a Respuestas"/>
+                        Ir a Respuestas
+                    </a>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

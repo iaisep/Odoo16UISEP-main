@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="portal_my_home_menu_attendance" name="Portal layout : invoice menu entries"
+              inherit_id="openeducat_core_enterprise.portal_breadcrumbs_inhetrite" priority="10">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <t t-if="user_id.sudo().is_student">
+                <li t-if="page_name == 'Attendance_Id'"
+                    t-attf-class="breadcrumb-item #{'active ' if not invoice else ''}">
+                    <a t-if="attendance_ids" t-attf-href="/student/attendance/?{{ keep_query() }}">Attendance</a>
+                    <t t-else="">Attendance</t>
+                </li>
+            </t>
+            <t t-if="user_id.sudo().is_parent">
+                <li t-if="page_name == 'Attendance_Id'"
+                    t-attf-class="breadcrumb-item #{'active ' if not invoice else ''}">
+                    <a t-if="attendance_ids" t-attf-href="/student/attendance/#{stud_id}?{{ keep_query() }}">
+                        Attendance
+                    </a>
+                    <t t-else="">Attendance</t>
+                </li>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="openeducat_attendance_portal">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Attendance List</t>
+            </t>
+
+            <t t-if="not grouped_tasks">
+                <div class="alert alert-warning mt8" role="alert">
+                    There are no records.
+                </div>
+            </t>
+
+            <t t-if="grouped_tasks">
+                <t t-if="grouped_tasks" t-call="portal.portal_table">
+                    <t t-foreach="grouped_tasks" t-as="tasks">
+                        <thead>
+                            <tr t-attf-class="{{'thead-light' if not groupby == 'none' else ''}}">
+                                <th t-if="groupby == 'none'">Attendance Sheet</th>
+                                <th t-else="">
+                                    <em class="font-weight-normal text-muted">Attendace For:</em>
+                                    <span t-field="tasks[0].sudo().course_id.name"/>
+                                </th>
+                                <th class="timesheet">Present?</th>
+                                <th>Remark</th>
+                                <th>Date</th>
+                                <th>Course</th>
+                                <th>Batch</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-if="tasks" t-foreach="tasks" t-as="task">
+                                <tr>
+                                    <td>
+                                        <span t-esc="task.attendance_id.name"/>
+                                    </td>
+                                    <td class="timesheet">
+                                        <span t-esc="task.present"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="task.remark"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="task.attendance_date" t-options="{'widget': 'date'}"/>
+                                    </td>
+                                    <td>
+                                        <span id='test' t-esc="task.course_id.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="task.batch_id.name"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </t>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

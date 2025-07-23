@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="report_specific_agreement" model="ir.actions.report">
+            <field name="name">Convenio Específico</field>
+            <field name="model">practice.request</field>
+            <field name="binding_model_id" ref="model_practice_request"/>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">isep_practices_2.report_specific_agreement_template</field>
+            <field name="report_file">isep_practices_2.report_specific_agreement_template</field>
+
+        </record>
+        <template id="report_specific_agreement_template">
+            <t t-call="web.html_container">
+                <t t-call="web.basic_layout">
+                    <t t-foreach="docs" t-as="o">
+                    <div class="page">
+                        <h4 class="header_title">CONVENIO ESPECÍFICO ANEXO</h4>
+                        <P class="header_paragraph" >AL CONVENIO DE COLABORACIÓN PARA LA REALIZACIÓN DE PRÁCTICAS DE FORMACIÓN ENTRE ISEP INTERNACIONAL LCC Y <span t-field="o.practice_center_id.signatory_name" class="center_name"/></P>
+                        <p class="p_date">En fecha <span t-esc="datetime.datetime.today().day"/>
+                                    <t t-if="datetime.datetime.today().month == 1"><span>de Enero del </span></t>
+                                    <t t-if="datetime.datetime.today().month == 2"><span>de Febrero del </span></t>
+                                    <t t-if="datetime.datetime.today().month == 3"><span>de Marzo del </span></t>
+                                    <t t-if="datetime.datetime.today().month == 4"><span>de Abril del </span></t>
+                                    <t t-if="datetime.datetime.today().month == 5"><span>de Mayo del </span></t>
+                                    <t t-if="datetime.datetime.today().month == 6"><span>de Junio del </span></t>
+                                    <t t-if="datetime.datetime.today().month == 7"><span>de Julio del </span></t>
+                                    <t t-if="datetime.datetime.today().month == 8"><span>de Agosto del </span></t>
+                                    <t t-if="datetime.datetime.today().month == 9"><span>de Septiembre del </span></t>
+                                    <t t-if="datetime.datetime.today().month == 10"><span>de Octubre del </span></t>
+                                    <t t-if="datetime.datetime.today().month == 11"><span>de Noviembre del </span></t>
+                                    <t t-if="datetime.datetime.today().month == 12"><span>de Diciembre del </span></t>
+                                    <span t-esc="datetime.datetime.today().year"/>
+                        </p>
+                        <p>
+                            En el marco del convenio suscrito por ISEP INTERNACIONAL LCC y <span t-esc="o.practice_center_id.signatory_name" class="center_name_sign"/> para la realización de prácticas formativas,
+                            se acuerda la realización de prácticas del alumno del <span t-field="o.op_student_course_course_id"/>, <span t-esc="o.name" class="student_name"/>,
+                            con documento de identidad <span t-field="o.course_id.student_id.partner_id.vat"/> bajo las siguientes:
+                        </p>
+                            <h4 class="title_2">Cláusulas</h4>
+                            <p>
+                                <strong>PRIMERA: </strong>Las prácticas se realizarán desde el día  <span t-esc="o.start_date.day"/>
+                                <t t-if="o.start_date.month == 1"><span>de Enero del </span></t>
+                                <t t-if="o.start_date.month == 2"><span>de Febrero del </span></t>
+                                <t t-if="o.start_date.month == 3"><span>de Marzo del </span></t>
+                                <t t-if="o.start_date.month == 4"><span>de Abril del </span></t>
+                                <t t-if="o.start_date.month == 5"><span>de Mayo del </span></t>
+                                <t t-if="o.start_date.month == 6"><span>de Junio del </span></t>
+                                <t t-if="o.start_date.month == 7"><span>de Julio del </span></t>
+                                <t t-if="o.start_date.month == 8"><span>de Agosto del </span></t>
+                                <t t-if="o.start_date.month == 9"><span>de Septiembre del </span></t>
+                                <t t-if="o.start_date.month == 10"><span>de Octubre del </span></t>
+                                <t t-if="o.start_date.month == 11"><span>de Noviembre del </span></t>
+                                <t t-if="o.start_date.month == 12"><span>de Diciembre del </span></t>
+                                <span t-esc="o.start_date.year"/>, con una duración estimada de 
+                                <span t-field="o.practice_center_type_id_total_hours" t-options='{"widget": "float", "precision": 0}'/> horas.
+                            </p>
+                            <p>
+                                <strong>SEGUNDA: </strong>La  supervisión de las prácticas del alumno/a será llevada a cabo por <span t-field="o.tutor_id" class="tutor_name"/>,
+                                con documento de identidad <span t-field="o.tutor_id.vat"/>.
+                            </p>
+                            <p>
+                                <strong>TERCERA: </strong>EL alumno se compromete a:
+                                <ul>
+                                    <li>
+                                        <p>
+                                            Ser puntual. En los casos en los que se trate con pacientes o usuarios del servicio, deberá llegar, como mínimo,
+                                        con 10 minutos de antelación sobre la hora concertada para la visita.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Asistir a todas las sesiones de prácticas programadas.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            No establecer ningún vinculo personal con los/las pacientes/usuarias o familiares, fuera del centro.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Adaptarse a los horarios de visita, terapia o trabajo con pacientes o usuarios, dentro de la franja horaria pactada
+                                        con el centro y a la metodología de trabajo del centro.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Seguir las pautas establecidas por el responsable del centro de prácticas, en cualquier caso:
+                                            <ol class="letters">
+                                                <li>
+                                                    <p>
+                                                        No intervenir si el terapeuta o tutor responsable no le da permiso para hacerlo.
+                                                    </p>
+                                                </li>
+                                                <li>
+                                                    <p>
+                                                        Mantener el secreto profesional y comentar exclusivamente con el tutor la información
+                                                        confidencial de los usuarios o pacientes.
+                                                    </p>
+                                                </li>
+                                                <li>
+                                                    <p>
+                                                        Abandonar la sesión  si el paciente o terapeuta así lo solicitan.
+                                                    </p>
+                                                </li>
+                                                <li>
+                                                    <p>
+                                                        No utilizar la documentación, material, etc. del centro, sin permiso del tutor.
+                                                    </p>
+                                                </li>
+
+                                            </ol>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Realizar las tareas propias del servicio o trabajo con los pacientes o usuarios que le encargue el/la responsable
+                                        del centro  (investigación, elaboración de pautas, de test, etc).
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            No hacer uso, reproducir, explotar comercialmente u otras actuaciones de naturaleza análoga, mas allá de la propia
+                                        Memoria o Trabajo de las actividades elaboradas en las prácticas, y que gocen de la protección que les concede la Ley de Propiedad Intelectual, aprobada
+                                            por Real Decreto legislativo 1/1996, de 12 de abril, la Ley 20/2003, de 7 de julio, del Diseño industrial, la Ley
+                                            17/2001, de 7 de diciembre, de Marcas, la Ley 11/1986, de 20 de marzo, de Patentes, y otras disposiciones concordantes.
+                                        </p>
+                                    </li>
+
+                                </ul>
+                            </p>
+                            <p>
+                                <strong>CUARTA: </strong> Las tareas que realizará el alumno durante el período de prácticas deben de estar relacionadas con el <span t-field="o.op_student_course_course_id"/>.
+                            </p>
+                            <p>
+                                <strong>QUINTA: </strong> Durante el período de prácticas en <span t-esc="o.practice_center_id.name" class="center_name"/>, los seguros pertinentes de
+                                cobertura del alumno (de responsabilidad civil, de accidentes personales y de   asistencia sanitaria) corren a
+                                cargo de ISEP INTERNACIONAL LCC.
+                            </p>
+                            <p>
+                                <strong>SEXTA: </strong>Las partes se reservan la facultad de rescindir unilateralmente este convenio.
+                            </p>
+                            <p>
+                                <strong>SÉPTIMA: </strong>Estas prácticas no son remuneradas.
+                            </p>
+                            <p>
+                                Las partes implicadas muestran su conformidad con las cláusulas expuestas y firman por triplicado en el lugar y fecha arriba indicados.
+                            </p>
+
+                            <div class="sign" >
+                                <div class="sign_student">
+                                    <span t-esc="o.name" class="student_name"/>
+                                </div>
+                                <div class="sign_formation_isep">
+                                    <span class="responsible_margin">ISEP INTERNACIONAL LCC</span>
+                                    <img src="/isep_practices_2/static/src/img/Firma_de_Marc.png" style="max-height:75px;"/>
+                                </div>
+                                <div class="sign_tutor">
+                                    <span t-esc="o.tutor_id.name" class="center_name_sign"/>
+                                </div>
+                            </div>
+                    </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

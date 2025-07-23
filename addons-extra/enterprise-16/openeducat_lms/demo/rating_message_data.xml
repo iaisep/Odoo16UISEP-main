@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="0">
+
+        <record id="rating_message_1" model="mail.message">
+            <field name="body">It is very powerful language</field>
+            <field name="record_name">Introduction To Python Programming</field>
+            <field name="model">op.course</field>
+            <field name="message_type">comment</field>
+<!--            <field name="website_published" eval="True"/>-->
+            <field name="res_id" ref="demo_course_1"/>
+        </record>
+
+</odoo>

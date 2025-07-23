@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_isep_practices_root" name="Prácticas"
+        sequence="10"
+        web_icon="isep_practices,static/description/practice.png"/>
+
+    <menuitem id="menu_isep_practice_menu" name="Prácticas"
+        sequence="20"
+        parent="isep_practices.menu_isep_practices_root"
+        action="action_practice_practice"
+        />
+
+    <menuitem id="menu_isep_contact_menu" name="Tutor/Center"
+        sequence="20"
+        parent="isep_practices.menu_isep_practices_root"
+        action="contacts.action_contacts"
+        />
+    
+    <!-- <menuitem id="menu_isep_center_menu" name="Centros"
+        sequence="30"
+        parent="isep_practices.menu_isep_practices_root"
+        action="act_res_partner_center_view"
+        /> -->
+
+    <menuitem id="menu_isep_typeform_registration_request_menu" name="Formularios TypeForm"
+        sequence="20"
+        parent="isep_practices.menu_isep_practices_root"/>
+
+
+    <menuitem id="submenu_center" name="Actualización de Centros"
+        sequence="12"
+        parent="menu_isep_typeform_registration_request_menu"
+        action="action_practice_type_form_center"/>
+
+    <menuitem id="submenu_assessment_tutor" name="Valoración del tutor al Estudiante"
+        sequence="13"
+        parent="menu_isep_typeform_registration_request_menu"
+        action="action_practice_type_form_assessment_tutor"/>
+
+    <menuitem id="submenu_completion_questionnaire" name="Cuestionario de Finalización"
+        sequence="14"
+        parent="menu_isep_typeform_registration_request_menu"
+        action="action_practice_type_form_completion_questionnaire"/>
+
+    <menuitem id="submenu_internship_request" name="Solicitud de Prácticas"
+        sequence="15"
+        parent="menu_isep_typeform_registration_request_menu"
+        action="action_practice_type_form_internship_request"/>
+
+    <menuitem id="menu_isep_practices_settings" name="Configuración"
+        sequence="20"
+        parent="isep_practices.menu_isep_practices_root"/>
+
+    <menuitem id="submenu_center_tutor" name="Crear Centro"
+        sequence="12"
+        parent="menu_isep_practices_settings"
+        action="action_practice_center_tutor"/>
+
+    <menuitem id="submenu_center_course" name="Crear Centro Curso"
+        sequence="12"
+        parent="menu_isep_practices_settings"
+        action="action_practice_center_course"/>
+
+    <menuitem id="submenu_schedule_days" name="Crear Horario de Practica días"
+        sequence="12"
+        parent="menu_isep_practices_settings"
+        action="action_practice_schedule_days"/>
+
+    <menuitem id="submenu_practice_schedule" name="Crear Horario de Practica"
+        sequence="12"
+        parent="menu_isep_practices_settings"
+        action="action_practice_schedule"/>
+    
+    <menuitem id="submenu_temary" name="Crear Temario"
+        sequence="12"
+        parent="menu_isep_practices_settings"
+        action="act_open_practice_temary_view"/>
+    
+    <menuitem id="submenu_tutor_course" name="Crear Práctica tutor curso"
+        sequence="12"
+        parent="menu_isep_practices_settings"
+        action="action_practice_tutor_course"/>
+
+</odoo>

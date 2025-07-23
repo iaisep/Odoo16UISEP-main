@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template id="address_website_sale_custom" inherit_id="website_sale.address">
+
+
+        <xpath expr="//select[@id='country_id']/t[@t-foreach='countries']" position="replace">
+            <t t-foreach="countries" t-as="c">
+                <t t-if="c.code">
+                    <option t-att-value="c.id" t-att-selected="c.id == (country and country.id or -1)">
+                        <t t-esc="c.name" />
+                    </option>
+                </t>
+            </t>
+        </xpath>
+
+
+        <xpath expr="//label[@for='company_name']" position="replace">
+            <label class="col-form-label" for="company_name">Nombre de quíen factura</label>
+        </xpath>
+         <xpath expr="//input[@name='company_name']" position="replace">
+            <input type="text" name="company_name" placeholder="En blanco si es el mismo nombre del estudiante" t-attf-class="form-control #{error.get('company_name') and 'is-invalid' or ''}" t-att-value="'commercial_company_name' in checkout and checkout['commercial_company_name'] or 'company_name' in checkout and checkout['company_name']" t-att-readonly="'1' if vat_warning else None"/>
+           
+        </xpath>
+
+
+                                                 
+
+
+        <xpath expr="//label[@for='vat']" position="replace">
+            <label class="col-form-label" for="vat">No. de Identificación (RFC, NIF, VAT, CURP)</label>
+        </xpath>
+
+        <xpath expr="//input[@name='vat']" position="replace">
+            <input type="text" name="vat" t-attf-class="form-control #{error.get('vat') and 'is-invalid' or ''}" t-att-value="'vat' in checkout and checkout['vat']" t-att-readonly="'1' if vat_warning else None"/>
+
+        </xpath>
+
+
+        
+
+    </template>
+
+    <template id="address_website_sale_custom_sign" inherit_id="website_sale.address_on_payment">
+        <xpath expr="//div[@id='shipping_and_billing']" position="after">
+            
+
+
+            <div class="alert alert-info mt-3">
+                <div class="row border rounded p-2 align-items-center">
+                    <div class="col-auto">
+                        <i class="fa fa-info-circle fa-2x"/>
+                    </div>
+                    <div class="col">
+                        <p>
+                            ¡El documento para firmar la matrícula será enviado a su correo después de pagar! Recuerda que tu 
+                            matrícula puede tardar hasta 2 horas. Gracias por tu paciencia.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+        </xpath>
+    </template>
+
+     <!-- ////// elimina la etiqueta de POR MES de productos por suscripcion al momento de hacer la compra  //// -->
+    <template id="remove_subscription_product_price" inherit_id="website_sale.product_price">
+        <xpath expr="//h3[hasclass('css_editable_mode_hidden')]/del/following-sibling::t[1]" position="replace"/>
+    </template>
+
+
+
+
+
+</odoo>

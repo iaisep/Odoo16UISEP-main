@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="slides_download" name="website_slides_download" inherit_id="website_slides.slide_fullscreen">
+        <xpath expr="//div[contains(@class, 'o_wslides_slide_fs_header')]/div[2]" position="inside">
+            <a id="custom_download_button"  class="d-flex align-items-center px-3"  t-att-data-slide-type="slide.slide_category"  t-att-data-slide-name="slide.name" style="cursor:pointer"  title="Download" onclick="download_as_pdf()">
+                <div id="custom_loading_spinner" style="display:none" class="spinner-border spinner-border-sm" role="status"/>
+                <i id="custom_download_icon" class="fa fa-download"/>
+                <span id="custom_download_text" class="d-none d-md-inline-block ms-1">Descargar</span>
+            </a>
+        </xpath>
+    </template>
+
+     <template id="slides_download_from_slide" name="website_slides_download_from_slide" inherit_id="website_slides.slide_content_detailed">
+        <xpath expr="//div/div[2]" position="inside">
+            <a id="custom_download_button"  class="btn btn-light border ms-2 my-1" role="button"  t-att-data-slide-type="slide.slide_category"  t-att-data-slide-name="slide.name" aria-label="Download" onclick="download_as_pdf()">
+                <div id="custom_loading_spinner"  style="display:none" class="spinner-border spinner-border-sm me-xl-2 my-1" role="status"/>
+                <i id="custom_download_icon" class="fa fa-download me-xl-2 my-1"/>
+                <span id="custom_download_text" class="d-none d-xl-inline-block e-xl-2 my-1">Descargar</span>
+            </a>
+        </xpath>
+    </template>
+</odoo>

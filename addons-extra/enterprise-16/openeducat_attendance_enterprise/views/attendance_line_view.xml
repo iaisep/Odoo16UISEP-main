@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="view_op_student_attendance_progress_form" model="ir.ui.view">
+            <field name="name">op.attendance.line.form</field>
+            <field name="model">op.attendance.line</field>
+            <field name="inherit_id" ref="openeducat_attendance.view_op_attendance_line_form"/>
+            <field name="priority" eval="10"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='attendance_id']" position="after">
+                    <field name="progression_id"/>
+                </xpath>
+                <xpath expr="//field[@name='course_id']" position="after">
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_op_student_attendance_progress_tree" model="ir.ui.view">
+            <field name="name">op.attendance.line.tree</field>
+            <field name="model">op.attendance.line</field>
+            <field name="inherit_id" ref="openeducat_attendance.view_op_attendance_line_tree"/>
+            <field name="priority" eval="10"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='course_id']" position="after">
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                </xpath>
+
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="act_attendance_analysis_line_pivot_view">
+            <field name="name">Attendance Analysis</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.attendance.line</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">pivot</field>
+            <field name="view_id" ref="openeducat_attendance.view_op_attendance_line_pivot"/>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+
+        <record id="op_attendance_analysis_line_pivot_view" model="ir.actions.act_window.view">
+            <field name="sequence" eval="3"/>
+            <field name="view_mode">pivot</field>
+            <field name="view_id" ref="openeducat_attendance.view_op_attendance_line_pivot"/>
+            <field name="act_window_id" ref="act_attendance_analysis_line_pivot_view"/>
+        </record>
+
+</odoo>

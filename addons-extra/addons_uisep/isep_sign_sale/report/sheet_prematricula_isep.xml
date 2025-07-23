@@ -1,0 +1,710 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="sheet_prematricula_custom_paperformat" model="report.paperformat">
+        <field name="name">Hoja Prematricula</field>
+        <field name="default" eval="True"/>
+        <field name="format">custom</field>
+        <field name="page_height">297</field>
+        <field name="page_width">210</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">40</field>
+        <field name="margin_bottom">85</field>
+        <field name="margin_left">7</field>
+        <field name="margin_right">7</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">35</field>
+        <field name="dpi">90</field>
+    </record>
+
+    <record id="report_sheet_prematricula_international" model="ir.actions.report">
+       <field name="name">Prematrícula ISEP INTERNACIONAL</field>
+       <field name="model">sale.order</field>
+       <field name="report_type">qweb-pdf</field>
+       <field name="report_name">isep_sign_sale.prematricula_isep_international</field>
+       <field name="report_file">isep_sign_sale.prematricula_isep_international</field>
+       <field name="paperformat_id" ref="isep_sign_sale.sheet_prematricula_custom_paperformat" />
+       <field name="binding_type">report</field>
+       <field name="binding_model_id" ref="model_sale_order"/> 
+   </record>
+    
+
+    <template id="prematricula_isep_international">
+        <t t-call="web.html_container">
+           
+
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.basic_layout">
+                    <div class="page" name="first_page" style="font-family:Arial, serif;page-break-after:always;">
+                        <div class="header">
+                            <hr style="border:5px solid #002d5f;margin-bottom:1px;margin-top:-3px"/>
+                            <div class="row" style="margin-bottom:5px;">
+                                <div class="col-6">
+                                    <img class="img-fluid logo" style="height:125px;padding-top:2px;" src="/isep_sign_sale/static/src/img/Logo_1200x700-01.png"/>
+                                </div>
+                                <div class="col-6">
+                                    <br/>
+                                    <div class="row container-fluid" style="margin-top:20px">
+                                          <div class="col-6">
+                                            <div class="row">
+                                                <img style="height:22px;padding-top:2px;" src="/isep_sign_sale/static/src/img/compani.png"/>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <br/> -->
+                        <hr style="border:2px solid #002d5f;margin-top:-2px;margin-bottom:1px;"/><br/><br/>
+                        <div class="row">
+                            <div class="col-5" style="background-color: #fc6c04;border-bottom-right-radius:5px;">
+                                <strong style="color:white; margin-left:5px;font-size:10px;">DATOS PERSONALES DEL ALUMNO</strong>
+                            </div>
+                        </div>
+                        <div id="personal_information" class="row personal_information" style="font-size:10px;">
+                            <!-- First row-->
+                            <div class="row container-fluid">
+                            <!--First columna-->
+                            <div class="col-2">
+                                <strong>Nombre:</strong><br/>
+                            </div>
+                            <!--Second column-->
+                            <div class="col-4">
+                                <span t-field="o.partner_id.name"/><br/>
+                            </div>
+
+                            </div><!--First row-->
+                        </div>
+
+                        <div id="personal_information1" class="row personal_information" style="font-size:10px;">
+                            <!-- First row-->
+                            <div class="row container-fluid">
+                            <!--First columna-->
+                            <div class="col-2">
+                                <strong>Identificación:</strong><br/>
+                            </div>
+                            <!--Second column-->
+                            <div class="col-3">
+                                <span t-field="o.partner_id.vat"/>
+                                
+                            </div>
+                            <!--Third column-->
+                           
+                            <div class="col-3">
+                            </div>
+                            </div><!--First row-->
+                        </div>
+
+                        <div id="personal_information2" class="row personal_information" style="font-size:10px;">
+                             <div class="row container-fluid">
+                            <!--First columna-->
+                            <div class="col-2">
+                                <strong>Domicilio:</strong><br/>
+                            </div>
+                            <!--Second column-->
+                            <div class="col-7">
+                                <span t-field="o.partner_id.street"/><br/>
+                            </div>
+                            <!--Third column-->
+                            <div class="col-1">
+                                <strong>C.P:</strong><br/>
+                            </div>
+                            <!--Fourth column-->
+                            <div class="col-2">
+                                <span t-field="o.partner_id.zip"/><br/>
+                            </div>
+                            </div><!--First row-->
+                        </div>
+
+                        <div id="personal_information3" class="row personal_information" style="font-size:10px;">
+                            <div class="row container-fluid">
+                            <!--First columna-->
+                            <div class="col-2">
+                                <strong>Población:</strong><br/>
+                                <strong>Móvil:</strong><br/>
+                                <strong>Email:</strong><br/>
+                                <!-- <strong>Estudios:</strong><br/> -->
+                                <!-- <strong>Universidad:</strong> -->
+                            </div>
+                            <!--Second column-->
+                            <div class="col-3">
+                                <span t-field="o.partner_id.city"/><br/>
+                                <span t-field="o.partner_id.mobile"/><br/>
+                                <span t-field="o.partner_id.email"/><br/>
+                                <!-- <span t-field="o.partner_id.titulacion"/><br/> -->
+                                <!-- <span t-field="o.partner_id.university"/> -->
+                            </div>
+                            <!--Third column-->
+                            <div class="col-2">
+                                <strong>Estado:</strong><br/>
+                                <strong>Teléfono Fijo:</strong><br/>
+                                <!-- <strong>Finalizados:</strong><br/> -->
+                                <!-- <strong>Profesión:</strong><br/> -->
+                                <strong>Asesor:</strong><br/>
+                            </div>
+                            <!--Fourth column-->
+                            <div class="col-2">
+                                <span t-field="o.partner_id.state_id"/><br/>
+                                <span t-field="o.partner_id.phone"/><br/>
+                                <!-- <span t-field="o.partner_id.finalizacionestudios"/><br/> -->
+                                <!-- <span t-field="o.partner_id.profession"/><br/>  -->
+                                <span t-field="o.user_id.name"/><br/>
+                            </div>
+                            <!--Fourth column-->
+                            <div class="col-1">
+                                <strong>País:</strong><br/>
+                            </div>
+                            <!--Fifth column-->
+                            <div class="col-2">
+                                <span t-field="o.partner_id.country_id"/><br/>
+                            </div>
+                            </div><!--First row-->
+                        </div> <!--"personal_information"-->
+
+                        <br/>
+                        <hr style="border:2px solid #002d5f;margin-top:-2px;margin-bottom:1px;margin-top:-15px"/>
+                        <div class="row">
+                            <div class="col-4" style="background-color: #fc6c04;border-bottom-right-radius:5px;">
+                                <strong style="color:white; margin-left:5px;font-size:10px;">DATOS DE FACTURACIÓN</strong>
+                            </div>
+                        </div>
+
+                        <div id="facturacion" class="row personal_information" style="font-size:10px;">
+                            <!-- Second row-->
+                            <div class="row container-fluid">
+                            <!--First columna-->
+                            <div class="col-2">
+                                <strong>Nombre:</strong><br/>
+                            </div>
+                            <!--Second column-->
+                            <div class="col-3">
+                                <span t-field="o.partner_invoice_id.name"/><br/>
+                            </div>
+                            </div><!--First row-->
+                        </div>
+
+                        <div id="facturacion1" class="row personal_information" style="font-size:10px;">
+                            <div class="row container-fluid">
+                                <!--First columna-->
+                                <div class="col-2">
+                                    <strong>Identificación:</strong><br/>
+                                </div>
+                                <!--Second column-->
+                                <div class="col-3">
+                                    <span t-field="o.partner_invoice_id.vat"/>
+                                    
+                                    <br/>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="facturacion2" class="row personal_information" style="font-size:10px;">
+                            <div class="row container-fluid">
+                            <div class="col-2">
+                                <strong>Domicilio:</strong><br/>
+                            </div>
+                            <div class="col-7">
+                                <span t-field="o.partner_invoice_id.street"/>
+                            </div>
+                            <div class="col-1">
+                                <strong>C.P.:</strong><br/>
+                            </div>
+                            <div class="col-2">
+                                <span t-field="o.partner_invoice_id.zip"/>
+                            </div>
+                            </div>
+                        </div> <!--"facturacion"-->
+
+                        <div id="facturacion3" class="row personal_information" style="font-size:10px;">
+                            <div class="row container-fluid">
+                            <div class="col-2">
+                                <strong>Población:</strong><br/>
+                                <strong>Móvil:</strong><br/>
+                                <strong>Email:</strong><br/>
+                            </div>
+                            <div class="col-3">
+                                <span t-field="o.partner_invoice_id.city"/><br/>
+                                <span t-field="o.partner_invoice_id.mobile"/><br/>
+                                <span t-field="o.partner_invoice_id.email"/>
+                            </div>
+                            <div class="col-2">
+                                <strong>Estado:</strong><br/>
+                                <strong>Teléfono fijo:</strong><br/>
+                            </div>
+                            <div class="col-2">
+                                <span t-field="o.partner_invoice_id.state_id"/><br/>
+                                <span t-field="o.partner_invoice_id.phone"/>
+                            </div>
+                            </div>
+                        </div> <!--"facturacion"-->
+
+                        <br/>
+                        <hr style="border:1px solid #002d5f;margin-bottom:1px;margin-top:-20px"/>
+                        <div class="row">
+                            <div class="col-12">
+                            <p style="font-size:10px;">Recibida previamente la información detallada de las características del curso, 
+                            contenido y demás cuestiones relacionadas, el alumno/titular acepta las condiciones generales y académicas 
+                            amparadas en este contrato:</p>
+                            </div>
+                        </div>
+                        <div class="row" style="font-size:10px;">
+                             <div class="col-12">
+                                <ul>
+                                    <t t-foreach="o.order_line" t-as="l">
+                                        <li><span t-field="l.product_id"/></li>
+                                    </t>
+                                </ul>
+                             </div>
+                        </div>
+                        <hr style="border:2px solid #002d5f;margin-bottom:1px;margin-top:5px"/>
+                        <div class="row">
+                            <div class="col-7" style="background-color: #fc6c04;border-bottom-right-radius:5px;">
+                                <strong style="color:white; margin-left:5px;font-size:10px;">CONDICIONES ACEPTADAS PARA EL PAGO DEL CURSO</strong>
+                            </div>
+                        </div>
+                        
+                        <t t-set="amount_recurring" t-value="0"/>
+                        <t t-set="amount_no_recurring" t-value="0"/>
+                        <t t-foreach="o.order_line" t-as="line">
+                          <t t-if="line.product_template_id.recurring_invoice == True">
+                            <t t-set="amount_recurring" t-value="amount_recurring+line.price_reduce_taxinc"/>
+                          </t>
+                          <t t-if="line.product_template_id.recurring_invoice == False">
+                            <t t-set="amount_no_recurring" t-value="amount_no_recurring+line.price_reduce_taxinc"/>
+                          </t>
+                        </t>
+                              
+                        <div class="row" style="font-size:10px;">
+                            <div class="col-3">
+                                <strong>Plazo de Pago:</strong><br/>
+                                <strong>Pago recurrente:</strong><br/>
+                                <strong>Pago no recurrente:</strong><br/>
+                                <strong>Forma de Pago:</strong><br/>
+                            </div>
+                            <div class="col-3"> 
+                                <span t-field="o.term_number"/> Meses <br/>
+                                <span t-esc="amount_recurring" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/> <span t-field="o.currency_id.name"/> por <span t-field="o.term_number"/> Meses<br/>
+                                <span t-esc="amount_no_recurring" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/> <span t-field="o.currency_id.name"/><br/>
+                                <span t-field="o.payment_term_id.name"/>
+                            </div>
+
+                            <div class="col-6">
+                                <br/><br/><br/>
+                                <strong>Fecha de primer pago:</strong>
+                                <span t-field="o.start_date" style="margin-left:20px"/>
+                            </div>
+                        </div>
+                        <br/><br/>
+                        <hr style="border:1px solid #002d5f;margin-bottom:1px;margin-top:-30px"/>
+                        <div class="row">
+                            <div class="col-12">
+                                <p style="font-size:10px;">
+                                   
+
+                                    <br/>
+                                    Leído y conforme con las condiciones generales y mis derechos y deberes que se adjuntan (recibo copia).
+                                </p>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="row container-fluid">
+                           <img style="z-index:-1;position:relative;margin-top:2px;margin-bottom:0px;" src="/isep_sign_sale/static/src/img/footer_isep4.jpg"/>
+                       </div>
+
+                        
+                        <!-- End sign page 1 -->
+                        <div class="footer container-fluid">
+                          <br/>
+                          <div class="row sign">
+                              <div class="col-4" style="font-size:18px;text-align:center;"><strong>FIRMA DEL ALUMNO</strong></div>
+                              <div class="col-4" style="font-size:18px;text-align:center;"><strong>FIRMA DEL TITULAR<br/>(Si es distinto al alumno)</strong></div>
+                              <div class="col-4" style="font-size:18px;text-align:center;"><strong>Universidad ISEP</strong></div>
+                          </div>
+                          <div class="row">
+                              <div class="col-8"/>
+                              <div class="col-4">
+                                  <img class="img-fluid img-sign" style="height:150px;display:block;margin-left:auto;margin-right:auto;margin-bottom:-10px;" src="/isep_sign_sale/static/src/img/firma_laramie-removebg-preview.png"/>
+                              </div>
+                          </div>
+                          <div class="row sign">
+                              <div class="col-4" style="font-size:18px;text-align:center;">
+                                  <strong><span t-field="o.partner_id.name"/></strong>
+                                  <br/>
+                                  <span t-field="o.partner_id.vat"/>
+                              </div>
+                              <div class="col-4" style="font-size:18px;text-align:center;">
+                                  <strong><span t-field="o.partner_invoice_id.company_name"/>
+                                  </strong><br/>
+                              </div>
+                              <div class="col-4" style="font-size:18px;text-align:center;">
+                                  <strong> S. J. Flannery</strong>
+                              </div>
+                          </div>
+                              <!--<div class="row container-fluid">-->
+                              <img src="/isep_sign_sale/static/src/img/footer_isep5.png"/>
+                              <!--</div>-->
+                          </div> <!--footer-->
+                      </div>
+
+                    <div class="page" name="second_page" style="font-family:Arial, serif;font-size:11px;text-align:justify;page-break-after:always;">
+                        <br/>
+
+                        <strong>INFORMACIÓN PREVIA</strong>
+                        <br/>
+                            El alumno y el titular del contrato han recibido de Universidad ISEP, en el momento de
+                            la firma del presente, la información necesaria acerca del programa a seguir,
+                            tanto académica, económica y administrativa.
+
+                        <br/>
+                        <strong>FORMALIZACIÓN Y CUMPLIMIENTO DEL CONTRATO</strong>
+                        <br/>
+                        <ol start="1" style="margin-left:11px">
+                            <li>
+
+                                El contrato queda formalizado con la aceptación de estas condiciones.
+                                Las partes tienen por no efectuado ningún pacto verbal. Estas cláusulas
+                                prevalecen sobre otros pactos escritos que las contradigan.
+
+                                </li>
+                            <li>
+                                Tras la formalización del contrato, el alumno se compromete a aportar la
+                                documentación requerida (incluyendo la acreditación de la titulación
+                                universitaria necesaria) en el tiempo y forma solicitados por Universidad ISEP.
+                                </li>
+                            <li>
+                                El alumno matriculado, dispondrá de 3 días naturales a partir de la firma
+                                del presentre contrato para desistir del mismo. En este caso, Universidad ISEP retendrá las tasas académicas en concepto de gastos de administración y
+                                reserva de plaza. Pasado dicho plazo, se deberán efectuar todos los pagos.
+                                </li>
+                            <li>
+
+                                El titular autoriza a Universidad ISEP a realizar los cobros en la forma y
+                                los plazos según las condiciones aceptadas para el pago.
+
+                                </li>
+                            <li>
+                                En caso de incumplimiento de los vencimientos pactados, Universidad ISEP podrá
+                                reclamar la totalidad del importe al alumno/titular, y los plazos acordados
+                                con anterioridad quedarán sin efecto.
+                                </li>
+                            <li>
+                                Universidad ISEP se reserva el derecho de dejar de prestar el servicio cuando el
+                                alumno no cumpla con las obligaciones adquiridas, así como de reportar a ficheros
+                                de morosidad, solvencia patrimonial o crédito en caso de que el alumno/titular
+                                no cumpla satisfactoriamente con las obligaciones de pago pactadas.
+                                </li>
+
+                            <li>
+
+                                Los programas presenciales, doctorado o modalidad 360 serán realizados siempre que se alcance el número
+                                mínimo necesario de alumnos. En caso de anulación, el alumno podrá optar entre
+                                destinar el importe pagado a otro programa de Universidad ISEP o bien el reintegro
+                                de los importes abonados.
+
+                                </li>
+                            <li>
+                                El avance del alumno será a su propio ritmo, sin embargo, en caso de que la titulación sea expedida
+                                por otra institución y/o entidad gubernamental se presentará según los calendarios vigentes y aprobados
+                                por dicha entidad. Dicho calendario no depende de la Universidad ISEP y no se podrá modificar.
+                                </li>
+                        </ol>
+
+                        <strong style="margin-top:-40px">TITULACIÓN ACADÉMICA Y CERTIFICADOS</strong>
+
+                        <ol start="9" style="margin-left:11px">
+
+                            <li>
+                                El alumno/a podrá solicitar la expedición del título de Universidad ISEP una vez haya superado los requisitos académicos de la formación y
+                                haya cumplido el resto de requisitos(económicos,administrativos, aportación
+                                de documentos en tiempo y forma, etc.).
+                                </li>
+                            <li>
+                                El/la alumno/a se compromete a entregar la documentación requerida
+                                por parte de la institución en tiempo y forma para el trámite de inscripción.
+                                La Universidad ISEP se compromete a comunicar a el/la alumno/a lo antes posible
+                                para que tenga tiempo de entregarlo a la Universdiad ISEP.
+                                </li>
+                            <li>
+                                El precio de expedición de títulos, certificados u otros no están incluidos
+                                en el importe del programa.
+                                </li>
+                        </ol>
+
+                        <strong style="margin-top:-40px">PROPIEDAD INTELECTUAL Y DERECHOS DE IMAGEN</strong>
+
+                        <ol start="12" style="margin-left:11px">
+
+                            <li>
+                                El alumno, exclusivamente para su uso personal y respetando los derechos de
+                                propiedad intelectual, podrá descargar los contenidos, copiar o imprimir
+                                cualquier página de la web y del campus virtual de Universidad ISEP a los que tenga acceso
+                                (incluido el material docente). En ningún caso podrá transmitir, cambiar,
+                                modificar o suprimir los contenidos sin la previa autorización escrita de
+                                Universidad ISEP .
+                                </li>
+                            <li>
+                                Con finalidades docentes, de evaluación, de investigación y de difusión,
+                                Universidad ISEP se reserva el derecho de tratar, procesar, adaptar, reproducir o
+                                comunicar públicamente las aportaciones realizadas en ejercicios, foros,
+                                casos prácticos y trabajos elaborados por el alumno durante la formación.
+                                El alumno concede su autorización expresa para ello conservando, en todo caso,
+                                el derecho al reconocimiento de la autoría de los trabajos elaborados durante
+                                sus estudios.
+                                </li>
+                            <li>
+                                Cuando el alumno participe en actividades presenciales, autoriza a Universidad ISEP
+                                a captar su imagen (fotografía, audio y vídeo), así como a su transcripción
+                                y a la comunicación pública de estas grabaciones o transcripciones a través de
+                                la página web, redes sociales u otros medios de comunicación.
+                                </li>
+                        </ol>
+
+                        <strong style="margin-top:-40px">DURACIÓN DEL CONTRATO</strong>
+
+                        <ol start="15" style="margin-left:11px">
+
+                            <li>
+                                La vigencia de esta matrícula es la misma que el calendario del programa.
+                                En los programas on-line, la duración es el periodo de la formación de inscrita. El contrato no se prorroga de forma automática.
+                                Las prórrogas, condicionadas a la disponibilidad por parte de ISEP INTERNACIONAL, no están incluidas en el precio.
+                                </li>
+                        </ol>
+
+                        <strong style="margin-top:-40px">DATOS PERSONALES</strong>
+
+                        <ol start="16" style="margin-left:11px">
+
+                            <li>
+                                Sus datos se incorporan al sistema responsabilidad de Universidad ISEP para gestionar su
+                                expediente académico. Cuando sea necesario para prestar el servicio, sus datos
+                                se comunicarán a administraciones públicas, bancos/cajas y a entidades con las
+                                que sea necesaria la comunicación. Puede ejercer sus derechos de acceso,
+                                rectificación, limitación, supresión, portabilidad y oposición, o revocar su
+                                consentimiento dirigiéndose a Universidad ISEP , así como dirigirse a la Autoridad
+                                de Control si es oportuno.
+                                </li>
+                        </ol>
+
+                        <strong style="margin-top:-40px">LEGISLACIÓN APLICABLE Y JURISDICCIÓN</strong>
+
+                        <ol start="17" style="margin-left:11px">
+
+                            <li>
+                                Este contrato se considera formalizado en Estados Unidos. A este contrato y a las
+                                relaciones jurídicas que puedan derivarse de su aplicación e interpretación, les
+                                será de aplicación la ley Estadounidense.
+                                </li>
+                            <li>
+                                Si cualquier cláusula incluida en este contrato fuese declarada nula o ineficaz
+                                (total o parcialmente), tal nulidad o ineficacia afectará tan solo a dicha disposición
+                                o a la parte de esta que resulte nula o ineficaz (teniéndose por no puesta), y
+                                subsistirán el resto de las condiciones pactadas.
+                            </li>
+                        </ol>
+
+                        <br/>
+                        <!-- Sign page 2 -->
+                       
+                            <!-- End sign page 2 -->
+                    </div> <!--second_page-->
+
+                    <div class="page" t-if="o.card == True" name="third_page" style="font-family:Arial, serif;font-size:15px;text-align:justify;page-break-after:always;">
+                        <div class="row container-fluid">
+                            <div class="col-2">
+                                <strong>Nombre:</strong><br/>
+                                <strong>Programa:</strong>
+                            </div>
+                            <div class="col-4" style="margin-left:-20px;">
+                                <span t-field="o.partner_id.name"/><br/>
+                                <div class="row" style="font-size:13px;">
+                                    
+                                        <t t-foreach="o.order_line" t-as="l">
+                                          <ul>
+                                            <li><span t-if="l.product_template_id.recurring_invoice" t-field="l.product_id"/></li>
+                                          </ul>
+                                        </t>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        Autorizo a Universidad ISEP. a realizar los cargos correspondientes a:<br/><br/>
+                        
+                        
+                        
+                        <t t-set="abc" t-value="['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']"/>
+                        <t t-set="index" t-value="0"/>
+                        <t t-foreach="o.order_line" t-as="line">
+                          <p>
+                             <span t-esc="abc[index]"/>) <span t-field="line.name"/> 
+                             <span t-if="line.product_template_id.recurring_invoice == False"> (Pago por unica vez de <span t-field="line.price_reduce_taxinc"/> <span t-field="o.currency_id.name"/>)</span>
+                             <span t-if="line.product_template_id.recurring_invoice"> (Cargo recurrente de <span t-field="line.price_reduce_taxinc"/> <span t-field="o.currency_id.name"/> por <span t-field="o.term_number"/> meses)</span> .
+                           </p>
+                           <t t-set="index" t-value="index+1"/>
+                        </t>
+                       
+
+
+                            Nombre completo del titular de la cuenta:
+                            <t t-foreach="o.partner_invoice_id.card_ids" t-as="line_c">
+                                <t t-if="line_c.use == True">
+                                    <strong style="font-size:14px;"><span t-field="line_c.name"/>
+                                    </strong>
+                                </t>
+                            </t>
+                            
+                            <br/>                      
+
+                            <br/>
+                            <div class="row" style="text-align:justify;">
+                                <div class="col-6">
+                                    Número de la tarjeta:
+                                    <t t-foreach="o.partner_invoice_id.card_ids" t-as="line_cc">
+                                        <t t-if="line_cc.use == True">
+                                            <t t-if="line_cc.number_target">
+                                                <span t-esc="line_cc.number_target[:8]"/>
+                                                ****
+                                            </t>
+                                        </t>
+                                    </t>
+                                </div>
+                            </div>
+                            Si la tarjeta es de débito indicar número de clave bancaria estandarizada “CLABE”<br/>
+                            Clave bancaria estandarizada “CLABE”:<br/>
+                            <br/>
+                            <p>
+                                En caso de no disponer de una tarjeta de débito o crédito habilitada para cobros automáticos me
+                                comprometo a realizar mis pagos a través de los siguientes medios:
+                            </p>
+                            <p>
+                                <strong>Datos Bancarios Oficiales de la Universidad ISEP</strong>
+                            </p>
+                            <p>
+                                https://universidadisep.com/mx/datos-bancarios-isep/
+                            </p>
+                            <p>
+                                <strong>NOTA: </strong> Es muy importante agregar el nombre completo o el número de matrícula para identificar
+                                el pago. En caso negativo, puede que no se refleje el pago en su expediente.
+                            </p>
+                            <p>
+                                Solicito y autorizo a Universidad ISEP, para que en mi nombre realice y gestione cualquier
+                                trámite administrativo, pagos académicos y de titulación de la Universidad en donde he
+                                formalizado la inscripción, al no disponer de una tarjeta de crédito habilitada para
+                                cobros internacionales y evitarme los costos bancarios de las transferencias
+                                internacionales para dichos pagos.
+                            </p>
+                            <div class="row container-fluid" style="text-align:center">
+                                <div class="col-12">
+                                Entregar este formato a su gestor comercial<br/>
+                                He leído y autorizo lo manifestado en la presente orden de pago.
+                                <br/><br/><br/>
+                                </div>
+                            </div>
+                            <!-- Sign page 3 -->
+                            <!-- <div class="row container-fluid" style="position:absolute; top:2800px; width:93%; page-break-inside: avoid">
+                                <div class="col-12" style="text-align:center">
+                                <strong>FIRMA TITULAR:</strong>
+                                <br/><br/><br/><br/>
+
+                                <strong style="font-size:14px;"><span t-field="o.partner_invoice_id.name"/>
+                                      </strong><br/>
+                                
+
+                                <br/><br/>
+                                <strong>Fecha:</strong><br/>
+                                <t t-esc="time.strftime('%d/%m/%Y')"/>
+
+                                </div>
+
+                            </div> -->
+
+                        </div> <!--third_page-->
+
+                        <div class="page" name="fourd_page" style="font-family:Arial, serif;font-size:11px;text-align:justify;">
+                            <div class="row container-fluid" style="font-size:14px;text-align:justify;">
+                                <div class="col" style="text-align:center">
+                                CARGO RECURRENTE PAGARÉ:<span t-field="o.name" style="margin-left:5px;"/>
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="row container-fluid" style="text-align:right;">
+                                <div class="col" style="text-align:right">
+                                    <strong>Culiacán, Sinaloa, </strong><t t-esc="time.strftime('%d/%m/%Y')"/>
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="row container-fluid" style="text-align:justify;">
+
+
+                                Debo y pagaré incondicionalmente esta serie de
+                                <span t-esc="o.term_number" style="margin:0 5px"/>
+                                pagarés a la orden de Universidad ISEP. en la ciudad de Culiacán, Sinaloa,
+                                México, con domicilio en Av. Teniente Juan de la Barrera Nte. 1349.
+                                <br/><br/>
+
+                                Debiendo realizar los pagos de la siguiente manera:
+
+                                <br/><br/>
+
+
+                            </div>
+
+                            <div class="row container-fluid" style="text-align:justify;font-size:14px">
+                                <t t-if="o.recurrence_id and o.start_date">
+
+                                    <tr t-foreach="o.subscription_schedule" t-as="l">
+                                        PAGARÉ Pago
+                                        <span t-esc="l.term_label" style="margin:0 0px"/>, el día
+
+                                        <span t-esc="l.date_due" t-options="{&quot;format&quot;: &quot;dd-MM-yyyy&quot;, 'widget': 'date'}"/>
+                                        la cantidad de <span t-field="l.currency_id.symbol"/>
+                                        <span t-esc="o.amount_recurring_taxinc" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                                        <br/>
+                                    </tr>
+                                </t>
+                                
+
+
+
+                            </div>
+
+                            <div class="row container-fluid" style="text-align:justify;">
+
+                               <br/>
+                                    Al no pagarse cualquiera de ellos a su vencimiento, serán exigibles todos los que
+                                    le sigan en número, además de los ya vencidos. En caso de no cumplir con el pago en
+                                    la fecha acordada, cada pagaré generará un interés ordinario de 2% mensual y un interés
+                                    moratorio equivalente al 2% mensual a partir de la fecha en que se constituya en mora y
+                                    hasta su total liquidación.
+
+                                <br/><br/>
+                                    Los deudores renuncian al fuero que por razón de su domicilio presente o futuro pudiera
+                                    corresponderles y se someten a la jurisdicción de los tribunales competentes del Estado
+                                    de Sinaloa, México.
+
+                                <br/><br/>
+                                    Suscriptor (Deudor principal) :
+                                    <span t-field="o.partner_id.name"/>
+
+                                <br/><br/>
+                                    Dirección :
+                                    <span t-field="o.partner_id.street"/>
+
+                                <br/><br/>
+                                    Ciudad :
+                                    <span t-field="o.partner_id.city" style="margin:02px"/>
+                                    <span t-field="o.partner_id.state_id" style="margin:0 2px"/>
+                                    <span t-field="o.partner_id.country_id" style="margin:0 2px"/>
+
+                            </div>
+
+                            
+                            <!-- End sign page 4 -->
+                        </div><!-- fourd_page-->
+                </t>
+            </t>
+
+        </t>
+    </template>
+
+</odoo>

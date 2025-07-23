@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template xml:space="preserve">
+    <div t-name="ExamMainDashboard" class="container mt-4">
+        <div class="jumbotron bg-white">
+            <div class="row mt8 mb32">
+                <div class="col-md-3">
+                    <div class="graph-card card-default card-green">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <i class="fa fa-tasks fa-3x heading-style"></i>
+                                </div>
+                                <div class="col-sm-8">
+                                    <h2 class="text-justify heading-style">Total Exams</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <p id="total_exams" class="text-center heading-style pb-2"></p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="graph-card card-default card-blue">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <i class="fa fa-spinner fa-3x heading-style"></i>
+                                </div>
+                                <div class="col-sm-9">
+                                    <h2 class="text-justify heading-style">Pending Exams</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <p id="pending_exams" class="text-center heading-style pb-2"></p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="graph-card card-default card-orange">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <i class="fa fa-check-square-o fa-3x heading-style"></i>
+                                </div>
+                                <div class="col-sm-9">
+                                    <h2 class="text-justify heading-style">Completed Exams</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <p id="done_exams" class="text-center heading-style pb-2"></p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="graph-card card-default card-grey">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <i class="fa fa-university fa-3x heading-style"></i>
+                                </div>
+                                <div class="col-sm-9">
+                                    <h2 class="text-justify heading-style">Exam Sessions</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <p id="exam_sessions" class="text-center heading-style pb-2"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt8 mb32">
+                <div class="col-md-8">
+                    <canvas id="line_chart"></canvas>
+                </div>
+                <div class="col-md-4">
+                    <canvas id="pie_chart" width="300" height="300"></canvas>
+                </div>
+            </div>
+            <div class="row mt8 mb32">
+                <div class="col-md-3">
+                    <div class="text-center big">Exam Session</div>
+                </div>
+                <div class="col-md-9">
+                    <select id="session_id" class="form-control">
+                        <t t-foreach="session_ids" t-as="session">
+                            <option t-att-value="session['id']"><t t-esc="session['name']"/></option>
+                        </t>
+                    </select>
+                </div>
+            </div>
+            <div class="row mt8 mb32">
+                <div class="col-md-12">
+                    <table class="table subject-table">
+                        <thead>
+                            <th>EXAM</th>
+                            <th>CODE</th>
+                            <th>SUBJECT</th>
+                            <th>START TIME</th>
+                            <th>END TIME</th>
+                            <th>MIN MARKS</th>
+                            <th>TOTAL MARKS</th>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

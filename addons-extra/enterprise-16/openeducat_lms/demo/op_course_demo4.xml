@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="category_11" model="op.course.category">
+            <field name="name">Rocket Engineering</field>
+            <field name="code">Roc-234</field>
+            <field name="icon">fa fa-rocket</field>
+        </record>
+        <record id="demo_course_rocket" model="op.course">
+            <field name="name">Rocket Engineering and Interstellar Space Propulsion</field>
+            <field name="code">Rocket-113</field>
+            <field name="sequence">8</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="faculty_ids"
+                   eval="[(6,0,[ref('openeducat_core.op_faculty_1'),ref('openeducat_core.op_faculty_2')])]"/>
+            <field name="category_ids"
+                   eval="[(6,0,[ref('category_11')])]"/>
+            <field name="suggested_course_ids"
+                   eval="[(6,0,[ref('demo_course_maths')])]"/>
+            <field name="visibility">logged_user</field>
+            <field name="level_id" ref="op_course_level_advanced"/>
+            <field name="navigation_policy">free_learn</field>
+            <field name="state">open</field>
+            <field name="online_course" eval="True"/>
+            <field name="confirm_date"
+                   eval="(DateTime.today() - relativedelta(days=8))"/>
+            <field name="image_1920" type="base64"
+                   file="openeducat_lms/static/src/img/rocket-engineering-and-interstellar-space-propulsion-min.jpg"/>
+
+            <field name="full_description"><![CDATA[
+            <div>
+ The Fundamental Principles of Rocket Science and Rocket Theory.
+- Chemical Rocket Design.
+- The Engineering and Challenges Behind Expendable and Reusable Space Launchers.
+- Electric and Low Thrust Space Propulsion .
+- Advanced Nuclear and Interstellar Space Propulsion.
+           </div>
+            ]]></field>
+        </record>
+        <record id="op_course_section_rocket_variable" model="op.course.section">
+            <field name="name">Introduction Rocket Theory</field>
+            <field name="course_id" ref="demo_course_rocket"/>
+            <field name="sequence" type="int">1</field>
+        </record>
+        <record id="op_course_section_rocket_variable2" model="op.course.section">
+            <field name="name">In Depth Chemical Rockets Designs</field>
+            <field name="course_id" ref="demo_course_rocket"/>
+            <field name="sequence" type="int">2</field>
+        </record>
+        <record id="op_course_section_rocket_variable3" model="op.course.section">
+            <field name="name">Space Launchers</field>
+            <field name="course_id" ref="demo_course_rocket"/>
+            <field name="sequence" type="int">3</field>
+        </record>
+        <record id="op_course_section_rocket_variable4" model="op.course.section">
+            <field name="name">Reusable Space launchers</field>
+            <field name="course_id" ref="demo_course_rocket"/>
+            <field name="sequence" type="int">4</field>
+        </record>
+        <record id="op_course_section_rocket_variable5" model="op.course.section">
+            <field name="name">Electrothermal and Low Thrust Propulsion</field>
+            <field name="course_id" ref="demo_course_rocket"/>
+            <field name="sequence" type="int">5</field>
+        </record>
+        <record id="op_course_section_rocket_variable6" model="op.course.section">
+            <field name="name">Nuclear Propulsion</field>
+            <field name="course_id" ref="demo_course_rocket"/>
+            <field name="sequence" type="int">6</field>
+        </record>
+        <record id="op_course_section_rocket_variable7" model="op.course.section">
+            <field name="name">Quiz</field>
+            <field name="course_id" ref="demo_course_rocket"/>
+            <field name="sequence" type="int">7</field>
+        </record>
+
+        <record id="material_rocket_theory1" model="op.material">
+            <field name="name">Rocket Equation</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">12.52</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=Ht8qEKwfcb8'"/>
+            <field name="document_id">Ht8qEKwfcb8</field>
+        </record>
+        <record id="material_rocket_theory2" model="op.material">
+            <field name="name">Rocket Equation Derivation From Fundamental Principles</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">17.05</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=L-Kj0dR0K4A'"/>
+            <field name="document_id">L-Kj0dR0K4A</field>
+        </record>
+        <record id="material_rocket_theory3" model="op.material">
+            <field name="name">Rocket Specific Impulse and Efficiency</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">5.90</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=lo-gg6e6ctw'"/>
+            <field name="document_id">lo-gg6e6ctw</field>
+        </record>
+        <record id="material_rocket_theory4" model="op.material">
+            <field name="name">Chemical Rockets</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">1.90</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=PKw4L_PYzq0'"/>
+            <field name="document_id">PKw4L_PYzq0</field>
+        </record>
+        <record id="op_course_material_rocket_theory1" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_rocket_theory1"/>
+            <field name="section_id" ref="op_course_section_rocket_variable"/>
+            <field name="preview" eval="True"/>
+        </record>
+        <record id="op_course_material_rocket_theory2" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_rocket_theory2"/>
+            <field name="section_id" ref="op_course_section_rocket_variable"/>
+        </record>
+        <record id="op_course_material_rocket_theory3" model="op.course.material">
+            <field name="sequence" type="int">3</field>
+            <field name="material_id" ref="material_rocket_theory3"/>
+            <field name="section_id" ref="op_course_section_rocket_variable"/>
+            <field name="preview" eval="True"/>
+        </record>
+        <record id="op_course_material_rocket_theory4" model="op.course.material">
+            <field name="sequence" type="int">4</field>
+            <field name="material_id" ref="material_rocket_theory4"/>
+            <field name="section_id" ref="op_course_section_rocket_variable"/>
+        </record>
+
+
+        <record id="material_rocket_design1" model="op.material">
+            <field name="name">Chemical Rockets Cooling Systems</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">5.50</field>
+            <field name="url" eval="'https://youtu.be/cLtHSvOAeow'"/>
+            <field name="document_id">cLtHSvOAeow</field>
+        </record>
+        <record id="material_rocket_design2" model="op.material">
+            <field name="name">Chemical Rockets Propellant Injection Systems</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">5.50</field>
+            <field name="url" eval="'https://youtu.be/wmc2J3ZYD0Q'"/>
+            <field name="document_id">wmc2J3ZYD0Q</field>
+        </record>
+        <record id="op_course_material_rocket_design1" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_rocket_design1"/>
+            <field name="section_id" ref="op_course_section_rocket_variable2"/>
+        </record>
+        <record id="op_course_material_rocket_design2" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_rocket_design2"/>
+            <field name="section_id" ref="op_course_section_rocket_variable2"/>
+        </record>
+
+        <record id="material_space_launchers1" model="op.material">
+            <field name="name">Propellant Types</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">3.93</field>
+            <field name="url" eval="'https://youtu.be/Rbf8-uFp8nY'"/>
+            <field name="document_id">Rbf8-uFp8nY</field>
+        </record>
+        <record id="material_space_launchers2" model="op.material">
+            <field name="name">Getting To Orbit</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">22.63</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=PbMP0lo4A2o'"/>
+            <field name="document_id">PbMP0lo4A2o</field>
+        </record>
+        <record id="material_space_launchers3" model="op.material">
+            <field name="name">Multiple Stage Space Launchers</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">4.18</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=YsTnUuOiSkE'"/>
+            <field name="document_id">YsTnUuOiSkE</field>
+        </record>
+
+        <record id="op_course_material_space_launchers1" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_space_launchers1"/>
+            <field name="section_id" ref="op_course_section_rocket_variable3"/>
+        </record>
+        <record id="op_course_material_space_launchers2" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_space_launchers2"/>
+            <field name="section_id" ref="op_course_section_rocket_variable3"/>
+        </record>
+        <record id="op_course_material_space_launchers3" model="op.course.material">
+            <field name="sequence" type="int">3</field>
+            <field name="material_id" ref="material_space_launchers3"/>
+            <field name="section_id" ref="op_course_section_rocket_variable3"/>
+        </record>
+
+        <record id="material_reusable_space_launchers1" model="op.material">
+            <field name="name">Reusable Space launchers Design And Challenges</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">5.20</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=kwOszPIMsxU'"/>
+            <field name="document_id">kwOszPIMsxU</field>
+        </record>
+        <record id="material_reusable_space_launchers2" model="op.material">
+            <field name="name">Reaction Engines SKYLON Case Study</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">2.65</field>
+            <field name="url" eval="'https://youtu.be/kdNUFaNEDAc'"/>
+            <field name="document_id">kdNUFaNEDAc</field>
+        </record>
+
+        <record id="op_course_material_reusable_space_launchers1" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_reusable_space_launchers1"/>
+            <field name="section_id" ref="op_course_section_rocket_variable4"/>
+        </record>
+        <record id="op_course_material_reusable_space_launchers2" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_reusable_space_launchers2"/>
+            <field name="section_id" ref="op_course_section_rocket_variable4"/>
+        </record>
+
+        <record id="material_electrodynamic1" model="op.material">
+            <field name="name">Electrothermal and Electrodynamic Space Propulsion</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">4.00</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=lRZr3VFEuWo'"/>
+            <field name="document_id">lRZr3VFEuWo</field>
+        </record>
+        <record id="material_electrodynamic2" model="op.material">
+            <field name="name">Ion Engines and Low Thrust Propulsion</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">9.45</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=6H0qsqZjLW0'"/>
+            <field name="document_id">6H0qsqZjLW0</field>
+        </record>
+
+        <record id="op_course_material_electrodynamic1" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_electrodynamic1"/>
+            <field name="section_id" ref="op_course_section_rocket_variable5"/>
+        </record>
+        <record id="op_course_material_electrodynamic2" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_electrodynamic2"/>
+            <field name="section_id" ref="op_course_section_rocket_variable5"/>
+        </record>
+
+        <record id="material_nuclear1" model="op.material">
+            <field name="name">Nuclear Fission Rockets</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">10.96</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=STtXdpD8LtM'"/>
+            <field name="document_id">STtXdpD8LtM</field>
+        </record>
+
+        <record id="op_course_material_nuclear1" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_nuclear1"/>
+            <field name="section_id" ref="op_course_section_rocket_variable6"/>
+        </record>
+
+        <record id="material_rocket_quiz" model="op.material">
+            <field name="name">Rocket Quiz</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">quiz</field>
+            <field name="total_time" type="float">5.00</field>
+            <field name="quiz_id" ref="openeducat_quiz.op_qz_rocket1"/>
+        </record>
+
+        <record id="op_course_material_rocket_quiz" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_rocket_quiz"/>
+            <field name="section_id" ref="op_course_section_rocket_variable7"/>
+        </record>
+
+
+        <record id="op_user_student_45" model="res.users" context="{'no_reset_password': True}">
+            <field name="name">levise</field>
+            <field name="password">openeducatrocket</field>
+            <field name="login">openeducatrocket@openeducat.com</field>
+            <field name="groups_id"
+                   eval="[(4,ref('openeducat_lms.group_op_lms_admin'))]"/>
+        </record>
+
+        <record id="demo_enrollment_rocket" model="op.course.enrollment">
+            <field name="course_id" ref="openeducat_lms.demo_course_rocket"/>
+            <field name="user_id" ref="openeducat_lms.op_user_student_45"/>
+            <field name="state">in_progress</field>
+            <field name="enrollment_date" eval="(DateTime.today() - relativedelta(days=1))"/>
+        </record>
+
+</odoo>

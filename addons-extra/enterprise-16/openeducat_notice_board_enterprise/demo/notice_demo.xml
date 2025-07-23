@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo noupdate="1">
+    <record id="op_notice_demo1" model="op.notice">
+        <field name="name">BOA Student's Misbehaviour in Class</field>
+        <field name="subject">Misbehaviour Fine</field>
+        <field name="start_date" eval="DateTime.today().strftime('%Y-%m-%d')"/>
+        <field name="description">You damaged School Property. So, you have to pay fine of 50$ within 3 Days.
+        </field>
+        <field name="group_id" ref="openeducat_notice_board_enterprise.notice_group2"/>
+        <field name="academic_year_id" ref="openeducat_core.academic_year_3"/>
+        <field name="academic_term_id" ref="openeducat_core.academic_term_1"/>
+        <field name="state">publish</field>
+        <field name="created_by" ref="openeducat_core.op_user_faculty"/>
+    </record>
+
+    <record id="op_notice_demo2" model="op.notice">
+        <field name="name">School Annual Function Faculty Responsibility</field>
+        <field name="subject">Annual Function</field>
+        <field name="start_date" eval="DateTime.today().strftime('%Y-%m-%d')"/>
+        <field name="description">We are going to arrange a faculty meeting next Saturday for the planning of the Annual Function of the Current Academic Year. So, request to attend that meeting.
+        </field>
+        <field name="group_id" ref="openeducat_notice_board_enterprise.notice_group3"/>
+        <field name="academic_year_id" ref="openeducat_core.academic_year_3"/>
+        <field name="academic_term_id" ref="openeducat_core.academic_term_1"/>
+        <field name="state">in_progress</field>
+        <field name="created_by" ref="base.user_admin"/>
+    </record>
+</odoo>

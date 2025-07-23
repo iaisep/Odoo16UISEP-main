@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <menuitem id="student_progrss_analysis_menu"
+                  name="Student Progression"
+                  parent="openeducat_core.menu_op_general_student"
+                  sequence="40"
+                  action="action_student_progrss_analysis"
+                  groups="openeducat_core.group_op_back_office_admin,openeducat_core.group_op_faculty"/>
+
+        <menuitem id="menu_op_student_progress_analysis"
+                  name="Student Progress Analysis"
+                  parent="openeducat_core_enterprise.menu_op_course_analysis_reporting"
+                  sequence="40"
+                  action="openeducat_student_progress_enterprise.act_op_student_progress_analysis_pivot_view"/>
+
+
+</odoo>

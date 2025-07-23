@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+        <record id="ir_cron_attendance_sheet_daily_if_session" model="ir.cron">
+            <field name="name">Attendance Sheet If Session: Daily</field>
+            <field name="model_id" ref="model_op_attendance_sheet"/>
+            <field name="state">code</field>
+            <field name="code">model.attendance_sheet_daily_if_session()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="nextcall" eval="(DateTime.now() + timedelta(days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="active" eval="True"/>
+            <field name="doall" eval="False"/>
+        </record>
+
+
+</odoo>

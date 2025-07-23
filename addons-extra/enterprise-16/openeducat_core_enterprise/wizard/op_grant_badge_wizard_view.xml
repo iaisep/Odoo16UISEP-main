@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_student_badge_wizard_grant" model="ir.ui.view">
+        <field name="name">Grant Badge User Form</field>
+        <field name="model">op.badge.student.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Grant Badge To">
+                <sheet>
+                    <group>
+                        <field name="badge_id" invisible="1"/>
+                        <label for="student_id" string="Who would you like to reward?" class="mt-3"/>
+                        <field name="student_id" nolabel="1"/>
+                        <label for="comment" string="Describe what they did and why it matters." class="mt-3"/>
+                        <field name="comment" nolabel="1"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Grant Badge" type="object" name="action_grant_badge" class="btn-primary"/>
+                    <button string="Cancel" special="cancel" class="btn-default"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_student_grant_wizard" model="ir.actions.act_window">
+        <field name="name">Student Grant Badge</field>
+        <field name="res_model">op.badge.student.wizard</field>
+        <field name="view_id" ref="view_student_badge_wizard_grant"/>
+        <field name="target">new</field>
+        <field name="context">{'default_badge_id': active_id, 'badge_id': active_id}</field>
+    </record>
+</odoo>

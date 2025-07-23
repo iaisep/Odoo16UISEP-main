@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="report_hr_reglamento_employee" model="ir.actions.report">
+        <field name="name">Reglamento Interno</field>
+        <field name="model">hr.employee</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">isep_employee_server.report_hr_reglamento_employee_view</field>
+        <field name="report_file">isep_employee_server.report_hr_reglamento_employee</field>
+        <field name="print_report_name">'%s' % object.name</field>
+        <field name="binding_model_id" ref="model_hr_employee"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="report_hr_reglamento_employee_view">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.basic_layout">
+                    <!--P+agina 1-->
+                    <div class="page" style="padding: 10px 50px; font-family: Arial, sans-serif;text-align: justify; font-size: 15px;">
+
+                        <h2 style="text-align: center;">REGLAMENTO INTERNO</h2>
+                        <p style="text-align: justify;"><strong>El presente reglamento será de observancia obligatoria 
+                            tanto para los trabajadores como para la “Empresa” y deberán de sujetarse a sus reglas y cláusulas.</strong></p>
+                        <h3 style="text-align: center;">CLAUSULAS</h3>
+                        <p><strong>CLAUSULA PRIMERA.-</strong> Los trabajadores iniciarán y terminarán sus labores precisamente en el 
+                            lugar que la "Empresa" designe y deberán atender a cualquier otra actividad conexa a su ocupación principal.</p>
+                        <p><strong>CLAUSULA SEGUNDA.-</strong> El horario de trabajo será el que esta estipulado en el contrato laboral.</p>
+
+                        <p>El presente horario de labores podrá ser cambiado de manera unilateral y de acuerdo a las necesidades de la empresa.</p>
+                        <p><strong>CLAUSULA TERCERA.-</strong> La jornada de trabajo deberá ser prestada de forma eficiente y productiva por 
+                            los trabajadores, evitando cualquier pérdida de tiempo, tanto en lo personal como al resto de los compañeros de trabajo.</p>
+
+                        <p>La jornada de trabajo comprende el tiempo efectivo en el cual el trabajador inicia su jornada diaria, así como los 
+                            recesos para tomar sus alimentos en caso de jornada continua, quedando establecido que por necesidad la empresa 
+                            podrá operar diversos turnos y horarios de trabajo a fin de aprovechar su capacidad técnica instalada.</p>
+                        <p><strong>CLAUSULA CUARTA.-</strong> Los trabajadores que ingresen a sus labores después de la hora de entrada serán sancionados en los términos del presente "Reglamento".</p>
+                        <p><strong>CLAUSULA QUINTA.- </strong> Los trabajadores sin excepción alguna deberán estar en sus lugares de operación e iniciar sus labores exactamente en la 
+                            hora señalada como de inicio de labores, sin embargo se dará una tolerancia de hasta 5 minutos para casos excepcionales y no como derecho permanente. 
+                            Al personal que llegue con posterioridad al periodo de tolerancia, el patrón tendrá la potestad de recibirlo o no.</p>
+
+                        <p>Si el trabajador no fuera admitido (lo que sucederá en caso de negativa del patrón), se le anotará la correspondiente falta de asistencia 
+                            injustificada para todos los efectos legales a que haya lugar.</p>
+                        <p>Si la "Empresa" decide admitir al trabajador después de transcurrida la tolerancia, el retardo se sumará a los permitidos 
+                            por el reglamento para los efectos legales de computar faltas de asistencia.</p>
+
+                        <p>Trabajador que incurra en una falta injustificada verá automáticamente reflejado el descuento correspondiente al plus por asistencia, 
+                            conforme a las políticas vigentes de la empresa.</p>
+                        <p>Los trabajadores con retardos en su jornada laboral, según los criterios definidos por la empresa, 
+                            tendrán automáticamente descontado el <strong>plus de puntualidad.</strong></p>
+
+                        <p><strong>CLAUSULA SEXTA.-</strong> Para el efecto de computar los retardos, los meses se contarán por periodos de 30 días a partir de la falta que la "Empresa" 
+                            tome en consideración como la primera a sancionar.</p>
+                        <p>Una vez que el trabajador acumule 3 retardos, la "Empresa" estará facultada para suspender al trabajador con un día de trabajo y 
+                            se considerarán como falta de asistencia al trabajo.</p>
+                        <p><strong>CLAUSULA SEPTIMA.-</strong> Cuando por circunstancias especiales se aumente la jornada de trabajo, el tiempo excedente se considerará 
+                            como extraordinario y se pagará como tal, siempre que medie previa orden expresa y por escrito del patrón y sujetándose a lo establecido 
+                            al respecto en la "Ley", orden sin la cual no se aceptará el tiempo extraordinario.</p>
+                        <p><strong>CLAUSULA OCTAVA.-</strong> Será obligación personal de los trabajadores registrar diariamente al inicio, reinicio y 
+                            término de su jornada, registrando su asistencia en cualesquier sistema de control que la empresa establezca. 
+                            El incumplimiento de esta disposición dará como consecuencia que se tenga por no trabajado el día.</p>
+                        <p><strong>CLAUSULA NOVENA.-</strong> El trabajador es responsable de registrar su asistencia de manera puntual y adecuada en los siguientes momentos: 
+                            al inicio de la jornada laboral, al momento de salir para la toma de alimentos, al reincorporarse a sus labores después de dicha pausa y 
+                            al concluir su jornada laboral.
+                            El incumplimiento de lo estipulado en esta cláusula facultará a la empresa para tomar las medidas correspondientes, 
+                            incluyendo la aplicación del descuento del incentivo o pluses de puntualidad o por asistencia, 
+                            y una incidencia escrita por el desacato, conforme a las políticas internas de la organización y la normativa laboral vigente.</p>
+                        <p><strong>CLAUSULA DÉCIMA.-</strong> En caso de ausencia por enfermedad general o accidente de trabajo de los trabajadores, 
+                            para justificar sus faltas deberán presentar a la "Empresa" las constancias de incapacidad.</p>
+                        <p><strong>CLAUSULA DÉCIMA PRIMERA.-</strong> Las faltas de los trabajadores por enfermedades o por accidente de trabajo serán 
+                            justificadas con las incapacidades.</p>
+                        <p><strong>CLAUSULA DÉCIMA SEGUNDA.-</strong> Los trabajadores podrán solicitar permisos para faltar a sus labores 
+                            sin que sea obligación del "Patrón" otorgar los mismos; el otorgamiento de permisos para faltar a sus labores 
+                            dependerá de las cargas de trabajo en la empresa y de la justificación del permiso solicitado. 
+                            Toda falta no amparada por permiso escrito o que no obedezca a causa justificada se computará como injustificada.</p>
+                        <p><strong>CLAUSULA DÉCIMA TERCERA.-</strong> Para los días de permiso justificados los trabajadores deberán solicitarlo 
+                            por escrito al "Patrón" con un mínimo de 7 días hábiles de anticipación, aclarándose que todo permiso si se 
+                            otorga será sin goce de sueldo, salvo autorización expresa y por escrito del patrón.</p>
+                        <p><strong>CLAUSULA DÉCIMA CUARTA.-</strong> El trabajador tiene conocimiento y esta de acuerdo en que la Empresa mantenga 
+                            un sistema de vigilancia por medio de videocámaras con audio, que estarán colocadas dentro de las instalaciones de la patronal, 
+                            específicamente en el área de trabajo y por medio de las cuales se llevará una supervisión de los trabajos prestados y se llevará 
+                            el control y administración del orden del centro de trabajo, constituyendo dichos videos una prueba plena del comportamiento de 
+                            los trabajadores de manera personal y profesional, para efectos de ascensos en su trabajo como en caso de sanciones 
+                            y castigos de acuerdo a la Ley Federal del Trabajo y del presente reglamento.</p>
+                        <p><strong>CLAUSULA DÉCIMA QUINTA.-</strong> El trabajador en el desempeño de su trabajo al servicio del patrón, 
+                            estará a obligado a cumplir con metas y objetivos definidos por la empresa de forma mensual, mismas que podrán 
+                            ser monitoreadas por parte del patrón y firmadas de cumplimiento por ambas partes. El incumplimiento por parte 
+                            del trabajador constituye una falta de acato a sus responsabilidades y como tal resulta ser una causal de 
+                            rescisión de la relación de trabajo sin responsabilidad para el patrón.</p>
+                        <p><strong>CLAUSULA DÉCIMA SEXTA.-</strong> Además de las obligaciones derivadas del "Contrato" respectivo, de las 
+                            que señala el artículo 134 de la "Ley" y el presente "Reglamento", el personal tendrá de manera específica, las siguientes:</p>
+                            <p>a). Apegarse estrictamente a todas las disposiciones de este "Reglamento".</p>
+                            <p>b). Cumplir con las normas de trabajo establecidas por la "Empresa" y obedecer la 
+                                instrucciones técnicas que establezca el "Patrón" por medio de sus representantes.</p>
+                            <p>c). Realizar su trabajo con eficiencia, calidad, cuidado y esmero según los manuales establecidos por la empresa 
+                                para los puestos que desempeñan los trabajadores.</p>
+                            <p>d). No separarse de sus áreas de trabajo salvo autorización de su jefe inmediato.</p>
+                            <p>e). Ser disciplinado y observar buena conducta en el desempeño de sus labores, cuidando 
+                                de su presentación y buenas costumbres en general.</p>
+                            <p>f). Prestar auxilio inmediato en cualquier tiempo que se necesite, cuando peligren las 
+                                personas o intereses de la "Empresa" o de sus compañeros de trabajo por siniestro o riesgo inminente.</p>
+                            <p>g). Comunicar al "Patrón" o a su representante las deficiencias que tenga el equipo a su servicio.</p>
+                            <p>h). Hacer entrega al patrón una vez leído escrupulosamente y entendido los manuales, circulares, 
+                                boletines, secretos técnicos, administrativos, comerciales y de fabricación a cuya elaboración 
+                                concurran directa o indirectamente, o de los cuales tengan conocimiento por razón del trabajo 
+                                que desempeñen, así como de los asuntos administrativos o de cualquier otra clase reservados, 
+                                cuya divulgación pueda causar perjuicios a la "Empresa" ya que son propiedad de la misma.</p>
+                            <p>i). Usar las máquinas, utensilios y herramientas propiedad de la "Empresa" en la forma que ésta señale 
+                                y conservar en buen estado los instrumentos y útiles de trabajo, reportando cualesquier desperfecto o anomalía.</p>
+                            <p>j). Reportar al patrón los desperfectos e irregularidades que noten en la maquinaria o en sus instalaciones.</p>
+                            <p>k). Cooperar plenamente en los casos que la "Empresa" lleve a cabo actas administrativas de investigación para 
+                                aclarar todo lo relacionado con su trabajo o violaciones al presente reglamento por lo que el negarse a 
+                                firmar dichas actas, se tomará como una desobediencia a una orden de trabajo.</p>
+                            <p>l). Presentarse a trabajar en el horario señalado, y debidamente aseado así como cuidar su aspecto 
+                                general en lo referente a presentación e imagen personal.</p>
+                            <p>m). Mantener siempre limpio, aseado y ordenado su respectivo sitio o lugar de trabajo, 
+                                así como las áreas comunes, el mobiliario, herramientas, equipos, útiles, etc. que sean 
+                                propiedad de la "Empresa", limpiando y ordenando constantemente su sitio de trabajo durante 
+                                la jornada laboral así como dejarlo completamente limpio y ordenado antes de finalizar la misma.</p>
+                            <p>n). Usar los sanitarios para el fin específico y mantenerlos limpios, reportando cualesquier anomalía y/o desperfecto.</p>
+                            <p>ñ). Comunicar por escrito, cuando cambie de domicilio en un término no mayor de tres días en que ocurra ésto o 
+                                cualesquier otro cambio relevante en sus datos personales.</p>
+                            <p>o). Asistir y participar activa e interesadamente en los eventos de capacitación y adiestramiento que proporcione la "Empresa", así como a los cursos, seminarios y programas para tales efectos.</p>
+
+                            <p><strong>CLAUSULA DÉCIMA SEPTIMA.-</strong> Queda estrictamente prohibido al personal de la "Empresa":</p>
+                            <p>a).- Portar armas de cualquier clase dentro de la "Empresa".</p>
+                            <p>b).- Intervenir sin autorización expresa de su jefe inmediato en el arreglo de maquinaria y hacer reparaciones sin 
+                                conocimiento de causa, que sean peligrosas o innecesarias.</p>
+                            <p>c).- Utilizar los instrumentos de trabajo y los medios tecnológicos proporcionados por la empresa para la prestación de trabajo en temas personales ajenos a la materia del trabajo para el que fue contratado</p>
+                            <p>d).- Ejecutar cualquier acto que ponga en peligro su seguridad o la de los demás o que pueda dañar el mobiliario y equipo en general propiedad de la "Empresa".</p>
+                            <p>e).- Suspender sus labores o abandonarlas sin previo permiso por escrito del "Patrón".</p>
+                            <p>f).- Presentarse en estado de embriaguez, en estado inconveniente o bajo la influencia de algún narcótico o droga enervante así como introducirlos e ingerirlos en los locales de la "Empresa".</p>
+                            <p>g).- Faltar a su trabajo sin dar aviso a la empresa, sin que esto sea una causal de justificación de la falta, comprometiéndose el 
+                                trabajador a avisar de manera telefónica en caso de presentarse una emergencia y que exista la posibilidad o certeza de que no acudirá a trabajar.</p>
+                            <p>h).- Proporcionar a la "Empresa" informes falsos de cualquier naturaleza, bien sea sobre su trabajo o a favor o en contra de los demás empleados. </p>
+                            <p>i).- Comunicar a personas ajenas a la "Empresa" informes sobre asuntos o negocios de la misma.</p>
+                            <p>j).- Sacar de la "Empresa" documentos, útiles, herramientas u objetos pertenecientes a la misma o que estén bajo su cuidado o custodia.</p>
+                            <p>k).- Introducir a la "Empresa" objetos y personas ajenas a la misma.</p>
+                            <p>l).- Dormirse o ponerse a descansar durante las horas de trabajo.</p>
+                            <p>m).- Expresarse dentro de las instalaciones de la Empresa de manera inadecuada, con palabras altisonantes y faltas de respeto hacia el demás personal o clientes de la empresa.</p>
+                            <p>n).- Introducirse o permanecer en áreas distintas a sus áreas de trabajo sin autorización del "Patrón", tanto en horas hábiles como fuera de ellas.</p>
+                            <p>ñ).- Realizar labores distintas o ajenas a la "Empresa" en el interior de la misma o durante la jornada normal de trabajo salvo autorización del patrón.</p>
+                            <p>o).- Usar para asuntos personales el equipo, útiles, materiales e instalaciones de la "Empresa" sin autorización escrita del "Patrón".</p>
+                            <p>p).- Fotocopiar o reproducir por cualesquier otro medio todo tipo de información propiedad de la "EMPRESA".</p>
+                            <p>q).- Formar grupos en sanitarios, pasillos, oficinas o lugares de trabajo en horas de labores.</p>
+                            <p>r).- Hacer colectas, rifas o tandas en los establecimientos de la "Empresa" o dedicarse a hacer propaganda de cualquier clase.</p>
+                            <p>s).- Alterar o modificar registros de control propios de la "Empresa".</p>
+                            <p>t).- Fumar dentro del local que ocupa la "Empresa".</p>
+                            <p>u).- Realizar actos contra la moral y buenas costumbres entre compañeros de trabajo dentro de las instalaciones de la empresa.</p>
+                            <p>v). A las mujeres embarazadas, realizar cualquier actividad que ponga en peligro su salud, su vida o la del producto.</p>
+                            <p>w).- Atender a vendedores de productos ajenos al giro de la "Empresa".</p>
+                            <p>x).- Compartir información confidencial o datos propios de la “Empresa”.</p>
+                            <p>y).- Todos aquellos actos que impliquen una prohibición derivada de alguna disposición legal, contractual o reglamentaria.</p>
+                        <p><strong>CLAUSULA DÉCIMA OCTAVA.-</strong> Son causas de rescisión del "Contrato" las señaladas en el artículo 47 de la "Ley".</p>
+                        <p><strong>I</strong> Engañar el trabajador al Patrón o en su caso, el sindicato que lo hubiese propuesto o recomendado con certificados falsos o referencias en los que se atribuyan al trabajador capacidad, aptitudes o facultades de que carezca. Esta causa de rescisión dejará de tener efecto después de treinta días de prestar sus servicios el trabajador;</p>
+                        <p><strong>II</strong> Incurrir el trabajador, durante sus labores, en faltas de probidad u honradez, en actos de violencia, amagos, injurias o malos tratamientos en contra del patrón, sus familiares o del personal directivo o administrativo de la empresa o establecimiento, o en contra de clientes y proveedores del patrón, salvo que medie provocación o que obre en defensa propia;</p>
+                        <p><strong>III</strong> Cometer el trabajador contra alguno de sus compañeros, cualquiera de los actos enumerados en la fracción anterior, si como consecuencia de ellos se altera la disciplina del lugar en que se desempeña el trabajo;</p>
+                        <p><strong>IV</strong> Cometer el trabajador, fuera del servicio, contra el patrón, sus familiares o personal directivo administrativo, alguno de los actos a que se refiere la fracción II, si son de tal manera graves que hagan imposible el cumplimiento de la relación de trabajo;Ocasionar el trabajador, intencionalmente, perjuicios materiales durante el desempeño de las labores o con motivo de ellas, en los edificios, obras, maquinaria, instrumentos, materias primas y demás objetos relacionados con el trabajo;</p>
+                        <p><strong>V</strong> Ocasionar el trabajador los perjuicios de que habla la fracción anterior siempre que sean graves, sin dolo, pero con negligencia tal, que ella sea la causa única del perjuicio;</p>
+                        <p><strong>VI</strong> Comprometer el trabajador, por su imprudencia o descuido inexcusable, la seguridad del establecimiento o de las personas que se encuentren en él;</p>
+                        <p><strong>VII</strong> Cometer el trabajador actos inmorales o de hostigamiento y/o acoso sexual contra cualquier persona en el establecimiento o lugar de trabajo;</p>
+                        <p><strong>VIII</strong> Revelar el trabajador los secretos de fabricación o dar a conocer asuntos de carácter reservado, con perjuicio de la empresa;</p>
+                        <p><strong>IX</strong> Tener el trabajador más de tres faltas de asistencia en un período de treinta días, sin permiso del patrón o sin causa justificada;</p>
+                        <p><strong>X</strong> Desobedecer el trabajador al patrón o a sus representantes, sin causa justificada, siempre que se trate del trabajo contratado;</p>
+                        <p><strong>XI</strong> Negarse el trabajador a adoptar las medidas preventivas o a seguir los procedimientos indicados para evitar accidentes o enfermedades;</p>
+                        <p><strong>XII</strong> Concurrir el trabajador a sus labores en estado de embriaguez o bajo la influencia de algún narcótico o droga enervante, salvo que, en este último caso, exista prescripción médica. Antes de iniciar su servicio, el trabajador deberá poner el hecho en conocimiento del patrón y presentar la prescripción suscrita por el médico;</p>
+
+                        <p><strong>CLAUSULA DÉCIMA NOVENA.-</strong> Todas las violaciones a este "Reglamento", a la "Ley", o al "Contrato" respectivo, que no sean causa de 
+                            rescisión de Contrato, serán sancionadas por la "Empresa" con amonestación verbal o escrita o suspendiéndolo temporalmente del trabajo 
+                            sin goce de sueldo hasta por ocho días dependiendo de la gravedad de la falta cometida por el trabajador, 
+                            por lo que el departamento de personal en cada caso hará las investigaciones correspondientes, escuchando siempre al trabajador, 
+                            a quien se le notificarán las medidas disciplinarias oportunamente. Dos amonestaciones leves equivalen a una amonestación grave. 
+                            Dos amonestaciones graves son motivo de despido justificado.</p>
+                        <p><strong>CLAUSULA VIGESIMA.-</strong> La aplicación de las sanciones a que se refiere el presente "Reglamento" se hará sin 
+                            perjuicio de las señaladas por la "Ley".</p>
+                        <p><strong>CLAUSULA VIGESIMA PRIMERA.-</strong> Las sanciones a que se refiere este "Reglamento" serán impuestas por la 
+                            "Empresa" informando a los Trabajadores y levantando un acta circunstanciada que deberá de ser firmada por los trabajadores.</p>
+                        <p><strong>CLAUSULA VIGESIMA SEGUNDA.-</strong> El trabajador esta de acuerdo a sujetarse a no revelar ni dar a conocer al información 
+                            confidencial que motivo de la prestación de sus servicios obtenga tanto de la empresa como de los clientes de la misma, 
+                            por lo que esta de acuerdo en suscribir un convenio de confidencialidad de manera independiente en donde se pactaran 
+                            las obligaciones que como tal obtendrá.</p>
+                        <p>Con la firma del presente reglamento doy fe que leí de manera detenida y consiente el presente reglamento y 
+                            estoy conforme con sujetarme al clausurado del mismo.</p>
+                        <p>Atentamente.</p>
+                        <span t-field="doc.name"/>
+                            
+                    </div>
+
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

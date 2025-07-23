@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+    <!-- Submit -->
+        <record id="typeform_submit_view" model="ir.ui.view">
+            <field name="model">mk.typeform.submit</field>
+            <field name="arch" type="xml">
+                <form string="Submit">
+                    <header>
+                        <button name="view_internal_model_button" type="object"
+                                string="View object"
+                                class="oe_highlight"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="form_id" readonly="1" force_save="1" />     
+                        </group>
+                        <field nolabel="1" name="fields_ids" widget="section_and_note_one2many" mode="tree">
+                            <tree editable="bottom">
+                                <field name="title"/>
+                                <field name="answer"/>
+                                <field name="reference"/>
+                                <field name="field_id"/>
+                            </tree>
+                        </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_tree_typeform_submit" model="ir.ui.view">
+            <field name="model">mk.typeform.submit</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="submitted_at"/>
+                    <field name="form_id"/>
+                    <field name="title"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_typeform_submit" model="ir.actions.act_window">
+            <field name="name">Submits</field>
+            <field name="res_model">mk.typeform.submit</field>
+            <field name="domain">[]</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">You have not submits at the moment</p>
+            </field>
+        </record>
+        <!-- Fields -->
+       
+
+       
+    </data>
+</odoo>

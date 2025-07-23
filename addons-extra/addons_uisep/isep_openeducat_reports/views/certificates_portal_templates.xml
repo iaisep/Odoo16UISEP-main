@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+   <template id="portal_my_home_certificates" name="Show Certificates" inherit_id="portal.portal_my_home" priority="25">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">Certificados</t>
+                <t t-set="url" t-value="'/my/certificates'" />
+                <t t-set="placeholder_count" t-value="'certificates_count'" />
+            </t>
+        </xpath>
+    </template> 
+
+    <template id="portal_my_certificates" name="My Certificates">
+
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True" />
+
+          
+
+            <div style="margin-top: -32px !important;" class="">
+                <div id="portal_certificates_title" class="oe_structure oe_empty" data-editor-message-default="true"
+                    data-editor-message="ARRASTRE BLOQUES DE CREACIÓN AQUÍ">
+                    <section>
+                        <div class="container">
+
+
+        <div class="o_wprofile_header o_wprofile_gradient position-relative text-white">
+            <div class="container pb-3 pb-md-0 pt-2 pt-md-5">
+                <div class="row">
+                    
+                    <div class="col-12 col-md-12 col-lg-12 d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h1>
+                                <span>Certificados</span>
+                            </h1>
+                            <h2>
+                                <small>Aquí puedes solicitar tus certificados, pagarlos y descargarlos.</small>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+                <div class="row pt-2">
+                    <div class="col-12 col-md-12 col-lg-12 d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-center text-white bg-info">
+                            <h6>
+                                <span t-esc="'Los certificados se pueden pagar hasta %i dias después de solicitarlos. La descarga estará disponible hasta %i dias después del pago.' %(cert_days_fpayment,cert_days_fdownload)" />
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+
+
+            <t t-call="portal.portal_searchbar">
+
+                <t t-set="title">Certificados</t>
+
+            </t>
+ 
+
+
+                             <div class="row mt-5">
+                                       <div class="col-4">
+                                        <h5> Tipo de Certificado </h5>
+                                       </div>
+                                       <div class="col-4">
+                                         <h5> Matrícula </h5>
+                                       </div>
+                                       <div class="col-4"/>
+                             </div>
+                             <div class="row mt-1">
+                                   <div class="col-12">
+                                           <form method="POST" t-attf-action ="/my/certificates">
+                                                 <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                                    <div class="row">
+<div class="col-4">
+							    <select id="certificate_selected" name="selection_value" data_init="1" class="form-select mb-3">
+	        						<t t-foreach="certificate_ids" t-as="certificate">
+									<option t-att-value="certificate.id"><t t-esc="certificate.display_name"/> </option>
+								</t>
+							   </select>
+</div>
+<div class="col-4">
+							    <select id="batch_selected" name="batch_value" data_init="1" class="form-select mb-3">
+	        						<t t-foreach="batch_ids" t-as="batch">
+									<option t-att-value="batch.id"><t t-esc="batch.display_name"/> </option>
+								</t>
+							   </select>
+
+</div>
+<div class="col-4">
+							   <button type="submit" class="btn btn-primary"><span>Solicitar</span><i class="fa fa-chevron.right"></i></button>
+</div>
+                                                    </div>
+                                              </form>
+                                    </div>
+                             </div>
+                         </div>
+                    </section>
+
+
+
+
+                </div>
+            </div>
+
+            <t t-if="not certificates">
+                <p>Aún no existen certificados solicitados.</p>
+            </t>
+
+
+
+            <t t-if="certificates" t-call="portal.portal_table">
+                <style>
+                    .o_portal_wrap .o_portal_my_doc_table td {
+                        white-space: normal !important;
+                    }
+                    .table > :not(:first-child) {
+                        border-top: 0px solid #dee2e6 !important;
+                        border-bottom: 2px solid #dee2e6 !important;
+                    }
+                    .rounded {
+                        border-radius: 0rem !important;
+                    }
+                </style>
+                <t t-foreach="grouped_certificates" t-as="certificate_group">
+                    <thead>
+
+                           <tr>
+                                <th class="text-left">Fecha de Solicitud</th>
+                                <th class="text-left">Vencimiento Factura</th>
+                                <th class="text-left">Fecha de Pago</th>
+                                <th class="text-left">Nombre</th>
+                                <th class="text-left">Descripción</th>
+                                <th class="text-center">Pendiente de Pago</th>
+                                <th class="text-center">Descargar</th>
+                            </tr>
+
+                    </thead>
+                    <tbody>
+                        <t t-foreach="certificate_group" t-as="document">
+                            <t t-set="document_url"
+                                t-value="base_url + '/web/content/ir.attachment/' + str(document.id)" />
+                            <t t-set="payment_url"
+                                t-value="base_url + '/new_payment_link/' + str(document.id)" />
+                            <tr>
+                                <td>
+                                        <span t-field="document.create_date" widget="datetime" />
+                                </td>
+                                 <td>
+                                        <span t-field="document.cert_invoice_id.invoice_date_due" widget="date" />
+                                </td>
+                                <td>
+                                        <span t-esc="document.cert_invoice_id and document.cert_invoice_id.get_last_payment_date() or False" t-options='{"widget": "date"}' />
+                                </td>
+ 
+
+                                <td>
+                                        <span t-field="document.name" />
+                                </td>
+                                <td>
+                                    <span t-field="document.description" />
+                                </td>
+                                <td style="text-align: center;">
+                                    <t t-if="document.cert_invoice_id and document.cert_invoice_id.payment_state not in ['paid','in_payment']">
+                                        <a target="new" t-att-href="payment_url" title="Pagar" class="mr4">
+                                            <i class="fa fa-credit-card fa-1x" role="img" aria-label="Pagar"></i>
+                                        </a>
+                                    </t>
+                                </td>
+
+                                <td style="text-align: center;">
+
+                                    <t t-if="(document.cert_invoice_id and document.cert_invoice_id.payment_state in ['paid','in_payment']) or document.certificado_gratuito ">
+                                        <a target="new" t-att-href="document_url + '/datas?download=true'" title="Download"
+                                            class="mr4">
+                                            <i class="fa fa-download fa-1x" role="img" aria-label="Download"></i>
+                                        </a>
+                                        <a target="_blank" t-att-href="document_url + '/datas'" title="Open">
+                                            <i class="fa fa-newspaper-o fa-1x" role="img" aria-label="Open"></i>
+                                        </a>
+                                    </t>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </t>
+            </t>
+        </t>
+    </template>
+
+
+
+    <template id="portal_verificar_documento" name="Verificar Documento">
+
+        <t t-call="portal.portal_layout">
+
+            <div style="margin-top: -32px !important;" class="">
+                <div id="portal_verificar_documento_title" class="oe_structure oe_empty" data-editor-message-default="true"
+                    data-editor-message="ARRASTRE BLOQUES DE CREACIÓN AQUÍ">
+                    <section>
+                        <div class="container">
+				<div class="o_wprofile_header o_wprofile_gradient position-relative text-white">
+				    <div class="container pb-3 pb-md-0 pt-2 pt-md-5">
+					<div class="row">
+					    
+					    <div class="col-12 col-md-12 col-lg-12 d-flex flex-column">
+						<div class="d-flex justify-content-between align-items-center">
+						    <h1>
+							<span>Verificar Documento</span>
+						    </h1>
+						</div>
+					    </div>
+					</div>
+				    </div>
+				</div>
+                        </div>
+                    </section>
+            <t t-call="portal.portal_table">
+                <style>
+                    .o_portal_wrap .o_portal_my_doc_table td {
+                        white-space: normal !important;
+                    }
+                    .table > :not(:first-child) {
+                        border-top: 0px solid #dee2e6 !important;
+                        border-bottom: 2px solid #dee2e6 !important;
+                    }
+                    .rounded {
+                        border-radius: 0rem !important;
+                    }
+                </style>
+                    <thead>
+
+                           <tr>
+                                <th class="text-left">Dato Revisado</th>
+                                <th class="text-left">Valor Verificado</th>
+                            </tr>
+
+                    </thead>
+                
+                    <tbody>
+                             <t t-foreach="values" t-as="value" >
+                                 <t t-pdb="pdb"/>
+                                 <t t-foreach="value.keys()" t-as="key" >
+                              
+					    <tr>
+						<td>
+							<span t-esc="key" />
+						</td>
+						 <td>
+							<span t-esc="value[key]"/>
+						</td>
+					    </tr>
+		                 </t>
+		             </t>
+                             <tr>
+                                  <td colspan="2" class ="text-justified bg-warning">
+                                      <h5>Favor de verificar los datos mostrados contra los que se muestran en su documento impreso. Cualquier duda o discrepancia favor de ponerse en contacto con la Secretaría Académica de esta Universidad.</h5>
+                                  </td>
+                             </tr>
+                    </tbody>
+                </t>
+
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="error_template_message" name="Error Message">
+	        <t t-if="error_message">
+
+                    <t t-call="portal.portal_layout">
+			    <div class="row" style="padding-top: 5%;" >
+                                <div class="col-12 d-flex justify-content-center">
+					    <div class="alert alert-danger">
+						<t t-out="error_message"/>
+					    </div>
+                                </div>
+                             </div>
+			    <div class="row" style="padding-top: 5%;" >
+                                    <div class="col-12 d-flex justify-content-center">
+					<button type="button" onclick="history.back();" class="btn btn-secondary mt-2">Regresar</button>
+				    </div>
+			    </div>
+		    </t>
+		</t>
+    </template>
+
+</odoo>

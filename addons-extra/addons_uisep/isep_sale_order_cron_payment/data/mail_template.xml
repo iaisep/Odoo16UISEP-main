@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- View payment.provider form -->
+        <record id="link_card_email_template_invoice" model="mail.template">
+            <field name="name">Link de Pago de Suscripcion Factura</field>
+            <field name="model_id" ref="isep_sale_order_cron_payment.model_account_move"/>
+            <field name="email_from"></field>
+            <field name="email_to">{{ object.partner_id.email_formatted }}</field>
+            <field name="subject">Link de Pago de Suscripcion Factura</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        <p>Estimado <t t-out="object.partner_id.name"></t>,</p>
+                        <p>Le saludamos cordialmente y deseamos que se encuentre bien.
+                        Agradecemos la confianza que ha depositado en nuestra institución educativa.</p>
+                        <p>Por medio de la presente, le proporcionamos un enlace de pago.</p>
+                        <p>Link de pago: <t t-out="object.link_payment"></t><br/></p>
+                        <p>Si en el futuro desea registrar una tarjeta de crédito o débito, estaremos encantados de asistirle en el proceso. No dude en ponerse en contacto con nosotros a través de los siguientes medios:</p>
+                        <p>Correo electrónico: <a href="mailto:cobranza@universidadisep.com" target="_blank">cobranza@universidadisep.com</a></p>
+                        <p>Teléfono de oficina: +52 332101 3999</p>
+                        <p>WhatsApp: +52 333400 8005</p>
+                        <p>Le agradecemos nuevamente por su elección y quedamos a su disposición para atender cualquier consulta o brindarle asistencia.</p>
+                        <p>Sin más por el momento, quedamos a sus órdenes.<br/></p>
+                        <strong>Si su pago se le debita de forma automática hacer caso omiso</strong>
+                        
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        <record id="send_link_payment_invoice_action" model="ir.actions.server">
+            <field name="name">Enviar Link de Pago de la Factura</field>
+            <field name="model_id" ref="isep_sale_order_cron_payment.model_account_move"/>
+            <field name="binding_model_id" ref="isep_sale_order_cron_payment.model_account_move"/>
+            <field name="binding_view_types">form,list</field>
+            <field name="state">code</field>
+            <field name="code">action = records.send_template_link_payment()</field>
+        </record>
+    </data>
+
+    
+
+</odoo>

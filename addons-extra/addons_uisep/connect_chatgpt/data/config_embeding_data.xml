@@ -1,0 +1,10 @@
+<odoo>
+    <data>        
+        <record id="config_openia_embedings_1" model="config.openia.embedding">            
+            <!-- <field name="api_key"></field> -->
+            <field name="model_gpt">text-embedding-ada-002</field>
+            <field name="max_tokens">8191</field>
+            <field name="webdoc_embeding">https://platform.openai.com/docs/guides/embeddings/embedding-models</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data>
+        <template id="user_navbar_inherit_lms" inherit_id="website.user_navbar">
+            <xpath expr="//div[@id='o_new_content_menu_choices']//div[@name='module_openeducat_lms_website']"
+                   position="attributes">
+                <attribute name="name"/>
+                <attribute name="t-att-data-module-id"/>
+                <attribute name="t-att-data-module-shortdesc"/>
+                <attribute name="groups">website.group_website_designer</attribute>
+            </xpath>
+        </template>
+    </data>
+</odoo>

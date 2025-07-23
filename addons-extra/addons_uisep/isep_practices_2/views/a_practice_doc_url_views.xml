@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- View a_practice_doc_url View Tree -->
+    <record id="view_a_practice_doc_url_tree" model="ir.ui.view">
+        <field name="name">view.practice_doc_url.tree</field>
+        <field name="model">practice.doc.url</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="url_survey"/>
+                <field name="practice_center_type_ids" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- View a_practice_doc_url form -->
+    <record id="view_a_practice_doc_url_form" model="ir.ui.view">
+        <field name="name">view.practice_doc_url.form</field>
+        <field name="model">practice.doc.url</field>
+        <field name="arch" type="xml">
+            <form string="Url de Encuesta">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="Name..."/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="url_survey"/>
+                        <field name="practice_center_type_ids" widget="many2many_tags"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- View a_practice_doc_url search -->
+    <record id="view_a_practice_doc_url_search" model="ir.ui.view">
+        <field name="name">view.a_practice_doc_url.search</field>
+        <field name="model">practice.doc.url</field>
+        <field name="arch" type="xml">
+            <search>
+                <group expand="1" string="Group By">
+                    <filter string="Name" name="name" domain="[]" context="{'group_by':'name'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+
+    <!-- Action a_practice_doc_url -->
+    <record id="action_a_practice_doc_url" model="ir.actions.act_window">
+        <field name="name">Url de Encuesta</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">practice.doc.url</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                There is no examples click here to add new Practice Doc Url.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_practice_url_doc" name="Url" parent="menu_practice_configuration"
+            action="action_a_practice_doc_url" sequence="20"/>
+
+</odoo>

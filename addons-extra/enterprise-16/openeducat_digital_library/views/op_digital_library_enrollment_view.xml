@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+        <record model="ir.ui.view" id="view_op_digital_library_enrollment_form">
+            <field name="name">op.digital.library.enrollment.form</field>
+            <field name="model">op.digital.library.enrollment</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="state" widget="statusbar" clickable="1"/>
+                    </header>
+                    <sheet>
+                        <field name="active" invisible="1"/>
+                        <group col="4">
+                            <field name="material_id"/>
+                            <field name="user_id"/>
+                            <field name="enrollment_date"/>
+                        </group>
+                        <group col="4">
+                            <field name="company_id"/>
+                            <field name="last_access"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_op_digital_library_enrollment_tree" model="ir.ui.view">
+            <field name="name">op.digital.library.enrollment.tree</field>
+            <field name="model">op.digital.library.enrollment</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="material_id"/>
+                    <field name="user_id"/>
+                    <field name="enrollment_date"/>
+                    <field name="state"/>
+                    <field name="category_id" optional="hide"/>
+                    <field name="last_access" optional="hide"/>
+                    <field name="active" widget="boolean_toggle" optional="hide"/>
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_open_op_digital_library_enrollment_view">
+            <field name="name">Library Enrollment</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.digital.library.enrollment</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+</odoo>

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <template id="report_student_attendance_summary">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <div class="mt-6 text-center">
+                               <h4 style="position:relative;font-size:25px;padding-bottom:5px; width: 45%; display:inline-block; border-bottom:2px solid black;">
+                                    <strong>Student Attendance Summary
+                                    </strong>
+                                </h4>
+                            </div>
+                            <br></br>
+                            <table class="table-borderless mt-3" width="25%" style="line-height: 1;">
+                                <tbody>
+                                    <tr>
+                                        <t t-if="o.name">
+                                            <td>
+                                                <span t-esc="o.name" style="font-size:20px;"/>
+                                                <br/>
+                                                <t t-if="o.street">
+                                                    <span t-esc="o.street"/>,
+                                                </t>
+                                                <t t-if="o.street2">
+                                                    <span t-esc="o.street2"/>
+                                                </t>
+                                                <br/>
+                                                <t t-if="o.city">
+                                                    <span t-esc="o.city"/>,
+                                                </t>
+                                                <t t-if="o.state_id">
+                                                    <span t-esc="o.state_id.name"/>,
+                                                </t>
+                                                <t t-if="o.zip">
+                                                    <span t-esc="o.zip"/>
+                                                </t>
+                                                <br/>
+                                                <t t-if="o.country_id.name">
+                                                    <span t-esc="o.country_id.name"/>
+                                                </t>
+                                            </td>
+                                        </t>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <br/>
+                            <br/>
+                            <table class="table-borderless mt-3" width="100%"
+                                   style="line-height: 2;text-align:center;font-size:14px;">
+                                <thead>
+                                    <tr style="border-bottom: 1px solid;">
+                                        <th>
+                                            Sr. No.
+                                        </th>
+                                        <th>
+                                            Attendance Sheet
+                                        </th>
+                                        <th>
+                                            Attendance Date
+                                        </th>
+                                        <th>
+                                            Attendance
+                                        </th>
+                                        <th>
+                                            Course
+                                        </th>
+                                        <th>
+                                            Batch
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-set="count" t-value="1"/>
+                                    <t t-foreach="o.attendance_ids.course_id.sorted(key=lambda x: x.name)"
+                                       t-as="course">
+                                        <t t-foreach="o.attendance_ids.sorted(key=lambda x: x.attendance_date)"
+                                           t-as="attendance_details">
+                                            <t t-if="attendance_details.course_id == course">
+                                                <tr>
+                                                    <td>
+                                                        <t t-esc="count"/>
+                                                        <t t-set="count" t-value="count+1"/>
+                                                    </td>
+                                                    <td>
+                                                        <t t-if="attendance_details.attendance_id">
+                                                            <t t-esc="attendance_details.attendance_id.name"/>
+                                                        </t>
+                                                    </td>
+                                                    <td>
+                                                        <t t-esc="attendance_details.attendance_date.strftime('%d/%m/%Y')"/>
+                                                    </td>
+                                                    <td>
+                                                        <t t-if="attendance_details.present">
+                                                            Present
+                                                        </t>
+                                                        <t t-if="attendance_details.absent">
+                                                            Absent
+                                                        </t>
+                                                        <t t-if="attendance_details.excused">
+                                                            Excused
+                                                        </t>
+                                                        <t t-if="attendance_details.late">
+                                                            Late
+                                                        </t>
+                                                    </td>
+                                                    <td>
+                                                        <t t-if="attendance_details.course_id">
+                                                            <t t-esc="attendance_details.course_id.name"/>
+                                                        </t>
+                                                    </td>
+                                                    <td>
+                                                        <t t-if="attendance_details.batch_id">
+                                                            <t t-esc="attendance_details.batch_id.name"/>
+                                                        </t>
+                                                    </td>
+                                                </tr>
+                                            </t>
+                                        </t>
+                                    </t>
+                                </tbody>
+                            </table>
+                            <t t-set="summary_data" t-value="{}"/>
+                            <t t-foreach="o.attendance_ids.course_id" t-as="course">
+                                <t t-set="present" t-value="0"/>
+                                <t t-set="absent" t-value="0"/>
+                                <t t-set="excused" t-value="0"/>
+                                <t t-set="late" t-value="0"/>
+                                <t t-set="total" t-value="0"/>
+                                <t t-esc="summary_data.update({course.name:[0,0,0,0,0]})"/>
+                                <t t-foreach="o.attendance_ids" t-as="attendance">
+                                    <t t-if="attendance.course_id == course">
+                                        <t t-if="attendance.present">
+                                            <t t-set="present" t-value="summary_data[course.name][0] + 1"/>
+                                            <t t-set="key" t-value="course.name"/>
+                                            <t t-set="value" t-value="[present,absent,excused,late,total]"/>
+                                            <t t-esc="summary_data.update({key:value})"/>
+                                        </t>
+                                        <t t-if="attendance.absent">
+                                            <t t-set="absent" t-value="summary_data[course.name][1] + 1"/>
+                                            <t t-set="key" t-value="course.name"/>
+                                            <t t-set="value" t-value="[present,absent,excused,late,total]"/>
+                                            <t t-esc="summary_data.update({key:value})"/>
+                                        </t>
+                                        <t t-if="attendance.excused">
+                                            <t t-set="excused" t-value="summary_data[course.name][2] + 1"/>
+                                            <t t-set="key" t-value="course.name"/>
+                                            <t t-set="value" t-value="[present,absent,excused,late,total]"/>
+                                            <t t-esc="summary_data.update({key:value})"/>
+                                        </t>
+                                        <t t-if="attendance.late">
+                                            <t t-set="late" t-value="summary_data[course.name][3] + 1"/>
+                                            <t t-set="key" t-value="course.name"/>
+                                            <t t-set="value" t-value="[present,absent,excused,late,total]"/>
+                                            <t t-esc="summary_data.update({key:value})"/>
+                                        </t>
+                                        <t t-set="total" t-value="total + 1"/>
+                                        <t t-set="key" t-value="course.name"/>
+                                        <t t-set="value" t-value="[present,absent,excused,late,total]"/>
+                                        <t t-esc="summary_data.update({key:value})"/>
+                                    </t>
+                                </t>
+                            </t>
+                            <table class="table-borderless mt-5" width="100%"
+                                   style="line-height: 3;text-align:center;font-size:14px;">
+                                <thead>
+                                    <tr style="border-bottom:1px solid;">
+                                        <th colspan="7">
+                                            Summary
+                                        </th>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid;">
+                                        <th>
+                                            Sr. No.
+                                        </th>
+                                        <th>
+                                            Course
+                                        </th>
+                                        <th>
+                                            Present
+                                        </th>
+                                        <th>
+                                            Absent
+                                        </th>
+                                        <th>
+                                            Excused
+                                        </th>
+                                        <th>
+                                            Late
+                                        </th>
+                                        <th>
+                                            Total
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-set="summary_count" t-value="1"/>
+                                    <t t-foreach="summary_data" t-as="summary">
+                                        <tr>
+                                            <td>
+                                                <t t-esc="summary_count"/>
+                                                <t t-set="summary_count" t-value="summary_count+1"/>
+                                            </td>
+                                            <td>
+                                                <t t-esc="summary"/>
+                                            </td>
+                                            <td>
+                                                <t t-esc="summary_data[summary][0]"/>
+                                            </td>
+                                            <td>
+                                                <t t-esc="summary_data[summary][1]"/>
+                                            </td>
+                                            <td>
+                                                <t t-esc="summary_data[summary][2]"/>
+                                            </td>
+                                            <td>
+                                                <t t-esc="summary_data[summary][3]"/>
+                                            </td>
+                                            <td>
+                                                <t t-esc="summary_data[summary][4]"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+</odoo>

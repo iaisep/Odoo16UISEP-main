@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <!-- View product.template form -->
+    <record id="view_product_template_option_form" model="ir.ui.view">
+        <field name="name">view.product.template.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='options']" position='inside'>
+                <span class="d-inline-block">
+                    <field name="is_tesis"/>
+                    <label for="is_tesis"/>
+                </span>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,4 @@
+from . import courses_moodle
+from . import enroll_student
+from . import wizard_certificate_report
+from . import wizard_batch

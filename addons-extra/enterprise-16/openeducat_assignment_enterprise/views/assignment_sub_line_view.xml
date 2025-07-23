@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+
+        <record id="view_op_assignment_sub_line_inherited_form_view" model="ir.ui.view">
+            <field name="name">op.assignment.sub.line.inherited.form.view</field>
+            <field name="model">op.assignment.sub.line</field>
+            <field name="inherit_id" ref="openeducat_assignment.view_op_assignment_sub_line_form"/>
+            <field name="priority" eval="10"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='user_boolean']" position="before">
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                </xpath>
+                <xpath expr="//header" position="inside">
+                    <field name="ignore" invisible="True"/>
+                    <button name="ignore_submission_attempt" type="object"
+                            string="Ignore Attempt"
+                            attrs="{'invisible': ['|', ('ignore', '=', True), ('state','==', 'accept')]}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_op_assignment_sub_line_inherited_tree_view" model="ir.ui.view">
+            <field name="name">op.assignment..sub.line.inherited.tree.view</field>
+            <field name="model">op.assignment.sub.line</field>
+            <field name="inherit_id" ref="openeducat_assignment.view_op_assignment_sub_line_tree"/>
+            <field name="priority" eval="10"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='state']" position="after">
+                    <field name="progression_id" optional="hide"/>
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_op_assignment_sub_line_inherited_search_view" model="ir.ui.view">
+            <field name="name">op.assignment..sub.line.inherited.search.view</field>
+            <field name="model">op.assignment.sub.line</field>
+            <field name="inherit_id" ref="openeducat_assignment.view_op_assignment_sub_line_search"/>
+            <field name="priority" eval="10"/>
+            <field name="arch" type="xml">
+                <xpath expr="." position="inside">
+                    <searchpanel>
+                        <field name="assignment_id" icon="fa fa-file-text"/>
+                    </searchpanel>
+                </xpath>
+            </field>
+        </record>
+
+
+</odoo>

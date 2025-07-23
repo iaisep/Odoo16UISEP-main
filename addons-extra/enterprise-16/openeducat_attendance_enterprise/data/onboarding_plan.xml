@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="0">
+
+        <record id="onboarding_step_1" model="oe.onboarding.steps">
+            <field name="plan_id" ref="openeducat_onboarding.onboarding_plan_1"/>
+            <field name="step_name">Attendance Types</field>
+            <field name="action_id" ref="openeducat_attendance.act_open_op_attendance_type_view"/>
+            <field name="image" type="base64" file="openeducat_attendance_enterprise/static/img/attendance_bg.png"/>
+            <field name="youtube_link">https://youtu.be/8avuUP57ma0</field>
+        </record>
+
+</odoo>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="portal_my_home_menu_timetable_list" name="Portal layout : Timetable"
+              inherit_id="openeducat_core_enterprise.portal_breadcrumbs_inhetrite" priority="10">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <t t-if="user_id.sudo().is_student">
+                <li t-if="page_name == 'Timetable_list'"
+                    t-attf-class="breadcrumb-item #{'active ' if not invoice else ''}">
+                    <a t-if="timetable_ids" t-attf-href="/student/timetable/?{{ keep_query() }}">Timetable</a>
+                    <t t-else="">Timetable</t>
+                </li>
+            </t>
+            <t t-if="user_id.sudo().is_parent">
+                <li t-if="page_name == 'Timetable_list'"
+                    t-attf-class="breadcrumb-item #{'active ' if not invoice else ''}">
+                    <a t-if="timetable_ids" t-attf-href="/student/timetable/#{stud_id}?{{ keep_query() }}">Timetable</a>
+                    <t t-else="">Timetable</t>
+                </li>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="openeducat_timetable_portal" name="Timetable">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Timetable List</t>
+            </t>
+            <div class="stud_id_timetable_parent" t-att-id="stud_id"/>
+            <div class="timetable_schedule_portal active">
+                <div id="timetable_portal_kendo"/>
+            </div>
+            <script id="event-template" type="text/x-kendo-template">
+                <div class="project-template">
+                    <h4>#: title #</h4>
+                </div>
+            </script>
+            <script id="day-event-template" type="text/x-kendo-template">
+                <div class="project-template-day-event-template">
+                    <h4>#: title #</h4>
+                    <h4>#: faculty #</h4>
+                    <p>
+                        #: kendo.toString(start, "dd/MM:dddd") # - #: kendo.toString(end, "dd/MM:dddd") #
+                    </p>
+                </div>
+            </script>
+            <script id="editor" type="text/x-kendo-template">
+                <div style="padding-left:30px;">
+                    <h3>Lecture Detail</h3>
+                    <p>Subject: <span data-bind="text: title"/>  </p>
+                    <p>
+                        Faculty:
+                            <span data-bind="text: faculty"/>
+                    </p>
+                    <p>
+                        Course:
+                            <span data-bind="text: course"/>
+                    </p>
+                    <p>
+                        Batch:
+                            <span data-bind="text: batch"/>
+                    </p>
+                    <p>
+                        Day:
+                            <span data-bind="text: day"/>
+                    </p>
+                    <p>
+                            <div style="white-space: pre-wrap;" data-bind="text: lesson"/>
+                    </p>
+                </div>
+            </script>
+        </t>
+    </template>
+
+</odoo>

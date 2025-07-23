@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record model="ir.actions.act_window" id="act_op_subject_registration_analysis_pivot_view">
+            <field name="name">Subject Registration Analysis</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.subject.registration</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_id" ref="openeducat_core.view_subject_registration_pivot"/>
+            <field name="view_mode">pivot</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+        <record id="op_subject_registration_analysis_pivot_view" model="ir.actions.act_window.view">
+            <field name="view_mode">pivot</field>
+            <field name="view_id" ref="openeducat_core.view_subject_registration_pivot"/>
+            <field name="act_window_id" ref="act_op_subject_registration_analysis_pivot_view"/>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_op_student_course_analysis_pivot_view">
+            <field name="name">Student Course Analysis</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.student.course</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_id" ref="openeducat_core.view_op_student_course_pivot"/>
+            <field name="view_mode">pivot</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+        <record id="op_student_course_analysis_pivot_view" model="ir.actions.act_window.view">
+            <field name="view_mode">pivot</field>
+            <field name="view_id" ref="openeducat_core.view_op_student_course_pivot"/>
+            <field name="act_window_id" ref="act_op_student_course_analysis_pivot_view"/>
+        </record>
+
+</odoo>

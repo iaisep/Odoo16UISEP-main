@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Vistas -->
+
+    <record id="view_practice_center_day_tree" model="ir.ui.view">
+        <field name="name">practice.center.day.tree</field>
+        <field name="model">practice.center.day</field>
+        <field name="arch" type="xml">
+            <tree string="Practice Center Days">
+                <field name="day_of_week"/>
+                <field name="is_available"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="view_practice_center_day_form" model="ir.ui.view">
+        <field name="name">practice.center.day.form</field>
+        <field name="model">practice.center.day</field>
+        <field name="arch" type="xml">
+            <form string="Practice Center Day">
+                <sheet>
+                    <group>
+                        <field name="day_of_week"/>
+                        <field name="is_available"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_practice_center_day_kanban" model="ir.ui.view">
+        <field name="name">practice.center.day.kanban</field>
+        <field name="model">practice.center.day</field>
+        <field name="arch" type="xml">
+            <kanban string="Practice Center Days">
+                <field name="day_of_week"/>
+                <field name="is_available"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <strong>
+                                    <field name="day_of_week"/>
+                                </strong>
+                                <span t-if="record.is_available.raw_value">Available for Practice</span>
+
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_practice_center_day_search" model="ir.ui.view">
+        <field name="name">practice.center.day.search</field>
+        <field name="model">practice.center.day</field>
+        <field name="arch" type="xml">
+            <search string="Practice Center Days">
+                <field name="day_of_week"/>
+                <filter name="available_days" string="Available for Practice" domain="[('is_available', '=', True)]"/>
+            </search>
+        </field>
+    </record>
+    <record id="action_practice_center_day" model="ir.actions.act_window">
+        <field name="name">Practice Center Days</field>
+        <field name="res_model">practice.center.day</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_id" ref="view_practice_center_day_tree"/>
+        <field name="search_view_id" ref="view_practice_center_day_search"/>
+    </record>
+
+
+    <menuitem id="menu_practice_center_day" name="Days" parent="menu_practice_configuration"
+              action="action_practice_center_day" sequence="20"/>
+
+
+</odoo>

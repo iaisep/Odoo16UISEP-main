@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="op_faculty_user_create_view" model="ir.ui.view">
+        <field name="name">op.meeting.wizard.form</field>
+        <field name="model">op.meeting.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Create Meeting Event">
+                <separator string="Are You Sure You Want To Create Meeting" colspan="4"/>
+                <footer>
+                    <button string="Confirm" name="create_meeting"
+                            type="object" default_focus="1" class="oe_highlight"/>
+                    or
+                    <button string="Cancel" class="oe_link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_meeting_wizard_student">
+        <field name="name">Meeting</field>
+        <field name="res_model">op.meeting.wizard</field>
+        <field name="binding_model_id" ref="model_op_student"/>
+        <field name="binding_view_types">list</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="op_faculty_user_create_view"/>
+        <field name="context">{}</field>
+        <field name="target">new</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_meeting_faculty">
+        <field name="name">Meeting</field>
+        <field name="res_model">op.meeting.wizard</field>
+        <field name="binding_model_id" ref="model_op_faculty"/>
+        <field name="binding_view_types">list</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="op_faculty_user_create_view"/>
+        <field name="context">{}</field>
+        <field name="target">new</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_meeting_parent">
+        <field name="name">Meeting</field>
+        <field name="res_model">op.meeting.wizard</field>
+        <field name="binding_model_id" ref="model_op_parent"/>
+        <field name="binding_view_types">list</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="op_faculty_user_create_view"/>
+        <field name="context">{}</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

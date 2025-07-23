@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template xml:space="preserve">
+
+    <t t-name="GetBatchData">
+        <select class="form-control" name="batch_id" id="batch_id">
+            <t t-foreach="batches" t-as="batch">
+                <option t-att-value="batch.id" t-att-selected=" batch.id == selected_id ? 'selected': undefined">
+                    <t t-esc="batch.name"/>
+                </option>
+            </t>
+        </select>
+    </t>
+
+    <t t-name="GetTermData">
+        <select class="form-control" name="academic_term_id" id="academic_term_id">
+            <t t-foreach="terms" t-as="term">
+                <option t-att-value="term.id" t-att-selected=" term.id == selected_id ? 'selected': undefined">
+                    <t t-esc="term.name"/>
+                </option>
+            </t>
+        </select>
+    </t>
+
+</template>

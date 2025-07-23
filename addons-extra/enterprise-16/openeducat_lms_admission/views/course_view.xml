@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="view_op_course_form_view_inherit" model="ir.ui.view">
+            <field name="name">op.course.form</field>
+            <field name="model">op.course</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="openeducat_core.view_op_course_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet" position="before">
+                    <header>
+                        <button type="object" name="create_online_course"
+                                groups="openeducat_lms.group_op_lms_user"
+                                attrs="{'invisible': [('online_course_created','=', True)]}"
+                                string="Create Online Course" class="oe_highlight"/>
+                    </header>
+                </xpath>
+                <xpath expr="//field[@name='max_unit_load']"
+                    position="after">
+                    <field name="online_course_created" invisible="1"/>
+                    <field name="is_enroll_user"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_op_course_tree_lms_admission" model="ir.ui.view">
+            <field name="name">op.course.lms.admission.tree</field>
+            <field name="model">op.course</field>
+            <field name="inherit_id" ref="openeducat_lms.view_op_lms_course_tree"/>
+            <field name="arch" type="xml">
+                <field name="active" position="before">
+                    <field name="online_course_created" optional="hide"/>
+                    <field name="is_enroll_user" optional="hide"/>
+                </field>
+            </field>
+        </record>
+
+</odoo>

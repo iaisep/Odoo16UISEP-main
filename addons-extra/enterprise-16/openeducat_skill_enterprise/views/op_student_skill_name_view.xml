@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="view_op_student_skill_name_tree" model="ir.ui.view">
+            <field name="name">op.student.skill.name.tree</field>
+            <field name="model">op.student.skill.name</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="skill_category_type_id"/>
+                    <field name="self_assessed" optional="hide"/>
+                    <field name="active" widget="boolean_toggle" optional="hide"/>
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_op_student_skill_name_form" model="ir.ui.view">
+            <field name="name">op.student.skill.name.form</field>
+            <field name="model">op.student.skill.name</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Student Skill Name">
+                    <header/>
+                    <sheet>
+                        <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                                attrs="{'invisible': [('active', '=', True)]}"/>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="skill_category_type_id"/>
+                                <field name="active" invisible="1"/>
+                            </group>
+                            <group>
+                                <field name="code"/>
+                                <field name="self_assessed"/>
+                                <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_op_student_skill_name_search" model="ir.ui.view">
+            <field name="name">op.student.skill.name.search</field>
+            <field name="model">op.student.skill.name</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Student Skill Name">
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_op_student_skill_name_view">
+            <field name="name">Skill Name</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.student.skill.name</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_op_student_skill_name_search"/>
+        </record>
+
+</odoo>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="job_post_apply" name="Job Post Apply" inherit_id="openeducat_job_enterprise.jobpost_detail">
+        <xpath expr="//div[@id='apply']" position='inside'>
+            <ul class="list-unstyled">
+                <li t-if="activity">
+                    <input type='hidden' name="activity" t-att-value="activity.id"/>
+                </li>
+            </ul>
+        </xpath>
+    </template>
+</odoo>

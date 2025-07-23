@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="student_progression_exam_portal_inherit"
+              inherit_id="openeducat_student_progress_enterprise.openeducat_student_progression_portal_data"
+              priority="10">
+
+        <xpath expr="//ul[hasclass('nav-pills')]" position="inside">
+            <li class="activity_info bg-100 nav-link">
+                <a href="#marksheet" aria-expanded="false" data-bs-toggle="tab" role="tab" class="active">
+                    <h5 class="mb0">
+                        Marksheet
+                    </h5>
+                </a>
+            </li>
+        </xpath>
+        <xpath expr="//div[hasclass('tab-content')]" position="inside">
+            <div class="tab-pane fade show active" id="marksheet">
+                <div t-if="progression.marksheet_lines">
+                    <table t-if="progression.marksheet_lines" class="mt8 table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Exam</th>
+                                <th>Total Marks</th>
+                                <th>Percentage</th>
+                                <th>Grade</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="progression.marksheet_lines" t-as="exam">
+                                <tr>
+                                    <td>
+                                        <t t-foreach="exam.result_line[1]" t-as="exam_data">
+                                            <span t-esc="exam_data.exam_id.session_id.name"/>
+                                        </t>
+                                    </td>
+
+                                    <td>
+                                        <span t-esc="exam.total_marks"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="exam.percentage"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="exam.grade"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="{'pass':'Pass', 'fail':'Fail'}[exam.status]"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

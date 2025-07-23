@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Vistas -->
+
+    <!-- VISTA DE ÁRBOL (Tree) -->
+    <record id="view_tesis_model_tree" model="ir.ui.view">
+        <field name="name">tesis.model.tree</field>
+        <field name="model">tesis.model</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="id" string="No."/>
+                <field name="name"  string="Nombre estudiante"/>
+                <field name="email"/>
+                <field name="course_id"  string="Alumno"/>
+                <field name="state"  string="Estado"/>
+                <field name="points_fin" readonly="1"/>
+                <field name="request_date" string="Fecha de solicitud"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- VISTA DE FORMULARIO (Form) -->
+    <record id="view_tesis_model_form" model="ir.ui.view">
+        <field name="name">tesis.model.form</field>
+        <field name="model">tesis.model</field>
+        <field name="arch" type="xml">
+            <form string="Tesis Model">
+                <header>
+                    <button name="action_submit" string="Iniciar proceso" type="object" states="draft"
+                            class="btn-primary"/>
+                    <button name="action_draft" string="Pasar a espera" type="object"
+                            class="btn-info" states="progress,end"/>
+
+                    <button name="action_approve" string="Approve" type="object" states="assigned"
+                            class="btn-success"/>
+                    <button name="action_reject" string="Reject" type="object" states="assigned"
+                            class="btn-danger"/>
+
+                    <button name="action_progress" string="Progress" type="object" states="approved"
+                            class="btn-success"/>
+                    <button name="action_end" string="Finalizar" type="object" states="progress"
+                            class="btn-danger"/>
+
+
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+
+                    <group>
+                        <group>
+                            <field name="name" string="Nombre estudiante"/>
+                            <field name="email"/>
+                            <field name="points_fin" readonly="0"/>
+                            <field name="status_thesis" readonly="0"/>
+                        </group>
+                        <group>
+
+                            <field name="course_id" string="Alumno"/>
+                            <field name="op_student_course_course_id"  string="Curso"/>
+                            <field name="request_date"  string="Fecha de solicitud"/>
+                            <field name="type_thesis"  string="Tipo de Tesis"/>
+                        </group>
+                        <group colspan="2">
+                            <field name="application_description" string="Comentario"/>
+                        </group>
+                    </group>
+
+
+                   
+                   
+                    <notebook>
+                        <page string="Documentos a revisar">
+                            <group col="2">
+                                <field name="attachment_ids"
+                                       widget="many2many_binary"
+                                       class="oe_edit_only"
+                                       readonly="1"
+                                />
+                            </group>
+
+                            <field name="attachment2_ids" readonly="1">
+                                <tree create="false" delete="false">
+                                    <field name="name" string="Nombre del Archivo" readonly="1"/>
+                                    <field name="status_thesis" string="Fase" readonly="1"/>
+                                    <field name="description" string="Descripción" readonly="1"/>
+                                    <field name="review" readonly="1"  string="Revisado"/>
+                                    <field name="note_point" readonly="1"  string="Nota"/>
+                                    <field name="create_uid" string="Cargado Por" readonly="1"/>
+                                    <field name="create_date" string="Fecha de Carga" readonly="1"/>
+                                    <field name="comment" invisible="1"/>
+                                    <button name="%(action_tesis_attachment_wizard)d" string="Editar Revisión" type="action"
+                                        context="{'default_attachment_id': id, 'default_review': review, 'default_note_point': note_point, 'default_comment': comment}"
+                                        icon="fa-comment" class="btn btn-sm btn-info"/>
+
+                                </tree>
+                                <form create="false" delete="false">
+
+                                    <label for="name" class="oe_edit_only"/>
+                                    <h1>
+                                        <field name="name"  readonly="1"/>
+                                        <field name="datas"
+                                               filename="datas_fname" attrs="{'invisible':[('type','=','url')]}"
+                                               readonly="1"/>
+                                        <field name="name" invisible="1" attrs="{'invisible':[('type','=','url')]}"
+                                               class="oe_inline oe_right"/>
+                                    </h1>
+
+                                    <group>
+                                        <field name="description" readonly="1"/>
+                                        <field name="type" readonly="1"/>
+                                        <field name="url" widget="url" attrs="{'invisible':[('type','=','binary')]}"/>
+                                        <field name="mimetype" groups="base.group_no_one"/>
+                                        <field name="create_uid" string="Registrado Por"
+                                               options='{"no_open": True, "no_create": True}'/>
+                                        <field name="create_date" string="Fecha de Registro"/>
+                                        <field name="review" readonly="1"/>
+                                        <field name="note_point" readonly="1"/>
+                                        <field name="comment" readonly="1"/>
+                                    </group>
+
+
+                                </form>
+                            </field>
+                        </page>
+
+
+
+
+                    </notebook>
+
+
+                </sheet>
+                <div class="o_attachment_preview"/>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+
+    </record>
+
+    <!-- VISTA KANBAN (Kanban) -->
+    <record id="view_tesis_model_kanban" model="ir.ui.view">
+        <field name="name">tesis.model.kanban</field>
+        <field name="model">tesis.model</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <field name="state"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_content">
+                            <div class="oe_kanban_details">
+                                <strong>
+                                    <span t-field="record.name"/>
+                                </strong>
+                                <div>
+                                    <span t-field="record.email"/>
+                                </div>
+                                <div>
+                                    <span t-field="record.course_id"/>
+                                </div>
+
+                            </div>
+                            <div class="oe_kanban_footer">
+                                <span t-field="record.state"/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- VISTA DE BÚSQUEDA (Search) -->
+    <record id="view_tesis_model_search" model="ir.ui.view">
+        <field name="name">tesis.model.search</field>
+        <field name="model">tesis.model</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="email"/>
+                <field name="course_id"/>
+                <group string="Group By">
+                    <group name="state"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+
+    <record id="action_tesis_model" model="ir.actions.act_window">
+        <field name="name">Tesis Models</field>
+        <field name="res_model">tesis.model</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_id" ref="view_tesis_model_tree"/>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+
+    <!-- Menú -->
+
+
+    <menuitem id="menu_tesis_model" name="Revision Tesis" parent="menu_practice_management"
+              action="action_tesis_model" sequence="10"/>
+
+
+    <record id="custom_model_form_tesis" model="ir.ui.view">
+        <field name="name">custom_model_form_tesis</field>
+        <field name="model">op.course</field>
+        <field name="inherit_id" ref="openeducat_core.view_op_course_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='min_unit_load']" position="after">
+                <field name="activate_tesis" widget="boolean_toggle"/>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>

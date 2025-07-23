@@ -1,0 +1,88 @@
+<odoo>
+    <record id="msteams_api_config" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.msteams</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="40"/>
+        <field name="inherit_id" ref="openeducat_core.res_config_settings_view_form_core"/>
+        <field name="arch" type="xml">
+            <xpath expr="//h2[@id='openeducat_core_apps']" position="before">
+                <h2>OpenEduCat Microsoft Teams</h2>
+                <div class="row mt16 o_settings_container">
+                    <div class="col-12 col-lg-6">
+                        <div class="o_setting_left_pane">
+                            <label for="application_id"/>
+                        </div>
+                        <div class="o_setting_right_pane" style="margin-left:20%;">
+                            <field name="application_id"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-6">
+                        <div class="o_setting_left_pane">
+                            <label for="client_secret"/>
+                        </div>
+                        <div class="o_setting_right_pane" style="margin-left:20%;">
+                            <field name="client_secret"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt16 o_settings_container">
+                    <div class="col-12 col-lg-6">
+                        <div class="o_setting_left_pane">
+                            <label for="access_token"/>
+                        </div>
+                        <div class="o_setting_right_pane" style="white-space: nowrap; overflow: hidden;margin-left:20%;">
+                            <field name="access_token"/>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <div class="o_setting_left_pane">
+                            <label for="redirect_url"/>
+                        </div>
+                        <div class="o_setting_right_pane" style="margin-left:20%;">
+                            <field name="redirect_url"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt16 o_settings_container">
+                    <div class="col-12 col-lg-6">
+                        <div class="o_setting_left_pane">
+                            <field name="send_card_globally"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="send_card_globally"/>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <div class="o_setting_left_pane">
+                            <label for="webhook_url" attrs="{'invisible': [('send_card_globally', '=', False)]}"/>
+                        </div>
+                        <div class="o_setting_right_pane" style="margin-left:20%;">
+                            <field name="webhook_url" attrs="{'invisible': [('send_card_globally', '=', False)]}"/>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <div class="o_setting_left_pane">
+                            <field name="send_card_course"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="send_card_course"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt16 o_settings_container">
+                    <div class="col-12 col-lg-6">
+                        <div class="o_setting_left_pane">
+                            <button string="Authenticate" type="object" name="auth_token" class="btn-primary"/>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <div class="o_setting_left_pane">
+                            <button string="Refresh" type="object" name="do_refresh_token" class="btn-primary"/>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

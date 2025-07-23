@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="op_batch_form_inh" model="ir.ui.view">
+        <field name="name">op_batch_form_inh</field>
+        <field name="model">op.batch</field>
+        <field name="inherit_id"  ref="isep_student_migration.view_op_batch_form_inherit" />
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page name="official_detail" string="Detalle Oficialidad" attrs="{'invisible':[('sepyc_program','!=',True)]}">
+                                <group>
+                                    <group>
+                                        <field name="company_type"/>
+                                        <field name="scholar_year"/>
+                                        <field name="educational_mod"/>
+                                        <field name="shift_type"/>
+                                    </group>
+                                    <group>
+                                        <field name="cct"/>
+                                    </group>
+                                </group>
+                            </page>
+
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>

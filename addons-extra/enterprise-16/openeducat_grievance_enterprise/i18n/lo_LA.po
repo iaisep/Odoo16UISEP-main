@@ -1,0 +1,1162 @@
+
+msgid ""
+msgstr ""
+"Project-Id-Version:Odoo Server 15.0"
+"Report-Msgid-Bugs-To:"
+"POT-Creation-Date:2022-09-22 05:54+0000"
+"PO-Revision-Date:2022-09-22 05:54+0000"
+"Last-Translator:"
+"Language-Team:"
+"MIME-Version:1.0"
+"Content-Type:text/plain; charset=UTF-8"
+"Content-Transfer-Encoding:"
+"Plural-Forms:"
+
+#. module: openeducat_grievance_enterprise
+#: model:mail.template,subject:openeducat_grievance_enterprise.mail_template_gms_assign
+#: model:mail.template,subject:openeducat_grievance_enterprise.mail_template_gms_for_resolution
+#: model:mail.template,subject:openeducat_grievance_enterprise.mail_template_gms_rejection
+msgid "\"{{ object.subject }}\""
+msgstr "\"{{ object.subject }}\""
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.gms_grievance_kanban_view
+msgid ""
+"<br/>\n"
+"                                        <strong>\n"
+"                                            <span>Subject:</span>\n"
+"                                        </strong>"
+msgstr ""
+"<br/>\n"
+" <strong>\n"
+" <span>ເລື່ອງ:</span>\n"
+" </strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_team_kanban_view
+msgid "<i class=\"fa fa-ellipsis-v\" title=\"xyz\"/>"
+msgstr "<i class=\"fa fa-ellipsis-v\" title=\"xyz\"/>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+msgid ""
+"<span class=\"badge badge-pill badge-danger\">\n"
+"                                                <i class=\"fa fa-fw fa-check\" aria-label=\"Approved\" title=\"Done\" role=\"img\"/>\n"
+"                                                <span class=\"d-none d-md-inline\">Reject</span>\n"
+"                                            </span>"
+msgstr ""
+"<span class=\"badge badge-pill badge-danger\">\n"
+" <i class=\"fa fa-fw fa-check\" aria-label=\"ອະນຸມັດ\" title=\"ສຳເລັດ\" ບົດບາດ =\"img\"/>\n"
+" <span class=\"d-none d-md-inline\">ປະຕິເສດ</span>\n"
+" </span>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+msgid ""
+"<span class=\"badge badge-pill badge-info\">\n"
+"                                                <i class=\"fa fa-fw fa-check\" aria-label=\"Draft\" title=\"Draft\" role=\"img\"/>\n"
+"                                                <span class=\"d-none d-md-inline\">Action</span>\n"
+"                                            </span>"
+msgstr ""
+"<span class=\"badge badge-pill badge-info\">\n"
+" <i class=\"fa fa-fw fa-check\" aria-label=\"ຮ່າງ\" title=\"ຮ່າງ\" ບົດບາດ =\"img\"/>\n"
+" <span class=\"d-none d-md-inline\">ການກະທຳ</span>\n"
+" </span>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+msgid ""
+"<span class=\"badge badge-pill badge-info\">\n"
+"                                                <i class=\"fa fa-fw fa-check\" aria-label=\"Draft\" title=\"Draft\" role=\"img\"/>\n"
+"                                                <span class=\"d-none d-md-inline\">Resolve</span>\n"
+"                                            </span>"
+msgstr ""
+"<span class=\"badge badge-pill badge-info\">\n"
+" <i class=\"fa fa-fw fa-check\" aria-label=\"ຮ່າງ\" title=\"ຮ່າງ\" ບົດບາດ =\"img\"/>\n"
+" <span class=\"d-none d-md-inline\">ແກ້ໄຂ</span>\n"
+" </span>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+msgid ""
+"<span class=\"badge badge-pill badge-info\">\n"
+"                                                <i class=\"fa fa-fw fa-check\" aria-label=\"Draft\" title=\"Draft\" role=\"img\"/>\n"
+"                                                <span class=\"d-none d-md-inline\">Submitted</span>\n"
+"                                            </span>"
+msgstr ""
+"<span class=\"badge badge-pill badge-info\">\n"
+" <i class=\"fa fa-fw fa-check\" aria-label=\"ຮ່າງ\" title=\"ຮ່າງ\" ບົດບາດ =\"img\"/>\n"
+" <span class=\"d-none d-md-inline\">ສົ່ງແລ້ວ</span>\n"
+" </span>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+msgid ""
+"<span class=\"badge badge-pill badge-info\">\n"
+"                                                <i class=\"fa fa-fw fa-clock-o\" aria-label=\"Draft\" title=\"Draft\" role=\"img\"/>\n"
+"                                                <span class=\"d-none d-md-inline\">Draft</span>\n"
+"                                            </span>"
+msgstr ""
+"<span class=\"badge badge-pill badge-info\">\n"
+" <i class=\"fa fa-fw fa-clock-o\" aria-label=\"ຮ່າງ\" title=\"ຮ່າງ\\ \" role=\"img\"/>\n"
+" <span class=\"d-none d-md-inline\">ຮ່າງ</span>\n"
+" </span>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+msgid ""
+"<span class=\"badge badge-pill badge-primary\">\n"
+"                                                <i class=\"fa fa-fw fa-clock-o\" aria-label=\"In Progress\" title=\"In Progress\" role=\"img\"/>\n"
+"                                                <span class=\"d-none d-md-inline\">In Review</span>\n"
+"                                            </span>"
+msgstr ""
+"<span class=\"badge badge-pill badge-primary\">\n"
+" <i class=\"fa fa-fw fa-clock-o\" aria-label=\"ກຳລັງດຳເນີນ\" title=\"ໃນ ຄວາມຄືບໜ້າ\" role=\"img\"/>\n"
+" <span class=\"d-none d-md-inline\">ກຳລັງກວດສອບ</span>\n"
+" </span>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+msgid ""
+"<span class=\"badge badge-pill badge-success\">\n"
+"                                                <i class=\"fa fa-fw fa-check\" aria-label=\"Approved\" title=\"Done\" role=\"img\"/>\n"
+"                                                <span class=\"d-none d-md-inline\">Close</span>\n"
+"                                            </span>"
+msgstr ""
+"<span class=\"badge badge-pill badge-success\">\n"
+" <i class=\"fa fa-fw fa-check\" aria-label=\"ອະນຸມັດ\" title=\"ສຳເລັດ\" ບົດບາດ =\"img\"/>\n"
+" <span class=\"d-none d-md-inline\">ປິດ</span>\n"
+" </span>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.gms_grievance_kanban_view
+msgid ""
+"<span>\n"
+"                                                    <u>Academic</u>\n"
+"                                                </span>"
+msgstr ""
+"<span>\n"
+" <u>ວິຊາການ</u>\n"
+" </span>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.gms_grievance_kanban_view
+msgid ""
+"<span>\n"
+"                                                    <u>Non-Academic</u>\n"
+"                                                </span>"
+msgstr ""
+"<span>\n"
+" <u>ບໍ່ແມ່ນການສຶກສາ</u>\n"
+" </span>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_my_home_menu_grievance
+msgid "<span>Grievances</span>"
+msgstr "<span>ຄຳຮ້ອງທຸກ</span>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.gms_grievance_kanban_view
+msgid ""
+"<strong>\n"
+"                                                <span>Grievance By:</span>\n"
+"                                            </strong>"
+msgstr ""
+"<strong>\n"
+" <span>ຄຳຮ້ອງທຸກໂດຍ:</span>\n"
+" </strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "<strong>Academic Term:</strong>"
+msgstr "<strong>ໄລຍະການສຶກສາ:</strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "<strong>Academic Year:</strong>"
+msgstr "<strong>ປີການສຶກສາ:</strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "<strong>Action Taken:</strong>"
+msgstr "<strong>ປະຕິບັດແລ້ວ:</strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "<strong>Attachment:</strong>"
+msgstr "<strong>ໄຟລ໌ແນບ:</strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "<strong>Batch:</strong>"
+msgstr "<strong>ຊຸດ:</strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "<strong>Category:</strong>"
+msgstr "<strong>ໝວດ:</strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "<strong>Course:</strong>"
+msgstr "<strong>ຫຼັກສູດ:</strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "<strong>Created Date:</strong>"
+msgstr "<strong>ວັນທີສ້າງ:</strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "<strong>Description:</strong>"
+msgstr "<strong>ລາຍລະອຽດ:</strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_team_kanban_view
+msgid "<strong>Grievance Category</strong>"
+msgstr "<strong>ໝວດໝູ່ການຮ້ອງທຸກ</strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "<strong>Grievance Subject:</strong>"
+msgstr "<strong>ເລື່ອງການຮ້ອງທຸກ:</strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "<strong>Student:</strong>"
+msgstr "<strong>ນັກຮຽນ:</strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_team_kanban_view
+msgid "<strong>Total Grievances</strong>"
+msgstr "<strong>ການຮ້ອງທຸກທັງໝົດ</strong>"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_search_view
+msgid "Academic"
+msgstr "ວິຊາການ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__academic_term_id
+msgid "Academic Term"
+msgstr "ໄລຍະການສຶກສາ"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_registration
+msgid "Academic Term:"
+msgstr "ໄລຍະການສຶກສາ:"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__academic_year_id
+msgid "Academic Year"
+msgstr "ປີການສຶກສາ"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_registration
+msgid "Academic Year:"
+msgstr "ປີການສຶກສາ:"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__state__action
+msgid "Action"
+msgstr "ການປະຕິບັດ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_needaction
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_needaction
+msgid "Action Needed"
+msgstr "ຕ້ອງການປະຕິບັດ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.actions.act_window,name:openeducat_grievance_enterprise.action_wizard_action_taken
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__action_taken
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_wizard_action_taken__action_taken
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.wizard_action_taken
+msgid "Action Taken"
+msgstr "ປະຕິບັດ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__activity_ids
+msgid "Activities"
+msgstr "ກິດຈະກໍາ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "ກິດຈະກໍາການຍົກເວັ້ນການຕົກແຕ່ງ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__activity_state
+msgid "Activity State"
+msgstr "ສະຖານະການເຄື່ອນໄຫວ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "ໄອຄອນປະເພດການເຄື່ອນໄຫວ"
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#, python-format
+msgid "All"
+msgstr "ທັງໝົດ"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_search_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "Appeal"
+msgstr "ອຸທອນ"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "Are you satisfied with the given resolution?"
+msgstr "ທ່ານພໍໃຈກັບຄວາມລະອຽດທີ່ໃຫ້ບໍ?"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_registration
+msgid "Attachment"
+msgstr "ໄຟລ໌ແນບ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_attachment_count
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_attachment_count
+msgid "Attachment Count"
+msgstr "ຈຳນວນໄຟລ໌ແນບ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__attachment_ids
+msgid "Attachments"
+msgstr "ໄຟລ໌ແນບ"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_team_form_view
+msgid "Avatar"
+msgstr "ຮູບແທນຕົວ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__batch_id
+msgid "Batch"
+msgstr "ຊຸດ"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_registration
+msgid "Batch:"
+msgstr "ຊຸດ:"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__can_publish
+msgid "Can Publish"
+msgstr "ສາມາດເຜີຍແຜ່"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__state__cancel
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_search_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.wizard_action_taken
+msgid "Cancel"
+msgstr "ຍົກເລີກ"
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+#, python-format
+msgid "Category"
+msgstr "ປະເພດ"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_registration
+msgid "Category:"
+msgstr "ປະເພດ:"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__state__close
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_search_view
+msgid "Close"
+msgstr "ປິດ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__color
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__color
+msgid "Color Index"
+msgstr "ດັດຊະນີສີ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__company_id
+msgid "Company"
+msgstr "ບໍລິສັດ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category__complete_name
+msgid "Complete Name"
+msgstr "ຊື່ສົມບູນ"
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/models/grievance.py:0
+#, python-format
+msgid "Compose Email"
+msgstr "ຂຽນອີເມວ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.ui.menu,name:openeducat_grievance_enterprise.menu_action_configuration_gms
+msgid "Configuration"
+msgstr "ການຕັ້ງຄ່າ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__course_id
+msgid "Course"
+msgstr "ຫຼັກສູດ"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_registration
+msgid "Course:"
+msgstr "ຫຼັກສູດ:"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__created_date
+msgid "Created Date"
+msgstr "ວັນທີສ້າງ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__create_uid
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category__create_uid
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_root_cause__create_uid
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__create_uid
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_wizard_action_taken__create_uid
+msgid "Created by"
+msgstr "ສ້າງ​ໂດຍ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__create_date
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category__create_date
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_root_cause__create_date
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__create_date
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_wizard_action_taken__create_date
+msgid "Created on"
+msgstr "ສ້າງເມື່ອ"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.gms_grievance_kanban_view
+msgid "Delete"
+msgstr "ລຶບ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__description
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_registration
+msgid "Description"
+msgstr "ລາຍລະອຽດ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__display_name
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category__display_name
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_root_cause__display_name
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__display_name
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_wizard_action_taken__display_name
+msgid "Display Name"
+msgstr "ຊື່ສະແດງ"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "Do you wish to appeal?"
+msgstr "ເຈົ້າຕ້ອງການອຸທອນບໍ່?"
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__state__draft
+#, python-format
+msgid "Draft"
+msgstr "ຮ່າງ"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.gms_grievance_kanban_view
+msgid "Dropdown menu"
+msgstr "ເມນູເລື່ອນລົງ"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.gms_grievance_kanban_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "Edit"
+msgstr "ແກ້ໄຂ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__faculty_id
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__grievance_for__faculty
+msgid "Faculty"
+msgstr "ຄະນະວິຊາ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_follower_ids
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_follower_ids
+msgid "Followers"
+msgstr "ຜູ້ຕິດຕາມ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_partner_ids
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "ຜູ້ຕິດຕາມ (ຄູ່ຮ່ວມງານ)"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "ໄອຄອນຕົວອັກສອນທີ່ຫນ້າຫວາດສຽວ e.g. fa-ວຽກງານ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model,name:openeducat_grievance_enterprise.model_grievance
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category__name
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+msgid "Grievance"
+msgstr "ຄຳຮ້ອງທຸກ"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "Grievance :"
+msgstr "ຄຳຮ້ອງທຸກ:"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model,name:openeducat_grievance_enterprise.model_wizard_action_taken
+msgid "Grievance Action Taken"
+msgstr "ປະຕິບັດການຮ້ອງທຸກ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__grievance_for
+msgid "Grievance By"
+msgstr "ຮ້ອງທຸກໂດຍ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.actions.act_window,name:openeducat_grievance_enterprise.action_grievance_category_list
+#: model:ir.model,name:openeducat_grievance_enterprise.model_grievance_category
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__grievance_category_id
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__grievance_category_id
+#: model:ir.ui.menu,name:openeducat_grievance_enterprise.menu_action_grievance_category_list
+msgid "Grievance Category"
+msgstr "ປະເພດການຮ້ອງທຸກ"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_category_form_view
+msgid "Grievance Category Form"
+msgstr "ແບບຟອມການຮ້ອງທຸກ"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_category_list_view
+msgid "Grievance Category Tree"
+msgstr "ໝວດໝູ່ການຮ້ອງທຸກ"
+
+#. module: openeducat_grievance_enterprise
+#: model:mail.template,name:openeducat_grievance_enterprise.mail_template_gms
+msgid "Grievance Mail"
+msgstr "ຈົດໝາຍຮ້ອງທຸກ"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_pivot_view
+msgid "Grievance Pivot"
+msgstr "ການຮ້ອງທຸກ Pivot"
+
+#. module: openeducat_grievance_enterprise
+#: model:mail.template,name:openeducat_grievance_enterprise.mail_template_gms_rejection
+msgid "Grievance Rejection"
+msgstr "ການປະຕິເສດການຮ້ອງທຸກ"
+
+#. module: openeducat_grievance_enterprise
+#: model:mail.template,name:openeducat_grievance_enterprise.mail_template_gms_for_resolution
+msgid "Grievance Resolution Email"
+msgstr "ອີເມວການແກ້ໄຂຄຳຮ້ອງທຸກ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model,name:openeducat_grievance_enterprise.model_grievance_root_cause
+msgid "Grievance Root Cause"
+msgstr "ສາເຫດຂອງການຮ້ອງທຸກ"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_search_view
+msgid "Grievance Search"
+msgstr "ຄົ້ນຫາຄໍາຮ້ອງທຸກ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model,name:openeducat_grievance_enterprise.model_grievance_team
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_res_users__grievance_team_id
+msgid "Grievance Team"
+msgstr "ທີມງານຮ້ອງທຸກ"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_team_form_view
+msgid "Grievance Team Form"
+msgstr "ແບບຟອມທີມງານຮ້ອງທຸກ"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_team_search_view
+msgid "Grievance Team Search"
+msgstr "ຄົ້ນຫາທີມຮ້ອງທຸກ"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_team_list_view
+msgid "Grievance Team Tree"
+msgstr "ຕົ້ນໄມ້ທີມຮ້ອງທຸກ"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_team_form_view
+msgid "Grievance Team name..."
+msgstr "ຊື່ທີມຮ້ອງຟ້ອງ..."
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_list_view
+msgid "Grievance Tree"
+msgstr "ຕົ້ນໄມ້ຮ້ອງທຸກ"
+
+#. module: openeducat_grievance_enterprise
+#: model:mail.template,name:openeducat_grievance_enterprise.mail_template_gms_assign
+msgid "Grievance receive confirmation"
+msgstr "ການຮ້ອງທຸກໄດ້ຮັບການຢືນຢັນ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.actions.act_window,name:openeducat_grievance_enterprise.action_grievance_list
+#: model:ir.ui.menu,name:openeducat_grievance_enterprise.menu_action_gms
+#: model:ir.ui.menu,name:openeducat_grievance_enterprise.menu_action_grievance_list
+#: model:openeducat.portal.menu,name:openeducat_grievance_enterprise.website_menu_gms_portal_menu
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_team_kanban_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_my_home_grievance
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_my_home_menu_grievance
+msgid "Grievances"
+msgstr "ຮ້ອງທຸກ"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_search_view
+msgid "Group by Date"
+msgstr "ຈັດກຸ່ມຕາມວັນທີ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__has_message
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__has_message
+msgid "Has Message"
+msgstr "ມີຂໍ້ຄວາມ"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "History"
+msgstr "ປະຫວັດສາດ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__id
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category__id
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_root_cause__id
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__id
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_wizard_action_taken__id
+msgid "ID"
+msgstr "ID"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__activity_exception_icon
+msgid "Icon"
+msgstr "ໄອຄອນ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "ໄອຄອນເພື່ອຊີ້ບອກກິດຈະກໍາການຍົກເວັ້ນ."
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__message_needaction
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__message_unread
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance_team__message_needaction
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance_team__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "ຖ້າຖືກເລືອກ, ຂໍ້ຄວາມໃຫມ່ຕ້ອງການຄວາມສົນໃຈຂອງທ່ານ."
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__message_has_error
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__message_has_sms_error
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance_team__message_has_error
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance_team__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "ຖ້າໝາຍຖືກ, ບາງຂໍ້ຄວາມມີຂໍ້ຜິດພາດໃນການຈັດສົ່ງ."
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_search_view
+msgid "In Action"
+msgstr "ໃນການປະຕິບັດ"
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__state__in_review
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_search_view
+#, python-format
+msgid "In Review"
+msgstr "ໃນການທົບທວນຄືນ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__is_academic
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category__is_academic
+msgid "Is Academic"
+msgstr "ເປັນວິຊາການ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__is_appeal
+msgid "Is Appeal"
+msgstr "ແມ່ນການອຸທອນ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_is_follower
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_is_follower
+msgid "Is Follower"
+msgstr "ເປັນຜູ້ຕິດຕາມ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__is_published
+msgid "Is Published"
+msgstr "ຈັດພີມມາ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__is_satisfied
+msgid "Is Satisfied"
+msgstr "ມີຄວາມພໍໃຈ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance____last_update
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category____last_update
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_root_cause____last_update
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team____last_update
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_wizard_action_taken____last_update
+msgid "Last Modified on"
+msgstr "ດັດແກ້ຫຼ້າສຸດເມື່ອ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__write_uid
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category__write_uid
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_root_cause__write_uid
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__write_uid
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_wizard_action_taken__write_uid
+msgid "Last Updated by"
+msgstr "ອັບເດດຫຼ້າສຸດໂດຍ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__write_date
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category__write_date
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_root_cause__write_date
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__write_date
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_wizard_action_taken__write_date
+msgid "Last Updated on"
+msgstr "ອັບເດດຫຼ້າສຸດເມື່ອ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_main_attachment_id
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "ໄຟລ໌ແນບຫຼັກ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__member_ids
+msgid "Members"
+msgstr "ສະມາຊິກ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_has_error
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_has_error
+msgid "Message Delivery error"
+msgstr "ການຈັດສົ່ງຂໍ້ຄວາມຜິດພາດ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_ids
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_ids
+msgid "Messages"
+msgstr "ຂໍ້ຄວາມ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "ກຳນົດເວລາການເຄື່ອນໄຫວຂອງຂ້ອຍ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__name
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_root_cause__name
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__name
+msgid "Name"
+msgstr "ຊື່"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__subject
+msgid "Name/Subject"
+msgstr "ຊື່/ວິຊາ"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_registration
+msgid "Name/Subject:"
+msgstr "ຊື່/ວິຊາ:"
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#, python-format
+msgid "Newest"
+msgstr "ໃໝ່ລ່າສຸດ"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_registration
+msgid ""
+"Next\n"
+"                                            <span class=\"fa fa-long-arrow-right\"/>"
+msgstr ""
+"ຕໍ່ໄປ\n"
+" <span class=\"fa fa-long-arrow-right\"/>"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "ກິດຈະກໍາປະຕິທິນກິດຈະກໍາຕໍ່ໄປ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "ນັດໝາຍກິດຈະກຳຕໍ່ໄປ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__activity_summary
+msgid "Next Activity Summary"
+msgstr "ສະຫຼຸບການເຄື່ອນໄຫວຕໍ່ໄປ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__activity_type_id
+msgid "Next Activity Type"
+msgstr "ປະເພດການເຄື່ອນໄຫວຕໍ່ໄປ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__is_satisfied__no
+msgid "No"
+msgstr "ບໍ່"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_search_view
+msgid "Non-Academic"
+msgstr "ທີ່ບໍ່ແມ່ນວິຊາການ"
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#, python-format
+msgid "None"
+msgstr "ບໍ່ມີ"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "Not-Satisfied 🙁"
+msgstr "ບໍ່ພໍໃຈ🙁"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_needaction_counter
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_needaction_counter
+msgid "Number of Actions"
+msgstr "ຈໍານວນການປະຕິບັດ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_has_error_counter
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_has_error_counter
+msgid "Number of errors"
+msgstr "ຈໍານວນຄວາມຜິດພາດ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__message_needaction_counter
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance_team__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "ຈໍານວນຂໍ້ຄວາມທີ່ຕ້ອງການການດໍາເນີນການ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__message_has_error_counter
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance_team__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "ຈໍານວນຂໍ້ຄວາມທີ່ມີຄວາມຜິດພາດໃນການຈັດສົ່ງ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__message_unread_counter
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance_team__message_unread_counter
+msgid "Number of unread messages"
+msgstr "ຈໍານວນຂໍ້ຄວາມທີ່ຍັງບໍ່ໄດ້ອ່ານ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__parent_id
+msgid "Parent"
+msgstr "ພໍ່ແມ່"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category__parent_id
+msgid "Parent Category"
+msgstr "ໝວດໝູ່"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__grievance_parent_id
+msgid "Parent Grievance"
+msgstr "ການຮ້ອງທຸກຂອງພໍ່ແມ່"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_registration
+msgid "Parent Grievance:"
+msgstr "ການຮ້ອງທຸກຂອງພໍ່ແມ່:"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_category__parent_path
+msgid "Parent Path"
+msgstr "ເສັ້ນທາງພໍ່ແມ່"
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__state__reject
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+#, python-format
+msgid "Reject"
+msgstr "ປະຕິເສດ"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+msgid "Resolution"
+msgstr "ຄວາມລະອຽດ"
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__state__resolve
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+#, python-format
+msgid "Resolve"
+msgstr "ແກ້ໄຂ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__activity_user_id
+msgid "Responsible User"
+msgstr "ຜູ້​ໃຊ້​ທີ່​ຮັບ​ຜິດ​ຊອບ​"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__root_cause_id
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_wizard_action_taken__root_cause_id
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+msgid "Root Cause"
+msgstr "ສາເຫດຮາກ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_has_sms_error
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "ການຈັດສົ່ງ SMS ຜິດພາດ"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.portal_grievance_details
+msgid "Satisfied 😄"
+msgstr "ພໍໃຈ😄"
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#, python-format
+msgid "Search in All"
+msgstr "ຊອກຫາຢູ່ໃນທັງໝົດ"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+msgid "Send mail"
+msgstr "ສົ່ງອີເມວ"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_team_kanban_view
+msgid "Settings"
+msgstr "ການຕັ້ງຄ່າ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__state
+msgid "State"
+msgstr "ລັດ"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+msgid "Status"
+msgstr "ສະຖານະ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"ສະຖານະອີງຕາມການເຄື່ອນໄຫວ\n"
+"ເກີນກຳນົດ: ວັນຄົບກຳນົດແມ່ນຜ່ານໄປແລ້ວ\n"
+"ມື້ນີ້: ວັນທີກິດຈະກຳແມ່ນມື້ນີ້\n"
+"ແຜນການ: ກິດຈະກຳໃນອະນາຄົດ."
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__student_id
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__grievance_for__student
+msgid "Student"
+msgstr "ນັກ​ຮຽນ"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_registration
+msgid "Student Name:"
+msgstr "ຊື່ນັກສຶກສາ:"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.wizard_action_taken
+msgid "Submit"
+msgstr "ສົ່ງ"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+msgid "Submit Grievance"
+msgstr "ສົ່ງຄໍາຮ້ອງທຸກ"
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__state__submitted
+#, python-format
+msgid "Submitted"
+msgstr "ສົ່ງແລ້ວ"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_form_view
+msgid "Take Action"
+msgstr "ດໍາເນີນການ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__grievance_team_id
+msgid "Team"
+msgstr "ທີມງານ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__team_leader
+msgid "Team Leader"
+msgstr "ຫົວຫນ້າທີມ"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_team_form_view
+msgid "Team Members"
+msgstr "ສະມາຊິກທີມ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.actions.act_window,name:openeducat_grievance_enterprise.action_grievance_team_list
+#: model:ir.ui.menu,name:openeducat_grievance_enterprise.menu_action_grievance_team_list
+msgid "Teams"
+msgstr "ທີມງານ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__website_url
+msgid "The full URL to access the document through the website."
+msgstr "URL ເຕັມທີ່ຈະເຂົ້າເຖິງເອກະສານຜ່ານເວັບໄຊທ໌."
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.all_grievance
+msgid "There are no Grievances"
+msgstr "ບໍ່ມີຂໍ້ຂ້ອງໃຈໃດໆ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__grievance_count
+msgid "Total Grievances"
+msgstr "ການຮ້ອງທຸກທັງໝົດ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "ປະເພດຂອງກິດຈະກໍາການຍົກເວັ້ນໃນບັນທຶກ."
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_unread
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_unread
+msgid "Unread Messages"
+msgstr "ຂໍ້ຄວາມທີ່ຍັງບໍ່ໄດ້ອ່ານ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__message_unread_counter
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "ຕົວນັບຂໍ້ຄວາມທີ່ຍັງບໍ່ໄດ້ອ່ານ"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_edit
+msgid ""
+"Update\n"
+"                                        <span class=\"fa fa-long-arrow-right\"/>"
+msgstr ""
+"ອັບເດດ\n"
+" <span class=\"fa fa-long-arrow-right\"/>"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model,name:openeducat_grievance_enterprise.model_res_users
+msgid "Users"
+msgstr "ຜູ້ໃຊ້"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__website_published
+msgid "Visible on current website"
+msgstr "ເຫັນໄດ້ໃນເວັບໄຊທ໌ປັດຈຸບັນ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__website_message_ids
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance_team__website_message_ids
+msgid "Website Messages"
+msgstr "ຂໍ້ຄວາມເວັບໄຊທ໌"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,field_description:openeducat_grievance_enterprise.field_grievance__website_url
+msgid "Website URL"
+msgstr "URL ເວັບໄຊທ໌"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance__website_message_ids
+#: model:ir.model.fields,help:openeducat_grievance_enterprise.field_grievance_team__website_message_ids
+msgid "Website communication history"
+msgstr "ປະຫວັດການສື່ສານເວັບໄຊທ໌"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__is_satisfied__yes
+msgid "Yes"
+msgstr "ແມ່ນແລ້ວ"
+
+#. module: openeducat_grievance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_grievance_enterprise.grievance_access_denied
+msgid "You are not Allowed to Access this data."
+msgstr "ທ່ານບໍ່ໄດ້ຮັບອະນຸຍາດໃຫ້ເຂົ້າເຖິງຂໍ້ມູນນີ້."
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#, python-format
+msgid "close"
+msgstr "ໃກ້"
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#, python-format
+msgid "grievance category search"
+msgstr "ການຊອກຫາໝວດໝູ່ການຮ້ອງທຸກ"
+
+#. module: openeducat_grievance_enterprise
+#: model:ir.model.fields.selection,name:openeducat_grievance_enterprise.selection__grievance__grievance_for__parent
+msgid "parent"
+msgstr "ພໍ່ແມ່"
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#, python-format
+msgid "search in Batch"
+msgstr "ຄົ້ນ​ຫາ​ໃນ Batch​"
+
+#. module: openeducat_grievance_enterprise
+#: code:addons/openeducat_grievance_enterprise/controllers/main.py:0
+#, python-format
+msgid "search in Course"
+msgstr "ຄົ້ນຫາໃນຫຼັກສູດ"
+
+#. module: openeducat_grievance_enterprise
+#: model:mail.template,subject:openeducat_grievance_enterprise.mail_template_gms
+msgid "{{ object.subject }}"
+msgstr "{{ object.subject }}"

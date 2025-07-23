@@ -1,0 +1,936 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <!-- Over all result view -->
+        <template id="exam_user_result_profile" name="Exam Main View">
+            <t t-call="website.layout">
+                <div class="container mt32">
+                    <div class="col-md-12">
+                        <t t-call="openeducat_quiz.quiz_profile"/>
+                    </div>
+                    <div class="col-md-12">
+                        <table class="table table-bordered mt16">
+                            <thead>
+                                <tr>
+                                    <th>Exam Name</th>
+                                    <th>Total Question</th>
+                                    <th>Total Correct</th>
+                                    <th>Total Incorrect</th>
+                                    <th>Total Marks</th>
+                                    <th>Received Marks</th>
+                                    <th>Score</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="result_data" t-as="line">
+                                    <tr>
+                                        <td>
+                                            <t t-esc="line['name']"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="line['ttl_que']"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="line['ttl_crct']"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="line['ttl_incrct']"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="line['ttl_marks']"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="line['rec_marks']"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="line['score']"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <!-- Exam Main Page -->
+        <template id="online_exam_page" name="Exam Main View">
+            <t t-call="website.layout">
+                <t t-call="openeducat_quiz.quiz_render_exam_main_form_view"/>
+            </t>
+        </template>
+
+        <template id="quiz_render_exam_main_form_view" name="Exam View">
+            <section class="exam-title" style="background-image: url(&quot;/openeducat_quiz/static/src/img/inner-pagebg.jpg&quot;);position:relative;background-position-y: center;">
+                <div class="overlay"></div>
+                <div class="container pt64 pb64">
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                            <h1 class="text-white" style="font-size: 40px;">EXAMS
+                            </h1>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center text-md-left search-box">
+                            <form t-attf-action="/online-exams" role="search" method="get">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="search" t-attf-placeholder="Search" t-att-value="search" style="border-radius:0px;border-right: 0; height:50px;"/>
+                                    <span class="input-group-btn">
+                                        <button class="btn" type="submit" style="border-radius:0px">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="breadcrumbs">
+                <div class="container">
+                    <div class="row border-bottom">
+                        <ul class="breadcrumb mb0">
+                            <li>
+                                <a href="/">Home</a>
+                            </li>
+                            <li>
+                                <a href="#">Exams</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section class="pt64 pb64">
+                <div class="container" id="quiz_form_view">
+                    <div class="row">
+                        <t t-call="openeducat_quiz.quiz_profile"/>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-12 mb16 offset-lg-0 offset-md-3 profile mb32">
+                            <div class="card">
+                                <div class="col-12 pt-5">
+                                    <img t-attf-src="/web/image/res.users/#{user.id}/image_1920" class="img-fluid img-circle d-block mx-auto"/>
+                                    <h3 class="py-3 text-center user-name">
+                                        <span t-esc="user.name"/>
+                                    </h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="d-flex align-items-baseline">
+                                        <p class="col px-0 text-o-color-5">Total Attempt</p>
+                                        <p class="text-right" style="color: #002147;font-size: 18px;" t-esc="total_exam"/>
+                                    </div>
+                                    <div class="d-flex align-items-baseline">
+                                        <p class="col px-0 mb-0 text-o-color-5">Average Result</p>
+                                        <p class="text-right mb-0 text-secondary" style="font-size: 18px;" t-esc="progress"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-md-12 col-sm-12 quiz-round">
+                            <t t-if="my_exam == True">
+                                <h4 class="mb32 border-bottom pb16">My Exams</h4>
+                                <div class="row">
+                                    <t t-foreach="exams" t-as="exam">
+                                        <t t-if="exam.assigned_to != 'open_for_all'">
+                                            <div class="col-md-6 col-lg-6 col-sm-12 mb32">
+                                                <div class="card">
+                                                    <h5 class="feature_title mb0">
+                                                        <span t-esc="exam.name"/>
+                                                    </h5>
+                                                    <div class="card-body p-3">
+                                                        <div class="align-items-baseline d-flex">
+                                                            <div class="w-50">
+                                                                <p style="color: #666;font-weight: bold;">Category Name
+                                                                </p>
+                                                            </div>
+                                                            <div class="w-50 text-right">
+                                                                <span class="text-o-color-5" style="font-size: 13px;font-weight: bold;">
+                                                                ATTEMPT :
+                                                                </span>
+                                                                <span class="text-secondary" style="font-size: 18px;font-weight: bold;" t-esc="quiz_attempt[exam.id]['ttl_atmp']"/>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <p class="content_ellipsis" t-esc="exam.description"/>
+                                                        </div>
+                                                        <hr/>
+                                                        <div class="d-flex">
+                                                            <div class="col p-1">
+                                                                <span class="text-o-color-5" style="font-size: 13px;font-weight: bold;">
+                                                                AVG RESULT :
+                                                                </span>
+                                                                <span class="text-secondary" style="font-size: 18px;font-weight: bold;" t-esc="quiz_attempt[exam.id]['avg_res']"/>
+                                                                <span class="text-secondary" style="font-size: 18px;font-weight: bold;">
+                                                                %
+                                                                </span>
+                                                            </div>
+                                                            <div class="text-right" t-if="quiz_attempt[exam.id]['allow'] == 1">
+                                                                <a class="btn btn-lg" t-attf-href="/exam/start/#{slug(exam)}">Start Exam
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </t>
+                                    </t>
+                                </div>
+                            </t>
+                            <h4 class="mb32 border-bottom pb16">All Exams</h4>
+                            <div class="row">
+                                <t t-foreach="exams" t-as="exam">
+                                    <t t-if="exam.assigned_to != 'specific_student'">
+                                        <div class="col-md-6 col-lg-6 col-sm-12 mb32">
+                                            <div class="card bg-o-color-3">
+                                                <h5 class="feature_title mb0 text-secondary">
+                                                    <span t-esc="exam.name"/>
+                                                </h5>
+                                                <div class="card-body p-3 text-o-color-5">
+                                                    <div class="align-items-baseline d-flex">
+                                                        <div class="w-50">
+                                                            <p style="color: #666;font-weight: bold;">Category Name
+                                                            </p>
+                                                        </div>
+                                                        <div class="w-50 text-right">
+                                                            <span class="text-o-color-5" style="font-size: 13px;font-weight: bold;">
+                                                                ATTEMPT :
+                                                            </span>
+                                                            <span class="text-secondary" style="font-size: 18px;font-weight: bold;" t-esc="quiz_attempt[exam.id]['ttl_atmp']"/>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <p class="content_ellipsis" t-esc="exam.description"/>
+                                                    </div>
+                                                    <hr/>
+                                                    <div class="d-flex">
+                                                        <div class="col p-1">
+                                                            <span class="text-o-color-5" style="font-size: 13px;font-weight: bold;">
+                                                                AVG RESULT :
+                                                            </span>
+                                                            <span class="text-secondary" style="font-size: 18px;font-weight: bold;" t-esc="quiz_attempt[exam.id]['avg_res']"/>
+                                                            <span class="text-secondary" style="font-size: 18px;font-weight: bold;">
+                                                                %
+                                                            </span>
+                                                        </div>
+                                                        <div class="text-right" t-if="quiz_attempt[exam.id]['allow'] == 1">
+                                                            <a class="btn btn-lg" t-attf-href="/exam/start/#{slug(exam)}">Start Exam
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </t>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </template>
+
+        <template id="quiz_profile" name="Users Profile">
+
+        </template>
+
+        <template id="quiz_render_form_view" name="Quiz Attempt Form">
+            <t t-call="website.layout">
+                <t t-call="openeducat_quiz.quiz_render_single_form_view"/>
+            </t>
+        </template>
+
+        <template id="quiz_starting_page">
+
+            <t t-call="website.layout">
+
+                <section class="exam-title" style="background-image: url(&quot;/openeducat_quiz/static/src/img/inner-pagebg.jpg&quot;);position:relative;background-position-y: center;">
+                    <div class="overlay"></div>
+                    <div class="container pt64 pb64">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                                <h1 class="text-white" style="font-size: 40px;">EXAMS
+                                </h1>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center text-md-left search-box">
+                                <form t-attf-action="/online-exams" role="search" method="get">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="search" t-attf-placeholder="Search" t-att-value="search" style="border-radius:0px;border-right: 0; height:50px;"/>
+                                        <span class="input-group-btn">
+                                            <button class="btn" type="submit" style="border-radius:0px">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="breadcrumbs">
+                    <div class="container">
+                        <div class="row border-bottom">
+                            <ul class="breadcrumb mb0">
+                                <li>
+                                    <a href="/">Home</a>
+                                </li>
+                                <li>
+                                    <a href="/online-exams">Exams</a>
+                                </li>
+                                <li>
+                                    <a>
+                                        <span id="exam_name" t-esc="exam.name"/>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="quiz_starting_page pt64 pb64">
+                    <div class="container">
+                        <div class="row">
+                                <div class="bg-o-color-3 card col-lg-9 px-0">
+                                    <div class="d-md-flex quiz_title align-items-center">
+                                        <h3 class="mb-md-0 col-md-6 text-secondary" style="font-size: 30px;">
+                                            <span t-esc="exam.name"/>
+                                        </h3>
+                                        <div class="text-md-end col-md-6">
+                                            <span class="text-o-color-5" style="font-size: 18px;">Time Duration:
+                                            </span>
+                                            <b class="text-secondary" style="font-size: 18px;">
+                                                <span t-esc="exam.time_limit_hr"/>
+:
+                                                <span t-esc="exam.time_limit_minute"/>
+                                            </b>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="col-md-12" t-if="exam.quiz_audio and audio">
+                                            <center>
+                                                <h3>Please hear the audio before start exam</h3>
+                                            </center>
+                                            <span t-out="audio"/>
+                                        </div>
+                                        <div class="col-md-12" t-if="exam.quiz_video and video">
+                                            <center>
+                                                <h3>Please see the video before start exam</h3>
+                                            </center>
+                                            <span t-out="video"/>
+                                        </div>
+                                        <div t-if="exam.quiz_html and html">
+                                            <span class="text-o-color-5" t-out="exam.quiz_html"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 mt32 px-0">
+                                    <a t-if="single_page == 0" class="btn btn-lg quiz_prv btn-start-exam" role="button" t-att-href="'/quiz/attempt/%s?fullscreen=1' %(slug(result))">
+                                        Start
+                                        Exam
+                                    </a>
+                                    <a t-if="single_page == 1" class="btn btn-lg quiz_prv btn-start-exam" t-attf-href="/quiz/#{slug(result)}?fullscreen=1">Start Exam
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </t>
+        </template>
+
+        <template id="quiz_render_single_form_view">
+            <section class="exam-title" style="background-image: url(&quot;/openeducat_quiz/static/src/img/inner-pagebg.jpg&quot;);position:relative;background-position-y: center;">
+                <div class="overlay"></div>
+                <div class="container pt64 pb64">
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-9 col-lg-9 mt8 mb8">
+                            <t t-if="not exam.prev_allow">
+                                <input type="hidden" class="quiz_completed_no_back"/>
+                            </t>
+                            <h1 class="text-white text-uppercase mb0" style="font-size: 40px;">
+                                <t t-esc="exam.name"/>
+                            </h1>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-3 col-lg-3 text-left text-lg-right text-md-end">
+                            <a class="d-sm-inline-block btn btn-light icon-btn" role="button" title="home" href="/online-exams">
+                                <i class="fa fa-home"></i>
+                            </a>
+                            <a class="d-sm-inline-block btn btn-light icon-btn" t-att-href="'/quiz/attempt/%s/question/%s?fullscreen=1' %(slug(line.result_id), slug(line))" title="fullscreen" style="font-size: 27px;">
+                                <i class="fa fa-arrows-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="form-horizontal mt32 mb32 quiz_start" id="from_quiz_dynamic">
+                <div class="container lms_form-horizontal" id="quiz_event">
+                    <div class="row
+                             mt64">
+                        <div class="col-md-12 col-lg-9 col-sm-12 que_card mb32">
+                            <div>
+                                <input type="hidden" name="line_result_id" t-attf-value="{{line.result_id.id}}"></input>
+                                <input type="hidden" name="config_data" t-attf-value="{{line.result_id.id}}"></input>
+                                <input type="hidden" name="question" t-attf-value="{{line.id}}"/>
+                                <div id="question_template"></div>
+                            </div>
+                            <div id="quiz_err_info" />
+                            <button class="btn btn-primary btn-md quiz_prv" t-attf-value="{{line.id}}" t-if="line.result_id.quiz_id.prev_allow">prev</button>
+                            <button class="btn btn-primary btn-md quiz_nxt" t-attf-value="{{line.id}}">Next</button>
+                            <button class="btn btn-primary btn-md quiz_finish d-none" t-attf-value="{{line.id}}">Finish</button>
+                           <form  t-attf-action="/quiz/attempt/record/submit/#{line.result_id.id}" method="post" id="result_form">
+                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                           </form>
+                        </div>
+                        <div class="col-md-12 col-lg-3 col-sm-12 mb32 que_grid">
+                            <div class="card">
+                                <div t-if="timer == 1" id="divCounter" class="text-center timer-desktop">
+                                    <span t-if="timer == 1" id="all_time" style="display:none;"/>
+                                    <center style="border-bottom:1px solid #e7e7e7; padding: 30px 5px;">
+                                        <div>
+                                            <h5 class="mb0 text-black">Time Left</h5>
+                                        </div>
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <center>
+                                                        <span class="heading-digit" id="spanHr" style="width:40px;vertical-align: middle;"/>
+                                                        <span class="heading-digit" style="vertical-align: sub;">:
+                                                        </span>
+                                                    </center>
+                                                </td>
+                                                <td>
+                                                    <center>
+                                                        <span class="heading-digit" id="spanMt" style="width:40px;vertical-align: middle;"/>
+                                                        <span class="heading-digit" style="vertical-align: sub;">:
+                                                        </span>
+                                                    </center>
+                                                </td>
+                                                <td>
+                                                    <center>
+                                                        <span class="heading-digit" id="spanSn" style="width:40px;vertical-align: middle;"/>
+                                                    </center>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-black">
+                                                <th style="font-weight: unset !important;">
+                                                    <center>Hr</center>
+                                                </th>
+                                                <th style="font-weight: unset !important;">
+                                                    <center>Min</center>
+                                                </th>
+                                                <th style="font-weight: unset !important;">
+                                                    <center>Sec</center>
+                                                </th>
+                                            </tr>
+                                        </table>
+                                    </center>
+                                </div>
+                                <div class="card-body text-center">
+                                    <center>
+                                        <h4>Question Grid</h4>
+                                    </center>
+                                    <t t-set="question_no" t-value="0" />
+                                    <t t-foreach="line.result_id.line_ids" t-as="grid_val">
+                                        <t t-set="question_no" t-value="question_no+1" />
+                                        <t t-if="grid_val.given_answer">
+                                            <a t-attf-href="#">
+                                                <div t-attf-value="{{grid_val.id}}" class="btn btn-default col-md-2 col-2 question_grid_btn quiz_req" disabled="true" style="margin-top: 5px;">
+                                                    <span t-esc="question_no" />
+                                                </div>
+                                            </a>
+                                        </t>
+                                        <t t-if="not grid_val.given_answer">
+                                            <a t-attf-href="#">
+                                                <div t-attf-value="{{grid_val.id}}" class="btn btn-default col-md-2 col-2 question_grid_btn" disabled="true" style="margin-top: 5px;">
+                                                    <span t-esc="question_no" />
+                                                </div>
+                                            </a>
+                                        </t>
+                                    </t>
+                                    <hr/>
+                                    <div>
+                                        <span class="progress-value" t-out="progress"/>
+                                        <div id="progressBar" class="progressbar">
+                                            <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template id="quiz_web_page" name="Quiz Questions">
+            <t t-call="website.layout">
+                <form t-attf-action="/quiz/results/#{result.id}" method="post" class="form-horizontal mt32" id="from_quiz">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <div class="wrap">
+                        <div class="container">
+                            <div class="mt16 mb16">
+                                <h1>
+                                    <t t-esc="exam.name"/>
+                                </h1>
+                            </div>
+                            <div>
+                                <t t-foreach="result.line_ids" t-as="question">
+                                    <hr class="mt24 mb24"/>
+                                    <div class="form-group" style="font-size: 17px;">
+                                        <h4>
+                                            <t t-esc="question_index + 1"/>
+)
+                                            <t t-out="question.name"/>
+                                        </h4>
+                                        <input type="hidden" class="radio_require_checker" t-attf-data-selector="question#{question.id}"/>
+                                        <t t-if="question.que_type == 'optional'">
+                                            <t t-foreach="question.line_ids" t-as="option">
+                                                <input type="radio" t-attf-name="question#{question.id}" t-attf-style="font-size:25px;" t-att-id="'que%sopt%s'%(question.id,option.id)" t-attf-value="#{option.id}"/>
+                                                <t t-esc="option.name"/>
+                                                <br/>
+                                            </t>
+                                        </t>
+                                        <t t-if="question.que_type == 'blank'">
+                                            <input type="text" t-attf-name="blank#{question.id}" style="width: 50%;"/>
+                                        </t>
+                                        <t t-if="question.que_type == 'descriptive'">
+                                            <textarea type="textarea" t-attf-name="descriptive#{question.id}" rows="8" style="width:100%;"/>
+                                        </t>
+                                    </div>
+                                </t>
+                                <div class="form-group mb64">
+                                    <hr/>
+                                    <div class="col-md-7 col-sm-8 pl-0">
+                                        <input type="hidden" name="ExamID" t-attf-value="#{result.id}"/>
+                                        <input type="hidden" name="config_data" t-attf-value="#{result.id}"/>
+                                        <button class="btn btn-primary btn-md quiz_finish">Finish</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </t>
+        </template>
+
+        <template id="quiz_web_page_single" name="Quiz Questions">
+            <t t-call="website.layout">
+                <t t-call="openeducat_quiz.quiz_web_page_single_form"/>
+            </t>
+        </template>
+
+        <template id="quiz_web_page_single_form" name="Quiz Questions Form View">
+            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+            <div class="wrap">
+                <div class="container lms_form-horizontal quiz_start">
+
+                    <div id="quiz_err_info"/>
+                    <div class="card">
+                        <div class="col-12 d-flex que_no ">
+                            <t t-foreach="result.line_ids" t-as="question">
+                            </t>
+                        </div>
+                        <div class="card-body">
+                            <div class="col-md-12 px-0">
+                                <div>
+                                    <input type="hidden" name="line_result_id" t-attf-value="{{question.result_id.id}}"></input>
+                                    <input type="hidden" name="config_data" t-attf-value="{{question.result_id.id}}"></input>
+                                    <input type="hidden" name="question" t-attf-value="{{question.id}}"/>
+                                    <div id="question_template"></div>
+                                </div>
+
+                                    <button class="btn btn-primary btn-md quiz_prv" t-attf-value="{{question.id}}" t-if="question.result_id.quiz_id.prev_allow">prev</button>
+                                    <button class="btn btn-primary btn-md quiz_nxt" t-attf-value="{{question.id}}">Next</button>
+                                    <button class="btn btn-primary btn-md quiz_finish d-none" t-attf-value="{{question.id}}">Finish</button>
+                                     <form t-attf-action="/quiz/results/#{result.id}" method="post" id="result_form">
+                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                                <input type="hidden" name="ExamID" t-attf-value="#{question.result_id.id}" />
+                                <input type="hidden" name="config_data" t-attf-value="#{question.result_id.id}" />
+                                <input type="hidden" name="CoueseExamID" t-attf-value="#{course_val}"/>
+                                 <input type="hidden" name="MaterialID" t-attf-value="#{material_val}"/>
+                                 <input type="hidden" name="SectionID" t-attf-value="#{section_val}"/>
+                            </form>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template id="quiz_first_question" name="quiz_first_question">
+            <div class="form-group que_show question" style="font-size: 17px;" t-att-index-id="'%s' % (question_index)">
+                <div>
+                    <t t-if="question.bank_line.embed_code != False">
+                        <div class="embed-responsive embed-responsive-16by9 embed-responsive-item mb8">
+                            <t t-out="question.bank_line.embed_code"/>
+                        </div>
+                    </t>
+                </div>
+                <h4>
+                    <t t-esc="question_index + 1"/>
+.
+                    <t t-esc="question.name"/>
+                </h4>
+                <t t-if="question.que_type == 'optional'">
+                    <t t-foreach="question.line_ids" t-as="option">
+                        <input type="radio" t-attf-name="question#{question.id}" t-att-id="'que%sopt%s'%(question.id,option.id)" t-attf-style="font-size:25px;" t-attf-value="#{option.id}"/>
+                        <t t-esc="option.name"/>
+                        <br/>
+                    </t>
+                </t>
+                <div>
+                    <input type="hidden" name="line_result_id" t-attf-value="{{question.result_id.id}}"></input>
+                    <input type="hidden" name="config_data" t-attf-value="{{question.result_id.id}}"></input>
+                    <input type="hidden" name="question" t-attf-value="{{question.id}}"/>
+                    <div id="question_template"></div>
+                </div>
+
+                <button class="btn btn-primary btn-md quiz_nxt" t-attf-value="{{question.id}}">Next</button>
+                <button class="btn btn-primary btn-md quiz_finish d-none" t-attf-value="{{question.id}}">Finish</button>
+                <t t-if="question.que_type == 'descriptive'">
+                    <textarea type="textarea" t-attf-name="descriptive#{question.id}" rows="8" style="width:100%;"/>
+                </t>
+                <t t-if="question.que_type == 'blank'">
+                    <input type="text" t-attf-name="blank#{question.id}" style="width: 50%;"/>
+                </t>
+            </div>
+        </template>
+
+        <template id="quiz_middle_question" name="quiz_middle_question">
+            <div class="form-group que_hide question" style="font-size: 17px;" t-att-index-id="'%s' % (question_index)">
+                <div>
+                    <t t-if="question.bank_line.embed_code != False">
+                        <div class="embed-responsive embed-responsive-16by9 embed-responsive-item mb8">
+                            <t t-out="question.bank_line.embed_code"/>
+                        </div>
+                    </t>
+                </div>
+                <h4>
+                    <t t-esc="question_index + 1"/>
+.
+                    <t t-esc="question.name"/>
+                </h4>
+                <t t-if="question.que_type == 'optional'">
+                    <t t-foreach="question.line_ids" t-as="option">
+                        <input type="radio" t-attf-name="question#{question.id}" t-att-id="'que%sopt%s'%(question.id,option.id)" t-attf-style="font-size:25px;" t-attf-value="#{option.id}"/>
+                        <t t-esc="option.name"/>
+                        <br/>
+                    </t>
+                </t>
+                <t t-if="question.que_type == 'descriptive'">
+                    <textarea type="textarea" t-attf-name="descriptive#{question.id}" rows="8" style="width:100%;"/>
+                </t>
+                <t t-if="question.que_type == 'blank'">
+                    <input type="text" t-attf-name="blank#{question.id}" style="width: 50%;"/>
+                </t>
+
+                <a class="btn btn-primary btn-md quiz_prv" t-att-prev-id="'%s' % (question_index - 1)" align="left">
+                    Prev
+                </a>
+                <a class="btn btn-primary btn-md quiz_nxt" t-att-next-id="'%s' % (question_index + 1)" align="right">
+                    Next
+                </a>
+            </div>
+        </template>
+
+        <template id="quiz_last_question" name="quiz_last_question">
+            <div class="form-group que_hide question" style="font-size: 17px;" t-att-index-id="'%s' % (question_index)">
+                <div>
+                    <t t-if="question.bank_line.embed_code != False">
+                        <div class="embed-responsive embed-responsive-16by9 embed-responsive-item mb8">
+                            <t t-out="question.bank_line.embed_code"/>
+                        </div>
+                    </t>
+                </div>
+                <h4>
+                    <t t-esc="question_index + 1"/>
+.
+                    <t t-esc="question.name"/>
+                </h4>
+                <t t-if="question.que_type == 'optional'">
+                    <t t-foreach="question.line_ids" t-as="option">
+                        <input type="radio" t-attf-name="question#{question.id}" t-attf-style="font-size:25px;" t-att-id="'que%sopt%s'%(question.id,option.id)" t-attf-value="#{option.id}"/>
+                        <t t-esc="option.name"/>
+                        <br/>
+                    </t>
+                </t>
+                <t t-if="question.que_type == 'descriptive'">
+                    <textarea type="textarea" t-attf-name="descriptive#{question.id}" rows="8" style="width:100%;"/>
+                </t>
+                <t t-if="question.que_type == 'blank'">
+                    <input type="text" t-attf-name="blank#{question.id}" style="width: 50%;"/>
+                </t>
+
+                <div>
+                    <a class="btn btn-primary btn-md quiz_prv" t-att-prev-id="'%s' % (question_index - 1)">Prev</a>
+                    <button class="btn btn-primary btn-md quiz_finish">
+                        <input type="hidden" name="ExamID" t-attf-value="#{result.id}"/>
+                        <input type="hidden" name="config_data" t-attf-value="#{result.id}"/>
+                        Finish
+                    </button>
+                </div>
+            </div>
+        </template>
+
+        <template id="quiz_completed" name="Quiz Completed">
+            <t t-call="website.layout">
+                <div class="wrap">
+                    <input type="hidden" class="quiz_completed_no_back"/>
+                    <div class="text-center mt128 mb128">
+                        <h1 class="fw-bold text-success">Thank you for Quiz</h1>
+                        <h2 class="fw-bold text-success">Your answers are recorded</h2>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <template id="quiz_results" name="Quiz Results">
+            <t t-call="website.layout">
+                <t t-call="openeducat_quiz.quiz_results_form"/>
+            </t>
+        </template>
+
+        <template id="quiz_results_form" name="Quiz Results Form">
+            <input type="hidden" class="quiz_completed_no_back"/>
+            <div class="wrap">
+                <div class="container">
+                    <div class="mt16 mb16">
+                        <h1 class="text-center">Score Board</h1>
+                    </div>
+                    <div class="mt16 mb16">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <center>Total Questions</center>
+                                    </th>
+                                    <th>
+                                        <center>Total Correct</center>
+                                    </th>
+                                    <th>
+                                        <center>Total Incorrect</center>
+                                    </th>
+                                    <th>
+                                        <center>Total Marks</center>
+                                    </th>
+                                    <th>
+                                        <center>Received Marks</center>
+                                    </th>
+                                    <th>
+                                        <center>Result</center>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <center>
+                                            <t t-esc="total_question"/>
+                                        </center>
+                                    </td>
+                                    <td>
+                                        <center>
+                                            <t t-esc="total_correct"/>
+                                        </center>
+                                    </td>
+                                    <td>
+                                        <center>
+                                            <t t-esc="total_incorrect"/>
+                                        </center>
+                                    </td>
+                                    <td>
+                                        <center>
+                                            <t t-esc="total_marks"/>
+                                        </center>
+                                    </td>
+                                    <td>
+                                        <center>
+                                            <t t-esc="received_marks"/>
+                                        </center>
+                                    </td>
+                                    <td>
+                                        <center>
+                                            <t t-esc="'%.2f'%(percentage)"/>
+%
+                                        </center>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <t t-if="is_message == 1">
+                            <span t-out="message" class="mb16"/>
+                        </t>
+                        <div t-if="display_wrong_ans == 1">
+                            <div class="mt16 mb16">
+                                <h1 class="text-center">Wrong Answers</h1>
+                            </div>
+                            <t>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th style="background-color: 'green';">
+                                                <center>Question</center>
+                                            </th>
+                                            <th>
+                                                <center>Given Aswer</center>
+                                            </th>
+                                            <th>
+                                                <center>Original Answer</center>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <t t-foreach="wrong_answer" t-as="answer">
+                                        <tbody>
+                                            <tr>
+                                                <td class="wrong_question">
+                                                    <center>
+                                                        <t t-esc="answer['question']"/>
+                                                    </center>
+                                                </td>
+                                                <td class="wrong_given_answer">
+                                                    <center>
+                                                        <t t-esc="answer['given_answer']"/>
+                                                    </center>
+                                                </td>
+                                                <td class="wrong_answer">
+                                                    <center>
+                                                        <t t-esc="answer['answer']"/>
+                                                    </center>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </t>
+                                </table>
+                            </t>
+                        </div>
+                        <div t-if="not_attempt_ans == 1">
+                            <div class="mt16 mb16">
+                                <h1 class="text-center">Not Attempt Answers</h1>
+                            </div>
+                            <t>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th style="background-color: 'green';">
+                                                <center>Question</center>
+                                            </th>
+                                            <th>
+                                                <center>Answer</center>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <t t-foreach="not_attempt_answer" t-as="answer">
+                                        <tbody>
+                                            <tr>
+                                                <td class="not_attempt_question">
+                                                    <center>
+                                                        <t t-esc="answer['question']"/>
+                                                    </center>
+                                                </td>
+                                                <td class="not_attempt_ans">
+                                                    <center>
+                                                        <t t-esc="answer['answer']"/>
+                                                    </center>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </t>
+                                </table>
+                            </t>
+                        </div>
+                        <div t-if="display_true_ans == 1">
+                            <div class="mt16 mb16">
+                                <h1 class="text-center">Right Answers</h1>
+                            </div>
+                            <t>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th style="background-color: 'green';">
+                                                <center>Question</center>
+                                            </th>
+                                            <th>
+                                                <center>Answer</center>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <t t-foreach="right_answers" t-as="answer">
+                                        <tbody>
+                                            <tr>
+                                                <td class="display_true_question">
+                                                    <center>
+                                                        <t t-esc="answer['question']"/>
+                                                    </center>
+                                                </td>
+                                                <td class="display_true_ans">
+                                                    <center>
+                                                        <t t-esc="answer['answer']"/>
+                                                    </center>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </t>
+                                </table>
+                            </t>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template id="exam_results" name="Exam Results">
+            <t t-call="website.layout">
+                <div class="wrap">
+                    <div class="container">
+                        <div class="mt16 mb16">
+                            <h1 class="text-center">Score Board</h1>
+                        </div>
+                        <div>
+                            <t>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th style="background-color: 'green';">
+                                                <center>Question</center>
+                                            </th>
+                                            <th>
+                                                <center>Given Aswer</center>
+                                            </th>
+                                            <th>
+                                                <center>Original Answer</center>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <t t-foreach="result" t-as="res">
+                                        <t t-foreach="res.line_ids" t-as="o">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+
+                                                        <center>
+                                                            <span t-field="o.name"/>
+                                                        </center>
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                            <t t-esc="o.given_answer"/>
+                                                        </center>
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                            <t t-esc="o.answer"/>
+                                                        </center>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </t>
+                                    </t>
+                                </table>
+                            </t>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+</odoo>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="view_op_course_inherited_form_view" model="ir.ui.view">
+            <field name="name">op.course.form</field>
+            <field name="model">op.course</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="openeducat_core.view_op_course_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='button_box']" position="inside">
+                        <button class="btn oe_stat_button"
+                                type="object"
+                                name="get_subject"
+                                style="border-right: 1px solid;"
+                                icon="fa-book">
+                            <field string="Subjects" name="subject_count" widget="statinfo"/>
+                        </button>
+                        <button class="btn oe_stat_button"
+                                type="object"
+                                name="get_faculty"
+                                style="border-right: 1px solid;"
+                                icon="fa-users">
+                            <field string="Faculties" name="faculty_count" widget="statinfo"/>
+                        </button>
+
+                        <button class="btn oe_stat_button"
+                                type="action"
+                                name="%(openeducat_core_enterprise.act_course_dashboard_op_student_view)d"
+                                style="border-right: 1px solid;"
+                                icon="fa-users">
+                            <field string="Students" name="student_count" widget="statinfo"/>
+                        </button>
+                </xpath>
+                <xpath expr="//field[@name='min_unit_load']" position="after">
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_op_course_inherited_tree_view" model="ir.ui.view">
+            <field name="name">op.course.tree</field>
+            <field name="model">op.course</field>
+            <field name="type">tree</field>
+            <field name="inherit_id" ref="openeducat_core.view_op_course_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='subject_ids']" position="after">
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Dashboard Action -->
+        <record model="ir.actions.act_window" id="act_dashboard_op_course_view">
+            <field name="name">Courses</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.course</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="openeducat_core.view_op_course_search"/>
+            <field name="domain">[('id','in',[active_id])]</field>
+        </record>
+
+</odoo>

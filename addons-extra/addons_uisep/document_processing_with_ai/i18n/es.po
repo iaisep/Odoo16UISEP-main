@@ -1,0 +1,156 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* document_processing_with_ai
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e-20230912\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-11-26 22:42+0000\n"
+"PO-Revision-Date: 2024-11-27 01:53-0500\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 2.2\n"
+
+#. module: document_processing_with_ai
+#: model:ir.actions.act_window,name:document_processing_with_ai.action_custom_ai_parameter
+msgid "AI Parameters"
+msgstr "Parámetros de IA"
+
+#. module: document_processing_with_ai
+#: model:ir.model.fields.selection,name:document_processing_with_ai.selection__custom_ai_parameter__type_document__certification_notes
+msgid "Certification notes"
+msgstr "Certificación notas"
+
+#. module: document_processing_with_ai
+#: model:ir.model.fields.selection,name:document_processing_with_ai.selection__custom_ai_parameter__type_document__civil_registry
+msgid "Civil registry"
+msgstr "Registro civil"
+
+#. module: document_processing_with_ai
+#: model:ir.model,name:document_processing_with_ai.model_custom_ai_parameter
+msgid ""
+"Configuration model for managing AI parameters. Allows selection of "
+"document types and specific settings for OpenAI GPT integration."
+msgstr ""
+"Modelo de configuración para gestionar parámetros de IA. Permite la "
+"selección de tipos de documentos y configuraciones específicas para la "
+"integración de OpenAI GPT."
+
+#. module: document_processing_with_ai
+#. odoo-python
+#: code:addons/document_processing_with_ai/models/document_processing_ai.py:0
+#, python-format
+msgid "Configure Tesseract OCR path"
+msgstr "Configurar la ruta de OCR de Tesseract"
+
+#. module: document_processing_with_ai
+#: model:ir.model,name:document_processing_with_ai.model_document_processing_ai
+msgid ""
+"Core model for document validation and analysis. Integrates OCR and GPT-"
+"based evaluation for handling various document types."
+msgstr ""
+"Modelo central para la validación y el análisis de documentos. Integra la "
+"evaluación basada en OCR y GPT para gestionar distintos tipos de documentos."
+
+#. module: document_processing_with_ai
+#: model:ir.model.fields,field_description:document_processing_with_ai.field_custom_ai_parameter__create_uid
+#: model:ir.model.fields,field_description:document_processing_with_ai.field_document_processing_ai__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: document_processing_with_ai
+#: model:ir.model.fields,field_description:document_processing_with_ai.field_custom_ai_parameter__create_date
+#: model:ir.model.fields,field_description:document_processing_with_ai.field_document_processing_ai__create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: document_processing_with_ai
+#: model:ir.ui.menu,name:document_processing_with_ai.custom_ai_parameter_father
+msgid "Custom AI"
+msgstr "IA personalizada"
+
+#. module: document_processing_with_ai
+#: model_terms:ir.ui.view,arch_db:document_processing_with_ai.view_custom_ai_parameter_form
+msgid "Custom AI Parameter"
+msgstr "Parámetros de IA personalizados"
+
+#. module: document_processing_with_ai
+#: model:ir.ui.menu,name:document_processing_with_ai.custom_ai_parameter_child
+#: model_terms:ir.ui.view,arch_db:document_processing_with_ai.view_custom_ai_parameter_tree
+msgid "Custom AI Parameters"
+msgstr "Parámetros de IA personalizados"
+
+#. module: document_processing_with_ai
+#: model:ir.model.fields.selection,name:document_processing_with_ai.selection__custom_ai_parameter__type_document__degree_certificate
+msgid "Degree certificate"
+msgstr "Acta de grado"
+
+#. module: document_processing_with_ai
+#: model:ir.model.fields,field_description:document_processing_with_ai.field_custom_ai_parameter__display_name
+#: model:ir.model.fields,field_description:document_processing_with_ai.field_document_processing_ai__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: document_processing_with_ai
+#: model:ir.model.fields,field_description:document_processing_with_ai.field_custom_ai_parameter__type_document
+msgid "Document type"
+msgstr "Tipo de documento"
+
+#. module: document_processing_with_ai
+#: model:ir.model,name:document_processing_with_ai.model_ir_attachment
+msgid ""
+"Extended to include automated document processing. Triggers AI-powered "
+"analysis upon file creation or modification."
+msgstr ""
+"Se amplió para incluir el procesamiento automatizado de documentos. Activa "
+"el análisis basado en inteligencia artificial al crear o modificar archivos."
+
+#. module: document_processing_with_ai
+#: model:ir.model.fields,field_description:document_processing_with_ai.field_custom_ai_parameter__chat_gpt_
+msgid "GPT Engine"
+msgstr "Motor GPT"
+
+#. module: document_processing_with_ai
+#: model:ir.model.fields,field_description:document_processing_with_ai.field_custom_ai_parameter__id
+#: model:ir.model.fields,field_description:document_processing_with_ai.field_document_processing_ai__id
+msgid "ID"
+msgstr "ID"
+
+#. module: document_processing_with_ai
+#: model:ir.model.fields,field_description:document_processing_with_ai.field_custom_ai_parameter____last_update
+#: model:ir.model.fields,field_description:document_processing_with_ai.field_document_processing_ai____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: document_processing_with_ai
+#: model:ir.model.fields,field_description:document_processing_with_ai.field_custom_ai_parameter__write_uid
+#: model:ir.model.fields,field_description:document_processing_with_ai.field_document_processing_ai__write_uid
+msgid "Last Updated by"
+msgstr "Actualizado por última vez por"
+
+#. module: document_processing_with_ai
+#: model:ir.model.fields,field_description:document_processing_with_ai.field_custom_ai_parameter__write_date
+#: model:ir.model.fields,field_description:document_processing_with_ai.field_document_processing_ai__write_date
+msgid "Last Updated on"
+msgstr "Ultima actualización en"
+
+#. module: document_processing_with_ai
+#: model_terms:ir.actions.act_window,help:document_processing_with_ai.action_custom_ai_parameter
+msgid "Manage custom AI parameters here."
+msgstr "Administre aquí parámetros de IA personalizados."
+
+#. module: document_processing_with_ai
+#: model:ir.model.fields,field_description:document_processing_with_ai.field_custom_ai_parameter__parameters_for_gpt
+msgid "Parameters for GPT"
+msgstr "Parámetros para GPT"
+
+#. module: document_processing_with_ai
+#: model_terms:ir.ui.view,arch_db:document_processing_with_ai.view_custom_ai_parameter_form
+msgid "Testing connection for API-GPT"
+msgstr "Prueba de conexión para API-GPT"

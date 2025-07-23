@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="view_op_tree_onboarding" model="ir.ui.view">
+            <field name="name">op.exam.session.tree.inherit</field>
+            <field name="model">op.exam.session</field>
+            <field name="inherit_id" ref="openeducat_exam.view_op_exam_session_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree" position="attributes">
+                    <attribute name="banner_route">/openeducat_exam_enterprise/openeducat_exam_onboarding_panel
+                    </attribute>
+                </xpath>
+                <xpath expr="//field[@name='state']" position="after">
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_op_exam_session_inherited_form" model="ir.ui.view">
+            <field name="name">op.exam.session.inherit.form</field>
+            <field name="model">op.exam.session</field>
+            <field name="inherit_id" ref="openeducat_exam.view_op_exam_session_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='venue']" position="after">
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_op_exam_session_inherited_search" model="ir.ui.view">
+            <field name="name">op.exam.session.inherit.search</field>
+            <field name="model">op.exam.session</field>
+            <field name="inherit_id" ref="openeducat_exam.view_op_exam_session_search"/>
+            <field name="arch" type="xml">
+                <xpath expr="." position="inside">
+                    <searchpanel>
+                        <field name="course_id" icon="fa fa-book"/>
+                    </searchpanel>
+                </xpath>
+            </field>
+        </record>
+
+</odoo>

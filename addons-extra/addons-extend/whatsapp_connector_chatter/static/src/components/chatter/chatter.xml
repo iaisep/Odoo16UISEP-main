@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="whatsapp.connector.Chatter" t-inherit="mail.Chatter" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[@class='o_Chatter_fixedPanel']/ChatterTopbar" position="after">
+            <t t-if="!chatter.composerView and chatter.isWhatsappTalkVisible">
+                <ChatterChatroom chatter="chatter" />
+            </t>
+        </xpath>
+    </t>
+
+</templates>

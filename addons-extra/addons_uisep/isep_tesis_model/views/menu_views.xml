@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <menuitem id="menu_practice_root" name="Tesis Management" sequence="10"  web_icon="isep_tesis_model,static/description/icon.png"/>
+    <menuitem id="menu_practice_management" name="Management" parent="menu_practice_root" sequence="10"/>
+   <menuitem id="menu_practice_configuration" name="Configuration" parent="menu_practice_root" sequence="20"/>
+
+   <record id="view_tesis_attachment_wizard_form" model="ir.ui.view">
+        <field name="name">tesis.attachment.wizard.form</field>
+        <field name="model">tesis.attachment.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Actualizar Revisión del Adjunto">
+                <group>
+                    <field name="review"/>
+                    <field name="note_point"/>
+                    <field name="comment"/>
+                </group>
+                <footer>
+                    <button string="Guardar" type="object" name="action_save_attachment" class="btn-primary"/>
+                    <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Acción para abrir el Wizard -->
+    <record id="action_tesis_attachment_wizard" model="ir.actions.act_window">
+        <field name="name">Actualizar Revisión del Adjunto</field>
+        <field name="res_model">tesis.attachment.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_tesis_attachment_wizard_form"/>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

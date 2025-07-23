@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <menuitem id="menu_job_main"
+                name="Job"
+                sequence="60"
+                web_icon="openeducat_job_enterprise,static/description/icon.png"
+                groups="openeducat_core.group_op_back_office_admin"/>
+
+    <menuitem id="menu_job_post"
+                name="Job Post"
+                parent="menu_job_main"
+                sequence="10"
+                action="act_open_op_job_post_view"
+                groups="openeducat_core.group_op_back_office_admin"/>
+
+    <menuitem id="menu_job_applicant_announcement"
+                name="Applicant"
+                parent="menu_job_main"
+                sequence="10"
+                action="act_open_job_applicant_view"
+                groups="openeducat_core.group_op_back_office_admin"/>
+
+    <menuitem id="menu_configuration"
+                name="Configuration"
+                parent="menu_job_main"
+                sequence="10"
+                groups="openeducat_core.group_op_back_office_admin"/>
+
+    <menuitem id="menu_job_type_post"
+                name="Job Type"
+                parent="menu_configuration"
+                sequence="10"
+                action="act_open_op_job_type_view"
+                groups="openeducat_core.group_op_back_office_admin"/>
+
+    <menuitem
+            id="menu_job_stage"
+            name="Stages"
+            parent="menu_configuration"
+            action="job_post_stage_act"
+            sequence="90"/>
+
+    <!-- Website Views -->
+    <record id="website_menu_job_post_view" model="website.menu">
+        <field name="name">Campus Jobs</field>
+        <field name="url">/campus/jobs</field>
+        <field name="parent_id" ref="website.main_menu"/>
+    </record>
+</odoo>

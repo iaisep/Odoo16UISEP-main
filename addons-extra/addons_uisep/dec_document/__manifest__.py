@@ -1,0 +1,30 @@
+{
+    'name': 'DEC Module',
+    'version': '1.2',
+    'summary': 'Genera Documentos Electrónicos de Certificación (DEC) según especificaciones SEP',
+    'description': """
+        Módulo para generar XMLs de Documentos Electrónicos de Certificación (DEC) según las especificaciones de la SEP.
+    """,
+    'author': 'silvau',
+    'website': 'https://www.isep.es/contacto/',
+    'category': 'Tools',
+    'version': '0.1',
+    'depends': ['base',
+                'isep_gradebook',
+                'isep_openeducat_reports',
+                'isep_control_escolar',
+               ],
+    'data': [
+        'data/dec_document_template.xml',
+        'data/sequence.xml',
+        'security/ir.model.access.csv',
+        'views/dec_document_views.xml',
+        'views/op_sign_certificate_view.xml',
+        'views/op_course_view.xml',
+        'views/app_gradebook_student_views.xml',
+        'views/res_config_settings_view.xml',
+    ],
+    'installable': True,
+    'application': True,
+    'auto_install': False,
+}

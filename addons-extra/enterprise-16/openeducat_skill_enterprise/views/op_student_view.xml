@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="view_op_student_view_form" model="ir.ui.view">
+            <field name="name">op.student.form</field>
+            <field name="model">op.student</field>
+            <field name="priority" eval="100"/>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="openeducat_core.view_op_student_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[@name='miscellaneous']" position="before">
+                    <page name="student_skills" string="Skills">
+                        <separator string="Technical Skills"/>
+                            <field mode="tree" name="student_skill_line" nolabel="1"  colspan="2">
+                                <tree>
+                                    <field name="student_skill_type_id" invisible="1"/>
+                                    <field name="student_skills_id"/>
+                                    <field name="student_skill_level_id"/>
+                                    <field name="progress" widget="progressbar"/>
+                                </tree>
+                            </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+</odoo>

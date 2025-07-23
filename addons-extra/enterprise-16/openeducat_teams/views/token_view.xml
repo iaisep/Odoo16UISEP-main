@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <template id="token_confirmed" name="Authentication Successfull">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty">
+                    <section class="mt32 mb64">
+                        <div class="container">
+                            <div class="row">
+                                <div class="text-center">
+                                    <br></br>
+                                    <h2> Authentication is completed. Now, you can close the window
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+        <template id="token_refused" name="Authentication unsuccessfull">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty">
+                    <section class="mt32 mb64">
+                        <div class="container">
+                            <div class="row">
+                                <div class="text-center">
+                                    <br></br>
+                                    <h2> Authentication unsuccessfull
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+
+</odoo>

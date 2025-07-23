@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="portal_my_badges_menu_badges" name="Portal My Badges" inherit_id="portal.portal_my_home"
+              priority="30">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-if="not (user_id.sudo().is_student or user_id.sudo().is_parent)">
+                <t t-if="badge_count" t-call="portal.portal_docs_entry">
+                    <t t-set="title">Badge</t>
+                    <t t-set="url" t-value="'/my/badges'"/>
+                    <t t-set="count" t-value="badge_count"/>
+                </t>
+            </t>
+        </xpath>
+    </template>
+    <template id="my_badges">
+        <t t-call="portal.portal_layout">
+            <h3 id="badge_header" class="page-header">Your Badges</h3>
+            <t t-if="not badge_ids">
+                <p>There are currently no Badges for your account.</p>
+            </t>
+            <t t-if="badge_ids">
+                <div class="pd-20 badges_style">
+                    <t t-foreach="badge_ids" t-as="badges">
+                        <div class="row">
+                            <div class="content-list content-large menu-action-right">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <div class="menu-icon">
+                                            <a href="#">
+                                                <img t-if="not badges.image_1920"
+                                                     t-attf-src="/openeducat_lms/static/src/img/channel-default.jpg"
+                                                     class="img img-fluid"
+                                                     style="max-width: 85%;"/>
+                                                <img t-if="badges.image_1920"
+                                                     t-attf-src="/web/image/gamification.badge/#{badges.id}/image"
+                                                     class="img img-fluid"
+                                                     style="max-width: 85%;"/>
+                                            </a>
+                                        </div>
+                                        <div class="menu-text">
+                                            <h4 class="mgbt-xs-0">
+                                                <a href="#">
+                                                    <t t-raw="badges.name"/>
+                                                </a>
+                                            </h4>
+                                            <p t-raw="badges.description"></p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

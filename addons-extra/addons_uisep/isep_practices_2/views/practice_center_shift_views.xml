@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Vistas -->
+
+    <record id="view_form_practice_center_shift" model="ir.ui.view">
+        <field name="name">practice.center.shift.form</field>
+        <field name="model">practice.center.shift</field>
+        <field name="arch" type="xml">
+            <form string="Practice Center Shift">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_tree_practice_center_shift" model="ir.ui.view">
+        <field name="name">practice.center.shift.tree</field>
+        <field name="model">practice.center.shift</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_search_practice_center_shift" model="ir.ui.view">
+        <field name="name">practice.center.shift.search</field>
+        <field name="model">practice.center.shift</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="description"/>
+            </search>
+        </field>
+    </record>
+    <record id="action_practice_center_shift" model="ir.actions.act_window">
+        <field name="name">Practice Center Shifts</field>
+        <field name="res_model">practice.center.shift</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_tree_practice_center_shift"/>
+        <field name="search_view_id" ref="view_search_practice_center_shift"/>
+    </record>
+
+    <menuitem id="menu_practice_center_shift_management" name="Shift" parent="menu_practice_configuration"
+              action="action_practice_center_shift" sequence="10"/>
+
+</odoo>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="email_template_recognition_certificate" model="mail.template">
+            <field name="name">Email de certificado reconocimiento cuatrimestre</field>
+            <field name="email_from">{{ ctx.get('email_from') }}</field>
+            <field name="subject">🎉 ¡Nos encanta reconocer tu dedicación! Eres un Estudiante que Inspira ✨, {{ ctx.get('attendee') }}</field>
+            <field name="email_to">{{ ctx.get('email_to') }}</field>
+            <field name="model_id" ref="isep_gradebook.model_appisep_gradebook_summary"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="html">
+                <table border="0" cellpadding="0" cellspacing="0" style="padding:16px 0 0 0;box-sizing:border-box;caption-side:bottom;padding-top: 16px; background-color: #FFFFFF; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;" width="100%">
+                    <tbody>
+                        <tr>
+                            <td align="center">
+                                <table border="0" cellpadding="0" cellspacing="0" width="590" style="box-sizing: border-box; padding: 16px; background-color: #ffffff; color: #454748; border-collapse: separate; font-family: Verdana, Arial, sans-serif;">
+                                    <tbody>
+                                        <tr>
+                                            <td align="center" style="min-width: 590px;">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width: 590px; background-color: white; padding: 0px 8px; border-collapse: separate; color: #454748; font-family: Verdana, Arial, sans-serif;">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td valign="middle">
+                                                                <span style="font-size: 20px; font-weight: bold;">
+                                                                    <t t-out="object.student_id.name or ''"/>
+                                                                </span>
+                                                            </td>
+                                                            <td valign="middle" align="right">
+                                                                <img t-attf-src="/logo.png?company={{ object.company_id.id }}" style="vertical-align:middle; padding: 0; margin: 0; height: auto; width: 80px;" t-att-alt="object.company_id.name" width="80"/>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="2" style="text-align:center;">
+                                                                <hr width="100%" style="height: 1px; opacity: 0.25; background-color: #cccccc; margin: 16px 0;"/>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td align="center" style="min-width: 590px;">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width: 590px; background-color: white; padding: 0px 8px; border-collapse: separate; color: #454748; font-family: Verdana, Arial, sans-serif;">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td valign="top" style="font-size: 13px;">
+                                                                <div>
+                                                                    Hola,<br/>
+                                                                    ¡Hoy queremos celebrar contigo! 🎓💙 Nos llena de orgullo reconocer tu esfuerzo, dedicación y excelencia académica en <b>Universidad ISEP</b>. Sabemos todo el empeño que pusiste en este camino, y queremos aplaudirlo en grande. 👏🎖️<br/><br/>
+                                                                    Como muestra de nuestro reconocimiento, te enviamos tu Diploma de Excelencia en este correo para que puedas descargarlo, imprimirlo y tenerlo contigo como símbolo de todo tu esfuerzo y compromiso. 📜✨<br/><br/>
+                                                                    Además, queremos compartir tu increíble logro con nuestra comunidad. Nos encantaría presumirte en nuestras redes sociales y mostrarle al mundo lo lejos que has llegado. Si nos autorizas a publicar tu foto con tu diploma y tu nombre en nuestras cuentas oficiales, solo respóndenos este correo con tu confirmación y foto. ¡Nos haría muchísima ilusión! 📸🎊<br/><br/>
+                                                                    Y, por supuesto, ¡queremos verte brillar también en tus redes! Comparte tu diploma, etiqueta a <b>@UniversidadISEP</b> y usa los hashtags <b>#UISEPINSPIRA #EstudiantesInspiran</b> para inspirar a más personas con tu historia. 🌟🚀<br/><br/>
+                                                                    <b>¡Felicidades nuevamente!</b> 🎉 Gracias por ser parte de la familia <b>Universidad ISEP</b> y por demostrar que con pasión y esfuerzo, todo es posible.<br/>
+¡Esperamos tu foto y tu confirmación! 😉<br/><br/>
+
+                                                                    Un fuerte abrazo, <b>Universidad ISEP</b><br/>                                                                    
+                                                                    
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="text-align:center;">
+                                                                <hr width="100%" style="height: 1px; opacity: 0.25; background-color: #cccccc; margin: 16px 0;"/>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td align="center" style="min-width: 590px;">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width: 590px; background-color: white; font-size: 11px; padding: 0 8px; border-collapse: separate; color: #454748; font-family: Verdana, Arial, sans-serif;">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td valign="middle" align="left">
+                                                                <t t-out="object.company_id.name or ''"/>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td valign="middle" align="left" style="opacity: 0.7;">
+                                                                <t t-out="object.company_id.phone or ''"/>
+                                                                <t t-if="object.company_id.email">
+                                                                    | <a t-att-href="'mailto:%s' % object.company_id.email" style="text-decoration:none; color: #454748;" t-out="object.company_id.email or ''"/>
+                                                                </t>
+                                                                <t t-if="object.company_id.website">
+                                                                    | <a t-att-href="'%s' % object.company_id.website" style="text-decoration:none; color: #454748;" t-out="object.company_id.website or ''"/>
+                                                                </t>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </field>
+            <field name="report_template" ref="isep_gradebook.action_recognition_certificate"/>
+            <field name="report_name">{{ object.student_id.name }}</field>
+        </record>
+    </data>
+</odoo>

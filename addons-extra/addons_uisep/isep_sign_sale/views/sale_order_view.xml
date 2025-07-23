@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+      
+    <record id="lic_view_sale_order_form_view" model="ir.ui.view">
+        <field name="name">sale.order</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>  
+        <field name="arch" type="xml">
+
+
+            <xpath expr="//field[@name='reference']" position="after">                
+              
+                <label for="sign_id" />
+                <div class="o_row">
+                    <field name="sign_id" readonly="1"/>    
+                    <button name="action_send_to_sign" type="object" string="Envio a Firma"
+                        attrs="{'invisible':[('sign_id','!=',False)]}"
+                        icon="fa-circle" />
+                </div>
+
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>
+

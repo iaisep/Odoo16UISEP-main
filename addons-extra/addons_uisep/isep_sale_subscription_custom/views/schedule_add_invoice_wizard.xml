@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="schedule_add_invoice_wizard_view_form" model="ir.ui.view">
+        <field name="name">schedule.add.invoice.wizard.view.form</field>
+        <field name="model">schedule.add.invoice.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Facturas">
+            
+                <field name="partner_id" invisible="1" />
+                <field name="partner_invoice_id" invisible="1" />
+                <field name="currency_id" invisible="1" />
+                <sheet>
+                    
+                        <field name="invoice_ids"  domain=" [('partner_id','in', (partner_id,partner_invoice_id)), ('currency_id','=', currency_id), ('schedule_id','=',False )]" context="{'form_view_ref': 'account.view_move_form', 'default_move_type': 'out_invoice'}"   >
+                            <tree  delete="0" create="0" >                                    
+                                <field name="made_sequence_hole" invisible="1" />
+                                <field name="name" decoration-bf="1" decoration-danger="made_sequence_hole" string="Factura" />
+                                <field name="invoice_partner_display_name"  groups="base.group_user" string="Cliente"/>
+                                <field name="invoice_date" string="Fecha"/>
+                                <field name="invoice_date_due" string="Vencimiento" widget="remaining_days" optional="show" attrs="{'invisible': [['payment_state', 'in', ('paid', 'in_payment', 'reversed')]]}"/>
+                                <field name="invoice_origin" optional="hide" string="Source Document"/>
+                                <field name="invoice_user_id" optional="hide" invisible="context.get('default_move_type') not in ('out_invoice', 'out_refund','out_receipt')" string="Salesperson" widget="many2one_avatar_user"/>
+                                <field name="activity_ids" string="Actividad" widget="list_activity" optional="hide"/>
+                                <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}" optional="hide"/>
+                                <field name="company_id" groups="!base.group_multi_company" invisible="1"/>
+                                <field name="amount_total" string="Total" sum="Total" decoration-bf="1" optional="show"/>
+                                <field name="amount_residual" string="Deuda" sum="Amount Due" optional="hide"/>
+                                <field name="currency_id" groups="base.group_multi_currency" optional="hide"/>
+                                <field name="company_currency_id" invisible="1"/>
+                                <field name="payment_state" widget="badge" decoration-danger="payment_state == 'not_paid'" decoration-warning="payment_state in ('partial', 'in_payment')" decoration-success="payment_state in ('paid', 'reversed')" attrs="{'invisible': [('payment_state', 'in', ('invoicing_legacy'))]}" optional="show"/>
+                                <field name="state" widget="badge" decoration-success="state == 'posted'" decoration-info="state == 'draft'" optional="show"/>
+                                <field name="move_type" invisible="context.get('default_move_type', True)"/>
+                                
+                            </tree>
+                        </field>
+                           
+                   
+                </sheet>
+                <footer>
+                    <button name="add_invoices" type="object" string="Agregar Facturas" class="oe_highlight" />
+                    <button special="cancel" string="Descartar" type="object"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,45 @@
+<odoo>
+    <data>
+
+        <!-- 
+        <record id="isep_product_template_subscription_form" model="ir.ui.view">
+            <field name="name">product.template.product.form</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                 <xpath expr="//field[@name='detailed_type']" position="before">     
+                    <field name="subscription_plan" attrs="{'invisible':[('product_variant_count','>',1) ], 'required': [('product_variant_count','&lt;',1), ('is_academic_program','=',True)]}" />                  
+                </xpath>
+            </field>
+        </record>
+        -->
+
+
+        
+        <record id="isep_product_product_subscription_form" model="ir.ui.view">
+            <field name="name">product.product.form</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>        
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='detailed_type']" position="before">
+                    <field name="is_academic_program" invisible="1" />
+                    <field name="subscription_plan" attrs="{'invisible':['|',('is_academic_program','=',False),('product_variant_count','>',1)] ,'required': [('is_academic_program','=',True)] }" />                  
+                </xpath>
+            </field>
+        </record>
+        
+
+        <record id="isep_product_product_subscription_easy_edit_form" model="ir.ui.view">
+            <field name="name">product.product.form</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_variant_easy_edit_view"/>        
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='default_code']" position="before">
+                    <field name="is_academic_program" invisible="1" />          
+                    <field name="subscription_plan" attrs="{'invisible':[('is_academic_program','=',False)] ,'required': [('is_academic_program','=',True)] }" />                  
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="poratl_menu_quiz" model="openeducat.portal.menu">
+        <field name="name">Quiz</field>
+        <field name="menu_ref_name">Quiz</field>
+        <field name="link">/online-exams</field>
+        <field name="active">True</field>
+        <field name="sequence" type="int">60</field>
+        <field name="background_color">#575756</field>
+        <field name="icon_image" type="base64"
+               file="openeducat_quiz/static/img/quiz.png"/>
+    </record>
+
+    <record id="poratl_menu_quiz_result_overview" model="openeducat.portal.menu">
+        <field name="name">Quiz Result</field>
+        <field name="menu_ref_name">Quiz Result</field>
+        <field name="link">/users/result-overview</field>
+        <field name="active">True</field>
+        <field name="sequence" type="int">61</field>
+        <field name="background_color">#45ac34</field>
+        <field name="icon_image" type="base64"
+               file="openeducat_quiz/static/img/grades.png"/>
+    </record>
+</odoo>

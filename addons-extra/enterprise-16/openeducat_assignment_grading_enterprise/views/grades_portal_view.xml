@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="assignment_marks_view" name="Assignment Grades"
+              inherit_id="openeducat_assignment_enterprise.assignment_data"
+              priority="10">
+        <xpath expr="//div[@id='grades']" position='after'>
+            <div t-if="assignment_ids.assignment_id.evaluation_type != 'mark'" class="mt8 col-md-12">
+                <div class="row">
+                    <div class="col-md-5">
+                        <strong>Grade:</strong>
+                    </div>
+                    <div class="col-md-7">
+                        <span t-esc="assignment_ids.grades_id.grade"/>
+                    </div>
+                </div>
+            </div>
+            <div t-else="" class="mt8 col-md-12">
+                <div class="row">
+                    <div class="col-md-5">
+                        <strong>Marks:</strong>
+                    </div>
+                    <div class="col-md-7">
+                        <span t-esc="assignment_ids.marks"/>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

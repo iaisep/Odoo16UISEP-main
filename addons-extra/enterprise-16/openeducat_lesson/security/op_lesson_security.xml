@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record model="ir.rule" id="backoffice_lesson_rule">
+            <field name="name">Backoffice Lesson Rule</field>
+            <field name="model_id" ref="model_op_lesson"/>
+            <field name="groups"
+                   eval="[(4, ref('openeducat_timetable.group_op_timetable_manager'))]"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+        </record>
+
+        <record model="ir.rule" id="faculty_lesson_rule">
+            <field name="name">Faculty Lesson Rule</field>
+            <field name="model_id" ref="model_op_lesson"/>
+            <field name="groups"
+                   eval="[(4, ref('openeducat_timetable.group_op_timetable_user'))]"/>
+            <field name="domain_force">[('faculty_id.user_id', '=', user.id)]</field>
+        </record>
+
+        <record model="ir.rule" id="student_lesson_rule">
+            <field name="name">Student Lesson Rule</field>
+            <field name="model_id" ref="model_op_lesson"/>
+            <field name="groups"
+                   eval="[(4, ref('openeducat_timetable.group_op_timetable_manager')),(4, ref('openeducat_parent.group_op_parent'))]"/>
+            <field name="domain_force">['|', ('session_ids.user_ids', 'in', user.ids), ('session_ids.user_ids', 'in',
+                user.child_ids.ids)]
+            </field>
+        </record>
+
+        <record model="ir.rule" id="lesson_multi_comp_rule">
+            <field name="name">Lesson multi-company</field>
+            <field name="model_id" ref="openeducat_lesson.model_op_lesson"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">
+                ['|',('company_id','=',False),'&amp;',('company_id','in',company_ids),'|',('company_id','child_of',[user.company_id.id]),('company_id','in',user.company_ids.ids)]
+            </field>
+        </record>
+
+
+</odoo>

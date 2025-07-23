@@ -1,0 +1,553 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* isep_appointments
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-14 18:10+0000\n"
+"PO-Revision-Date: 2025-06-14 17:00-0500\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es_MX\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.6\n"
+
+#. module: isep_appointments
+#: model:mail.template,body_html:isep_appointments.calendar_template_meeting_invitation
+msgid ""
+"<div>\n"
+"    <t t-set=\"colors\" t-value=\"{'needsAction': 'grey', 'accepted': 'green', 'tentative': '#FFFF00', 'declined': 'red'}\"></t>\n"
+"    <t t-set=\"is_online\" t-value=\"'appointment_type_id' in object.event_id and object.event_id.appointment_type_id\"></t>\n"
+"    <t t-set=\"customer\" t-value=\" object.event_id.find_partner_customer()\"></t>\n"
+"    <t t-set=\"target_responsible\" t-value=\"object.partner_id == object.event_id.partner_id\"></t>\n"
+"    <t t-set=\"target_customer\" t-value=\"object.partner_id == customer\"></t>\n"
+"    <t t-set=\"recurrent\" t-value=\"object.recurrence_id and not ctx.get('calendar_template_ignore_recurrence')\"></t>\n"
+"\n"
+"    <p>\n"
+"        Hello <t t-out=\"object.common_name or ''\">Wood Corner</t>,<br><br>\n"
+"\n"
+"        <t t-if=\"is_online and target_customer\">\n"
+"            Your appointment <strong t-out=\"object.event_id.appointment_type_id.name or ''\">Schedule a Demo</strong> <t t-if=\"object.event_id.appointment_type_id.category != 'custom'\"> with <t t-out=\"object.event_id.user_id.name or ''\">Ready Mat</t></t> has been booked.\n"
+"        </t>\n"
+"        <t t-elif=\"is_online and target_responsible\">\n"
+"            <t t-if=\"customer\">\n"
+"                <t t-out=\"customer.name or ''\"></t> scheduled the following appointment <strong t-out=\"object.event_id.appointment_type_id.name or ''\">Schedule a Demo</strong> with you.\n"
+"            </t>\n"
+"            <t t-else=\"\">\n"
+"                Your appointment <strong t-out=\"object.event_id.appointment_type_id.name or ''\">Schedule a Demo</strong> has been booked.\n"
+"            </t>\n"
+"        </t>\n"
+"        <t t-elif=\"not target_responsible\">\n"
+"            <t t-out=\"object.event_id.user_id.partner_id.name or ''\">Colleen Diaz</t> invited you for the <strong t-out=\"object.event_id.name or ''\">Follow-up for Project proposal</strong> meeting.\n"
+"        </t>\n"
+"        <t t-else=\"\">\n"
+"            Your meeting <strong t-out=\"object.event_id.name or ''\">Follow-up for Project proposal</strong> has been booked.\n"
+"        </t>\n"
+"\n"
+"    </p>\n"
+"    <div style=\"text-align: center; padding: 16px 0px 16px 0px;\">\n"
+"        <t t-if=\"not is_online or object.state != 'accepted'\">\n"
+"            <a t-attf-href=\"/calendar/meeting/accept?token={{object.access_token}}&amp;id={{object.event_id.id}}\" style=\"padding: 5px 10px; color: #FFFFFF; text-decoration: none; background-color: #875A7B; border: 1px solid #875A7B; border-radius: 3px\">\n"
+"                Accept</a>\n"
+"            <a t-attf-href=\"/calendar/meeting/decline?token={{object.access_token}}&amp;id={{object.event_id.id}}\" style=\"padding: 5px 10px; color: #FFFFFF; text-decoration: none; background-color: #875A7B; border: 1px solid #875A7B; border-radius: 3px\">\n"
+"                Decline</a>\n"
+"        </t>\n"
+"        <a t-attf-href=\"/calendar/meeting/view?token={{object.access_token}}&amp;id={{object.event_id.id}}\" style=\"padding: 5px 10px; color: #FFFFFF; text-decoration: none; background-color: #ff6900; border: 1px solid #ff6900; border-radius: 3px\"><t t-out=\"'Reschedule' if is_online and target_customer else 'View'\">View</t></a>\n"
+"    </div>\n"
+"    <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\"><tr>\n"
+"        <td width=\"130px;\" style=\"min-width: 130px;\">\n"
+"            <div style=\"border-top-start-radius: 3px; border-top-end-radius: 3px; font-size: 12px; border-collapse: separate; text-align: center; font-weight: bold; color: #ffffff; min-height: 18px; background-color: #875A7B; border: 1px solid #875A7B;\">\n"
+"                <t t-out=\"format_datetime(dt=object.event_id.start, tz=object.mail_tz if not object.event_id.allday else None, dt_format='EEEE', lang_code=object.env.lang) or ''\">Tuesday</t>\n"
+"            </div>\n"
+"            <div style=\"font-size: 48px; min-height: auto; font-weight: bold; text-align: center; color: #5F5F5F; background-color: #F8F8F8; border: 1px solid #875A7B;\">\n"
+"                <t t-out=\"format_datetime(dt=object.event_id.start, tz=object.mail_tz if not object.event_id.allday else None, dt_format='d', lang_code=object.env.lang) or ''\">4</t>\n"
+"            </div>\n"
+"            <div style=\"font-size: 12px; text-align: center; font-weight: bold; color: #ffffff; background-color: #875A7B;\">\n"
+"                <t t-out=\"format_datetime(dt=object.event_id.start, tz=object.mail_tz if not object.event_id.allday else None, dt_format='MMMM y', lang_code=object.env.lang) or ''\">May 2021</t>\n"
+"            </div>\n"
+"            <div style=\"border-collapse: separate; color: #5F5F5F; text-align: center; font-size: 12px; border-bottom-end-radius: 3px; font-weight: bold ; border: 1px solid #875A7B; border-bottom-start-radius: 3px;\">\n"
+"                <t t-if=\"not object.event_id.allday\">\n"
+"                    <div>\n"
+"                        <t t-out=\"format_time(time=object.event_id.start, tz=object.mail_tz, time_format='short', lang_code=object.env.lang) or ''\">11:00 AM</t>\n"
+"                    </div>\n"
+"                    <t t-if=\"object.mail_tz\">\n"
+"                        <div style=\"font-size: 10px; font-weight: normal\">\n"
+"                            (<t t-out=\"object.mail_tz or ''\">Europe/Brussels</t>)\n"
+"                        </div>\n"
+"                    </t>\n"
+"                </t>\n"
+"            </div>\n"
+"        </td>\n"
+"        <td width=\"20px;\"></td>\n"
+"        <td style=\"padding-top: 5px;\">\n"
+"            <p><strong>Details of the event</strong></p>\n"
+"            <ul>\n"
+"                <t t-if=\"is_online\">\n"
+"                    <li>Appointment Type: <t t-out=\"object.event_id.appointment_type_id.name or ''\">Schedule a Demo</t></li>\n"
+"                </t>\n"
+"                <t t-if=\"object.event_id.location\">\n"
+"                    <li>Location: <t t-out=\"object.event_id.location or ''\">Bruxelles</t>\n"
+"                        (<a target=\"_blank\" t-attf-href=\"http://maps.google.com/maps?oi=map&amp;q={{object.event_id.location}}\">View Map</a>)\n"
+"                    </li>\n"
+"                </t>\n"
+"                <t t-if=\"recurrent\">\n"
+"                    <li>When: <t t-out=\"object.recurrence_id.get_recurrence_name()\">Every 1 Weeks, for 3 events</t></li>\n"
+"                </t>\n"
+"                <t t-if=\"not object.event_id.allday and object.event_id.duration\">\n"
+"                    <li>Duration: <t t-out=\"('%dH%02d' % (object.event_id.duration,round(object.event_id.duration*60)%60)) or ''\">0H30</t></li>\n"
+"                </t>\n"
+"                <li>Attendees\n"
+"                <ul>\n"
+"                    <li t-foreach=\"object.event_id.attendee_ids\" t-as=\"attendee\">\n"
+"                        <div t-attf-style=\"display: inline-block; border-radius: 50%; width: 10px; height: 10px; background:{{ colors.get(attendee.state) or 'white' }};\"> </div>\n"
+"                        <t t-if=\"attendee.common_name != object.common_name\">\n"
+"                            <span style=\"margin-left:5px\" t-out=\"attendee.common_name or ''\">Mitchell Admin</span>\n"
+"                        </t>\n"
+"                        <t t-else=\"\">\n"
+"                            <span style=\"margin-left:5px\">You</span>\n"
+"                        </t>\n"
+"                    </li>\n"
+"                </ul></li>\n"
+"                <t t-if=\"object.event_id.videocall_location\">\n"
+"                    <li>\n"
+"                        How to Join:\n"
+"                        <t t-if=\"object.get_base_url() in object.event_id.videocall_location\"> Join with Odoo Discuss</t>\n"
+"                        <t t-else=\"\"> Join at</t><br>\n"
+"                        <a t-att-href=\"object.event_id.videocall_location\" target=\"_blank\" t-out=\"object.event_id.videocall_location or ''\">www.mycompany.com/calendar/join_videocall/xyz</a>\n"
+"                    </li>\n"
+"                </t>\n"
+"                <t t-if=\"not is_html_empty(object.event_id.description)\">\n"
+"                    <li>Description of the event:\n"
+"                    <t t-out=\"object.event_id.description\">Internal meeting for discussion for new pricing for product and services.</t></li>\n"
+"                </t>\n"
+"            </ul>\n"
+"        </td>\n"
+"    </tr></table>\n"
+"    <br>\n"
+"    Thank you,\n"
+"    <t t-if=\"object.event_id.user_id.signature\">\n"
+"        <br>\n"
+"        <t t-out=\"object.event_id.user_id.signature or ''\">--<br>Mitchell Admin</t>\n"
+"    </t>\n"
+"</div>\n"
+"            "
+msgstr ""
+
+#. module: isep_appointments
+#: model:mail.template,body_html:isep_appointments.calendar_template_meeting_reminder
+msgid ""
+"<div>\n"
+"    <t t-set=\"colors\" t-value=\"{'needsAction': 'grey', 'accepted': 'green', 'tentative': '#FFFF00', 'declined': 'red'}\"></t>\n"
+"    <t t-set=\"is_online\" t-value=\"'appointment_type_id' in object.event_id and object.event_id.appointment_type_id\"></t>\n"
+"    <t t-set=\"recurrent\" t-value=\"object.recurrence_id and not ctx.get('calendar_template_ignore_recurrence')\"></t>\n"
+"    <p>\n"
+"        Hello <t t-out=\"object.common_name or ''\">Gemini Furniture</t>,<br><br>\n"
+"        This is a reminder for the below event :\n"
+"    </p>\n"
+"    <div style=\"text-align: center; padding: 16px 0px 16px 0px;\">\n"
+"        <a t-attf-href=\"/calendar/{{ 'recurrence' if recurrent else 'meeting' }}/accept?token={{ object.access_token }}&amp;id={{ object.event_id.id }}\" style=\"padding: 5px 10px; color: #FFFFFF; text-decoration: none; background-color: #875A7B; border: 1px solid #875A7B; border-radius: 3px\">\n"
+"            Accept</a>\n"
+"        <a t-attf-href=\"/calendar/{{ 'recurrence' if recurrent else 'meeting' }}/decline?token={{ object.access_token }}&amp;id={{ object.event_id.id }}\" style=\"padding: 5px 10px; color: #FFFFFF; text-decoration: none; background-color: #875A7B; border: 1px solid #875A7B; border-radius: 3px\">\n"
+"            Decline</a>\n"
+"        <a t-attf-href=\"/calendar/meeting/view?token={{object.access_token}}&amp;id={{object.event_id.id}}\" style=\"padding: 5px 10px; color: #FFFFFF; text-decoration: none; background-color: #ff6900; border: 1px solid #ff6900; border-radius: 3px\"><t t-out=\"'Reschedule' if is_online and target_customer else 'View'\">View</t></a>\n"
+"    </div>\n"
+"    <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\"><tr>\n"
+"        <td width=\"130px;\" style=\"min-width: 130px;\">\n"
+"            <div style=\"border-top-start-radius: 3px; border-top-end-radius: 3px; font-size: 12px; border-collapse: separate; text-align: center; font-weight: bold; color: #ffffff; min-height: 18px; background-color: #875A7B; border: 1px solid #875A7B;\">\n"
+"                <t t-out='format_datetime(dt=object.event_id.start, tz=object.mail_tz if not object.event_id.allday else None, dt_format=\"EEEE\", lang_code=object.env.lang) or \"\"'>Tuesday</t>\n"
+"            </div>\n"
+"            <div style=\"font-size: 48px; min-height: auto; font-weight: bold; text-align: center; color: #5F5F5F; background-color: #F8F8F8; border: 1px solid #875A7B;\">\n"
+"                <t t-out=\"format_datetime(dt=object.event_id.start, tz=object.mail_tz if not object.event_id.allday else None, dt_format='d', lang_code=object.env.lang) or ''\">4</t>\n"
+"            </div>\n"
+"            <div style=\"font-size: 12px; text-align: center; font-weight: bold; color: #ffffff; background-color: #875A7B;\">\n"
+"                <t t-out='format_datetime(dt=object.event_id.start, tz=object.mail_tz if not object.event_id.allday else None, dt_format=\"MMMM y\", lang_code=object.env.lang) or \"\"'>May 2021</t>\n"
+"            </div>\n"
+"            <div style=\"border-collapse: separate; color: #5F5F5F; text-align: center; font-size: 12px; border-bottom-end-radius: 3px; font-weight: bold; border: 1px solid #875A7B; border-bottom-start-radius: 3px;\">\n"
+"                <t t-if=\"not object.event_id.allday\">\n"
+"                    <div>\n"
+"                        <t t-out='format_time(time=object.event_id.start, tz=object.mail_tz, time_format=\"short\", lang_code=object.env.lang) or \"\"'>11:00 AM</t>\n"
+"                    </div>\n"
+"                    <t t-if=\"object.mail_tz\">\n"
+"                        <div style=\"font-size: 10px; font-weight: normal\">\n"
+"                            (<t t-out=\"object.mail_tz or ''\">Europe/Brussels</t>)\n"
+"                        </div>\n"
+"                    </t>\n"
+"                </t>\n"
+"            </div>\n"
+"        </td>\n"
+"        <td width=\"20px;\"></td>\n"
+"        <td style=\"padding-top: 5px;\">\n"
+"            <p><strong>Details of the event</strong></p>\n"
+"            <ul>\n"
+"                <t t-if=\"object.event_id.location\">\n"
+"                    <li>Location: <t t-out=\"object.event_id.location or ''\">Bruxelles</t>\n"
+"                        (<a target=\"_blank\" t-attf-href=\"http://maps.google.com/maps?oi=map&amp;q={{ object.event_id.location }}\">View Map</a>)\n"
+"                    </li>\n"
+"                </t>\n"
+"                <t t-if=\"recurrent\">\n"
+"                    <li>When: <t t-out=\"object.recurrence_id.get_recurrence_name()\">Every 1 Weeks, for 3 events</t></li>\n"
+"                </t>\n"
+"                <t t-if=\"not object.event_id.allday and object.event_id.duration\">\n"
+"                    <li>Duration: <t t-out=\"('%dH%02d' % (object.event_id.duration,round(object.event_id.duration*60)%60)) or ''\">0H30</t></li>\n"
+"                </t>\n"
+"                <li>Attendees\n"
+"                <ul>\n"
+"                    <li t-foreach=\"object.event_id.attendee_ids\" t-as=\"attendee\">\n"
+"                        <div t-attf-style=\"display: inline-block; border-radius: 50%; width: 10px; height: 10px; background:{{ colors.get(attendee.state) or 'white' }};\"> </div>\n"
+"                        <t t-if=\"attendee.common_name != object.common_name\">\n"
+"                            <span style=\"margin-left:5px\" t-out=\"attendee.common_name or ''\">Mitchell Admin</span>\n"
+"                        </t>\n"
+"                        <t t-else=\"\">\n"
+"                            <span style=\"margin-left:5px\">You</span>\n"
+"                        </t>\n"
+"                    </li>\n"
+"                </ul></li>\n"
+"                <t t-if=\"object.event_id.videocall_location\">\n"
+"                    <li>\n"
+"                        How to Join:\n"
+"                        <t t-if=\"object.get_base_url() in object.event_id.videocall_location\"> Join with Odoo Discuss</t>\n"
+"                        <t t-else=\"\"> Join at</t><br>\n"
+"                        <a t-att-href=\"object.event_id.videocall_location\" target=\"_blank\" t-out=\"object.event_id.videocall_location or ''\">www.mycompany.com/calendar/join_videocall/xyz</a>\n"
+"                    </li>\n"
+"                </t>\n"
+"                <t t-if=\"not is_html_empty(object.event_id.description)\">\n"
+"                    <li>Description of the event:\n"
+"                    <t t-out=\"object.event_id.description\">Internal meeting for discussion for new pricing for product and services.</t></li>\n"
+"                </t>\n"
+"            </ul>\n"
+"        </td>\n"
+"    </tr></table>\n"
+"    <br>\n"
+"    Thank you,\n"
+"    <t t-if=\"object.event_id.user_id.signature\">\n"
+"        <br>\n"
+"        <t t-out=\"object.event_id.user_id.signature or ''\">--<br>Mitchell Admin</t>\n"
+"    </t>\n"
+"</div>\n"
+"            "
+msgstr ""
+
+#. module: isep_appointments
+#: model_terms:ir.ui.view,arch_db:isep_appointments.appointment_validated
+msgid ""
+"<i class=\"fa fa-check\"/>\n"
+"                                Assists"
+msgstr ""
+"<i class=\"fa fa-check\"/>\n"
+"                                Asistir"
+
+#. module: isep_appointments
+#: model_terms:ir.ui.view,arch_db:isep_appointments.appointment_validated
+msgid ""
+"<i class=\"fa fa-check\"/>\n"
+"                            Assist Meeting"
+msgstr ""
+"<i class=\"fa fa-check\"/>\n"
+"                            Asistir a la Reunión"
+
+#. module: isep_appointments
+#: model_terms:ir.ui.view,arch_db:isep_appointments.appointment_validated
+msgid ""
+"<span>The day of the meeting you need to ingress in <b>My Account/Appointment</b> , select de\n"
+"                            meeting and click in the Assist Meeting button.\n"
+"                        </span>"
+msgstr ""
+"<span>El día de la reunión, necesitas ingresar a <b>Mi Cuenta/Citas</b> , seleccionar la cita y presionar el botón <b>Asistir a Reunión</b>.\n"
+" </span>"
+
+#. module: isep_appointments
+#: model_terms:ir.ui.view,arch_db:isep_appointments.appointment_validated
+msgid "Add to Google Agenda"
+msgstr "Adicionar a la Agenda Google"
+
+#. module: isep_appointments
+#: model_terms:ir.ui.view,arch_db:isep_appointments.appointment_validated
+msgid "Add to iCal/Outlook"
+msgstr "Adicionar a iCal/Outlook"
+
+#. module: isep_appointments
+#: model:ir.model.fields,field_description:isep_appointments.field_appointment_penalization__qty_absence
+msgid "Amount of Absenteeism"
+msgstr "Cantidad de Inasistencia"
+
+#. module: isep_appointments
+#: model:ir.model,name:isep_appointments.model_appointment_penalization
+msgid "Appointment Penalization"
+msgstr "Penalización de Citas"
+
+#. module: isep_appointments
+#: model:ir.model,name:isep_appointments.model_appointment_penalization_line
+msgid "Appointment Penalization Line"
+msgstr "Penalización de Citas líneas"
+
+#. module: isep_appointments
+#: model:ir.actions.act_window,name:isep_appointments.appointment_penalization_line_action
+msgid "Appointment Penalization Line View Action"
+msgstr ""
+
+#. module: isep_appointments
+#: model:ir.actions.act_window,name:isep_appointments.appointment_penalization_action
+msgid "Appointment Penalization View Action"
+msgstr ""
+
+#. module: isep_appointments
+#: model:ir.model,name:isep_appointments.model_appointment_type
+msgid "Appointment Type"
+msgstr "Tipo de Cita"
+
+#. module: isep_appointments
+#: model:mail.template,name:isep_appointments.calendar_template_meeting_invitation
+msgid "Appointment/Calendar: Meeting Invitation"
+msgstr "Cita/Calendario: Invitación a Reunión"
+
+#. module: isep_appointments
+#: model:mail.template,name:isep_appointments.calendar_template_meeting_reminder
+msgid "Appointment/Calendar: Reminder"
+msgstr "Cita/Calendario: Recordatorio"
+
+#. module: isep_appointments
+#: model_terms:ir.ui.view,arch_db:isep_appointments.appointment_validated
+msgid "Assits Meeting"
+msgstr "Asistir a Reunión"
+
+#. module: isep_appointments
+#: model:ir.model.fields,field_description:isep_appointments.field_calendar_attendee__is_attend
+msgid "Attend?"
+msgstr "Asistió?"
+
+#. module: isep_appointments
+#: model:ir.model,name:isep_appointments.model_calendar_attendee
+msgid "Calendar Attendee Information"
+msgstr "Información en el calendario de los asistentes"
+
+#. module: isep_appointments
+#: model:ir.model,name:isep_appointments.model_calendar_event
+msgid "Calendar Event"
+msgstr "Evento de calendario"
+
+#. module: isep_appointments
+#: model_terms:ir.ui.view,arch_db:isep_appointments.appointment_validated
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: isep_appointments
+#: model_terms:ir.ui.view,arch_db:isep_appointments.appointment_validated
+msgid "Close"
+msgstr "Cerrar"
+
+#. module: isep_appointments
+#: model:ir.model,name:isep_appointments.model_res_company
+msgid "Companies"
+msgstr "Empresas"
+
+#. module: isep_appointments
+#: model:ir.model,name:isep_appointments.model_res_config_settings
+msgid "Config Settings"
+msgstr "Ajustes de configuración"
+
+#. module: isep_appointments
+#: model:ir.model.fields,field_description:isep_appointments.field_appointment_penalization__create_uid
+#: model:ir.model.fields,field_description:isep_appointments.field_appointment_penalization_line__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: isep_appointments
+#: model:ir.model.fields,field_description:isep_appointments.field_appointment_penalization__create_date
+#: model:ir.model.fields,field_description:isep_appointments.field_appointment_penalization_line__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: isep_appointments
+#: model:ir.model.fields,field_description:isep_appointments.field_appointment_penalization_line__datetime_create
+msgid "Date Penalization"
+msgstr "Fecha de Penalización"
+
+#. module: isep_appointments
+#: model:ir.model.fields,field_description:isep_appointments.field_appointment_penalization__display_name
+#: model:ir.model.fields,field_description:isep_appointments.field_appointment_penalization_line__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: isep_appointments
+#: model:ir.model,name:isep_appointments.model_calendar_alarm
+msgid "Event Alarm"
+msgstr "Alerta de evento"
+
+#. module: isep_appointments
+#: model_terms:ir.ui.view,arch_db:isep_appointments.appointment_info
+msgid "For Penalization You can agend an appointment in :"
+msgstr "Por Penalización, puedes agendar de nuevo una cita el: "
+
+#. module: isep_appointments
+#: model_terms:ir.ui.view,arch_db:isep_appointments.appointment_validated
+msgid "Google Agenda"
+msgstr "Agenda de Google"
+
+#. module: isep_appointments
+#: model_terms:ir.ui.view,arch_db:isep_appointments.appointment_validated
+msgid "How to Join:"
+msgstr "Como Unirse: "
+
+#. module: isep_appointments
+#: model:ir.model.fields,field_description:isep_appointments.field_appointment_penalization__id
+#: model:ir.model.fields,field_description:isep_appointments.field_appointment_penalization_line__id
+msgid "ID"
+msgstr ""
+
+#. module: isep_appointments
+#: model:mail.template,description:isep_appointments.calendar_template_meeting_invitation
+msgid "Invitation email to new attendees"
+msgstr "Email de Invitación para nuevos asistentes"
+
+#. module: isep_appointments
+#: model:mail.template,subject:isep_appointments.calendar_template_meeting_invitation
+msgid "Invitation to {{ object.event_id.name }}"
+msgstr "Invitación para  {{ object.event_id.name }}"
+
+#. module: isep_appointments
+#: model_terms:ir.ui.view,arch_db:isep_appointments.appointment_validated
+msgid "Join at"
+msgstr "Únete con"
+
+#. module: isep_appointments
+#: model_terms:ir.ui.view,arch_db:isep_appointments.appointment_validated
+msgid "Join with Odoo Discuss"
+msgstr "Únete con la Discusión de Odoo"
+
+#. module: isep_appointments
+#: model:ir.model.fields,field_description:isep_appointments.field_appointment_penalization____last_update
+#: model:ir.model.fields,field_description:isep_appointments.field_appointment_penalization_line____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: isep_appointments
+#: model:ir.model.fields,field_description:isep_appointments.field_appointment_penalization__write_uid
+#: model:ir.model.fields,field_description:isep_appointments.field_appointment_penalization_line__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: isep_appointments
+#: model:ir.model.fields,field_description:isep_appointments.field_appointment_penalization__write_date
+#: model:ir.model.fields,field_description:isep_appointments.field_appointment_penalization_line__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: isep_appointments
+#: model:ir.model.fields,field_description:isep_appointments.field_appointment_penalization__name
+msgid "Name Penalization"
+msgstr "Nombre Penalización"
+
+#. module: isep_appointments
+#: model:ir.model.fields,field_description:isep_appointments.field_appointment_penalization_line__next_date_book
+msgid "Next date to schedule"
+msgstr "Próxima fecha de agendamiento"
+
+#. module: isep_appointments
+#: model:ir.model.fields,help:isep_appointments.field_appointment_penalization__qty_days
+msgid "Number of Days to allow scheduling a new appointment"
+msgstr "Número de días para permitir la programación de una nueva cita"
+
+#. module: isep_appointments
+#: model:ir.model.fields,help:isep_appointments.field_appointment_type__is_private_appo
+msgid "Only internal users can view this appointment in website"
+msgstr "Solo los usuarios internos pueden ver esta cita en el sitio web."
+
+#. module: isep_appointments
+#: model_terms:ir.ui.view,arch_db:isep_appointments.appointment_validated
+msgid "Outlook"
+msgstr ""
+
+#. module: isep_appointments
+#: model:ir.ui.menu,name:isep_appointments.menuitem_root_penalization
+msgid "Penalization"
+msgstr "Penalización"
+
+#. module: isep_appointments
+#: model:ir.actions.server,name:isep_appointments.penalization_appointment_check_ir_actions_server
+msgid "Penalization Appointment Check"
+msgstr "Chequeo de penalización de cita"
+
+#. module: isep_appointments
+#: model:ir.model.fields,field_description:isep_appointments.field_appointment_penalization_line__penalization_id
+msgid "Penalization ID"
+msgstr "Penalización"
+
+#. module: isep_appointments
+#: model:ir.ui.menu,name:isep_appointments.menuitem_appointment_penalization
+msgid "Penalization Type"
+msgstr "Tipo de Penalización"
+
+#. module: isep_appointments
+#: model:ir.ui.menu,name:isep_appointments.menuitem_penalizations
+msgid "Penalization User"
+msgstr "Penalización de Usuarios"
+
+#. module: isep_appointments
+#: model:ir.model.fields,field_description:isep_appointments.field_appointment_type__is_private_appo
+msgid "Private Appointment?"
+msgstr "Cita privada ?"
+
+#. module: isep_appointments
+#: model:ir.model.fields,field_description:isep_appointments.field_appointment_penalization__qty_days
+msgid "QTY Days"
+msgstr "Cantidad de Días?"
+
+#. module: isep_appointments
+#: model:mail.template,description:isep_appointments.calendar_template_meeting_reminder
+msgid "Sent to all attendees if a reminder is set"
+msgstr "Enviado a todos los asistentes si se establece un recordatorio"
+
+#. module: isep_appointments
+#: model:ir.model.fields,field_description:isep_appointments.field_res_company__isp_time_after_reunion
+#: model:ir.model.fields,field_description:isep_appointments.field_res_config_settings__isp_time_after_reunion
+msgid "Time After Reunion"
+msgstr "Tiempo Después de la Reunión"
+
+#. module: isep_appointments
+#: model:ir.model.fields,field_description:isep_appointments.field_res_company__isp_time_before_reunion
+#: model:ir.model.fields,field_description:isep_appointments.field_res_config_settings__isp_time_before_reunion
+msgid "Time Before Reunion"
+msgstr "Tiempo Antes de la Reunión"
+
+#. module: isep_appointments
+#: model:ir.model.fields,help:isep_appointments.field_res_company__isp_time_after_reunion
+#: model:ir.model.fields,help:isep_appointments.field_res_config_settings__isp_time_after_reunion
+msgid "Time to show link reunion in minutes, after the time start."
+msgstr "Tiempo después de la hora de inicio en que se puede asistir a la reunión."
+
+#. module: isep_appointments
+#: model:ir.model.fields,help:isep_appointments.field_res_company__isp_time_before_reunion
+#: model:ir.model.fields,help:isep_appointments.field_res_config_settings__isp_time_before_reunion
+msgid "Time to show link reunion in minutes, before the time start."
+msgstr "Tiempo antes de la hora de inicio en que se puede marcar como asistido a la reunión."
+
+#. module: isep_appointments
+#: model:ir.model.fields,field_description:isep_appointments.field_appointment_penalization_line__total_absence
+msgid "Total Absence"
+msgstr "Total de Ausencias"
+
+#. module: isep_appointments
+#: model:ir.model.fields,field_description:isep_appointments.field_appointment_penalization_line__user_id
+msgid "Users"
+msgstr "Usuarios"
+
+#. module: isep_appointments
+#: model_terms:ir.ui.view,arch_db:isep_appointments.appointment_penalization_line_view_tree
+#: model_terms:ir.ui.view,arch_db:isep_appointments.appointment_penalization_view_tree
+msgid "appointment_penalization_tree"
+msgstr ""
+
+#. module: isep_appointments
+#: model:mail.template,subject:isep_appointments.calendar_template_meeting_reminder
+msgid "{{ object.event_id.name }} - Reminder"
+msgstr "{{ object.event_id.name }} - Recordatorio"
+
+#. module: isep_appointments
+#: model_terms:ir.ui.view,arch_db:isep_appointments.appointment_validated
+msgid "¿Are you sure you want to assists to meeting?"
+msgstr "¿Está seguro de que quiere asistir a la reunión?"

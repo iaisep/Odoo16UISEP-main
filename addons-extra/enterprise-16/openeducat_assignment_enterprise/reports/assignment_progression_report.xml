@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="student_assignment_progression_report"
+              inherit_id="openeducat_student_progress_enterprise.student_progression_report"
+              priority="40">
+        <xpath expr="//div[hasclass('progression')]" position="after">
+            <div t-if="objs.assignment_lines" class="row mt32" style="page-break-inside:avoid;">
+                <div class="col-md-12" style="page-break-inside:avoid;">
+                    <div class="row mb16 col-md-6" style="page-break-inside:avoid;">
+                        <strong>Assignment:</strong>
+                    </div>
+                    <table class="table table-bordered" style="page-break-inside:avoid;">
+                        <thead class="text-center" style="background-color:#eeeeee; font-size:14px; font-weight:600;">
+                            <tr>
+                                <th>Submisiion Date</th>
+                                <th>Assignment</th>
+                                <th>State</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center" style="font-size:12px;">
+                            <t t-foreach="objs.assignment_lines.sorted(key=lambda record: record.submission_date, reverse=False)"
+                               t-as="lines">
+                                <tr>
+                                    <td>
+                                        <t t-esc="lines.submission_date" t-options="{'widget': 'datetime'}"/>
+                                    </td>
+                                    <td>
+                                        <t t-foreach="lines.assignment_id" t-as="assignment">
+                                            <t t-esc="assignment.name"/>
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <t t-esc="{'draft':'Draft', 'submit':'Submitted',
+                                                                'reject':'Rejected', 'change':'Change Required',
+                                                                'accept':'Accepted'}[lines.state]"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

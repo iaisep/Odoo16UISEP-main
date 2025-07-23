@@ -1,0 +1,37 @@
+<odoo>
+    <record id="view_op_logs_attentive_tree" model="ir.ui.view">
+        <field name="name">log.attentive.tree</field>
+        <field name="model">log.attentive</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="start_time"/>
+                <field name="end_time"/>
+                <field name="time_log"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_op_logs_attentive_form" model="ir.ui.view">
+        <field name="name">log.attentive.form</field>
+        <field name="model">log.attentive</field>
+        <field name="arch" type="xml">
+            <form string="attentive Logs">
+                <sheet>
+                    <group>
+                        <field name="start_time"/>
+                        <field name="end_time"/>
+                        <field name="time_log"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_op_logs_attentive" model="ir.actions.act_window">
+        <field name="name">attentive Logs</field>
+        <field name="res_model">log.attentive</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_op_logs_attentive_tree"/>
+    </record>
+
+</odoo>

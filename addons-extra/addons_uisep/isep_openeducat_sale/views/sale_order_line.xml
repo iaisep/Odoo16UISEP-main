@@ -1,0 +1,30 @@
+<odoo>
+    <data>
+        <record id="isep_custom_sale_order_form" model="ir.ui.view">
+            <field name="name">sale.order.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>        
+            <field name="arch" type="xml">
+                <xpath expr="//page/field/tree/field[@name='qty_delivered_method']" position="after">
+                    <field name="course_type" invisible="1"/>
+                    <field name="start_date_enroller" attrs="{'required': [('course_type','in',('classroom','online'))], 'invisible': [('course_type','not in',('classroom','online'))] }" />
+                </xpath>
+
+
+                <xpath expr="//button[@name='action_view_invoice']" position="before">
+                    <field name="admission_id" invisible="1"/>
+                    <field name="admission_register_id" invisible="1"/>
+                    <button name="action_view_admission"   attrs="{'invisible': [('admission_id', '=', False)]}" type="object" class="oe_stat_button" icon="fa-pencil-square-o" >
+                        Admision
+                    </button>    
+                    <button name="action_admission_register" attrs="{'invisible': [('admission_register_id', '=', False)]}" type="object" class="oe_stat_button" icon="fa-pencil-square-o" >
+                        Registro
+                    </button>   
+                </xpath>
+
+
+                 
+            </field>
+        </record>
+    </data>
+</odoo>

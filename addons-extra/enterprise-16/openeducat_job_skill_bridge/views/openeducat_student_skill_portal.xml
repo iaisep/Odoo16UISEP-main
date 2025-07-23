@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="student_portal_student_skill_bridge"
+              inherit_id="openeducat_skill_enterprise.student_portal_skills_information"
+              priority="60">
+        <xpath expr="//div[@id='skills_info']" position="inside">
+            <br/>
+            <hr style="border: solid 1px;"/>
+            <br/>
+            <div class="d-flex mb-4">
+                <div class="col-6 px-0">
+                    <h4>Self Assessed Skills</h4>
+                </div>
+                <div class="col-6 text-end px-0" t-if="user_id.sudo().is_student">
+                    <a t-attf-href="/student/skill">
+                        <button class="btn btn-primary">
+                            Add Your Skill
+                        </button>
+                    </a>
+                </div>
+            </div>
+            <table class="mt16 table table-condensed">
+                <thead>
+                    <tr>
+                        <th>Skill</th>
+                        <th>Level</th>
+                        <th style="width: 200px;">Progress</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="student.skill_line" t-as="skill">
+                        <tr>
+                            <td>
+                                <span t-esc="skill.skill_type_id.name"/>
+                            </td>
+                            <td>
+                                <span t-esc="skill.level_id.name"/>
+                            </td>
+                            <td>
+                                <div class="text-center">
+                                    <div class="progress">
+                                        <div class="progress-bar" t-attf-style="width: #{skill.progress}%"
+                                             max="100"/>
+                                    </div>
+                                    <div class="text-center">
+                                        <t t-esc="skill.progress"/>%
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </t>
+                </tbody>
+            </table>
+        </xpath>
+    </template>
+</odoo>

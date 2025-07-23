@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="validation_email" model="mail.template">
+        <field name="name">email</field>
+        <field name="model_id" ref="openeducat_placement_job_enterprise.model_op_activity_announcement"/>
+        <field name="email_from">{{ user.email or '' }}</field>
+        <field name="email_to">{{ object.get_emails(object.message_follower_ids) }}</field>
+        <field name="subject">This is a demo mail.</field>
+        <field name="body_html"><![CDATA[
+        hello
+]]></field>
+    </record>
+</odoo>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <data>
+
+        <record model="ir.cron" id="cron_generate_checklist">
+            <field name="name">Generar lista de verificación</field>
+            <field name="model_id" ref="model_practice_request"/>
+            <field name="state">code</field>
+            <field name="code">model.generate_checklist_cron()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="nextcall" eval="(datetime.now() + timedelta(minutes=7)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record model="ir.cron" id="cron_send_signature">
+            <field name="name">Enviar Solicitud de firma</field>
+            <field name="model_id" ref="model_practice_request"/>
+            <field name="state">code</field>
+            <field name="code">model.cron_send_signature_request()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="nextcall" eval="(datetime.now() + timedelta(minutes=7)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record model="ir.cron" id="cron_approved_progress">
+            <field name="name">Enviar Solicitar Aprobado-En Proceso</field>
+            <field name="model_id" ref="model_practice_request"/>
+            <field name="state">code</field>
+            <field name="code">model.cron_request_approved_to_progress()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="nextcall" eval="(datetime.now() + timedelta(minutes=7)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+    </data>
+
+</odoo>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template id="user_profile_content">
+
+        <!-- ========== CONTENT ========== -->
+
+        <div class="col-12 col-md-8 col-lg-9 position-relative">
+            <ul class="nav nav-tabs o_wprofile_nav_tabs flex-nowrap" role="tablist" id="profile_extra_info_tablist">
+                <li class="nav-item">
+                    <a role="tab" aria-controls="Campus" href="#profile_tab_content_about" t-attf-class="nav-link #{'active' if not active_tab or active_tab == 'about' else ''}" data-bs-toggle="tab">Campus</a>
+                </li>
+            </ul>
+            <div class="tab-content py-4 o_wprofile_tabs_content mb-4" id="profile_extra_info_tabcontent">
+                <div role="tabpanel" t-attf-class="tab-pane #{ 'show active' if not active_tab or active_tab == 'about' else '' }" id="profile_tab_content_about">
+
+
+                    <div class="o_wprofile_email_validation_container mb16 mt16">
+                        <t t-call="website_profile.email_validation_banner">
+                            <t t-set="redirect_url" t-value="'/profile/user/%s' % user.id"/>
+                            <t t-set="additional_validation_email_message"/>
+                        </t>
+                    </div>
+
+                    <t t-if="channel">
+                        <div class="mb32">
+                            <h5 class="border-bottom pb-1">Programa académico</h5>
+                            <div class="row">
+                                <t t-set="msn_01" t-value="True"/>
+                                <div class="col-12 col-lg-6" t-if="course" t-foreach="env['op.admission'].sudo().search([('state','=','done'),('partner_id','=', user.partner_id.id)])" t-as="course">
+                                    <div class="card mb-2">
+                                        <t t-set="course_line_id" t-value="course.register_id.course_id.id"/>
+                                        <div class="card-body o_wprofile_slides_course_card_body p-0 d-flex" t-attf-onclick="location.href='/campus/course/#{course_line_id}';">
+
+                                            <div class="o_wslides_background_image ps-5 pe-4 rounded-start" t-attf-style="height: 72px; background-image: url('/isep_website_custom/static/src/img/icon-course.png');"/>
+                                            <div class="p-2 w-100" style="line-height: 0px;">
+                                                <h5 class="mt-0 mb-1" t-if="course.register_id" t-field="course.register_id.course_id.name"/>
+                                                <br/>
+                                                <h6 class="mt-0 mb-1" style="color: #002e5d;" t-if="course.batch_id">Grupo: <t t-out="course.batch_id.name"/>
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <t t-set="msn_01" t-value="False"/>
+                                </div>
+                                <div t-if="msn_01 == True" class="text-muted d-inline-block">Sin inscripciones</div>
+                            </div>
+
+
+                        </div>
+
+                    </t>
+                    <div class="mb32">
+                        <h5 class="border-bottom pb-1">Aplicaciones</h5>
+                        <t t-call="isep_website_custom.user_profile_openeducat"/>
+                    </div>
+
+                    <div id="profile_about_badge" class="mb32">
+                        <h5 class="border-bottom pb-1">Badges</h5>
+                        <t t-call="website_profile.user_badges"/>
+                    </div>
+                    <div t-if="user.partner_id.website_description" class="mb32">
+                        <h5 class="border-bottom pb-1">Biography</h5>
+                        <span t-field="user.partner_id.website_description"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </template>
+
+
+
+
+</odoo>

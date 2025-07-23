@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="op_ans_grd_100p2" model="op.answer.grade">
+            <field name="name">+100%</field>
+            <field name="value">100</field>
+        </record>
+
+        <record id="op_ans_grd_50p2" model="op.answer.grade">
+            <field name="name">+50%</field>
+            <field name="value">50</field>
+        </record>
+
+        <record id="op_ans_grd_25p2" model="op.answer.grade">
+            <field name="name">+25%</field>
+            <field name="value">25</field>
+        </record>
+
+        <record id="op_ans_grd_02" model="op.answer.grade">
+            <field name="name">0</field>
+            <field name="value">0</field>
+        </record>
+
+        <record id="op_ans_grd_100n2" model="op.answer.grade">
+            <field name="name">-100%</field>
+            <field name="value">-100</field>
+        </record>
+
+        <record id="op_ans_grd_50n2" model="op.answer.grade">
+            <field name="name">-50%</field>
+            <field name="value">-50</field>
+        </record>
+
+        <record id="op_ans_grd_25n2" model="op.answer.grade">
+            <field name="name">-25%</field>
+            <field name="value">-25</field>
+        </record>
+
+
+        <record id="op_qz_ctg_l" model="op.quiz.category">
+            <field name="name">Category Language</field>
+            <field name="code">CL</field>
+        </record>
+
+
+        <record id="op_qz_l1" model="op.quiz">
+            <field name="name">Language Quiz</field>
+            <field name="categ_id" ref="op_qz_ctg_l"/>
+            <field name="quiz_config">quiz_bank_selected</field>
+            <field name="time_config">True</field>
+            <field name="time_limit_hr">1</field>
+            <field name="time_limit_minute">30</field>
+            <field name="no_of_attempt">1</field>
+            <field name="description">This quiz is based on French language
+            </field>
+            <field name="state">open</field>
+            <field name="quiz_html">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
+                but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in
+                the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with
+                desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </field>
+
+        </record>
+
+        <record id="op_qu_bnk_typ_l" model="op.question.bank.type">
+            <field name="name">language</field>
+        </record>
+
+        <record id="op_qu_bnk_l" model="op.question.bank">
+            <field name="name">French for Middle Schoolers</field>
+            <field name="bank_type_id" ref="op_qu_bnk_typ_l"/>
+        </record>
+
+        <record id="op_c_ql1" model="op.question.bank.line">
+            <field name="name">What is mean of qui in english?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/uc_iTY3b4_I'"/>
+            <field name="document_id">uc_iTY3b4_I</field>
+            <field name="bank_id" ref="op_qu_bnk_l"/>
+        </record>
+
+        <record id="op_c_ql1_a01" model="op.question.bank.answer">
+            <field name="name">who</field>
+            <field name="grade_id" ref="op_ans_grd_100p2"/>
+            <field name="question_id" ref="op_c_ql1"/>
+        </record>
+
+        <record id="op_c_ql1_a02" model="op.question.bank.answer">
+            <field name="name">what</field>
+            <field name="grade_id" ref="op_ans_grd_02"/>
+            <field name="question_id" ref="op_c_ql1"/>
+        </record>
+
+        <record id="op_c_ql1_a03" model="op.question.bank.answer">
+            <field name="name">when</field>
+            <field name="grade_id" ref="op_ans_grd_02"/>
+            <field name="question_id" ref="op_c_ql1"/>
+        </record>
+
+        <record id="op_c_ql1_a04" model="op.question.bank.answer">
+            <field name="name">where</field>
+            <field name="grade_id" ref="op_ans_grd_02"/>
+            <field name="question_id" ref="op_c_ql1"/>
+        </record>
+
+
+        <record id="op_qz_ln_l1" model="op.quiz.line">
+            <field name="name">What is mean of qui in english?</field>
+            <field name="mark" type="float">1.0</field>
+              <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/uc_iTY3b4_I'"/>
+            <field name="document_id">uc_iTY3b4_I</field>
+            <field name="quiz_id" ref="op_qz_l1"/>
+            <field name="que_id" ref="op_c_ql1"/>
+        </record>
+
+        <record id="op_qz_ln_l1_c_ql1_am1" model="op.quiz.answer">
+            <field name="name">who</field>
+            <field name="grade_id" ref="op_ans_grd_100p2"/>
+            <field name="line_id" ref="op_qz_ln_l1"/>
+        </record>
+
+        <record id="op_qz_ln_l1_c_ql1_am2" model="op.quiz.answer">
+            <field name="name">what</field>
+            <field name="grade_id" ref="op_ans_grd_02"/>
+            <field name="line_id" ref="op_qz_ln_l1"/>
+        </record>
+
+        <record id="op_qz_ln_l1_c_ql1_am3" model="op.quiz.answer">
+            <field name="name">when</field>
+            <field name="grade_id" ref="op_ans_grd_02"/>
+            <field name="line_id" ref="op_qz_ln_l1"/>
+        </record>
+
+        <record id="op_qz_ln_l1_c_ql1_am4" model="op.quiz.answer">
+            <field name="name">where</field>
+            <field name="grade_id" ref="op_ans_grd_02"/>
+            <field name="line_id" ref="op_qz_ln_l1"/>
+        </record>
+
+        <record id="op_c_ql2" model="op.question.bank.line">
+            <field name="name">What is mean of how much in french ?</field>
+            <field name="mark" type="float">1.0</field>
+             <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/0M8hzQvvp1o'"/>
+            <field name="document_id">0M8hzQvvp1o</field>
+            <field name="bank_id" ref="op_qu_bnk_l"/>
+        </record>
+
+        <record id="op_c_ql2_a01" model="op.question.bank.answer">
+            <field name="name">pourquoi</field>
+            <field name="grade_id" ref="op_ans_grd_02"/>
+            <field name="question_id" ref="op_c_ql2"/>
+        </record>
+
+        <record id="op_c_ql2_a02" model="op.question.bank.answer">
+            <field name="name">quand</field>
+            <field name="grade_id" ref="op_ans_grd_02"/>
+            <field name="question_id" ref="op_c_ql2"/>
+        </record>
+
+        <record id="op_c_ql2_a03" model="op.question.bank.answer">
+            <field name="name">comment</field>
+            <field name="grade_id" ref="op_ans_grd_02"/>
+            <field name="question_id" ref="op_c_ql2"/>
+        </record>
+
+        <record id="op_c_ql2_a04" model="op.question.bank.answer">
+            <field name="name">combien</field>
+            <field name="grade_id" ref="op_ans_grd_100p2"/>
+            <field name="question_id" ref="op_c_ql2"/>
+        </record>
+
+
+        <record id="op_qz_ln_l2" model="op.quiz.line">
+            <field name="name">What is mean of how much in french ?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/0M8hzQvvp1o'"/>
+            <field name="document_id">0M8hzQvvp1o</field>
+            <field name="quiz_id" ref="op_qz_l1"/>
+            <field name="que_id" ref="op_c_ql2"/>
+        </record>
+
+        <record id="op_qz_ln_l2_c_ql2_am1" model="op.quiz.answer">
+            <field name="name">pourquoi</field>
+            <field name="grade_id" ref="op_ans_grd_02"/>
+            <field name="line_id" ref="op_qz_ln_l2"/>
+        </record>
+
+        <record id="op_qz_ln_l2_c_ql2_am2" model="op.quiz.answer">
+            <field name="name">quand</field>
+            <field name="grade_id" ref="op_ans_grd_02"/>
+            <field name="line_id" ref="op_qz_ln_l2"/>
+        </record>
+
+        <record id="op_qz_ln_l2_c_ql2_am3" model="op.quiz.answer">
+            <field name="name">comment</field>
+            <field name="grade_id" ref="op_ans_grd_02"/>
+            <field name="line_id" ref="op_qz_ln_l2"/>
+        </record>
+
+        <record id="op_qz_ln_l2_c_ql2_am4" model="op.quiz.answer">
+            <field name="name">combien</field>
+            <field name="grade_id" ref="op_ans_grd_100p2"/>
+            <field name="line_id" ref="op_qz_ln_l2"/>
+        </record>
+
+
+        <record id="op_c_ql3" model="op.question.bank.line">
+            <field name="name">How are you? change in french.</field>
+            <field name="mark" type="float">1.0</field>
+             <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/0M8hzQvvp1o'"/>
+            <field name="document_id">0M8hzQvvp1o</field>
+            <field name="bank_id" ref="op_qu_bnk_l"/>
+        </record>
+
+        <record id="op_c_ql3_a01" model="op.question.bank.answer">
+            <field name="name">Quand partent-ils?</field>
+            <field name="grade_id" ref="op_ans_grd_02"/>
+            <field name="question_id" ref="op_c_ql3"/>
+        </record>
+
+        <record id="op_c_ql3_a02" model="op.question.bank.answer">
+            <field name="name">Pourquoi ont-ils des rayures ?</field>
+            <field name="grade_id" ref="op_ans_grd_02"/>
+            <field name="question_id" ref="op_c_ql3"/>
+        </record>
+
+        <record id="op_c_ql3_a03" model="op.question.bank.answer">
+            <field name="name">Comment vas-tu ?</field>
+            <field name="grade_id" ref="op_ans_grd_100p2"/>
+            <field name="question_id" ref="op_c_ql3"/>
+        </record>
+
+        <record id="op_c_ql3_a04" model="op.question.bank.answer">
+            <field name="name">Qu'écoutes-tu à la radio ?</field>
+            <field name="grade_id" ref="op_ans_grd_02"/>
+            <field name="question_id" ref="op_c_ql3"/>
+        </record>
+
+
+        <record id="op_qz_ln_l3" model="op.quiz.line">
+            <field name="name">How are you? change in french.</field>
+            <field name="mark" type="float">1.0</field>
+             <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/0M8hzQvvp1o'"/>
+            <field name="document_id">0M8hzQvvp1o</field>
+            <field name="quiz_id" ref="op_qz_l1"/>
+            <field name="que_id" ref="op_c_ql3"/>
+        </record>
+
+        <record id="op_qz_ln_l1_c_ql3_am1" model="op.quiz.answer">
+            <field name="name">Quand partent-ils?</field>
+
+            <field name="grade_id" ref="op_ans_grd_02"/>
+            <field name="line_id" ref="op_qz_ln_l3"/>
+        </record>
+
+        <record id="op_qz_ln_l1_c_ql3_am2" model="op.quiz.answer">
+            <field name="name">Pourquoi ont-ils des rayures ?</field>
+            <field name="grade_id" ref="op_ans_grd_02"/>
+            <field name="line_id" ref="op_qz_ln_l3"/>
+        </record>
+
+        <record id="op_qz_ln_l1_c_ql3_am3" model="op.quiz.answer">
+            <field name="name">Comment vas-tu ?</field>
+            <field name="grade_id" ref="op_ans_grd_100p2"/>
+            <field name="line_id" ref="op_qz_ln_l3"/>
+        </record>
+
+        <record id="op_qz_ln_l1_c_ql3_am4" model="op.quiz.answer">
+            <field name="name">Qu'écoutes-tu à la radio ?</field>
+            <field name="grade_id" ref="op_ans_grd_02"/>
+            <field name="line_id" ref="op_qz_ln_l3"/>
+        </record>
+
+        <record id="op_c_ql4" model="op.question.bank.line">
+            <field name="name">Que veut-il ? change in english.</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_l"/>
+        </record>
+
+        <record id="op_c_ql4_a01" model="op.question.bank.answer">
+            <field name="name">What does he want?</field>
+            <field name="grade_id" ref="op_ans_grd_100p2"/>
+            <field name="question_id" ref="op_c_ql4"/>
+        </record>
+
+        <record id="op_c_ql4_a02" model="op.question.bank.answer">
+            <field name="name">When are they leaving?</field>
+            <field name="grade_id" ref="op_ans_grd_02"/>
+            <field name="question_id" ref="op_c_ql4"/>
+        </record>
+
+        <record id="op_c_ql4_a03" model="op.question.bank.answer">
+            <field name="name">Who is it?</field>
+            <field name="grade_id" ref="op_ans_grd_02"/>
+            <field name="question_id" ref="op_c_ql4"/>
+        </record>
+
+        <record id="op_c_ql4_a04" model="op.question.bank.answer">
+            <field name="name">How are you?</field>
+            <field name="grade_id" ref="op_ans_grd_02"/>
+            <field name="question_id" ref="op_c_ql4"/>
+        </record>
+
+
+        <record id="op_qz_ln_l4" model="op.quiz.line">
+            <field name="name">Que veut-il ? change in english.</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="quiz_id" ref="op_qz_l1"/>
+            <field name="que_id" ref="op_c_ql4"/>
+        </record>
+
+        <record id="op_qz_ln_l1_c_ql4_am1" model="op.quiz.answer">
+            <field name="name">What does he want?</field>
+            <field name="grade_id" ref="op_ans_grd_100p2"/>
+            <field name="line_id" ref="op_qz_ln_l4"/>
+        </record>
+
+        <record id="op_qz_ln_l1_c_ql4_am2" model="op.quiz.answer">
+            <field name="name">When are they leaving?</field>
+            <field name="grade_id" ref="op_ans_grd_02"/>
+            <field name="line_id" ref="op_qz_ln_l4"/>
+        </record>
+
+        <record id="op_qz_ln_l1_c_ql4_am3" model="op.quiz.answer">
+            <field name="name">Who is it?</field>
+            <field name="grade_id" ref="op_ans_grd_02"/>
+            <field name="line_id" ref="op_qz_ln_l4"/>
+        </record>
+
+        <record id="op_qz_ln_l1_c_ql4_am4" model="op.quiz.answer">
+            <field name="name">How are you?</field>
+            <field name="grade_id" ref="op_ans_grd_02"/>
+            <field name="line_id" ref="op_qz_ln_l4"/>
+        </record>
+
+        <record id="op_c_ql5" model="op.question.bank.line">
+            <field name="name">What's your name? change in french.</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_l"/>
+        </record>
+
+        <record id="op_c_ql5_a01" model="op.question.bank.answer">
+            <field name="name">Comment ça va ?</field>
+            <field name="grade_id" ref="op_ans_grd_02"/>
+            <field name="question_id" ref="op_c_ql5"/>
+        </record>
+
+        <record id="op_c_ql5_a02" model="op.question.bank.answer">
+            <field name="name">Bien, merci. Et vous?</field>
+            <field name="grade_id" ref="op_ans_grd_02"/>
+            <field name="question_id" ref="op_c_ql5"/>
+        </record>
+
+        <record id="op_c_ql5_a03" model="op.question.bank.answer">
+            <field name="name">Je vais bien, et vous ?</field>
+            <field name="grade_id" ref="op_ans_grd_02"/>
+            <field name="question_id" ref="op_c_ql5"/>
+        </record>
+
+        <record id="op_c_ql5_a04" model="op.question.bank.answer">
+            <field name="name">Comment vous appelez-vous ?</field>
+            <field name="grade_id" ref="op_ans_grd_100p2"/>
+            <field name="question_id" ref="op_c_ql5"/>
+        </record>
+
+
+        <record id="op_qz_ln_l5" model="op.quiz.line">
+            <field name="name">What's your name? change in french.</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="quiz_id" ref="op_qz_l1"/>
+            <field name="que_id" ref="op_c_ql5"/>
+        </record>
+
+        <record id="op_qz_ln_l1_c_ql5_am1" model="op.quiz.answer">
+            <field name="name">Comment ça va ?</field>
+            <field name="grade_id" ref="op_ans_grd_02"/>
+            <field name="line_id" ref="op_qz_ln_l5"/>
+        </record>
+
+        <record id="op_qz_ln_l1_c_ql5_am2" model="op.quiz.answer">
+            <field name="name">Bien, merci. Et vous?</field>
+            <field name="grade_id" ref="op_ans_grd_02"/>
+            <field name="line_id" ref="op_qz_ln_l5"/>
+        </record>
+
+        <record id="op_qz_ln_l1_c_ql5_am3" model="op.quiz.answer">
+            <field name="name">Je vais bien, et vous ?</field>
+            <field name="grade_id" ref="op_ans_grd_02"/>
+            <field name="line_id" ref="op_qz_ln_l5"/>
+        </record>
+
+        <record id="op_qz_ln_l1_c_ql5_am4" model="op.quiz.answer">
+            <field name="name">Comment vous appelez-vous ?</field>
+            <field name="grade_id" ref="op_ans_grd_100p2"/>
+            <field name="line_id" ref="op_qz_ln_l5"/>
+        </record>
+
+
+</odoo>

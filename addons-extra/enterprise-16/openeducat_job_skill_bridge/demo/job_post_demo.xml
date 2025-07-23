@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="openeducat_job_enterprise.job_post_demo1" model="op.job.post">
+        <field name="skill_ids" eval="[(6,0,[ref('openeducat_skill_enterprise.skill_demo1'),ref('openeducat_skill_enterprise.skill_demo2')])]"/>
+    </record>
+
+    <record id="openeducat_job_enterprise.job_post_demo2" model="op.job.post">
+        <field name="skill_ids" eval="[(6,0,[ref('openeducat_skill_enterprise.skill_demo2'),ref('openeducat_skill_enterprise.skill_demo1')])]"/>
+    </record>
+</odoo>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+
+        <record id="view_op_student_progress_marksheet_line_form_inherite" model="ir.ui.view">
+            <field name="name">Student Progression Marksheet Line Form</field>
+            <field name="model">op.student.progression</field>
+            <field name="inherit_id" ref="openeducat_student_progress_enterprise.view_student_progress_form"/>
+            <field name="priority" eval="60"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page name="Marksheet" string="Marksheet Lines">
+                        <button name="%(act_win_progress_marksheet_line_wizard_action)d" type="action"
+                                string="Get Marksheet Lines"
+                                class="oe_highlight"
+                                attrs="{'invisible':[('state','!=','open'),('state','!=','draft')]}"/>
+                        <group>
+                            <group class="pt-4 pb-4">
+                                <field name="total_marksheet_line"/>
+                            </group>
+                        </group>
+                        <field name="marksheet_lines"
+                               attrs="{'readonly':[('state','!=','open'),('state','!=','draft')]}">
+                            <tree editable="bottom">
+                                <field name="total_marks"/>
+                                <field name="percentage"/>
+                                <field name="grade"/>
+                                <field name="status"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_op_student_progress_marksheet_line_tree_inherite" model="ir.ui.view">
+            <field name="name">Student Progression Marksheet Line Tree</field>
+            <field name="model">op.student.progression</field>
+            <field name="inherit_id" ref="openeducat_student_progress_enterprise.view_student_progress_tree"/>
+            <field name="priority" eval="10"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='student_id']" position="after">
+                    <field name="marksheet_lines" string="Marksheet Lines"/>
+                    <field name="total_marksheet_line" optional="hide"/>
+                </xpath>
+            </field>
+        </record>
+
+</odoo>

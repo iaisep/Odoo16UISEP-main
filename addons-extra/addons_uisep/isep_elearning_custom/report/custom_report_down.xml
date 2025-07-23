@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="action_report_down_student_id">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.basic_layout">
+                    <style>
+                        .page {                            
+                            position: relative;
+                            width: 21.59cm;
+                            height: 32.5cm;
+                            background-image: url('/isep_elearning_custom/static/src/img_report/image_fond.png');
+                            background-size: cover; 
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            overflow: hidden; 
+                            page-break-after: never;
+                            top: 0px;
+                            left: 0px;
+                        }
+                        .content {
+                            position: absolute;
+                            top: 180px;
+                            left: 30px;
+                            width: 90%;
+                            height:  calc(100% - 180px);
+                            padding: 0;
+                            margin: 0;
+                        }
+                        .row {
+                            margin-bottom: 20px;
+                        }
+                        .col-xs-12 {
+                            width: 100%;
+                        }
+                        .celd_icon {
+                            width: 10%;
+                        }
+                        .icon_slec {
+                            width: 100%;
+                        }
+                        .celd_icon{
+                            height: 25px;
+                            border-right: black 1px solid;    
+                            border-left: black 1px solid;  
+                            vertical-align:middle;            
+                        }
+                    </style>
+                    <div class="page">
+                        <div class="content">
+
+                        <div class="row">
+                            <div style="text-align: right;">    
+                                Culiacán, Sinaloa, México a 
+                                <t t-set="meses" t-value="[
+                                    'Enero', 'Febrero', 'Marzo', 'Abril', 
+                                    'Mayo', 'Junio', 'Julio', 'Agosto', 
+                                    'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+                                ]"/>
+                                <t t-set="mes_numero"  t-value="int(time.strftime('%m'))"/>
+                                <t t-set="mes_nombre" t-value="meses[mes_numero - 1]"/>
+                                <span t-esc="time.strftime('%d')"/> de 
+                                <span t-esc="mes_nombre"/> de 
+                                <span t-esc="time.strftime('%Y')"/>
+                            </div>
+                        </div>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <p>Estimad@ <span t-field="o.partner_id.name"/></p>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <p>Le confirmamos que hemos procesado la baja/cancelación de su matrícula de en el programa de formación de <span t-field="o.course_id.name"/>. Lamentamos sinceramente que su experiencia no haya sido la mejor y comprendemos que esta decisión es un paso importante para usted. Le deseamos mucho éxito en sus futuros proyectos y le extendemos nuestras mejores recomendaciones para sus próximos desafíos académicos y profesionales.
+                                </p>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <p>Por favor, tenga en cuenta que este proceso es confidencial y se le solicita que no comparta ninguna de las informaciones sobre el proceso con personas ajenas a la universidad.
+                                </p>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <p>La universidad se reserva el derecho de tomar otras medidas en caso de compartir
+ dicha información.
+                                </p>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <p>Si en el futuro decide retomar su formación con nosotros o si tiene alguna duda, no
+ dude en ponerse en contacto con nuestro departamento.
+                                </p>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <p>Agradecemos su tiempo y le deseamos lo mejor en todas sus iniciativas.
+                                </p>
+                            </div>
+                        </div>
+                         <br/>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <p>Atentamente
+                                </p>
+                            </div>
+                        </div>
+                        <div style="position: relative; bottom: 30px; left: 0; width: 100%; text-align: center;">
+                            <img src="/isep_elearning_custom/static/src/img_report/firm_secre.png" alt="Firma" style="max-width: 200px; display: block; margin: 0 auto;"/>
+                        </div>
+                        <div style="position: absolute; bottom: 120px; left: 540px; width: 100%;">
+                            <img src="/isep_elearning_custom/static/src/img_report/sello.png" style="max-width: 100px;"/>
+                        </div>
+                        <div  style="position: relative; bottom: 50px; left: 0; width: 100%; text-align: center;">
+                        ______________________________________
+                        </div>                        
+                        <div style="position: relative; bottom: 40px; left: 220px; width: 40%; text-align: center;">
+                        DEPARTAMENTO DE SECRETARIA
+                        </div >
+                         <div style="position: relative; bottom: 40px; left: 295px; width: 20%; text-align: center;">
+                        ACADÉMICA
+                        </div >
+                        <div style="position: relative; bottom: 40px; left: 240px; width: 35%; text-align: center;">
+                        UNIVERSIDAD ISEP
+                        </div >
+                        
+                        </div>
+                    </div>                   
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

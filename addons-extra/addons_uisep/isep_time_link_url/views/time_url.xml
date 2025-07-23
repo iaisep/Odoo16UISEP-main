@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="time_url_teams" name="team: url" inherit_id="openeducat_timetable_enterprise.openeducat_timetable_portal">
+            <xpath expr="//script[@id='editor']/div[1]/p[5]" position="inside">
+                 <p>
+                     Clase: <a data-bind="attr: {href: time_url_metting, text: time_url_metting}">Acceso en vivo</a>                   
+                </p>
+                <p>
+                     Clase: <a data-bind="attr: {href: time_url_recoding, text: time_url_recoding}">Acceso a Grabacion</a>                   
+                </p>
+            </xpath>
+        </template>
+    </data>
+</odoo>

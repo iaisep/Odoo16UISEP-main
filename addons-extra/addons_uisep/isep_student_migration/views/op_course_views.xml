@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="custom_op_subject_form_inherit" model="ir.ui.view">
+        <field name="name">custom.op.subject.form.inherit</field>
+        <field name="model">op.course</field>
+        <field name="inherit_id" ref="isep_elearning_custom.custom_op_subject_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='lang']" position="after">
+                <field name="sepyc_program" widget="boolean_toggle"/>
+                <field name="course_type_id"/>
+                <field name="area_id"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

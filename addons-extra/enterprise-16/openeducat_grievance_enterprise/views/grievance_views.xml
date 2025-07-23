@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="sequence_grievance_id" model="ir.sequence">
+            <field name="name">Grievance Sequence</field>
+            <field name="code">grievance.sequence</field>
+            <field name="active">TRUE</field>
+            <field name="prefix">GRI</field>
+            <field name="padding">4</field>
+            <field name="number_increment">1</field>
+        </record>
+        <record id="grievance_list_view" model="ir.ui.view">
+            <field name="name">Grievance List View</field>
+            <field name="model">grievance</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="subject"/>
+                    <field name="created_date" widget="date"/>
+                    <field name="description" optional="hide"/>
+                    <field name="grievance_for"/>
+                    <field name="student_id"/>
+                    <field name="faculty_id"/>
+                    <field name="parent_id"/>
+                    <field name="course_id" optional="hide"/>
+                    <field name="state"/>
+                    <field name="batch_id" optional="hide"/>
+                    <field name="academic_year_id" optional="hide"/>
+                    <field name="academic_term_id" optional="hide"/>
+                    <field name="grievance_category_id"/>
+                    <field name="grievance_team_id" optional="hide"/>
+                </tree>
+            </field>
+        </record>
+        <record id="grievance_form_view" model="ir.ui.view">
+            <field name="name">Grievance Form View</field>
+            <field name="model">grievance</field>
+            <field name="arch" type="xml">
+                <form string="Grievance Tree">
+                    <header>
+                        <button string="In Review" type="object" name="inreview_progressbar"
+                                attrs="{'invisible' : [('state', '!=', 'submitted')]}"
+                                groups="openeducat_core.group_op_back_office_admin"/>
+                        <button string="Submit" type="object" name="submitted_progressbar"
+                                attrs="{'invisible' : [('state', '!=', 'draft')]}"
+                                groups="openeducat_core.group_op_back_office_admin"/>
+                        <button string="Cancel" type="object" name="cancel_progressbar"
+                                attrs="{'invisible' : [('state', '!=', 'draft')]}"
+                                groups="openeducat_core.group_op_back_office_admin"/>
+                        <button string="Reject" type="object" name="reject_progressbar"
+                                attrs="{'invisible' : [('state', '!=', 'in_review')]}"
+                                groups="openeducat_core.group_op_back_office_admin"/>
+                        <button string="Close" type="object" name="close_progressbar"
+                                attrs="{'invisible' : [('state', '!=', 'resolve')]}"
+                                groups="openeducat_core.group_op_back_office_admin"/>
+                        <button string="Resolve" type="object" name="resolve_progressbar"
+                                attrs="{'invisible' : [('state', '!=', 'action')]}"
+                                groups="openeducat_core.group_op_back_office_admin"/>
+                        <button string="Send mail" type="object" name="send_mail" class="btn-primary"
+                                attrs="{'invisible' : [('state', '!=', 'submitted')]}"
+                                groups="openeducat_core.group_op_back_office_admin"/>
+                        <button string="Take Action" type="action"
+                                name="%(openeducat_grievance_enterprise.action_wizard_action_taken)d"
+                                class="btn-primary"
+                                attrs="{'invisible' : ['|', '|', ('state', '=', 'close'), ('state', '=', 'reject'),
+                                ('state', '!=', 'in_review')]}"
+                                groups="openeducat_core.group_op_back_office_admin"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h2>
+                                <field name="name" readonly="1"/>
+                            </h2>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="grievance_for"
+                                       attrs="{'readonly' : [('state', 'in', ['close','cancel','reject'])]}"/>
+                                <field name="is_academic" invisible="1"/>
+                                <field name="is_satisfied" invisible="1"/>
+                                <field name="is_appeal" invisible="1"/>
+                                <field name="subject"
+                                       attrs="{'readonly' : [('state', 'in', ['close','cancel','reject'])]}"/>
+                            </group>
+                            <group>
+                                <field name="parent_id"
+                                       attrs="{'invisible' : [('grievance_for', '!=', 'parent')],
+                                        'required' : [('grievance_for', '=', 'parent')],
+                                        'readonly' : [('state', 'in', ['close','cancel','reject'])]}"/>
+                                <field name="student_id"
+                                       attrs="{'invisible' : [('grievance_for', '=', 'faculty')],
+                                        'required' : [('grievance_for', '!=', 'faculty')],
+                                         'readonly' : [('state', 'in', ['close','cancel','reject'])]}"/>
+                                <field name="faculty_id"
+                                       attrs="{'invisible' : [('grievance_for', '!=', 'faculty')],
+                                        'required' : [('grievance_for', '=', 'faculty')],
+                                         'readonly' : [('state', 'in', ['close','cancel','reject'])]}"/>
+                            </group>
+                            <group class="mt32">
+                                <field name="grievance_parent_id"
+                                       attrs="{'readonly' : [('state', 'in', ['close','cancel','reject'])],
+                                       'invisible' : [('is_appeal', '!=', True)]}"
+                                       options="{'no_create': True}"/>
+                                <field name="created_date" readonly="1" widget="date"/>
+                                <field name="attachment_ids" invisible="1"/>
+                            </group>
+                            <group class="mt32">
+                                <field name="grievance_category_id"
+                                       attrs="{'readonly' : [('state', 'in', ['close','cancel','reject'])]}"/>
+                                <field name="grievance_team_id"
+                                       attrs="{'readonly' : [('state', 'in', ['close','cancel','reject'])]}"/>
+                            </group>
+
+                            <group class="mt32">
+                                <field name="course_id"
+                                       attrs="{'readonly' : [('state', 'in', ['close','cancel','reject'])],
+                                        'invisible' : [('is_academic', '=', False)],
+                                         'required' : [('is_academic', '=', True)]}"/>
+                                <field name="batch_id"
+                                       attrs="{'readonly' : [('state', 'in', ['close','cancel','reject'])],
+                                        'invisible' : [('is_academic', '=', False)],
+                                         'required' : [('is_academic', '=', True)]}"/>
+                            </group>
+                            <group class="mt32">
+                                <field name="academic_year_id"
+                                       attrs="{'readonly' : [('state', 'in', ['close','cancel','reject'])],
+                                        'invisible' : [('is_academic', '=', False)],
+                                         'required' : [('is_academic', '=', True)]}"/>
+                                <field name="academic_term_id"
+                                       attrs="{'readonly' : [('state', 'in', ['close','cancel','reject'])],
+                                        'invisible' : [('is_academic', '=', False)],
+                                         'required' : [('is_academic', '=', True)]}"/>
+                            </group>
+
+                            <label class="fw-bold" for="description" string="Description"/>
+                            <field name="description"
+                                   attrs="{'readonly' : [('state', 'in', ['close','cancel','reject'])]}"/>
+                        </group>
+                        <notebook
+                                attrs="{'invisible' : [('state', 'in', ['submitted','draft','cancel','in_review','reject'])]}">
+                            <page name="Resolution" string="Resolution">
+                                <label class="fw-bold" for="description" string="Action Taken"/>
+                                <field name="action_taken"/>
+                                <label class="fw-bold" for="description" string="Root Cause"/>
+                                <field name="root_cause_id"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="grievance_search_view" model="ir.ui.view">
+            <field name="name">Grievance Search View</field>
+            <field name="model">grievance</field>
+            <field name="arch" type="xml">
+                <search string="Grievance Search">
+                    <field name="subject"/>
+                    <field name="student_id"/>
+                    <field name="faculty_id"/>
+                    <field name="parent_id"/>
+                    <group>
+                        <filter string="Academic" domain="[('is_academic' , '=' , True)]" name="is_academic"/>
+                        <filter string="Non-Academic" domain="[('is_academic' , '=' , False)]" name="is_academic"/>
+                        <filter string="In Review" domain="[('state' , '=' , 'in_review')]" name="state"/>
+                        <filter string="Close" domain="[('state' , '=' , 'close')]" name="state"/>
+                        <filter string="Cancel" domain="[('state' , '=' , 'cancel')]" name="state"/>
+                        <filter string="Appeal" domain="[('is_appeal' , '=' , 'True')]" name="is_appeal"/>
+                        <filter string="In Action" domain="[('state' , '=' , 'action')]" name="is_appeal"/>
+                        <filter string="Group by Date" name="created_date"
+                                context="{'group_by' : 'created_date'}"/>
+
+                    </group>
+                </search>
+            </field>
+        </record>
+        <record id="grievance_pivot_view" model="ir.ui.view">
+            <field name="name">Grievance Pivot View</field>
+            <field name="model">grievance</field>
+            <field name="arch" type="xml">
+                <pivot string="Grievance Pivot" sample="1">
+                    <field name="grievance_category_id" type="row"/>
+                    <field name="subject" type="row"/>
+                    <field name="grievance_for" type="row"/>
+                    <field name="state" type="row"/>
+                </pivot>
+            </field>
+        </record>
+        <record id="gms_grievance_kanban_view" model="ir.ui.view">
+            <field name="name">gms.lead.kanban.lead</field>
+            <field name="model">grievance</field>
+            <field name="priority" eval="1"/>
+            <field name="arch" type="xml">
+                <kanban default_group_by="state" class="o_kanban_small_column o_opportunity_kanban"
+                        on_create="quick_create" archivable="false" sample="1">
+                    <field name="state"/>
+                    <field name="subject"/>
+                    <field name="color"/>
+                    <field name="action_taken"/>
+                    <field name="root_cause_id"/>
+                    <field name="grievance_for"/>
+                    <field name="student_id"/>
+                    <field name="faculty_id"/>
+                    <field name="parent_id"/>
+                    <field name="is_academic"/>
+                    <field name="grievance_team_id"/>
+                    <field name="activity_state"/>
+                    <field name="grievance_category_id"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="#{!selection_mode ? kanban_color(record.color.raw_value) : ''} oe_kanban_global_click">
+                                <div class="o_dropdown_kanban dropdown">
+                                    <a class="dropdown-toggle o-no-caret btn" role="button" data-toggle="dropdown"
+                                       data-display="static" href="#" aria-label="Dropdown menu" title="Dropdown menu">
+                                        <span class="fa fa-ellipsis-v"/>
+                                    </a>
+                                    <div class="dropdown-menu" role="menu">
+                                        <t t-if="widget.editable">
+                                            <a role="menuitem" type="edit" class="dropdown-item">Edit</a>
+                                        </t>
+                                        <t t-if="widget.deletable">
+                                            <a role="menuitem" type="delete" class="dropdown-item">Delete</a>
+                                        </t>
+                                        <ul class="oe_kanban_colorpicker" data-field="color"/>
+                                    </div>
+                                </div>
+                                <div class="oe_kanban_content">
+                                    <div class="o_kanban_record_title">
+                                        <strong>
+                                            <t t-if="record.is_academic.raw_value">
+                                                <span>
+                                                    <u>Academic</u>
+                                                </span>
+                                            </t>
+                                            <t t-else="">
+                                                <span>
+                                                    <u>Non-Academic</u>
+                                                </span>
+                                            </t>
+                                        </strong>
+                                        <br/>
+                                        <strong>
+                                            <span>Subject:</span>
+                                        </strong>
+                                        <field name="subject"/>
+                                        <div class="o_kanban_record_subtitle">
+                                            <strong>
+                                                <span>Grievance By:</span>
+                                            </strong>
+                                            <field name="grievance_for"/>
+                                            <br/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="o_kanban_record_bottom pt-5">
+                                    <div class="oe_kanban_bottom_left"/>
+                                    <div class="oe_kanban_bottom_right">
+                                        <t t-if="record.parent_id.raw_value">
+                                            <field name="parent_id"/>
+                                        </t>
+                                        <t t-if="!record.parent_id.raw_value">
+                                            <field name="student_id"/>
+                                        </t>
+                                        <t t-if="record.faculty_id.raw_value">
+                                            <field name="faculty_id"/>
+                                        </t>
+                                    </div>
+                                </div>
+                                <div class="oe_clear"/>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="action_grievance_list" model="ir.actions.act_window">
+            <field name="name">Grievances</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">grievance</field>
+            <field name="view_mode">kanban,tree,form,search,pivot</field>
+        </record>
+
+</odoo>

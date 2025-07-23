@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record model="ir.ui.view" id="alumni_blog_form_view">
+            <field name="name">op.alumni.blog.form</field>
+            <field name="model">op.alumni.group</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="openeducat_alumni_enterprise.alumni_group_form_view"/>
+            <field name="arch" type="xml">
+                <field name="description" position="after">
+                    <separator string="Blog"/>
+                    <field name="blog_post_ids"/>
+                </field>
+            </field>
+        </record>
+
+</odoo>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+
+        <record id="view_op_student_progress_assignment_form_inherite" model="ir.ui.view">
+            <field name="name">Student Progression Assignment Form</field>
+            <field name="model">op.student.progression</field>
+            <field name="inherit_id" ref="openeducat_student_progress_enterprise.view_student_progress_form"/>
+            <field name="priority" eval="30"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page name="Assignment" string="Assignment">
+                        <button name="%(act_win_progress_assignment_wizard_action)d" type="action"
+                                string="Get Assignment"
+                                class="oe_highlight"
+                                attrs="{'invisible':[('state','!=','open'),('state','!=','draft')]}"/>
+                        <group class="pt-4 pb-4">
+                            <group>
+                                <field name="total_assignment"/>
+                            </group>
+                        </group>
+                        <field name="assignment_lines"
+                               attrs="{'readonly':[('state','!=','open'),('state','!=','draft')]}" widget="one2many">
+                                <tree editable="bottom" default_order='submission_date asc'>
+                                <field name="submission_date"/>
+                                <field name="assignment_id"/>
+                                <field name="state"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_op_student_progress_assignment_tree_inherite" model="ir.ui.view">
+            <field name="name">Student Progression Assignment Tree</field>
+            <field name="model">op.student.progression</field>
+            <field name="inherit_id" ref="openeducat_student_progress_enterprise.view_student_progress_tree"/>
+            <field name="priority" eval="40"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='student_id']" position="after">
+                    <field name="assignment_lines" string="Assignment"/>
+                </xpath>
+            </field>
+        </record>
+
+</odoo>

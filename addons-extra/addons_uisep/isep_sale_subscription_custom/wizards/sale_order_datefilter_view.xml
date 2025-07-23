@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data noupdate="0">
+        <record id="view_sale_order_date_filter_wizard_form" model="ir.ui.view">
+            <field name="name">sale.order.date.filter.wizard.form</field>
+            <field name="model">sale.order.date.filter.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Filtrar Órdenes de Venta">
+                    <group>
+                        <field name="date_field"/>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                    </group>
+                    <footer>
+                        <button string="Aplicar filtro" type="object" name="action_apply_filter" class="btn-primary"/>
+                        <button name="action_print_report" string="Imprimir Reporte PDF" type="object" class="btn-secondary"/>
+                        <button name="action_export_excel" string="Exportar Excel" type="object" class="btn-secondary"/>
+                        <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record id="action_sale_order_date_filter_wizard" model="ir.actions.act_window">
+            <field name="name">Filtrar Órdenes de Venta</field>
+            <field name="res_model">sale.order.date.filter.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+        <!-- <record id="menu_saleorder_carter_subscription" model="ir.ui.menu">
+            <field name="name">Cartera</field>
+            <field name="parent_id" ref="sale_subscription.menu_sale_subscription"/>
+            <field name="action" ref="isep_sale_subscription_custom.action_sale_order_date_filter_wizard"/>
+            <field name="sequence">42</field>
+        </record> -->
+
+
+        <record id="view_sale_order_date_filter_wizard_form2" model="ir.ui.view">
+            <field name="name">sale.order.date.filter.wizard.form2</field>
+            <field name="model">sale.order.date.filter.wizard2</field>
+            <field name="arch" type="xml">
+                <form string="Filtrar Órdenes de Venta">
+                    <group>
+                        <group>
+                            <field name="date_field"/>
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                        </group>
+                        <group>
+                            <field name="currency_id" options="{'no_create': True}"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="action_generate_excel" string="Generar excel" type="object" class="btn-secondary"/>
+                        <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                    </footer>
+                    <group>
+                        <field name="file_name" readonly="1" invisible="1"/>
+                        <field name="file_data" filename="file_name" readonly="1"  invisible="1"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+        <record id="action_sale_order_date_filter_wizard2" model="ir.actions.act_window">
+            <field name="name">Imprimir informe cartera</field>
+            <field name="res_model">sale.order.date.filter.wizard2</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+        <record id="menu_saleorder_carter_subscription2" model="ir.ui.menu">
+            <field name="name">Imprimir informe cartera</field>
+            <field name="parent_id" ref="isep_sale_subscription_custom.model_sale_subscription_schedule_menu"/>
+            <field name="action" ref="isep_sale_subscription_custom.action_sale_order_date_filter_wizard2"/>
+            <field name="sequence">4</field>
+        </record>
+    </data>
+
+
+</odoo>

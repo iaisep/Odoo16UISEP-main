@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="lms_dashboard" model="ir.ui.view">
+            <field name="name">lms.dashboard.view.kanban</field>
+            <field name="model">op.course</field>
+            <field name="arch" type="xml">
+                <kanban string="LMS Overview"
+                        class="o_emphasize_colors o_kanban_dashboard o_slide_kanban breadcrumb_item active"
+                        edit="false">
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="#{kanban_color(0)} oe_kanban_global_click">
+                                <div class="o_kanban_card_header">
+                                    <div class="o_kanban_card_header_title mb16">
+                                        <div class="o_primary">
+                                            <a type="edit" class="me-auto">
+                                                <field name="name" class="o_primary"/>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="container o_kanban_card_content mt0">
+                                    <div class="row mb16">
+                                        <div class="col-12 o_kanban_primary_right">
+                                            <div class="d-flex">
+                                                <span class="me-auto mb0">
+                                                   Course To Begin
+                                                </span>
+                                                <field name="course_to_begin"/>
+                                            </div>
+                                            <div class="d-flex">
+                                                <span class="me-auto mb0">
+                                                    Duration
+                                                </span>
+                                                <field name="display_time"/>
+                                            </div>
+
+                                            <div class="d-flex">
+                                                <span class="me-auto mb0">
+                                                   Days Since Launch
+                                                </span>
+                                                <field name="days_since_launch"/>
+                                            </div>
+
+                                            <div class="d-flex">
+                                                <span class="me-auto mb0">
+                                                   Course In Progress
+                                                </span>
+                                                <field name="course_in_progress"/>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="row mt3">
+                                        <div class="col-4 border-right">
+                                            <a name="action_view_material" type="object"
+                                               class="d-flex flex-column align-items-center">
+                                                <span class="fw-bold">
+                                                    <field name="training_material"/>
+                                                </span>
+                                                <span class="text-muted">Material</span>
+                                            </a>
+                                        </div>
+                                        <div class="col-4 border-right">
+                                            <a name="action_view_users" type="object"
+                                               class="d-flex flex-column align-items-center">
+                                                <span class="fw-bold">
+                                                    <field name="enrolled_users"/>
+                                                </span>
+                                                <span class="text-muted">Users</span>
+                                            </a>
+                                        </div>
+                                        <div class="col-4 border-right">
+                                            <a name="action_course_completed" type="object"
+                                               class="d-flex flex-column align-items-center">
+                                                <span class="fw-bold">
+                                                    <field name="course_completed"/>
+                                                </span>
+                                                <span class="text-muted">Completed</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_lms_course_pivot">
+            <field name="name">lms.course.pivot</field>
+            <field name="model">op.course</field>
+            <field name="arch" type="xml">
+                <pivot string="Course">
+                    <field name="name" type="col"/>
+                    <field name="user_id" type="row"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record id="view_lms_course_graph" model="ir.ui.view">
+            <field name="name">lms.course.graph</field>
+            <field name="model">op.course</field>
+            <field name="arch" type="xml">
+                <graph string="LMS course graph" type="bar">
+                    <field name="name" type="row"/>
+                    <field name="user_id" type="col"/>
+                </graph>
+            </field>
+        </record>
+
+        <record id="lms_dashboard_act" model="ir.actions.act_window">
+            <field name="name">LMS Overview</field>
+            <field name="res_model">op.course</field>
+            <field name="binding_view_types">kanban</field>
+            <field name="view_mode">kanban,tree,form,pivot,graph</field>
+            <field name="domain">[('online_course','=',True),('user_id','=',uid)]</field>
+            <field name="context">{'default_online_course':1,'search_default_online_course':1}</field>
+        </record>
+
+        <record id="lms_dashboard_overview_form" model="ir.actions.act_window.view">
+            <field name="sequence" eval="7"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_op_lms_course_form"/>
+            <field name="act_window_id" ref="lms_dashboard_act"/>
+        </record>
+
+        <record id="lms_dashboard_action_overview" model="ir.actions.act_window.view">
+            <field name="sequence" eval="2"/>
+            <field name="view_mode">kanban</field>
+            <field name="view_id" ref="lms_dashboard"/>
+            <field name="act_window_id" ref="lms_dashboard_act"/>
+        </record>
+
+        <record id="lms_course_pivot_action" model="ir.actions.act_window">
+            <field name="name">course</field>
+            <field name="res_model">op.course</field>
+            <field name="view_mode">pivot</field>
+            <field name="view_id" ref="view_lms_course_pivot"/>
+        </record>
+
+        <record id="lms_course_graph_action" model="ir.actions.act_window">
+            <field name="name">course</field>
+            <field name="res_model">op.course</field>
+            <field name="view_mode">graph</field>
+            <field name="view_id" ref="view_lms_course_graph"/>
+        </record>
+
+</odoo>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="poratl_menu_digital_library" model="openeducat.portal.menu">
+        <field name="name">Digital Library</field>
+        <field name="menu_ref_name">Digital Library</field>
+        <field name="link">/my-library</field>
+        <field name="active">True</field>
+        <field name="sequence" type="int">90</field>
+        <field name="background_color">#304cd5</field>
+        <field name="icon_image" type="base64"
+               file="openeducat_digital_library/static/img/digital_library.png"/>
+    </record>
+</odoo>

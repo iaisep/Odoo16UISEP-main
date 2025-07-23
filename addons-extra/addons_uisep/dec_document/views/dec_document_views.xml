@@ -1,0 +1,181 @@
+<odoo>
+    <record id="dec_document_view_search" model="ir.ui.view">
+        <field name="name">dec.document.search</field>
+        <field name="model">dec.document</field>
+        <field name="arch" type="xml">
+            <search string="DEC Documents">
+                <field name="folio_control" string="Certificado" filter_domain="['|','|', ('folio_control', 'ilike', self), ('alumno_nombre', 'ilike', self),('curp_alumno','ilike',self)]"/>
+                <separator/>
+                <filter name="tobe_sealed" string="Para Sellar" domain="[('estado','=','borrador')]" help="Para Timbrar"/>
+                <filter name="sealed" string="Sellados" domain="[('estado','=','sellado')]" help="Timbrados"/>
+                <separator/>
+                <separator/>
+                <group expand="0" string="Group By">
+                    <filter string="Estado" name="state" domain="[]" context="{'group_by':'estado'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+
+
+
+
+
+     <record id="dec_document_view_tree" model="ir.ui.view">
+        <field name="name">dec.document.tree</field>
+        <field name="model">dec.document</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="folio_control"/>
+                <field name="curp_alumno"/>
+                <field name="alumno_nombre"/>
+                <field name="estado"/>
+                <field name="xml_file" invisible="1"/>
+                <button name="action_sign" type="object" string="Sellar y Generar XML" class="oe_highlight" attrs="{'invisible': [('estado','=','sellado')]}"/>
+                <button name="action_download_xml" type="object" string="Descargar XML" class="oe_highlight" attrs="{'invisible': [('xml_file','=',False)]}"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="dec_document_view_form" model="ir.ui.view">
+        <field name="name">dec.document.form</field>
+        <field name="model">dec.document</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_sign" string="Sellar y Generar XML" type="object" class="oe_highlight" attrs="{'invisible': [('estado','=','sellado')]}"/>
+                    <field name="estado" widget="statusbar" options="{'clickable': '1'}"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group string="Información del Certificado">
+                            <field name="tipo_certificado" readonly="1"/>
+                            <field name="folio_control"/>
+                        </group>
+                        <group string="Información de la Institución">
+                            <field name="ides_ipes"/>
+                            <field name="state_id"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Información del Responsable">
+                            <field name="responsable_id" readonly="1"/>
+                            <field name="id_cargo" readonly="1"/>
+                            <field name="fecha_emision" readonly="1"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Información del RVOE">
+                            <field name="rvoe" readonly="1"/>
+                            <field name="fecha_rvoe" readonly="1"/>
+                        </group>
+                        <group/>
+                    </group>
+                    <group>
+                        <group string="Información del Alumno">
+                            <field name="numero_control" readonly="1"/>
+                            <field name="curp_alumno" readonly="1"/>
+                            <field name="alumno_nombre" readonly="1"/>
+                            <field name="primer_apellido" readonly="1"/>
+                            <field name="segundo_apellido" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="id_genero"/>
+                            <field name="fecha_nacimiento"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Información de la Carrera">
+                            <field name="programa_estudio" readonly="1"/>
+                            <field name="programa_estudio_tipo" readonly="1"/>
+                            <field name="clave_plan" readonly="1"/>
+                            <field name="nivel_estudios"/>
+                        </group>
+                        <group>
+                            <field name="calificacion_minima" readonly="1"/>
+                            <field name="calificacion_maxima" readonly="1"/>
+                            <field name="calificacion_minima_aprobatoria" readonly="1"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Información de Certificación">
+                            <field name="id_tipo_certificacion"/>
+                            <field name="fecha_expedicion"/>
+                        </group>
+                        <group>
+                            <field name="total" readonly="1"/>
+                            <field name="asignadas" readonly="1"/>
+                            <field name="promedio"/>
+                            <field name="total_creditos"/>
+                            <field name="creditos_obtenidos"/>
+                            <field name="numero_ciclos"/>
+                        </group>
+                    </group>
+
+
+                    <notebook>
+                        <page string="Asignaturas">
+                            <field name="asignaturas_line">
+                                <tree editable="bottom">
+                                    <field name="clave_asignatura"/>
+                                    <field name="calificacion"/>
+                                    <field name="creditos"/>
+                                    <field name="ciclo"/>
+                                    <field name="id_tipo_asignatura"/>
+                                    <field name="id_observaciones"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="XML">
+                            <group>
+                                <field name="xml_filename" invisible="1"/>
+                                <field name="xml_file" filename="xml_filename" readonly="1" />
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+
+
+
+    <!-- Action Window -->
+    <record id="dec_document_action" model="ir.actions.act_window">
+        <field name="name">Documentos DEC</field>
+        <field name="res_model">dec.document</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu Item -->
+    <menuitem id="dec_menu_root" name="DEC(SEP)" web_icon="dec_document,static/description/icon.png" sequence="10"/>
+    <menuitem id="dec_menu_documents" name="Documentos DEC" parent="dec_menu_root" action="dec_document_action"/>
+
+    <!-- Action to sign multiple records -->
+    <record id="action_dec_document_bulk_sign" model="ir.actions.server">
+        <field name="name">Sellar Documentos</field>
+        <field name="model_id" ref="model_dec_document"/>
+        <field name="binding_model_id" ref="model_dec_document"/>
+        <field name="state">code</field>
+        <field name="code">
+            records.action_bulk_sign()
+        </field>
+    </record>
+
+    <record id="dec_document_tree_view_button" model="ir.ui.view">
+        <field name="name">dec.document.tree.view.button</field>
+        <field name="model">dec.document</field>
+        <field name="inherit_id" ref="dec_document_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="js_class">list_view_with_custom_button</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
+

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="course_detail_inherit" inherit_id="openeducat_lms.course_detail">
+        <xpath expr="//li[hasclass('review')]" position="after">
+            <li class="">
+                <a data-bs-toggle="tab" role="tab" href="#tab3" aria-expanded="false">
+                    Q &amp; A
+                </a>
+            </li>
+        </xpath>
+        <xpath expr="//div[contains(@id, 'forum_tab_view')]" position="inside">
+            <div id="course-q-and-a" t-if="course.forum_id">
+                <t t-foreach="post_ids" t-as="question">
+                    <t t-call="website_forum.display_post_question_block">
+                        <ol>
+                            <li>
+                                <t t-set="forum" t-value="course.forum_id"/>
+                                <t t-set="question" t-value="question"/>
+                            </li>
+                        </ol>
+                    </t>
+                </t>
+                <a type="button" t-attf-class="btn btn-primary btn-md" t-if="post_ids"
+                   t-attf-href="/forum/#{slug(course.forum_id)}/ask?post_type=#{course.forum_id.mode}">
+                    <t t-if="course.forum_id.mode == 'question'"/>Ask a Question
+                </a>
+            </div>
+        </xpath>
+    </template>
+    <record id="view_lms_forum_post_tree_inherited" model="ir.ui.view">
+        <field name="name">lms.forum.post.tree</field>
+        <field name="model">forum.post</field>
+        <field name="inherit_id" ref="website_forum.view_forum_post_list"/>
+        <field name="arch" type="xml">
+            <field name="forum_id" position="after">
+                <field name="course_id" optional="hide"/>
+            </field>
+        </field>
+    </record>
+</odoo>

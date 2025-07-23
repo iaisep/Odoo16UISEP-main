@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- openeducat_core module STEPS -->
+    <!-- course record view starts -->
+    <template id="onboarding_lms_course_layout_step">
+        <t t-call="base.onboarding_step">
+            <t t-set="title">Course Layout Configuration</t>
+            <t t-set="description">See how to create a Course Layout.</t>
+            <t t-set="done_icon" t-value="'fa-star'"/>
+            <t t-set="done_text">Looks great!</t>
+            <t t-set="btn_text">Customize</t>
+            <t t-set="method" t-value="'action_lms_onboarding_course_layout'"/>
+            <t t-set="model" t-value="'res.company'"/>
+            <t t-set="state" t-value="state.get('onboarding_lms_course_layout_state')"/>
+        </t>
+    </template>
+    <record id="view_op_lms_course_form_onboard" model="ir.ui.view">
+        <field name="name">op.course.form</field>
+        <field name="model">op.course</field>
+        <field name="type">form</field>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <form string="Course">
+                <header>
+                    <button name="action_confirm" states="draft"
+                            string="Confirm" type="object" class="oe_highlight"/>
+                    <button name="action_draft" states="closed"
+                            string="Re-open" type="object" class="oe_highlight"/>
+                    <button name="action_closed" states="open"
+                            string="Closed" type="object" class="oe_highlight"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <field name="image_1920" widget="image" class="oe_avatar"/>
+                    <div class="oe_title">
+                        <field name="online_course" class="oe_edit_only" readonly="1"/>
+                        <label class="oe_edit_only" for="online_course" string="Online Course ?"/>
+                        <h1>
+                            <field name="name" placeholder="Course Name"/>
+                        </h1>
+                    </div>
+                    <group col="2">
+                        <group>
+                            <field name="code" required="1"/>
+                            <field name="confirm_date" readonly="1"/>
+                            <field name="user_id" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook colspan="4">
+                        <page name="general" string="General">
+                            <group col="2">
+                                <group>
+                                    <field name="visibility" widget="radio"/>
+                                </group>
+                                <group>
+                                    <field name="navigation_policy" widget="radio"/>
+                                </group>
+                            </group>
+                            <group string="Short Description">
+                                <field name="short_description" colspan="4" nolabel="1"/>
+                            </group>
+                            <group string="Full Description">
+                                <field name="full_description" colspan="4" nolabel="1"/>
+                            </group>
+                        </page>
+                        <page string="Invited Users" attrs="{'invisible': [('visibility', '!=', 'invited_user')]}">
+                            <button name="%(act_open_course_invitation_wizard_view)d" string="Invited Users"
+                                    type="action" class="oe_highlight"/>
+                            <field name="invited_users_ids">
+                                <tree editable="top">
+                                    <field name="name"/>
+                                    <field name="login"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="enrollments" string="Enrollments">
+                            <field name="course_enrollment_ids" options="{'no_create': True}"/>
+                        </page>
+                        <page name="course_materials" string="Course Materials">
+                            <group col="4" colspan="4">
+                                <field name="total_time" widget="float_time"/>
+                            </group>
+                            <field name="course_section_ids">
+                                <tree default_order="sequence">
+                                    <field name="sequence"/>
+                                    <field name="name"/>
+                                    <field name="total_time" widget="float_time"/>
+                                </tree>
+                                <form>
+                                    <group>
+                                        <field name="sequence"/>
+                                        <field name="name"/>
+                                    </group>
+                                    <group string="Materials">
+                                        <field name="section_material_ids" nolabel="1">
+                                            <tree default_order="sequence" editable="bottom">
+                                                <field name="sequence"/>
+                                                <field name="material_id" domain="[('user_id','=',uid)]"/>
+                                                <field name="preview"/>
+                                                <field name="total_time" widget="float_time" readonly="1"/>
+                                            </tree>
+                                        </field>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                        <page name="faculties" string="Faculties">
+                            <field name="faculty_ids" options="{'no_create': True}"/>
+                        </page>
+                        <page name="suggested course" string="Suggested Course">
+                            <field name="suggested_course_ids" options="{'no_create': True}"
+                                   domain="[('online_course','=',True)]"/>
+                        </page>
+                        <page name="categories" string="Categories">
+                            <field name="category_ids" options="{'no_create': True}"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <footer>
+                    <button string="Apply" class="btn btn-primary" type="object"
+                            name="action_lms_onboarding_course_layout"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_lms_onboarding_course_layout" model="ir.actions.act_window">
+        <field name="name">Course Record Configuration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">op.course</field>
+        <field name="view_mode">form</field>
+        <field name="binding_view_types">form</field>
+        <field name="view_id" ref="view_op_lms_course_form_onboard"/>
+        <field name="target">new</field>
+    </record>
+
+    <!-- material record view starts -->
+    <template id="onboarding_material_layout_step">
+        <t t-call="base.onboarding_step">
+            <t t-set="title">Material Layout Configuration</t>
+            <t t-set="description">See how to create a Material Layout.</t>
+            <t t-set="done_icon" t-value="'fa-star'"/>
+            <t t-set="done_text">Looks great!</t>
+            <t t-set="btn_text">Customize</t>
+            <t t-set="method" t-value="'action_onboarding_material_layout'"/>
+            <t t-set="model" t-value="'res.company'"/>
+            <t t-set="state" t-value="state.get('onboarding_material_layout_state')"/>
+        </t>
+    </template>
+    <record id="view_op_course_material_form_onboard" model="ir.ui.view">
+        <field name="name">op.material.form</field>
+        <field name="model">op.material</field>
+        <field name="type">form</field>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <form string="Course Material">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button"
+                                name="website_lms_publish_button" type="object"
+                                icon="fa-globe">
+                            <field name="website_published" widget="website_button"/>
+                        </button>
+                    </div>
+                    <field name="image_1920" widget="image" class="oe_avatar"/>
+                    <div class="oe_title">
+                        <label class="oe_edit_only" for="name" string="Name"/>
+                        <h1>
+                            <field name="name" placeholder="Material Name"/>
+                        </h1>
+                    </div>
+                    <group col="4" colspan="4">
+                        <field name="user_id" readonly="1"/>
+                        <field name="website_url"/>
+                    </group>
+                    <notebook>
+                        <page name="general" string="General">
+                            <group col="2">
+                                <field name="auto_publish"/>
+                                <field name="auto_publish_type"
+                                       attrs="{'invisible':[('auto_publish','=',False)],'required':[('auto_publish','=',True)]}"/>
+                            </group>
+                            <group col="2">
+                                <field name="wait_until_date"
+                                       attrs="{'invisible':['|',('auto_publish','=',False),('auto_publish_type','not in','wait_until')],'required':[('auto_publish_type','in','wait_until')]}"/>
+                            </group>
+                            <group col="4" colspan="4">
+                                <field name="wait_until_duration"
+                                       attrs="{'invisible':['|',('auto_publish','=',False),('auto_publish_type','not in','wait_until_duration')],'required':[('auto_publish_type','in','wait_until_duration')]}"/>
+                                <field name="wait_until_duration_period"
+                                       attrs="{'invisible':['|',('auto_publish','=',False),('auto_publish_type','not in','wait_until_duration')],'required':[('auto_publish_type','in','wait_until_duration')]}"/>
+                            </group>
+                        </page>
+                        <page string="Document">
+                            <group>
+                                <field name="material_type"/>
+                                <field name="video_type"
+                                       attrs="{'invisible': [('material_type', 'not in', ['video'])],'required':[('material_type', 'in', ['video'])]}"/>
+                                <field name="url"
+                                       attrs="{'invisible': [('material_type', 'not in', ['video'])],'required':[('material_type', 'in', ['video'])]}"/>
+                                <field name="document_id"
+                                       attrs="{'invisible': [('material_type', '!=','video')],'required':[('material_type', '=', 'video')]}"/>
+                                <field name="datas" widget="binary"
+                                       attrs="{'invisible': [('material_type', '=', 'quiz')],'required':[('material_type', 'in', ['infographic','document'])]}"/>
+                                <field name="quiz_id" domain="[('lms', '=', True)]"
+                                       attrs="{'invisible': [('material_type', '!=', 'quiz')], 'required': [('material_type', '=', 'quiz')]}"/>
+                                <field name="total_time" widget="float_time"/>
+                            </group>
+                        </page>
+                        <page string="Description">
+                            <group string="Short Description">
+                                <field name="short_description" colspan="4" nolabel="1"/>
+                            </group>
+                            <group string="Full Description">
+                                <field name="full_description" colspan="4" nolabel="1"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <footer>
+                    <button string="Apply" class="btn btn-primary" type="object"
+                            name="action_onboarding_material_layout"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_onboarding_material_layout" model="ir.actions.act_window">
+        <field name="name">Material Record Configuration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">op.material</field>
+        <field name="view_mode">form</field>
+        <field name="binding_view_types">form</field>
+        <field name="view_id" ref="view_op_course_material_form_onboard"/>
+        <field name="target">new</field>
+    </record>
+
+    <!-- enrollment record view starts -->
+    <template id="onboarding_enrollment_layout_step">
+        <t t-call="base.onboarding_step">
+            <t t-set="title">Enrollment Layout Configuration</t>
+            <t t-set="description">See how to create a Enrollment Layout.</t>
+            <t t-set="done_icon" t-value="'fa-star'"/>
+            <t t-set="done_text">Looks great!</t>
+            <t t-set="btn_text">Customize</t>
+            <t t-set="method" t-value="'action_onboarding_enrollment_layout'"/>
+            <t t-set="model" t-value="'res.company'"/>
+            <t t-set="state" t-value="state.get('onboarding_enrollment_layout_state')"/>
+        </t>
+    </template>
+    <record id="view_op_course_enrollment_form_onboard" model="ir.ui.view">
+        <field name="name">op.course.enrollment.form</field>
+        <field name="model">op.course.enrollment</field>
+        <field name="type">form</field>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" widget="statusbar" clickable="1"/>
+                </header>
+                <sheet>
+                    <group col="4">
+                        <field name="course_id" domain="[('online_course','=',True)]"/>
+                        <field name="user_id"/>
+                        <field name="enrollment_date"/>
+                        <field name="completion_date"/>
+                        <field name="navigation_policy"/>
+                        <field name="completed_percentage"/>
+                    </group>
+                    <group string="Materials">
+                        <field name="enrollment_material_line"
+                               nolabel="1">
+                            <tree editable="bottom">
+                                <field name="material_id"/>
+                                <field name="completed"/>
+                                <field name="completed_date"/>
+                                <field name="last_access_date"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Apply" class="btn btn-primary" type="object"
+                            name="action_onboarding_enrollment_layout"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_onboarding_enrollment_layout" model="ir.actions.act_window">
+        <field name="name">Enrollment Record Configuration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">op.course.enrollment</field>
+        <field name="view_mode">form</field>
+        <field name="binding_view_types">form</field>
+        <field name="view_id" ref="view_op_course_enrollment_form_onboard"/>
+        <field name="target">new</field>
+    </record>
+
+
+    <!-- course category record view starts -->
+    <template id="onboarding_course_category_layout_step">
+        <t t-call="base.onboarding_step">
+            <t t-set="title">Course Category Layout Configuration</t>
+            <t t-set="description">See how to create a Course Category Layout.</t>
+            <t t-set="done_icon" t-value="'fa-star'"/>
+            <t t-set="done_text">Looks great!</t>
+            <t t-set="btn_text">Customize</t>
+            <t t-set="method" t-value="'action_onboarding_course_category_layout'"/>
+            <t t-set="model" t-value="'res.company'"/>
+            <t t-set="state" t-value="state.get('onboarding_course_category_layout_state')"/>
+        </t>
+    </template>
+    <record id="view_course_category_form_onboard" model="ir.ui.view">
+        <field name="name">op.course.category.form</field>
+        <field name="model">op.course.category</field>
+        <field name="type">form</field>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <form string="Course Category">
+                <sheet>
+                    <group colspan="4">
+                        <field name="name" required="1"/>
+                        <field name="code"/>
+                        <field name="icon" placeholder="E.g fa fa-home"/>
+                        <field name="parent_id"/>
+                    </group>
+                    <field name="desc" placeholder="Description..."/>
+                </sheet>
+                <footer>
+                    <button string="Apply" class="btn btn-primary" type="object"
+                            name="action_onboarding_course_category_layout"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_onboarding_course_category_layout" model="ir.actions.act_window">
+        <field name="name">Course Category Record Configuration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">op.course.category</field>
+        <field name="view_mode">form</field>
+        <field name="binding_view_types">form</field>
+        <field name="view_id" ref="view_course_category_form_onboard"/>
+        <field name="target">new</field>
+    </record>
+
+    <!-- ONBOARDING PANEL-->
+    <template id="openeducat_lms_onboarding_panel" name="openeducat_lms.quotation.onboarding.panel">
+        <t t-call="base.onboarding_container">
+            <t t-set="classes" t-value="'o_onboarding_violet'"/>
+            <t t-set="bg_image" t-value="'/sale/static/src/img/sale_quotation_onboarding_bg.jpg'"/>
+            <t t-set="close_method" t-value="'action_close_lms_onboarding'"/>
+            <t t-set="close_model" t-value="'res.company'"/>
+            <t t-call="openeducat_lms.onboarding_lms_course_layout_step" name="course_step"/>
+            <t t-call="openeducat_lms.onboarding_material_layout_step" name="material_step"/>
+            <t t-call="openeducat_lms.onboarding_enrollment_layout_step" name="enrollment_step"/>
+            <t t-call="openeducat_lms.onboarding_course_category_layout_step" name="course_category_step"/>
+        </t>
+    </template>
+</odoo>

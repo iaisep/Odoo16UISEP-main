@@ -1,0 +1,22 @@
+<odoo>
+    <data>
+        <record id="crm_google_ads_view_form" model="ir.ui.view">
+            <field name="name">crm.google_ads.form</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr='//page[@name="lead"]'  position='after'>
+                    <page name="google_ads" groups="base.group_no_one" string="Google Ads">
+                        <group name="google_ads" string="Google Ads">
+                            <field name="google_form_id" readonly="1" />
+                            <field name="google_lead_id" readonly="1" />
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+
+ 
+    </data>
+</odoo>

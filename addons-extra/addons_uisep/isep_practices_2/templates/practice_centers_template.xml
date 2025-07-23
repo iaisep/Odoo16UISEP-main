@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="practice_centers_template" name="Practice Centers">
+        <t t-call="portal.portal_layout">
+            <div class="container mt-4">
+                   <div style="display: flex; gap: 10px;">
+                <h2>Tus Centros de Práctica</h2>
+                           <a t-att-href="'/my/register_practice_center'" class="btn btn-info">Registrar Nuevo</a>
+                   </div>
+                <p>Aquí está la lista de centros de práctica en los que usted está registrado.</p>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Nombre Oficial</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="centers" t-as="center">
+                            <tr>
+                                <td>
+                                    <t t-esc="center.name"/>
+                                </td>
+                                <td>
+                                    <t t-esc="center.official_name"/>
+                                </td>
+                                <td>
+                                    <a t-att-href="'/my/practice_center/' + str(center.id)" class="btn btn-info">Ver Detalles</a>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+
+
+</odoo>

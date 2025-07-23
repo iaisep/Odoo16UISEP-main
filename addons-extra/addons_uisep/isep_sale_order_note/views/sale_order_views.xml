@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <!-- View sale.order form -->
+    <record id="view_sale_order_note_form" model="ir.ui.view">
+        <field name="name">view.sale.order.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <page name="customer_signature" position="after">
+                <page string="Notas Internas" name="notes_internal">
+                    <field name="internal_note_record" nolabel="1" placeholder="Internal notes record"/>
+                </page>
+            </page>
+            <field name="payment_term_id" position="before">
+                    <field name="state_paid"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

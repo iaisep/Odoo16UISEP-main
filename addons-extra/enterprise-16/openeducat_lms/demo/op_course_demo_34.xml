@@ -1,0 +1,621 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="demo_course_08" model="op.course">
+            <field name="name">Change Management: Real World Strategies and Tools</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="code">MGMT</field>
+            <field name="sequence">14</field>
+            <field name="faculty_ids"
+                   eval="[(6,0,[ref('openeducat_core.op_faculty_1')])]"/>
+            <field name="category_ids"
+                   eval="[(6,0,[ref('openeducat_core_enterprise.category_3')])]"/>
+            <field name="visibility">public</field>
+            <field name="level_id" ref="op_course_level_beginner"/>
+            <field name="navigation_policy">free_learn</field>
+            <field name="state">open</field>
+            <field name="online_course" eval="True"/>
+            <field name="confirm_date" eval="(DateTime.today() - relativedelta(days=11))"/>
+            <field name="image_1920" type="base64"
+                   file="openeducat_lms/static/src/img/management.jpg"/>
+            <field name="full_description"><![CDATA[
+            <div class="description__title">
+            <div>
+            <p>Change is an inevitable part of organizational life</p>
+            <p>And if you have any leadership role, you'll soon be called upon to help lead it.</p>
+            <p>But, we often fear change. This leads to resistance.</p>
+            <p>So, managing and leading change is a challenging role. Change Management will take you</p>
+            <p>outside of your comfort zone and beyond your existing management and supervision tool-set.</p>
+            <p>But change is predictable</p>
+            <p>You can anticipate how people will respond, and what you need to do to engage them positively.</p>
+            <p>You can plan, prepare, and handle the resistance that will certainly come.</p>
+            <p>To do that, you need practical change management tools and models</p>
+            <p>And this course will give you them.</p>
+            <p>More than that, you'll learn:</p>
+            <p>how the need for change arises,</p>
+            <p>how to communicate it, and</p>
+            <p>the way to lead people through it.</p>
+            <p>Here are the main topics you'll cover:</p>
+            <p>The Cycle of Change</p>
+            <p>Barriers to Change</p>
+            <p>The first reason why people resist change</p>
+            <p>Tools for change leaders</p>
+            <p>Stakeholder analysis</p>
+            <p>How people respond to change: the change curve</p>
+            <p>The impact of change on operational performance: the Satir Curve</p>
+            <p>The three phases of a change program: the Lewin Model</p>
+            <p>The Onion Model of resistance to change</p>
+            <p>How to win over resisters</p>
+            </div>
+            ]]></field>
+        </record>
+
+
+        <record id="op_course_section_management_intro" model="op.course.section">
+            <field name="sequence" type="int">1</field>
+            <field name="name">Introduction: Change at Work</field>
+            <field name="course_id" ref="demo_course_08"/>
+        </record>
+
+        <record id="op_course_section_management_step1" model="op.course.section">
+            <field name="sequence" type="int">2</field>
+            <field name="name">Step 1: Demonstrate the Need for Change</field>
+            <field name="course_id" ref="demo_course_08"/>
+        </record>
+
+        <record id="op_course_section_management_step2" model="op.course.section">
+            <field name="sequence" type="int">3</field>
+            <field name="name">Step 2: Create a Compelling Future</field>
+            <field name="course_id" ref="demo_course_08"/>
+        </record>
+
+        <record id="op_course_section_management_step3" model="op.course.section">
+            <field name="sequence" type="int">4</field>
+            <field name="name">Step 3: Expect an Argument</field>
+            <field name="course_id" ref="demo_course_08"/>
+        </record>
+
+        <record id="op_course_section_management_handling" model="op.course.section">
+            <field name="sequence" type="int">5</field>
+            <field name="name">Handling Resistance</field>
+            <field name="course_id" ref="demo_course_08"/>
+        </record>
+
+        <record id="op_course_section_management_final" model="op.course.section">
+            <field name="sequence" type="int">6</field>
+            <field name="name">Steps 4, 5 and 6: Leading the Change</field>
+            <field name="course_id" ref="demo_course_08"/>
+        </record>
+        <record id="op_course_section_management_quiz" model="op.course.section">
+            <field name="sequence" type="int">7</field>
+            <field name="name">Quiz</field>
+            <field name="course_id" ref="demo_course_08"/>
+        </record>
+
+        <record id="material_management_cycle" model="op.material">
+            <field name="name">The Cycle of Change</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">8.02</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=EJKna1takOI'"/>
+            <field name="document_id">EJKna1takOI</field>
+        </record>
+
+        <record id="material_management_case" model="op.material">
+            <field name="name">Your Case Study Workbook</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">8.50</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=k8rOrue1CRM'"/>
+            <field name="document_id">k8rOrue1CRM</field>
+        </record>
+
+        <record id="material_management_exercise" model="op.material">
+            <field name="name">Exercise: The Barriers to Change</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">3.07</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=z1l_D7zsON8'"/>
+            <field name="document_id">z1l_D7zsON8</field>
+        </record>
+
+        <record id="material_management_sources" model="op.material">
+            <field name="name">Sources of and Barriers to Change</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">8.65</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=I5Nr84HXnEw'"/>
+            <field name="document_id">I5Nr84HXnEw</field>
+        </record>
+
+        <record id="material_management_flayer" model="op.material">
+            <field name="name">The First Layer of Resistance to Change</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">6.57</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=Qfv658CmpXM'"/>
+            <field name="document_id">Qfv658CmpXM</field>
+        </record>
+
+        <record id="material_management_level" model="op.material">
+            <field name="name">Demonstrating the Need for Change: Applying Leverage</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">12.74</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=3iCxTeU4ZTA'"/>
+            <field name="document_id">3iCxTeU4ZTA</field>
+        </record>
+
+        <record id="material_management_pattern" model="op.material">
+            <field name="name">What if they Still don't Accept the Need for Change? Pattern Interrupt</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">1.27</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=yC7v3vVBE-E'"/>
+            <field name="document_id">yC7v3vVBE-E</field>
+        </record>
+
+        <record id="material_management_glad" model="op.material">
+            <field name="name">Tools for Change Leaders: Mad-Sad-Glad Exercise</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">2.20</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=lXTEn4iV_Yg'"/>
+            <field name="document_id">lXTEn4iV_Yg</field>
+        </record>
+
+        <record id="material_management_perceptual" model="op.material">
+            <field name="name">Tools for Change Leaders: Perceptual Positions</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">9.90</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=mxFyhsIcANo'"/>
+            <field name="document_id">mxFyhsIcANo</field>
+        </record>
+
+
+        <record id="material_management_fear" model="op.material">
+            <field name="name">Fear and Desire as Motivators for Change</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">16.80</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=xp0O2vi8DX4'"/>
+            <field name="document_id">xp0O2vi8DX4</field>
+        </record>
+
+        <record id="material_management_future" model="op.material">
+            <field name="name">A Compelling Future</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">4.49</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=jMXY7n7beuA'"/>
+            <field name="document_id">jMXY7n7beuA</field>
+        </record>
+        <record id="material_management_stakeholder" model="op.material">
+            <field name="name">Stakeholder Engagement</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">1.74</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=ZzqvF9uJ1hA'"/>
+            <field name="document_id">ZzqvF9uJ1hA</field>
+        </record>
+        <record id="material_management_triage" model="op.material">
+            <field name="name">Tools for Change Leaders: Stakeholder Triage</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">2.61</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=8cNZvFPSHwk'"/>
+            <field name="document_id">8cNZvFPSHwk</field>
+        </record>
+        <record id="material_management_analysis" model="op.material">
+            <field name="name">Tools for Change Leaders: Stakeholder Analysis</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">5.57</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=G7NUm25yWAs'"/>
+            <field name="document_id">G7NUm25yWAs</field>
+        </record>
+        <record id="material_management_study" model="op.material">
+            <field name="name">Case Study. Day 7: Stakeholder Analysis</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">1.15</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=ZvuVAVuuvHo'"/>
+            <field name="document_id">ZvuVAVuuvHo</field>
+        </record>
+
+
+        <record id="material_management_response" model="op.material">
+            <field name="name">Response to Change: Introduction</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">0.92</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=dvGWcVUyBIA'"/>
+            <field name="document_id">dvGWcVUyBIA</field>
+        </record>
+        <record id="material_management_curve" model="op.material">
+            <field name="name">The Change Curve</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">8.58</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=YOul0fb3g0Q'"/>
+            <field name="document_id">YOul0fb3g0Q</field>
+        </record>
+        <record id="material_management_impact" model="op.material">
+            <field name="name">Case Study. Day 11: The Impact of Change</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">3.81</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=RUBDjquBsfc'"/>
+            <field name="document_id">RUBDjquBsfc</field>
+        </record>
+        <record id="material_management_operational" model="op.material">
+            <field name="name">The Impact of Change on Operational Performance</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">4.12</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=fS4ihAcne3o'"/>
+            <field name="document_id">fS4ihAcne3o</field>
+        </record>
+        <record id="material_management_three" model="op.material">
+            <field name="name">The Three Phases of a Change Program</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">14.61</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=Nd1nCcoMVrg'"/>
+            <field name="document_id">Nd1nCcoMVrg</field>
+        </record>
+        <record id="material_management_well" model="op.material">
+            <field name="name">How to Communicate Well</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">4.76</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=xAyRmGhNchI'"/>
+            <field name="document_id">xAyRmGhNchI</field>
+        </record>
+        <record id="material_management_plan" model="op.material">
+            <field name="name">Tools for Change Leaders: Communication Plan</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">5.70</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=MsMQ-_i1Qxs'"/>
+            <field name="document_id">MsMQ-_i1Qxs</field>
+        </record>
+        <record id="material_management_tool" model="op.material">
+            <field name="name">Tools for Change Leaders: Progression Plan</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">3.93</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=PC8-y4ZfM6E'"/>
+            <field name="document_id">PC8-y4ZfM6E</field>
+        </record>
+
+
+        <record id="material_management_resistance" model="op.material">
+            <field name="name">Resistance to Change</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">10.75</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=79LI2fkNZ2k'"/>
+            <field name="document_id">79LI2fkNZ2k</field>
+        </record>
+
+        <record id="material_management_engage" model="op.material">
+            <field name="name">Engage with the Resistance</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">9.99</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=3-NoofFldeM'"/>
+            <field name="document_id">3-NoofFldeM</field>
+        </record>
+
+        <record id="material_management_hand" model="op.material">
+            <field name="name">Case Study. Day 25: Handling Resistance</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">8.98</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=5TXLf5C0Zis'"/>
+            <field name="document_id">5TXLf5C0Zis</field>
+        </record>
+
+
+        <record id="material_management_project" model="op.material">
+            <field name="name">Project Management</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">4.36</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=mmpwGKopZt0'"/>
+            <field name="document_id">mmpwGKopZt0</field>
+        </record>
+
+        <record id="material_management_cent" model="op.material">
+            <field name="name">99 per cent Perspiration</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">1.51</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=shW7OFgVbkE'"/>
+            <field name="document_id">shW7OFgVbkE</field>
+        </record>
+
+        <record id="op_course_material_management_cycle" model="op.course.material">
+            <field name="sequence" type="int">3</field>
+            <field name="material_id" ref="material_management_cycle"/>
+            <field name="section_id" ref="op_course_section_management_intro"/>
+            <field name="preview" eval="True"/>
+        </record>
+        <record id="op_course_material_management_case" model="op.course.material">
+            <field name="sequence" type="int">4</field>
+            <field name="material_id" ref="material_management_case"/>
+            <field name="section_id" ref="op_course_section_management_intro"/>
+            <field name="preview" eval="False"/>
+        </record>
+        <record id="op_course_material_management_exercise" model="op.course.material">
+            <field name="sequence" type="int">5</field>
+            <field name="material_id" ref="material_management_exercise"/>
+            <field name="section_id" ref="op_course_section_management_intro"/>
+            <field name="preview" eval="False"/>
+        </record>
+        <record id="op_course_material_management_sources" model="op.course.material">
+            <field name="sequence" type="int">6</field>
+            <field name="material_id" ref="material_management_sources"/>
+            <field name="section_id" ref="op_course_section_management_intro"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_management_flayer" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_management_flayer"/>
+            <field name="section_id" ref="op_course_section_management_step1"/>
+            <field name="preview" eval="True"/>
+        </record>
+        <record id="op_course_material_management_level" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_management_level"/>
+            <field name="section_id" ref="op_course_section_management_step1"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_management_pattern" model="op.course.material">
+            <field name="sequence" type="int">3</field>
+            <field name="material_id" ref="material_management_pattern"/>
+            <field name="section_id" ref="op_course_section_management_step1"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_management_glad" model="op.course.material">
+            <field name="sequence" type="int">5</field>
+            <field name="material_id" ref="material_management_glad"/>
+            <field name="section_id" ref="op_course_section_management_step1"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_management_perceptual" model="op.course.material">
+            <field name="sequence" type="int">6</field>
+            <field name="material_id" ref="material_management_perceptual"/>
+            <field name="section_id" ref="op_course_section_management_step1"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_management_fear" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_management_fear"/>
+            <field name="section_id" ref="op_course_section_management_step2"/>
+            <field name="preview" eval="True"/>
+        </record>
+
+        <record id="op_course_material_management_future" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_management_future"/>
+            <field name="section_id" ref="op_course_section_management_step2"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_management_stakeholder" model="op.course.material">
+            <field name="sequence" type="int">3</field>
+            <field name="material_id" ref="material_management_stakeholder"/>
+            <field name="section_id" ref="op_course_section_management_step2"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_management_triage" model="op.course.material">
+            <field name="sequence" type="int">4</field>
+            <field name="material_id" ref="material_management_triage"/>
+            <field name="section_id" ref="op_course_section_management_step2"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_management_analysis" model="op.course.material">
+            <field name="sequence" type="int">5</field>
+            <field name="material_id" ref="material_management_analysis"/>
+            <field name="section_id" ref="op_course_section_management_step2"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_management_study" model="op.course.material">
+            <field name="sequence" type="int">6</field>
+            <field name="material_id" ref="material_management_study"/>
+            <field name="section_id" ref="op_course_section_management_step2"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_management_response" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_management_response"/>
+            <field name="section_id" ref="op_course_section_management_step3"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_management_curve" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_management_curve"/>
+            <field name="section_id" ref="op_course_section_management_step3"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_management_impact" model="op.course.material">
+            <field name="sequence" type="int">3</field>
+            <field name="material_id" ref="material_management_impact"/>
+            <field name="section_id" ref="op_course_section_management_step3"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_management_operational" model="op.course.material">
+            <field name="sequence" type="int">4</field>
+            <field name="material_id" ref="material_management_operational"/>
+            <field name="section_id" ref="op_course_section_management_step3"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_management_three" model="op.course.material">
+            <field name="sequence" type="int">5</field>
+            <field name="material_id" ref="material_management_three"/>
+            <field name="section_id" ref="op_course_section_management_step3"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_management_well" model="op.course.material">
+            <field name="sequence" type="int">6</field>
+            <field name="material_id" ref="material_management_well"/>
+            <field name="section_id" ref="op_course_section_management_step3"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_management_plan" model="op.course.material">
+            <field name="sequence" type="int">7</field>
+            <field name="material_id" ref="material_management_plan"/>
+            <field name="section_id" ref="op_course_section_management_step3"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_management_tool" model="op.course.material">
+            <field name="sequence" type="int">8</field>
+            <field name="material_id" ref="material_management_tool"/>
+            <field name="section_id" ref="op_course_section_management_step3"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_management_resistance" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_management_resistance"/>
+            <field name="section_id" ref="op_course_section_management_handling"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_management_engage" model="op.course.material">
+            <field name="sequence" type="int">4</field>
+            <field name="material_id" ref="material_management_engage"/>
+            <field name="section_id" ref="op_course_section_management_handling"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_management_hand" model="op.course.material">
+            <field name="sequence" type="int">7</field>
+            <field name="material_id" ref="material_management_hand"/>
+            <field name="section_id" ref="op_course_section_management_handling"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_management_project" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_management_project"/>
+            <field name="section_id" ref="op_course_section_management_final"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_management_cent" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_management_cent"/>
+            <field name="section_id" ref="op_course_section_management_final"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="material_sheet_management_q5" model="op.material">
+            <field name="name">Management Quiz</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">quiz</field>
+            <field name="total_time" type="float">90.00</field>
+            <field name="quiz_id" ref="openeducat_quiz.op_qz_t1"/>
+        </record>
+
+        <record id="op_course_management_quiz" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_sheet_management_q5"/>
+            <field name="section_id" ref="op_course_section_management_quiz"/>
+            <field name="preview" eval="True"/>
+        </record>
+
+
+        <record id="op_user_student_52" model="res.users" context="{'no_reset_password': True}">
+            <field name="name">Cena</field>
+            <field name="password">openeducat</field>
+            <field name="login">cena@openeducat.com</field>
+            <field name="groups_id"
+                   eval="[(4,ref('openeducat_lms.group_op_lms_admin'))]"/>
+        </record>
+
+        <record id="demo_enrollment_free_management_class" model="op.course.enrollment">
+            <field name="course_id" ref="openeducat_lms.demo_course_08"/>
+            <field name="user_id" ref="openeducat_lms.op_user_student_52"/>
+            <field name="state">in_progress</field>
+            <field name="enrollment_date" eval="(DateTime.today() - relativedelta(days=1))"/>
+        </record>
+
+
+</odoo>

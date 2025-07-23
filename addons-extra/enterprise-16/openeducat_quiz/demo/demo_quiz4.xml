@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="op_qz_ctg_r" model="op.quiz.category">
+            <field name="name">Category Rocket Engineering</field>
+            <field name="code">Rocket111</field>
+        </record>
+
+        <record id="op_qz_rocket1" model="op.quiz">
+            <field name="name">Rocket Quiz</field>
+            <field name="categ_id" ref="op_qz_ctg_r"/>
+            <field name="quiz_config">quiz_bank_selected</field>
+            <field name="time_config">True</field>
+            <field name="time_limit_hr">1</field>
+            <field name="time_limit_minute">30</field>
+            <field name="no_of_attempt">1</field>
+            <field name="description">This quiz is based on Statistics Rocket Engineering
+            </field>
+            <field name="state">open</field>
+            <field name="quiz_html">
+
+                Space launchers and rocket propulsion systems are what allowed us to spread our spacecrafts from the
+                Earth's orbit to the ends of the Solar System. They lift buildings to the sky, taking robots to
+                Mars, enabling satellites to continuously transform human civilization and offering us the hope of
+                one day spreading throughout the universe. This course offers the opportunity to learn and
+                understand.
+
+            </field>
+        </record>
+        <record id="op_qu_bnk_type_rocket1" model="op.question.bank.type">
+            <field name="name">Rocket</field>
+        </record>
+        <record id="op_qu_bnk_r" model="op.question.bank">
+            <field name="name">Rocket Test</field>
+            <field name="bank_type_id" ref="op_qu_bnk_type_rocket1"/>
+        </record>
+        <record id="op_c_qr1" model="op.question.bank.line">
+            <field name="name">Which of the following was the first artificial satellite?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/g2WaJdflqT0'"/>
+            <field name="document_id">g2WaJdflqT0</field>
+            <field name="bank_id" ref="op_qu_bnk_r"/>
+        </record>
+        <record id="op_c_qr1_a01" model="op.question.bank.answer">
+            <field name="name">Lander Beagle</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qr1"/>
+        </record>
+        <record id="op_c_qr1_a02" model="op.question.bank.answer">
+            <field name="name">Sojourner</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qr1"/>
+        </record>
+        <record id="op_c_qr1_a03" model="op.question.bank.answer">
+            <field name="name">Apollo 11</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qr1"/>
+        </record>
+        <record id="op_c_qr1_a04" model="op.question.bank.answer">
+            <field name="name">Sputnik</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="question_id" ref="op_c_qr1"/>
+        </record>
+
+        <record id="op_qz_ln6_r1" model="op.quiz.line">
+            <field name="name">Which of the following was the first artificial satellite?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/g2WaJdflqT0'"/>
+            <field name="document_id">g2WaJdflqT0</field>
+            <field name="quiz_id" ref="op_qz_rocket1"/>
+            <field name="que_id" ref="op_c_qr1"/>
+        </record>
+
+        <record id="op_qz_ln6_r1_l01" model="op.quiz.answer">
+            <field name="name">Lander Beagle</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_r1"/>
+        </record>
+        <record id="op_qz_ln6_r1_l02" model="op.quiz.answer">
+            <field name="name">Sojourner</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_r1"/>
+        </record>
+        <record id="op_qz_ln6_r1_l03" model="op.quiz.answer">
+            <field name="name">Apollo 11</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_r1"/>
+        </record>
+        <record id="op_qz_ln6_r1_l04" model="op.quiz.answer">
+            <field name="name">Sputnik</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="line_id" ref="op_qz_ln6_r1"/>
+        </record>
+
+        <record id="op_c_qr2" model="op.question.bank.line">
+            <field name="name">Which of the following NASA's space probe designed to study the composition of the
+                interior of the comet Tempel 1?
+            </field>
+            <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/ZiVmcak9SrY'"/>
+            <field name="document_id">ZiVmcak9SrY</field>
+
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_r"/>
+        </record>
+        <record id="op_c_qr2_a01" model="op.question.bank.answer">
+            <field name="name">Messenge</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qr2"/>
+        </record>
+        <record id="op_c_qr2_a02" model="op.question.bank.answer">
+            <field name="name">Hayabusa</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qr2"/>
+        </record>
+        <record id="op_c_qr2_a03" model="op.question.bank.answer">
+            <field name="name">Rosetta</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qr2"/>
+        </record>
+        <record id="op_c_qr2_a04" model="op.question.bank.answer">
+            <field name="name">Deep Impact</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="question_id" ref="op_c_qr2"/>
+        </record>
+
+        <record id="op_qz_ln6_r2" model="op.quiz.line">
+            <field name="name">Which of the following NASA's space probe designed to study the composition of the
+                interior of the comet Tempel 1?
+            </field>
+            <field name="mark" type="float">1.0</field>
+            <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/ZiVmcak9SrY'"/>
+            <field name="document_id">ZiVmcak9SrY</field>
+            <field name="quiz_id" ref="op_qz_rocket1"/>
+            <field name="que_id" ref="op_c_qr2"/>
+        </record>
+
+        <record id="op_qz_ln6_r2_l01" model="op.quiz.answer">
+            <field name="name">Messenge</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_r2"/>
+        </record>
+        <record id="op_qz_ln6_r2_l02" model="op.quiz.answer">
+            <field name="name">Hayabusa</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_r2"/>
+        </record>
+        <record id="op_qz_ln6_r2_l03" model="op.quiz.answer">
+            <field name="name">Rosetta</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_r2"/>
+        </record>
+        <record id="op_qz_ln6_r2_l04" model="op.quiz.answer">
+            <field name="name">Deep Impact</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="line_id" ref="op_qz_ln6_r2"/>
+        </record>
+
+        <record id="op_c_qr3" model="op.question.bank.line">
+            <field name="name">Reaction control of the Space Shuttle is achieved using ________ thrusters.</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_r"/>
+        </record>
+        <record id="op_c_qr3_a01" model="op.question.bank.answer">
+            <field name="name">24</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qr3"/>
+        </record>
+        <record id="op_c_qr3_a02" model="op.question.bank.answer">
+            <field name="name">48</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qr3"/>
+        </record>
+        <record id="op_c_qr3_a03" model="op.question.bank.answer">
+            <field name="name">38</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="question_id" ref="op_c_qr3"/>
+        </record>
+        <record id="op_c_qr3_a04" model="op.question.bank.answer">
+            <field name="name">34</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qr3"/>
+        </record>
+
+        <record id="op_qz_ln6_r3" model="op.quiz.line">
+            <field name="name">Reaction control of the Space Shuttle is achieved using ________ thrusters.</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="quiz_id" ref="op_qz_rocket1"/>
+            <field name="que_id" ref="op_c_qr3"/>
+        </record>
+
+        <record id="op_qz_ln6_r3_l01" model="op.quiz.answer">
+            <field name="name">24</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_r3"/>
+        </record>
+        <record id="op_qz_ln6_r3_l02" model="op.quiz.answer">
+            <field name="name">48</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_r3"/>
+        </record>
+        <record id="op_qz_ln6_r3_l03" model="op.quiz.answer">
+            <field name="name">38</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="line_id" ref="op_qz_ln6_r3"/>
+        </record>
+        <record id="op_qz_ln6_r3_l04" model="op.quiz.answer">
+            <field name="name">34</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_r3"/>
+        </record>
+
+
+        <record id="op_c_qr4" model="op.question.bank.line">
+            <field name="name">What is the Full Form Of ISRO</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_r"/>
+        </record>
+        <record id="op_c_qr4_a01" model="op.question.bank.answer">
+            <field name="name">Indian Space Research Organization</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="question_id" ref="op_c_qr4"/>
+        </record>
+        <record id="op_c_qr4_a02" model="op.question.bank.answer">
+            <field name="name">Indian Space Remote Organization</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qr4"/>
+        </record>
+        <record id="op_c_qr4_a03" model="op.question.bank.answer">
+            <field name="name">Indian Shuttle Remote Organization</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qr4"/>
+        </record>
+        <record id="op_c_qr4_a04" model="op.question.bank.answer">
+            <field name="name">Indian Shuttle Remote Org</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qr4"/>
+        </record>
+
+        <record id="op_qz_ln6_r4" model="op.quiz.line">
+            <field name="name">What is the Full Form Of ISRO</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="quiz_id" ref="op_qz_rocket1"/>
+            <field name="que_id" ref="op_c_qr4"/>
+        </record>
+
+        <record id="op_qz_ln6_r4_l01" model="op.quiz.answer">
+            <field name="name">Indian Space Research Organization</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="line_id" ref="op_qz_ln6_r4"/>
+        </record>
+        <record id="op_qz_ln6_r4_l02" model="op.quiz.answer">
+            <field name="name">Indian Space Remote Organization</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_r4"/>
+        </record>
+        <record id="op_qz_ln6_r4_l03" model="op.quiz.answer">
+            <field name="name">Indian Shuttle Remote Organization</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_r4"/>
+        </record>
+        <record id="op_qz_ln6_r4_l04" model="op.quiz.answer">
+            <field name="name">Indian Shuttle Remote Org</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_r4"/>
+        </record>
+
+
+        <record id="op_c_qr5" model="op.question.bank.line">
+            <field name="name">Which Star is called Earth’s satellite?</field>
+             <field name="mark" type="float">1.0</field>
+            <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/peL36li10-Y'"/>
+            <field name="document_id">peL36li10-Y</field>
+            <field name="bank_id" ref="op_qu_bnk_r"/>
+        </record>
+        <record id="op_c_qr5_a01" model="op.question.bank.answer">
+            <field name="name">Moon</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="question_id" ref="op_c_qr5"/>
+        </record>
+        <record id="op_c_qr5_a02" model="op.question.bank.answer">
+            <field name="name">Sun</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qr5"/>
+        </record>
+        <record id="op_c_qr5_a03" model="op.question.bank.answer">
+            <field name="name">NASA</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qr5"/>
+        </record>
+        <record id="op_c_qr5_a04" model="op.question.bank.answer">
+            <field name="name">Pluto</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qr5"/>
+        </record>
+
+        <record id="op_qz_ln6_r5" model="op.quiz.line">
+            <field name="name">Which Star is called Earth’s satellite?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/peL36li10-Y'"/>
+            <field name="document_id">peL36li10-Y</field>
+            <field name="quiz_id" ref="op_qz_rocket1"/>
+            <field name="que_id" ref="op_c_qr5"/>
+        </record>
+
+        <record id="op_qz_ln6_r5_l01" model="op.quiz.answer">
+            <field name="name">Moon</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="line_id" ref="op_qz_ln6_r5"/>
+        </record>
+        <record id="op_qz_ln6_r5_l02" model="op.quiz.answer">
+            <field name="name">Sun</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_r5"/>
+        </record>
+        <record id="op_qz_ln6_r5_l03" model="op.quiz.answer">
+            <field name="name">NASA</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_r5"/>
+        </record>
+        <record id="op_qz_ln6_r5_l04" model="op.quiz.answer">
+            <field name="name">Pluto</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_r5"/>
+        </record>
+
+</odoo>

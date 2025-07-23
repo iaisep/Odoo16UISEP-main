@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="openeducat_alumni_enterprise.alumni_group_1" model="op.alumni.group">
+            <field name="blog_post_ids" eval="[(4,ref('openeducat_alumni_blog_enterprise.alumni_blog_1'))]"/>
+        </record>
+
+         <record id="openeducat_alumni_enterprise.alumni_group_2" model="op.alumni.group">
+            <field name="blog_post_ids" eval="[(4,ref('openeducat_alumni_blog_enterprise.alumni_blog_2'))]"/>
+        </record>
+
+         <record id="openeducat_alumni_enterprise.alumni_group_3" model="op.alumni.group">
+            <field name="blog_post_ids" eval="[(4,ref('openeducat_alumni_blog_enterprise.alumni_blog_3'))]"/>
+        </record>
+
+</odoo>

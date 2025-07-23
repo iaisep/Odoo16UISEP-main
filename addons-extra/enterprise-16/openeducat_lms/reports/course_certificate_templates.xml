@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <template id="certification_report_view">
+            <t t-call="web.html_container">
+                <t t-call="web.html_container">
+                    <t t-foreach="docs" t-as="o">
+                        <div class="certification-wrapper">
+                            <t t-call="web.internal_layout">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="page mb16">
+                                            <br/>
+                                            <div class="oe_structure" id="certificate_blk"/>
+                                            <t t-if="o.course_id.background">
+                                                <div class="page"
+                                                     t-attf-style="background:url(data:image/*;base64,{{o.course_id.background}});
+                                                 background-size:1300px 980px; width:1300px; height:900px;">
+                                                    <t t-call="openeducat_lms.certi_data"/>
+                                                </div>
+                                            </t>
+                                            <!--t-attf-style="background:url('/openeducat_lms/static/description/certificate.jpg');-->
+                                            <t t-if="not o.course_id.background">
+                                                <div class="page"
+                                                     t-attf-style="background:url('/openeducat_lms/static/description/certificate.png');
+                                                 background-size:1300px 980px; width:1300px; height:900px;">
+                                                    <t t-call="openeducat_lms.certi_data"/>
+                                                </div>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+        <template id="certi_data">
+            <div style="margin-left: 426px; padding-top:160px; margin-right: 235px;">
+                <!--                <div t-if="o.course_id.title == True">-->
+                <!--                    <h1 style="font-size: 40px; margin-top: 46px;">-->
+                <!--                        <span t-field="o.course_id.certi_title"/>-->
+                <!--                    </h1>-->
+                <!--                </div>-->
+                <h4 style="font-size:52px; font-family: initial; margin-left: 81px; margin-top:30%;">
+                    <span t-field="o.company_id"/>
+                </h4>
+                <p style="padding-left: 140px;font-size: 23px;">
+                    Certifies that
+                </p>
+                <h3 style="margin-left: 120px;">
+                    <span t-esc="o.user_id.name"/>
+                </h3>
+                <p style="margin-left: 103px;font-size: 23px;">
+                    Successfully achieved
+                </p>
+                <h3 style="margin-left:0%;">
+                    <span t-field="o.course_id"/>
+                </h3>
+                <p t-if="o.course_id.certi_date == True" style="margin-left: 65px;">
+                    <strong>Date of Certification:</strong>
+                    <span t-field="o.completion_date"/>
+                </p>
+            </div>
+
+            <div style="margin-top: 190px;">
+                <div style="vertical-align: middle; border-style: none; float: right; margin-right: 300px;">
+                    <img t-attf-src="data:image/*;base64,{{o.company_id.logo}}"
+                         t-att-alt="o.company_id.name"
+                         style="max-width: 150px; max-height: 74px;"/>
+                </div>
+                <span t-if="o.course_id.certi_num == True" style="margin-left: 124px; margin-top:5%;">
+                    <div style="margin-left: 126px; margin-top:5%;">
+                        <span>
+                            Certificate Number:
+                        </span>
+                        <span t-field="o.index"/>
+                    </div>
+                </span>
+            </div>
+        </template>
+
+</odoo>

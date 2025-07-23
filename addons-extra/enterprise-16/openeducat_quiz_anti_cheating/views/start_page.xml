@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <template id="anti_cheating_starting_page" inherit_id="openeducat_quiz.quiz_starting_page">
+            <xpath expr="//div" position="inside" priority="50">
+                <div>
+                    <input type="hidden" name="ExamID" t-attf-value="#{exam.id}"/>
+                    <input type="hidden" name="result" t-attf-value="#{result.id}"/>
+                </div>
+            </xpath>
+        </template>
+
+        <template id="quiz_hold" name="Quiz Hold">
+                <t t-call="website.layout">
+                    <div class="wrap">
+                        <input type="hidden" class="quiz_completed_no_back"/>
+                        <div class="text-center mt128 mb128">
+                            <h1 class="fw-bold text-danger">You are not allow to give the exam.</h1>
+                            <h2 class="fw-bold text-danger">If you want to re open your exam contact to administration.</h2>
+                        </div>
+                    </div>
+                </t>
+        </template>
+
+</odoo>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="portal_my_home_parents_child_info_o" name="Portal layout : Child Info"
+              inherit_id="openeducat_core_enterprise.portal_breadcrumbs_inhetrite" priority="10">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="page_name == 'parent_child_List' or parent_child_List"
+                t-attf-class="breadcrumb-item #{'active ' if not parent_child_List else ''}">
+                <a t-if="child_ids" t-attf-href="/my/child?{{ keep_query() }}">
+                    Child Info
+                </a>
+                <t t-else="">Child Info</t>
+            </li>
+
+        </xpath>
+    </template>
+
+    <template id="my_account_link_inherit" name="Link to frontend portal" inherit_id="portal.my_account_link">
+        <xpath expr="//a[hasclass('dropdown-item')][@href='/my/home']" position="after">
+            <t t-if="user_id.sudo().is_parent">
+                <a href="/my/child" role="menuitem" class="dropdown-item ps-3">
+                    <i class="fa fa-fw fa-id-card-o me-1 small text-muted"/>
+                    My Account
+                </a>
+            </t>
+            <t t-else="">
+                <a href="/my/home" role="menuitem" class="dropdown-item">
+                    <i class="fa fa-fw fa-id-card-o me-1 small text-muted"/>
+                    My Account
+                </a>
+            </t>
+        </xpath>
+        <xpath expr="//a[hasclass('dropdown-item')][@href='/my/home']" position="attributes">
+            <attribute name="class">d-none</attribute>
+        </xpath>
+    </template>
+
+
+    <template id="portal_children_data" name="Portal My Parent : Core Details">
+
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-if="user_id.sudo().is_parent" t-call="portal.portal_searchbar">
+                <t t-set="title">Parents Child Information</t>
+            </t>
+            <t t-if="not child_ids">
+                <p>There are currently no information for your account !!!</p>
+            </t>
+            <div class="row  parent_tile_portal">
+                <t t-if="child_ids" t-foreach="child_ids" t-as="child">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 pb16">
+                        <a class="parent_dashboard_element_main_body list-group-item-action d-block mx-auto"
+                           t-attf-href="/my/child/#{child.id}">
+                            <div class="media">
+                                <div class="img-bg">
+                                    <t t-if="child.partner_id.image_1920">
+                                        <img class="img img-responsive img-fluid d-block mx-auto"
+                                         t-att-src="image_data_uri(child.partner_id.image_1920)"/>
+                                    </t>
+                                    <t t-else="">
+                                        <img class="img img-responsive img-fluid d-block mx-auto"
+                                        src="/openeducat_parent_enterprise/static/description/student.png"/>
+                                    </t>
+                                </div>
+                                <div class="media-body">
+                                    <h4 t-esc="child.name" id="child_name" style="border-bottom: 1px solid #e7e7e7;" class="pb8"/>
+                                    <p class="pt8 mb-0">
+                                        <i class="fa fa-calendar" style="margin-right: 7px;"/>
+                                        <span t-esc="child.birth_date"/>
+                                    </p>
+                                    <p class="pt8 mb-0">
+                                        <i class="fa fa-phone" style="margin-right: 10px;"/>
+                                        <span t-esc="child.mobile"/>
+                                    </p>
+                                    <p class="pt8 mb-0">
+                                        <i class="fa fa-envelope-o" style="margin-right: 10px;"/>
+                                        <span t-esc="child.email" id="child_email"/>
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </t>
+            </div>
+        </t>
+    </template>
+</odoo>

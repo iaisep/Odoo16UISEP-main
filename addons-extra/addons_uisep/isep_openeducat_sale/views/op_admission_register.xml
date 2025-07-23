@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+ 
+        <record id="isep_custom_op_admission_register" model="ir.ui.view">
+            <field name="name">op.admission.register.form</field>
+            <field name="model">op.admission.register</field>
+            <field name="inherit_id" ref="openeducat_admission.view_op_admission_register_form"/>        
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="period" required="1" attrs="{'readonly': [('state', 'not in', ('draft'))]}"  />
+                </xpath>
+            </field>
+        </record>       
+
+    </data>
+</odoo>

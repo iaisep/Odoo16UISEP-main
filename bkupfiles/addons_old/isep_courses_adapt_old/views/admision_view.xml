@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="view_op_admission_form_inherit" model="ir.ui.view">
+            <field name="name">op.admission.inherit.form</field>
+            <field name="model">op.admission</field>
+            <field name="inherit_id" ref="openeducat_admission.view_op_admission_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header/button[@name='enroll_student']" position="replace">
+                    <button name="enroll_student" states="admission" string="Matricular OpenEducat" type="object"
+                                class="oe_highlight"/>
+                </xpath>
+                <xpath expr="//header/button[@name='enroll_student']" position="after">
+                    <button name="wizard_enroll_student" states="admission" string="MATRICULAR" type="object" class="oe_highlight"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

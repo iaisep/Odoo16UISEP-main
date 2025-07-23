@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="op_cpp_q01" model="op.question.bank.line">
+            <field name="name">Which of the following type of class allows only one object of it to be created?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_cpp"/>
+        </record>
+
+        <record id="op_cpp_q01_a01" model="op.question.bank.answer">
+            <field name="name">Virtual class;</field>
+            <field name="grade_id" ref="op_ans_grd_100n"/>
+            <field name="question_id" ref="op_cpp_q01"/>
+        </record>
+
+        <record id="op_cpp_q01_a02" model="op.question.bank.answer">
+            <field name="name">Abstract class</field>
+            <field name="grade_id" ref="op_ans_grd_100n"/>
+            <field name="question_id" ref="op_cpp_q01"/>
+        </record>
+
+        <record id="op_cpp_q01_a03" model="op.question.bank.answer">
+            <field name="name">Singleton class</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="question_id" ref="op_cpp_q01"/>
+        </record>
+
+        <record id="op_cpp_q01_a04" model="op.question.bank.answer">
+            <field name="name">Friend class</field>
+            <field name="grade_id" ref="op_ans_grd_100n"/>
+            <field name="question_id" ref="op_cpp_q01"/>
+        </record>
+
+        <record id="op_cpp_q02" model="op.question.bank.line">
+            <field name="name">Which of the following is not a type of constructor?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_cpp"/>
+        </record>
+
+        <record id="op_cpp_q02_a01" model="op.question.bank.answer">
+            <field name="name">Copy constructor</field>
+            <field name="grade_id" ref="op_ans_grd_100n"/>
+            <field name="question_id" ref="op_cpp_q02"/>
+        </record>
+
+        <record id="op_cpp_q02_a02" model="op.question.bank.answer">
+            <field name="name">Friend constructor</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="question_id" ref="op_cpp_q02"/>
+        </record>
+
+        <record id="op_cpp_q02_a03" model="op.question.bank.answer">
+            <field name="name">Default constructor</field>
+            <field name="grade_id" ref="op_ans_grd_100n"/>
+            <field name="question_id" ref="op_cpp_q02"/>
+        </record>
+
+        <record id="op_cpp_q02_a04" model="op.question.bank.answer">
+            <field name="name">Parameterized constructor</field>
+            <field name="grade_id" ref="op_ans_grd_100n"/>
+            <field name="question_id" ref="op_cpp_q02"/>
+        </record>
+
+        <record id="op_cpp_q03" model="op.question.bank.line">
+            <field name="name">Which of the following statements is correct?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_cpp"/>
+        </record>
+
+        <record id="op_cpp_q03_a01" model="op.question.bank.answer">
+            <field name="name">Base class pointer cannot point to derived class.</field>
+            <field name="grade_id" ref="op_ans_grd_100n"/>
+            <field name="question_id" ref="op_cpp_q03"/>
+        </record>
+
+        <record id="op_cpp_q03_a02" model="op.question.bank.answer">
+            <field name="name">Derived class pointer cannot point to base class.</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="question_id" ref="op_cpp_q03"/>
+        </record>
+
+        <record id="op_cpp_q03_a03" model="op.question.bank.answer">
+            <field name="name">Pointer to derived class cannot be created.</field>
+            <field name="grade_id" ref="op_ans_grd_100n"/>
+            <field name="question_id" ref="op_cpp_q03"/>
+        </record>
+
+        <record id="op_cpp_q03_a04" model="op.question.bank.answer">
+            <field name="name">Pointer to base class cannot be created.</field>
+            <field name="grade_id" ref="op_ans_grd_100n"/>
+            <field name="question_id" ref="op_cpp_q03"/>
+        </record>
+
+        <record id="op_cpp_q04" model="op.question.bank.line">
+            <field name="name">Which of the following is not the member of class?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_cpp"/>
+        </record>
+
+        <record id="op_cpp_q04_a01" model="op.question.bank.answer">
+            <field name="name">Static function</field>
+            <field name="grade_id" ref="op_ans_grd_100n"/>
+            <field name="question_id" ref="op_cpp_q04"/>
+        </record>
+
+        <record id="op_cpp_q04_a02" model="op.question.bank.answer">
+            <field name="name">Friend function</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="question_id" ref="op_cpp_q04"/>
+        </record>
+
+        <record id="op_cpp_q04_a03" model="op.question.bank.answer">
+            <field name="name">Const function</field>
+            <field name="grade_id" ref="op_ans_grd_100n"/>
+            <field name="question_id" ref="op_cpp_q04"/>
+        </record>
+
+        <record id="op_cpp_q04_a04" model="op.question.bank.answer">
+            <field name="name">Virtual function</field>
+            <field name="grade_id" ref="op_ans_grd_100n"/>
+            <field name="question_id" ref="op_cpp_q04"/>
+        </record>
+
+        <record id="op_cpp_q05" model="op.question.bank.line">
+            <field name="name">Which of the following concepts means determining at runtime what method to invoke?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_cpp"/>
+        </record>
+
+        <record id="op_cpp_q05_a01" model="op.question.bank.answer">
+            <field name="name">Data hiding</field>
+            <field name="grade_id" ref="op_ans_grd_100n"/>
+            <field name="question_id" ref="op_cpp_q05"/>
+        </record>
+
+        <record id="op_cpp_q05_a02" model="op.question.bank.answer">
+            <field name="name">Dynamic Typing</field>
+            <field name="grade_id" ref="op_ans_grd_100n"/>
+            <field name="question_id" ref="op_cpp_q05"/>
+        </record>
+
+        <record id="op_cpp_q05_a03" model="op.question.bank.answer">
+            <field name="name">Dynamic binding</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="question_id" ref="op_cpp_q05"/>
+        </record>
+
+        <record id="op_cpp_q05_a04" model="op.question.bank.answer">
+            <field name="name">Dynamic loading</field>
+            <field name="grade_id" ref="op_ans_grd_100n"/>
+            <field name="question_id" ref="op_cpp_q05"/>
+        </record>
+
+        <record id="op_cpp_q06" model="op.question.bank.line">
+            <field name="name">Which of the following term is used for a function defined inside a class?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_cpp"/>
+        </record>
+
+        <record id="op_cpp_q06_a01" model="op.question.bank.answer">
+            <field name="name">Member Variable</field>
+            <field name="grade_id" ref="op_ans_grd_100n"/>
+            <field name="question_id" ref="op_cpp_q06"/>
+        </record>
+
+        <record id="op_cpp_q06_a02" model="op.question.bank.answer">
+            <field name="name">Member function</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="question_id" ref="op_cpp_q06"/>
+        </record>
+
+        <record id="op_cpp_q06_a03" model="op.question.bank.answer">
+            <field name="name">Class function</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="question_id" ref="op_cpp_q06"/>
+        </record>
+
+        <record id="op_cpp_q06_a04" model="op.question.bank.answer">
+            <field name="name">Classic function</field>
+            <field name="grade_id" ref="op_ans_grd_100n"/>
+            <field name="question_id" ref="op_cpp_q06"/>
+        </record>
+
+        <record id="op_cpp_q07" model="op.question.bank.line">
+            <field name="name">Which of the following concept of oops allows compiler to insert arguments in a function call if it is not specified?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_cpp"/>
+        </record>
+
+        <record id="op_cpp_q07_a01" model="op.question.bank.answer">
+            <field name="name">Call by value</field>
+            <field name="grade_id" ref="op_ans_grd_100n"/>
+            <field name="question_id" ref="op_cpp_q07"/>
+        </record>
+
+        <record id="op_cpp_q07_a02" model="op.question.bank.answer">
+            <field name="name">Call by reference</field>
+            <field name="grade_id" ref="op_ans_grd_100n"/>
+            <field name="question_id" ref="op_cpp_q07"/>
+        </record>
+
+        <record id="op_cpp_q07_a03" model="op.question.bank.answer">
+            <field name="name">Default arguments</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="question_id" ref="op_cpp_q07"/>
+        </record>
+
+        <record id="op_cpp_q07_a04" model="op.question.bank.answer">
+            <field name="name">Call by pointer</field>
+            <field name="grade_id" ref="op_ans_grd_100n"/>
+            <field name="question_id" ref="op_cpp_q07"/>
+        </record>
+
+        <record id="op_cpp_q08" model="op.question.bank.line">
+            <field name="name">How many instances of an abstract class can be created?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_cpp"/>
+        </record>
+
+        <record id="op_cpp_q08_a01" model="op.question.bank.answer">
+            <field name="name">1</field>
+            <field name="grade_id" ref="op_ans_grd_100n"/>
+            <field name="question_id" ref="op_cpp_q08"/>
+        </record>
+
+        <record id="op_cpp_q08_a02" model="op.question.bank.answer">
+            <field name="name">2</field>
+            <field name="grade_id" ref="op_ans_grd_100n"/>
+            <field name="question_id" ref="op_cpp_q08"/>
+        </record>
+
+        <record id="op_cpp_q08_a03" model="op.question.bank.answer">
+            <field name="name">3</field>
+            <field name="grade_id" ref="op_ans_grd_100n"/>
+            <field name="question_id" ref="op_cpp_q08"/>
+        </record>
+
+        <record id="op_cpp_q08_a04" model="op.question.bank.answer">
+            <field name="name">0</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="question_id" ref="op_cpp_q08"/>
+        </record>
+
+        <record id="op_cpp_q09" model="op.question.bank.line">
+            <field name="name">Which of the following cannot be friend?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_cpp"/>
+        </record>
+
+        <record id="op_cpp_q09_a01" model="op.question.bank.answer">
+            <field name="name">Function</field>
+            <field name="grade_id" ref="op_ans_grd_100n"/>
+            <field name="question_id" ref="op_cpp_q09"/>
+        </record>
+
+        <record id="op_cpp_q09_a02" model="op.question.bank.answer">
+            <field name="name">Class</field>
+            <field name="grade_id" ref="op_ans_grd_100n"/>
+            <field name="question_id" ref="op_cpp_q09"/>
+        </record>
+
+        <record id="op_cpp_q09_a03" model="op.question.bank.answer">
+            <field name="name">Object</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="question_id" ref="op_cpp_q09"/>
+        </record>
+
+        <record id="op_cpp_q09_a04" model="op.question.bank.answer">
+            <field name="name">Operator function</field>
+            <field name="grade_id" ref="op_ans_grd_100n"/>
+            <field name="question_id" ref="op_cpp_q09"/>
+        </record>
+
+        <record id="op_cpp_q10" model="op.question.bank.line">
+            <field name="name">Which of the following concepts of OOPS means exposing only necessary information to client?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_cpp"/>
+        </record>
+
+        <record id="op_cpp_q10_a01" model="op.question.bank.answer">
+            <field name="name">Encapsulation</field>
+            <field name="grade_id" ref="op_ans_grd_100n"/>
+            <field name="question_id" ref="op_cpp_q10"/>
+        </record>
+
+        <record id="op_cpp_q10_a02" model="op.question.bank.answer">
+            <field name="name">Abstraction</field>
+            <field name="grade_id" ref="op_ans_grd_100n"/>
+            <field name="question_id" ref="op_cpp_q10"/>
+        </record>
+
+        <record id="op_cpp_q10_a03" model="op.question.bank.answer">
+            <field name="name">Data hiding</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="question_id" ref="op_cpp_q10"/>
+        </record>
+
+        <record id="op_cpp_q10_a04" model="op.question.bank.answer">
+            <field name="name">Data binding</field>
+            <field name="grade_id" ref="op_ans_grd_100n"/>
+            <field name="question_id" ref="op_cpp_q10"/>
+        </record>
+
+</odoo>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Payslip Run -->
+   <record id="view_hr_payslip_run_isep_form" model="ir.ui.view">
+        <field name="name">hr.payslip.run.isep.form</field>
+        <field name="model">hr.payslip.run</field>
+        <field name="inherit_id" ref="nomina_cfdi_ee.hr_payslip_run_form_nomina_cfdi"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='nominas']" position="attributes">
+                <attribute name="attrs">{'invisible': False}</attribute>
+            </xpath>
+            <!-- <xpath expr="//field[@name='journal_id']" position="attributes">
+                <attribute name="options">{'no_create_edit': True, 'no_create': True}</attribute>
+            </xpath> -->
+        </field>
+   </record>
+
+   <record id="view_hr_payslip_run_inherit_isep_form" model="ir.ui.view">
+        <field name="name">hr.payslip.run.isep.form</field>
+        <field name="model">hr.payslip.run</field>
+        <field name="inherit_id" ref="nomina_cfdi_extras_ee.hr_payslip_run_inherit_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='export_report_xlsx_button']" position="attributes">
+                <attribute name="attrs">{'invisible': False}</attribute>
+            </xpath>
+        </field>
+   </record>
+
+    <!-- Salary Rule -->
+    <record id="view_hr_salary_rule_isep_form" model="ir.ui.view">
+        <field name="name">hr.salary.rule.isep.form</field>
+        <field name="model">hr.salary.rule</field>
+        <field name="inherit_id" ref="hr_payroll_account.hr_salary_rule_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='not_computed_in_net']" position="after">
+                <field name="account_debit2_id" groups="nomina_cfdi_ee.group_nomina_mx"/>
+                <field name="partner_debit" attrs="{'invisible': [('partner_id', '=', False)]}"/>
+                <field name="partner_credit" attrs="{'invisible': [('partner_id', '=', False)]}"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

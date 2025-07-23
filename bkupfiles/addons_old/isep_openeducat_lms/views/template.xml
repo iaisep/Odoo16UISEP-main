@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="course_detail_custom" inherit_id="openeducat_lms.course_detail">
+        <xpath expr="//div[@class='learndash_course_faculty pt32']" position="after">
+            <div class="oe_structure">
+                <div class="mb16" id="category_header" t-att-data-editor-message="editor_msg" t-field="course.lmsdescription_html"/>
+            </div>
+        </xpath>
+       <!--  <xpath expr="//section[@class='pb64']" position="after">
+            <div class="oe_structure">
+                Contenido..
+            </div>
+        </xpath> -->
+    </template>
+</odoo>

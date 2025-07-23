@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="student_action_view" model="ir.actions.act_window">
+        <field name="name">Overview</field>
+        <field name="res_model">student.statistics</field>
+        <field name="view_mode">qweb</field>
+    </record>
+
+
+    <record id="student_statistics" model="ir.ui.view">
+        <field name="name">Statistics</field>
+        <field name="type">qweb</field>
+        <field name="model">student.statistics</field>
+        <field name="arch" type="xml">
+            <qweb>
+                <div class="o_form_view o_form_readonly">
+                    <div class="o_form_sheet_bg">
+                        <div class="o_form_sheet">
+                            <div style="padding-bottom: 40px;">
+                                <span style="font-size: 14px;">
+                                    <b>Student :</b>
+                                </span>
+                                <t t-esc="student_name"/>
+                                <br/>
+                                <span style="font-size: 14px;">
+                                    <b>GradeBook :</b>
+                                </span>
+                                <t t-esc="gradebook_name"/>
+                            </div>
+                            <h5 class="mb16">CATEGORY STATISTICS</h5>
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <th>Category</th>
+                                        <th>Graded</th>
+                                        <th>Grades Published</th>
+                                        <th>Needs Grading</th>
+                                        <th>Archive</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Assignment</td>
+                                        <td>
+                                            <t t-esc="graded"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="grades_published"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="need_grading"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="grades_archieve"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Attendance</td>
+                                        <td>
+                                            <t t-esc="grades_given_att"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="att_grades_publish"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="grade_att"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="att_grades_archive"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </qweb>
+        </field>
+    </record>
+</odoo>

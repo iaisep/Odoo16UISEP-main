@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_calendar_online_meeting" model="ir.ui.view">
+        <field name="name">calendar.online.meeting</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Meeting Logs">
+                    <field name="logs_line">
+                        <tree>
+                            <field name="partner_id"/>
+                            <field name="join_time"/>
+                            <field name="raised_hand"/>
+                            <field name="attentive_percentage"/>
+                            <field name="visibility_line"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page string="Meeting Guest">
+                    <field name="guest_line">
+                        <tree>
+                            <field name="guest"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page string="Meeting KPI">
+                    <group>
+                        <group>
+                            <field name="meeting_start_time"/>
+                            <field name="meeting_end_time"/>
+                            <field name="meeting_duration" widget="float_time"/>
+                            <field name="meeting_attentive_percentage"/>
+                        </group>
+                        <group>
+                                <field name="total_student"/>
+                            <field name="total_guest"/>
+                            <field name="total_member"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

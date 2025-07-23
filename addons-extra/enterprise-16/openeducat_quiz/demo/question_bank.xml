@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="op_qu_bnk_maths" model="op.question.bank">
+            <field name="name">Std-5 Math Test</field>
+            <field name="bank_type_id" ref="op_qu_bnk_typ_maths"/>
+        </record>
+
+        <record id="op_qu_bnk_sci" model="op.question.bank">
+            <field name="name">Basic Science Funda</field>
+            <field name="bank_type_id" ref="op_qu_bnk_typ_sci"/>
+        </record>
+
+        <record id="op_qu_bnk_c" model="op.question.bank">
+            <field name="name">General Knowledge</field>
+            <field name="bank_type_id" ref="op_qu_bnk_typ_c"/>
+        </record>
+
+        <record id="op_qu_bnk_cpp" model="op.question.bank">
+            <field name="name">C++ Competition</field>
+            <field name="bank_type_id" ref="op_qu_bnk_typ_cpp"/>
+        </record>
+
+        <record id="op_qu_bnk_gk" model="op.question.bank">
+            <field name="name">Checkout Your GK</field>
+            <field name="bank_type_id" ref="op_qu_bnk_typ_gk"/>
+        </record>
+
+        <record id="op_qu_bnk_que" model="op.question.bank">
+            <field name="name">simple Questions</field>
+            <field name="bank_type_id" ref="op_qu_bnk_typ_gk"/>
+        </record>
+
+</odoo>

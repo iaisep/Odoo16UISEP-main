@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+        <record model="ir.ui.view" id="view_course_lms_blog_form">
+            <field name="name">op.course.form.blog.inherit</field>
+            <field name="model">op.course</field>
+            <field name="inherit_id" ref="openeducat_lms.view_op_lms_course_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/header/button[@name='action_closed']" position="after">
+                    <button name="action_create_blog" states="open"
+                            string="Create Blog" type="object" class="oe_highlight"
+                            attrs="{'invisible': ['|',('blog_id', '!=', False)]}"/>
+                </xpath>
+                <xpath expr="/form/sheet/group/group/field[@name='confirm_date']" position="after">
+                    <field name="blog_id" readonly="1"/>
+                </xpath>
+                <xpath expr="//div[@name='button_box']" position="inside">
+                    <button class="btn oe_stat_button" type="object"
+                            name="get_blog"
+                            icon="fa-rss">
+                        <field string="Blog Post" name="blogs_count" widget="statinfo"/>
+                    </button>
+                </xpath>
+            </field>
+        </record>
+        <record id="view_op_course_tree_lms_blog" model="ir.ui.view">
+            <field name="name">op.course.lms.blog.tree</field>
+            <field name="model">op.course</field>
+            <field name="inherit_id" ref="openeducat_lms.view_op_lms_course_tree"/>
+            <field name="arch" type="xml">
+                <field name="active" position="before">
+                    <field name="blog_id" optional="hide"/>
+                    <field name="blog_post_ids" optional="hide"/>
+                    <field name="blogs_count" optional="hide"/>
+                </field>
+            </field>
+        </record>
+
+</odoo>

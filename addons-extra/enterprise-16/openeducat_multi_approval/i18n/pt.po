@@ -1,0 +1,1183 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* openeducat_multi_approval
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-14 09:16+0000\n"
+"PO-Revision-Date: 2022-12-14 09:16+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: openeducat_multi_approval
+#: model:mail.template,body_html:openeducat_multi_approval.email_template_multi_approve
+msgid ""
+"\n"
+"                    <p>Dear <b><t t-out=\"object.user_id.name\"/></b>\n"
+"                    </p>\n"
+"                    <br/>\n"
+"                    <br/>\n"
+"                    Your Request has been approved.\n"
+"                "
+msgstr ""
+"\n"
+"                    <p> querido <b> <t the-out = \"object.user_id.name\"/> </b>\n"
+"                    </p>\n"
+"                    <br/>\n"
+"                    <br/>\n"
+"                    Seu pedido foi aprovado.\n"
+"                "
+
+#. module: openeducat_multi_approval
+#: model:mail.template,body_html:openeducat_multi_approval.email_template_multi_reject
+msgid ""
+"\n"
+"                    <p>Dear <b><t t-out=\"object.user_id.name\"/></b>\n"
+"                    </p>\n"
+"                    <br/>\n"
+"                    <br/>\n"
+"                   Your Request has been Rejected.\n"
+"                "
+msgstr ""
+"\n"
+"                    <p> querido <b> <t the-out = \"object.user_id.name\"/> </b>\n"
+"                    </p>\n"
+"                    <br/>\n"
+"                    <br/>\n"
+"                   Seu pedido foi rejeitado.\n"
+"                "
+
+#. module: openeducat_multi_approval
+#. odoo-python
+#: code:addons/openeducat_multi_approval/models/multi_approval.py:0
+#, python-format
+msgid ""
+"<?xml version=\"1.0\"?><data><field name=\"state\" position=\"after\"><field"
+" name=\"x_is_request\" invisible=\"1\"/><field name=\"x_is_view_approval\" "
+"invisible=\"1\"/><field name=\"x_result_approval\" invisible=\"1\"/><field "
+"name=\"x_is_hide\" invisible=\"1\"/><button name=\"%s\" string=\"Create New "
+"Request\" type=\"action\" class=\"btn-primary\" attrs=\"%s\"/><button "
+"name=\"%s\" string=\"View Approval\" type=\"action\" class=\"btn-primary\" "
+"attrs=\"%s\"/></field><xpath expr=\"//form/header\" "
+"position=\"after\"><div><div attrs=\"%s\" class=\"alert alert-warning\" "
+"style=\"margin-bottom:0px;\" role=\"alert\">This document need to be "
+"approved !</div><div attrs=\"%s\" class=\"alert alert-info\" style=\"margin-"
+"bottom:0px;\" role=\"alert\">This document has been approved !</div><div "
+"attrs=\"%s\" class=\"alert alert-danger\" style=\"margin-bottom:0px;\" "
+"role=\"alert\">This document has been refused !</div></div></xpath></data>"
+msgstr ""
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid ""
+"<code style=\"white-space: pre-wrap\">\n"
+"                                                partner_name = record.name + '_code'\n"
+"                                                env['res.partner'].create({'name': partner_name})\n"
+"                                            </code>"
+msgstr ""
+"<code style=\"White-Space: Pré-Wrap\">\n"
+"                                                parceiro_name = registro.name + '_code'\n"
+"                                                Env ['res.Partner']. Create ({'name': parceiro_name})\n"
+"                                            </code>"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid ""
+"<code>UserError</code>: Warning Exception to use with\n"
+"                                                <code>raise</code>"
+msgstr ""
+"<code> userError </code>: Exceção de aviso para usar com\n"
+"                                                <code> Raise </code>"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid "<code>env</code>: Odoo Environment on which the action is triggered"
+msgstr "<code> Env </code>: ambiente ODOO no qual a ação é acionada"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid ""
+"<code>log(message, level='info')</code>:logging function to record debug\n"
+"                                                information in <code>ir.logging</code> table"
+msgstr ""
+"<code> LOG (mensagem, nível = 'info') </code>: Função de log para gravar Debug\n"
+"                                                Informações em <code> ir.logging </code> Tabela"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid ""
+"<code>model</code>: Odoo Model of the record on which the action is\n"
+"                                                triggered; is a void recordset"
+msgstr ""
+"<code> Modelo </code>: modelo ODOO do registro em que a ação é\n"
+"                                                provocado; é um conjunto de registros vazios"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid ""
+"<code>record</code>: record on which the action is triggered; may be be\n"
+"                                                void"
+msgstr ""
+"<code> registro </code>: registro no qual a ação é acionada; talvez seja\n"
+"                                                vazio"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid ""
+"<code>records</code>: recordset of all records on which the action is\n"
+"                                                triggered in multi mode; may be void"
+msgstr ""
+"<code> registros </code>: conjunto de registros de todos os registros nos quais a ação é\n"
+"                                                acionado em modo multi; pode ser nulo"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid ""
+"<code>time</code>, <code>datetime</code>, <code>dateutil</code>, <code>\n"
+"                                                timezone</code>: useful Python libraries"
+msgstr ""
+"<code> time </code>, <code> DateTime </code>, <code> dateUtil </code>, <code>\n"
+"                                                fuso horário </code>: Bibliotecas Python úteis"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_kanban_approval_type
+msgid "<i class=\"fa fa-edit\" role=\"img\" aria-label=\"Manage\" title=\"Manage\"/>"
+msgstr "<i class=\"fa fa-edit\" role=\"img\" aria-label=\"gerenciar\" title=\"gerenciar\"/>"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_request
+msgid "<span>From:</span>"
+msgstr ""
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_request
+msgid "<span>to:</span>"
+msgstr ""
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__message_needaction
+msgid "Action Needed"
+msgstr "Ação necessária"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__active
+msgid "Active"
+msgstr "Ativo"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__activity_ids
+msgid "Activities"
+msgstr "Atividades"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Decoração de exceção de atividade"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__activity_state
+msgid "Activity State"
+msgstr "Estado de atividade"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Ícone do tipo de atividade"
+
+#. module: openeducat_multi_approval
+#: model:ir.actions.act_window,name:openeducat_multi_approval.mail_activity_type_action_config_approval
+#: model:ir.ui.menu,name:openeducat_multi_approval.multi_approval_menu_config_activity_type
+msgid "Activity Types"
+msgstr "Tipos de atividade"
+
+#. module: openeducat_multi_approval
+#: model:res.groups,name:openeducat_multi_approval.group_approval_manager
+msgid "Administrator"
+msgstr "Administrador"
+
+#. module: openeducat_multi_approval
+#: model:ir.ui.menu,name:openeducat_multi_approval.menu_all_approval
+msgid "All Approval"
+msgstr "Toda a aprovação"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__amount_opt
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__amount
+msgid "Amount"
+msgstr "Quantia"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__amount_opt
+msgid "Amount Opt"
+msgstr "Valor opt"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__apply_for_model
+msgid "Apply For Model ?"
+msgstr "Se inscrever no modelo?"
+
+#. module: openeducat_multi_approval
+#: model:ir.module.category,name:openeducat_multi_approval.module_category_multi_approval
+msgid "Approval"
+msgstr "Aprovação"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request_line__approval_minimum
+msgid "Approval Minimum"
+msgstr "Aprovação mínima"
+
+#. module: openeducat_multi_approval
+#: model:ir.actions.act_window,name:openeducat_multi_approval.action_window_approval_model_request
+msgid "Approval Model Request"
+msgstr "Solicitação de modelo de aprovação"
+
+#. module: openeducat_multi_approval
+#. odoo-python
+#: code:addons/openeducat_multi_approval/models/multi_approval.py:0
+#: model:ir.actions.act_window,name:openeducat_multi_approval.action_window_approval_request
+#: model:ir.actions.act_window,name:openeducat_multi_approval.action_window_approval_request_my_request
+#: model:ir.actions.act_window,name:openeducat_multi_approval.action_window_approval_request_to_review
+#: model:ir.actions.act_window,name:openeducat_multi_approval.action_window_approval_request_to_review_kanban
+#: model:ir.model,name:openeducat_multi_approval.model_multi_request
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_request
+#, python-format
+msgid "Approval Request"
+msgstr "Pedido de aprovação"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_model_request__approval_type_id
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__approval_type_id
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid "Approval Type"
+msgstr "Tipo de aprovação"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_kanban_approval_type
+msgid "Approval Type Image"
+msgstr "Imagem do tipo de aprovação"
+
+#. module: openeducat_multi_approval
+#: model:ir.actions.act_window,name:openeducat_multi_approval.action_window_approval_type
+#: model:ir.ui.menu,name:openeducat_multi_approval.menu_approval_types
+msgid "Approval Types"
+msgstr "Tipos de aprovação"
+
+#. module: openeducat_multi_approval
+#: model:mail.template,subject:openeducat_multi_approval.email_template_multi_approve
+msgid ""
+"Approval for {{object.source_document.name if object.source_document else "
+"object.name}}"
+msgstr ""
+"Aprovação para {{object.source_document.name se object.source_document else "
+"objeto.name}}"
+
+#. module: openeducat_multi_approval
+#: model:ir.model,name:openeducat_multi_approval.model_multi_model_request
+msgid "ApprovalModelRequest"
+msgstr "AprovaçãoModelRequest"
+
+#. module: openeducat_multi_approval
+#: model:ir.model,name:openeducat_multi_approval.model_multi_product_line
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_product_line__line_product
+msgid "ApprovalProductLine"
+msgstr "AprovalProductLine"
+
+#. module: openeducat_multi_approval
+#: model:ir.model,name:openeducat_multi_approval.model_multi_request_line
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request_line__line
+msgid "ApprovalRequestLine"
+msgstr "AprovalRequestline"
+
+#. module: openeducat_multi_approval
+#: model:ir.ui.menu,name:openeducat_multi_approval.menu_approvals
+#: model:ir.ui.menu,name:openeducat_multi_approval.menu_root
+msgid "Approvals"
+msgstr "Aprovações"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_request
+msgid "Approve"
+msgstr "Aprovar"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type_line__approve_tmpl_id
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request_line__approve_tmpl_id
+msgid "Approve Template"
+msgstr "Aprovar o modelo"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__request_status__approved
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__user_status__approved
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request_line__status__approved
+msgid "Approved"
+msgstr "Aprovado"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__approve_python_code
+msgid "Approved Action"
+msgstr "Ação aprovada"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_request
+msgid "Approver(s)"
+msgstr "Aprovador (s)"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__line_ids
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__line_ids
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid "Approvers"
+msgstr "Aprovadores"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_request
+msgid "Attach Document"
+msgstr "Anexe o documento"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_request
+msgid "Attach Receipt"
+msgstr "Anexe o recibo"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__message_attachment_count
+msgid "Attachment Count"
+msgstr "Contagem de anexos"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_request
+msgid "Back To Draft"
+msgstr "De volta ao rascunho"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__request_status__cancel
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__user_status__cancel
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request_line__status__cancel
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_request
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_multi_approval_model_request
+msgid "Close"
+msgstr "Perto"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid "Configure"
+msgstr ""
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__is_configured
+msgid "Configured"
+msgstr "Configurado"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__partner_opt
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__partner_id
+msgid "Contact"
+msgstr "Contato"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid "Create New Request"
+msgstr "Criar nova solicitação"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.actions.act_window,help:openeducat_multi_approval.action_window_approval_request
+#: model_terms:ir.actions.act_window,help:openeducat_multi_approval.action_window_approval_request_my_request
+#: model_terms:ir.actions.act_window,help:openeducat_multi_approval.action_window_approval_request_to_review
+#: model_terms:ir.actions.act_window,help:openeducat_multi_approval.action_window_approval_request_to_review_kanban
+msgid ""
+"Create a new Approval Request, the first step of a new Approval Request!"
+msgstr ""
+"Crie uma nova solicitação de aprovação, a primeira etapa de uma nova "
+"solicitação de aprovação!"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.actions.act_window,help:openeducat_multi_approval.action_window_approval_type
+msgid "Create a new Approval Types, the first step of a new Approval!"
+msgstr ""
+"Crie um novo tipo de aprovação, o primeiro passo de uma nova aprovação!"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__create_uid
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type_line__create_uid
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_model_request__create_uid
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_product_line__create_uid
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__create_uid
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request_line__create_uid
+msgid "Created by"
+msgstr "Criado por"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__create_date
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type_line__create_date
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_model_request__create_date
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_product_line__create_date
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__create_date
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request_line__create_date
+msgid "Created on"
+msgstr "Criado em"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__date_opt
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_request
+msgid "Date"
+msgstr "Encontro"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__date_confirmed
+msgid "Date Confirm"
+msgstr "Data confirm"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__date_start
+msgid "Date End"
+msgstr "Data final"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__date_opt
+msgid "Date Opt"
+msgstr "Data Opt"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__date_end
+msgid "Date Start"
+msgstr "Data inicial"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,help:openeducat_multi_approval.field_multi_product_line__product_uom_id
+msgid "Default unit of measure used for all stock operations."
+msgstr "Unidade de medida padrão usada para todas as operações de estoque."
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__description
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_model_request__description
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__reason
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_request
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_multi_approval_model_request
+msgid "Description"
+msgstr "Descrição"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__display_name
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type_line__display_name
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_model_request__display_name
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_product_line__display_name
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__display_name
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request_line__display_name
+msgid "Display Name"
+msgstr "Nome em Exibição"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__document_opt
+msgid "Document"
+msgstr "Documento"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__document_opt
+msgid "Document Opt"
+msgstr "Documento Opt"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_request
+msgid "Documents"
+msgstr "Documentos"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__domain
+msgid "Domain"
+msgstr "Domínio"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_request
+msgid "E.g: Expenses Paris business trip"
+msgstr "Por exemplo: Viagem de negócios de despesas de Paris"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid "Example of Python code"
+msgstr "Exemplo de código Python"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid "Fields"
+msgstr "Campos"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__message_follower_ids
+msgid "Followers"
+msgstr "Seguidores"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Seguidores (parceiros)"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,help:openeducat_multi_approval.field_multi_request__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Ícone de fonte incrível, por exemplo FA-Tasks"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__has_message
+msgid "Has Message"
+msgstr "Tem mensagem"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid "Help"
+msgstr "Ajuda"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid "Help with Python expressions"
+msgstr "Ajuda com expressões Python"
+
+#. module: openeducat_multi_approval
+#: model:ir.module.category,description:openeducat_multi_approval.module_category_multi_approval
+msgid ""
+"Helps you manage your Approval Types-related processes such as requests for\n"
+"                approval etc...\n"
+"            "
+msgstr ""
+"Ajuda a gerenciar seus processos relacionados aos tipos de aprovação, como solicitações para\n"
+"                aprovação etc ...\n"
+"            "
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__hide_button
+msgid "Hide Buttons from Model View?"
+msgstr "Ocultar botões da vista do modelo?"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__id
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type_line__id
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_model_request__id
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_product_line__id
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__id
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request_line__id
+msgid "ID"
+msgstr "EU IRIA"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__activity_exception_icon
+msgid "Icon"
+msgstr "Ícone"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,help:openeducat_multi_approval.field_multi_request__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Ícone para indicar uma atividade de exceção."
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,help:openeducat_multi_approval.field_multi_request__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Se verificado, novas mensagens exigem sua atenção."
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,help:openeducat_multi_approval.field_multi_request__message_has_error
+#: model:ir.model.fields,help:openeducat_multi_approval.field_multi_request__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Se verificado, algumas mensagens têm um erro de entrega."
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__image
+msgid "Image"
+msgstr "Imagem"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__message_is_follower
+msgid "Is Follower"
+msgstr "É seguidor"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type____last_update
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type_line____last_update
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_model_request____last_update
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_product_line____last_update
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request____last_update
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request_line____last_update
+msgid "Last Modified on"
+msgstr "Último modificado em"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__write_uid
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type_line__write_uid
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_model_request__write_uid
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_product_line__write_uid
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__write_uid
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request_line__write_uid
+msgid "Last Updated by"
+msgstr "Última atualização por"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__write_date
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type_line__write_date
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_model_request__write_date
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_product_line__write_date
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__write_date
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request_line__write_date
+msgid "Last Updated on"
+msgstr "Última atualização em"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__location_opt
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__location
+msgid "Location"
+msgstr "Localização"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__location_opt
+msgid "Location Opt"
+msgstr "Localização Opt"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Anexo principal"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__message_has_error
+msgid "Message Delivery error"
+msgstr "Erro de entrega da mensagem"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__message_ids
+msgid "Messages"
+msgstr "Mensagens"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__approval_minimum
+msgid "Minimum Approvers"
+msgstr "Aprovadores mínimos"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__model_id
+msgid "Model"
+msgstr "Modelo"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__model_name
+msgid "Model Name"
+msgstr "Nome do modelo"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid "Model Settings"
+msgstr "Configurações do modelo"
+
+#. module: openeducat_multi_approval
+#: model:mail.template,name:openeducat_multi_approval.email_template_multi_approve
+msgid "Multi Approved(User) - Send by Email"
+msgstr "Multi Aprovado (Usuário) - Enviar por e -mail"
+
+#. module: openeducat_multi_approval
+#: model:mail.template,name:openeducat_multi_approval.email_template_multi_reject
+msgid "Multi Rejected(User) - Send by Email"
+msgstr "Multi Rejeited (Usuário) - Enviar por e -mail"
+
+#. module: openeducat_multi_approval
+#: model:ir.model,name:openeducat_multi_approval.model_multi_approval_type
+msgid "MultiApproval"
+msgstr "Multiaprovação"
+
+#. module: openeducat_multi_approval
+#: model:ir.model,name:openeducat_multi_approval.model_multi_approval_type_line
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type_line__line
+msgid "MultiApprovalLine"
+msgstr "Multiaprovalino"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Meu prazo de atividade"
+
+#. module: openeducat_multi_approval
+#: model:ir.ui.menu,name:openeducat_multi_approval.menu_my_request
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_search_approval_request
+msgid "My Request"
+msgstr "Meu pedido"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__name
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_model_request__name
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__name
+msgid "Name"
+msgstr "Nome"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request_line__status__new
+msgid "New"
+msgstr "Novo"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_kanban_approval_type
+msgid "New Request"
+msgstr "Novo pedido"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "Próximo evento do calendário de atividades"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Próximo prazo de atividade"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__activity_summary
+msgid "Next Activity Summary"
+msgstr "Próxima atividade Resumo"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__activity_type_id
+msgid "Next Activity Type"
+msgstr "Próximo tipo de atividade"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__amount_opt__none
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__date_opt__none
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__location_opt__none
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__partner_opt__none
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__payment_opt__none
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__period_opt__none
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__product_opt__none
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__quantity_opt__none
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__reference_opt__none
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__amount_opt__none
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__date_opt__none
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__location_opt__none
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__partner_opt__none
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__payment_opt__none
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__period_opt__none
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__product_opt__none
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__quantity_opt__none
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__reference_opt__none
+msgid "None"
+msgstr "Nenhum"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Número de ações"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__attachment_number
+msgid "Number of Attachments"
+msgstr "Número de anexos"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__message_has_error_counter
+msgid "Number of errors"
+msgstr "Número de erros"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,help:openeducat_multi_approval.field_multi_request__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Número de mensagens que requer uma ação"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,help:openeducat_multi_approval.field_multi_request__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Número de mensagens com erro de entrega"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__amount_opt__optional
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__date_opt__optional
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__document_opt__optional
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__location_opt__optional
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__partner_opt__optional
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__payment_opt__optional
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__period_opt__optional
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__product_opt__optional
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__quantity_opt__optional
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__reference_opt__optional
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type_line__require_opt__optional
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__amount_opt__optional
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__date_opt__optional
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__document_opt__optional
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__location_opt__optional
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__partner_opt__optional
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__payment_opt__optional
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__period_opt__optional
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__product_opt__optional
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__quantity_opt__optional
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__reference_opt__optional
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request_line__require_opt__optional
+msgid "Optional"
+msgstr "Opcional"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid "Options"
+msgstr "Opções"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__partner_opt
+msgid "Partner Opt"
+msgstr "Parceiro opt"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__payment_opt
+msgid "Payment"
+msgstr "Pagamento"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__payment_opt
+msgid "Payment Opt"
+msgstr "OPT"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__period_opt
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_request
+msgid "Period"
+msgstr "Período"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__period_opt
+msgid "Period Opt"
+msgstr "Opt de período"
+
+#. module: openeducat_multi_approval
+#. odoo-python
+#: code:addons/openeducat_multi_approval/models/approval_model_request.py:0
+#, python-format
+msgid "Please Configure Sender Email"
+msgstr ""
+
+#. module: openeducat_multi_approval
+#. odoo-python
+#: code:addons/openeducat_multi_approval/models/approval_model_request.py:0
+#, python-format
+msgid "Please Configure Your Email %s ."
+msgstr ""
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__priority
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_model_request__priority
+msgid "Priority"
+msgstr "Prioridade"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__product_opt
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_product_line__product_id
+msgid "Product"
+msgstr "produtos"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__product_opt
+msgid "Product Opt"
+msgstr "Opt de produto"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__product_line_ids
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_request
+msgid "Products"
+msgstr "Produtos"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid "Python code"
+msgstr "Código Python"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__quantity_opt
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_product_line__quantity
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__quantity
+msgid "Quantity"
+msgstr "Quantidade"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__quantity_opt
+msgid "Quantity Opt"
+msgstr "Quantidade opt"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__reference_opt
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__reference
+msgid "Reference"
+msgstr "Referência"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__reference_opt
+msgid "Reference Opt"
+msgstr "OPT de referência"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_request
+msgid "Refuse"
+msgstr "Recusar"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__request_status__refused
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__user_status__refused
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request_line__status__refused
+msgid "Refused"
+msgstr "Recusou"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__refuse_python_code
+msgid "Refused Action"
+msgstr "Ação recusada"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type_line__reject_tmpl_id
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request_line__reject_tmpl_id
+msgid "Reject Template"
+msgstr "Modelo de rejeição"
+
+#. module: openeducat_multi_approval
+#: model:mail.template,subject:openeducat_multi_approval.email_template_multi_reject
+msgid ""
+"Rejection for {{object.source_document.name if object.source_document else "
+"object.name}}"
+msgstr ""
+"Rejeição para {{object.source_document.name se object.source_document else "
+"objeto.name}}"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__is_request
+msgid "Request"
+msgstr "Solicitar"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_multi_approval_model_request
+msgid "Request Approval"
+msgstr "Solicitar aprovação"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__date
+msgid "Request Date"
+msgstr "Data do Pedido"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__request_status
+msgid "Request Status"
+msgstr "Status de solicitação"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__user_id
+msgid "Request by"
+msgstr "Solicitado por"
+
+#. module: openeducat_multi_approval
+#: model:mail.template,name:openeducat_multi_approval.email_template_multi_approve_from_sale
+msgid "Request for Approval - Send by Email"
+msgstr "Solicitação de aprovação - Enviar por e -mail"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_model_request__request_date
+msgid "Requested Date"
+msgstr "Data solicitada"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__amount_opt__required
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__date_opt__required
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__document_opt__required
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__location_opt__required
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__partner_opt__required
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__payment_opt__required
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__period_opt__required
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__product_opt__required
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__quantity_opt__required
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__reference_opt__required
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type_line__require_opt__required
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__amount_opt__required
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__date_opt__required
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__document_opt__required
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__location_opt__required
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__partner_opt__required
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__payment_opt__required
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__period_opt__required
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__product_opt__required
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__quantity_opt__required
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__reference_opt__required
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request_line__require_opt__required
+msgid "Required"
+msgstr "Requeridos"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__activity_user_id
+msgid "Responsible User"
+msgstr "Usuário responsável"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Erro de entrega do SMS"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_model_request__source_document
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__source_document
+msgid "Source Document"
+msgstr "Documento Fonte"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request_line__status
+msgid "Status"
+msgstr ""
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,help:openeducat_multi_approval.field_multi_request__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Status com base em atividades\n"
+"Vencido: a data de vencimento já foi aprovada\n"
+"Hoje: a data da atividade é hoje\n"
+"Planejado: atividades futuras."
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_request
+msgid "Submit"
+msgstr "Enviar"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_multi_approval_model_request
+msgid "Submit Request"
+msgstr "Enviar pedido"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__request_status__pending
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__user_status__pending
+msgid "Submitted"
+msgstr "Submetido"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid "This type has been configured!"
+msgstr "Este tipo foi configurado!"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_multi_approval_model_request
+msgid "Title"
+msgstr "Título"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request_line__status__pending
+msgid "To Approve"
+msgstr "Aprovar"
+
+#. module: openeducat_multi_approval
+#: model:ir.ui.menu,name:openeducat_multi_approval.menu_to_review
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_search_approval_request
+msgid "To Review"
+msgstr "Rever"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_kanban_approval_type
+msgid "To Review:"
+msgstr "Rever:"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__request_status__new
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__user_status__new
+msgid "To Submit"
+msgstr "Submeter"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid ""
+"To return an action, assign:\n"
+"                                                <code>action = {...}</code>"
+msgstr ""
+"Para devolver uma ação, atribua:\n"
+"                                                <code> Action = {...} </code>"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type_line__require_opt
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request_line__require_opt
+msgid "Type of Approval"
+msgstr "Tipo de aprovação"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,help:openeducat_multi_approval.field_multi_request__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Tipo de atividade de exceção registrada."
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_product_line__product_uom_id
+msgid "Unit Of Measure"
+msgstr "Unidade de medida"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type_line__user_id
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_model_request__user_id
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request_line__user_id
+#: model:res.groups,name:openeducat_multi_approval.group_approval_user
+msgid "User"
+msgstr "Do utilizador"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__user_status
+msgid "User Status"
+msgstr "Status do usuário"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid ""
+"Various fields may use Python code or Python expressions. The following\n"
+"                                            variables can be used:"
+msgstr ""
+"Vários campos podem usar o código Python ou expressões Python. A seguir\n"
+"                                            Variáveis ​​podem ser usadas:"
+
+#. module: openeducat_multi_approval
+#. odoo-python
+#: code:addons/openeducat_multi_approval/models/approval_request.py:0
+#: model:ir.actions.server,name:openeducat_multi_approval.action_window_approval_request_view_approval
+#, python-format
+msgid "View Approval Request"
+msgstr "Visualizar solicitação de aprovação"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__website_message_ids
+msgid "Website Messages"
+msgstr "Mensagens do site"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,help:openeducat_multi_approval.field_multi_request__website_message_ids
+msgid "Website communication history"
+msgstr "Histórico de comunicação do site"
+
+#. module: openeducat_multi_approval
+#. odoo-python
+#: code:addons/openeducat_multi_approval/models/approval_request.py:0
+#: code:addons/openeducat_multi_approval/models/approval_request.py:0
+#, python-format
+msgid "You are not in the user allowed list."
+msgstr ""
+
+#. module: openeducat_multi_approval
+#. odoo-python
+#: code:addons/openeducat_multi_approval/models/multi_approval.py:0
+#, python-format
+msgid "You have to add at least 1 approvers to Approval Type."
+msgstr ""
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_request
+msgid "e.g. Brussels"
+msgstr "por exemplo. Bruxelas"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid "e.g. Procurement"
+msgstr "por exemplo. Compras"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__request_to_validate_count
+msgid "record count"
+msgstr "Contagem de registros"

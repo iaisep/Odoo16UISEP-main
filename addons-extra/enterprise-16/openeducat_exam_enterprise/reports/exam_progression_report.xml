@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="student_exam_progression_report"
+              inherit_id="openeducat_student_progress_enterprise.student_progression_report"
+              priority="10">
+        <xpath expr="//div[hasclass('progression')]" position="after">
+            <div t-if="objs.marksheet_lines" class="row mt32" style="page-break-inside:avoid;">
+                <div class="col-md-12" style="page-break-inside:avoid;">
+                    <div class="row mb16 col-md-6" style="page-break-inside:avoid;">
+                        <strong>Marksheet:</strong>
+                    </div>
+                    <table class="table table-bordered" style="page-break-inside:avoid;">
+                        <thead class="text-center" style="background-color:#eeeeee; font-size:14px; font-weight:600;">
+                            <tr>
+                                <th>Total Marks</th>
+                                <th>Percentage</th>
+                                <th>Grade</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center" style="font-size:12px;">
+                            <t t-foreach="objs.marksheet_lines" t-as="lines">
+                                <tr>
+                                    <td>
+                                        <t t-esc="lines.total_marks"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="lines.percentage"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="lines.grade"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="{false:false,'fail':'Fail', 'pass':'Pass'}[lines.status]"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

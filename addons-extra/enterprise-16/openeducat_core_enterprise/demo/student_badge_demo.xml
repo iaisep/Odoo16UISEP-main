@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="op_gamification_badge_1" model="op.gamification.badge">
+            <field name="name">Good Job</field>
+            <field name="description">Done good job in work</field>
+            <field name="image" type="base64"
+                   file="openeducat_core_enterprise/static/img/badge_good_job-image.png"/>
+        </record>
+
+        <record id="op_gamification_badge_2" model="op.gamification.badge">
+            <field name="name">Problem Solver</field>
+            <field name="description">Great in problem solving and fast</field>
+            <field name="image" type="base64"
+                   file="openeducat_core_enterprise/static/img/badge_problem_solver-image.png"/>
+        </record>
+
+        <record id="op_gamification_badge_3" model="op.gamification.badge">
+            <field name="name">Brilliant</field>
+            <field name="description">Brilliant in particular thing, Great work.</field>
+            <field name="image" type="base64"
+                   file="openeducat_core_enterprise/static/img/badge_idea-image.png"/>
+        </record>
+
+        <record id="op_badge_student_1" model="op.badge.student">
+            <field name="student_id" ref="openeducat_core.op_student_1"/>
+            <field name="sender_id" ref="openeducat_core.op_user_bo"/>
+            <field name="badge_id" ref="op_gamification_badge_1"/>
+            <field name="comment">You have done good job</field>
+            <field name="create_date" eval="DateTime.today()"/>
+        </record>
+
+        <record id="op_badge_student_2" model="op.badge.student">
+            <field name="student_id" ref="openeducat_core.op_student_2"/>
+            <field name="sender_id" ref="openeducat_core.op_user_bo"/>
+            <field name="badge_id" ref="op_gamification_badge_2"/>
+            <field name="comment">For helping people and for solving problems</field>
+            <field name="create_date" eval="DateTime.today()"/>
+        </record>
+
+        <record id="op_badge_student_3" model="op.badge.student">
+            <field name="student_id" ref="openeducat_core.op_student_3"/>
+            <field name="sender_id" ref="openeducat_core.op_user_bo"/>
+            <field name="badge_id" ref="op_gamification_badge_3"/>
+            <field name="comment">Brilliant work done in classroom</field>
+            <field name="create_date" eval="DateTime.today()"/>
+        </record>
+
+</odoo>

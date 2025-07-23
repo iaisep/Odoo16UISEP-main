@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Vistas -->
+
+    <!-- VISTA DE ÁRBOL (Tree) -->
+
+    <record id="view_practice_request_document_tree" model="ir.ui.view">
+        <field name="name">practice.request.document.tree</field>
+        <field name="model">practice.request.document</field>
+        <field name="arch" type="xml">
+            <tree string="Practice Request Documents">
+                <field name="name"/>
+                <field name="document_type"/>
+                <field name="upload_date"/>
+                <field name="description"/>
+
+                <field name="practice_request_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_practice_request_document_form" model="ir.ui.view">
+        <field name="name">practice.request.document.form</field>
+        <field name="model">practice.request.document</field>
+        <field name="arch" type="xml">
+            <form string="Practice Request Document">
+                <sheet>
+                    <group>
+                        <field name="document_type"/>
+                        <field name="name"/>
+                        <field name="description"/>
+                    </group>
+                    <group>
+                        <field name="file"/>
+
+
+                        <field name="file_name" invisible="1"/>
+                        <field name="upload_date" readonly="1"/>
+                        <field name="practice_request_id" invisible="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_practice_request_document_search" model="ir.ui.view">
+        <field name="name">practice.request.document.search</field>
+        <field name="model">practice.request.document</field>
+        <field name="arch" type="xml">
+            <search string="Practice Request Documents">
+                <field name="name"/>
+                <field name="document_type"/>
+                <field name="practice_request_id"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_practice_request_document" model="ir.actions.act_window">
+        <field name="name">Practice Request Documents</field>
+        <field name="res_model">practice.request.document</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu -->
+    <menuitem id="menu_practice_request_documents" name="Documents" parent="menu_practice_management"
+              action="action_practice_request_document" sequence="20"/>
+
+
+</odoo>

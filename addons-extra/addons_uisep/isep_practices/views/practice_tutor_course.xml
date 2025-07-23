@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- View practice.tutor.course View Tree -->
+    <record id="view_practice_tutor_course_tree" model="ir.ui.view">
+        <field name="name">view.practice.tutor.course.tree</field>
+        <field name="model">practice.tutor.course</field>
+        <field name="arch" type="xml">
+            <tree string="Association tutor course">
+                <field name="op_course_id"/>
+                <field name="partner_id"/>
+                <field name="tutor_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- View practice.tutor.course form -->
+    <record id="view_practice_tutor_course_form" model="ir.ui.view">
+        <field name="name">view.practice.tutor.course.form</field>
+        <field name="model">practice.tutor.course</field>
+        <field name="arch" type="xml">
+            <form string="Association tutor course">
+                <sheet>
+                    <group col="4">
+                        <field name="op_course_id" />
+                        <field name="tutor_id"/>
+                        <field name="partner_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- View practice.tutor.course search -->
+    <record id="view_practice_tutor_course_search" model="ir.ui.view">
+        <field name="name">view.practice.tutor.course.search</field>
+        <field name="model">practice.tutor.course</field>
+        <field name="arch" type="xml">
+            <search string="Association tutor course">
+                <field name="op_course_id"/>
+                <field name="tutor_id"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action practice.tutor.course -->
+    <record id="action_practice_tutor_course" model="ir.actions.act_window">
+        <field name="name">Practice Tutor Course</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">practice.tutor.course</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                There is no examples click here to add new Practice Tutor Course.
+            </p>
+        </field>
+    </record>
+
+</odoo>

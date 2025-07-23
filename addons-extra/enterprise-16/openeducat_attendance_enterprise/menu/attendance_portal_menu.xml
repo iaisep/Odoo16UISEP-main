@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="report_student_attendance_register" model="ir.actions.report">
+        <field name="name">Print Attendance Report</field>
+        <field name="model">op.attendance.register</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_file">attendance_xlsx</field>
+        <field name="report_name">op.attendance_xlsx</field>
+        <field name="binding_model_id" ref="openeducat_attendance.model_op_attendance_register"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="report_student_attendance_register_by_week" model="ir.actions.report">
+        <field name="name">Print Attendance Report By Week</field>
+        <field name="model">op.attendance.register</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_file">attendance_xlsx_by_week</field>
+        <field name="report_name">op.attendance_xlsx_by_week</field>
+        <field name="binding_model_id" ref="openeducat_attendance.model_op_attendance_register"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="poratl_menu_attendance" model="openeducat.portal.menu">
+        <field name="menu_ref_name">Attendance</field>
+        <field name="name">Attendance</field>
+        <field name="link">/student/attendance/</field>
+        <field name="active">True</field>
+        <field name="sequence" type="int">40</field>
+        <field name="background_color">#575756</field>
+        <field name="icon_image" type="base64"
+               file="openeducat_attendance_enterprise/static/img/attendance.png"/>
+    </record>
+    <menuitem id="menu_op_attendance_analysis_reporting"
+              parent="openeducat_attendance.menu_op_attendance_root"
+              name="Reporting"
+              sequence="35"/>
+
+    <menuitem id="menu_op_attendance_analysis_sheet"
+              name="Attendance Sheet Analysis"
+              parent="menu_op_attendance_analysis_reporting"
+              sequence="40"
+              action="openeducat_attendance_enterprise.act_attendance_analysis_sheet_pivot_view"
+              groups="openeducat_attendance.group_op_attendance_manager,openeducat_attendance.group_op_attendance_user"/>
+
+    <menuitem id="menu_op_attendance_analysis_line"
+              name="Attendance Line Analysis"
+              parent="menu_op_attendance_analysis_reporting"
+              sequence="50"
+              action="openeducat_attendance_enterprise.act_attendance_analysis_line_pivot_view"
+              groups="openeducat_attendance.group_op_attendance_manager,openeducat_attendance.group_op_attendance_user"/>
+</odoo>

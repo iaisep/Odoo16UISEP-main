@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+        <template id="quiz_render_form_view_fullscreen" name="Quiz Attempt Form">
+            <t t-call="openeducat_quiz.quiz_render_single_form_view_fullscreen" />
+        </template>
+
+        <template id="quiz_render_single_form_view_fullscreen">
+            <t t-call="website.layout">
+                <div class="fullscreen-page">
+                    <style>
+                 #top{
+                display:none;}
+                 #bottom{
+                display:none;}
+                 #o_header_affix{
+                display:none;}
+                    </style>
+                    <section class="exam-title" style="background-image: url(&quot;/openeducat_quiz/static/src/img/inner-pagebg.jpg&quot;);position:relative;background-position-y: center;">
+                        <div class="overlay"></div>
+                        <div class="container pt64 pb64">
+                            <div class="row">
+                                <div class="col-12 col-sm-12 col-md-9 col-lg-9 mt8 mb8">
+                                    <t t-if="not exam.prev_allow">
+                                        <input type="hidden" class="quiz_completed_no_back" />
+                                    </t>
+                                    <h1 class="text-white text-uppercase mb0" style="font-size: 40px;">
+                                        <t t-esc="exam.name" />
+                                    </h1>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-3 col-lg-3 text-left text-lg-right text-md-right" t-if="line.result_id.quiz_id.exit_allow == false">
+                                    <a class="d-sm-inline-block btn btn-light icon-btn" role="button" title="home" href="/online-exams">
+                                        <i class="fa fa-home"></i>
+                                    </a>
+                                    <a class="d-sm-inline-block btn btn-light icon-btn" t-att-href="'/quiz/attempt/%s/question/%s' %(slug(line.result_id), slug(line))" title="Exit Fullscreen">
+                                        <i class="fa fa-sign-out"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="form-horizontal mt32 mb32 quiz_start " id="from_quiz_dynamic">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                        <a id="submit_exam" t-attf-href="/quiz/submit/#{slug(line.result_id)}" style="display: none;"></a>
+                        <input type="hidden" id="time_hr" name="time_hr" t-attf-value="#{time_hr}" />
+                        <input type="hidden" id="time_minute" name="time_minute" t-attf-value="#{time_minute}" />
+                        <input type="hidden" id="time_spent_hr" name="time_spent_hr" t-attf-value="#{time_spent_hr}" />
+                        <input type="hidden" id="time_spent_minute" name="time_spent_minute" t-attf-value="#{time_spent_minute}" />
+                        <input type="hidden" id="time_spent_second" name="time_spent_second" t-attf-value="#{time_spent_second}" />
+                        <div class="container lms_form-horizontal" id="quiz_event">
+                            <div class="row
+                             mt64">
+                                <div class="col-md-12 col-lg-9 col-sm-12 que_card mb32">
+                                    <div>
+                                        <input type="hidden" name="line_result_id" t-attf-value="{{line.result_id.id}}"></input>
+                                        <input type="hidden" name="config_data" t-attf-value="{{line.result_id.id}}"></input>
+                                        <input type="hidden" name="question" t-attf-value="{{line.id}}" />
+                                        <div id="question_template"></div>
+                                    </div>
+                                    <div id="quiz_err_info" />
+                                    <button class="btn btn-primary btn-md quiz_prv" t-attf-value="{{line.id}}" t-if="line.result_id.quiz_id.prev_allow">prev</button>
+                                    <button class="btn btn-primary btn-md quiz_nxt" t-attf-value="{{line.id}}">Next</button>
+                                    <button class="btn btn-primary btn-md quiz_finish d-none" t-attf-value="{{line.id}}">Finish</button>
+                                    <form t-attf-action="/quiz/attempt/record/submit/#{line.result_id.id}" method="post" id="result_form">
+                                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                                    </form>
+                                </div>
+
+                                <div class="col-md-12 col-lg-3 col-sm-12 mb32 que_grid">
+                                    <div class="card">
+                                        <div t-if="timer == 1" id="divCounter" class="text-center timer-desktop">
+                                            <span t-if="timer == 1" id="all_time" style="display:none;" />
+                                            <center style="border-bottom:1px solid #e7e7e7; padding: 30px 5px;">
+                                                <div>
+                                                    <h5 class="mb0 text-black">Time Left</h5>
+                                                </div>
+                                                <table>
+                                                    <tr>
+                                                        <td>
+                                                            <center>
+                                                                <span class="heading-digit" id="spanHr" style="width:40px;vertical-align: middle;"></span>
+                                                                <span class="heading-digit" style="vertical-align: sub;">:
+                                                                </span>
+                                                            </center>
+                                                        </td>
+                                                        <td>
+                                                            <center>
+                                                                <span class="heading-digit" id="spanMt" style="width:40px;vertical-align: middle;" />
+                                                                <span class="heading-digit" style="vertical-align: sub;">:
+                                                                </span>
+                                                            </center>
+                                                        </td>
+                                                        <td>
+                                                            <center>
+                                                                <span class="heading-digit" id="spanSn" style="width:40px;vertical-align: middle;" />
+                                                            </center>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="text-black">
+                                                        <th style="font-weight: unset !important;">
+                                                            <center>Hr</center>
+                                                        </th>
+                                                        <th style="font-weight: unset !important;">
+                                                            <center>Min</center>
+                                                        </th>
+                                                        <th style="font-weight: unset !important;">
+                                                            <center>Sec</center>
+                                                        </th>
+                                                    </tr>
+                                                </table>
+                                            </center>
+                                        </div>
+                                        <div class="card-body text-center">
+                                            <center>
+                                                <h4>Question Grid</h4>
+                                            </center>
+                                            <t t-set="question_no" t-value="0" />
+                                            <t t-foreach="line.result_id.line_ids.sorted(key=lambda x: x.sequence)" t-as="grid_val">
+                                                <t t-set="question_no" t-value="question_no+1" />
+                                                <span class="que_type">
+                                                <t t-if="grid_val.que_type in ['optional','descriptive']">
+                                                    <t t-if="grid_val.display_type == False">
+                                                        <t t-if="grid_val.given_answer">
+                                                            <a t-attf-href="#">
+                                                                <div t-attf-value="{{grid_val.id}}" class="btn btn-default col-md-2 col-2 question_grid_btn quiz_req" disabled="true" style="margin-top: 5px;">
+                                                                    <span t-esc="question_no" />
+                                                                </div>
+                                                            </a>
+                                                        </t>
+                                                        <t t-if="not grid_val.given_answer">
+                                                            <a t-attf-href="#">
+                                                                <div t-attf-value="{{grid_val.id}}" class="btn btn-default col-md-2 col-2 question_grid_btn" disabled="true" style="margin-top: 5px;">
+                                                                    <span t-esc="question_no" />
+                                                                </div>
+                                                            </a>
+                                                        </t>
+                                                    </t>
+                                                </t>
+                                                </span>
+                                            </t>
+                                            <hr />
+                                            <div>
+                                                <span class="progress-value" t-out="progress" />
+                                                <div id="progressBar" class="progressbar">
+                                                    <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:40%"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <template id="quiz_web_page_fullscreen" name="Quiz Questions">
+            <t t-call="website.layout">
+                <div class="fullscreen-page">
+                    <style>
+                 #top{
+                display:none;}
+                 #bottom{
+                display:none;}
+                 #o_header_affix{
+                display:none;}
+                    </style>
+                    <div class="o_wslides_fs_main">
+                        <form t-attf-action="/quiz/results/#{result.id}" method="post" class="form-horizontal mt32" id="from_quiz">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                            <div class="wrap">
+                                <div class="container">
+                                    <div class="row mt16 mb16">
+                                        <div class="col-sm-12 col-md-8 col-lg-8">
+                                            <h1>
+                                                <t t-esc="exam.name" />
+                                            </h1>
+
+                                        </div>
+                                        <div t-if="exam.exit_allow" class="col-sm-12 col-md-4 col-lg-4">
+                                            <a class="d-flex align-items-center px-3 pull-right" title="Back to Main" t-attf-href="/online-exams">
+                                                <i class="fa fa-2x fa-home" />
+                                                <span class="d-none d-md-inline-block ms-1"></span>
+                                            </a>
+                                            <a class="d-flex align-items-center pull-right me-3" title="Exit Fullscreen" t-attf-href="/quiz/#{slug(result)}">
+                                                <i class="fa fa-2x fa-sign-out" />
+                                                <span class="d-none d-md-inline-block ms-1"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <t t-set="question_count" t-value="0"/>
+                                        <t t-foreach="result.line_ids.sorted(key=lambda x: x.sequence)" t-as="question">
+                                            <t t-if="question.display_type == 'section'">
+                                                <div class="card bg-o-color-3 mt24">
+                                                    <h5 class="p-4 mb0 text-secondary">
+                                                        <t t-esc="question.name"/>
+                                                    </h5>
+                                                </div>
+                                            </t>
+                                            <t t-else="">
+                                                <hr class="mt24 mb24" />
+                                                <div class="form-group" style="font-size: 17px;">
+                                                    <t t-set="question_count" t-value="question_count+1"/>
+                                                    <h4>
+                                                        <t t-esc="question_count" />
+                                                    )
+                                                        <t t-out="question.name" />
+                                                    </h4>
+                                                    <input type="hidden" class="radio_require_checker" t-attf-data-selector="question#{question.id}" />
+                                                    <t t-if="question.que_type == 'optional'">
+                                                        <t t-foreach="question.line_ids" t-as="option">
+                                                            <input type="radio" t-attf-name="question#{question.id}" t-att-id="'que%sopt%s'%(question.id,option.id)" t-attf-value="#{option.id}" t-attf-style="margin-top:5px;" />
+                                                            <t t-esc="option.name" />
+                                                            <br />
+                                                        </t>
+                                                    </t>
+
+                                                    <t t-if="result.quiz_id.que_required ==  0">
+                                                        <t t-if="question.que_type == 'descriptive'">
+                                                            <textarea id="descriptive_ans" type="textarea" t-attf-name="descriptive#{question.id}" rows="8" style="width:100%;" />
+                                                        </t>
+                                                        <t t-if="question.que_type == 'blank'">
+                                                            <input type="text" t-attf-name="blank#{question.id}" style="width: 50%;" />
+                                                        </t>
+                                                    </t>
+                                                    <t t-if="result.quiz_id.que_required ==  1">
+                                                        <t t-if="question.que_type == 'descriptive'">
+                                                            <textarea id="descriptive_ans" type="textarea" t-attf-name="descriptive#{question.id}" rows="8" style="width:100%;" required="required" />
+                                                        </t>
+                                                        <t t-if="question.que_type == 'blank'">
+                                                            <input type="text" t-attf-name="blank#{question.id}" style="width: 50%;" required="required" />
+                                                        </t>
+                                                    </t>
+                                                    <!-- <t t-esc="result.quiz_id.que_required">  </t> -->
+
+
+                                                </div>
+                                            </t>
+                                        </t>
+                                        <div class="form-group mb64">
+                                            <hr />
+                                            <div class="col-md-7 col-sm-8 pl-0">
+                                                <input type="hidden" name="ExamID" t-attf-value="#{result.id}" />
+                                                <input type="hidden" name="config_data" t-attf-value="#{result.id}" />
+                                                <button class="btn btn-primary btn-md quiz_finish">
+                                                    <input type="hidden" name="state" t-attf-value="#{result.state}" />
+                                                    <input type="hidden" name="manual" t-attf-value="#{result.quiz_id.manual}" />
+                                                    Finish
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <template id="quiz_web_page_single_fullscreen" name="Quiz Questions">
+            <t t-call="website.layout">
+                <t t-call="openeducat_quiz.quiz_web_page_single_form_fullscreen" />
+            </t>
+        </template>
+
+        <template id="quiz_web_page_single_form_fullscreen" name="Quiz Questions Form View">
+            <form t-attf-action="/quiz/results/#{result.id}" method="post" class="form-horizontal mt32" id="from_quiz">
+                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                <div class="wrap">
+                    <div class="container">
+                        <div class="mt16 mb16">
+                            <h1 class="text-center">
+                                <t t-esc="exam.name" />
+                            </h1>
+                        </div>
+                        <div>
+                            <a class="d-flex align-items-center px-3" t-attf-href="/online-exams">
+                                <i class="fa fa-home d-md-none" />
+                                <span class="d-none d-md-inline-block ms-1">Back to Main</span>
+                            </a>
+                            <a class="d-flex align-items-center px-3" t-att-href="'/quiz/attempt/%s' %(slug(line.result_id))">
+                                <i class="fa fa-sign-out d-md-none" />
+                                <span class="d-none d-md-inline-block ms-1">Exit Fullscreen</span>
+                            </a>
+                        </div>
+                        <div id="quiz_err_info" />
+                        <div>
+                            <div class="col-md-9">
+                                <t t-foreach="result.line_ids" t-as="question">
+                                    <div t-if="question_index == 0">
+                                        <t t-call="openeducat_quiz.quiz_first_question" />
+                                    </div>
+                                    <div t-if="question_index != 0 and question_index != (total_question - 1)">
+                                        <t t-call="openeducat_quiz.quiz_middle_question" />
+                                    </div>
+                                    <div t-if="question_index == (total_question - 1)">
+                                        <t t-call="openeducat_quiz.quiz_last_question" />
+                                    </div>
+                                </t>
+                            </div>
+                            <div class="col-md-3" style="border: 1px solid;padding: 10px">
+                                <center>
+                                    <h4>Question Grid</h4>
+                                </center>
+                                <t t-foreach="result.line_ids" t-as="question">
+                                    <div t-att-class="'btn btn-default col-md-2 que_grid que_active' if question_index == 0 else 'btn btn-default col-md-2 que_grid'" t-att-grid-index-id="'%s' % (question_index)">
+                                        <span t-esc="question_index + 1" />
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </template>
+
+</odoo>

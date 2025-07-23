@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="op_course_form_inh2" model="ir.ui.view">
+        <field name="name">op_course_form_inh2</field>
+        <field name="model">op.course</field>
+        <field name="inherit_id"  ref="isep_control_escolar.op_course_form_inh" />
+        <field name="arch" type="xml">
+            <field name="career_key" position="after">
+                <field name="id_carrera" />
+                <field name="calificacion_minima" />
+                <field name="calificacion_maxima" />
+                <field name="calificacion_minima_aprobatoria" />
+            </field>
+        </field>
+    </record>
+
+
+</odoo>

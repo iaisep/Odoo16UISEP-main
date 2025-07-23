@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="op_student_skill_level_name1" model="op.student.skill.level.name">
+            <field name="name">Level 1</field>
+            <field name="progress">25</field>
+        </record>
+
+        <record id="op_student_skill_level_name2" model="op.student.skill.level.name">
+            <field name="name">Level 2</field>
+            <field name="progress">50</field>
+        </record>
+
+        <record id="op_student_skill_level_name3" model="op.student.skill.level.name">
+            <field name="name">Level 3</field>
+            <field name="progress">75</field>
+        </record>
+
+        <record id="op_student_skill_level_name4" model="op.student.skill.level.name">
+            <field name="name">Level 4</field>
+            <field name="progress">100</field>
+        </record>
+
+        <record id="skill_demo1" model="op.student.skill.name">
+            <field name="name">C Programming</field>
+            <field name="code">b1</field>
+            <field name="skill_category_type_id" ref="openeducat_skill_enterprise.skill_category_demo1"/>
+            <field name="self_assessed">True</field>
+        </record>
+        <record id="skill_demo2" model="op.student.skill.name">
+            <field name="name">Network Engineer</field>
+            <field name="code">b2</field>
+            <field name="skill_category_type_id" ref="openeducat_skill_enterprise.skill_category_demo2"/>
+            <field name="self_assessed">True</field>
+        </record>
+        <record id="skill_demo3" model="op.student.skill.name">
+            <field name="name">Communication</field>
+            <field name="code">comm</field>
+            <field name="skill_category_type_id" ref="openeducat_skill_enterprise.skill_category_demo2"/>
+            <field name="self_assessed">True</field>
+        </record>
+        <record id="skill_demo4" model="op.student.skill.name">
+            <field name="name">Time Management</field>
+            <field name="code">tm</field>
+            <field name="skill_category_type_id" ref="openeducat_skill_enterprise.skill_category_demo2"/>
+            <field name="self_assessed">True</field>
+        </record>
+        <record id="skill_demo5" model="op.student.skill.name">
+            <field name="name">Story Telling</field>
+            <field name="code">st</field>
+            <field name="skill_category_type_id" ref="openeducat_skill_enterprise.skill_category_demo2"/>
+            <field name="self_assessed">True</field>
+        </record>
+
+        <record id="skill_template_demo1" model="op.student.skill.type">
+            <field name="name">Technical Skills</field>
+            <field name="student_skills_line" eval="[(5, 0, 0),
+                   (0, 0, {'student_skill_name_id': ref('skill_demo1')}),
+                   (0, 0, {'student_skill_name_id': ref('skill_demo2')})]"/>
+            <field name="student_skill_level_line" eval="[(5, 0, 0),
+                   (0, 0, {'student_skill_level_name_id': ref('op_student_skill_level_name1')}),
+                   (0, 0, {'student_skill_level_name_id': ref('op_student_skill_level_name2')}),
+                   (0, 0, {'student_skill_level_name_id': ref('op_student_skill_level_name3')}),
+                   (0, 0, {'student_skill_level_name_id': ref('op_student_skill_level_name4')})]"/>
+        </record>
+
+
+</odoo>

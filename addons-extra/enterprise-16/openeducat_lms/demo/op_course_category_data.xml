@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="category_1" model="op.course.category">
+            <field name="name">Language</field>
+            <field name="code">lng</field>
+            <field name="icon">fa fa-language</field>
+        </record>
+
+        <record id="category_2" model="op.course.category">
+            <field name="name">Programming</field>
+            <field name="code">prg</field>
+            <field name="icon">fa fa-terminal</field>
+        </record>
+
+        <record id="category_3" model="op.course.category">
+            <field name="name">Management</field>
+            <field name="code">mgmt</field>
+            <field name="icon">fa fa-cog</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="op_ans_grd_100p3" model="op.answer.grade">
+            <field name="name">+100%</field>
+            <field name="value">100</field>
+        </record>
+
+        <record id="op_ans_grd_50p3" model="op.answer.grade">
+            <field name="name">+50%</field>
+            <field name="value">50</field>
+        </record>
+
+        <record id="op_ans_grd_25p3" model="op.answer.grade">
+            <field name="name">+25%</field>
+            <field name="value">25</field>
+        </record>
+
+        <record id="op_ans_grd_03" model="op.answer.grade">
+            <field name="name">0</field>
+            <field name="value">0</field>
+        </record>
+
+        <record id="op_ans_grd_100n3" model="op.answer.grade">
+            <field name="name">-100%</field>
+            <field name="value">-100</field>
+        </record>
+
+        <record id="op_ans_grd_50n3" model="op.answer.grade">
+            <field name="name">-50%</field>
+            <field name="value">-50</field>
+        </record>
+
+        <record id="op_ans_grd_25n3" model="op.answer.grade">
+            <field name="name">-25%</field>
+            <field name="value">-25</field>
+        </record>
+
+
+        <record id="op_qz_ctg_g" model="op.quiz.category">
+            <field name="name">Category Google</field>
+            <field name="code">Cg</field>
+        </record>
+
+
+        <record id="op_qz_gs1" model="op.quiz">
+            <field name="name">Sheets Quiz</field>
+            <field name="categ_id" ref="op_qz_ctg_g"/>
+            <field name="quiz_config">quiz_bank_selected</field>
+            <field name="time_config">True</field>
+            <field name="time_limit_hr">1</field>
+            <field name="time_limit_minute">30</field>
+            <field name="no_of_attempt">1</field>
+            <field name="description">This quiz is based on Google Sheets
+            </field>
+            <field name="state">open</field>
+            <field name="quiz_html">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
+                but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in
+                the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with
+                desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </field>
+
+        </record>
+
+        <record id="op_qu_bnk_typ_g" model="op.question.bank.type">
+            <field name="name">Google Sheets</field>
+        </record>
+
+        <record id="op_qu_bnk_g" model="op.question.bank">
+            <field name="name">Introduction to Google Sheets</field>
+            <field name="bank_type_id" ref="op_qu_bnk_typ_g"/>
+        </record>
+
+        <record id="op_c_qg1" model="op.question.bank.line">
+            <field name="name">Which function to link different files in Google Sheets?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/iGvvK8O5BpQ'"/>
+            <field name="document_id">iGvvK8O5BpQ</field>
+            <field name="bank_id" ref="op_qu_bnk_g"/>
+        </record>
+
+        <record id="op_c_qg1_a01" model="op.question.bank.answer">
+            <field name="name">LINK</field>
+            <field name="grade_id" ref="op_ans_grd_03"/>
+            <field name="question_id" ref="op_c_qg1"/>
+        </record>
+
+        <record id="op_c_qg1_a02" model="op.question.bank.answer">
+            <field name="name">IMPORTRANGE</field>
+            <field name="grade_id" ref="op_ans_grd_100p3"/>
+            <field name="question_id" ref="op_c_qg1"/>
+        </record>
+
+        <record id="op_c_qg1_a03" model="op.question.bank.answer">
+            <field name="name">Filter</field>
+            <field name="grade_id" ref="op_ans_grd_03"/>
+            <field name="question_id" ref="op_c_qg1"/>
+        </record>
+
+        <record id="op_c_qg1_a04" model="op.question.bank.answer">
+            <field name="name">COUNT</field>
+            <field name="grade_id" ref="op_ans_grd_03"/>
+            <field name="question_id" ref="op_c_qg1"/>
+        </record>
+
+
+        <record id="op_qz_ln_g1" model="op.quiz.line">
+            <field name="name">Which function to link different files in Google Sheets?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/iGvvK8O5BpQ'"/>
+            <field name="document_id">iGvvK8O5BpQ</field>
+            <field name="quiz_id" ref="op_qz_gs1"/>
+            <field name="que_id" ref="op_c_qg1"/>
+        </record>
+
+        <record id="op_qz_ln_g1_c_qm1_am1" model="op.quiz.answer">
+            <field name="name">LINK</field>
+            <field name="grade_id" ref="op_ans_grd_03"/>
+            <field name="line_id" ref="op_qz_ln_g1"/>
+        </record>
+
+        <record id="op_qz_ln_g1_c_qm1_am2" model="op.quiz.answer">
+            <field name="name">IMPORTRANGE</field>
+            <field name="grade_id" ref="op_ans_grd_100p3"/>
+            <field name="line_id" ref="op_qz_ln_g1"/>
+        </record>
+
+        <record id="op_qz_ln_g1_c_qm1_am3" model="op.quiz.answer">
+            <field name="name">FILTER</field>
+            <field name="grade_id" ref="op_ans_grd_03"/>
+            <field name="line_id" ref="op_qz_ln_g1"/>
+        </record>
+
+        <record id="op_qz_ln_g1_c_qm1_am4" model="op.quiz.answer">
+            <field name="name">COUNT</field>
+            <field name="grade_id" ref="op_ans_grd_03"/>
+            <field name="line_id" ref="op_qz_ln_g1"/>
+        </record>
+
+        <record id="op_c_qg2" model="op.question.bank.line">
+            <field name="name">Which function to get list of unique value?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_g"/>
+        </record>
+
+        <record id="op_c_qg2_a01" model="op.question.bank.answer">
+            <field name="name">COUNT</field>
+            <field name="grade_id" ref="op_ans_grd_03"/>
+            <field name="question_id" ref="op_c_qg2"/>
+        </record>
+
+        <record id="op_c_qg2_a02" model="op.question.bank.answer">
+            <field name="name">ROUNDUP</field>
+            <field name="grade_id" ref="op_ans_grd_03"/>
+            <field name="question_id" ref="op_c_qg2"/>
+        </record>
+
+        <record id="op_c_qg2_a03" model="op.question.bank.answer">
+            <field name="name">UNIQUE</field>
+            <field name="grade_id" ref="op_ans_grd_100p3"/>
+            <field name="question_id" ref="op_c_qg2"/>
+        </record>
+
+        <record id="op_c_qg2_a04" model="op.question.bank.answer">
+            <field name="name">None of these</field>
+            <field name="grade_id" ref="op_ans_grd_03"/>
+            <field name="question_id" ref="op_c_qg2"/>
+        </record>
+
+
+        <record id="op_qz_ln_g2" model="op.quiz.line">
+            <field name="name">Which function to get list of unique value?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="quiz_id" ref="op_qz_gs1"/>
+            <field name="que_id" ref="op_c_qg2"/>
+        </record>
+
+        <record id="op_qz_ln_g1_c_qm2_am1" model="op.quiz.answer">
+            <field name="name">COUNT</field>
+            <field name="grade_id" ref="op_ans_grd_03"/>
+            <field name="line_id" ref="op_qz_ln_g2"/>
+        </record>
+
+        <record id="op_qz_ln_g1_c_qm2_am2" model="op.quiz.answer">
+            <field name="name">ROUNDUP</field>
+            <field name="grade_id" ref="op_ans_grd_03"/>
+            <field name="line_id" ref="op_qz_ln_g2"/>
+        </record>
+
+        <record id="op_qz_ln_g1_c_qm2_am3" model="op.quiz.answer">
+            <field name="name">UNIQUE</field>
+            <field name="grade_id" ref="op_ans_grd_100p3"/>
+            <field name="line_id" ref="op_qz_ln_g2"/>
+        </record>
+
+        <record id="op_qz_ln_g1_c_qm2_am4" model="op.quiz.answer">
+            <field name="name">None of these</field>
+            <field name="grade_id" ref="op_ans_grd_03"/>
+            <field name="line_id" ref="op_qz_ln_g2"/>
+        </record>
+
+
+        <record id="op_c_qg3" model="op.question.bank.line">
+            <field name="name">Which function use to filter data?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/JNZqRYkgZ4c'"/>
+            <field name="document_id">JNZqRYkgZ4c</field>
+            <field name="bank_id" ref="op_qu_bnk_g"/>
+        </record>
+
+        <record id="op_c_qg3_a01" model="op.question.bank.answer">
+            <field name="name">ROUNDUP</field>
+            <field name="grade_id" ref="op_ans_grd_03"/>
+            <field name="question_id" ref="op_c_qg3"/>
+        </record>
+
+        <record id="op_c_qg3_a02" model="op.question.bank.answer">
+            <field name="name">IMPORTRANGE</field>
+            <field name="grade_id" ref="op_ans_grd_03"/>
+            <field name="question_id" ref="op_c_qg3"/>
+        </record>
+
+        <record id="op_c_qg3_a03" model="op.question.bank.answer">
+            <field name="name">FILTER</field>
+            <field name="grade_id" ref="op_ans_grd_100p3"/>
+            <field name="question_id" ref="op_c_qg3"/>
+        </record>
+
+        <record id="op_c_qg3_a04" model="op.question.bank.answer">
+            <field name="name">COUNTIT</field>
+            <field name="grade_id" ref="op_ans_grd_03"/>
+            <field name="question_id" ref="op_c_qg3"/>
+        </record>
+
+
+        <record id="op_qz_ln_g3" model="op.quiz.line">
+            <field name="name">Which function use to filter data?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/JNZqRYkgZ4c'"/>
+            <field name="document_id">JNZqRYkgZ4c</field>
+            <field name="quiz_id" ref="op_qz_gs1"/>
+            <field name="que_id" ref="op_c_qg3"/>
+        </record>
+
+        <record id="op_qz_ln_g1_c_qm3_am1" model="op.quiz.answer">
+            <field name="name">ROUNDUP</field>
+            <field name="grade_id" ref="op_ans_grd_03"/>
+            <field name="line_id" ref="op_qz_ln_g3"/>
+        </record>
+
+        <record id="op_qz_ln_g1_c_qm3_am2" model="op.quiz.answer">
+            <field name="name">IMPORTRANGE</field>
+            <field name="grade_id" ref="op_ans_grd_03"/>
+            <field name="line_id" ref="op_qz_ln_g3"/>
+        </record>
+
+        <record id="op_qz_ln_g1_c_qm3_am3" model="op.quiz.answer">
+            <field name="name">FILTER</field>
+            <field name="grade_id" ref="op_ans_grd_100p3"/>
+            <field name="line_id" ref="op_qz_ln_g3"/>
+        </record>
+
+        <record id="op_qz_ln_g1_c_qm3_am4" model="op.quiz.answer">
+            <field name="name">COUNTIT</field>
+            <field name="grade_id" ref="op_ans_grd_03"/>
+            <field name="line_id" ref="op_qz_ln_g3"/>
+        </record>
+
+        <record id="op_c_qg4" model="op.question.bank.line">
+            <field name="name">Fill this ______ sheets</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_g"/>
+        </record>
+
+        <record id="op_c_qg4_a01" model="op.question.bank.answer">
+            <field name="name">office</field>
+            <field name="grade_id" ref="op_ans_grd_03"/>
+            <field name="question_id" ref="op_c_qg4"/>
+        </record>
+
+        <record id="op_c_qg4_a02" model="op.question.bank.answer">
+            <field name="name">google</field>
+            <field name="grade_id" ref="op_ans_grd_100p3"/>
+            <field name="question_id" ref="op_c_qg4"/>
+        </record>
+
+        <record id="op_c_qg4_a03" model="op.question.bank.answer">
+            <field name="name">ms</field>
+            <field name="grade_id" ref="op_ans_grd_03"/>
+            <field name="question_id" ref="op_c_qg4"/>
+        </record>
+
+        <record id="op_c_qg4_a04" model="op.question.bank.answer">
+            <field name="name">amazon</field>
+            <field name="grade_id" ref="op_ans_grd_03"/>
+            <field name="question_id" ref="op_c_qg4"/>
+        </record>
+
+
+        <record id="op_qz_ln_g4" model="op.quiz.line">
+            <field name="name">Fill this ______ sheets</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="quiz_id" ref="op_qz_gs1"/>
+            <field name="que_id" ref="op_c_qg4"/>
+        </record>
+
+        <record id="op_qz_ln_g1_c_qm4_am1" model="op.quiz.answer">
+            <field name="name">office</field>
+            <field name="grade_id" ref="op_ans_grd_03"/>
+            <field name="line_id" ref="op_qz_ln_g4"/>
+        </record>
+
+        <record id="op_qz_ln_g1_c_qm4_am2" model="op.quiz.answer">
+            <field name="name">google</field>
+            <field name="grade_id" ref="op_ans_grd_100p3"/>
+            <field name="line_id" ref="op_qz_ln_g4"/>
+        </record>
+
+        <record id="op_qz_ln_g1_c_qm4_am3" model="op.quiz.answer">
+            <field name="name">ms</field>
+            <field name="grade_id" ref="op_ans_grd_03"/>
+            <field name="line_id" ref="op_qz_ln_g4"/>
+        </record>
+
+        <record id="op_qz_ln_g1_c_qm4_am4" model="op.quiz.answer">
+            <field name="name">amazon</field>
+            <field name="grade_id" ref="op_ans_grd_03"/>
+            <field name="line_id" ref="op_qz_ln_g4"/>
+        </record>
+
+        <record id="op_c_qg5" model="op.question.bank.line">
+            <field name="name">All formulas in google sheets begin with symbol :</field>
+            <field name="mark" type="float">1.0</field>
+                  <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/byTDwUQAwnE'"/>
+            <field name="document_id">byTDwUQAwnE</field>
+            <field name="bank_id" ref="op_qu_bnk_g"/>
+        </record>
+
+        <record id="op_c_qg5_a01" model="op.question.bank.answer">
+            <field name="name">=</field>
+            <field name="grade_id" ref="op_ans_grd_100p3"/>
+            <field name="question_id" ref="op_c_qg5"/>
+        </record>
+
+        <record id="op_c_qg5_a02" model="op.question.bank.answer">
+            <field name="name">*</field>
+            <field name="grade_id" ref="op_ans_grd_03"/>
+            <field name="question_id" ref="op_c_qg5"/>
+        </record>
+
+        <record id="op_c_qg5_a03" model="op.question.bank.answer">
+            <field name="name">/</field>
+            <field name="grade_id" ref="op_ans_grd_03"/>
+            <field name="question_id" ref="op_c_qg5"/>
+        </record>
+
+        <record id="op_c_qg5_a04" model="op.question.bank.answer">
+            <field name="name">#</field>
+            <field name="grade_id" ref="op_ans_grd_03"/>
+            <field name="question_id" ref="op_c_qg5"/>
+        </record>
+
+
+        <record id="op_qz_ln_g5" model="op.quiz.line">
+            <field name="name">All formulas in google sheets begin with symbol :</field>
+            <field name="mark" type="float">1.0</field>
+             <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/byTDwUQAwnE'"/>
+            <field name="document_id">byTDwUQAwnE</field>
+            <field name="quiz_id" ref="op_qz_gs1"/>
+            <field name="que_id" ref="op_c_qg5"/>
+        </record>
+
+        <record id="op_qz_ln_g1_c_qm5_am1" model="op.quiz.answer">
+            <field name="name">=</field>
+            <field name="grade_id" ref="op_ans_grd_100p3"/>
+            <field name="line_id" ref="op_qz_ln_g5"/>
+        </record>
+
+        <record id="op_qz_ln_g1_c_qm5_am2" model="op.quiz.answer">
+            <field name="name">*</field>
+            <field name="grade_id" ref="op_ans_grd_03"/>
+            <field name="line_id" ref="op_qz_ln_g5"/>
+        </record>
+
+        <record id="op_qz_ln_g1_c_qm5_am3" model="op.quiz.answer">
+            <field name="name">/</field>
+            <field name="grade_id" ref="op_ans_grd_03"/>
+            <field name="line_id" ref="op_qz_ln_g5"/>
+        </record>
+
+        <record id="op_qz_ln_g1_c_qm5_am4" model="op.quiz.answer">
+            <field name="name">#</field>
+            <field name="grade_id" ref="op_ans_grd_03"/>
+            <field name="line_id" ref="op_qz_ln_g5"/>
+        </record>
+
+
+</odoo>

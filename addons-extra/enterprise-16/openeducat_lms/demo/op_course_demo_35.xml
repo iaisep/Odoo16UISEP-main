@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="category_cms" model="op.course.category">
+            <field name="name">Communications</field>
+            <field name="code">cms</field>
+            <field name="icon">fa fa-cog</field>
+        </record>
+        <record id="demo_course_09" model="op.course">
+            <field name="name">Public Speaking and Presentations Pro: No Beginners Allowed!</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="code">PSP</field>
+            <field name="sequence">16</field>
+            <field name="faculty_ids"
+                   eval="[(6,0,[ref('openeducat_core.op_faculty_1')])]"/>
+            <field name="category_ids"
+                   eval="[(6,0,[ref('category_cms')])]"/>
+            <field name="visibility">public</field>
+            <field name="level_id" ref="op_course_level_advanced"/>
+            <field name="navigation_policy">free_learn</field>
+            <field name="state">open</field>
+            <field name="online_course" eval="True"/>
+            <field name="confirm_date" eval="(DateTime.today() - relativedelta(days=11))"/>
+            <field name="image_1920" type="base64"
+                   file="openeducat_lms/static/src/img/speaking.jpeg"/>
+            <field name="full_description"><![CDATA[
+            <div class="description__title">
+            <div>
+               <p>I want to model for you 117 of the most Advanced Public Speaking and Presentation Skills on the Planet that will transform you from</p>
+               <p> a good public speaker to an absolute ROCK STAR and go for BIGGER conferences.</p>
+               <p>These are the same 117 skills we’ve used to help hundreds of thought leaders give amazing presentations to spread their ideas.</p>
+               <p>That’s why there are simply NO BEGINNERS ALLOWED into this program!</p>
+               <p>Let me ask you a question...</p>
+               <p>Are you sick of procrastinating or “freaking out” about presentation deadlines, complicated content, or just giving a boring presentation?</p>
+               <p>...even better question: Is your audience sick of those things?</p>
+               <p>Maybe you feel you don’t have all the answers, you don’t know where to start, or you just want to stand out from the crowd of presenters and thought leaders?</p>
+               <p>While many thought leaders have great ideas to share, they often MISS THEIR AUDIENCE…</p>
+               <p>According to a recent Leadership study published from Forbes 70% of employed Americans who give presentations agree that presentation skills are critical for their success.</p>
+               <p>Yet… 32% of people have fallen asleep during a PowerPoint presentation.  That’s about 1/3 of the people…</p>
+               <p>According to another national survey, four out of 10 top executives admit to nodding off in boring presentations…40 percent admitted to actually</p>
+               <p> falling asleep during some particularly boring talks.</p>
+                     </div>
+            ]]></field>
+        </record>
+
+
+        <record id="op_course_section_speaking_open" model="op.course.section">
+            <field name="sequence" type="int">1</field>
+            <field name="name">Open Well</field>
+            <field name="course_id" ref="demo_course_09"/>
+        </record>
+
+        <record id="op_course_section_speaking_skill" model="op.course.section">
+            <field name="sequence" type="int">2</field>
+            <field name="name">Delivery Skills</field>
+            <field name="course_id" ref="demo_course_09"/>
+        </record>
+
+        <record id="op_course_section_speaking_mgmt" model="op.course.section">
+            <field name="sequence" type="int">3</field>
+            <field name="name">Audience Management</field>
+            <field name="course_id" ref="demo_course_09"/>
+        </record>
+
+        <record id="op_course_section_speaking_bonus" model="op.course.section">
+            <field name="sequence" type="int">4</field>
+            <field name="name">BONUS: Discover the Top 10 Fears of Public Speaking</field>
+            <field name="course_id" ref="demo_course_09"/>
+        </record>
+        <record id="op_course_section_speaking_quiz" model="op.course.section">
+            <field name="sequence" type="int">5</field>
+            <field name="name">Quiz</field>
+            <field name="course_id" ref="demo_course_09"/>
+        </record>
+
+        <!--Course Material for Python-->
+        <record id="material_speaking_hook" model="op.material">
+            <field name="name">Hook Your Audience</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">7.92</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=_xtuBheQAY0'"/>
+            <field name="document_id">_xtuBheQAY0</field>
+        </record>
+
+        <record id="material_speaking_show" model="op.material">
+            <field name="name">Show Confidence</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">10.01</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=NINQjgyMEwI'"/>
+            <field name="document_id">NINQjgyMEwI</field>
+        </record>
+        <record id="material_speaking_overcome" model="op.material">
+            <field name="name">Overcome Nervousness</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">1.86</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=vJN32oaLWik'"/>
+            <field name="document_id">vJN32oaLWik</field>
+        </record>
+
+        <record id="material_speaking_tailor" model="op.material">
+            <field name="name">Tailor Your Approach</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">6.98</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=7tzentBmmUc'"/>
+            <field name="document_id">7tzentBmmUc</field>
+        </record>
+
+        <record id="material_speaking_speak" model="op.material">
+            <field name="name">Speak Well</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">10.04</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=NINQjgyMEwI'"/>
+            <field name="document_id">NINQjgyMEwI</field>
+        </record>
+
+        <record id="material_speaking_present" model="op.material">
+            <field name="name">Present With Your Body</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">2.45</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=ZK3jSXYBNak'"/>
+            <field name="document_id">ZK3jSXYBNak</field>
+        </record>
+
+        <record id="material_speaking_keep" model="op.material">
+            <field name="name">Keep Their Attention</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">2.0</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=SbSDUOAuQO8'"/>
+            <field name="document_id">SbSDUOAuQO8</field>
+        </record>
+
+        <record id="material_speaking_max" model="op.material">
+            <field name="name">Maximize Media Impact</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">8.80</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=66cD5En8Vfg'"/>
+            <field name="document_id">66cD5En8Vfg</field>
+        </record>
+
+        <record id="material_speaking_manage" model="op.material">
+            <field name="name">Manage Pace</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">9.62</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=032Hum9KNjw'"/>
+            <field name="document_id">032Hum9KNjw</field>
+        </record>
+
+        <record id="material_speaking_answer" model="op.material">
+            <field name="name">Answer Questions</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">2.48</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=ha1efqW-4h0'"/>
+            <field name="document_id">ha1efqW-4h0</field>
+        </record>
+
+        <record id="material_speaking_make" model="op.material">
+            <field name="name">Make It Enjoyable</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">12.94</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=962eYqe--Yc'"/>
+            <field name="document_id">962eYqe--Yc</field>
+        </record>
+
+        <record id="material_speaking_handle" model="op.material">
+            <field name="name">Handle Distractions</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">8.71</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=9Zw0iZkNKRQ'"/>
+            <field name="document_id">9Zw0iZkNKRQ</field>
+        </record>
+
+
+        <record id="material_speaking_close" model="op.material">
+            <field name="name">Close To Applause</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">9.22</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=1ct8igQ9Ef8'"/>
+            <field name="document_id">1ct8igQ9Ef8</field>
+        </record>
+
+        <record id="material_speaking_top" model="op.material">
+            <field name="name">Top 10 Fears of Public Speaking</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">8.60</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=80UVjkcxGmA'"/>
+            <field name="document_id">80UVjkcxGmA</field>
+        </record>
+        <!--                Course For Python-->
+        <record id="op_course_material_speaking_hook" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_speaking_hook"/>
+            <field name="section_id" ref="op_course_section_speaking_open"/>
+            <field name="preview" eval="True"/>
+        </record>
+        <record id="op_course_material_speaking_show" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_speaking_show"/>
+            <field name="section_id" ref="op_course_section_speaking_open"/>
+            <field name="preview" eval="False"/>
+        </record>
+        <record id="op_course_material_speaking_overcome" model="op.course.material">
+            <field name="sequence" type="int">3</field>
+            <field name="material_id" ref="material_speaking_overcome"/>
+            <field name="section_id" ref="op_course_section_speaking_open"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_speaking_tailor" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_speaking_tailor"/>
+            <field name="section_id" ref="op_course_section_speaking_skill"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_speaking_speak" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_speaking_speak"/>
+            <field name="section_id" ref="op_course_section_speaking_skill"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_speaking_present" model="op.course.material">
+            <field name="sequence" type="int">3</field>
+            <field name="material_id" ref="material_speaking_present"/>
+            <field name="section_id" ref="op_course_section_speaking_skill"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_speaking_keep" model="op.course.material">
+            <field name="sequence" type="int">4</field>
+            <field name="material_id" ref="material_speaking_keep"/>
+            <field name="section_id" ref="op_course_section_speaking_skill"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_speaking_max" model="op.course.material">
+            <field name="sequence" type="int">5</field>
+            <field name="material_id" ref="material_speaking_max"/>
+            <field name="section_id" ref="op_course_section_speaking_skill"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_speaking_manage" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_speaking_manage"/>
+            <field name="section_id" ref="op_course_section_speaking_mgmt"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_speaking_answer" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_speaking_answer"/>
+            <field name="section_id" ref="op_course_section_speaking_mgmt"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_speaking_make" model="op.course.material">
+            <field name="sequence" type="int">3</field>
+            <field name="material_id" ref="material_speaking_make"/>
+            <field name="section_id" ref="op_course_section_speaking_mgmt"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_speaking_handle" model="op.course.material">
+            <field name="sequence" type="int">4</field>
+            <field name="material_id" ref="material_speaking_handle"/>
+            <field name="section_id" ref="op_course_section_speaking_mgmt"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_speaking_close" model="op.course.material">
+            <field name="sequence" type="int">5</field>
+            <field name="material_id" ref="material_speaking_close"/>
+            <field name="section_id" ref="op_course_section_speaking_mgmt"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_speaking_top" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_speaking_top"/>
+            <field name="section_id" ref="op_course_section_speaking_bonus"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="material_sheet_speaking_q5" model="op.material">
+            <field name="name">Speaking Quiz</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">quiz</field>
+            <field name="total_time" type="float">1.45</field>
+            <field name="quiz_id" ref="openeducat_quiz.op_qz_s1"/>
+        </record>
+
+        <!--Quiz for speaking-->
+        <record id="op_course_speaking_quiz" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_sheet_speaking_q5"/>
+            <field name="section_id" ref="op_course_section_speaking_quiz"/>
+            <field name="preview" eval="True"/>
+        </record>
+
+        <record id="op_user_student_53" model="res.users" context="{'no_reset_password': True}">
+            <field name="name">Jack</field>
+            <field name="password">openeducat</field>
+            <field name="login">jack@openeducat.com</field>
+            <field name="groups_id"
+                   eval="[(4,ref('openeducat_lms.group_op_lms_admin'))]"/>
+        </record>
+
+        <record id="demo_enrollment_paid_speaking_class" model="op.course.enrollment">
+            <field name="course_id" ref="openeducat_lms.demo_course_09"/>
+            <field name="user_id" ref="openeducat_lms.op_user_student_53"/>
+            <field name="state">in_progress</field>
+            <field name="enrollment_date" eval="(DateTime.today() - relativedelta(days=1))"/>
+        </record>
+
+
+</odoo>

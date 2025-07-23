@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="section_material" name="add section and material" inherit_id="openeducat_lms.course_detail"
+              priority="10">
+        <xpath expr="//div[@id='accordion']" position='after'>
+            <div class="o_wslides_content_actions btn-group" groups="openeducat_lms.group_op_lms_user,openeducat_lms.group_op_lms_admin">
+                <a class="o_wslides_js_slide_upload_lms me-2 border btn btn-light bg-white"
+                   role="button"
+                   aria-label="Upload Presentation"
+                   href="#"
+                   t-att-data-open-modal="enable_slide_upload"
+                   t-att-data-modules-to-install="modules_to_install"
+                   t-att-data-channel-id="course.id"
+                   t-att-data-can-publish="course.can_publish"
+                   t-att-data-can-upload="course.can_upload">
+                    <i class="fa fa-plus me-2"/>
+                    <span>Add Content</span>
+                </a>
+                <a class="o_wslides_js_slide_section_add border btn btn-light bg-white"
+                   t-attf-channel_id="#{course.id}"
+                   href="#" role="button">
+                    <i class="fa fa-folder-o me-2"/>
+                    <span>Add Section</span>
+                </a>
+            </div>
+        </xpath>
+    </template>
+</odoo>

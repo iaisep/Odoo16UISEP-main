@@ -1,0 +1,1768 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* openeducat_grading
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-12 10:32+0000\n"
+"PO-Revision-Date: 2022-12-12 10:32+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: openeducat_grading
+#. odoo-python
+#: code:addons/openeducat_grading/controllers/main.py:0
+#, python-format
+msgid "%s is not the reference of a report"
+msgstr "% s không phải là tham chiếu của một báo cáo"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.honor_roll_list
+msgid "<b>Academic Year:</b>"
+msgstr "<b> Năm học: </b>"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.statistics
+msgid "<b>Assignment :</b>"
+msgstr "<b> gán: </b>"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.honor_roll_list
+msgid "<b>Course:</b>"
+msgstr "<b> Khóa học: </b>"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.statistics
+msgid "<b>Point :</b>"
+msgstr "<b> điểm: </b>"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.student_statistics
+msgid ""
+"<br/>\n"
+"                                <span style=\"font-size: 14px;\">\n"
+"                                    <b>GradeBook :</b>\n"
+"                                </span>"
+msgstr ""
+"<br/>\n"
+"                                <span style=\"font-size: 14px;\">\n"
+"                                    <b> Lớp sách: </b>\n"
+"                                </span>"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.honor_certi_data
+msgid ""
+"<br/>\n"
+"                    <span style=\"margin-left: 17px;\">DATE</span>"
+msgstr ""
+"<br/>\n"
+"                    <span style=\"margin-left: 17px;\"> Ngày </span>"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_assignment_form
+msgid "<span class=\"o_stat_text\">Grade</span>"
+msgstr "<span class=\"o_stat_text\"> Lớp </span>"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.grading_smart_button_op_student_inherit
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_gradebook_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_course_inherited_grade_form_view
+msgid "<span class=\"o_stat_text\">GradeBook</span>"
+msgstr "<span class=\"o_stat_text\"> Lớp sách </span>"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_gradebook_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_assignment_form
+msgid "<span class=\"o_stat_text\">Statistics</span>"
+msgstr "<span class=\"o_stat_text\"> Thống kê </span>"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.student_statistics
+msgid ""
+"<span style=\"font-size: 14px;\">\n"
+"                                    <b>Student :</b>\n"
+"                                </span>"
+msgstr ""
+"<span style=\"font-size: 14px;\">\n"
+"                                    <b> Sinh viên: </b>\n"
+"                                </span>"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.student_grade_report
+msgid ""
+"<strong>\n"
+"                                                Report Card\n"
+"                                            </strong>"
+msgstr ""
+"<strong>\n"
+"                                                Thẻ báo cáo\n"
+"                                            </strong>"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.honor_roll_list
+msgid "<strong>Honor Roll</strong>"
+msgstr "<strong> danh dự cuộn </strong>"
+
+#. module: openeducat_grading
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__attendance_weight_line__attendance_type__absent
+msgid "Absent"
+msgstr "Vắng mặt"
+
+#. module: openeducat_grading
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__attendance_weight_line__attendance_type__excuse
+msgid "Absent Excused"
+msgstr "Vắng mặt"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__academic_year_ids
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__academic_year_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__year_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_wizard__academic_year_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_assignment__year_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template_line__academic_years_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__year_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll_line__year_id
+msgid "Academic Year"
+msgstr "Năm học"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__message_needaction
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__message_needaction
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__message_needaction
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__message_needaction
+msgid "Action Needed"
+msgstr "Hành động cần thiết"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__active
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_table__active
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__active
+msgid "Active"
+msgstr "Tích cực"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__activity_ids
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__activity_ids
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__activity_ids
+msgid "Activities"
+msgstr "Các hoạt động"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__activity_exception_decoration
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__activity_exception_decoration
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Hoạt động trang trí ngoại lệ"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__activity_state
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__activity_state
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__activity_state
+msgid "Activity State"
+msgstr "Trạng thái hoạt động"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__activity_type_icon
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__activity_type_icon
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Biểu tượng loại hoạt động"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.student_statistics
+msgid "Archive"
+msgstr "Lưu trữ"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_assignment_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_assignment_search
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_grade_table_search
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_honor_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_honor_search
+msgid "Archived"
+msgstr "Lưu trữ"
+
+#. module: openeducat_grading
+#. odoo-javascript
+#: code:addons/openeducat_grading/static/src/xml/grid_book_widget.xml:0
+#: model:ir.actions.act_window,name:openeducat_grading.act_assignment_wizard_view
+#: model:ir.model,name:openeducat_grading.model_op_assignment
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_wizard__assignment_ids
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__grade_assigment_id
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.student_statistics
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_assignment_wizard_form
+#, python-format
+msgid "Assignment"
+msgstr "Phân công"
+
+#. module: openeducat_grading
+#: model:ir.model,name:openeducat_grading.model_assignment_statistics
+msgid "Assignment Statistics"
+msgstr "Thống kê chuyển nhượng"
+
+#. module: openeducat_grading
+#. odoo-javascript
+#: code:addons/openeducat_grading/static/src/xml/grid_book_widget.xml:0
+#, python-format
+msgid "Assignment Summary"
+msgstr "Tóm tắt bài tập"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_type_weight_line__assignment_type_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__assignment_type_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template_line__assignment_type_id
+msgid "Assignment Type"
+msgstr "Loại gán"
+
+#. module: openeducat_grading
+#: model:ir.model,name:openeducat_grading.model_assignment_type_weight_line
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_assignment_type_weight_line_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_assignment_type_weight_line_search
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_assignment_type_weight_line_tree
+msgid "Assignment Type Weight Line"
+msgstr "Loại trọng lượng loại phân công"
+
+#. module: openeducat_grading
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__op_grade_template_line__weightage__aasignment_type
+msgid "Assignment Type Weightage"
+msgstr "Trọng lượng loại phân công"
+
+#. module: openeducat_grading
+#: model:ir.ui.menu,name:openeducat_grading.menu_op_assignment_type
+msgid "Assignment Types"
+msgstr "Loại gán"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template_line__assignment_type_weight_ids
+msgid "Assignment Weight"
+msgstr "Trọng lượng gán"
+
+#. module: openeducat_grading
+#: model:ir.model,name:openeducat_grading.model_assignment_wizard
+msgid "Assignment Wizard"
+msgstr "Trình hướng dẫn chuyển nhượng"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__message_attachment_count
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__message_attachment_count
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__message_attachment_count
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__message_attachment_count
+msgid "Attachment Count"
+msgstr "Số lượng đính kèm"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.student_statistics
+msgid "Attendance"
+msgstr "Sự tham dự"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_attendance_weight_line__attendance_type
+msgid "Attendance Type"
+msgstr "Loại tham dự"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template_line__attendance_type_weight_ids
+msgid "Attendance Weight"
+msgstr "Trọng lượng tham dự"
+
+#. module: openeducat_grading
+#: model:ir.model,name:openeducat_grading.model_attendance_weight_line
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_attendance_line_search
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_attendance_weight_line_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_attendance_weight_line_tree
+msgid "Attendance Weight Line"
+msgstr "Dòng trọng lượng tham dự"
+
+#. module: openeducat_grading
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__op_grade_template_line__weightage__attendance_type
+msgid "Attendance Weightage"
+msgstr "Trọng lượng tham dự"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.statistics
+msgid "Average"
+msgstr "Trung bình"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__background
+msgid "Background Image"
+msgstr "Hình nền"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.student_statistics
+msgid "CATEGORY STATISTICS"
+msgstr "Thống kê danh mục"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_override_line__calculated
+msgid "Calculated"
+msgstr "Tính toán"
+
+#. module: openeducat_grading
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__op_honorroll__state__cancel
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_assignment_wizard_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_gradebook_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_wizard_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_honor_form
+msgid "Cancel"
+msgstr "Hủy bỏ"
+
+#. module: openeducat_grading
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__gradebook_gradebook__state__cancelled
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__gradebook_line__state__cancelled
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__grading_assignment__state__cancelled
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_gradebook_line_form
+msgid "Cancelled"
+msgstr "Bị hủy bỏ"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.student_statistics
+msgid "Category"
+msgstr "Loại"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_assignment_form
+msgid "Close"
+msgstr "Đóng"
+
+#. module: openeducat_grading
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__grading_assignment__state__closed_for_submission
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_assignment_form
+msgid "Closed For Submission"
+msgstr "Đóng cửa để nộp"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_override_line__comment
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.report_comment
+msgid "Comment"
+msgstr "Bình luận"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.report_comment
+msgid "Comments"
+msgstr "Bình luận"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_type_weight_line__company_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_attendance_weight_line__company_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__company_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__company_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_override_line__company_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_scale__company_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_table__company_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_table_line__company_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template__company_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template_line__company_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_type__company_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__company_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_subterm_weight_line__company_id
+msgid "Company"
+msgstr "Công ty"
+
+#. module: openeducat_grading
+#: model:ir.ui.menu,name:openeducat_grading.menu_config_root
+msgid "Configuration"
+msgstr "Cấu hình"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_assignment_wizard_form
+msgid "Confirm"
+msgstr "Xác nhận"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.statistics
+msgid "Count"
+msgstr "Đếm"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__course_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__course_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__course_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_wizard__course_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_assignment__course_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__course_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll_line__course_id
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_assignment_search
+msgid "Course"
+msgstr "Khóa học"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_statistics__create_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_type_weight_line__create_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_wizard__create_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_attendance_weight_line__create_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__create_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__create_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_wizard__create_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_override_line__create_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_scale__create_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_table__create_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_table_line__create_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template__create_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template_line__create_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_type__create_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__create_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll_line__create_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_student_statistics__create_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_subterm_weight_line__create_uid
+msgid "Created by"
+msgstr "Được tạo bởi"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_statistics__create_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_type_weight_line__create_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_wizard__create_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_attendance_weight_line__create_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__create_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__create_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_wizard__create_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_override_line__create_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_scale__create_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_table__create_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_table_line__create_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template__create_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template_line__create_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_type__create_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__create_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll_line__create_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_student_statistics__create_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_subterm_weight_line__create_date
+msgid "Created on"
+msgstr "Được tạo ra"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.double_col_report
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.double_col_trans
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.single_col_report
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.single_col_trans
+msgid "Credits"
+msgstr "Tín dụng"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.student_transcript
+msgid "Cumulative GPA:"
+msgstr "GPA tích lũy:"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,help:openeducat_grading.field_gradebook_gradebook__report_access_url
+msgid "Customer Portal URL"
+msgstr "URL Cổng thông tin khách hàng"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.double_col_report
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.single_col_report
+msgid "Date __________"
+msgstr "Ngày __________"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__description
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_honor_form
+msgid "Description"
+msgstr "Sự mô tả"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_statistics__display_name
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_type_weight_line__display_name
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_wizard__display_name
+#: model:ir.model.fields,field_description:openeducat_grading.field_attendance_weight_line__display_name
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__display_name
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__display_name
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_wizard__display_name
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_override_line__display_name
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_scale__display_name
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_table__display_name
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_table_line__display_name
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template__display_name
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template_line__display_name
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_type__display_name
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__display_name
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll_line__display_name
+#: model:ir.model.fields,field_description:openeducat_grading.field_student_statistics__display_name
+#: model:ir.model.fields,field_description:openeducat_grading.field_subterm_weight_line__display_name
+msgid "Display Name"
+msgstr "Tên hiển thị"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.grade_book_view_portal
+msgid "Download Unofficial Report"
+msgstr "Tải xuống báo cáo không chính thức"
+
+#. module: openeducat_grading
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__gradebook_gradebook__state__draft
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__gradebook_line__state__draft
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__grading_assignment__state__draft
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__op_honorroll__state__draft
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_gradebook_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_gradebook_line_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_assignment_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_honor_form
+msgid "Draft"
+msgstr "Bản thảo"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_type__earn_credits
+msgid "Earn Credits"
+msgstr "Giành được sự tin cậy"
+
+#. module: openeducat_grading
+#. odoo-javascript
+#: code:addons/openeducat_grading/static/src/xml/grid_book_widget.xml:0
+#, python-format
+msgid "Export"
+msgstr "Xuất khẩu"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_type__factor
+msgid "Factor"
+msgstr "Hệ số"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.double_col_report
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.single_col_report
+msgid "Faculty Signature __________"
+msgstr "Chữ ký giảng viên __________"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_override_line__final
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__gradebook_line__state__final
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_gradebook_line_form
+msgid "Final"
+msgstr "Cuối cùng"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_course__grade_scale_id
+msgid "Final Grade"
+msgstr "Lớp cuối cùng"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__grade_override
+msgid "Final Grades"
+msgstr "Lớp cuối cùng"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__message_follower_ids
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__message_follower_ids
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__message_follower_ids
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__message_follower_ids
+msgid "Followers"
+msgstr "Người theo dõi"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__message_partner_ids
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__message_partner_ids
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__message_partner_ids
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Người theo dõi (Đối tác)"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,help:openeducat_grading.field_gradebook_gradebook__activity_type_icon
+#: model:ir.model.fields,help:openeducat_grading.field_grading_assignment__activity_type_icon
+#: model:ir.model.fields,help:openeducat_grading.field_op_honorroll__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Phông chữ tuyệt vời biểu tượng, ví dụ: Nhiệm vụ FA"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_type__form_factor
+msgid "Form Factor"
+msgstr "Yếu tố hình thức"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__from_per
+msgid "From Percentage"
+msgstr "Từ tỷ lệ phần trăm"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_type__gpa_value
+msgid "GPA"
+msgstr ""
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.statistics
+msgid "GRADE DISTRIBUTION"
+msgstr "Phân phối lớp"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_gradebook_form
+msgid "Generate Final Grade"
+msgstr "Tạo lớp cuối cùng"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_honor_form
+msgid "Generate Honor Roll"
+msgstr "Tạo ra danh dự cuộn"
+
+#. module: openeducat_grading
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__op_honorroll__state__generate
+msgid "Generated"
+msgstr "Tạo ra"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__grade
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__grade
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_assignment__grade
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_override_line__grade
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.double_col_report
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.double_col_trans
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.single_col_report
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.single_col_trans
+msgid "Grade"
+msgstr "Lớp"
+
+#. module: openeducat_grading
+#: model:ir.actions.act_window,name:openeducat_grading.act_gradebook_gradebook_view
+#: model:ir.model,name:openeducat_grading.model_gradebook_gradebook
+#: model:ir.ui.menu,name:openeducat_grading.menu_gradebook_gradebook
+#: model:ir.ui.menu,name:openeducat_grading.menu_op_grading_root
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_gradebook_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_gradebook_search
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_gradebook_tree
+msgid "Grade Book"
+msgstr "Sách lớp"
+
+#. module: openeducat_grading
+#: model:ir.actions.act_window,name:openeducat_grading.act_gradebook_line_view
+#: model:ir.model,name:openeducat_grading.model_gradebook_line
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_gradebook_line_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_gradebook_line_search
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_gradebook_line_tree
+msgid "Grade Book Line"
+msgstr "Line Line Line"
+
+#. module: openeducat_grading
+#: model:ir.ui.menu,name:openeducat_grading.student_progress_grade_book_view_by_batch_menu
+msgid "Grade By Batch"
+msgstr "Lớp theo lô"
+
+#. module: openeducat_grading
+#: model:ir.ui.menu,name:openeducat_grading.student_progress_grade_book_view_by_course_menu
+msgid "Grade By Course"
+msgstr "Lớp theo khóa học"
+
+#. module: openeducat_grading
+#: model:ir.ui.menu,name:openeducat_grading.student_progress_grade_book_view_by_subject_menu
+msgid "Grade By Subject"
+msgstr "Lớp theo môn học"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_table__grade_table_ids
+msgid "Grade Lines"
+msgstr "Dòng lớp"
+
+#. module: openeducat_grading
+#: model:ir.actions.act_window,name:openeducat_grading.act_op_grade_override_line_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_grade_override_line_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_grade_override_line_search
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_grade_override_line_tree
+msgid "Grade Override Line"
+msgstr "Dòng ghi đè lớp"
+
+#. module: openeducat_grading
+#: model:ir.actions.report,name:openeducat_grading.action_report_gradebook
+msgid "Grade Report"
+msgstr "Báo cáo lớp"
+
+#. module: openeducat_grading
+#: model:ir.actions.act_window,name:openeducat_grading.act_op_grade_scale_view
+#: model:ir.ui.menu,name:openeducat_grading.menu_grade_scale
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_grade_scale_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_grade_scale_search
+msgid "Grade Scale"
+msgstr "Thang điểm"
+
+#. module: openeducat_grading
+#: model:ir.actions.act_window,name:openeducat_grading.act_assignment_type_weight_line_view
+#: model:ir.actions.act_window,name:openeducat_grading.act_attendance_weight_line_view
+#: model:ir.actions.act_window,name:openeducat_grading.act_op_grade_table_line_view
+#: model:ir.actions.act_window,name:openeducat_grading.act_op_grade_table_view
+#: model:ir.actions.act_window,name:openeducat_grading.act_subterm_weight_line_view
+#: model:ir.model,name:openeducat_grading.model_op_grade_table
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__grade_table_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_table_line__grade_table_id
+#: model:ir.ui.menu,name:openeducat_grading.menu_grade_table
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_grade_table_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_grade_table_search
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_grade_table_tree
+msgid "Grade Table"
+msgstr "Bảng điểm"
+
+#. module: openeducat_grading
+#: model:ir.model,name:openeducat_grading.model_op_grade_table_line
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__grade_table_line_id
+msgid "Grade Table Line"
+msgstr "Dòng bảng lớp"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_grade_table_line_tree
+msgid "Grade Table Lines"
+msgstr "Dòng bảng lớp"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_grade_table_line_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_grade_table_line_search
+msgid "Grade Table lines"
+msgstr "Dòng bảng lớp"
+
+#. module: openeducat_grading
+#: model:ir.actions.act_window,name:openeducat_grading.act_grade_template_view
+#: model:ir.model,name:openeducat_grading.model_op_grade_template
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_type_weight_line__grade_templates_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_attendance_weight_line__grade_templates_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_course__grade_template_ids
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template_line__grade_template_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_subject__grade_template_ids
+#: model:ir.model.fields,field_description:openeducat_grading.field_subterm_weight_line__grade_template_id
+#: model:ir.ui.menu,name:openeducat_grading.menu_grade_template
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grade_template_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grade_template_search
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grade_template_tree
+msgid "Grade Template"
+msgstr "Mẫu lớp"
+
+#. module: openeducat_grading
+#: model:ir.actions.act_window,name:openeducat_grading.act_grade_template_line_view
+#: model:ir.model,name:openeducat_grading.model_op_grade_template_line
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grade_template_line_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grade_template_line_search
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grade_template_line_tree
+msgid "Grade Template Line"
+msgstr "Dòng mẫu"
+
+#. module: openeducat_grading
+#: model:ir.actions.act_window,name:openeducat_grading.act_op_grade_type_view
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_scale__op_grade_type_ids
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_grade_type_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_grade_type_search
+msgid "Grade Type"
+msgstr "Loại lớp"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_type__op_grade_scale_id
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_grade_scale_tree
+msgid "Grade scale"
+msgstr "Thang điểm"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_grade_type_tree
+msgid "Grade type"
+msgstr "Loại lớp"
+
+#. module: openeducat_grading
+#. odoo-javascript
+#. odoo-python
+#: code:addons/openeducat_grading/models/gradebook_gradebook.py:0
+#: code:addons/openeducat_grading/models/op_batch.py:0
+#: code:addons/openeducat_grading/models/op_course.py:0
+#: code:addons/openeducat_grading/models/op_student.py:0
+#: code:addons/openeducat_grading/models/op_subject.py:0
+#: code:addons/openeducat_grading/models/student_grade_progress.py:0
+#: code:addons/openeducat_grading/static/src/js/grade_book_by_subject.js:0
+#: code:addons/openeducat_grading/static/src/js/grade_book_grid_view.js:0
+#: code:addons/openeducat_grading/static/src/js/gradebook_by_batch.js:0
+#: code:addons/openeducat_grading/static/src/js/gradebook_by_course.js:0
+#: code:addons/openeducat_grading/static/src/js/grid_grade_book.js:0
+#: model:ir.actions.client,name:openeducat_grading.grade_book_action_window
+#: model:ir.actions.client,name:openeducat_grading.grade_book_action_window_by_batch
+#: model:ir.actions.client,name:openeducat_grading.grade_book_action_window_by_course
+#: model:ir.actions.client,name:openeducat_grading.grade_book_action_window_by_subject
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_student_progression__grade_book
+#: model:openeducat.portal.menu,name:openeducat_grading.portal_menu_grades
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_batch_tree_view_inherit_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_course_inherited_grade_tree_view
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_subject_inherited_grade_tree_view
+#, python-format
+msgid "GradeBook"
+msgstr "Lớp"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__gradebook
+msgid "Gradebook"
+msgstr "Lớp"
+
+#. module: openeducat_grading
+#: model:ir.ui.menu,name:openeducat_grading.gradebook_excel_report_menu
+msgid "Gradebook Excel Report"
+msgstr "Báo cáo Classbook Excel"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__gradebook_line_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__gradebook_line_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_assignment__gradebook_line_id
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_gradebook_line_pivot
+msgid "Gradebook Line"
+msgstr "Lòng bảng điểm"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.statistics
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.student_statistics
+msgid "Graded"
+msgstr "Được phân loại"
+
+#. module: openeducat_grading
+#: model:ir.ui.menu,name:openeducat_grading.grades_analysis
+msgid "Grades Analysis"
+msgstr "Phân tích điểm"
+
+#. module: openeducat_grading
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__grading_assignment__state__grades_published
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.student_statistics
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_assignment_form
+msgid "Grades Published"
+msgstr "Lớp được công bố"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_wizard_form
+msgid "Grading"
+msgstr "Phân loại"
+
+#. module: openeducat_grading
+#: model:ir.model,name:openeducat_grading.model_grading_assignment
+msgid "Grading Assigment"
+msgstr "Phân loại Assigment"
+
+#. module: openeducat_grading
+#: model:ir.actions.act_window,name:openeducat_grading.act_grading_assignment_view
+#: model:ir.ui.menu,name:openeducat_grading.menu_grading_assignment
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_assignment_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_assignment_search
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_assignment_tree
+msgid "Grading Assignment"
+msgstr "Phân loại chuyển nhượng"
+
+#. module: openeducat_grading
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__grading_assignment__state__grading_closed
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_assignment_form
+msgid "Grading Closed"
+msgstr "Chấm điểm đóng cửa"
+
+#. module: openeducat_grading
+#: model:ir.model,name:openeducat_grading.model_op_grade_override_line
+msgid "Grading Override Line"
+msgstr "Phân loại dòng ghi đè"
+
+#. module: openeducat_grading
+#: model:ir.model,name:openeducat_grading.model_op_grade_scale
+msgid "Grading Scale"
+msgstr "Thang điểm"
+
+#. module: openeducat_grading
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__grading_assignment__state__grading_started
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_assignment_form
+msgid "Grading Started"
+msgstr "Phân loại bắt đầu"
+
+#. module: openeducat_grading
+#: model:ir.model,name:openeducat_grading.model_op_grade_type
+msgid "Grading Type"
+msgstr "Loại chấm điểm"
+
+#. module: openeducat_grading
+#: model:ir.model,name:openeducat_grading.model_grading_wizard
+msgid "Grading Wizard"
+msgstr "Phù thủy chấm điểm"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_assignment_search
+msgid "Group By..."
+msgstr "Nhóm bởi ..."
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__has_message
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__has_message
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__has_message
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__has_message
+msgid "Has Message"
+msgstr "Có tin nhắn"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__hide
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__hide
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_assignment__hide
+msgid "Hide"
+msgstr "Ẩn giấu"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__hide_sub
+msgid "Hide Sub"
+msgstr "Ẩn phụ"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__hide_subject
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_assignment__hide_subject
+msgid "Hide Subject"
+msgstr "Ẩn chủ đề"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll_line__honor_id
+msgid "Honor"
+msgstr "Tôn kính"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__honor_line_id
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_honor_form
+msgid "Honor Line"
+msgstr "Dòng danh dự"
+
+#. module: openeducat_grading
+#: model:ir.actions.act_window,name:openeducat_grading.act_op_honorroll_view
+#: model:ir.model,name:openeducat_grading.model_op_honorroll
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_honor_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_honor_search
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_honor_tree
+msgid "Honor Roll"
+msgstr "Danh dự"
+
+#. module: openeducat_grading
+#: model:ir.actions.act_window,name:openeducat_grading.act_op_honorroll_line_view
+#: model:ir.model,name:openeducat_grading.model_op_honorroll_line
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_honor_line_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_honor_line_search
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_honor_line_tree
+msgid "Honor Roll Line"
+msgstr "Dòng danh dự"
+
+#. module: openeducat_grading
+#: model:ir.ui.menu,name:openeducat_grading.honor_roll_main
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.honor_certi_data
+msgid "Honour Roll"
+msgstr "Danh dự"
+
+#. module: openeducat_grading
+#: model:ir.actions.report,name:openeducat_grading.action_honour_roll_certificate
+msgid "Honour Roll Certificate"
+msgstr "Chứng chỉ cuộn danh dự"
+
+#. module: openeducat_grading
+#: model:ir.actions.report,name:openeducat_grading.action_honour_roll_list
+msgid "Honour Roll List"
+msgstr "Danh sách cuộn danh dự"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_statistics__id
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_type_weight_line__id
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_wizard__id
+#: model:ir.model.fields,field_description:openeducat_grading.field_attendance_weight_line__id
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__id
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__id
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_wizard__id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_override_line__id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_scale__id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_table__id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_table_line__id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template__id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template_line__id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_type__id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll_line__id
+#: model:ir.model.fields,field_description:openeducat_grading.field_student_statistics__id
+#: model:ir.model.fields,field_description:openeducat_grading.field_subterm_weight_line__id
+msgid "ID"
+msgstr "TÔI"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__activity_exception_icon
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__activity_exception_icon
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__activity_exception_icon
+msgid "Icon"
+msgstr "Biểu tượng"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,help:openeducat_grading.field_gradebook_gradebook__activity_exception_icon
+#: model:ir.model.fields,help:openeducat_grading.field_grading_assignment__activity_exception_icon
+#: model:ir.model.fields,help:openeducat_grading.field_op_honorroll__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Biểu tượng để chỉ ra một hoạt động ngoại lệ."
+
+#. module: openeducat_grading
+#: model:ir.model.fields,help:openeducat_grading.field_gradebook_gradebook__message_needaction
+#: model:ir.model.fields,help:openeducat_grading.field_gradebook_line__message_needaction
+#: model:ir.model.fields,help:openeducat_grading.field_grading_assignment__message_needaction
+#: model:ir.model.fields,help:openeducat_grading.field_op_honorroll__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Nếu được kiểm tra, tin nhắn mới đòi hỏi sự chú ý của bạn."
+
+#. module: openeducat_grading
+#: model:ir.model.fields,help:openeducat_grading.field_gradebook_gradebook__message_has_error
+#: model:ir.model.fields,help:openeducat_grading.field_gradebook_gradebook__message_has_sms_error
+#: model:ir.model.fields,help:openeducat_grading.field_gradebook_line__message_has_error
+#: model:ir.model.fields,help:openeducat_grading.field_gradebook_line__message_has_sms_error
+#: model:ir.model.fields,help:openeducat_grading.field_grading_assignment__message_has_error
+#: model:ir.model.fields,help:openeducat_grading.field_grading_assignment__message_has_sms_error
+#: model:ir.model.fields,help:openeducat_grading.field_op_honorroll__message_has_error
+#: model:ir.model.fields,help:openeducat_grading.field_op_honorroll__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Nếu được kiểm tra, một số tin nhắn có lỗi giao hàng."
+
+#. module: openeducat_grading
+#. odoo-python
+#: code:addons/openeducat_grading/models/gradebook_line.py:0
+#, python-format
+msgid "Import Template for GradeBook Line"
+msgstr "Nhập mẫu cho dòng sổ điểm"
+
+#. module: openeducat_grading
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__gradebook_gradebook__state__inprogress
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_gradebook_form
+msgid "In Progress"
+msgstr "Trong tiến trình"
+
+#. module: openeducat_grading
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__gradebook_line__state__in_review
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_gradebook_line_form
+msgid "In Review"
+msgstr "Trong đánh giá"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.honor_certi_data
+msgid "In honour of your outstanding academic performance"
+msgstr "Để vinh danh thành tích học tập xuất sắc của bạn"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_type__include_gpa
+msgid "Include GPA"
+msgstr "Bao gồm GPA"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__sequence
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_assignment__sequence
+msgid "Index"
+msgstr "Mục lục"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_gradebook_form
+msgid "Initialize"
+msgstr "Khởi tạo"
+
+#. module: openeducat_grading
+#. odoo-python
+#: code:addons/openeducat_grading/controllers/main.py:0
+#, python-format
+msgid "Invalid report type: %s"
+msgstr "Loại báo cáo không hợp lệ:% s"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__message_is_follower
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__message_is_follower
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__message_is_follower
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__message_is_follower
+msgid "Is Follower"
+msgstr "Là người theo dõi"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__issued_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_assignment__issued_date
+msgid "Issued Date"
+msgstr "Ngày ban hành"
+
+#. module: openeducat_grading
+#: model:ir.model,name:openeducat_grading.model_op_course
+msgid "LMS Course"
+msgstr "Khóa học LMS"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_statistics____last_update
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_type_weight_line____last_update
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_wizard____last_update
+#: model:ir.model.fields,field_description:openeducat_grading.field_attendance_weight_line____last_update
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook____last_update
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line____last_update
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_wizard____last_update
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_override_line____last_update
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_scale____last_update
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_table____last_update
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_table_line____last_update
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template____last_update
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template_line____last_update
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_type____last_update
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll____last_update
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll_line____last_update
+#: model:ir.model.fields,field_description:openeducat_grading.field_student_statistics____last_update
+#: model:ir.model.fields,field_description:openeducat_grading.field_subterm_weight_line____last_update
+msgid "Last Modified on"
+msgstr "Sửa đổi lần cuối"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_statistics__write_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_type_weight_line__write_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_wizard__write_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_attendance_weight_line__write_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__write_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__write_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_wizard__write_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_override_line__write_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_scale__write_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_table__write_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_table_line__write_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template__write_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template_line__write_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_type__write_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__write_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll_line__write_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_student_statistics__write_uid
+#: model:ir.model.fields,field_description:openeducat_grading.field_subterm_weight_line__write_uid
+msgid "Last Updated by"
+msgstr "Cập nhật lần cuối bởi"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_statistics__write_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_type_weight_line__write_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_wizard__write_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_attendance_weight_line__write_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__write_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__write_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_wizard__write_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_override_line__write_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_scale__write_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_table__write_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_table_line__write_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template__write_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template_line__write_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_type__write_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__write_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll_line__write_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_student_statistics__write_date
+#: model:ir.model.fields,field_description:openeducat_grading.field_subterm_weight_line__write_date
+msgid "Last Updated on"
+msgstr "Cập nhật lần cuối vào"
+
+#. module: openeducat_grading
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__attendance_weight_line__attendance_type__late
+msgid "Late"
+msgstr "Muộn"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__message_main_attachment_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__message_main_attachment_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__message_main_attachment_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Đính kèm chính"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__marks
+msgid "Marks"
+msgstr "Điểm"
+
+#. module: openeducat_grading
+#. odoo-python
+#: code:addons/openeducat_grading/models/gradebook_line.py:0
+#, python-format
+msgid "Marks should be less than or equal to {}"
+msgstr "Dấu phải nhỏ hơn hoặc bằng {}"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_type__max_percentage
+msgid "Maximum Percentage"
+msgstr "Tỷ lệ phần trăm tối đa"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.statistics
+msgid "Maximum Value"
+msgstr "Gia trị lơn nhât"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.statistics
+msgid "Median"
+msgstr "Trung bình"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__message_has_error
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__message_has_error
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__message_has_error
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__message_has_error
+msgid "Message Delivery error"
+msgstr "Lỗi gửi tin nhắn"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__message_ids
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__message_ids
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__message_ids
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__message_ids
+msgid "Messages"
+msgstr "Tin nhắn"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_type__min_percentage
+msgid "Minimum Percentage"
+msgstr "Tỷ lệ tối thiểu"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.statistics
+msgid "Minimum Value"
+msgstr "Giá trị tối thiểu"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__my_activity_date_deadline
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__my_activity_date_deadline
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Hạn chót hoạt động của tôi"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_assignment_search
+msgid "My Assignments"
+msgstr "Bài tập của tôi"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__name
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__name
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_assignment__name
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_scale__name
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_table__name
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_table_line__name
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template__name
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_type__name
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__name
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_op_honor_form
+msgid "Name"
+msgstr "Tên"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.statistics
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.student_statistics
+msgid "Needs Grading"
+msgstr "Cần chấm điểm"
+
+#. module: openeducat_grading
+#. odoo-python
+#: code:addons/openeducat_grading/models/gradebook_gradebook.py:0
+#: code:addons/openeducat_grading/models/grading_assignment.py:0
+#: code:addons/openeducat_grading/models/op_honor_roll.py:0
+#, python-format
+msgid "New"
+msgstr "Mới"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__activity_calendar_event_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__activity_calendar_event_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "Sự kiện lịch hoạt động tiếp theo"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__activity_date_deadline
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__activity_date_deadline
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Hạn chót hoạt động tiếp theo"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__activity_summary
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__activity_summary
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__activity_summary
+msgid "Next Activity Summary"
+msgstr "Tóm tắt hoạt động tiếp theo"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__activity_type_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__activity_type_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__activity_type_id
+msgid "Next Activity Type"
+msgstr "Loại hoạt động tiếp theo"
+
+#. module: openeducat_grading
+#. odoo-javascript
+#: code:addons/openeducat_grading/static/src/xml/grid_book_widget.xml:0
+#, python-format
+msgid "No Data Available!"
+msgstr "Không có dữ liệu!"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__message_needaction_counter
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__message_needaction_counter
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__message_needaction_counter
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Số lượng hành động"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__message_has_error_counter
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__message_has_error_counter
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__message_has_error_counter
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__message_has_error_counter
+msgid "Number of errors"
+msgstr "Số lỗi"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,help:openeducat_grading.field_gradebook_gradebook__message_needaction_counter
+#: model:ir.model.fields,help:openeducat_grading.field_gradebook_line__message_needaction_counter
+#: model:ir.model.fields,help:openeducat_grading.field_grading_assignment__message_needaction_counter
+#: model:ir.model.fields,help:openeducat_grading.field_op_honorroll__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Số lượng tin nhắn yêu cầu một hành động"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,help:openeducat_grading.field_gradebook_gradebook__message_has_error_counter
+#: model:ir.model.fields,help:openeducat_grading.field_gradebook_line__message_has_error_counter
+#: model:ir.model.fields,help:openeducat_grading.field_grading_assignment__message_has_error_counter
+#: model:ir.model.fields,help:openeducat_grading.field_op_honorroll__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Số lượng tin nhắn có lỗi giao hàng"
+
+#. module: openeducat_grading
+#: model:ir.model,name:openeducat_grading.model_op_batch
+msgid "OpenEduCat Batch"
+msgstr "Mở lô"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_override_line__override
+msgid "Override"
+msgstr "Ghi đè"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__override_hide
+msgid "Override Hide"
+msgstr "Ghi đè ẩn"
+
+#. module: openeducat_grading
+#: model:ir.actions.act_window,name:openeducat_grading.assignment_action_view
+#: model:ir.actions.act_window,name:openeducat_grading.student_action_view
+msgid "Overview"
+msgstr "Tổng quan"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.double_col_report
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.single_col_report
+msgid "Parent Signature __________"
+msgstr "Chữ ký phụ huynh __________"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_subject__parent_sub_id
+msgid "Parent Subject"
+msgstr "Chủ đề phụ huynh"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__percentage
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__percentage
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_table_line__percentage
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template_line__percentage
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll_line__percentage
+msgid "Percentage"
+msgstr "Tỷ lệ phần trăm"
+
+#. module: openeducat_grading
+#. odoo-python
+#: code:addons/openeducat_grading/models/gradebook_gradebook.py:0
+#: code:addons/openeducat_grading/models/gradebook_gradebook.py:0
+#, python-format
+msgid "Please Recheck Your Template Configuration"
+msgstr "Vui lòng kiểm tra lại cấu hình mẫu của bạn"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__point
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_assignment__point
+msgid "Points"
+msgstr "Điểm"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__report_access_url
+msgid "Portal Access URL Report"
+msgstr "Báo cáo URL truy cập cổng thông tin"
+
+#. module: openeducat_grading
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__attendance_weight_line__attendance_type__present
+msgid "Present"
+msgstr "Hiện nay"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_wizard_form
+msgid "Print"
+msgstr "In"
+
+#. module: openeducat_grading
+#: model:ir.actions.act_window,name:openeducat_grading.act_grading_wizard_view
+msgid "Print Grading Excel Report"
+msgstr "In Báo cáo Excel chấm điểm"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.honor_roll_list
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.student_transcript
+msgid "Printed:"
+msgstr "In:"
+
+#. module: openeducat_grading
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__gradebook_gradebook__state__publish
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_gradebook_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_assignment_form
+msgid "Publish"
+msgstr "Công bố"
+
+#. module: openeducat_grading
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__grading_assignment__state__published
+msgid "Published"
+msgstr "Được phát hành"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.statistics
+msgid "Range"
+msgstr "Phạm vi"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_gradebook_form
+msgid "Recompute"
+msgstr "tính toán lại"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__report_type
+msgid "Report Type"
+msgstr "Loại báo cáo"
+
+#. module: openeducat_grading
+#: model:ir.ui.menu,name:openeducat_grading.student_gradebook_view
+msgid "Reports"
+msgstr "Báo cáo"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__activity_user_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__activity_user_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__activity_user_id
+msgid "Responsible User"
+msgstr "Người dùng có trách nhiệm"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__message_has_sms_error
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__message_has_sms_error
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__message_has_sms_error
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Lỗi phân phối SMS"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.statistics
+msgid "STATISTICS"
+msgstr "SỐ LIỆU THỐNG KÊ"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.statistics
+msgid "STATUS DISTRIBUTION"
+msgstr "Phân phối trạng thái"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__access_token
+msgid "Security Token"
+msgstr "Thẻ bảo mật"
+
+#. module: openeducat_grading
+#. odoo-javascript
+#: code:addons/openeducat_grading/static/src/xml/grid_book_widget.xml:0
+#, python-format
+msgid "Select Batch"
+msgstr "Chọn hàng loạt"
+
+#. module: openeducat_grading
+#. odoo-javascript
+#: code:addons/openeducat_grading/static/src/xml/grid_book_widget.xml:0
+#, python-format
+msgid "Select Batch:"
+msgstr "Chọn hàng loạt:"
+
+#. module: openeducat_grading
+#. odoo-javascript
+#: code:addons/openeducat_grading/static/src/xml/grid_book_widget.xml:0
+#, python-format
+msgid "Select Course"
+msgstr "Chọn khóa học"
+
+#. module: openeducat_grading
+#. odoo-javascript
+#: code:addons/openeducat_grading/static/src/xml/grid_book_widget.xml:0
+#, python-format
+msgid "Select Course:"
+msgstr "Chọn khóa học:"
+
+#. module: openeducat_grading
+#. odoo-javascript
+#: code:addons/openeducat_grading/static/src/xml/grid_book_widget.xml:0
+#, python-format
+msgid "Select Student"
+msgstr "Chọn sinh viên"
+
+#. module: openeducat_grading
+#. odoo-javascript
+#: code:addons/openeducat_grading/static/src/xml/grid_book_widget.xml:0
+#, python-format
+msgid "Select Student:"
+msgstr "Chọn Sinh viên:"
+
+#. module: openeducat_grading
+#. odoo-javascript
+#: code:addons/openeducat_grading/static/src/xml/grid_book_widget.xml:0
+#, python-format
+msgid "Select Subject"
+msgstr "Chọn chủ đề"
+
+#. module: openeducat_grading
+#. odoo-javascript
+#: code:addons/openeducat_grading/static/src/xml/grid_book_widget.xml:0
+#, python-format
+msgid "Select Subject:"
+msgstr "Chọn Chủ đề:"
+
+#. module: openeducat_grading
+#. odoo-javascript
+#: code:addons/openeducat_grading/static/src/xml/grid_book_widget.xml:0
+#, python-format
+msgid "Select View Option:"
+msgstr "Chọn tùy chọn xem:"
+
+#. module: openeducat_grading
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__gradebook_gradebook__report_type__single
+msgid "Single Column"
+msgstr "Cột đơn"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.statistics
+msgid "Standard Deviation"
+msgstr "Độ lệch chuẩn"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_assignment_form
+msgid "Start Grading"
+msgstr "Bắt đầu chấm điểm"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__state
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__state
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__state
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__state
+msgid "State"
+msgstr "Tiểu bang"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__state_hide
+msgid "State Hide"
+msgstr "Nhà nước ẩn"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,help:openeducat_grading.field_gradebook_gradebook__activity_state
+#: model:ir.model.fields,help:openeducat_grading.field_grading_assignment__activity_state
+#: model:ir.model.fields,help:openeducat_grading.field_op_honorroll__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Tình trạng dựa trên các hoạt động\n"
+"Quá hạn: Ngày đến hạn đã được thông qua\n"
+"Hôm nay: Ngày hoạt động hôm nay\n"
+"Kế hoạch: Các hoạt động trong tương lai."
+
+#. module: openeducat_grading
+#: model:ir.model,name:openeducat_grading.model_op_student
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__student_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__gradebook_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_override_line__grade_grade_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll_line__student_id
+msgid "Student"
+msgstr "Sinh viên"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.honor_roll_list
+msgid "Student Name"
+msgstr "Tên học sinh"
+
+#. module: openeducat_grading
+#: model:ir.model,name:openeducat_grading.model_student_statistics
+msgid "Student Statistics"
+msgstr "Thống kê sinh viên"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.student_transcript
+msgid "Student Transcript"
+msgstr "Bảng điểm của sinh viên"
+
+#. module: openeducat_grading
+#: model:ir.model,name:openeducat_grading.model_op_student_progression
+msgid "Student progression"
+msgstr "Sự tiến bộ của sinh viên"
+
+#. module: openeducat_grading
+#: model:ir.model,name:openeducat_grading.model_subterm_weight_line
+msgid "Sub Term Weight Line"
+msgstr "Dòng trọng lượng cấp độ phụ"
+
+#. module: openeducat_grading
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__op_grade_template_line__weightage__sub_term
+msgid "Sub Term weightage"
+msgstr "Trọng số phụ"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_subterm_weight_line__academic_sub_term_id
+msgid "Sub Terms"
+msgstr "Điều khoản phụ"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__subject_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__subject_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_assignment__subject_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_override_line__subject
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__subject_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll_line__subject_id
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.double_col_report
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.double_col_trans
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.report_comment
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.single_col_report
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.single_col_trans
+msgid "Subject"
+msgstr "Môn học"
+
+#. module: openeducat_grading
+#: model:ir.model,name:openeducat_grading.model_op_subject
+msgid "Subject Material Allocation"
+msgstr "Phân bổ vật chất chủ đề"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template_line__subterm_weight_ids
+msgid "Subterm Weight"
+msgstr "Trọng lượng phụ"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_subterm_weight_line_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_subterm_weight_line_search
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_subterm_weight_line_tree
+msgid "Subterm Weight Line"
+msgstr "Đường trọng lượng phụ"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template__template_line_ids
+msgid "Template Line"
+msgstr "Dòng mẫu"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__academic_term_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__term_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_assignment__term_id
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.report_comment
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_assignment_search
+msgid "Term"
+msgstr "Kỳ hạn"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_override_line__term
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template_line__academic_term_id
+msgid "Terms"
+msgstr "Điều kiện"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.honor_certi_data
+msgid "This Certificate is Proudly Presented to"
+msgstr "Giấy chứng nhận này được trình bày một cách tự hào cho"
+
+#. module: openeducat_grading
+#. odoo-python
+#: code:addons/openeducat_grading/controllers/main.py:0
+#, python-format
+msgid "This document does not exist."
+msgstr "Tài liệu này không tồn tại."
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__to_per
+msgid "To Percentage"
+msgstr "Đến tỷ lệ phần trăm"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.student_transcript
+msgid ""
+"Total\n"
+"                                    Earned Credits:"
+msgstr ""
+"Tổng cộng\n"
+"                                    Tín dụng kiếm được:"
+
+#. module: openeducat_grading
+#: model:ir.actions.report,name:openeducat_grading.action_transcript
+msgid "Transcript"
+msgstr "Bảng điểm"
+
+#. module: openeducat_grading
+#: model:ir.model.fields.selection,name:openeducat_grading.selection__gradebook_gradebook__report_type__double
+msgid "Two Column"
+msgstr "Hai cột"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,help:openeducat_grading.field_gradebook_gradebook__activity_exception_decoration
+#: model:ir.model.fields,help:openeducat_grading.field_grading_assignment__activity_exception_decoration
+#: model:ir.model.fields,help:openeducat_grading.field_op_honorroll__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Loại hoạt động ngoại lệ trong hồ sơ."
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_subject__default_template
+msgid "Use Default Course Template"
+msgstr "Sử dụng mẫu khóa học mặc định"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__user_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_assignment__user_id
+msgid "User"
+msgstr "Người sử dụng"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.statistics
+msgid "Variance"
+msgstr "Phương sai"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__website_message_ids
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_line__website_message_ids
+#: model:ir.model.fields,field_description:openeducat_grading.field_grading_assignment__website_message_ids
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_honorroll__website_message_ids
+msgid "Website Messages"
+msgstr "Tin nhắn trang web"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,help:openeducat_grading.field_gradebook_gradebook__website_message_ids
+#: model:ir.model.fields,help:openeducat_grading.field_gradebook_line__website_message_ids
+#: model:ir.model.fields,help:openeducat_grading.field_grading_assignment__website_message_ids
+#: model:ir.model.fields,help:openeducat_grading.field_op_honorroll__website_message_ids
+msgid "Website communication history"
+msgstr "Lịch sử truyền thông trang web"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_assignment_type_weight_line__weightage
+#: model:ir.model.fields,field_description:openeducat_grading.field_attendance_weight_line__weightage
+#: model:ir.model.fields,field_description:openeducat_grading.field_subterm_weight_line__weightage
+msgid "Weightage"
+msgstr "Trọng số"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_template_line__weightage
+msgid "Weightage Type"
+msgstr "Loại trọng số"
+
+#. module: openeducat_grading
+#: model:ir.model.fields,field_description:openeducat_grading.field_gradebook_gradebook__academic_year_id
+#: model:ir.model.fields,field_description:openeducat_grading.field_op_grade_override_line__year
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_assignment_search
+msgid "Year"
+msgstr "Năm"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.honor_certi_data
+msgid "academic session"
+msgstr "buổi học tập"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.honor_certi_data
+msgid "in the"
+msgstr "bên trong"
+
+#. module: openeducat_grading
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_assignment_wizard_form
+#: model_terms:ir.ui.view,arch_db:openeducat_grading.view_grading_wizard_form
+msgid "or"
+msgstr "hoặc"
+
+#. module: openeducat_grading
+#. odoo-python
+#: code:addons/openeducat_grading/wizard/assignment_wizard.py:0
+#, python-format
+msgid "{} Assignment already added"
+msgstr "{} Bài tập đã được thêm vào"

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="model_op_job_applicant" model="ir.model">
+        <field name="website_form_access">True</field>
+        <field name="website_form_label">Apply for a Job</field>
+    </record>
+    <function model="ir.model.fields" name="formbuilder_whitelist">
+        <value>op.job.applicant</value>
+        <value eval="[
+            'user_id',
+            'activity_id',
+            'attachment_id'
+        ]"/>
+    </function>
+</odoo>

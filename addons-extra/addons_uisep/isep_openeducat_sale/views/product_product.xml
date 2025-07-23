@@ -1,0 +1,23 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="isep_product_product_form_view">
+            <field name="name">isep.product.product.form</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_variant_easy_edit_view"/>
+            <field name="arch" type="xml">
+                <field name="barcode" position="after">
+                    <field name="course_type"  />
+                </field>     
+
+                <xpath expr="//div[hasclass('oe_title')]" position='after'>
+                    <div name="options">
+                        <span class="d-inline-block">
+                            <field name="is_academic_program"/>
+                            <label for="is_academic_program"/>
+                        </span>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

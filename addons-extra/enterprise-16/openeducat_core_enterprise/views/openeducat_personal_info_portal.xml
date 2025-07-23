@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- oca-hooks:disable=xml-dangerous-qweb-replace-low-priority -->
+<odoo>
+
+    <template id="portal_home_inherit" inherit_id="portal.portal_my_home" priority="99">
+        <xpath expr="//div[hasclass('o_portal_my_home')]/h3" position="replace">
+            <t t-if="user_id.sudo().is_parent">
+                <h3>
+                    <span t-esc="stu_id.name"></span>
+                    <span>Documents</span>
+                </h3>
+            </t>
+            <t t-else="1">
+                <h3>
+                    <t t-esc="user_id.name"></t>
+                    <span>Documents</span>
+                </h3>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="portal_breadcrumbs_inhetrite" inherit_id="portal.portal_breadcrumbs" priority="99">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="replace">
+            <ol t-if="page_name != 'Home'" class="o_portal_submenu breadcrumb mb-0 py-2 flex-grow-1">
+                <li class="breadcrumb-item ">
+                    <t t-if="user_id.sudo().is_student">
+                        <a href="/my" aria-label="home" title="home">
+                            <i class="fa fa-home"></i>
+                        </a>
+                    </t>
+                    <t t-if="user_id.sudo().is_parent">
+                        <a href="/my/child/" aria-label="child" title="child">
+                            <i class="fa fa-home"></i>
+                        </a>
+                    </t>
+                     <t t-if="not (user_id.sudo().is_student or user_id.sudo().is_parent)">
+                        <a href="/my" aria-label="home" title="home">
+                            <i class="fa fa-home"></i>
+                        </a>
+                    </t>
+                </li>
+                <li t-if="page_name == 'my_details'" class="breadcrumb-item">Your Details</li>
+            </ol>
+        </xpath>
+    </template>
+
+    <template id="portal_my_home_menu_subject_registration" name="Portal layout : Subject Registration"
+              inherit_id="openeducat_core_enterprise.portal_breadcrumbs_inhetrite" priority="10">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="page_name == 'subject_registration' or subject_registration"
+                t-attf-class="breadcrumb-item #{'active ' if not subject_registration else ''}">
+                <a t-if="subject_registration_ids" t-attf-href="/subject/registration/?{{ keep_query() }}">
+                    Subject Registration List
+                </a>
+                <t t-else="">Subject Registration List</t>
+            </li>
+
+            <li t-if="page_name == 'subject_register' or subject_register "
+                t-attf-class="breadcrumb-item #{'active ' if not subject_registration_ids else ''}">
+                <a t-if="subject_register" t-attf-href="/subject/registration/?{{ keep_query() }}">
+                    Subject Registration List
+                </a>
+                <t t-else="">Subject Registration List</t>
+            </li>
+            <li t-if="subject_register" class="breadcrumb-item active">
+                <span t-field="subject_register.name"/>
+            </li>
+        </xpath>
+    </template>
+
+    <template id="portal_my_home_menu_student_profile" name="Portal layout : Student Profile"
+              inherit_id="openeducat_core_enterprise.portal_breadcrumbs_inhetrite" priority="10">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <t t-if="user_id.sudo().is_parent">
+                <li t-if="page_name == 'student_profile' or student_profile"
+                    t-attf-class="breadcrumb-item #{'active ' if not student_profile else ''}">
+                    <a t-if="student" t-attf-href="/student/profile/#{stud_id}?{{ keep_query() }}">
+                        Student Profile
+                    </a>
+                    <t t-else="">Student Profile</t>
+                </li>
+            </t>
+            <t t-if="user_id.sudo().is_student">
+                <li t-if="page_name == 'student_profile' or student_profile"
+                    t-attf-class="breadcrumb-item #{'active ' if not student_profile else ''}">
+                    <a t-if="student" t-attf-href="/student/profile?{{ keep_query() }}">
+                        Student Profile
+                    </a>
+                    <t t-else="">Student Profile</t>
+                </li>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="openeducat_enterprise_student_portal">
+
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Student Information</t>
+            </t>
+            <t t-if="not student">
+                <p>There are currently no information for your account!!!</p>
+            </t>
+
+            <div t-if="student" name="student_portal_div">
+                <div class="row pt48 pr-md-3" id="student-profile">
+                    <div class="col-md-4 col-lg-3 col-12 mb24">
+                        <ul class="nav nav-pills">
+                            <li class="pr_info">
+                                <a href="#personal_info" aria-expanded="false" data-bs-toggle="tab" role="tab" class="active">
+                                    <h5 class="mb0">
+                                        Personal Information
+                                    </h5>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-8 col-lg-9 col-12 tab-content-box">
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="personal_info">
+                                <t t-foreach="student" t-as="student">
+                                    <div class="row align-items-center text-center text-md-start">
+                                        <div class="col-md-3">
+                                            <img class="img img-responsive img-fluid"
+                                                 t-att-src="'data:image/png;base64,%s' % student_image"
+                                                 style="border: 4px solid #e7e7e7;"/>
+                                        </div>
+                                        <div class="col-md-9 mt-3 mt-md-0">
+                                            <div t-if="student.name">
+                                                <h3 id="student_name" t-esc="student.name"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr></hr>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="row">
+                                                <div t-if="student.gender" class="col-6 col-lg-4 col-md-6 mb-2">
+                                                    <div class="align-items-start media d-flex">
+                                                        <img src="/openeducat_core_enterprise/static/img/sign.svg"
+                                                             class="img-fluid me-2" alt="Gender" title="Gender"
+                                                             style="width: 20px;"/>
+                                                        <div class="media-body flex-grow-1">
+                                                            <strong class="text-secondary">Gender</strong>
+                                                            <p t-esc="{False:False, 'm':'Male', 'f':'Female', 'o':'Other' }[student.gender]"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div t-if="student.birth_date" class="col-6 col-lg-4 col-md-6 mb-2">
+                                                    <div class="align-items-start media d-flex">
+                                                        <img src="/openeducat_core_enterprise/static/img/interface.svg"
+                                                             class="img-fluid me-2" alt="Gender" title="Gender"
+                                                             style="width: 20px;"/>
+                                                        <div class="media-body flex-grow-1">
+                                                            <strong class="text-secondary">Birth Date</strong>
+                                                            <p t-esc="student.birth_date"
+                                                               t-options="{'widget': 'date'}"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div t-if="student.blood_group" class="col-6 col-lg-4 col-md-6 mb-2">
+                                                    <div class="align-items-start media d-flex">
+                                                        <img src="/openeducat_core_enterprise/static/img/medical.svg"
+                                                             class="img-fluid me-2" alt="Blood Group"
+                                                             title="Blood Group"
+                                                             style="width: 20px;"/>
+                                                        <div class="media-body flex-grow-1">
+                                                            <strong class="text-secondary">Blood Group</strong>
+                                                            <p t-esc="{False:False, 'B+':'B+ve', 'O+':'O+ve',
+                                                                                'AB+':'AB+ve','A-':'A-ve','B-':'B-ve','O-':'O-ve',
+                                                                                'AB-':'AB-ve','A+':'A+ve'}[student.blood_group]"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div t-if="student.nationality" class="col-6 col-lg-4 col-md-6 mb-2">
+                                                    <div class="align-items-start media d-flex">
+                                                        <img src="/openeducat_core_enterprise/static/img/maps-and-flags.svg"
+                                                             class="img-fluid me-2" alt="Nationality"
+                                                             title="Nationality"
+                                                             style="width: 20px;"/>
+                                                        <div class="media-body flex-grow-1">
+                                                            <strong class="text-secondary">Nationality</strong>
+                                                            <p t-esc="student.nationality.name"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div t-if="student.mobile" class="col-6 col-lg-4 col-md-6 mb-2">
+                                                    <div class="align-items-start media d-flex">
+                                                        <img src="/openeducat_core_enterprise/static/img/communications.svg"
+                                                             class="img-fluid me-2" alt="Mobile" title="Mobile"
+                                                             style="width: 20px;"/>
+                                                        <div class="media-body flex-grow-1">
+                                                            <strong class="text-secondary">Mobile</strong>
+                                                            <p t-esc="student.mobile"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div t-if="student.email" class="col-12 col-lg-4 col-md-6 mb-2">
+                                                    <div class="align-items-start media d-flex">
+                                                        <img src="/openeducat_core_enterprise/static/img/envelopes.svg"
+                                                             class="img-fluid me-2" alt="Email" title="Email"
+                                                             style="width: 20px;"/>
+                                                        <div class="media-body flex-grow-1">
+                                                            <strong class="text-secondary">Email</strong>
+                                                            <p t-esc="student.email"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div t-if="student.visa_info" class="col-12 col-lg-4 col-md-6 mb-2">
+                                                    <div class="align-items-start media d-flex">
+                                                        <img src="/openeducat_core_enterprise/static/img/passport.svg"
+                                                             class="img-fluid me-2" alt="Email" title="Email"
+                                                             style="width: 20px;"/>
+                                                        <div class="media-body flex-grow-1">
+                                                            <strong class="text-secondary">Visa Info</strong>
+                                                            <p t-esc="student.visa_info"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-lg-6 col-md-6">
+                                                    <div class="align-items-start media d-flex">
+                                                        <img src="/openeducat_core_enterprise/static/img/address.svg"
+                                                             class="img-fluid me-2" alt="Address" title="Address"
+                                                             style="width: 20px;"/>
+                                                        <div class="media-body flex-grow-1">
+                                                            <strong class="text-secondary">Address</strong>
+                                                            <p>
+                                                                <t t-if="student.street">
+                                                                <span t-esc="student.street"/>,
+                                                                </t>
+                                                                <t t-if="student.street2">
+                                                                <span t-esc="student.street2"/>
+                                                                </t>
+                                                                <br></br>
+                                                                <span t-if="student.city"/>
+                                                                <span t-esc="student.city"/>,
+                                                                <span t-if="student.state_id"/>
+                                                                <span t-esc="student.state_id.name"/>,
+                                                                <span t-if="student.zip"/>
+                                                                <span t-esc="student.zip"/>
+                                                                <br></br>
+                                                                <span t-if="student.country_id.name"/>
+                                                                <span t-esc="student.country_id.name"/>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

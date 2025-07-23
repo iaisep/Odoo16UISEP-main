@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+        <record model="ir.ui.view" id="view_course_lms_sale_form">
+            <field name="name">op.course.form.inherit</field>
+            <field name="model">op.course</field>
+            <field name="inherit_id" ref="openeducat_lms.view_op_lms_course_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[@name='general']/group" position="inside">
+                    <group>
+                        <field name="type" widget="radio"/>
+                    </group>
+                    <group>
+                        <field name="price" attrs="{'invisible':[('type','=','free')],'required':[('type','=','paid')]}"/>
+                        <field name="product_id" readonly="1" attrs="{'invisible':[('type','=','free')]}"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+        <record id="view_op_course_tree_lms_sale" model="ir.ui.view">
+            <field name="name">op.course.lms.sale.tree</field>
+            <field name="model">op.course</field>
+            <field name="inherit_id" ref="openeducat_lms.view_op_lms_course_tree"/>
+            <field name="arch" type="xml">
+                <field name="active" position="before">
+                    <field name="price" attrs="{'invisible':[('type','=','free')]}" optional="hide"/>
+                    <field name="product_id" attrs="{'invisible':[('type','=','free')]}" optional="hide"/>
+                </field>
+            </field>
+        </record>
+
+
+</odoo>

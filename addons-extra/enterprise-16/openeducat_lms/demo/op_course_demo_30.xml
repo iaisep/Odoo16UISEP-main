@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="demo_course_04" model="op.course">
+            <field name="name">Math for Middle Schoolers: Statistics</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="sequence">11</field>
+            <field name="code">MHS1</field>
+            <field name="faculty_ids"
+                   eval="[(6,0,[ref('openeducat_core.op_faculty_1')])]"/>
+            <field name="category_ids"
+                   eval="[(6,0,[ref('category_5')])]"/>
+            <field name="visibility">public</field>
+            <field name="level_id" ref="op_course_level_intermediate"/>
+            <field name="navigation_policy">free_learn</field>
+            <field name="state">open</field>
+            <field name="online_course" eval="True"/>
+            <field name="confirm_date" eval="(DateTime.today() - relativedelta(days=11))"/>
+            <field name="image_1920" type="base64"
+                   file="openeducat_lms/static/src/img/maths.jpeg"/>
+            <field name="full_description"><![CDATA[
+            <div class="description__title">
+            <div>
+                    <p>Math for Middle Schoolers: Statistics is a fun, informative, and simple course for middle schoolers</p>
+                    <p>that allows them to learn about and understand the different statistics topics generally taught in</p>
+                    <p>middle school FOR FREE! The goal of this course is to help you master these concepts and to provide</p>
+                    <p>you with the knowledge to learn more complicated concepts later. By following this course to the end,</p>
+                    <p>you will definitely have a much more thorough understanding of statistics!<p>
+            </div>
+            ]]></field>
+        </record>
+
+        <record id="op_course_section_statistics_intro" model="op.course.section">
+            <field name="sequence" type="int">1</field>
+            <field name="name">Statictics Introduction</field>
+            <field name="course_id" ref="demo_course_04"/>
+        </record>
+
+        <record id="op_course_section_statistics_graph" model="op.course.section">
+            <field name="sequence" type="int">2</field>
+            <field name="name">Graphs</field>
+            <field name="course_id" ref="demo_course_04"/>
+        </record>
+
+        <record id="op_course_section_statistics_measure" model="op.course.section">
+            <field name="sequence" type="int">3</field>
+            <field name="name">Measure of Central Tendency</field>
+            <field name="course_id" ref="demo_course_04"/>
+        </record>
+
+        <record id="op_course_section_statistics_plots" model="op.course.section">
+            <field name="sequence" type="int">4</field>
+            <field name="name">Plots</field>
+            <field name="course_id" ref="demo_course_04"/>
+        </record>
+
+        <record id="op_course_section_statistics_next" model="op.course.section">
+            <field name="sequence" type="int">5</field>
+            <field name="name">Next Steps</field>
+            <field name="course_id" ref="demo_course_04"/>
+        </record>
+
+        <record id="op_course_section_statistics_quiz" model="op.course.section">
+            <field name="sequence" type="int">6</field>
+            <field name="name">Quiz</field>
+            <field name="course_id" ref="demo_course_04"/>
+        </record>
+
+        <record id="material_statistics_intro_course" model="op.material">
+            <field name="name">Introduction</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">8.89</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=h8EYEJ32oQ8'"/>
+            <field name="document_id">h8EYEJ32oQ8</field>
+        </record>
+
+        <record id="material_statistics_intro_graph" model="op.material">
+            <field name="name">What is Histograph?</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">3.64</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=YLPDPglvePY'"/>
+            <field name="document_id">YLPDPglvePY</field>
+        </record>
+        <record id="material_statistics_histograph" model="op.material">
+            <field name="name">Drawing a Histograph</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">4.35</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=vBOBXdgagW4'"/>
+            <field name="document_id">vBOBXdgagW4</field>
+        </record>
+        <record id="material_statistics_examples" model="op.material">
+            <field name="name">Examples with Histograms</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">13.33</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=sC7gjg9g3JU'"/>
+            <field name="document_id">sC7gjg9g3JU</field>
+        </record>
+        <record id="material_statistics_bargraph" model="op.material">
+            <field name="name">What is a Bar Graph?</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">2.12</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=vL5JPwM2bq4'"/>
+            <field name="document_id">vL5JPwM2bq4</field>
+        </record>
+
+        <record id="material_statistics_bargraph_drawing" model="op.material">
+            <field name="name">Drawing a Bar Graph</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">5.30</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=zGre4QViTmA'"/>
+            <field name="document_id">zGre4QViTmA</field>
+        </record>
+
+        <record id="material_statistics_mean" model="op.material">
+            <field name="name">Mean, Median, Mode</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">3.26</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=6DYtC7lrVuY'"/>
+            <field name="document_id">6DYtC7lrVuY</field>
+        </record>
+
+        <record id="material_statistics_range" model="op.material">
+            <field name="name">Range</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">5.21</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=FdK9_Fp76cw'"/>
+            <field name="document_id">FdK9_Fp76cw</field>
+        </record>
+
+        <record id="material_statistics_outlier" model="op.material">
+            <field name="name">Outlier</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">4.74</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=9aDHbRb4Bf8'"/>
+            <field name="document_id">9aDHbRb4Bf8</field>
+        </record>
+
+        <record id="material_statistics_boxplot" model="op.material">
+            <field name="name">Box Plots</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">6.65</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=INSIyaZUXIY'"/>
+            <field name="document_id">INSIyaZUXIY</field>
+        </record>
+
+        <record id="material_statistics_stemplot" model="op.material">
+            <field name="name">Stem and Leaf Plots</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">7.77</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=MUCvUgGfzdo'"/>
+            <field name="document_id">MUCvUgGfzdo</field>
+        </record>
+
+        <record id="op_course_material_statistics" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_statistics_intro_course"/>
+            <field name="section_id" ref="op_course_section_statistics_intro"/>
+            <field name="preview" eval="True"/>
+        </record>
+        <record id="op_course_material_graph" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_statistics_intro_graph"/>
+            <field name="section_id" ref="op_course_section_statistics_graph"/>
+            <field name="preview" eval="False"/>
+        </record>
+        <record id="op_course_material_graph_histograph" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_statistics_histograph"/>
+            <field name="section_id" ref="op_course_section_statistics_graph"/>
+            <field name="preview" eval="True"/>
+        </record>
+
+        <record id="op_course_material_graph_histograph_examples" model="op.course.material">
+            <field name="sequence" type="int">3</field>
+            <field name="material_id" ref="material_statistics_examples"/>
+            <field name="section_id" ref="op_course_section_statistics_graph"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_graph_bargraph" model="op.course.material">
+            <field name="sequence" type="int">4</field>
+            <field name="material_id" ref="material_statistics_bargraph"/>
+            <field name="section_id" ref="op_course_section_statistics_graph"/>
+            <field name="preview" eval="True"/>
+        </record>
+
+        <record id="op_course_material_bargraph_drawing" model="op.course.material">
+            <field name="sequence" type="int">5</field>
+            <field name="material_id" ref="material_statistics_bargraph_drawing"/>
+            <field name="section_id" ref="op_course_section_statistics_graph"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_statistics_mean" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_statistics_mean"/>
+            <field name="section_id" ref="op_course_section_statistics_measure"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_statistics_range" model="op.course.material">
+            <field name="sequence" type="int">4</field>
+            <field name="material_id" ref="material_statistics_range"/>
+            <field name="section_id" ref="op_course_section_statistics_measure"/>
+            <field name="preview" eval="True"/>
+        </record>
+
+        <record id="op_course_material_statistics_outlier" model="op.course.material">
+            <field name="sequence" type="int">5</field>
+            <field name="material_id" ref="material_statistics_outlier"/>
+            <field name="section_id" ref="op_course_section_statistics_measure"/>
+            <field name="preview" eval="True"/>
+        </record>
+
+        <record id="op_course_material_statistics_boxplot" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_statistics_boxplot"/>
+            <field name="section_id" ref="op_course_section_statistics_plots"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_statistics_stemplot" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_statistics_stemplot"/>
+            <field name="section_id" ref="op_course_section_statistics_plots"/>
+            <field name="preview" eval="True"/>
+        </record>
+
+        <record id="material_math_quiz_q5" model="op.material">
+            <field name="name">Maths Quiz</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">quiz</field>
+            <field name="total_time" type="float">90.00</field>
+            <field name="quiz_id" ref="openeducat_quiz.op_qz_m1"/>
+        </record>
+
+        <record id="op_course_material_quiz" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_math_quiz_q5"/>
+            <field name="section_id" ref="op_course_section_statistics_quiz"/>
+            <field name="preview" eval="True"/>
+        </record>
+
+
+        <record id="op_user_student_48" model="res.users" context="{'no_reset_password': True}">
+            <field name="name">Adam</field>
+            <field name="password">openeducat</field>
+            <field name="login">adam@openeducat.com</field>
+            <field name="groups_id"
+                   eval="[(4,ref('openeducat_lms.group_op_lms_admin'))]"/>
+        </record>
+        <record id="demo_enrollment_paid_math" model="op.course.enrollment">
+            <field name="course_id" ref="openeducat_lms.demo_course_04"/>
+            <field name="user_id" ref="openeducat_lms.op_user_student_48"/>
+            <field name="state">in_progress</field>
+            <field name="enrollment_date" eval="(DateTime.today() - relativedelta(days=1))"/>
+        </record>
+
+
+</odoo>

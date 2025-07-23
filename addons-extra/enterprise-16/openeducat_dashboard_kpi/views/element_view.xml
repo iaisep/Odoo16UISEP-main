@@ -1,0 +1,301 @@
+<odoo>
+
+
+        <record model="ir.ui.view" id="item_form_view">
+            <field name="name">dashboard_pro_element form</field>
+            <field name="model">dashboard_pro.element</field>
+            <field name="priority">10</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="model_name" invisible="1"/>
+                                <field name="ir_model_field_2" invisible="1"/>
+                                <field name="kpi_compare_field" invisible="1"/>
+                                <field name="json_list_data" invisible="1"/>
+                                <field name="kpi_data" invisible="1"/>
+                                <field name="json_todo_list_data" invisible="1"/>
+                                <field name="record_count_2" invisible="1"/>
+                                <field name="data_calculation_value" invisible="1"/>
+                                <field name="chart_data" invisible="1"/>
+                                <field name="group_chart_field" invisible="1"/>
+                                <field name="sub_group_chart_field" invisible="1"/>
+                                <field name="date_filter_field_2" invisible="1"/>
+                                <field name="to_do_list_count" invisible="1"/>
+                                <field name="date_domain_fields" invisible="1"/>
+                                <field name="date_filter_selection_2" invisible="1"/>
+                                <field name="name"/>
+                                <field name="model_id" attrs="{'invisible':['|','|',('type_of_element','=','to_do'),('type_of_element','=','add_text'),('type_of_element','=','add_link')]}"/>
+                                <field name="company_id"/>
+                                <field name="dashboard_pro_dashboard_id"/>
+                                <field name="type_of_element" string="Type"/>
+                                <field name="update_element_data_time" string="Set Update Interval" attrs="{'invisible': [('type_of_element','in',['add_text', 'add_link', 'add_divider', 'add_image', 'to_do'])]}"/>
+                                <field name="add_link_content" attrs="{'invisible':[('type_of_element','!=','add_link')]}"/>
+                                <field name="add_link_title" attrs="{'invisible':[('type_of_element','!=','add_link')]}"/>
+                                <field name="background_color" widget="dashboard_pro_color_picker" attrs="{'invisible':[('type_of_element','!=','add_link')]}"/>
+                                <field name="font_color" widget="dashboard_pro_color_picker" attrs="{'invisible':[('type_of_element','!=','add_link')]}"/>
+                                <field name="add_image_image" widget="image" attrs="{'invisible':[('type_of_element','!=','add_image')]}"/>
+                                <field name="add_divider_line" attrs="{'invisible':[('type_of_element','!=','add_divider')],'required':[('type_of_element','=','add_divider')]}"/>
+                            </group>
+                            <div>
+                                <field name="preview" widget="dashboard_pro_item_preview"
+                                       attrs="{'invisible':[('type_of_element','!=','tile')]}"
+                                       class="oe_horizontal_separator oe_clear"/>
+                                <field name="list_preview"
+                                       class="dn_graph_preview oe_horizontal_separator oe_clear"
+                                       widget="dashboard_pro_list_view_preview"
+                                       attrs="{'invisible':[('type_of_element','!=','list_view')]}"/>
+                                <field name="to_do_list_preview"
+                                       widget="dashboard_pro_to_do_list"
+                                       class="dn_graph_preview oe_horizontal_separator oe_clear"
+                                       attrs="{'invisible':[('type_of_element','!=','to_do')]}"/>
+                                <field name="kpi_preview" string="Preview"
+                                       widget="dashboard_pro_kpi_preview"
+                                       attrs="{'invisible' : [('type_of_element','!=','kpi')]}"/>
+                                <field name="add_text_preview" string="Preview"
+                                       widget="dashboard_add_text_widget"
+                                       attrs="{'invisible':[('type_of_element','!=','add_text')]}"/>
+                                <field name="add_link_preview" string="Preview"
+                                       widget="dashboard_add_link_widget"
+                                       attrs="{'invisible':[('type_of_element','!=','add_link')]}"/>
+                                <field name="graph_preview" string="Preview"
+                                       class="dn_graph_preview oe_horizontal_separator oe_clear"
+                                       widget="dashboard_pro_graph_preview"
+                                       attrs="{'invisible':['|','|','|','|','|',('type_of_element','=','to_do'),('type_of_element','=','add_link'),('type_of_element','=','add_text'),('type_of_element','=','tile'),('type_of_element','=','list_view'),('type_of_element','=','kpi')]}"/>
+                            </div>
+                        </group>
+                        <group>
+                                <field name="to_do_list_line" attrs="{'invisible':[('type_of_element','!=','to_do')]}">
+                                    <tree editable="bottom">
+                                        <field name="sequence" widget="handle"/>
+                                        <field name="name"/>
+                                        <field name="to_do_state"/>
+                                    </tree>
+                                </field>
+                        </group>
+                        <notebook attrs="{'invisible':[('type_of_element','=','add_link')]}">
+                            <page string="Text" attrs="{'invisible':[('type_of_element','!=','add_text')]}">
+                                <group attrs="{'invisible':[('type_of_element','=','add_link')]}">
+                                        <field name="add_text_main_content"/>
+                                        <field name="add_text_font_style"/>
+                                        <field name="add_text_align"/>
+                                        <field name="add_text_custom_font_size" attrs="{'invisible':[('add_text_font_style','!=','custom')]}"/>
+                                        <field name="add_text_custom_bold" attrs="{'invisible':[('add_text_font_style','!=','custom')]}"/>
+                                        <field name="add_text_custom_italic" attrs="{'invisible':[('add_text_font_style','!=','custom')]}"/>
+                                        <field name="background_color" widget="dashboard_pro_color_picker"/>
+                                        <field name="font_color" widget="dashboard_pro_color_picker"/>
+                                </group>
+                            </page>
+                            <page string="Data" attrs="{'invisible':['|','|','|','|',('type_of_element','=','to_do'),('type_of_element','=','add_image'),('type_of_element','=','add_divider'),('type_of_element','=','add_link'),('type_of_element','=','add_text')]}">
+                                <group>
+                                    <group attrs="{'invisible':[('type_of_element','!=','tile'),('type_of_element','!=','kpi')]}">
+                                        <field name="data_calculation_type" attrs="{'invisible':[('model_id','=',False)],
+                                                       'required':[('model_id','!=',False),'|',('type_of_element','=','tile'),('type_of_element','=','kpi')]}"/>
+                                        <field name="store_field_data"
+                                               options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"
+                                               attrs="{'invisible':[('data_calculation_type','=','count'),'|',('type_of_element','!=','kpi'),('type_of_element','!=','tile')],
+                                                       'required':['&amp;',('data_calculation_type','!=','count'),'|',('type_of_element','=','kpi'),('type_of_element','=','tile')]}"/>
+                                        <field name="data_calculation_value" string="Record Value"/>
+                                    </group>
+                                    <group name="chart_settings"
+                                           attrs="{'invisible':[('type_of_element','=','tile'),('type_of_element','=','kpi')]}">
+                                        <field name="data_calculation_type_chart" attrs="{'invisible':['|','|','|',('model_id','=',False),('type_of_element','=','tile'),('type_of_element','=','list_view'),('type_of_element','=','kpi')],
+                                                                                'required':[('type_of_element','!=','tile'),('type_of_element','!=','list_view')]}"/>
+                                        <field name="chart_data_calculation_field" string="Measures" widget='many2many_tags'
+                                               options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"
+                                               attrs="{'invisible':['|','|','|','|','|',('type_of_element','=','add_link'),('data_calculation_type_chart','=','count'),('model_id','=',False),('type_of_element','=','list_view'),('type_of_element','=','kpi'),('type_of_element','=','tile')],'required':[('type_of_element','!=','to_do'),('type_of_element','!=','add_link'),('type_of_element','!=','add_image'),('type_of_element','!=','add_divider'),('type_of_element','!=','add_text'),('type_of_element','!=','tile'),('type_of_element','!=','kpi'),('type_of_element','!=','list_view'),('data_calculation_type_chart','!=','count')]}"/>
+                                        <field name="chart_data_calculation_field_2" string="Line Measure"
+                                               widget='many2many_tags'
+                                               options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"
+                                               attrs="{'invisible':['|','|','|','|',('chart_sub_field','!=',False),('data_calculation_type_chart','=','count'),('model_id','=',False),('type_of_element','=','list_view'),('type_of_element','!=','bar_chart')]}"/>
+                                    </group>
+                                    <group attrs="{'invisible':['|',('type_of_element','=','tile'),('type_of_element','=','kpi')]}">
+                                        <field name="list_view_type" attrs="{'invisible':[('type_of_element','!=','list_view')],
+                                                    'required':[('type_of_element','=','list_view')]}"/>
+                                        <field name="list_fields_data" string="Fields to show in list"
+                                               widget='many2many_tags'
+                                               options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"
+                                               attrs="{'invisible':['|',('type_of_element','!=','list_view'),('list_view_type','!=','ungrouped')],'required':[('type_of_element','=','list_view'),('list_view_type','=','ungrouped')]}"/>
+
+                                        <field name="list_data_grouping" string="Fields to show in list"
+                                               widget='many2many_tags'
+                                               options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"
+                                               attrs="{'invisible':['|',('type_of_element','!=','list_view'),('list_view_type','!=','grouped')],'required':[('type_of_element','=','list_view'),('list_view_type','=','grouped')]}"/>
+
+                                        <field name="list_goal_field" string="Deviation Field"
+                                               options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"
+                                               context="{'current_id': id}"
+                                               attrs="{'invisible':['|','|','|',('type_of_element','!=','list_view'),('list_view_type','!=','grouped'),('is_goal_enable','=',False),('group_chart_field','!=','date_type')]}"/>
+                                    </group>
+                                    <group string="Groups/Dimensions"
+                                           attrs="{'invisible':['|','|','|',('type_of_element','=','add_link'),('type_of_element','=','add_text'),('type_of_element','=','tile'),('type_of_element','=','kpi')]}">
+                                        <field name="group_chart_field" invisible="1"/>
+                                        <field name="sub_group_chart_field" invisible="1"/>
+                                        <field name="group_chart_relation" string="Group By"
+                                               context="{'current_id': id}"
+                                               options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"
+                                               attrs="{'invisible':['|',('model_id','=',False),('type_of_element','=','list_view'),('list_view_type','=','ungrouped')],'required':[('type_of_element','!=','add_link'),('type_of_element','!=','add_text'),('type_of_element','=','add_link'),('type_of_element','!=','kpi'),('type_of_element','!=','tile'),'|',('type_of_element','!=','list_view'),('list_view_type','=','grouped')]}"/>
+
+
+                                        <field name="chart_group_field" string="Group By Date"
+                                               context="{'current_id': id}"
+                                               attrs="{'invisible':['|','&amp;',('type_of_element','=','list_view'),('list_view_type','=','ungrouped'),('group_chart_field','!=','date_type')],'required':[('group_chart_field','=','date_type'),'|','&amp;',('type_of_element','=','list_view'),('list_view_type','=','grouped'),'&amp;','&amp;',('type_of_element','!=','kpi'),('type_of_element','!=','tile'),('type_of_element','!=','list_view')]}"/>
+                                        <field name="chart_sub_field"
+                                               options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"
+                                               attrs="{'invisible':['|','|','|',('model_id','=',False),('type_of_element','=','list_view'),'|',('group_chart_relation','=',False),'&amp;',('group_chart_field','=','date_type'),('chart_group_field','=',False),('chart_data_calculation_field_2','!=',False)]}"
+                                        />
+                                        <field name="chart_sub_field_date" string="Sub Group By Date"
+                                               attrs="{'invisible':['|','|',('sub_group_chart_field','!=','date_type'),('type_of_element','=','list_view'),('chart_sub_field','=',False)],'required':[('type_of_element','!=','tile'),('sub_group_chart_field','=','date_type'),('chart_sub_field','!=',False)]}"/>
+                                        <field name="sorting_selection_by_field" context="{'current_id': id}"
+                                               attrs="{'invisible':[('type_of_element','!=','list_view')]}"
+                                               options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"
+                                        />
+                                        <field name="sorting_selection" context="{'current_id': id}"
+                                        />
+                                        <field name="filter_limit" context="{'current_id': id}"
+                                        />
+                                    </group>
+                                    <group string="Filter" attrs="{'invisible':['|',('type_of_element','=','add_link'),('type_of_element','=','add_text')]}">
+                                        <field name="domain" widget="domain" class="domain_content"
+                                               context="{'current_id': id}"
+                                               options="{'model': 'model_name', 'in_dialog': True}"/>
+                                        <field name="date_filter_field" context="{'current_id': id}"
+                                               options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"
+                                               attrs="{'invisible':[('model_id','=',False)]}"/>
+                                        <field name="date_domain_fields"
+                                               attrs="{'invisible':[('model_id','=',False)]}"/>
+                                        <field name="element_start_date" string="Start Date"
+                                               attrs="{'invisible':['|',('model_id','=',False),('date_domain_fields','!=','last_custom')], 'required':[('model_id','!=',False),('date_domain_fields','=','last_custom')]}"/>
+                                        <field name="element_end_date"
+                                               attrs="{'invisible':['|',('model_id','=',False),('date_domain_fields','!=','last_custom')], 'required':[('model_id','!=',False),('date_domain_fields','=','last_custom')]}"/>
+                                        <field name="time_of_comparation"
+                                               attrs="{'invisible':['|',('model_id','=',False),('date_domain_fields','=','none')]}"/>
+                                        <field name="year_period"
+                                               attrs="{'invisible':['|',('model_id','=',False),('date_domain_fields','=','none')]}"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Data #2" name="data_model_2"
+                                  attrs="{'invisible':[('type_of_element','!=','kpi')]}">
+                                <group>
+                                    <group>
+                                        <field name="ir_model_field_2_name" invisible="1"/>
+                                        <field name="ir_model_field_2" string="Model"
+                                               options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"
+                                               context="{'current_id': id}"/>
+                                        <field name="data_calculation_type" string="Record Type"
+                                               attrs="{'invisible' : [('ir_model_field_2','=', False)],
+                                                        'required' : [('ir_model_field_2','!=', False)]}"
+                                               context="{'current_id': id}"/>
+                                        <field name="store_field_data_2" string="Record Field"
+                                               attrs="{'invisible' : ['|',('ir_model_field_2','=', False),('data_calculation_type','=','count')],
+                                                        'required' : [('ir_model_field_2','!=', False),('data_calculation_type','!=','count')]}"
+                                               options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"
+                                               context="{'current_id': id}"/>
+                                        <field name="record_count_2" string="Record Value" force_save="True"
+                                               attrs="{'invisible' : [('ir_model_field_2','=', False)]}"/>
+                                        <field name="kpi_compare_field" widget="kpi_type_selection_widget"
+                                               string="Data Calculation"
+                                               attrs="{'invisible' : ['|',('type_of_element','!=','kpi'),('ir_model_field_2','=',False)]}"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <group string="Filter">
+                                        <field name="domain_2" widget="domain" string="Domain"
+                                               class="domain_content"
+                                               context="{'current_id': id}"
+                                               options="{'model': 'ir_model_field_2_name', 'in_dialog': True}"/>
+                                        <field name="date_filter_field_2" string="Date Filter Field"
+                                               context="{'current_id': id}"
+                                               options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"
+                                               attrs="{'invisible':[('ir_model_field_2','=',False)]}"/>
+                                        <field name="date_filter_selection_2" string="Date Filter Selection"
+                                               attrs="{'invisible':[('ir_model_field_2','=',False)]}"/>
+                                        <field name="starting_date_kpi_2" string="Start Date"
+                                               attrs="{'invisible':['|',('ir_model_field_2','=',False),('date_filter_selection_2','!=','last_custom')], 'required':[('ir_model_field_2','!=',False),('date_filter_selection_2','=','last_custom')]}"/>
+                                        <field name="ending_date_kpi_2" string="End Date"
+                                               attrs="{'invisible':['|',('ir_model_field_2','=',False),('date_filter_selection_2','!=','last_custom')], 'required':[('ir_model_field_2','!=',False),('date_filter_selection_2','=','last_custom')]}"/>
+                                        <field name="time_of_comparation_2"
+                                               attrs="{'invisible':['|',('ir_model_field_2','=',False),('date_filter_selection_2','=','none')]}"/>
+                                        <field name="year_period_2"
+                                               attrs="{'invisible':['|',('ir_model_field_2','=',False),('date_filter_selection_2','=','none')]}"/>
+                                    </group>
+                                </group>
+                            </page>
+
+                            <page string="Display" attrs="{'invisible':[('type_of_element','in',['to_do', 'add_image', 'add_divider', 'add_link', 'bar_chart', 'horizontalBar_chart',
+                                                            'line_chart', 'area_chart', 'pie_chart', 'doughnut_chart', 'polarArea_chart', 'list_view'])]}">
+                                <group >
+                                    <field name="layout" attrs="{'invisible':[('type_of_element','!=','tile')]}"/>
+                                    <field name="state_layout_state" attrs="{'invisible':[('layout','!=','state_layout_1')]}"/>
+                                    <field name="state_layout_state_1" attrs="{'invisible':[('layout','!=','state_layout_2')]}"/>
+                                    <field name="background_color" widget="dashboard_pro_color_picker"/>
+                                </group>
+                                <group>
+                                    <field name="selection_icon_field" invisible="1"/>
+                                    <field name="icon" widget="image"
+                                           attrs="{'invisible': [('selection_icon_field','=','Default')]}"/>
+                                    <field name="default_icon" widget="image_widget_pro"
+                                           attrs="{'invisible' : [('selection_icon_field','=','upload')]}"/>
+                                    <field name="default_icon_color" widget="dashboard_pro_color_picker"/>
+                                    <field name="font_color" widget="dashboard_pro_color_picker"/>
+                                    <field name="element_theme" widget="dashboard_pro_item_theme"/>
+                                </group>
+                            </page>
+                            <page string="Target" name="target_settings"
+                                  attrs="{'invisible':['|','&amp;',('group_chart_field','!=','date_type'),('type_of_element','!=','kpi'),'|','|',('type_of_element','not in',['bar_chart','horizontalBar_chart','line_chart','area_chart','list_view','kpi']),'&amp;',('type_of_element','=','list_view'),('list_view_type','=','ungrouped'),'&amp;','&amp;',('type_of_element','=','kpi'),('ir_model_field_2','!=',False),('kpi_compare_field','in',['None','Ratio'])]}">
+                                <group>
+                                    <field name="is_goal_enable" context="{'current_id': id}"/>
+                                    <field name="goal_line_field"
+                                           context="{'current_id': id}"
+                                           attrs="{'invisible' : ['|',('is_goal_enable','=',False),('type_of_element','!=','bar_chart')]}"/>
+                                    <field name="goal_value_field"
+                                           attrs="{'invisible' : [('is_goal_enable','=',False)]}"/>
+                                    <field name="target_view" widget="widget_toggle_kpi_target"
+                                           attrs="{'invisible' : ['|',('is_goal_enable','=',False),('type_of_element','!=','kpi')]}"/>
+                                </group>
+                                <div attrs="{'invisible' : ['|','|',('is_goal_enable','=',False),('type_of_element','=','kpi'),('chart_sub_field','!=',False)]}">
+                                    All Target Lines Changes Will be reflected on Chart after saving the record.
+                                </div>
+                                <field name="goal_lines"
+                                       attrs="{'invisible' : ['|','|',('is_goal_enable','=',False),('type_of_element','=','kpi'),('chart_sub_field','!=',False)]}">
+                                    <tree
+                                          editable="top"
+                                          widget="section_and_note_one2many">
+                                        <control>
+                                            <create string="Add a Line"/>
+                                        </control>
+                                        <field name="goal_date" required="1"/>
+                                        <field name="goal_value"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="item_tree_view">
+            <field name="name">dashboard_pro_element tree</field>
+            <field name="model">dashboard_pro.element</field>
+            <field name="priority">10</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="type_of_element"/>
+                    <field name="model_id"/>
+                    <field name="company_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="item_action_window">
+            <field name="name">Dashboard Items</field>
+            <field name="res_model">dashboard_pro.element</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+</odoo>

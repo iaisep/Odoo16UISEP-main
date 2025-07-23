@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+
+                <!-- QWeb Reports -->
+        <record id="report_framework_agreement" model="ir.actions.report">
+            <field name="name">Report framework agreement</field>
+            <field name="model">practice.practice</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">isep_practices.report_framework_agreement_template</field>
+            <field name="report_file">isep_practices.report_framework_agreement_template</field>
+        </record>
+
+
+        <template id="report_framework_agreement_template">
+            <t t-call="web.html_container">
+                <t t-call="web.basic_layout">
+                    <t t-foreach="docs" t-as="o">
+                    <div class="page">
+                        <h4 class="header_title">CONVENIO DE COLABORACIÓN</h4>
+                        <P class="header_paragraph" >PARA LA REALIZACIÓN DE PRÁCTICAS DE FORMACIÓN</P>
+                        <p class="p_date">En Barcelona, a <span t-esc="datetime.datetime.today().day"></span>
+                                    <t t-if="datetime.datetime.today().month == 1"><span>de Enero del </span></t>
+                                    <t t-if="datetime.datetime.today().month == 2"><span>de Febrero del </span></t>
+                                    <t t-if="datetime.datetime.today().month == 3"><span>de Marzo del </span></t>
+                                    <t t-if="datetime.datetime.today().month == 4"><span>de Abril del </span></t>
+                                    <t t-if="datetime.datetime.today().month == 5"><span>de Mayo del </span></t>
+                                    <t t-if="datetime.datetime.today().month == 6"><span>de Junio del </span></t>
+                                    <t t-if="datetime.datetime.today().month == 7"><span>de Julio del </span></t>
+                                    <t t-if="datetime.datetime.today().month == 8"><span>de Agosto del </span></t>
+                                    <t t-if="datetime.datetime.today().month == 9"><span>de Septiembre del </span></t>
+                                    <t t-if="datetime.datetime.today().month == 10"><span>de Octubre del </span></t>
+                                    <t t-if="datetime.datetime.today().month == 11"><span>de Noviembre del </span></t>
+                                    <t t-if="datetime.datetime.today().month == 12"><span>de Diciembre del </span></t>
+                                    <span t-esc="datetime.datetime.today().year"></span>
+                        </p>
+                        <h4 class="title_2">Reunidos</h4>
+                        <p>
+                            De una parte, el Sr. Marc Gaja Ramón, como director del Instituto Superior de estudios Psicológicos,
+                            en adelante ISEP Formación, con CIF B61254314, sito en Barcelona, calle Berlin, 9, bajos.
+                        </p>
+                        <p>
+                            Y de otra parte, la Sra/sr. <span t-field="o.center_id.signatory"/> en reresentación de <span t-field="o.center_id"/>, con CIF <span t-field="o.center_id.vat"/>,
+                            situado en <span t-field="o.center_id.state_id.name"/>, <span t-field="o.center_id.street"/>.
+                        </p>
+                            <h4 class="title_2">Exponen</h4>
+                        <p>
+                            ISEP Formación se dedica a la impartición de cursos superiores para posgraduados en los ámbitos de la psicología, pedagogía y logopedia.
+                            Contempla la realización por parte de los alumnos de prácticas formativas en instituciones y centros profesionales del ámbito específico de la formación.
+                            La finalidad de las prácticas es facilitar a los alumnos la adquisición de habilidades y recursos para el ejercicio de la profesión.
+                        </p>
+                        <p>
+                            <span t-field="o.center_id"/> , se dedica a la práctica profesional en los ámbitos objeto de formación.
+                        </p>
+                        <p>
+                            Ambas entidades acuerdan colaborar en el desarrollo de las prácticas formativas y, con la finalidad  de  concretar  sus  obligaciones y actuaciones, las
+                            dos partes implicadas acuerdan establecer el presente Convenio de Colaboración, ajustándose a las siguientes:
+                        </p>
+
+                         <h4 class="title_2">Claúsulas</h4>
+                            <p>
+                                <strong>PRIMERA: </strong><span t-field="o.center_id"/> facilitará la realización de prácticas en sus instalaciones a alumnos de ISEP Formación.
+                            </p>
+                            <p>
+                                <strong>SEGUNDA: </strong>La realización de las prácticas de los alumnos de ISEP   Formación, no implica el establecimiento de vínculos laborales
+                                para el centro, servicio o institución, ni obligación de crearlos en el futuro y cada una de ellas estará regulada por un convenio específico anexo.
+                            </p>
+                            <p>
+                                <strong>TERCERA: </strong>El seguro de responsabilidad civil de los alumnos en prácticas corre por cuenta de ISEP Formación.
+                            </p>
+                            <p>
+                                <strong>CUARTA: </strong>La supervisión de las prácticas de los alumnos será llevada a cabo por un tutor, profesional con competencias en el área de especialización
+                                    específica designado por <span t-field="o.center_id"/>.
+                            </p>
+
+                            <p>
+                                <strong>QUINTA: </strong>Al finalizar el período de prácticas, el tutor valorará a los alumnos según los baremos señalados por ISEP Formación.
+                            </p>
+                            <P>
+                                <strong>SEXTA: </strong>Finalizado el curso académico, ISEP Formación expedirá un certificado acreditativo de la colaboración en la supervisión de las prácticas
+                                a la persona que haya realizado las funciones de tutor.
+                            </P>
+                            <p>
+                                <strong>SÉPTIMA: </strong>Ambas instituciones se comprometen a promover actividades y orientaciones que faciliten la relación y el intercambio dentro del marco de
+                                sus fines específicos.
+                            </p>
+                            <P>
+                                <strong>OCTAVA</strong> Este convenio, que entrará en vigor en el momento de su firma, tendrá vigencia anual y se entenderá tácitamente renovado a no ser que concurran
+                                alguna de las siguientes causas de rescisión:
+                            </P>
+                                <ol class="letters">
+                                    <li>
+                                        <p>
+                                            Mutuo acuerdo de las partes, manifestado por escrito.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Denuncia de una de las partes, realizada con un mínimo de tres meses de antelación.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Las generales establecidas por la legislación vigente.
+                                        </p>
+                                    </li>
+                                </ol>
+                            <p>
+                                <strong>NOVENA: </strong>Para cualquier aspecto no previsto o modificación que altere sustancialmente lo que se ha establecido
+                                en el presente convenio deberá alcanzarse el acuerdo de las partes.
+                            </p>
+                            <p>
+                                <strong>DECIMA: </strong>Ambas intituciones se autorizan recíprocamente a hacer público este acuerdo.
+                            </p>
+
+                            <P class="last_paragraph">Las partes implicadas muestran su conformidad con las cláusulas expuestas y las firman en el lugar y fecha arriba indicados.</P>
+                            <div class="sign" >
+                                <div class="sign_marc">
+                                    <span class="responsible_margin">Marc Gaja Ramón </span>
+                                    <img src="/isep_practices/static/src/img/Firma_de_Marc.png"/>
+                                </div>
+                                <div class="sign_center">
+                                    <span t-esc="o.center_id.signatory" class="center_name_sign"/>
+                                </div>
+                            </div>
+                    </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>

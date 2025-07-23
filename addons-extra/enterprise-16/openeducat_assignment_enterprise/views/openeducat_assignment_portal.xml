@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="assignment_details">
+        <t t-call="portal.portal_layout">
+
+            <t t-set="o_portal_fullwidth_alert" groups="project.group_project_user">
+                <t t-call="portal.portal_back_in_edit_mode">
+                    <t t-set="backend_url"
+                       t-value="'/web#model=op.assignment&amp;id=%s&amp;view_type=form' % (assignment.id)"/>
+                </t>
+            </t>
+            <t t-call="portal.portal_record_layout">
+                <t t-set="card_header">
+                    <h5 class="mb-0">
+                        <small class="text-muted">Assignment Information</small>
+                    </h5>
+                </t>
+            </t>
+
+            <div t-if="assignment" style="background-color:white; padding: 2px 40px 20px 40px;">
+                <div class="mt32">
+                    <div t-if="assignment.name" class="row col-md-12">
+                        <strong>
+                            <span style="font-size:24px;" t-esc="assignment.name"/>
+                        </strong>
+                    </div>
+                    <div class="mt16"/>
+                    <div class="row col-md-12">
+                        <div class="row col-md-6">
+                            <div t-if="assignment.course_id" class="col-md-4">
+                                <strong>Course:</strong>
+                            </div>
+                            <div t-if="assignment.course_id" class="col-md-8">
+                                <span id="test1" t-esc="assignment.course_id.name"/>
+                            </div>
+                            <div t-if="assignment.subject_id" class="col-md-4">
+                                <strong>Subject:</strong>
+                            </div>
+                            <div t-if="assignment.subject_id" class="col-md-8">
+                                <span t-esc="assignment.subject_id.name"/>
+                            </div>
+                            <div t-if="assignment.assignment_type" class="col-md-4">
+                                <strong>Assignment Type:</strong>
+                            </div>
+                            <div t-if="assignment.assignment_type" class="col-md-8">
+                                <span t-esc="assignment.assignment_type.name"/>
+                            </div>
+                        </div>
+                        <div class="row col-md-6">
+                            <div t-if="assignment.batch_id" class="col-md-4">
+                                <strong>Batch:</strong>
+                            </div>
+                            <div t-if="assignment.batch_id" class="col-md-8">
+                                <span t-esc="assignment.batch_id.name"/>
+                            </div>
+                            <div t-if="assignment.faculty_id" class="col-md-4">
+                                <strong>Faculty:</strong>
+                            </div>
+                            <div t-if="assignment.faculty_id" class="col-md-8">
+                                <span t-esc="assignment.faculty_id.name"/>
+                            </div>
+                            <div class="col-md-4">
+                                <strong>Reviewer:</strong>
+                            </div>
+                            <div class="col-md-8">
+                                <span t-esc="assignment.reviewer.name"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt32 row col-md-12">
+                        <div class="row col-md-6">
+                            <div t-if="assignment.issued_date" class="col-md-4">
+                                <strong>Issued Date:</strong>
+                            </div>
+                            <div t-if="assignment.issued_date" class="col-md-8">
+                                <span t-esc="assignment.issued_date" t-options="{'widget': 'datetime'}"/>
+                            </div>
+                            <div t-if="assignment.marks" class="col-md-4">
+                                <strong>Marks:</strong>
+                            </div>
+                            <div t-if="assignment.marks" class="col-md-8">
+                                <span t-esc="assignment.marks"/>
+                            </div>
+                        </div>
+                        <div class="row col-md-6">
+                            <div t-if="assignment.submission_date" class="col-md-4">
+                                <strong>Submission Date:</strong>
+                            </div>
+                            <div t-if="assignment.submission_date" class="col-md-8">
+                                <span t-esc="assignment.submission_date" t-options="{'widget': 'datetime'}"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div t-if="assignment.description" class="mt32">
+                        <h4>Description</h4>
+                        <span t-esc="assignment.description"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt16" t-if="assignment.attachment_ids"
+                 style="background-color:white; padding: 2px 40px 20px 40px;">
+                <div class="mt32">
+                    <div class="row mt16">
+                        <div t-if="assignment.attachment_ids" class="col-md-2">
+                            <strong>Attachments:</strong>
+                        </div>
+                        <div t-if="assignment.attachment_ids" class="col-md-10">
+                            <t t-foreach="assignment.attachment_ids" t-as="attch">
+                                <a t-attf-href="/assignment/attachment/download/#{attch.id}">
+                                    <t t-if="attch.name" t-esc="attch.name"/>
+                                    <i t-if="attch.name" class="fa fa-download"/>
+                                </a>
+                                <br/>
+                            </t>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

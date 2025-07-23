@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="website_menu_badge" model="openeducat.portal.menu">
+        <field name="name">Badge</field>
+        <field name="menu_ref_name">Badge</field>
+        <field name="link">/my/badges</field>
+        <field name="active">True</field>
+        <field name="sequence" type="int">115</field>
+        <field name="background_color">#575756</field>
+        <field name="is_visible_to_parent">False</field>
+        <field name="icon_image" type="base64"
+               file="openeducat_lms_gamification/static/img/badges.png"/>
+    </record>
+
+</odoo>

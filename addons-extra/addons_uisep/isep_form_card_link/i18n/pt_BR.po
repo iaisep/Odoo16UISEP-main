@@ -1,0 +1,115 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* isep_form_card_link
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e-20231120\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-24 15:32+0000\n"
+"PO-Revision-Date: 2024-08-24 10:56-0500\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.4\n"
+
+#. module: isep_form_card_link
+#: model:mail.template,body_html:isep_form_card_link.link_sign_card_template_sale_order
+msgid ""
+"<div style=\"margin: 0px; padding: 0px\">\n"
+"                    <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                        <p>Estimado <t t-out=\"object.partner_id.name\"></t>,</p>\n"
+"                        <p>Con el fin de facilitar el pago de las cuotas, ofrecemos una nueva opción:</p>\n"
+"                        <p>El débito automático en la tarjeta de crédito. Ahora puedes pagar tus mensualidades</p>\n"
+"                        <p>directamente con tu tarjeta, evitando retrasos y garantizando una mayor comodidad.</p>\n"
+"                        <p>Estos son los beneficios de esta opción:</p>\n"
+"                        <p>1. Practicidad: El pago es automático, sin necesidad de emitir comprobantes ni realizar transferencias.</p>\n"
+"                        <p>2. Seguridad: Tu tarjeta de crédito ya cuenta con medidas de seguridad, que protegen tu información financiera.</p>\n"
+"                        <p>3. Flexibilidad: Elija la mejor fecha de débito que se adapte a su flujo de caja.<br></p>\n"
+"                        <p>Aquí tienes el enlace si eliges pagar con tarjeta: <t t-out=\"object.link_card\"></t><br></p>\n"
+"                        <p>Te recordemos que esta opción está disponible para todos los estudiantes. Si tiene alguna pregunta o necesita ayuda,\n"
+"                            nuestro equipo está disponible para ayudarlo. \n"
+"                        </p>\n"
+"                        <p>Les agradecemos su confianza en nuestra institución y esperamos que esta alternativa les facilite aún más su vida académica.</p>\n"
+"                        <p>Atenciosamente, </p>\n"
+"                        \n"
+"                    </p>\n"
+"                </div>\n"
+"            "
+msgstr ""
+"<div style=\"margin: 0px; padding: 0px\">\n"
+"                    <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                        <p>Prezado <t t-out=\"object.partner_id.name\"></t>,</p>\n"
+"                        <p>Com o objetivo de facilitar o pagamento das parcelas, estamos oferecendo uma nova opção:</p>\n"
+"                        <p>o débito automático no cartão de crédito. Agora você pode quitar suas mensalidades</p>\n"
+"                        <p>diretamente com o seu cartão, evitando atrasos e garantindo maior comodidade.</p>\n"
+"                        <p>Aqui estão os benefícios dessa opção:</p>\n"
+"                        <p>1. Praticidade: O pagamento é automático, sem a necessidade de emitir boletos ou realizar transferências.</p>\n"
+"                        <p>2. Segurança: Seu cartão de crédito já possui medidas de segurança, o que protege suas informações financeiras.</p>\n"
+"                        <p>3. Flexibilidade: Escolha a melhor data de débito para se adequar ao seu fluxo de caixa.<br></p>\n"
+"                        <p>Aqui está o link se você optar por pagar com cartão:  <t t-out=\"object.link_card\"></t><br></p>\n"
+"                        <p>Lembramos que essa opção está disponível para todos os alunos. Caso tenha alguma dúvida ou precise de assistência,\n"
+"                            nossa equipe está à disposição para ajudar. \n"
+"                        </p>\n"
+"                        <p>Agradecemos pela confiança em nossa instituição e esperamos que essa nova alternativa facilite ainda mais a sua vida acadêmica.</p>\n"
+"                        <p>Atenciosamente, </p>\n"
+"                        \n"
+"                    </p>\n"
+"                </div>\n"
+"            "
+
+#. module: isep_form_card_link
+#: model:ir.model,name:isep_form_card_link.model_res_config_settings
+msgid "Config Settings"
+msgstr "Configurações"
+
+#. module: isep_form_card_link
+#: model:ir.actions.server,name:isep_form_card_link.cron_send_link_card_for_mes_ir_actions_server
+#: model:ir.cron,cron_name:isep_form_card_link.cron_send_link_card_for_mes
+msgid "Envío de link de registro de tarjeta"
+msgstr "Envio de link de cadastro do cartão"
+
+#. module: isep_form_card_link
+#: model:ir.model.fields,field_description:isep_form_card_link.field_res_config_settings__date_end_tarjet
+msgid "Fecha final de Envio de link de registro de tarjeta"
+msgstr "Data final de envio do link de cadastro do cartão"
+
+#. module: isep_form_card_link
+#: model:ir.model.fields,field_description:isep_form_card_link.field_res_config_settings__date_start_tarjet
+msgid "Fecha inicial de Envio de link de registro de tarjeta"
+msgstr ""
+
+#. module: isep_form_card_link
+#: model:mail.template,name:isep_form_card_link.link_sign_card_template_sale_order
+#: model:mail.template,subject:isep_form_card_link.link_sign_card_template_sale_order
+msgid "Link de registro de tarjetas"
+msgstr "Link para cadastro do cartão"
+
+#. module: isep_form_card_link
+#: model:ir.model.fields,field_description:isep_form_card_link.field_res_card__sale_id
+msgid "Orden"
+msgstr ""
+
+#. module: isep_form_card_link
+#: model_terms:ir.ui.view,arch_db:isep_form_card_link.view_res_config_settings_form_date_tarjet
+msgid "Registro de tarjeta"
+msgstr ""
+
+#. module: isep_form_card_link
+#: model:ir.model,name:isep_form_card_link.model_sale_order
+msgid "Sales Order"
+msgstr "Pedido de venda"
+
+#. module: isep_form_card_link
+#: model:ir.model.fields,field_description:isep_form_card_link.field_sale_order__link_card
+msgid "link de registro de tarjeta"
+msgstr "link de registro do cartão"
+
+#. module: isep_form_card_link
+#: model:ir.model,name:isep_form_card_link.model_res_card
+msgid "res.card"
+msgstr ""

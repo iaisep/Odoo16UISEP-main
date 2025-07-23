@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="portal_my_home_menu_quiz" name="Portal layout : Quiz"
+              inherit_id="portal.portal_breadcrumbs" priority="10">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <t t-if="user_id.sudo().is_student">
+                <li t-if="page_name == 'Quiz info'" t-attf-class="breadcrumb-item #{'active ' if not invoice else ''}">
+                    <a t-if="result_data" t-attf-href="/users/result-overview/?{{ keep_query() }}">Quiz</a>
+                    <t t-else="">Quiz</t>
+                </li>
+            </t>
+              <t t-if="user_id.sudo().is_parent">
+                <li t-if="page_name == 'Quiz info'" t-attf-class="breadcrumb-item #{'active ' if not invoice else ''}">
+                    <a t-if="result_data" t-attf-href="/users/result-overview/#{stud_id}/?{{ keep_query() }}">Quiz</a>
+                    <t t-else="">Quiz</t>
+                </li>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="my_result">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Quiz Details</t>
+            </t>
+            <t t-if="not result_data">
+                <div class="alert alert-warning mt8" role="alert">
+                    There are no records.
+                </div>
+            </t>
+            <t t-if="result_data" t-call="portal.portal_table">
+                <thead>
+                    <tr>
+                        <th>Index</th>
+                        <th>Exam Name</th>
+                        <th>Total Question</th>
+                        <th>Total Correct</th>
+                        <th>Total Incorrect</th>
+                        <th>Total Marks</th>
+                        <th>Received Marks</th>
+                        <th>Score</th>
+                        <th>Attempt Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="result_data" t-as="line">
+                        <tr>
+                            <td>
+                                <t t-esc="line['index']"/>
+                            </td>
+                            <td>
+                                <t id="exam_name" t-esc="line['name']"/>
+                            </td>
+                            <td>
+                                <t t-esc="line['ttl_que']"/>
+                            </td>
+                            <td>
+                                <t t-esc="line['ttl_crct']"/>
+                            </td>
+                            <td>
+                                <t t-esc="line['ttl_incrct']"/>
+                            </td>
+                            <td>
+                                <t t-esc="line['ttl_marks']"/>
+                            </td>
+                            <td>
+                                <t t-esc="line['rec_marks']"/>
+                            </td>
+                            <td>
+                                <t t-esc="line['score']"/>
+                            </td>
+                            <td>
+                                <t t-esc="line['finish_date']" t-options="{'widget': 'datetime'}"/>
+                            </td>
+                            <t t-if="line['display_result'] == True">
+                                <td>
+                                    <a t-attf-href="/exam/result/#{line['id']}">
+                                        <button>Result</button>
+                                    </a>
+                                </td>
+                            </t>
+
+                        </tr>
+                    </t>
+                </tbody>
+            </t>
+        </t>
+    </template>
+</odoo>

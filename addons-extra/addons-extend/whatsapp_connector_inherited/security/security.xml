@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="category_coordinators_chat" model="ir.module.category">
+            <field name="name">ChatRoom coordinators</field>
+            <field name="sequence">60</field>
+            <field name="parent_id" ref="whatsapp_connector.category_chatroom"/>
+        </record>
+
+        <record id="group_chat_coordinator" model="res.groups">
+            <field name="name">Coordiantor Chat?</field>
+            <field name="category_id" ref="whatsapp_connector_inherited.category_coordinators_chat"/>
+            <field name="comment">Manage Chatroom Module</field>
+        </record>
+
+        <record id="group_chat_coordinator" model="res.groups">
+            <field name="name">Coordiantor Chat?</field>
+            <field name="category_id" ref="whatsapp_connector_inherited.category_coordinators_chat"/>
+            <field name="comment">Manage Chatroom Module</field>
+        </record>
+
+        <record id="ir_rule_coordinators_chatroom" model="ir.rule">
+            <field name="name">Coordinators chatroom record rule</field>
+            <field name="model_id" ref="model_acrux_chat_conversation"/>
+            <field name="groups" eval="[(4, ref('group_chat_coordinator'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+        </record>
+
+        <record id="ir_rule_agents_chatroom" model="ir.rule">
+            <field name="name">Agents chatroom record rule</field>
+            <field name="model_id" ref="model_acrux_chat_conversation"/>
+            <field name="groups" eval="[(4, ref('whatsapp_connector.group_chat_basic_extra'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+    </data>
+</odoo>

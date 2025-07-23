@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="op_attendance_register_3" model="op.attendance.register">
+            <field name="code">CIVIL-S1A3</field>
+            <field name="name">CIVIL-S1A3</field>
+            <field name="course_id" ref="openeducat_core.op_course_5"/>
+            <field name="batch_id" ref="openeducat_core.op_batch_4"/>
+            <field name="auto_create">True</field>
+            <field name="auto_create_type">daily</field>
+        </record>
+
+        <record id="op_attendance_register_4" model="op.attendance.register">
+            <field name="code">BOA-S2A4</field>
+            <field name="name">BOA-S2A4</field>
+            <field name="course_id" ref="openeducat_core.op_course_3"/>
+            <field name="batch_id" ref="openeducat_core.op_batch_2"/>
+            <field name="auto_create">True</field>
+            <field name="auto_create_type">weekly</field>
+        </record>
+
+        <record id="op_attendance_register_5" model="op.attendance.register">
+            <field name="code">CHEM-S1A5</field>
+            <field name="name">CHEM-S1A5</field>
+            <field name="course_id" ref="openeducat_core.op_course_6"/>
+            <field name="batch_id" ref="openeducat_core.op_batch_6"/>
+            <field name="auto_create">True</field>
+            <field name="auto_create_type">monthly</field>
+        </record>
+
+
+</odoo>

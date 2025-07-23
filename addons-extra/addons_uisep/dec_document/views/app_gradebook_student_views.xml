@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="app_gradebook_student_tree_inh" model="ir.ui.view">
+        <field name="name">app.gradebook.student.tree.inh</field>
+        <field name="model">app.gradebook.student</field>
+        <field name="inherit_id" ref="isep_gradebook.app_gradebook_student_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+                    <header>
+                        <button name="action_export_to_dec" type="object" string="Exportar a DEC SEP"/>
+                    </header>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

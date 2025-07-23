@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="diplomas_certifies_form" model="ir.ui.view">
+            <field name="name">diplomas.certifies.wizard</field>
+            <field name="model">diplomas.certifies</field>
+            <field name="arch" type="xml">
+                <form string="Diplomas and Certifies">
+                    <group>
+                        <field name="student_id" options="{'no_create': True, 'no_open': True}"/>
+                        <field name="batch_id"  widget="many2many_tags" options="{'no_create': True, 'no_open': True}" />
+                        <field name="file_id" options="{'no_create': True, 'no_open': True}"/>
+                    </group>
+                    <footer>
+                        <button attrs="{'invisible': ['|','|',('file_id','=',False),('student_id','=',False),('batch_id','=',False)]}" name="print_diploma_certify" string="Imprimir reporte" type="object" class="btn-primary"/>
+                        <button attrs="{'invisible': ['|','|',('file_id','=',False),('student_id','=',False),('batch_id','=',False)]}" name="send_by_email" string="Enviar por correo" type="object" class="btn-primary"/>
+                        <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="diplomas_certifies_wizard" model="ir.actions.act_window">
+            <field name="name">Diplomas and Certifies</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">diplomas.certifies</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="diplomas_certifies_form"/>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</odoo>

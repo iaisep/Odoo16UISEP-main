@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+
+        <record id="view_op_student_assignment_progress_form" model="ir.ui.view">
+            <field name="name">op.activity.sub.line.form</field>
+            <field name="model">op.assignment.sub.line</field>
+            <field name="inherit_id" ref="openeducat_assignment.view_op_assignment_sub_line_form"/>
+            <field name="priority" eval="10"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='submission_date']" position="before">
+                    <field name="progression_id"/>
+                </xpath>
+            </field>
+        </record>
+
+</odoo>

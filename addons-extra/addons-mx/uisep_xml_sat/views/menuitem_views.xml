@@ -1,0 +1,22 @@
+<odoo>
+    <data>
+
+        <record id="xmlsat_action_solicitud" model="ir.actions.act_window">
+            <field name="name">Solicitud Descarga</field>
+            <field name="res_model">xmlsat.solicitud</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="xmlsat_action_cfdi" model="ir.actions.act_window">
+            <field name="name">CFDI´s</field>
+            <field name="res_model">xmlsat.cfdi</field>
+            <field name="view_mode">tree,form,pivot</field>
+        </record>
+
+        <!-- Menu -->
+        <menuitem id="xmlsat_top" name="CFDI's SAT" parent='account.menu_finance_entries' sequence="600"/>
+        <menuitem id="xmlsat_solicitud_top" action="xmlsat_action_solicitud" name="Solicitudes" parent='xmlsat_top' sequence="10"/>
+        <menuitem id="xmlsat_inv_top" action="xmlsat_action_cfdi" name="CFDI's" parent='xmlsat_top' sequence="20"/>
+
+  </data>
+</odoo>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_attachment_form_inh" model="ir.ui.view">
+            <field name="model">ir.attachment</field>
+            <field name="inherit_id" ref="base.view_attachment_form"/>
+            <field name="arch" type="xml">
+                <field name="res_id" position="after">
+                    <field name="certificado_gratuito"/>
+                    <field name="certificado_web"/>
+                    <field name="cert_invoice_id"/>
+                </field>
+            </field>
+    </record>
+</odoo>

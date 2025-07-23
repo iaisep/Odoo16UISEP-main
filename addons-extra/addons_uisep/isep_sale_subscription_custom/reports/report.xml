@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="report_sale_subscription_due_pdf" model="ir.actions.report">
+        <field name="name">Reporte de Cartera</field>
+        <field name="model">sale.order.date.filter.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">isep_sale_subscription_custom.report_sale_subscription_due_template</field>
+        <field name="print_report_name">"Cartera - {} al {}".format(object.date_from.strftime('%d-%m-%Y'), object.date_to.strftime('%d-%m-%Y'))</field>
+    </record>
+
+    <record id="paperformat_cartera_suscription" model="report.paperformat">
+            <field name="name">Formato reporte suscripcion cartera</field>
+            <field name="default" eval="True"/>
+            <field name="format">Letter</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">15</field>
+            <field name="margin_bottom">10</field>
+            <field name="margin_left">1</field>
+            <field name="margin_right">1</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">10</field>
+            <field name="dpi">95</field>
+            <field name="report_ids" eval="[(4, ref('report_sale_subscription_due_pdf'))]"/>
+    </record>
+
+    <!-- Reporte Estado de Cuenta para sale.order -->
+    <report 
+        id="sale_order_estado_cuenta_report"
+        model="sale.order"
+        string="Estado de Cuenta"
+        name="isep_sale_subscription_custom.report_estado_cuenta"
+        file="isep_sale_subscription_custom.report_estado_cuenta"
+        report_type="qweb-pdf"
+        print_report_name="'Estado de Cuenta - %s' % (object.name)"
+    />
+    <record id="paperformat_estado_cuenta_report" model="report.paperformat">
+	    <field name="name">Letter Estado de cuenta</field>
+	    <field name="margin_top">0</field>     <!-- No top margin -->
+	    <field name="margin_bottom">0</field>  <!-- No bottom margin -->
+	    <field name="margin_left">0</field>    <!-- No left margin -->
+	    <field name="margin_right">0</field>   <!-- No right margin -->
+	    <field name="header_line" eval="False"/>  <!-- No header line -->
+	    <field name="header_spacing">0</field>    <!-- No header spacing -->
+	    <field name="dpi">90</field>  <!-- DPI settings can be adjusted if needed -->
+	    <field name="orientation">Portrait</field>  <!-- Portrait orientation -->
+	    <field name="format">Letter</field>
+	    <field name="default" eval="True"/>
+         <field name="report_ids" eval="[(4, ref('sale_order_estado_cuenta_report'))]"/>
+    </record>
+
+</odoo>

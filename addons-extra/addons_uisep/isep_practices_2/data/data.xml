@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Definir los turnos -->
+    <record id="shift_morning" model="practice.center.shift">
+        <field name="name">morning</field>
+        <field name="description">Turno Mañana</field>
+    </record>
+
+    <record id="shift_afternoon" model="practice.center.shift">
+        <field name="name">afternoon</field>
+        <field name="description">Turno Tarde</field>
+    </record>
+
+    <record id="shift_both" model="practice.center.shift">
+        <field name="name">both</field>
+        <field name="description">Ambos turnos</field>
+    </record>
+
+    <!-- Definir los días de la semana -->
+    <record id="day_monday" model="practice.center.day">
+        <field name="day_of_week">monday</field>
+        <field name="is_available">True</field>
+    </record>
+
+    <record id="day_tuesday" model="practice.center.day">
+        <field name="day_of_week">tuesday</field>
+        <field name="is_available">True</field>
+    </record>
+
+    <record id="day_wednesday" model="practice.center.day">
+        <field name="day_of_week">wednesday</field>
+        <field name="is_available">True</field>
+    </record>
+
+    <record id="day_thursday" model="practice.center.day">
+        <field name="day_of_week">thursday</field>
+        <field name="is_available">True</field>
+    </record>
+
+    <record id="day_friday" model="practice.center.day">
+        <field name="day_of_week">friday</field>
+        <field name="is_available">True</field>
+    </record>
+
+    <record id="day_saturday" model="practice.center.day">
+        <field name="day_of_week">saturday</field>
+        <field name="is_available">True</field>
+    </record>
+     <!-- Definir los tipos de centro de práctica -->
+    <record id="practice_center_type_on_site" model="practice.center.type">
+        <field name="type_of_practice">on_site</field>
+        <field name="is_available">True</field>
+    </record>
+
+    <record id="practice_center_type_distance" model="practice.center.type">
+        <field name="type_of_practice">distance</field>
+        <field name="is_available">True</field>
+    </record>
+
+    <record id="practice_center_type_validation" model="practice.center.type">
+        <field name="type_of_practice">validation</field>
+        <field name="is_available">True</field>
+    </record>
+
+    <!-- <record id="practice_center_type_on_site_spain" model="practice.center.type">
+        <field name="type_of_practice">on_site_spain</field>
+        <field name="is_available">True</field>
+    </record> -->
+</odoo>
+

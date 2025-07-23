@@ -1,0 +1,87 @@
+<odoo>
+
+    <record id="action_dv_data_source" model="ir.actions.act_window">
+        <field name="name">Data Sources</field>
+        <field name="res_model">dv.data.source</field>
+        <field name="view_mode">tree,form</field>
+        <field name="groups_id" eval="[(4, ref('base.group_system'))]"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new Data Source
+            </p>
+        </field>
+    </record>
+
+    <record id="action_dv_data_target" model="ir.actions.act_window">
+        <field name="name">Data Targets</field>
+        <field name="res_model">dv.data.target</field>
+        <field name="view_mode">tree,form</field>
+        <field name="groups_id" eval="[(4, ref('base.group_system'))]"/>
+        <field name="limit">999</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new Data Target
+            </p>
+        </field>
+    </record>
+
+    <record id="dv_import_data_target_action" model="ir.actions.act_window">
+        <field name="name">Import data targets</field>
+        <field name="res_model">dv.data.import</field> 
+        <field name="type">ir.actions.act_window</field>               
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="dv_import_data_target_form_view"/>
+        <field name="context">{}</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="action_dv_data_target_field" model="ir.actions.act_window">
+        <field name="name">Data Target Field</field>
+        <field name="res_model">dv.data.target.field</field>
+        <field name="view_mode">tree,form</field>
+        <field name="groups_id" eval="[(4, ref('base.group_system'))]"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new Data Target Field
+            </p>
+        </field>
+    </record>
+
+    <record id="menu_nhub_data_migration" model="ir.ui.menu">
+        <field name="name">Data Migration</field>
+        <field name="groups_id" eval="[(4, ref('base.group_system'))]"/>
+        <field name="sequence">3</field>
+        <field name="web_icon">dv_data_migration,static/description/icon.png</field>
+    </record>
+
+    <record id="menu_conguration_data_target_2" model="ir.ui.menu">
+        <field name="name">Configuration</field>
+        <field name="parent_id" ref="dv_data_migration.menu_nhub_data_migration"/>
+        <field name="groups_id" eval="[(4, ref('base.group_system'))]"/>
+        <field name="sequence">59</field>
+    </record>
+
+    <record id="menu_nhub_data_source" model="ir.ui.menu">
+        <field name="name">Data Source</field>
+        <field name="parent_id" ref="dv_data_migration.menu_conguration_data_target_2"/>
+        <field name="action" ref="action_dv_data_source"/>
+        <field name="groups_id" eval="[(4, ref('base.group_system'))]"/>
+        <field name="sequence">1</field>
+    </record>
+
+    <record id="menu_nhub_data_target" model="ir.ui.menu">
+        <field name="name">Data Target</field>
+        <field name="parent_id" ref="dv_data_migration.menu_nhub_data_migration"/>
+        <field name="action" ref="action_dv_data_target"/>
+        <field name="groups_id" eval="[(4, ref('base.group_system'))]"/>
+        <field name="sequence">12</field>
+    </record>
+
+    <record id="menu_dv_import_data_source" model="ir.ui.menu">
+        <field name="name">Import datas targets</field>
+        <field name="parent_id" ref="dv_data_migration.menu_conguration_data_target_2"/>
+        <field name="action" ref="dv_import_data_target_action"/>
+        <field name="groups_id" eval="[(4, ref('base.group_system'))]"/>
+        <field name="sequence">5</field>
+    </record>
+</odoo>

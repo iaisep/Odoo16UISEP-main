@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <template id="tesis_model_portal_details_template" name="Thesis Review Details">
+        <t t-call="website.layout">
+            <div class="container mt-4 mb-4">
+                <style>
+                    .narrow-column {
+                        width: 50px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                </style>
+                <div class="row">
+                    <div class="col-12">
+                        <h1 class="text-center">Detalles de revisión de tesis</h1>
+                        <div class="card mt-3">
+                            <div class="card-body">
+                                <!-- Datos principales -->
+                                <table class="table table-bordered">
+                                    <h4>Revisión</h4>
+                                    <tr>
+                                        <th>No.</th>
+                                        <td>
+                                            <t t-esc="tesis_model.id"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Estado</th>
+                                        <td>
+                                            <t t-esc="dict(tesis_model.fields_get(['state'])['state']['selection'])[tesis_model.state]"/>
+                                            <t t-if="tesis_model.state == 'progress'">
+                                                <i class="fa fa-exclamation-circle text-warning" title="En progreso: Este estado le permite subir sus archivos"></i>
+                                            </t>
+                                            <t t-if="tesis_model.state == 'end'">
+                                                <i class="fa fa-exclamation-circle text-success" title="Finalizado: El proceso a finalizado"></i>
+                                            </t>
+                                            <t t-if="tesis_model.state == 'draft'">
+                                                <i class="fa fa-exclamation-circle text-danger" title="En espera: Se inicio el proceso de revision de tesis, espere a que sea aceptado"></i>
+                                            </t>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Fecha de solicitud</th>
+                                        <td>
+                                            <t t-esc="tesis_model.request_date"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <t t-if="tesis_model.state == 'end'">
+                                            <th>Punteo Final</th>
+                                            <td>
+                                                <t t-esc="tesis_model.points_fin"/>
+                                            </td>
+                                        </t>
+                                    </tr>
+                                </table>
+                                <h4>Información general</h4>
+                                <table class="table table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <th>Nombre alumno</th>
+                                            <td>
+                                                <t t-esc="tesis_model.name"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Email</th>
+                                            <td>
+                                                <t t-esc="tesis_model.email"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Curso</th>
+                                            <td>
+                                                <t t-esc="tesis_model.course_id.course_id.display_name"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Tipo tesis</th>
+                                            <td>
+                                               <t t-esc="dict(tesis_model._fields['type_thesis'].selection).get(tesis_model.type_thesis)"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Descripción</th>
+                                            <td>
+                                                <t t-esc="tesis_model.application_description"/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                             
+
+                                <t t-if="tesis_model.state in ['progress','end']">
+                                    <h4>Documentos Cargados</h4>
+                                    <table class="table table-bordered">
+                                        <tr>
+                                            <th>
+                                                Fecha de Carga
+                                            </th>
+                                            <th>
+                                                Documento
+                                            </th>
+                                            <th>
+                                                Comentario
+                                            </th>
+
+                                            <th>
+                                                Revisado
+                                            </th>
+
+                                            <th>
+                                                Acciones
+                                            </th>
+                                        </tr>
+                                        <t t-foreach="tesis_model.attachment2_ids" t-as="document">
+
+                                            <tr>
+                                                <td>
+                                                    <t t-esc="document.create_date"/>
+                                                </td>
+                                                <td>
+                                                    <t t-esc="document.name"/>
+                                                </td>
+                                                <td>
+                                                    <t t-esc="document.description"/>
+                                                </td>
+                                                <td class="narrow-column">                                                    
+                                                    <t t-if="document.review != False">Si</t>
+                                                    <t t-if="document.review != True">No</t>
+                                                </td>
+
+                                                <td>
+                                                    <!-- <a t-att-href="'../notificacionestr/download/'+str(document['id'])"
+                                                       style="color: green;">
+                                                        <i class="fa fa-download fa-2x"></i>
+                                                    </a> -->
+                                                    <!-- <t t-if="document.review != True">
+                                                        <a t-att-href="'../notificacionestr/borrar/'+str(document['id'])+'/'+str(document['tesis_model_id'].id)"
+                                                        style="color: red;">
+                                                            <i class="fa fa-trash"></i>
+                                                        </a>
+                                                    </t> -->
+                                                    <t t-if="document.review != False">
+                                                        <a t-att-href="'../notificacionestr/comment/' + str(document['id'])" style="color: #ee7401;">
+                                                            <i class="fa fa-comment fa-lg"> Ver revisión</i>
+                                                        </a>
+                                                    </t>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                        
+                                        <t >
+                                            <tr>
+                                                <td colspan="5">
+                                                </td>
+                                            </tr>
+                                        </t>
+
+
+                                        <t t-if="tesis_model.state != 'end'">
+                                            <form action="/web/submit_documenttr" method="post" enctype="multipart/form-data">
+                                                <tr>
+                                                    <th colspan="2">
+                                                        <div class="form-group">
+                                                            <input type="file" id="file" name="file" class="form-control"
+                                                                required="required" accept="application/pdf"/>
+                                                        </div>
+                                                    </th>
+                                                    <th colspan="2">
+                                                        <div class="form-group">
+                                                            <textarea id="description" name="description" placeholder="Deja un comentario esto es opcional"
+                                                                    class="form-control"></textarea>
+                                                        </div>
+                                                    </th>                                                    
+                                               
+
+                                                    <th>
+                                                        <div class="form-group">
+                                                            <input type="hidden" name="tesis_model_id"
+                                                                t-att-value="tesis_model.id"/>
+                                                            <button type="submit" id="btn_upload" class="btn btn-primary">
+                                                                <i class="fa fa-upload"></i>
+                                                            </button>
+                                                        </div>
+                                                    </th>
+                                                </tr>
+                                            </form>
+                                             <script>
+                                                document.getElementById('upload_form').addEventListener('submit', function(evt) {
+                                                    document.getElementById('btn_upload').disabled = true;
+                                                });
+                                            </script>
+                                        </t>
+
+
+                                    </table>
+                                </t>
+
+
+ 
+                                <form method="POST" action="/my/tesis_models2">
+                                    <input type="hidden" name="request_id" t-att-value="tesis_model.id"/>
+                                    <button type="submit" class="btn btn-success">Regresar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="tesis_attachment_comment_template" name="Attachment Comment">
+        <t t-call="website.layout">
+            <div class="container mt-4">
+                <h1>Comentario del Documento</h1>
+                <div class="card">
+                    <div class="card-body">
+                        <p><strong>Documento:</strong> <t t-esc="attachment.name"/></p>
+                        <p ><strong>Comentario:</strong></p>
+                        <p t-if="attachment.comment" style="font-size: 1.2em;white-space: pre-wrap;">
+                            <t t-esc="attachment.comment"/>
+                        </p>
+                        <p t-if="not attachment.comment" style="font-size: 1.2em;">
+                            No hay comentarios para este documento.
+                        </p>
+                        <a t-att-href="'/my/tesis_model/' + str(attachment.tesis_model_id.id)" class="btn btn-secondary">Volver</a>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

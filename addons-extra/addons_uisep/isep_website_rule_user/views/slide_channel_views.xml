@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <!-- View slide.channel form -->
+    <record id="view_slide_channel_form" model="ir.ui.view">
+        <field name="name">view.slide.channel.form</field>
+        <field name="model">slide.channel</field>
+        <field name="inherit_id" ref="website_slides.view_slide_channel_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='options']/group/group[@name='display']/field[@name='visibility']" position="after">
+                
+                <field name="users_added" invisible="1"/>
+                <button name="action_add_users_odoo" type="object" string="Agregar Usuarios" class="btn-primary"
+                        attrs="{'invisible': [('users_added', '=', True)]}"/>
+
+                <button name="action_remove_users_odoo" type="object" string="Quitar Usuarios" class="btn-secondary"
+                        attrs="{'invisible': [('users_added', '=', False)]}"/>
+
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

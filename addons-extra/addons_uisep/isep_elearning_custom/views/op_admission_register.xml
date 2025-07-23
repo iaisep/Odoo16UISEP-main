@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="custom_op_admission_register_form" model="ir.ui.view">
+            <field name="name">op.admission.register.form</field>
+            <field name="model">op.admission.register</field>
+            <field name="inherit_id" ref="openeducat_admission.view_op_admission_register_form"/>
+            <field name="arch" type="xml">
+
+
+
+                <xpath expr="//field[@name='admission_ids']/tree/field[@name='birth_date']" position="after">                
+                    <field name="email_send_ok" string="Bienvenida" />
+                                
+                </xpath>
+
+
+                <xpath expr="//button[@name='close_register']" position="after">                
+                    <button name="send_mail_all" string="Enviar Correo de bienvenida" type="object" 
+                                class="oe_highlight"/>
+                                
+                </xpath>
+
+
+            </field>
+        </record>
+
+
+
+
+    </data>
+</odoo>
+
+
+ 
+

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <menuitem id="menu_action_gms"
+                  name="Grievances"
+                  sequence="10"
+                  action="action_grievance_list" web_icon="openeducat_grievance_enterprise,static/description/icon.png"/>
+        <menuitem action="action_grievance_list"
+                  id="menu_action_grievance_list"
+                  parent="menu_action_gms"/>
+        <menuitem id="menu_action_configuration_gms"
+                  name="Configuration"
+                  parent="menu_action_gms"/>
+        <menuitem action="action_grievance_category_list"
+                  id="menu_action_grievance_category_list"
+                  parent="menu_action_configuration_gms"
+                  sequence="1"/>
+        <menuitem action="action_grievance_team_list"
+                  id="menu_action_grievance_team_list"
+                  parent="menu_action_configuration_gms"
+                  sequence="2"/>
+
+</odoo>

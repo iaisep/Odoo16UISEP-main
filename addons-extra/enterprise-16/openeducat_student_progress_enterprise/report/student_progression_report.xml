@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <template id="student_progression_report">
+            <style>
+                .font{
+                font-size:14px;
+                font-family:"Helvetica"
+                }
+                @page{
+                margin-top:1%;
+                size: A4;
+                }
+            </style>
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="font">
+                        <div class="page">
+                            <br></br>
+                            <br></br>
+                            <t t-foreach="docs" t-as="objs">
+                                <div class="row text-center">
+                                    <div class="col-md-12">
+                                        <h4 style="width:100%;">
+                                            <strong>
+                                                Student Progression Report
+                                            </strong>
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div class="row mt32 progression">
+                                    <div class="col-12">
+                                        <table width="100%" style="font-size:14px;">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <b>Progression No :</b>
+                                                        <span t-esc="objs.name"/>
+                                                    </td>
+                                                    <td class="text-right">
+                                                        <b>Student :</b>
+                                                        <span t-esc="objs.student_id.name"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <b>Date :</b>
+                                                        <span t-esc="objs.date" t-options="{'widget':'date'}"/>
+                                                    </td>
+                                                    <td class="text-right">
+                                                        <b>Created By:</b>
+                                                        <span t-esc="objs.created_by.name"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <b>Status:</b>
+                                                        <span t-esc="{false:false, 'draft':'Draft',
+                                                                        'open':'In Progress', 'done':'Done', 'cancel':'Cancel'}[objs.state]"/>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <p style="page-break-after: always;"></p>
+                            </t>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+</odoo>

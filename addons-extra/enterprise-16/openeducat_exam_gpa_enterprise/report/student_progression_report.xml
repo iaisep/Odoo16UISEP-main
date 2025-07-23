@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <template id="student_transcript_report">
+            <style>
+                .font{
+                font-size:12px;
+                font-family:"Helvetica"
+                }
+                @page{
+                size: A2;
+                }
+            </style>
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <br />
+                    <br />
+                    <div class="font">
+                        <div class="container-fluid">
+                            <div class="page">
+                                <div class="row text-center">
+                                    <div class="col-md-12">
+                                        <h4 style="width:100%;">
+                                            <strong>
+                                                Transcript
+                                            </strong>
+                                        </h4>
+                                    </div>
+                                </div>
+                                <t t-foreach="docs" t-as="objs">
+                                    <div class="row mt32 progression">
+                                        <div class="col-12">
+                                            <table width="100%" style="font-size:12px;">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <b>Institution:</b>
+                                                            <span t-esc="objs.company_id.name"></span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <b>Student :</b>
+                                                            <span t-esc="objs.student_id.name"/>
+                                                        </td>
+                                                        <td style="text-align: right;">
+                                                            <b>Roll Number:</b>
+                                                            <span t-esc="objs.student_id.gr_no"/>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <b>Course:</b>
+                                                            <span t-esc="objs.marksheet_lines.result_line.exam_id.session_id.course_id.name"/>
+                                                        </td>
+                                                        <td style="text-align: right;">
+                                                            <b>Grade: </b>
+                                                            <!-- <span t-esc="objs.marksheet_lines.grade"/> -->
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </t>
+                                <hr />
+
+                                <t t-foreach="docs" t-as="objs">
+                                    <t t-foreach="docs.marksheet_lines" t-as="result_id">
+                                        <table style="width:100%;">
+                                            <tr>
+                                                <td style="font-size: 14px;">
+                                                    <span t-esc="result_id.result_line.exam_id.session_id.name" />
+                                                </td>
+                                            </tr>
+                                            <tr style="background-color:#eeeeee; font-size: 10px;">
+                                                <th>Exam Code</th>
+                                                <th>Subject</th>
+                                                <th>Marks</th>
+                                                <th>Credit</th>
+                                                <!-- <t t-foreach="result_id.result_line" t-as="results"> -->
+                                                <t t-if="result_id.gpa_count">
+                                                    <th>Grades</th>
+                                                    <th>Points</th>
+                                                </t>
+                                                <!-- </t> -->
+                                            </tr>
+                                            <tbody style="font-size:9px; width: 100%;">
+
+                                                <t t-foreach="result_id.result_line" t-as="results">
+                                                    <t t-if="not results.grade_point">
+                                                        <tr style="border-bottom:1px solid #e7e7e7;">
+                                                            <td style="width: 16.66%;">
+                                                                <p t-esc="results.exam_id.name" />
+                                                            </td>
+                                                            <td style="width: 16.66%;">
+                                                                <p t-esc="results.exam_id.subject_id.name" />
+                                                            </td>
+                                                            <td style="width: 16.66%;">
+                                                                <p t-esc="results.marks" />
+                                                            </td>
+                                                            <td style="width: 16.66%;">
+                                                                <p t-esc="results.credit" />
+                                                            </td>
+                                                        </tr>
+                                                    </t>
+                                                    <t t-if="results.grade_point">
+                                                        <tr style="border-bottom:1px solid #e7e7e7;">
+                                                            <td style="width: 16.66%;">
+                                                                <p t-esc="results.exam_id.name" />
+                                                            </td>
+                                                            <td style="width: 16.66%;">
+                                                                <p t-esc="results.exam_id.subject_id.name" />
+                                                            </td>
+                                                            <td style="width: 16.66%;">
+                                                                <p t-esc="results.marks" />
+                                                            </td>
+                                                            <td style="width: 16.66%;">
+                                                                <p t-esc="results.credit" />
+                                                            </td>
+                                                            <td style="width: 16.66%;">
+                                                                <p t-esc="results.grade" />
+                                                            </td>
+                                                            <td style="width: 16.66%;">
+                                                                <p t-esc="results.grade_point" />
+                                                            </td>
+                                                        </tr>
+                                                    </t>
+                                                </t>
+                                                <table style="width: 100%;  margin-bottom:20px;">
+                                                    <tr style="background-color:#eeeeee; font-size: 10px;">
+                                                        <td>
+                                                            <strong>Percentage</strong>
+                                                        </td>
+                                                        <td>
+                                                            <p style="text-align: right;" t-esc="result_id.percentage" t-options='{"widget": "float", "precision": 2}'/>
+                                                        </td>
+                                                    </tr>
+                                                    <t t-if="result_id.gpa_count">
+                                                        <tr style="background-color:#eeeeee; font-size: 10px;">
+                                                            <td>
+                                                                <strong>GPA</strong>
+                                                            </td>
+                                                            <td>
+                                                                <p style="text-align: right;" t-esc="result_id.gpa_count" t-options='{"widget": "float", "precision": 2}' />
+                                                            </td>
+                                                        </tr>
+                                                    </t>
+                                                </table>
+                                            </tbody>
+                                        </table>
+                                    </t>
+                                </t>
+                                <p style="page-break-after: always;"></p>
+                                <!-- </t> -->
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+</odoo>

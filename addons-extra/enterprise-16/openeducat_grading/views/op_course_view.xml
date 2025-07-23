@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="view_op_course_inherited_grade_form_view" model="ir.ui.view">
+            <field name="name">op.course.form</field>
+            <field name="model">op.course</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="openeducat_core.view_op_course_form"/>
+            <field name="arch" type="xml">
+<!--                <xpath expr="//group[@name='main']" position="before">-->
+<!--                    <div class="oe_button_box" name="button_box" width="100%">-->
+<!--                        <button name="open_grade_book_grid"-->
+<!--                                class="btn oe_stat_button"-->
+<!--                                icon="fa-book"-->
+<!--                                type="object">-->
+<!--                            <div class="o_field_widget o_stat_info">-->
+<!--                                <span class="o_stat_text">GradeBook</span>-->
+<!--                            </div>-->
+<!--                        </button>-->
+<!--                    </div>-->
+<!--                </xpath>-->
+                <xpath expr="//div[@name='button_box']" position="inside">
+                    <button name="open_grade_book_grid"
+                                class="btn oe_stat_button"
+                                icon="fa-book"
+                                type="object">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text">GradeBook</span>
+                            </div>
+                    </button>
+                </xpath>
+                <xpath expr="//group[2]" position="after">
+                    <group>
+                        <field name="grade_scale_id"/>
+                        <field name="grade_template_ids"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_op_course_inherited_grade_tree_view" model="ir.ui.view">
+            <field name="name">op.course.tree</field>
+            <field name="model">op.course</field>
+            <field name="type">tree</field>
+            <field name="inherit_id" ref="openeducat_core.view_op_course_tree"/>
+            <field name="arch" type="xml">
+                <field name="department_id" position="after">
+                    <field name="grade_template_ids" widget="many2many_tags" optional="hide"/>
+                    <field name="grade_scale_id" optional="hide"/>
+                </field>
+                <xpath expr="//field[@name='department_id']" position="after">
+                    <button name="open_grade_book_grid"
+                            type="object"
+                            class="btn btn-primary"
+                            string="GradeBook">
+                    </button>
+                </xpath>
+            </field>
+        </record>
+
+</odoo>

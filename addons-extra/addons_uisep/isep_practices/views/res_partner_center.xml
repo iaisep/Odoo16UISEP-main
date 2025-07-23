@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <!-- Center - Partner -->
+    <record id="view_res_partner_center_tree" model="ir.ui.view">
+        <field name="name">res.partner.center.tree</field>
+        <field name="model">res.partner</field>
+        <field name="priority" eval="8"/>
+        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='active']" position="after">
+                <field name="center" optional="hide" string="Es Centro"/>
+                <field name="tutor" optional="hide" string="Es Tutor"/>
+            </xpath>
+        </field>
+    </record>
+
+        <!-- Center - Partner -->
+    <record id="view_res_partner_center_form" model="ir.ui.view">
+        <field name="name">res.partner.center.form</field>
+        <field name="model">res.partner</field>
+        <field name="priority" eval="8"/>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='category_id']" position="after">
+                <field name="center" string="Es Centro"/>
+                <field name="tutor" string="Es Tutor"/>
+                <field name="signatory" string="Signatory"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Center - Partner -->
+    <record id="view_res_partner_center_search" model="ir.ui.view">
+        <field name="name">res.partner.center.search</field>
+        <field name="model">res.partner</field>
+        <field name="priority" eval="8"/>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="center" string="Es Centro"/>
+                <field name="tutor" string="Es Tutor"/>
+                <separator/>
+                <filter string="Es Centro" name="center" domain="[('center', '=', True)]"/>
+                <filter string="Es Tutor" name="tutor" domain="[('tutor', '=', True)]"/>
+            </xpath>
+        </field>
+    </record>
+        
+
+</odoo>

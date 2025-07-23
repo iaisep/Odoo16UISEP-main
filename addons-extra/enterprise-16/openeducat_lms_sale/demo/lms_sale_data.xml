@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <!-- New Partner For Student -->
+        <record id="demo_student_partner" model="res.partner">
+            <field name="name">Bruce</field>
+            <field name="mobile">1234567033</field>
+            <field name="company_type">person</field>
+        </record>
+
+        <!--new student-->
+        <record id="demo_student" model="op.student">
+            <field name="title" ref="base.res_partner_title_mister"/>
+            <field name="name">Bruce Wills</field>
+            <field name="first_name">Bruce</field>
+            <field name="last_name">Willis</field>
+            <field name="gender">m</field>
+            <field name="blood_group">B+</field>
+            <field name="email">brucewillis@demo.com</field>
+            <field name="country_id" ref="base.us"/>
+            <field name="nationality" ref="base.us"/>
+            <field name="type">contact</field>
+            <field name="active">True</field>
+            <field name="birth_date">1993-02-18</field>
+            <field name="partner_id" ref="demo_student_partner"/>
+            <field name="image_1920" type="base64"
+                   file="openeducat_lms_sale/static/img/demo_student.png"/>
+        </record>
+
+        <!--New Product-->
+        <record id="demo_product" model="product.product">
+            <field name="name">Learn to Speak: French</field>
+            <field name="type">service</field>
+            <field name="lst_price">5000</field>
+        </record>
+
+        <!--Update Course Material for French-->
+        <record id="openeducat_lms.demo_course_2" model="op.course">
+            <field name="type">paid</field>
+            <field name="price" type="int">5000</field>
+            <field name="product_id" ref="demo_product"/>
+        </record>
+
+        <!--Sale Order For Enrollment-->
+        <record id="demo_sale_order" model="sale.order">
+            <field name="partner_id" ref="demo_student_partner"/>
+            <field name="state">sale</field>
+        </record>
+
+        <!--Sale Order Lines For Sale Order-->
+        <record id="demo_sale_order_line" model="sale.order.line">
+            <field name="product_id" ref="demo_product"/>
+            <field name="order_id" ref="demo_sale_order"/>
+            <field name="name">Demo Product</field>
+            <field name="product_uom_qty">1</field>
+            <field name="price_unit">5000</field>
+        </record>
+
+        <!--Enrollment Details-->
+        <record id="demo_enrollment_free" model="op.course.enrollment">
+            <field name="course_id" ref="openeducat_lms.demo_course_1"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="state">in_progress</field>
+        </record>
+
+        <record id="demo_enrollment_paid" model="op.course.enrollment">
+            <field name="course_id" ref="openeducat_lms.demo_course_2"/>
+            <field name="order_id" ref="demo_sale_order"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="state">in_progress</field>
+        </record>
+
+</odoo>

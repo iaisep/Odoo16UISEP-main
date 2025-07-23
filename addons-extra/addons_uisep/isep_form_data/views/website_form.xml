@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template id="card">
+        <t t-call="website.layout">
+            <body class="form_body">
+                <form role="form" action="/update/webcard" method='POST' class="form-card">
+                <h5>Metodo de pago</h5>
+                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"></input>
+                    <div class="mb-3">
+                        <input type="number" 
+                            name="card.partner_id.id" 
+                            t-att-value="card.partner_id.id" 
+                            id="card.partner_id.id" 
+                            class="form-control" 
+                            style="display: none;"                                
+                            >
+                        </input>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" 
+                            name="card.access_token" 
+                            t-att-value="card.access_token" 
+                            id="card.access_token" 
+                            class="form-control" 
+                            placeholder="Access Token"
+                            style="display: none;"                                    
+                            >
+                        </input>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="card.partner" class="col-form-label">Cliente </label>
+                        <input type="text" 
+                            name="card.partner" 
+                            t-att-value="card.partner"
+                            t-attf-class="form-control" 
+                            id="card.partner"
+                            placeholder="Cliente"
+                            readonly='readonly' 
+                            >
+                        </input>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="card.name" class="col-form-label">Titular *</label>
+                        <input type="text" 
+                            name="card.name" 
+                            t-att-value="card.name"
+                            t-attf-class="form-control" 
+                            id="card.name"
+                            placeholder="Titular"
+                            required="required" 
+                            >
+                        </input>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="card.number_target" class="col-form-label">Número de Tarjeta *</label>
+                        <input type="text" 
+                            name="card.number_target" 
+                            t-att-value="card.number_target"
+                            t-attf-class="form-control" 
+                            id="card.number_target"
+                            placeholder="Número de Tarjeta"
+                            required="required"
+                            maxlength="16" 
+                            >
+                        </input>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="card.csv" class="col-form-label">CSV *</label>
+                        <input type="password" 
+                            name="card.csv" 
+                            t-att-value="card.csv"
+                            t-attf-class="form-control" 
+                            id="card.csv"
+                            placeholder="ejem. 123"
+                            required="required"
+                            maxlength="3" 
+                            >
+                        </input>
+                    </div>
+                    <!-- <div class="container mb-3">
+                        <label class="col-form-label">Fecha de Expiración</label>
+                        <div class="input-container">
+                            <label class="col-form-label">Mes *</label>
+                            <input type="number" 
+                                name="card.month" 
+                                t-att-value="card.month"                        
+                                id="card.month"
+                                placeholder="MM"                            
+                                required="required"
+                                maxlength="2" 
+                                >
+                            </input>
+                        </div>
+                        <div class="input-container">
+                            <label class="col-form-label">Año *</label>
+                            <input type="number" 
+                                name="card.year" 
+                                t-att-value="card.year"                       
+                                id="card.year"
+                                placeholder="YY"                            
+                                required="required"
+                                maxlength="2" 
+                                >
+                            </input>
+                        </div>
+                    </div> -->
+
+
+                    <div class="form__date-cvc"><!-- grid -->
+                        <!-- 1 -->
+                        <label class="form__label" for="card.month">Fecha de caducidad (MM/YY) *</label>
+                        <!-- 2 -->
+                        <!-- <label class="form__label" for="cardCvc">CVC</label> -->
+                        <!-- 3 -->
+                        <div class="form__date">
+                            <input class="form__input" type="number" maxlength="2" name="card.month" id="card.month" placeholder="MM"/>
+                            <input class="form__input" type="number" maxlength="2" name="card.year" id="card.year" placeholder="YY"/>
+                        </div>
+
+                    </div>
+                    
+                    <div class="div_button">
+                        <button type="submit" class="send_form">ENVIAR</button>
+                    </div>
+                </form>
+            </body>
+        </t>
+    </template>
+
+    <record id="card_thanks" model="website.page">
+        <field name="name">Gracias!</field>
+        <field name="type">qweb</field>
+        <field name="url">card_thanks</field>
+        <field name="website_published">True</field>
+        <field name="key">isep_form_data.card_thanks</field>
+        <field name="arch" type="xml">
+            <t name="thanks" t-name="isep_form_data.card_thanks">
+                <t t-call="website.layout">
+                    <div id="wrap">
+                        <div class="container">
+                            <h1>Gracias!</h1>
+                            <input type="text" 
+                                    name="card.name" 
+                                    t-att-value="card.name" 
+                                    id="card.name" 
+                                    class="form-control" 
+                                    readonly="readonly" 
+                                    >
+                                </input>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="alert alert-success" role="status">
+                                        Registro creado satisfactoriamente
+                                    </div>
+                                    <p>Gracias por usar el portal</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </field>
+    </record>
+
+        <record id="card_message" model="website.page">
+        <field name="name">Registrado!</field>
+        <field name="type">qweb</field>
+        <field name="url">card_message</field>
+        <field name="website_published">True</field>
+        <field name="key">isep_form_data.card_message</field>
+        <field name="arch" type="xml">
+            <t name="thanks" t-name="isep_form_data.card_message">
+                <t t-call="website.layout">
+                    <div id="wrap">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="alert alert-success" role="status">
+                                        Registro actualizado
+                                    </div>
+                                    <p>Gracias por usar el portal</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </field>
+    </record>
+
+</odoo>
+

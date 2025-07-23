@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="grade_seq" model="ir.sequence">
+            <field name="name">GradeBook Code</field>
+            <field name="code">gradebook.gradebook</field>
+            <field name="prefix">GB0</field>
+            <field name="padding">0</field>
+        </record>
+
+        <record id="assign_grade_seq" model="ir.sequence">
+            <field name="name">Assignment Code</field>
+            <field name="code">grading.assignment</field>
+            <field name="prefix">GA00</field>
+            <field name="padding">0</field>
+        </record>
+
+        <record id="honor_roll_seq" model="ir.sequence">
+            <field name="name">Honor Role Code</field>
+            <field name="code">op.honorroll</field>
+            <field name="prefix">HR0</field>
+            <field name="padding">0</field>
+        </record>
+
+</odoo>

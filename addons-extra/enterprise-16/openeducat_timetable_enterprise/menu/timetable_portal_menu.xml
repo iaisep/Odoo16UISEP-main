@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="poratl_menu_timetable" model="openeducat.portal.menu">
+        <field name="name">Timetable</field>
+        <field name="menu_ref_name">Timetable</field>
+        <field name="link">/student/timetable/</field>
+        <field name="active">True</field>
+        <field name="sequence" type="int">35</field>
+        <field name="background_color">#E959AD</field>
+        <field name="icon_image" type="base64"
+               file="openeducat_timetable_enterprise/static/img/timetable.png"/>
+    </record>
+
+    <menuitem id="menu_op_timetable_analysis_reporting"
+              parent="openeducat_timetable.menu_op_timetable_root"
+              name="Reporting"
+              sequence="30"
+              groups="openeducat_timetable.group_op_timetable_manager,openeducat_timetable.group_op_timetable_user"/>
+
+    <menuitem id="menu_op_timetable_analysis"
+              name="Timetable Analysis"
+              parent="menu_op_timetable_analysis_reporting"
+              sequence="10"
+              action="openeducat_timetable_enterprise.act_session_analysis_pivot_view"
+              groups="openeducat_timetable.group_op_timetable_manager,openeducat_timetable.group_op_timetable_user"/>
+
+</odoo>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="op_subject_tree_assignment_view_inherit" model="ir.ui.view">
+            <field name="name">op.subject.assignment.tree.inherited</field>
+            <field name="model">op.subject</field>
+            <field name="inherit_id" ref="openeducat_core.view_op_subject_tree"/>
+            <field name="arch" type="xml">
+                <field name="department_id" position="after">
+                    <field name="assignment_count" optional="hide"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_op_subject_inherited_form_view" model="ir.ui.view">
+            <field name="name">op.subject.form</field>
+            <field name="model">op.subject</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="openeducat_core.view_op_subject_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='button_box']" position="inside">
+                    <button class="btn oe_stat_button"
+                            type="object"
+                            name="action_get_assignment"
+                            style="border-right: 1px solid;"
+                            icon="fa-file">
+                        <field string="Assignment" name="assignment_count" widget="statinfo"/>
+                    </button>
+                </xpath>
+            </field>
+        </record>
+
+</odoo>

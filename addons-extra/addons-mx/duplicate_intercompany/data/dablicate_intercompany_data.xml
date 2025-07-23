@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+        <record model="ir.actions.server" id="action_cambiar_factura_de_compania">
+            <field name="name">Cambiar factura de compania</field>
+            <field name="model_id" ref="account.model_account_move"/>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="state">code</field>
+            <field name="code">
+                action = records.cambiar_factura_de_compania()
+            </field>
+        </record>
+
+</odoo>

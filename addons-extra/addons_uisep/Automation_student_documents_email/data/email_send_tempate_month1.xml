@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <!-- Plantilla de correo en español -->
+        <record id="automatic_students_document_success_email_months1" model="mail.template">
+            <field name="name">Automatic document success email months1 (Spanish)
+</field>
+            <field name="model_id" ref="base.model_res_partner"/>
+            <field name="subject">Recordatorio de documentos</field>
+            <field name="email_from">{{  user.company_id.email }}</field>
+            <field name="email_to">{{ object.email_formatted }}</field>
+            <field name="body_html" type="html">
+                <table border="0" cellpadding="0" cellspacing="0">
+                    <tr style='background-color: #002F5D;'>
+                        <td>
+                            <h1 style="margin: 0; font-size: 24px; color:#EF660E;">Universidad Isep</h1>
+                        </td>
+                        <td>
+                            <img src="Automation_student_documents_email/static/src/img/Logo-ISEP-Anaranjado.png" alt="Logo de tu Empresa" style="max-width: 150px; margin-bottom: 10px;"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><strong style='font-size:16px'>¡Hola <t t-out="object.name or ''">Nombre!</t></strong></p>
+                            <p>Espero que te encuentres bien. Quiero informarte que, como parte de tu proceso de inscripción en la Universidad ISEP, necesitamos que nos envíes ciertos documentos para completar tu expediente ante la Secretaría de Educación Pública.</p>
+                            <p><strong>Documentos requeridos:</strong></p>
+                            <ul>
+                                <li>Título de licenciatura: copia certificada por notario público o título electrónico.</li>
+                                <li>Acta de nacimiento: documento original o documento electrónico.</li>
+                                <li>Certificado total de estudios con calificaciones: copia certificada o electrónico.</li>
+                                <li>Identificación oficial: credencial, pasaporte o documento de identidad.</li>
+                                <li>CURP: Copia CURP (Clave única de registro de población).</li>
+                                <li>Fotografía:
+                                    <ul>
+                                        <li>Formato: JPG/PNG a color.</li>
+                                        <li>Tamaño: Rectangular (4x6 media carta).</li>
+                                        <li>Peso del archivo: De 1 a 3 MB.</li>
+                                        <li>Fondo: Blanco liso (sin texturas).</li>
+                                        <li>Rostro: Totalmente descubierto y frente despejada.</li>
+                                        <li>Ángulo: Desde la mitad del pecho hacia arriba, mostrando ambos hombros.</li>
+                                    </ul>
+                                    <p>Especificaciones adicionales:</p>
+                                    <p>Para mujeres:</p>
+                                    <ul>
+                                        <li>Cabello recogido hacia atrás, mostrando los rasgos físicos incluyendo orejas.</li>
+                                        <li>Saco formal liso (blanco o claro).</li>
+                                        <li>Blusa blanca formal con cuello (sin escote).</li>
+                                        <li>Maquillaje en tono básico, suave/ligero.</li>
+                                        <li>Sin accesorios (sin aretes, cadenas, lentes, diademas, etc.).</li>
+                                    </ul>
+                                    <p>Para hombres:</p>
+                                    <ul>
+                                        <li>Saco formal liso (blanco o claro).</li>
+                                        <li>Camisa blanca formal con cuello (sin escote).</li>
+                                        <li>Corbata formal lisa (opcional, de color claro, sin rayas pronunciadas o garabatos).</li>
+                                        <li>Sin barba ni bigote.</li>
+                                        <li>Sin accesorios (sin aretes, cadenas, lentes, diademas, etc.).</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <p>Los alumnos extranjeros deben presentar: Copia certificada por notario público o certificado electrónico (debe incluir apostilla).</p>
+                            <p><strong>Plazo para el envío:</strong> Tienes hasta 5 meses a partir de hoy para enviar todos los documentos requeridos. Este es el primer recordatorio, y te enviaremos más conforme se acerque la fecha límite.</p>
+                            <p><strong>Pasos para cargar tus documentos:</strong></p>
+                            <ul style='list-style-type: none;'>
+                                <li>Ingresa a tu cuenta en el campus virtual.</li>
+                                <li>Dirígete al módulo de "Documentos".</li>
+                                <li>Selecciona la opción "Selecciona archivo" Sube cada uno de los documentos solicitados.</li>
+                                <li>Verifica que todos los documentos se hayan subido correctamente.</li>
+                                <li>Agradecemos tu colaboración y compromiso.</li>
+                            </ul>
+                            <p>¡Gracias!</p>
+                        </td>
+                    </tr>
+                    <tr style='background-color: #002F5D;'>
+                        <td style='color:#EF660E; font-size:16px;'>
+                            <p style="margin: 5px 0;">© 2024 Universidad Isep. Todos los derechos reservados.</p>
+                        </td>
+                        <td></td>
+                    </tr>
+                </table>
+            </field>
+            <field name="lang">es_ES</field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+
+        <!-- Plantilla de correo en inglés -->
+        <record id="automatic_students_document_success_email_months1_en" model="mail.template">
+            <field name="name">Automatic document success email months1 (English)</field>
+            <field name="model_id" ref="base.model_res_partner"/>
+            <field name="subject">Document Reminder</field>
+            <field name="email_from">{{  user.company_id.email }}</field>
+            <field name="email_to">{{ object.email_formatted }}</field>
+            <field name="body_html" type="html">
+                <table border="0" cellpadding="0" cellspacing="0">
+                    <tr style='background-color: #002F5D;'>
+                        <td>
+                            <h1 style="margin: 0; font-size: 24px; color:#EF660E;">University Isep</h1>
+                        </td>
+                        <td>
+                            <img src="Automation_student_documents_email/static/src/img/Logo-ISEP-Anaranjado.png" alt="Your Company Logo" style="max-width: 150px; margin-bottom: 10px;"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><strong style='font-size:16px'>Hello <t t-out="object.name or ''">Name!</t></strong></p>
+                            <p>I hope you are well. I want to inform you that, as part of your enrollment process at University Isep, we need you to send us certain documents to complete your file with the Ministry of Public Education.</p>
+                            <p><strong>Required documents:</strong></p>
+                            <ul>
+                                <li>Bachelor's degree: notarized copy or electronic title.</li>
+                                <li>Birth certificate: original document or electronic document.</li>
+                                <li>Complete study certificate with grades: notarized copy or electronic.</li>
+                                <li>Official identification: ID card, passport, or identity document.</li>
+                                <li>CURP: CURP copy (Unique Population Registry Code).</li>
+                                <li>Photograph:
+                                    <ul>
+                                        <li>Format: JPG/PNG in color.</li>
+                                        <li>Size: Rectangular (4x6 half letter).</li>
+                                        <li>File size: From 1 to 3 MB.</li>
+                                        <li>Background: Plain white (no textures).</li>
+                                        <li>Face: Completely uncovered and clear forehead.</li>
+                                        <li>Angle: From mid-chest up, showing both shoulders.</li>
+                                    </ul>
+                                    <p>Additional specifications:</p>
+                                    <p>For women:</p>
+                                    <ul>
+                                        <li>Hair tied back, showing physical features including ears.</li>
+                                        <li>Formal plain jacket (white or light).</li>
+                                        <li>Formal white blouse with collar (no neckline).</li>
+                                        <li>Basic makeup, soft/light tone.</li>
+                                        <li>No accessories (no earrings, chains, glasses, headbands, etc.).</li>
+                                    </ul>
+                                    <p>For men:</p>
+                                    <ul>
+                                        <li>Formal plain jacket (white or light).</li>
+                                        <li>Formal white shirt with collar (no neckline).</li>
+                                        <li>Formal plain tie (optional, light color, no pronounced stripes or doodles).</li>
+                                        <li>No beard or mustache.</li>
+                                        <li>No accessories (no earrings, chains, glasses, headbands, etc.).</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <p>Foreign students must present: Notarized copy or electronic certificate (must include apostille).</p>
+                            <p><strong>Deadline for submission:</strong> You have up to 5 months from today to submit all required documents. This is the first reminder, and we will send more as the deadline approaches.</p>
+                            <p><strong>Steps to upload your documents:</strong></p>
+                            <ul style='list-style-type: none;'>
+                                <li>Log in to your account in the virtual campus.</li>
+                                <li>Go to the "Documents" module.</li>
+                                <li>Select the "Select file" option Upload each of the requested documents.</li>
+                                <li>Verify that all documents have been uploaded correctly.</li>
+                                <li>We appreciate your cooperation and commitment.</li>
+                            </ul>
+                            <p>Thank you!</p>
+                        </td>
+                    </tr>
+                    <tr style='background-color: #002F5D;'>
+                        <td style='color:#EF660E; font-size:16px;'>
+                            <p style="margin: 5px 0;">© 2024 University Isep. All rights reserved.</p>
+                        </td>
+                        <td></td>
+                    </tr>
+                </table>
+            </field>
+            <field name="lang">en_US</field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+
+        <!-- Plantilla de correo en portugués de Brasil -->
+        <record id="automatic_students_document_success_email_months1_pt_br" model="mail.template">
+            <field name="name">Automatic document success email months1 (Portuguese) </field>
+            <field name="model_id" ref="base.model_res_partner"/>
+            <field name="subject">Lembrete de Documentos</field>
+            <field name="email_from">{{  user.company_id.email }}</field>
+            <field name="email_to">{{ object.email_formatted }}</field>
+            <field name="body_html" type="html">
+                <table border="0" cellpadding="0" cellspacing="0">
+                    <tr style='background-color: #002F5D;'>
+                        <td>
+                            <h1 style="margin: 0; font-size: 24px; color:#EF660E;">Universidade Isep</h1>
+                        </td>
+                        <td>
+                            <img src="Automation_student_documents_email/static/src/img/Logo-ISEP-Anaranjado.png" alt="Logotipo da Sua Empresa" style="max-width: 150px; margin-bottom: 10px;"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><strong style='font-size:16px'>Olá <t t-out="object.name or ''">Nome!</t></strong></p>
+                            <p>Espero que você esteja bem. Quero informá-lo que, como parte do seu processo de inscrição na Universidade Isep, precisamos que você nos envie certos documentos para completar seu arquivo no Ministério da Educação Pública.</p>
+                            <p><strong>Documentos necessários:</strong></p>
+                            <ul>
+                                <li>Diploma de bacharelado: cópia autenticada ou título eletrônico.</li>
+                                <li>Certidão de nascimento: documento original ou eletrônico.</li>
+                                <li>Certificado completo de estudos com notas: cópia autenticada ou eletrônico.</li>
+                                <li>Identificação oficial: carteira de identidade, passaporte ou documento de identidade.</li>
+                                <li>CPF: cópia do CPF (Cadastro de Pessoa Física).</li>
+                                <li>Fotografia:
+                                    <ul>
+                                        <li>Formato: JPG/PNG em cores.</li>
+                                        <li>Tamanho: Retangular (4x6 meia folha).</li>
+                                        <li>Tamanho do arquivo: De 1 a 3 MB.</li>
+                                        <li>Fundo: Branco liso (sem texturas).</li>
+                                        <li>Rosto: Totalmente descoberto e testa livre.</li>
+                                        <li>Ângulo: Do meio do peito para cima, mostrando ambos os ombros.</li>
+                                    </ul>
+                                    <p>Especificações adicionais:</p>
+                                    <p>Para mulheres:</p>
+                                    <ul>
+                                        <li>Cabelo preso para trás, mostrando os traços físicos incluindo as orelhas.</li>
+                                        <li>Blazer formal liso (branco ou claro).</li>
+                                        <li>Blusa branca formal com gola (sem decote).</li>
+                                        <li>Maquiagem básica, tom suave/leve.</li>
+                                        <li>Sem acessórios (sem brincos, correntes, óculos, tiaras, etc.).</li>
+                                    </ul>
+                                    <p>Para homens:</p>
+                                    <ul>
+                                        <li>Blazer formal liso (branco ou claro).</li>
+                                        <li>Camisa branca formal com gola (sem decote).</li>
+                                        <li>Gravata formal lisa (opcional, de cor clara, sem listras pronunciadas ou rabiscos).</li>
+                                        <li>Sem barba ou bigode.</li>
+                                        <li>Sem acessórios (sem brincos, correntes, óculos, tiaras, etc.).</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <p>Estudantes estrangeiros devem apresentar: Cópia autenticada por notário público ou certificado eletrônico (deve incluir apostila).</p>
+                            <p><strong>Prazo para envio:</strong> Você tem até 5 meses a partir de hoje para enviar todos os documentos necessários. Este é o primeiro lembrete, e enviaremos mais à medida que o prazo se aproximar.</p>
+                            <p><strong>Passos para enviar seus documentos:</strong></p>
+                            <ul style='list-style-type: none;'>
+                                <li>Faça login na sua conta no campus virtual.</li>
+                                <li>Vá para o módulo "Documentos".</li>
+                                <li>Selecione a opção "Selecionar arquivo" Envie cada um dos documentos solicitados.</li>
+                                <li>Verifique se todos os documentos foram enviados corretamente.</li>
+                                <li>Agradecemos sua colaboração e compromisso.</li>
+                            </ul>
+                            <p>Obrigado!</p>
+                        </td>
+                    </tr>
+                    <tr style='background-color: #002F5D;'>
+                        <td style='color:#EF660E; font-size:16px;'>
+                            <p style="margin: 5px 0;">© 2024 Universidade Isep. Todos os direitos reservados.</p>
+                        </td>
+                        <td></td>
+                    </tr>
+                </table>
+            </field>
+            <field name="lang">pt_BR</field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+    </data>
+</odoo>

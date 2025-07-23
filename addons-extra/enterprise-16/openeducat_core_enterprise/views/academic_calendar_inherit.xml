@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="academic_calendar_tree_view" model="ir.ui.view">
+            <field name="name">calendar.event.inherited.tree.view</field>
+            <field name="model">calendar.event</field>
+            <field name="inherit_id" ref="calendar.view_calendar_event_tree"/>
+            <field name="arch" type="xml">
+                <field name="description" position="after">
+                    <field name="academic_calendar" optional="hide"/>
+                    <field name="course_ids" widget="many2many_tags" optional="hide"/>
+                    <field name="batch_ids" widget="many2many_tags" optional="hide"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="academic_calendar_form_view" model="ir.ui.view">
+            <field name="name">calendar.event.inherited.form.view</field>
+            <field name="model">calendar.event</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="calendar.view_calendar_event_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet" position="before">
+                    <header/>
+                </xpath>
+                <xpath expr="//page[@name='page_details']" position="inside">
+                    <group col="2">
+                        <field name="academic_calendar" string="Academic?" invisible="1"/>
+                        <field name="course_ids" widget="many2many_tags"/>
+                        <field name="batch_ids" attrs="{'required': [('academic_calendar', '=', True)]}" widget="many2many_tags"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+</odoo>

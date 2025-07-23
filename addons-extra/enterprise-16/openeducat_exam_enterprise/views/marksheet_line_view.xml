@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="view_op_marksheet_line_inherited_tree" model="ir.ui.view">
+            <field name="name">op.marksheet.line.inherited.tree</field>
+            <field name="model">op.marksheet.line</field>
+            <field name="inherit_id" ref="openeducat_exam.view_op_marksheet_line_tree"/>
+            <field name="arch" type="xml">
+                <field name='status' position="after">
+                    <field name="progression_id" optional="hide"/>
+                    <field name="exam_name" optional="hide"/>
+                    <field name="exam_type" optional="hide"/>
+                    <field name="grand_total" optional="hide"/>
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                </field>
+            </field>
+        </record>
+
+
+        <record id="view_op_marksheet_line_inherited_form" model="ir.ui.view">
+            <field name="name">op.marksheet.line.inherited.form</field>
+            <field name="model">op.marksheet.line</field>
+            <field name="inherit_id" ref="openeducat_exam.view_op_marksheet_line_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='percentage']" position="after">
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                </xpath>
+            </field>
+        </record>
+
+
+
+</odoo>

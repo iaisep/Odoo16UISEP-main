@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t t-inherit="mail.CallParticipantCard" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('o_CallParticipantCard_overlayTop')]" position="inside">
+            <t t-if="callParticipantCard.rtcSession.isHandRaised">
+                <span class="o_CallParticipantCard_overlayTopElement" t-att-class="{'o-isMinimized': callParticipantCard.isMinimized }" title="hand" aria-label="hand">
+                    <i class="fa fa-hand-paper-o"/>
+                </span>
+            </t>
+            <t t-if="callParticipantCard.rtcSession.isEmoji">
+                <span title="Feedback Emoji" aria-label="Feedback Emoji">
+                    <t t-esc="callParticipantCard.rtcSession.isEmoji"/>
+                </span>
+            </t>
+            <span title="Badge Emoji" aria-label="Badge Emoji">
+                    <t t-esc="callParticipantCard.rtcSession.isbadgeemoji"/>
+            </span>
+        </xpath>
+    </t>
+</templates>

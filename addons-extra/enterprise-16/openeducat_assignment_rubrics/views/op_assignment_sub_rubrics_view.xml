@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="view_op_assignment_rubrics_sub_config_tree" model="ir.ui.view">
+            <field name="name">op.assignment.rubric.sub.line.tree</field>
+            <field name="model">op.assignment.rubric.sub.line</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="rubric_element_id"/>
+                    <field name="point"/>
+                    <field name="percentage"/>
+                    <field name="marks" optional="hide"/>
+                    <field name="rubrics_type" optional="hide"/>
+                    <field name="maximum" optional="hide"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_op_assignment_rubrics_sub_config_form" model="ir.ui.view">
+            <field name="name">op.assignment.rubric.sub.line.form</field>
+            <field name="model">op.assignment.rubric.sub.line</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Rubrics Elements Configuration">
+                    <sheet>
+                        <group>
+                            <field name="rubric_element_id" required="1"/>
+                        </group>
+                        <group>
+                            <field name="rubrics_type" invisible="1"/>
+                            <field name="point" attrs="{'invisible': [('rubrics_type', '!=', 'points')],
+                                    'required': [('rubrics_type', '=', 'points')]}"/>
+                            <field name="percentage" attrs="{'invisible': [('rubrics_type', '!=', 'percent')],
+                                    'required': [('rubrics_type', '=', 'percent')]}"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_op_assignment_rubric_config_view">
+            <field name="name">Rubrics Configuration</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.assignment.rubric.sub.line</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_op_assignment_rubric_config_view_form">
+            <field name="act_window_id" ref="act_op_assignment_rubric_config_view"/>
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_op_assignment_rubrics_sub_config_form"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_op_assignment_rubric_config_view_tree">
+            <field name="act_window_id" ref="act_op_assignment_rubric_config_view"/>
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_op_assignment_rubrics_sub_config_tree"/>
+        </record>
+
+</odoo>

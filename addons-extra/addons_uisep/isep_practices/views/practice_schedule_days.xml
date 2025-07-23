@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- View practice.schedule.days View Tree -->
+    <record id="view_practice_schedule_days_tree" model="ir.ui.view">
+        <field name="name">view.practice.schedule.days.tree</field>
+        <field name="model">practice.schedule.days</field>
+        <field name="arch" type="xml">
+            <tree string="Schedule Days">
+                <field name="day"/>
+                <field name="practice_schedule_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- View practice.schedule.days form -->
+    <record id="view_practice_schedule_days_form" model="ir.ui.view">
+        <field name="name">view.practice.schedule.days.form</field>
+        <field name="model">practice.schedule.days</field>
+        <field name="arch" type="xml">
+            <form string="Schedule Days">
+                <sheet>
+                    <group col="4">
+                        <field name="day" required="1"/>
+                        <field name="practice_schedule_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- View practice.schedule.days search -->
+    <record id="view_practice_schedule_days_search" model="ir.ui.view">
+        <field name="name">view.practice.schedule.days.search</field>
+        <field name="model">practice.schedule.days</field>
+        <field name="arch" type="xml">
+            <search string="Schedule Days">
+                <field name="day"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action practice.schedule.days -->
+    <record id="action_practice_schedule_days" model="ir.actions.act_window">
+        <field name="name">Practice Schedule Days</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">practice.schedule.days</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                There is no examples click here to add new Practice Schedule Days.
+            </p>
+        </field>
+    </record>
+
+</odoo>

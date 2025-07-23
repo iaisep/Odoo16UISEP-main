@@ -1,0 +1,11 @@
+<odoo noupdate="0">
+
+        <!-- Result template -->
+        <record id="op_result_template_3" model="op.result.template">
+            <field name="name">BBA Template</field>
+            <field name="result_date" eval='(DateTime.today())'/>
+            <field name="exam_session_id" ref="op_exam_session_4"/>
+            <field name="grade_ids" eval="[(6,0,[ref('openeducat_exam.op_grade_configuration_1'), ref('openeducat_exam.op_grade_configuration_2'), ref('openeducat_exam.op_grade_configuration_3'), ref('openeducat_exam.op_grade_configuration_4'), ref('openeducat_exam.op_grade_configuration_5'), ref('openeducat_exam.op_grade_configuration_6'), ref('openeducat_exam.op_grade_configuration_7')])]"/>
+        </record>
+
+</odoo>

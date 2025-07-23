@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Menus -->
+        <menuitem id="menu_melkart_typeform_root"
+                  parent="crm.crm_menu_config"
+                  sequence="22" name="Typeform"/>
+
+        <menuitem id="menu_melkart_typeform_form"
+                  parent="menu_melkart_typeform_root"
+                  action="action_typeform_menu"
+                  sequence="5" name="Forms"/>
+
+        <menuitem id="menu_melkart_typeform_model_submit"
+                  parent="menu_melkart_typeform_root"
+                  action="action_typeform_submit"
+                  sequence="10" name="Submits"/>
+                  
+    </data>
+</odoo>

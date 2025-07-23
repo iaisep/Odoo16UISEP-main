@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="res_partner_form_view_inherit" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="isep_sign_sale.res_partner_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='information_per']" position="after">
+                <page name="documents" string="Documentación del estudiante" attrs="{'invisible': [('country_id', '=', False)]}">
+                    <field name="ir_attachment_ids" context="{'default_partner_id': id, 'default_public': True}">
+                        <tree editable="bottom">
+                            <field name="public" invisible="1"/>
+                            <field name="partner_id" invisible="1"/>
+                            <field name="document"/>
+                            <field name="name"/>
+                            <field name="datas" filename="name" string="Archivo"/>
+                            <field name="mimetype" invisible="1"/>
+                            <field name="reason_for_observation"/>
+                            <field name="state"
+                                   widget="badge"
+                                   decoration-info="state == 'on_hold'"
+                                   decoration-success="state == 'accepted'"
+                                   decoration-warning="state == 'observed'"/>
+                            <button name="action_observe" type="object" string="Observar" class="btn btn-primary"/>
+                            <button name="action_accept" type="object" string="Aceptar" class="btn btn-primary"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+            <xpath expr="//field[@name='finalizacionestudios']" position="after">
+                <field name="birth_date"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_partner_form_inherit" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@class='alert alert-warning oe_edit_only'][1]" position="before">
+                <header>
+                    <button name="upload_document_list" type="object" string="Cargar lista de documentos del estudiante"
+                            class="btn btn-primary" attrs="{'invisible': [('country_id', '=', False)]}"/>
+                </header>
+            </xpath>
+        </field>
+    </record>
+</odoo>

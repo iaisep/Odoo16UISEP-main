@@ -1,0 +1,284 @@
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<section class="">
+    <section class="oe_container" id="wk_header">
+        <div class="mt32 mb32">
+            <h2 class="text-center" style="font-family: 'Open Sans', sans-serif;font-style: normal;font-weight: bold;font-size: 30px;line-height: 41px;text-align: center;color: #000000;">
+                Redis Session Store
+            </h2>
+            <h5 class="mt8 mb8 text-center" style="font-weight:500; font-size:18px; color:#484848; font-family:'Open Sans', sans-serif;">
+                <i>Stores the session in Redis in spite of the file system in werkzeug to increase the performance of cache.</i>
+            </h5>
+        </div>
+        <div class="row mt16 mb16 py-2 m-1" style="font-weight:500; font-size:18px; color:#484848; font-family:'Open Sans', sans-serif;">
+            <div class="container col-md-6  border-right" style="font-weight:500;line-height: 24px;font-size:16px;color:#484848;font-family: 'Open Sans', sans-serif; vertical-align: middle; display: grid;">
+                <p class="mb4 mt4 mr8">
+                    It will help to store and manage the session more easier and faster as the sessions are manage in main memory only
+                </p>
+            </div>
+            <div class="container col-md-6">
+                <h4 class="ml-md-3">Information</h4>
+                <!-- <div class="mt-2 ml-md-3" style="display:flex;">
+                    <span class="mr-2 my-auto"><img src="icon-youtube.png" alt="youtube"></span>
+                    <div style="font-weight: 600;font-size: 14px;line-height: 10px;" class="mt-2">
+                        Video Tutorial
+                    </div>
+                </div>
+                <div class="ml-md-3" style="display:flex;">
+                    <a target="new" href="https://www.youtube.com/watch?v=XYZ" style="font-size:15px; margin-top:0.2rem; color:#484848; text-decoration:underline">https://www.youtube.com/watch?v=XYZ</a>
+                </div> -->
+                <div class="mt-2 ml-md-3" style="display:flex">
+                    <span class="ml-1 mr-2 my-auto"><img src="icon-user-guide.png" alt="user-guide"></span>
+                    <div style="font-weight: 600;font-size: 14px;line-height: 10px;" class="mt-2">
+                        User Guide
+                    </div>
+                </div>
+                <div class="ml-md-3" style="display:flex;">
+                    <span style="font-size:15px; margin-top:0.2rem">https://webkul.com/blog/odoo-redis-session-store/</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="card bg-white rounded mb24 mw-100 p-3" style="padding-top:0px !important; padding-bottom:0px !important;">
+        <div class="row">
+            <div class="col-md-7 col-12">
+                <h3 class="d-flex align-items-start" style="padding-top:1rem !important;">
+                    <span style="font-family: 'Open Sans', sans-serif; font-style: normal; font-weight: 600; font-size: 20px; line-height: 30px; color: #333333;">About Redis</span>
+                </h3>
+                <div style="font-family: 'Open Sans', sans-serif; font-style: normal; font-weight: normal; font-size: 16px; line-height: 27px; color: #646464;padding-bottom:1rem !important;">
+                    <p class="mb0">
+                        Redis is an in-memory data structure store, used as a database, cache and message broker.
+                        It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, geospatial indexes with radius queries and streams.
+                        Redis has built-in replication, Lua scripting, LRU eviction, transactions and different levels of on-disk
+                        persistence, and provides high availability via Redis Sentinel and automatic partitioning with Redis Cluster.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-5 col-12 justify-content-center align-self-center text-center">
+                <img src="illustration.png" alt="illustration" style="width:100%;height:100%;">
+            </div>
+        </div>
+    </section>
+
+    <section class="card bg-white rounded mb24 mw-100 p-3">
+        <h3 class="d-flex align-items-start">
+            <span style="font-family: 'Open Sans', sans-serif; font-style: normal; font-weight: 600; font-size: 20px; line-height: 30px; color: #333333;">Why Redis ??</span>
+        </h3>
+        <div style="font-family: 'Open Sans', sans-serif; font-style: normal; font-weight: normal; font-size: 16px; line-height: 27px; color: #646464;">
+            <p class="mb0">
+                It will help to store and manage the session more easier and faster as the sessions are managed in main memory only.
+            </p>
+            <p class="mb0">
+                <b style="color: #646464;">Exceptionally Fast : </b> Redis is very fast and can perform about 110000 SETs per second, about 81000 GETs per second.
+                You can use the redis-benchmark utility for doing the same on your machine.
+            </p>
+            <p class="mb0">
+                <b style="color: #646464;">Supports Rich data types : </b> Redis natively supports most of the datatypes that most developers already know like list, set, sorted set, hashes.
+                This makes it very easy to solve a variety of problems because we know which problem can be handled better by which data type.
+            </p>
+            <p class="mb0">
+                <b style="color: #646464;">Operations are atomic :</b> All the Redis operations are atomic, which ensures that if two clients concurrently access Redis server will get the updated value.
+            </p>
+        </div>
+    </section>
+
+    <section class="card bg-white rounded mb24 mw-100 p-3">
+        <h3 class="d-flex align-items-start">
+            <span style="font-family: 'Open Sans', sans-serif; font-style: normal; font-weight: 600; font-size: 20px; line-height: 30px; color: #333333;">Completely configure your Redis extension</span>
+        </h3>
+        <div style="font-family: 'Open Sans', sans-serif; font-style: normal; font-weight: normal; font-size: 16px; line-height: 27px; color: #646464;">
+            <p class="mb0 font-weight-bold">1. Firstly install the redis</p>
+            <p class="mb0 font-weight-bold">Steps to install redis in debian or ubuntu based server:-</p>
+            <ul class="mb0 pl0" style="font-family: 'Open Sans', sans-serif; font-style: normal; font-weight: normal; font-size: 16px; line-height: 27px; color: #646464;">
+                <li>sudo apt-get update</li>
+                <li>sudo apt install redis-server</li>
+                <li>these commands will install redis in the server</li>
+                <li>and by default the connection host will be (localhost/127.0.0.1)</li>
+                <li>and port will be 6379 on which redis work</li>
+                <li>You can run the redis by redis-cli and get all keys by KEYS *</li>
+            </ul>
+            <div class="mt8 mb16 shadow rounded p-3 border-left border-info justify-content-center" style="border-width:thick !important; border-color:#6C63FF !important; color:black">
+                <p class="mb0"><span class="font-weight-bold">Note: </span>At the beginning there will be empty list of Keys</p>
+            </div>
+            <p class="mb0 font-weight-bold">2. Then install redis library for Python by command pip3 install redis</p>
+            <ul class="mb0 pl0" style="font-family: 'Open Sans', sans-serif; font-style: normal; font-weight: normal; font-size: 16px; line-height: 27px; color: #646464;">
+                <li>Then in server config file add following things:-</li>
+                <li>server_wide_modules=web,base,wk_redis_session</li>
+                <li>it will install wk_redis_session first</li>
+                <li>redis_session=True</li>
+            </ul>
+            <p class="mb0 font-weight-bold">It will let the odoo session store in redis if we type redis_session to be True else it will let werkzeug to store the session in .local file session</p>
+            <ul class="mb0 pl0" style="font-family: 'Open Sans', sans-serif; font-style: normal; font-weight: normal; font-size: 16px; line-height: 27px; color: #646464;">
+                <li>Configurations of redis session:-</li>
+                <ul class="mb0 pl0" style="list-style-type: disc; font-family: 'Open Sans', sans-serif; font-style: normal; font-weight: normal; font-size: 16px; line-height: 27px; color: #646464;">
+                    <li>redis_host = host ip of redis by default it will store localhost</li>
+                    <li>redis_port = port number of redis by default it will store 6379</li>
+                    <li>redis_expire = expiry of the session in seconds by default session will expires in 5 days (432000 Seconds)</li>
+                    <li>if your redis server have ssl mode then you will have to pass the path of ssl certificate file</li>
+                    <li>For Example:- <br />redis_ssl_ca_certs = path of ssl certs(if having) bydefult it is None</li>
+                </ul>
+            </ul>
+        </div>
+    </section>
+
+    <section class="mb8 mw-100">
+        <h3 class="d-flex align-items-start">
+            <span style="font-family: 'Open Sans', sans-serif; font-style: normal; font-weight: 600; font-size: 24px; line-height: 40px; color: #333333;">Highlighted Features</span>
+        </h3>
+        <div style="font-family: 'Open Sans', sans-serif; font-style: normal; font-weight: normal; font-size: 16px; line-height: 20px; color: #646464;">
+            <p class="mb0">
+                Below is the highlighted features of Redis Session Store
+            </p>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-sm-12 pb16 pt16">
+                <div class="card bg-white rounded p-3" style="height:100%;">
+                    <div class="d-flex">
+                        <img src="icon-1.png" alt="Icon-1">
+                    </div>
+                    <div class="pt8" style="font-family: 'Open Sans', sans-serif; font-style: normal; font-weight: normal; font-size: 15px; line-height: 26px; color: #747474; text-align:justify">
+                        <p class="mb0">Store and manage the session efficiently</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-12 pb16 pt16">
+                <div class="card bg-white rounded p-3" style="height:100%;">
+                    <div class="d-flex">
+                        <img src="icon-2.png" alt="Icon-2">
+                    </div>
+                    <div class="pt8" style="font-family: 'Open Sans', sans-serif; font-style: normal; font-weight: normal; font-size: 15px; line-height: 26px; color: #747474; text-align:justify">
+                        <p class="mb0">Supports Rich Data Types</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-12 pb16 pt16">
+                <div class="card bg-white rounded p-3" style="height:100%;">
+                    <div class="d-flex">
+                        <img src="icon-3.png" alt="Icon-3">
+                    </div>
+                    <div class="pt8" style="font-family: 'Open Sans', sans-serif; font-style: normal; font-weight: normal; font-size: 15px; line-height: 26px; color: #747474; text-align:justify">
+                        <p class="mb0">Works on Atomic Operations</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-12 pb16 pt16">
+                <div class="card bg-white rounded p-3" style="height:100%;">
+                    <div class="d-flex">
+                        <img src="icon-4.png" alt="Icon-4">
+                    </div>
+                    <div class="pt8" style="font-family: 'Open Sans', sans-serif; font-style: normal; font-weight: normal; font-size: 15px; line-height: 26px; color: #747474; text-align:justify">
+                        <p class="mb0">Exceptionally Fast</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb24 mw-100">
+        <h3 class="d-flex align-items-start mb-0">
+            <span style="font-family: 'Open Sans', sans-serif; font-style: normal; font-weight: 600; font-size: 24px; line-height: 40px; color: #333333;">Detailed Features List</span>
+        </h3>
+        <div class="row">
+            <div class="col-md-6 col-sm-12 pb16 pt16">
+                <div class="card bg-white rounded p-3" style="height:100%;">
+                    <h4 class="d-flex align-items-start">
+                        <span style="font-family: 'Open Sans', sans-serif; font-style: normal; font-weight: 600; font-size: 20px; line-height: 30px; color: #333333;">Configure the Redis Session with your Odoo Server easily</span>
+                    </h4>
+                    <ul class="mb0 pl0" style="font-family: 'Open Sans', sans-serif; font-style: normal; font-weight: normal; font-size: 16px; line-height: 27px; color: #555555;">
+                        <li>Odoo Redis Session module provides the necessary structure to help you configure Redis with your Odoo server.</li>
+                        <li>The module allows you to save the Odoo sessions on In-memory Redis Store on the same server or a third party service.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 pb16 pt16">
+                <div class="card bg-white rounded p-3" style="height:100%;">
+                    <h4 class="d-flex align-items-start">
+                        <span style="font-family: 'Open Sans', sans-serif; font-style: normal; font-weight: 600; font-size: 20px; line-height: 30px; color: #333333;">Access the data much faster than usual.</span>
+                    </h4>
+                    <ul class="mb0 pl0" style="font-family: 'Open Sans', sans-serif; font-style: normal; font-weight: normal; font-size: 16px; line-height: 27px; color: #555555;">
+                        <li>Since the cache is stored on Main memory instead of disk storage, accessing this data becomes much faster.</li>
+                        <li>All the Redis operations are atomic to get the updated value every time.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card bg-white rounded">
+                <h4 class="p-3" style="margin:0px; font-family: 'Open Sans', sans-serif; font-style: normal; font-weight: 600; font-size: 18px; line-height: 22px; text-align: center; color: #333333;">
+                    Setup &amp; Configuration
+                </h4>
+                <span href="send_to_redis.png">
+                    <img style="width:100%; padding:0px 15px 15px" src="send_to_redis.png">
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <section class="pt24" id="webkul_support">
+      <div class="row p-3">
+        <div class="col-12">
+          <h2 class="text-center">Help and Support</h2>
+          <p class="mb-2 text-center" style="font-size:16px; color:#333; font-weight:400">
+            Get Immediate support for any of your query
+          </p>
+        </div>
+        <div class="col-12">
+          <p class="text-center px-5" style="font-size:14px; color:#555; font-weight:normal">
+            You will get 90 days free support for any doubt, queries, and bug
+            fixing (excluding data recovery) or any type of issue related to this
+            module.
+          </p>
+        </div>
+        <div class="mx-auto col-lg-9 mb-4 oe_screenshot">
+          <div class="row align-items-center justify-content-center mx-0 p-3">
+            <div class="col-sm-2 text-center pr-0">
+              <img src="mail.png" alt="mail" class="img img-fluid">
+            </div>
+            <div class="col-xl-7 col-sm-10">
+              <p class="my-2" style="color:#555; font-weight:bold">
+                Write a mail to us:
+              </p>
+              <b class="text-primary" style="font-size:18px">support@webkul.com</b>
+              <p class="my-2" style="font-size:14px; color:#777; font-weight:normal">
+                Any queries or want any extra features? Just drop a mail to our
+                support.
+              </p>
+            </div>
+            <div class="col-xl-3 offset-xl-0 float-xl-right col-sm-10 offset-sm-2 float-left mt16">
+              <a href="mailto:support@webkul.com" style="padding:10px 22px; background-color:#2335d7; font-size:14px; color:#fff"><i class="fa fa-pencil-square-o" style="color:white; margin-right:4px"></i>Write To US</a>
+            </div>
+          </div>
+        </div>
+        <div class="mx-auto col-lg-9 oe_screenshot">
+          <div class="row align-items-center justify-content-center mx-0 p-3">
+            <div class="col-sm-2 text-center pr-0">
+              <img src="support-icon.png" alt="support-icon" class="img img-fluid">
+            </div>
+            <div class="col-sm-10">
+              <p class="my-2" style="font-weight:bold; color:#555">
+                Get in touch with our Expert:
+              </p>
+              <b class="text-primary text-break" style="font-size:18px">https://webkul.uvdesk.com/en/customer/create-ticket/</b>
+              <p class="my-2" style="font-weight:normal; font-size:14px; color:#777">
+                Have any technical queries, want extra features, or anything else?
+                Our team is here to answer all your questions. Just Raise A
+                Support Ticket.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="oe_container">
+        <div class="col-12">
+            <!-- Piwik Image Tracker-->
+            <img src="http://odooimg.webkul.com/analytics/piwik/piwik.php?idsite=3&rec=1&action_name=Redis-Session-Store&url=https://apps.openerp.com/apps/modules/14.0/wk_redis_session&uid=wk_redis_session" style="border:0" alt="" />
+            <!-- End Piwik -->
+        </div>
+    </section>
+</section>

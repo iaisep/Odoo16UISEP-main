@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="action_report_certificate_recognition_id">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.basic_layout">
+                    <style>
+                        @font-face {
+                            font-family: 'Simonetta_regular';
+                            src: url('/isep_gradebook/static/src/fonts/simonetta_regular.ttf') format('truetype');
+                            font-weight: normal;
+                            font-style: normal;
+                        }
+                        @font-face {
+                            font-family: 'Simonetta_black';
+                            src: url('/isep_gradebook/static/src/fonts/simonetta_black.ttf') format('truetype');
+                            font-weight: normal;
+                            font-style: normal;
+                        }
+                        body {
+                            margin: 0 !important;
+                            padding: 0 !important;
+                        }
+                        .page {                            
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            bottom: 0;    
+                            width: 100%;                    
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            overflow: hidden; 
+                            page-break-after: never;
+                        }
+                        .content {
+                            position: absolute;
+                            top: 0px;
+                            left: 10px;
+                            width: calc(100% - 60px);
+                            height: calc(100% - 200px);
+                            padding: 0;
+                            margin: 0;
+                            width: 100%;
+                        }
+                        .row {
+                            margin-bottom: 10px;
+                        }
+                        .texto { 
+                            font-size: 25px; 
+                            margin: 20px 0; 
+                            width: 100%;
+                            text-align: center;
+                        }
+                        .texto2 { 
+                            font-size: 28px; 
+                            margin: 20px 0; 
+                            width: 100%;
+                            text-align: center;
+
+                        }
+                        .s_regular{
+                            font-family: 'Simonetta_regular', sans-serif;
+                        }
+                        .s_black{
+                            font-family: 'Simonetta_black', sans-serif;
+                        }
+                    </style>
+                    <div style="position: relative; bottom: 0px; left: 0px; width: 100%; text-align: center;page-break-after: never;">
+                        <img src="/isep_gradebook/static/src/img_certificate_recog/image_fond.png" style="max-width: 100%; display: block; margin: 0 auto;"/>
+                    </div>
+                    <div class="page">
+                        <div class="content">
+                            <div class="row" style="position: relative; top: 90px; text-align: right; width: 95%; font-weight: bold;">
+                                <div style="text-align: right; width: 100%; padding-right: 70px;">    
+                                    <t t-set="meses" t-value="[
+                                        'Enero', 'Febrero', 'Marzo', 'Abril', 
+                                        'Mayo', 'Junio', 'Julio', 'Agosto', 
+                                        'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+                                    ]"/>
+                                    <t t-set="mes_numero"  t-value="int(time.strftime('%m'))"/>
+                                    <t t-set="mes_nombre" t-value="meses[mes_numero - 1]"/>
+                                    <h1 class="s_regular" style="font-size: 20px;">
+                                        <span t-esc="mes_nombre"/> de 
+                                        <span t-esc="time.strftime('%Y')"/>
+                                    </h1>
+                                </div>
+                            </div>
+                            <div class="row" style="position: relative; top: 119px; text-align: center;width: 100%;">
+                               <h2 class="s_regular" style="color: #ffffff !important;">Otorga el presente Certificado de Reconocimiento a:</h2>
+                            </div>
+                            <div class="row" style="position: relative; top: 140px; text-align: center;width: 100%;">
+                               <h1>
+                                    <span t-field="o.student_id.name"/>
+                               </h1>
+                            </div>
+                            <div class="row" style="position: absolute; top: 310px; text-align: center;width: 100%;">
+                                <p class="texto s_regular">Por su destacado desempeño académico,  durante el último cuatrimestre cursado.</p>
+                            </div>
+                            <!-- bajar mas///////////////////////////////////////////////////////////// -->
+                            <div class="row" style="position: absolute; top: 355px; text-align: center;width: 100%;">                                
+                                <p class="texto s_black">
+                                    <strong>Por su excelencia académica en:</strong>
+                                </p>                                
+                            </div>
+                            <div class="row" style="position: absolute; top: 414px; text-align: center;width: 100%;">
+                                <p class="s_regular" style="font-size: 25px;text-align: center;width: 100%;"><span t-field="o.course_id.name"/></p>                             
+                            </div>
+                            <div class="row" style="position: absolute; top: 431px; text-align: center;width: 100%;">
+                                <p class="texto2 s_black">                                                                      
+                                    <strong>Reflejo de su dedicación y constancia.</strong>
+                                </p>
+                            </div>
+                            <div class="row" style="position: absolute; top: 472px; text-align: center;width: 100%;">
+                                <p class="texto2 s_black"><strong>Su compromiso y determinación inspiran a su comunidad académica y</strong></p>
+                            </div>
+                            <div class="row" style="position: absolute; top: 514px; text-align: center;width: 100%;">
+                                <p class="texto2 s_black"><strong>serán clave en su trayectoria profesional.</strong></p>
+                            </div>
+                            <div class="row" style="position: absolute; left: 570px; top: 610px; text-align: center;">
+                                <img src="/isep_gradebook/static/src/img_certificate_recog/firm.png" style="max-width: 100px;"/>
+                            </div>
+                            <div class="row" style="position: absolute; top: 719px; text-align: center;width: 100%;">
+                                <p class="texto s_regular">Marc Gaja</p>
+                            </div>
+                            <div class="row" style="position: absolute; top: 739px; text-align: center;width: 100%;">
+                                <p class="texto s_regular">Director General</p>
+                            </div>
+                            <div class="row" style="position: absolute; top: 760px; text-align: center;width: 100%;">
+                                <p class="texto s_regular">Universidad ISEP</p>
+                            </div>
+                        </div>                        
+                    </div>
+                </t>
+
+            </t>
+        </template>
+
+    </data>
+</odoo>

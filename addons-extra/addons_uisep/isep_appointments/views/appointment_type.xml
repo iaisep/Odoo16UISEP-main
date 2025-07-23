@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--APPOINTMENT TYPE FORM INHERIT-->
+    <record id="appointment_type_view_form" model="ir.ui.view">
+        <field name="name">APPOINTMENT TYPE FORM INHERIT</field>
+        <field name="model">appointment.type</field>
+        <field name="inherit_id" ref="appointment.appointment_type_view_form"/>
+        <field name="arch" type="xml">
+            <field name="location_id" position="after">
+                <field name="is_private_appo"/>
+            </field>
+        </field>
+    </record>
+</odoo>

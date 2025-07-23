@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="payment_provider_form" model="ir.ui.view">
+        <field name="name">Flywire Provider Form</field>
+        <field name="model">payment.provider</field>
+        <field name="inherit_id" ref="payment.payment_provider_form"/>
+        <field name="arch" type="xml">
+            <group name="provider_credentials" position="inside">
+                <group attrs="{'invisible': [('code', '!=', 'flywire')]}" 
+                       name="flywire_credentials">
+                    <field name="flywire_shared_key"
+                           string="Shared Key"
+                          attrs="{'required': [('code', '=', 'flywire'),('state', '!=', 'disabled')]}" />
+
+                    <label for="flywire_api_key"/>
+                    <div class="o_row" col="2">
+                    <field name="flywire_api_key"
+                           string="API Key"
+                          attrs="{'required': [('code', '=', 'flywire'),('state', '!=', 'disabled')]}" />
+                     <button string="GET Recipients" type="object" name="action_flywire_get_recipients" class="btn-primary" attrs="{'invisible': ['|',('flywire_recipient_ids', '!=', [] ),('flywire_api_key', '=', False )]}"  />
+                    </div>
+                    
+                    <field name="flywire_frontend_api_key" string="Frontend API key" />
+                    <field name="flywire_recipient_priority" attrs="{'required': [('code', '=', 'flywire'),('state', '!=', 'disabled')]}"   />
+                
+                    <field name="flywire_default_recipient_id" options="{'no_create':True,'no_open':True}"  attrs="{'required': [('code', '=', 'flywire'),('state', '!=', 'disabled')]}"   />
+                                        
+                </group>
+                
+                <field name="flywire_recipient_ids" string="Recipients" attrs="{'invisible': [('code', '!=', 'flywire')]}"  >
+                    <tree editable="bottom" >
+                        <field name="recipient_id" />
+                        <field name="external_code" />
+                        <field name="name" />
+                        <field name="country" />
+                        <field name="state" />
+                    </tree>                    
+                </field>
+                
+            </group>
+
+        </field>
+    </record>
+
+</odoo>

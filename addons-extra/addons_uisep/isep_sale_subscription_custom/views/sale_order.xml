@@ -1,0 +1,258 @@
+<odoo>
+    <data>
+        
+        <record id="isep_sale_subscription_invisible_form" model="ir.ui.view">
+            <field name="name">sale.order.invisible.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale_subscription.sale_subscription_order_view_form"/>
+            <field name="arch" type="xml">
+                	<xpath expr="//label[@name='recurrence_label']" position="attributes"> 
+                        <attribute name="invisible">1</attribute>
+                    </xpath>
+                    <xpath expr="//div[@name='recurrence_block']" position="attributes"> 
+                        <attribute name="invisible">1</attribute>
+                    </xpath>
+
+                    <xpath expr="//field[@name='next_invoice_date'][@groups='!sales_team.group_sale_manager']" position="attributes">
+                        <attribute name="invisible">1</attribute>
+                    </xpath>
+                    <xpath expr="//field[@name='next_invoice_date'][@groups='sales_team.group_sale_manager']" position="attributes">
+                        <attribute name="invisible">1</attribute>
+                    </xpath>
+
+            </field>
+        </record>
+
+
+        <record id="isep_custom_sale_subscription_form" model="ir.ui.view">
+            <field name="name">sale.order.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+
+
+                <xpath expr="//page[@name='customer_signature']" position="after">
+                    <page string="Suscripción" name="sale_schedule" >
+                        <field name="stage_id"  attrs="{'invisible':[('recurrence_id','=', False)]}"  widget="statusbar" options="{'clickable': '1'}"/>
+                        
+                        <group string="Configuración de recurrencia" >
+                            <group style="font-weight: 800 !important;">
+                                <field name="recurrence_id" groups="!sales_team.group_sale_manager" attrs="{'readonly': [('stage_category', 'in', ['progress', 'paused', 'closed'])]}" domain="[('unit', 'not in', ['hour', 'day'])]" options="{'no_create': True}"/>
+                                <field name="recurrence_id" groups="sales_team.group_sale_manager" attrs="{'readonly': [('subscription_management', '=', 'upsell')]}" domain="[('unit', 'not in', ['hour', 'day'])]" options="{'no_create': True}"/>
+
+                                <label for="term_number_id"/>
+                                <div class="o_row">
+                                    <field name="term_number_id" style="background: #01666b38;padding-left: 1.5rem;" options="{'no_open':True,'no_create': True}"/>
+                                    <button name="term_number_value" type="object" string="Buscar plazo" class="btn-link mb-1 px-0" icon="fa-refresh" attrs="{'invisible': [ ('term_number_id', '!=', False)] }"/>
+                                </div>
+
+                              
+                                <label for="payment_token_id"/>
+                                <div class="o_row">
+                                    <field name="payment_token_id" />
+                                    <button name="open_payment_method_url" type="object" string="Renovar token " class="btn-info mb-1 px-0" icon="fa-refresh" />
+                                    <button name="only_recurring_create_invoice" type="object" string="Forzar Pago " confirm="Antes de confirmar verifique que realmente sea necesario intentar procesar un pago." class="btn-warning mb-1 px-0" icon="fa-refresh" attrs="{'invisible': [ ('payment_token_id', '=', False)] }"/>
+                                </div>
+                            </group>
+                            <group>
+                                <field name="term_custom" invisible="1"/>
+                                <field name="term_number" style="font-weight: 800;" force_save="1" attrs="{'readonly':[('term_custom','=',False)]}"/>
+
+
+                                <label name="start_date_label" for="start_date" string="Fecha de inicio" />
+                                <div class="o_row" name="start_date_block">
+                                    <field name="start_date" attrs="{'readonly': [('subscription_management', '=', 'renew')],'invisible': [('recurrence_id','=', False)]}"/>
+                                    <span attrs="{'invisible': ['|', ('recurrence_id', '=', False), ('subscription_management', '=', 'upsell')]}" style="font-weight: 800;">hasta</span>
+                                    <field name="end_date" attrs="{'invisible': ['|', ('recurrence_id', '=', False), ('subscription_management', '=', 'upsell')]}"/>
+                                </div>
+
+                                <field name="next_invoice_date" string="Siguiente factura" groups="!sales_team.group_sale_manager" attrs="{                         'invisible': [ ('recurrence_id', '=', False)],'required': [('recurrence_id', '!=', False), ('state', 'in', ['sale', 'done'])],                         'readonly': 1,                         }"/>
+                                <field name="next_invoice_date" string="Siguiente factura" groups="sales_team.group_sale_manager" attrs="{                         'invisible': [('recurrence_id', '=', False)], 'required': [('recurrence_id', '!=', False), ('state', 'in', ['sale', 'done'])],                         }"/>
+                            </group>
+                        </group>
+                        
+                        <group string="Información">
+                            <group>
+                                <field name="amount_no_recurring_taxinc"/>
+                            </group>
+                            <group>
+                                <field name="amount_recurring_taxinc"/>
+                                <field name="amount_due_total"/>
+                                
+                            </group>
+                        </group>
+
+                        <group string="Facturas a revisar" attrs="{'invisible': [('invoice_warning_ids', '=', [])]}" colspan="2"  >
+                            
+                            <field name="invoice_warning_ids"  nolabel="1" colspan="2" decoration-warning="1==1"   style="background: #f5ae00;" context="{'form_view_ref': 'account.view_move_form', 'default_move_type': 'out_invoice'}"  >
+                                <tree create="0" edit="0" >
+                                    
+                                    <button class="oe_stat_button" name="open_full_view_invoice" type="object" icon="fa-arrow-right" />
+                     
+                                    <field name="made_sequence_hole" invisible="1"/>
+                                    <field name="name" decoration-bf="1" decoration-danger="made_sequence_hole" string="Factura" />
+                                    <field name="invoice_partner_display_name"  groups="base.group_user" string="Cliente"/>
+                                    <field name="invoice_date" string="Fecha"/>
+                                    <field name="invoice_date_due" string="Vencimiento" widget="remaining_days" optional="show" attrs="{'invisible': [['payment_state', 'in', ('paid', 'in_payment', 'reversed')]]}"/>
+                                    <field name="invoice_origin" optional="hide" string="Source Document"/>
+                                    <field name="invoice_user_id" optional="hide" invisible="context.get('default_move_type') not in ('out_invoice', 'out_refund','out_receipt')" string="Salesperson" widget="many2one_avatar_user"/>
+                                    <field name="activity_ids" widget="list_activity" optional="show"/>
+                                    <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}" optional="hide"/>
+                                    <field name="company_id" groups="!base.group_multi_company" invisible="1"/>
+                                    <field name="amount_total" string="Total" sum="Total" decoration-bf="1" optional="show"/>
+                                    <field name="amount_residual" string="Amount Due" sum="Amount Due" optional="hide"/>
+                                    <field name="currency_id" groups="base.group_multi_currency" optional="hide"/>
+                                    <field name="company_currency_id" invisible="1"/>
+                                    <field name="payment_state" widget="badge" decoration-danger="payment_state == 'not_paid'" decoration-warning="payment_state in ('partial', 'in_payment')" decoration-success="payment_state in ('paid', 'reversed')" attrs="{'invisible': [('payment_state', 'in', ('invoicing_legacy'))]}" optional="show"/>
+                                    <field name="state" widget="badge" decoration-success="state == 'posted'" decoration-info="state == 'draft'" optional="show"/>
+                                    <field name="move_type" invisible="context.get('default_move_type', True)"/>
+                                    <!-- <button name="disassociate_record" confirm="¿Desvincular registro?" title="¿Desvincular" icon="fa-times" type="object"/> -->
+                                    
+                                </tree>
+                             </field>
+                        </group>
+                        
+                        <group string="Plazos de la suscripción" colspan="2"   >
+                            <div colspan="2" class="o_row" >
+
+                                <div class="text-start" colspan="1" >
+                                    <button name="create_subscription_schedule" class="btn-success" icon="fa-bars" type="object" string="Crear Cronograma"/>
+                                    <!-- <button name="create_subscription_schedule" class="btn-danger" icon="fa-file-pdf-o" type="object" string="PDF: Estado de cuenta"/> -->
+                                </div>
+                                <div class="text-end" colspan="1" >
+                                    <!-- <button name="clear_subscription_schedule" class="btn-danger" type="object" string="DEV: Limpiar"/> -->
+                                    <button name="sync_invoice_to_term" class="btn-info" type="object" icon="fa-refresh" string="Auto Relacionar"
+                                    help="Relaciona facturas asociadas a la orden de venta con un plazo de Pago." />
+                                    <button name="view_search_all_invoice" class="btn-warning" icon="fa-search" type="object" string="Facturas" help="Todas las facturas del cliente de todas las ordenes." />
+                                    <button name="wizard_update_date_due"   class="btn-primary text-capitalize" icon="fa-calendar" type="object" string="Prorrogar"   />
+                                    <button name="open_expand_view_tree_term" help="Abrir en vista completa los plazos de pago" class="btn-dark" type="object" icon="fa-expand" />
+                                    
+                                    
+                                </div>
+                            </div>
+                        </group>
+
+                        <notebook>
+                            <page name="plazos" string="Plazos">
+                                <field name="subscription_schedule" options="{'no_create': True}" colspan="2" nolabel="1" >
+                                    <tree delete="0" create="1"  decoration-warning="warning_count > 0" >
+                                        <button class="oe_stat_button" name="open_full_view_term" type="object" icon="fa-arrow-right" />
+                        
+                                        <field name="term_label"/>
+                                        <field name="date_due" widget="remaining_days"/>
+                                        <field name="warning_count" attrs="{'invisible': [('warning_count', '=', 0)]}" string="Wg"  decoration-warning="warning_count > 0"  />
+                                        <button class="oe_stat_button text-warning" attrs="{'invisible': [('warning_count', '=', 0)]}"                                     
+                                        name="open_full_view_term"  type="object" icon="fa-exclamation-triangle text-warning" />
+                                        <field name="activity_ids" string="Actividad" widget="list_activity" optional="show"/>
+                                        <field name="amount_recurring_taxinc" />
+                                        <field name="total_invoiced" />
+                                        <field name="total_paid" />
+                                        <field name="currency_id"/>
+                                        <field name="invoice_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                                        <field name="payment_state" widget="badge" 
+                                            decoration-danger="payment_state == 'not_paid'" 
+                                            decoration-dark="payment_state == 'cancel'" 
+                                            decoration-warning="payment_state == 'partial'" 
+                                            decoration-success="payment_state == 'paid'"  
+                                            />
+                                    </tree>
+                                </field>
+                            </page>
+
+                            <page name="old_payment" string="Pagos anteriores">
+                                <field name="sale_note_inv">
+                                    <tree editable="top" delete="0" >
+                                        <field name="order_id" invisible="1" />
+                                        <field name="type" />
+                                        <field name="name"  required="1" />
+                                        <field name="note" />
+                                        <field name="currency_id"  readonly="1" options="{'no_open': True}" />
+                                        <field name="amount_total_payment" />
+                                        <field name="amount_total_invoice" />
+                                        <button name="unlink" confirm="¿Eliminar registro?" title="Eliminar" icon="fa-times" type="object" />
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+
+                        
+                        
+
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- <record id="inherit_view_id_sale_order_stage" model="ir.ui.view">
+            <field name="name">inherit_view_id_sale_order_stage</field>
+            <field name="model">sale.order.stage</field>
+            <field name="inherit_id" ref="sale_subscription.sale_subscription_stage_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='fold']" position="after">
+                    <field name="view_cartera"/>
+                </xpath>
+            </field>
+        </record> -->
+
+        <!-- <record id="inherit_sale_subscription_view_search" model="ir.ui.view">
+            <field name="name">inherit.sale.order.search</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale_subscription.sale_subscription_view_search"/>
+            <field name="arch" type="xml">
+                <xpath expr="//search" position="inside">
+                    
+                </xpath>
+            </field>
+        </record>
+
+        <record id="isep_sale_subscription_cartera_tree" model="ir.ui.view">
+            <field name="name">isep_sale_subscription_cartera_tree</field>
+            <field name="model">sale.order</field>
+            <field name="arch" type="xml">
+                <tree string="Cartera"  create="false">
+                    <field name="name" readonly="1" />
+                    <field name="partner_id" readonly="1"/>
+                    <field name="date_order" optional="show"/>
+                    <field name="create_date" optional="show"/>
+                    <field name="next_invoice_date" string="Fecha siguiente factura" attrs="{'invisible': [('stage_category', '!=', 'progress')]}" optional="show"/>
+                    <field name="activity_ids" widget="list_activity" optional="hide"/>
+                    <field name="pricelist_id" invisible="1"/>
+                    <field name="user_id" optional="show" widget="many2one_avatar_user"/>
+                    <field name="currency_id" invisible="0"/>
+                    <field name="team_id" optional="hide"/>
+                    <field name="company_id" groups="base.group_multi_company" readonly="1" optional="hide"/>
+                    <field name="amount_untaxed" optional="show"/>
+                    <field name="percentage_satisfaction" optional="hide"/>
+                    <field name="amount_total" decoration-bf="1" widget='monetary' options="{'currency_field': 'currency_id'}" optional="show"/>
+                    <field name="amount_recurring_taxinc" decoration-bf="1" widget='monetary' options="{'currency_field': 'currency_id'}" optional="show"/>
+                    <field name="suscription_comment" optional="show"/>
+                    <field name="stage_id" widget="badge" decoration-info="stage_category == 'draft'" decoration-success="stage_category == 'progress'"/>
+                    <field name="to_renew" invisible="1"/>
+                    <field name="stage_category" invisible="1"/>                    
+                </tree>
+            </field>
+        </record>
+
+
+
+        <record id="sale_subscription_saleorder_cartera_action" model="ir.actions.act_window">
+            <field name="name">Cartera</field>
+            <field name="res_model">sale.order</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="isep_sale_subscription_custom.isep_sale_subscription_cartera_tree"/>
+            <field name="search_view_id" ref='sale_subscription.sale_subscription_view_search'/>
+            <field name="domain">[('is_subscription', '=', True), 
+                ('stage_id.view_cartera', '=', True)
+            ]</field>
+            <field name="context">{
+                'default_is_subscription': 1,
+                'group_by': 'currency_id'
+            }</field>
+        </record> -->
+
+        <!-- <menuitem action="sale_subscription_saleorder_cartera_action" name="Cartera vista" id="menu_sale_subscription_cartera" sequence="41" parent="sale_subscription.menu_sale_subscription"/> -->
+
+
+        
+    </data>
+</odoo>

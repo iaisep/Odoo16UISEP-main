@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="dec_document_xml">
+        <Dec version="3.0"
+             t-att-tipoCertificado="doc.tipo_certificado or ''"
+             t-att-folioControl="doc.folio_control or ''"
+             t-att-sello="doc.sello_dreoe or ''"
+             t-att-certificadoResponsable="certificate_key"
+             t-att-noCertificadoResponsable="certificate_number"
+             xmlns="https://www.siged.sep.gob.mx/certificados/">
+            <ServicioFirmante t-att-idEntidad="doc.ides_ipes or ''"/>
+            <Ipes t-att-idNombreInstitucion="doc.ides_ipes or ''"
+                  t-att-idCampus="doc.id_campus or ''"
+                  t-att-idEntidadFederativa="doc.state_id.code or 0">
+                <Responsable t-att-curp="doc.resp_curp or ''"
+                             t-att-nombre="doc.resp_name or ''"
+                             t-att-primerApellido="doc.resp_primer_apellido or ''"
+                             t-att-segundoApellido="doc.resp_segundo_apellido or ''"
+                             t-att-idCargo="doc.id_cargo or ''"/>
+            </Ipes>
+            <Rvoe t-att-numero="doc.rvoe or ''"
+                  t-att-fechaExpedicion="doc.fecha_rvoe.strftime('%Y-%m-%dT%H:%M:%S') if doc.fecha_rvoe else ''"/>
+            <Carrera t-att-idCarrera="doc.programa_estudio or ''"
+                     t-att-idTipoPeriodo="doc.programa_estudio_tipo or ''"
+                     t-att-clavePlan="doc.clave_plan or ''"
+                     t-att-idNivelEstudios="doc.nivel_estudios or ''"
+                     t-att-calificacionMinima="doc.calificacion_minima or 0"
+                     t-att-calificacionMaxima="doc.calificacion_maxima or 10"
+                     t-att-calificacionMinimaAprobatoria="doc.calificacion_minima_aprobatoria or 6.0"/>
+            <Alumno t-att-numeroControl="doc.numero_control or ''"
+                    t-att-curp="doc.curp_alumno or ''"
+                    t-att-nombre="doc.alumno_nombre or ''"
+                    t-att-primerApellido="doc.primer_apellido or ''"
+                    t-att-segundoApellido="doc.segundo_apellido or ''"
+                    t-att-idGenero="doc.id_genero or ''"
+                    t-att-fechaNacimiento="doc.fecha_nacimiento.strftime('%Y-%m-%dT%H:%M:%S') if doc.fecha_nacimiento else ''"/>
+            <Expedicion t-att-idTipoCertificacion="doc.id_tipo_certificacion or ''"
+                        t-att-fecha="doc.fecha_expedicion.strftime('%Y-%m-%dT%H:%M:%S') if doc.fecha_expedicion else ''"
+                        t-att-idLugarExpedicion="doc.state_id.code or ''"/>
+            <Asignaturas t-att-total="doc.total or 0"
+                         t-att-asignadas="doc.asignadas or 0"
+                         t-att-promedio="doc.promedio or 0.0"
+                         t-att-totalCreditos="doc.total_creditos or 0"
+                         t-att-creditosObtenidos="doc.creditos_obtenidos or 0"
+                         t-att-numeroCiclos="doc.numero_ciclos or 0">
+                <t t-foreach="doc.asignaturas_line" t-as="asignatura">
+                    <Asignatura t-att-idAsignatura="asignatura.clave_asignatura or ''"
+                                t-att-ciclo="asignatura.ciclo or ''"
+                                t-att-calificacion="asignatura.calificacion or 0.0"
+                                t-att-idObservaciones="asignatura.id_observaciones or False" 
+                                t-att-idTipoAsignatura="asignatura.id_tipo_asignatura or ''"
+                                t-att-creditos="asignatura.creditos or 0"/>
+                </t>
+            </Asignaturas>
+        </Dec>
+    </template>
+</odoo>

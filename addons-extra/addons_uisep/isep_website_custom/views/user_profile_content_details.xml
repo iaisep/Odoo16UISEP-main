@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template id="user_profile_content_details">
+
+        <!-- ========== CONTENT DETAILS ========== -->
+
+        <div class="col-12 col-md-8 col-lg-9 position-relative">
+            <ul class="nav nav-tabs o_wprofile_nav_tabs flex-nowrap" role="tablist" id="profile_extra_info_tablist">
+                <li class="nav-item">
+                    <a role="tab" aria-controls="Campus" href="#profile_tab_content_about" t-attf-class="nav-link #{'active' if not active_tab or active_tab == 'about' else ''}" data-bs-toggle="tab">Contenido del programa</a>
+                </li>
+            </ul>
+            <div class="tab-content py-4 o_wprofile_tabs_content mb-4" id="profile_extra_info_tabcontent">
+                <div role="tabpanel" t-attf-class="tab-pane #{ 'show active' if not active_tab or active_tab == 'about' else '' }" id="profile_tab_content_about">
+
+
+                    <div class="o_wprofile_email_validation_container mb16 mt16">
+                        <t t-call="website_profile.email_validation_banner">
+                            <t t-set="redirect_url" t-value="'/profile/user/%s' % user.id"/>
+                            <t t-set="additional_validation_email_message"/>
+                        </t>
+                    </div>
+
+
+                    <t t-if="channel">
+
+                        <!-- Curso -->
+                        <t t-set="course_id" t-value="env['op.course'].sudo().browse(op_course_id)"/>
+                        <!-- Asignaturas -->
+                        <t t-set="subject_ids" t-value="course_id.subject_ids"/>
+                        <!-- Asignaturas en las que esta inscrito el estudiante -->
+                        <!-- para determinar si una materia esta activa o no, usaremos  slide_id in slide_channel_active_ids -->
+                        <t t-set="slide_channel_active_ids" t-value="user.partner_id.slide_channel_ids.ids"/>                        
+                        <!-- Heredado antiguo cursos secundarios o no obligatorias-->
+                        <t t-set="slide_channel_ids" t-value="course_id.slide_channel_ids"/>
+
+                        <div class="mb32">
+                            <h5 class="border-bottom pb-1"><t t-out="course_id.name"/></h5>
+                            <div class="row">
+                                
+                                <!-- channel_partner_ids dentro de op.course era un campo donde antes se colocaban las materias secundarias -->
+                                <div class="col-12 col-lg-6" t-foreach="slide_channel_ids" t-as="slide_id">
+                                    <div class="card mb-2">
+                                        <div class="card-body o_wprofile_slides_course_card_body p-0 d-flex" t-attf-style="#{'pointer-events: none;cursor: default;' if not slide_id.id in slide_channel_active_ids else ''}" t-attf-onclick="location.href='/slides/#{slide_id}';">
+                                            <div class="o_wslides_background_image ps-5 pe-4 rounded-start" t-attf-style="#{'filter: grayscale(0.7);' if not slide_id.id in slide_channel_active_ids else ''} height: 72px; background-image: url('/isep_website_custom/static/src/img/icon-subject.png');"/>
+                                            <div class="p-2 w-100" style="font-size: 13px;font-weight: 600;">
+                                                <span class="mt-0 mb-1" t-field="slide_id.name"/>   
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+
+                                <div class="col-12 col-lg-6" t-foreach="subject_ids" t-as="subject">
+                                    <div class="card mb-2">                                        
+                                        <!-- Obtener el id del contenido -->
+                                        <t t-set="slide_id" t-value="subject.slide_channel_id.id"/>
+                                        <div class="card-body o_wprofile_slides_course_card_body p-0 d-flex" t-attf-style="#{'pointer-events: none;cursor: default;' if not slide_id in slide_channel_active_ids else ''}" t-attf-onclick="location.href='/slides/#{slide_id}';">
+                                            <div class="o_wslides_background_image ps-5 pe-4 rounded-start" t-attf-style="#{'filter: grayscale(0.7);' if not slide_id in slide_channel_active_ids else ''} height: 72px; background-image: url('/isep_website_custom/static/src/img/icon-subject.png');"/>
+                                            <div class="p-2 w-100" style="font-size: 13px;font-weight: 600;">
+                                                <span class="mt-0 mb-1" t-if="subject.code"><t t-esc="subject.code"/> - </span>
+                                                <span class="mt-0 mb-1" t-field="subject.name"/>   
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div t-if="not subject_ids" class="text-muted d-inline-block">En proceso</div>
+                            </div>
+                        </div>
+                    </t>
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </template>
+
+
+
+
+</odoo>

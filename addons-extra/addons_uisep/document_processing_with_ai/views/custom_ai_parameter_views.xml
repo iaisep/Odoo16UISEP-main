@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <!-- Acción -->
+    <record id="action_custom_ai_parameter" model="ir.actions.act_window">
+        <field name="name">AI Parameters</field>
+        <field name="res_model">custom_ai_parameter</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help">Manage custom AI parameters here.</field>
+    </record>
+
+    <!-- Menú -->
+    <menuitem id="custom_ai_parameter_father"
+              name="Custom AI"
+              sequence="10"
+              parent="base.menu_custom"
+              groups="base.group_system"/>
+    <!--    <menuitem id="custom_ai_parameter_child" parent="custom_ai_parameter_father"/>-->
+
+    <menuitem id="custom_ai_parameter_child"
+              name="Custom AI Parameters"
+              parent="custom_ai_parameter_father"
+              action="action_custom_ai_parameter"
+              sequence="10"
+              groups="base.group_system"/>
+
+    <!-- Vista Tree -->
+    <record id="view_custom_ai_parameter_tree" model="ir.ui.view">
+        <field name="name">custom.ai.parameter.tree</field>
+        <field name="model">custom_ai_parameter</field>
+        <field name="arch" type="xml">
+            <tree string="Custom AI Parameters">
+                <field name="type_document_"/>
+                <field name="parameters_for_gpt"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista Form -->
+    <record id="view_custom_ai_parameter_form" model="ir.ui.view">
+        <field name="name">custom.ai.parameter.form</field>
+        <field name="model">custom_ai_parameter</field>
+        <field name="arch" type="xml">
+            <form string="Custom AI Parameter">
+                <sheet>
+                    <header>
+                        <button name="prueba_de_conexion" string="Testing connection for API-GPT" type="object"/>
+                    </header>
+
+                    <group>
+                        <!-- Campo para seleccionar el tipo de documento -->
+                        <field name="type_document_" options="{'vertical': true}"/>
+
+                        <!-- Campo para entrada de texto relacionada con chat GPT -->
+                        <field name="chat_gpt_" attrs="{'invisible':True}"/>
+                    </group>
+
+                    <!-- Grupo que se muestra solo si 'chat_gpt_' es verdadero -->
+                    <group attrs="{'invisible': [('chat_gpt_', '=', False)]}" style="width: 100%;">
+
+                        <!-- Campo de texto que ocupa t?odo el ancho de la página -->
+                        <field name="parameters_for_gpt"
+                               attrs="{'required': [('chat_gpt_', '=', 'True')]}"
+                               widget="text"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

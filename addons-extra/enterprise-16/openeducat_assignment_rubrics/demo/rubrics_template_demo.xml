@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="rubric_template_demo1" model="op.rubric.template">
+            <field name="name">Template for CIVIL</field>
+            <field name="rubrics_type">points</field>
+            <field name="state">draft</field>
+        </record>
+
+        <record id="rubric_template_demo2" model="op.rubric.template">
+            <field name="name">General Template</field>
+            <field name="rubrics_type">percent</field>
+            <field name="state">in_use</field>
+        </record>
+
+        <record id="rubric_template_demo3" model="op.rubric.template">
+            <field name="name">Template for COMPUTER</field>
+            <field name="rubrics_type">points</field>
+            <field name="state">in_use</field>
+        </record>
+
+        <record id="rubric_template_demo4" model="op.rubric.template">
+            <field name="name">Template for BOA Sem-1</field>
+            <field name="rubrics_type">percent</field>
+            <field name="state">in_use</field>
+        </record>
+
+</odoo>

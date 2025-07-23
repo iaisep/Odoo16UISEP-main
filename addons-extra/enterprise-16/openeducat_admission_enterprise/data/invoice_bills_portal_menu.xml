@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="website_menu_invoice_bills" model="openeducat.portal.menu">
+        <field name="name">Invoices &amp; Bills</field>
+        <field name="menu_ref_name">Invoices &amp; Bills</field>
+        <field name="link">/my/invoices</field>
+        <field name="active">True</field>
+        <field name="sequence" type="int">105</field>
+        <field name="background_color">#E959AD</field>
+        <field name="is_visible_to_parent">False</field>
+        <field name="icon_image" type="base64"
+               file="openeducat_admission_enterprise/static/img/invoice.png"/>
+    </record>
+
+    <menuitem id="menu_op_admission_analysis"
+              name="Admission Analysis"
+              parent="openeducat_admission.menu_admission_report_root"
+              sequence="40"
+              action="openeducat_admission_enterprise.act_admission_analysis_pivot_view"
+              groups="openeducat_admission.group_op_admission_admin"/>
+
+</odoo>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="view_course_lms_blog_form">
+        <field name="name">op.course.form.blog.inherit</field>
+        <field name="model">op.course</field>
+        <field name="inherit_id" ref="openeducat_lms.view_op_lms_course_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook/page[@name='categories']" position="after">
+                <page name="gamification challenge" string="Gamification Challenge">
+                    <group name="gamification challenge">
+                        <field name="challenge_ids" nolabel="1"/>
+                    </group>
+                </page>
+            </xpath>
+
+            <xpath expr="//field[@name='visibility']" position="after">
+                <field name="course_attempt_reward"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_op_course_tree_lms_gamification" model="ir.ui.view">
+        <field name="name">op.course.lms.gamification.tree</field>
+        <field name="model">op.course</field>
+        <field name="inherit_id" ref="openeducat_lms.view_op_lms_course_tree"/>
+        <field name="arch" type="xml">
+            <field name="active" position="before">
+                <field name="challenge_ids" widget="many2many_tags" optional="hide"/>
+                <field name="course_attempt_reward" optional="hide"/>
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_course_material_form">
+        <field name="name">op.course.form.blog.inherit</field>
+        <field name="model">op.material</field>
+        <field name="inherit_id" ref="openeducat_lms.view_op_course_material_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='total_time']" position="after">
+                <field name="quiz_attempt_reward"
+                       attrs="{'invisible': [('material_type', '!=', 'quiz')], 'required': [('material_type', '=', 'quiz')]}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_course_material_tree_gamification" model="ir.ui.view">
+        <field name="name">op.material.tree.view.inherit</field>
+        <field name="model">op.material</field>
+        <field name="inherit_id" ref="openeducat_lms.view_op_course_material_tree"/>
+        <field name="arch" type="xml">
+            <field name="active" position="before">
+                <field name="quiz_attempt_reward" attrs="{'invisible': [('material_type', '!=', 'quiz')]}" optional="hide"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <!-- View crm.lead form -->
+    <record id="view_crm_lead_summary_form" model="ir.ui.view">
+        <field name="name">view.crm.lead.form</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='lead']" position="after">
+                <page name="call_summary" string="Resumen de llamada">
+                    <group>
+                        <group>
+                            <field name="next_action_date" />                        
+                        </group>
+                        <group>
+                            <field name="last_action_date" />                        
+                        </group>
+                        <group>
+                        
+                        </group>
+                    </group> 
+                    <field name="summary_ids">
+                        <tree>
+                            <field name="crm_lead_id" />
+                            <field name="partner_id" />
+                            <field name="summary" />
+                            <field name="call_summary"/>
+                            <field name="call_number"/>
+                            <field name="create_date" string="Fecha de creación" readonly="1"/>
+                        </tree>
+                        <form string="Resúmen de llamadas lead">
+                            <group>
+                                <field name="crm_lead_id" />
+                                <field name="partner_id" />
+                                <field name="summary" />
+                                <field name="call_summary"/>
+                                <field name="call_number"/>
+                                <field name="create_date" string="Fecha de creación" readonly="1"/>
+                            </group>
+                        </form>
+                    </field>
+                </page>
+            </xpath>
+            <xpath expr="//field[@name='date_conversion']" position="after">
+                <field name="manage_reason" />
+                <field name="action_request_lead" />
+                <field name="gestion_mo" />
+            </xpath>
+
+
+            <xpath expr="//page[@name='lead']/group/group/field[@name='campaign_id']" position="replace">
+                <field name="gr_campaingn"/>
+            </xpath>
+            <xpath expr="//page[@name='lead']/group/group/field[@name='medium_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//page[@name='lead']/group/group/field[@name='gr_campaingn']" position="after">
+                <field name="gr_term"/>
+                <field name="gr_gadid"/>
+                <field name="gr_content"/>
+            </xpath>
+            <xpath expr="//page[@name='lead']/group/group/field[@name='source_id']" position="replace">
+                <field name="gr_source"/>
+            </xpath>
+
+        </field>
+    </record>
+    <record id="view_inherit_crm_stage_form" model="ir.ui.view">
+        <field name="name">view_inherit_crm_stage_form</field>
+        <field name="model">crm.stage</field>
+        <field name="inherit_id" ref="crm.crm_stage_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='requirements']" position="after">
+                <separator string="Configurar accion estado llamadas"/>
+                <group name="configura_pestana_llamada">
+                    <field name="is_initial" />
+                    <field name="is_final" />
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

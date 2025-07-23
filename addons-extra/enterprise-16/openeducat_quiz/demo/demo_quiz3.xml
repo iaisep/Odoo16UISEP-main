@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="op_qz_ctg_b" model="op.quiz.category">
+            <field name="name">Category Biology</field>
+            <field name="code">biology122</field>
+        </record>
+
+        <record id="op_qz_biology1" model="op.quiz">
+            <field name="name">Biology Quiz</field>
+            <field name="categ_id" ref="op_qz_ctg_b"/>
+            <field name="quiz_config">quiz_bank_selected</field>
+            <field name="time_config">True</field>
+            <field name="time_limit_hr">1</field>
+            <field name="time_limit_minute">30</field>
+            <field name="no_of_attempt">1</field>
+            <field name="description">This quiz is based on Statistics Maths
+            </field>
+            <field name="state">open</field>
+            <field name="quiz_html">Biology is the study of life.
+                In this course you will learn the concepts of General
+                Biology from two complementary perspectives. First, you
+                will gain the knowledge you need for academic and or
+                professional development. Second, you will learn how
+                Biology relates to day to day living.
+            </field>
+        </record>
+        <record id="op_qu_bnk_type_biology1" model="op.question.bank.type">
+            <field name="name">Biology</field>
+        </record>
+        <record id="op_qu_bnk_b" model="op.question.bank">
+            <field name="name">Biology Test</field>
+            <field name="bank_type_id" ref="op_qu_bnk_type_biology1"/>
+        </record>
+        <record id="op_c_qb1" model="op.question.bank.line">
+            <field name="name">Which of the following launched vehicle was used for the Project Apollo?</field>
+            <field name="mark" type="float">1.0</field>
+             <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/ViNcBQ8cDA0'"/>
+            <field name="document_id">ViNcBQ8cDA0</field>
+            <field name="bank_id" ref="op_qu_bnk_b"/>
+        </record>
+        <record id="op_c_qb1_a01" model="op.question.bank.answer">
+            <field name="name">Electron (Rocket Lab)</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qb1"/>
+        </record>
+        <record id="op_c_qb1_a02" model="op.question.bank.answer">
+            <field name="name">Saturn Launch Vehicle</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="question_id" ref="op_c_qb1"/>
+        </record>
+        <record id="op_c_qb1_a03" model="op.question.bank.answer">
+            <field name="name">Falcon Heavy launch</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qb1"/>
+        </record>
+        <record id="op_c_qb1_a04" model="op.question.bank.answer">
+            <field name="name">Rocket Lab Test Launch</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qb1"/>
+        </record>
+
+        <record id="op_qz_ln6_b1" model="op.quiz.line">
+            <field name="name">Which of the following launched vehicle was used for the Project Apollo?</field>
+            <field name="mark" type="float">1.0</field>
+             <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/ViNcBQ8cDA0'"/>
+            <field name="document_id">ViNcBQ8cDA0</field>
+            <field name="quiz_id" ref="op_qz_biology1"/>
+            <field name="que_id" ref="op_c_qb1"/>
+        </record>
+
+        <record id="op_qz_ln6_b1_l01" model="op.quiz.answer">
+            <field name="name">Electron (Rocket Lab)</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_b1"/>
+        </record>
+        <record id="op_qz_ln6_b1_l02" model="op.quiz.answer">
+            <field name="name">Saturn Launch Vehicle</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="line_id" ref="op_qz_ln6_b1"/>
+        </record>
+        <record id="op_qz_ln6_b1_l03" model="op.quiz.answer">
+            <field name="name">Falcon Heavy launch</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_b1"/>
+        </record>
+        <record id="op_qz_ln6_b1_l04" model="op.quiz.answer">
+            <field name="name">Rocket Lab Test Launch</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_b1"/>
+        </record>
+
+
+        <record id="op_c_qb2" model="op.question.bank.line">
+            <field name="name">Which of the following was the first Venus exploration mission of the European Space
+                Agency?
+            </field>
+             <field name="mark" type="float">1.0</field>
+             <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/DSumuIXkoPc'"/>
+            <field name="document_id">DSumuIXkoPc</field>
+            <field name="bank_id" ref="op_qu_bnk_b"/>
+        </record>
+        <record id="op_c_qb2_a01" model="op.question.bank.answer">
+            <field name="name">Magellan Spacecraft</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qb2"/>
+        </record>
+        <record id="op_c_qb2_a02" model="op.question.bank.answer">
+            <field name="name">Venus Express</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="question_id" ref="op_c_qb2"/>
+        </record>
+        <record id="op_c_qb2_a03" model="op.question.bank.answer">
+            <field name="name">Vega program</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qb2"/>
+        </record>
+        <record id="op_c_qb2_a04" model="op.question.bank.answer">
+            <field name="name">Venera Mission</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qb2"/>
+        </record>
+
+        <record id="op_qz_ln6_b2" model="op.quiz.line">
+            <field name="name">Which of the following was the first Venus exploration mission of the European Space
+                Agency?
+            </field>
+            <field name="mark" type="float">1.0</field>
+             <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/DSumuIXkoPc'"/>
+            <field name="document_id">DSumuIXkoPc</field>
+            <field name="quiz_id" ref="op_qz_biology1"/>
+            <field name="que_id" ref="op_c_qb2"/>
+        </record>
+
+        <record id="op_qz_ln6_b2_l01" model="op.quiz.answer">
+            <field name="name">Magellan Spacecraft</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_b2"/>
+        </record>
+        <record id="op_qz_ln6_b2_l02" model="op.quiz.answer">
+            <field name="name">Venus Express</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="line_id" ref="op_qz_ln6_b2"/>
+        </record>
+        <record id="op_qz_ln6_b2_l03" model="op.quiz.answer">
+            <field name="name">Vega program</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_b2"/>
+        </record>
+        <record id="op_qz_ln6_b2_l04" model="op.quiz.answer">
+            <field name="name">Venera Mission</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_b2"/>
+        </record>
+
+        <record id="op_c_qb3" model="op.question.bank.line">
+            <field name="name">Which of the following was the first artificial satellite?</field>
+            <field name="mark" type="float">1.0</field>
+             <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/g2WaJdflqT0'"/>
+            <field name="document_id">g2WaJdflqT0</field>
+            <field name="bank_id" ref="op_qu_bnk_b"/>
+        </record>
+        <record id="op_c_qb3_a01" model="op.question.bank.answer">
+            <field name="name">Lander Beagle</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qb3"/>
+        </record>
+        <record id="op_c_qb3_a02" model="op.question.bank.answer">
+            <field name="name">Sojourner</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qb3"/>
+        </record>
+        <record id="op_c_qb3_a03" model="op.question.bank.answer">
+            <field name="name">Apollo 11</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="question_id" ref="op_c_qb3"/>
+        </record>
+        <record id="op_c_qb3_a04" model="op.question.bank.answer">
+            <field name="name">Sputnik</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="question_id" ref="op_c_qb3"/>
+        </record>
+
+        <record id="op_qz_ln6_b3" model="op.quiz.line">
+            <field name="name">Which of the following was the first artificial satellite?</field>
+              <field name="mark" type="float">1.0</field>
+             <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/g2WaJdflqT0'"/>
+            <field name="document_id">g2WaJdflqT0</field>
+            <field name="quiz_id" ref="op_qz_biology1"/>
+            <field name="que_id" ref="op_c_qb3"/>
+        </record>
+
+        <record id="op_qz_ln6_b3_l01" model="op.quiz.answer">
+            <field name="name">Lander Beagle</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_b3"/>
+        </record>
+        <record id="op_qz_ln6_b3_l02" model="op.quiz.answer">
+            <field name="name">Sojourner</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_b3"/>
+        </record>
+        <record id="op_qz_ln6_b3_l03" model="op.quiz.answer">
+            <field name="name">Apollo 11</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_b3"/>
+        </record>
+        <record id="op_qz_ln6_b3_l04" model="op.quiz.answer">
+            <field name="name">Sputnik</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="line_id" ref="op_qz_ln6_b3"/>
+        </record>
+
+
+        <record id="op_c_qb4" model="op.question.bank.line">
+            <field name="name">Calcitriol is the biologically active form of which among the following Vitamins?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/SRxuKNknq-Q'"/>
+            <field name="document_id">SRxuKNknq-Q</field>
+            <field name="bank_id" ref="op_qu_bnk_b"/>
+        </record>
+
+        <record id="op_c_qb4_a01" model="op.question.bank.answer">
+            <field name="name">Vitamin B</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qb4"/>
+        </record>
+        <record id="op_c_qb4_a02" model="op.question.bank.answer">
+            <field name="name">Vitamin C</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qb4"/>
+        </record>
+        <record id="op_c_qb4_a03" model="op.question.bank.answer">
+            <field name="name">Vitamin D</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="question_id" ref="op_c_qb4"/>
+        </record>
+        <record id="op_c_qb4_a04" model="op.question.bank.answer">
+            <field name="name">Vitamin E</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qb4"/>
+        </record>
+
+        <record id="op_qz_ln6_b4" model="op.quiz.line">
+            <field name="name">Calcitriol is the biologically active form of which among the following Vitamins?</field>
+            <field name="mark" type="float">1.0</field>
+             <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/SRxuKNknq-Q'"/>
+            <field name="document_id">SRxuKNknq-Q</field>
+            <field name="quiz_id" ref="op_qz_biology1"/>
+            <field name="que_id" ref="op_c_qb4"/>
+        </record>
+
+        <record id="op_qz_ln6_b4_l01" model="op.quiz.answer">
+            <field name="name">Vitamin B</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_b4"/>
+        </record>
+        <record id="op_qz_ln6_b4_l02" model="op.quiz.answer">
+            <field name="name">Vitamin C</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_b4"/>
+        </record>
+        <record id="op_qz_ln6_b4_l03" model="op.quiz.answer">
+            <field name="name">Vitamin D</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="line_id" ref="op_qz_ln6_b4"/>
+        </record>
+        <record id="op_qz_ln6_b4_l04" model="op.quiz.answer">
+            <field name="name">Vitamin E</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_b4"/>
+        </record>
+
+        <record id="op_c_qb55" model="op.question.bank.line">
+            <field name="name">Sun have Which Of the following Vitamins?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/YEnxruA-bsk'"/>
+            <field name="document_id">YEnxruA-bsk</field>
+            <field name="bank_id" ref="op_qu_bnk_b"/>
+        </record>
+        <record id="op_c_qb55_a01" model="op.question.bank.answer">
+            <field name="name">Vitamin B</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qb55"/>
+        </record>
+        <record id="op_c_qb55_a02" model="op.question.bank.answer">
+            <field name="name">Vitamin C</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qb55"/>
+        </record>
+        <record id="op_c_qb55_a03" model="op.question.bank.answer">
+            <field name="name">Vitamin D</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="question_id" ref="op_c_qb55"/>
+        </record>
+        <record id="op_c_qb55_a04" model="op.question.bank.answer">
+            <field name="name">Vitamin E</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qb55"/>
+        </record>
+
+        <record id="op_qz_ln6_b55" model="op.quiz.line">
+            <field name="name">Sun have Which Of the following Vitamins?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/YEnxruA-bsk'"/>
+            <field name="document_id">YEnxruA-bsk</field>
+            <field name="quiz_id" ref="op_qz_biology1"/>
+            <field name="que_id" ref="op_c_qb55"/>
+        </record>
+
+        <record id="op_qz_ln6_b55_l01" model="op.quiz.answer">
+            <field name="name">Vitamin B</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_b55"/>
+        </record>
+        <record id="op_qz_ln6_b55_l02" model="op.quiz.answer">
+            <field name="name">Vitamin C</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_b55"/>
+        </record>
+        <record id="op_qz_ln6_b55_l03" model="op.quiz.answer">
+            <field name="name">Vitamin D</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="line_id" ref="op_qz_ln6_b55"/>
+        </record>
+        <record id="op_qz_ln6_b55_l04" model="op.quiz.answer">
+            <field name="name">Vitamin E</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_b55"/>
+        </record>
+
+</odoo>

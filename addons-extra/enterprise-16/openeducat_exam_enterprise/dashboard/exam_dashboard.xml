@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!--    <template id="assets_backend_exam" name="openeducat_exam_enterprise_assets" inherit_id="web.assets_backend">-->
+<!--        <xpath expr="." position="inside">-->
+<!--            <link rel="stylesheet" href="/openeducat_exam_enterprise/static/src/scss/styles.scss"/>-->
+<!--            <script type="text/javascript" src="/openeducat_exam_enterprise/static/src/js/Chart.min.js"></script>-->
+<!--        </xpath>-->
+<!--    </template>-->
+
+    <record id="action_main_exam_dashboard" model="ir.actions.client">
+        <field name="name">Dashboard</field>
+        <field name="tag">exam_main_dashboard</field>
+        <field name="target">main</field>
+    </record>
+
+    <menuitem id="menu_exam_dashboard"
+              name="Exam Dashboard"
+              parent="openeducat_exam.menu_op_exam_root"
+              action="exam_dashboard_act"
+              sequence="1"
+              groups="openeducat_exam.group_op_exam_admin,openeducat_exam.group_op_exam_user"/>
+</odoo>

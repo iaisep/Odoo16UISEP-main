@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="app_gradebook_form" model="ir.ui.view">
+            <field name="name">app_gradebook_form</field>
+            <field name="model">app.gradebook</field>
+            <field name="arch" type="xml">
+                <form create="0" edit="1" delete="0">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="total_percent" widget="percentpie" />
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Rubric Template" name="rubric">
+                                <field name="gradebook_template_ids">
+                                    <tree>
+                                        <field name="name" />
+                                        <field name="type" />
+                                        <field name="weight" />     
+                                        <field name="qty" attrs="{'invisible':[('type','in',('interaction'))] }" />
+                                        <!-- <field name="points" attrs="{'invisible':[('type','!=','foro')] }" /> -->
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <group>
+                                                <field name="name" />
+                                                <field name="type" />
+                                            </group>
+                                            <group>
+                                                <field name="weight" />
+                                                <field name="qty" attrs="{'invisible':[('type','in',('interaction'))] }" />  
+                                                <!-- <field name="points" attrs="{'invisible':[('type','!=','foro')] }" />  -->                                                                                     
+                                            </group>
+                                        </group>
+                                    </form>
+                                </field>
+
+                            </page>
+
+
+                            <page string="Opciones" name="options">
+                                <group>
+                                    <group>
+                                        <field name="grading_scale" />
+                                    </group>
+                                    <group>                                        
+                                        <field name="round_subject_result" />
+                                        <field name="round_subject_avg" />
+                                        <field name="round_subject_final" />                                        
+                                    </group>
+                                    
+                                </group>
+                            </page>
+
+                            <page string="PDF Report" name="pdf">
+                                <label string="Variables" for="content_pdf_top" />
+                                <div><strong>#estudiante#</strong> : Muestra el nombre del estudiante, Ejemplo: Juan Gonzales Miranda</div> 
+                                <div><strong>#curso#</strong> : Muestra el nombre del programa academico, Ejemplo: Licenciatura en ingenieria, Maestria en psicologia</div> 
+                                <div><strong>#cod_curso#</strong> : Muestra el codigo del programa academico, Ejemplo: L001, M001</div> 
+                                <div><strong>#grupo#</strong> : Muestra el grupo del estudiante, Ejemplo: GLI042024, GMI032024</div> 
+                                <div><strong>#admision#</strong> : Muestra el numero de matricula del estudiante, Ejemplo: AD00248, AD00250</div> 
+                                <br/>
+                                
+                                <label for="content_pdf_top"  />
+                                <field name="content_pdf_top" />
+                            
+                                <label for="content_pdf_bottom"  />
+                                <field name="content_pdf_bottom" />
+                                    
+                            </page>
+
+
+
+                        </notebook>
+
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                    </div>
+
+
+                </form>
+            </field>
+        </record>
+
+        <record id="app_gradebook_tree" model="ir.ui.view">
+            <field name="name">app_gradebook_tree</field>
+            <field name="model">app.gradebook</field>
+            <field name="arch" type="xml">
+                <tree create="1" edit="1" delete="0">
+                    <field name="name" />
+
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="act_app_gradebook_view" model="ir.actions.act_window">
+            <field name="name">Calificaciones</field>
+            <field name="res_model">app.gradebook</field>
+            <field name="view_mode">tree,form</field>
+            <field name="target">current</field>
+        </record>
+
+
+
+        <record id="app_gradebook_template_line_tree" model="ir.ui.view">
+            <field name="name">app.gradebook.template.line</field>
+            <field name="model">app.gradebook.template.line</field>
+            <field name="arch" type="xml">
+                <tree create="1" edit="1" delete="0">
+                    <field name="name" />
+                    <field name="type" />
+                    <field name="weight" />
+                    <field name="qty" attrs="{'invisible':[('type','in',('interaction'))] }" />
+                    <!-- <field name="points" attrs="{'invisible':[('type','!=','foro')] }" />  -->  
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</odoo>
+
+
+ 
+

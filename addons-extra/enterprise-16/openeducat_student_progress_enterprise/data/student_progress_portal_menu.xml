@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="poratl_menu_student_progression" model="openeducat.portal.menu">
+        <field name="name">Progression</field>
+        <field name="menu_ref_name">Progression</field>
+        <field name="link">/student/progression/</field>
+        <field name="active">True</field>
+        <field name="sequence" type="int">75</field>
+        <field name="background_color">#E959AD</field>
+        <field name="icon_image" type="base64"
+               file="openeducat_student_progress_enterprise/static/img/student_progression.png"/>
+    </record>
+</odoo>

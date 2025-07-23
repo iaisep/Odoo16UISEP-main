@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-extend="website.slides.fullscreen.content">
+        <t t-jquery="t:last" t-operation="after">
+            <t t-if="widget.get('slide').category === 'local_external'">
+                <div class="player ratio ratio-16x9 embed-responsive-item h-100">
+                    <t t-raw="widget.get('slide').embedCode"/>
+                </div>
+            </t>
+        </t>
+    </t>
+</templates>

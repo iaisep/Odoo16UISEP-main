@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="view_op_batch_inherited_form_view" model="ir.ui.view">
+            <field name="name">op.batch.form</field>
+            <field name="model">op.batch</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="openeducat_core.view_op_batch_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='end_date']" position="after">
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_op_batch_inherited_tree_view" model="ir.ui.view">
+            <field name="name">op.batch.tree</field>
+            <field name="model">op.batch</field>
+            <field name="type">tree</field>
+            <field name="inherit_id" ref="openeducat_core.view_op_batch_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='course_id']" position="after">
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_op_batch_inherited_search_view" model="ir.ui.view">
+            <field name="name">op.batch.search</field>
+            <field name="model">op.batch</field>
+            <field name="type">search</field>
+            <field name="inherit_id" ref="openeducat_core.view_op_batch_search"/>
+            <field name="arch" type="xml">
+                <xpath expr="." position="inside">
+                    <searchpanel>
+                        <field name="course_id" icon="fa fa-book"/>
+                    </searchpanel>
+                </xpath>
+            </field>
+        </record>
+
+
+        <!-- Dashboard Action -->
+        <record model="ir.actions.act_window" id="act_dashboard_op_batch_view">
+            <field name="name">Batch</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.batch</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="search_view_id" ref="openeducat_core.view_op_batch_search"/>
+            <field name="domain">[('course_id','in',[active_id])]</field>
+        </record>
+
+</odoo>

@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="portal_practice_center" name="Portal Centro de Prácticas">
+        <t t-call="portal.portal_layout">
+            <div class="container mt-4">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="text-center mb-4">
+                            Centro de Práctica:
+                            <t t-esc="doc.name"/>
+                        </h2>
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <h4 class="card-title">Información General</h4>
+                                <table class="table table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <th>Coordinador</th>
+                                            <td t-esc="doc.coordinator or '-'"/>
+                                        </tr>
+                                        <tr>
+                                            <th>Nombre oficial</th>
+                                            <td t-esc="doc.official_name or '-'"/>
+                                        </tr>
+                                        <tr>
+                                            <th>Nombre del firmante</th>
+                                            <td t-esc="doc.signatory_name or '-'"/>
+                                        </tr>
+                                        <tr>
+                                            <th>Código postal</th>
+                                            <td t-esc="doc.postal_code or '-'"/>
+                                        </tr>
+                                        <tr>
+                                            <th>Ubicación</th>
+                                            <td>
+                                                <t t-esc="doc.street or '-'"/>,
+                                                <t t-esc="doc.city or '-'"/>,
+                                                <t t-esc="doc.province or '-'"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>País</th>
+                                            <td t-esc="doc.country_id.name or '-'"/>
+                                        </tr>
+                                        <tr>
+                                            <th>Información de contacto</th>
+                                            <td>
+                                                Teléfono:
+                                                <t t-esc="doc.phone or '-'"/>
+                                                <br/>
+                                                Celular:
+                                                <t t-esc="doc.mobil or '-'"/>
+                                                <br/>
+                                                Correo:
+                                                <t t-esc="doc.email or '-'"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Website</th>
+                                            <td>
+                                                <a t-att-href="doc.website or '#'" target="_blank"
+                                                   t-esc="doc.website or '-'"/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="card shadow mt-4">
+                            <div class="card-body">
+                                <h4 class="card-title">Detalles de la operación</h4>
+                                <table class="table table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <th>Turno</th>
+                                            <td t-esc="doc.turn or '-'"/>
+                                        </tr>
+                                        <tr>
+                                            <th>Días de funcionamiento</th>
+                                            <td t-esc="doc.days or '-'"/>
+                                        </tr>
+                                        <tr>
+                                            <th>Número de plazas</th>
+                                            <td t-esc="doc.number_places or '-'"/>
+                                        </tr>
+                                        <tr>
+                                            <th>Estado</th>
+                                            <td t-esc="dict(doc._fields['status_form_center'].selection).get(doc.status_form_center, '-')"/>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <t t-set="practice_types_dict" t-value="{
+                                'on_site': 'Presencial',
+                                'distance': 'Distancia',
+                                'validation': 'Convalidación'
+                            }"/>
+
+                        <div class="card shadow mt-4">
+                            <div class="card-body">
+                                <h4 class="card-title">Tipos de Práctica</h4>
+                                <ul>
+                                    <li t-foreach="doc.type_ids" t-as="type">
+                                        <t t-esc="practice_types_dict.get(type.type_of_practice, '-')"/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+                        <t t-set="days_dict" t-value="{
+                                'monday': 'Lunes',
+                                'tuesday': 'Martes',
+                                'wednesday': 'Miércoles',
+                                'thursday': 'Jueves',
+                                'friday': 'Viernes',
+                                'saturday': 'Sábado'
+                            }"/>
+
+                            <t t-set="shifts_dict" t-value="{
+                                'morning': 'Mañana',
+                                'afternoon': 'Tarde',
+                                'both': 'Ambos'
+                            }"/>
+
+                        <div class="card shadow mt-4">
+                            <div class="card-body">
+                                <h4 class="card-title">Horarios</h4>
+
+                                <table width="100%">
+                                    <tr>
+                                        <th>
+                                            Horario
+                                        </th>
+                                        <th>
+                                            Día
+                                        </th>
+                                        <th>
+                                            Hora de Inicio
+                                        </th>
+                                        <th>
+                                            Hora de Fin
+                                        </th>
+                                        <th>
+                                            Descripción
+                                        </th>
+                                    </tr>
+                                    <tr t-foreach="doc.schedule_ids" t-as="schedule">
+
+                                        <td>
+                                            <t t-esc="shifts_dict.get(schedule.shift_id.name, schedule.shift_id.name)"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="days_dict.get(schedule.day_of_week_id.day_of_week, schedule.day_of_week_id.day_of_week)"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="schedule.start_time"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="schedule.end_time"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="schedule.description"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="card shadow mt-4">
+                            <div class="card-body">
+                                <h4 class="card-title">Cursos</h4>
+                                <ul>
+                                    <li t-foreach="doc.op_course_ids" t-as="course">
+                                        <t t-esc="course.name or '-'"/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="card shadow mt-4">
+                            <div class="card-body">
+                                <h4 class="card-title">Tutores</h4>
+                                <ul>
+                                    <li t-foreach="doc.tutor_ids" t-as="tutor">
+                                        <t t-esc="tutor.name or '-'"/>
+                                        -
+                                        <t t-esc="tutor.email or '-'"/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="display: flex; gap: 10px;">
+<!--                <h4>Your Practice Centers</h4>-->
+                <a t-att-href="'/my/centers'" class="btn btn-info">Tus Centros de Práctica</a>
+            </div>
+        </t>
+    </template>
+</odoo>
+

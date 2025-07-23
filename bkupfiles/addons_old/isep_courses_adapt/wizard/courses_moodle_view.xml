@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_moodle_courses_from" model="ir.ui.view">
+        <field name='name'>moodle.courses.form</field>
+        <field name='model'>moodle.courses</field>
+        <field name='arch' type='xml'>
+            <form string='Automatic Merge Wizard'>
+                <header>
+                    <button name="action_active" states="0" type="object" string="Activar" class="oe_highlight"/>
+                    <button name="action_inactive" states="1" type="object" string="Bloquear" class="oe_highlight"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="student_id" readonly="1"/>
+                    </group>
+                    <field name="course_ids" nolabel="1" readonly="1">
+                        <tree string="Students" editable="none" create="false" delete="false">
+                            <field name="number" />
+                            <field name="category" />
+                            <field name="fullname" />
+                            <field name="progress" widget="progressbar"/>
+                        </tree>
+                    </field>
+                </sheet>
+                <footer>
+                   <!--  <button name='change' string='Group Change'
+                            class='oe_highlight'
+                            type='object'/> -->
+                    <button special="cancel" string="Cerrar" type="object" class="btn btn-secondary oe_inline"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

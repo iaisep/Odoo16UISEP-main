@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="student_portal_library"
+              inherit_id="openeducat_core_enterprise.openeducat_enterprise_student_portal" priority="25">
+        <xpath expr="//ul[hasclass('nav-pills')]" position="inside">
+            <li class="ed_info">
+                <a href="#parent" aria-expanded="false" data-bs-toggle="tab" role="tab">
+                    <h5 class="mb0">
+                        Parent
+                    </h5>
+                </a>
+            </li>
+        </xpath>
+        <xpath expr="//div[hasclass('tab-content')]" position="inside">
+            <div class="tab-pane fade" id="parent">
+                <div class="mb-4">
+                    <h4>Parent</h4>
+                </div>
+                <table class="mt16 table table-condensed">
+                    <table class="mt16 table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Mobile</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="student.parent_ids" t-as="parent_data">
+                                <tr>
+                                    <td>
+                                        <span t-esc="parent_data.user_id.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="parent_data.user_id.email"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="parent_data.mobile"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </table>
+            </div>
+        </xpath>
+    </template>
+
+    <!--    paret new portal menu-->
+    <template id="new_parent_portal_menu" name="All Portal menu : Core Details"
+              inherit_id="portal.portal_my_home"
+              priority="20">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="before">
+            <div class="row">
+                <t t-foreach="menu_list" t-as="menu">
+                    <t t-if="user_id.sudo().is_parent">
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-4 p-2  student_tile_portal">
+                            <t t-att-style="'background-color:'+menu.background_color+';'">
+                                <a class="row me-0 ms-0 w-auto p-3 dashboard_element_main_body list-group-item-action d-flex align-items-center justify-content-between"
+                                   t-att-style="'background-color:'+menu.background_color+';'"
+                                   t-attf-href="#{menu.link}/#{stu_id.id}"
+                                   style="font-size: 16px;">
+                                    <t t-if="'Student Profile' in menu.name">
+                                        <div class="col-lg-12 text-right">
+                                        </div>
+                                    </t>
+                                    <t t-if="'Subject Registration' in menu.name">
+                                        <div class="col-lg-12 text-right">
+                                            <span class="badge badge-secondary badge-pill"
+                                                  t-esc="registartion_count"/>
+                                        </div>
+                                    </t>
+                                    <t t-if="'/my/invoices' in menu.link">
+                                        <div class="col-lg-12 text-right">
+                                            <span class="badge badge-secondary badge-pill"
+                                                  t-esc="invoice_count">
+                                            </span>
+                                        </div>
+                                    </t>
+                                    <t t-if="'/library/media/' in menu.link">
+                                        <div class="col-lg-12 text-right">
+                                            <span class="badge badge-secondary badge-pill"
+                                                  t-esc="library_count"/>
+                                        </div>
+                                    </t>
+                                    <t t-if="'Meetings' in menu.name">
+                                        <t t-if="'Online Meetings' not in menu.name">
+                                            <div class="col-lg-12 text-right">
+                                                <span class="badge badge-secondary badge-pill" t-esc="meeting_count"/>
+                                            </div>
+                                        </t>
+                                    </t>
+                                    <t t-if="'Assignments' in menu.name">
+                                        <div class="col-lg-12 text-right">
+                                            <span class="badge badge-secondary badge-pill" t-esc="assignment_count"/>
+                                        </div>
+                                    </t>
+                                    <t t-if="'Submitted Assignment' in menu.name">
+                                        <div class="col-lg-12 text-right">
+                                            <span class="badge badge-secondary badge-pill" t-esc="submission_count"/>
+                                        </div>
+                                    </t>
+                                    <t t-if="'Academic Calendar' in menu.name">
+                                        <div class="col-lg-12 text-right px-0">
+
+                                        </div>
+                                    </t>
+                                    <t t-if="'Exams' in menu.name">
+                                        <div class="col-lg-12 text-right">
+                                            <span class="badge badge-secondary badge-pill" t-esc="exam_count"/>
+                                        </div>
+                                    </t>
+                                    <t t-if="'Timetable' in menu.name">
+                                        <div class="col-lg-12 text-right">
+                                            <span class="badge badge-secondary badge-pill" t-esc="timetable_count"/>
+                                        </div>
+                                    </t>
+                                    <t t-if="'Attendance' in menu.name">
+                                        <div class="col-lg-12 text-right">
+                                            <span class="badge badge-secondary badge-pill" t-esc="attendance_count"/>
+                                        </div>
+                                    </t>
+                                    <t t-if="'Time Off' in menu.name">
+                                        <div class="col-lg-12 text-right">
+                                            <span class="badge badge-secondary badge-pill" t-esc="leave_request_count"/>
+                                        </div>
+                                    </t>
+                                    <t t-if="'Notice Board' in menu.name">
+                                        <div class="col-lg-12 text-right">
+                                            <span class="badge badge-secondary badge-pill" t-esc="notice_count"/>
+                                        </div>
+                                    </t>
+                                    <t t-if="'Grievances' in menu.name">
+                                        <div class="col-lg-12 text-right">
+                                            <span class="badge badge-secondary badge-pill" t-esc="grievance_count"/>
+                                        </div>
+                                    </t>
+                                    <t t-if="'Online Meetings' in menu.name">
+                                        <div class="col-lg-12 text-right">
+                                            <span class="badge badge-secondary badge-pill"
+                                                  t-esc="online_meeting_count"/>
+                                        </div>
+                                    </t>
+                                    <t t-if="'Alumni Job' in menu.name">
+                                        <div class="col-lg-12 text-right">
+                                            <span class="badge badge-secondary badge-pill" t-esc="alumni_count"/>
+                                        </div>
+                                    </t>
+                                    <t t-if="'Admission Registration' in menu.name">
+                                        <div class="col-lg-12 text-right">
+                                            <span class="badge badge-secondary badge-pill" t-esc="admission_count"/>
+                                        </div>
+                                    </t>
+                                    <t t-if="'Certificate' in menu.name">
+                                        <div class="col-lg-12 text-right">
+                                            <span class="badge badge-secondary badge-pill" t-esc="certificate_count"/>
+                                        </div>
+                                    </t>
+                                    <t t-if="'Courses' in menu.name">
+                                        <div class="col-lg-12 text-right">
+                                            <span class="badge badge-secondary badge-pill" t-esc="course_count"/>
+                                        </div>
+                                    </t>
+                                    <t t-if="'/my-library' in menu.link">
+                                        <div class="col-lg-12 text-right">
+                                            <span class="badge badge-secondary badge-pill" t-esc="my_library_count"/>
+                                        </div>
+                                    </t>
+                                    <t t-if="'Quiz' in menu.name">
+                                        <div class="col-lg-12 text-right">
+                                            <span class="badge badge-secondary badge-pill" t-esc="quiz_count"/>
+                                        </div>
+                                    </t>
+                                    <t t-if="'Media Movement' in menu.name">
+                                        <div class="col-lg-12 text-right">
+                                            <span class="badge badge-secondary badge-pill"
+                                                  t-esc="media_movement_count"/>
+                                        </div>
+                                    </t>
+                                    <t t-if="'Study Material' in menu.name">
+                                        <div class="col-lg-12 text-right">
+                                            <span class="badge badge-secondary badge-pill" t-esc="material_count"/>
+                                        </div>
+                                    </t>
+                                    <t t-if="'Progression' in menu.name">
+                                        <div class="col-lg-12 text-right">
+                                        </div>
+                                    </t>
+                                    <t t-if="'GradeBook' in menu.name">
+                                        <div class="col-lg-12 text-right">
+                                        </div>
+                                    </t>
+                                    <t t-if="'Asset Requests' in menu.name">
+                                        <div class="col-lg-12 text-right px-0">
+                                            <span class="badge badge-secondary badge-pill" t-esc="asset_request_count"/>
+                                        </div>
+                                    </t>
+                                    <div class="col-lg-12 text-center">
+                                        <img class="image mb16"
+                                             t-att-src="image_data_uri(menu.icon_image)"
+                                             style="width: 74px;"/>
+                                        <br></br>
+                                        <span class="" style="color: #fff;font-weight: bold;font-size: 16px;">
+                                            <t t-esc="menu.name"/>
+                                        </span>
+                                    </div>
+                                </a>
+                            </t>
+                        </div>
+                    </t>
+                </t>
+            </div>
+        </xpath>
+    </template>
+</odoo>

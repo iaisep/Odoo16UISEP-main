@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="alumni_page" name="Alumni">
+        <t t-call="website.layout">
+            <div id="wrap" class="oe_structure oe_empty">
+                <section class="alumni-title"
+                         style="background-image: url(&quot;/openeducat_alumni_enterprise/static/src/img/inner-pagebg.jpg&quot;);position:relative;background-position-y: center;">
+                    <div class="overlay"></div>
+                    <div class="container pt64 pb64">
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center text-md-left">
+                                <h1 class="text-white mb0" style="font-size: 40px;">ALUMNI
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="breadcrumbs">
+                    <div class="container">
+                        <div class="row border-bottom">
+                            <ul class="breadcrumb mb0">
+                                <li>
+                                    <a href="/">Home</a>
+                                </li>
+                                <li>
+                                    <a href="/alumni">Alumni</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="pt64 pb64" id="alumni_view">
+                    <div class="container">
+                        <div class="row oe_grid">
+                            <div t-foreach="alumni_id" t-as="alumnis"
+                                 class="col-12 col-sm-12 col-md-4 col-lg-3 mb16">
+                                <div class="card">
+                                    <a t-attf-href="/alumni/detail/#{ slug(alumnis) }">
+                                        <div t-field="alumnis.image" class="img img-fluid" style="margin: auto;"
+                                             t-options="{'widget': 'image'}"/>
+                                    </a>
+                                    <div class="card-body p-3">
+                                        <a t-attf-href="/alumni/detail/#{ slug(alumnis) }">
+                                            <div t-field="alumnis.name" class="text-center fw-bold text-secondary"
+                                                 style="font-size: 18px;" id="alumni_name"/>
+                                        </a>
+                                        <hr style="margin-top: 12px !important;margin-bottom: 12px !important;"></hr>
+                                        <div t-field="alumnis.description" class="text-center content-ellipsis mb8 text-o-color-5"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </t>
+    </template>
+
+    <template id="alumni_group" name="Alumni Details">
+        <t t-call="website.layout">
+            <div id="wrap" class="oe_structure oe_empty"/>
+            <section class="alumni-title"
+                     style="background-image: url(&quot;/openeducat_alumni_enterprise/static/src/img/inner-pagebg.jpg&quot;);position:relative;background-position-y: center;">
+                <div class="overlay"></div>
+                <div class="container pt64 pb64">
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center text-md-left">
+                            <h1 class="text-white text-uppercase mb0" style="font-size: 40px;">
+                                <span t-field="alumni.name"/>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="breadcrumbs">
+                <div class="container">
+                    <div class="row border-bottom">
+                        <ul class="breadcrumb mb0">
+                            <li>
+                                <a href="/">Home</a>
+                            </li>
+                            <li>
+                                <a href="/alumni">Alumni</a>
+                            </li>
+                            <li>
+                                <a>
+                                    <span t-field="alumni.name"/>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section class="pb64 pt64" id="alumni_detail_view">
+                <div class="container">
+                    <div t-foreach="alumni" t-as="alumnis">
+                        <div class="row">
+                            <div class="col-12 col-lg-10 col-md-12 col-sm-12 offset-lg-1 pb48 text-center alumni_dec">
+                                <t t-out="alumnis.description"/>
+                            </div>
+
+                            <div id="student_data" class="col-lg-12 col-md-12 col-sm-12 col-12 pt32">
+                                <div class="row">
+                                    <div t-foreach="alumni_id" t-as="o"
+                                         class="col-lg-4 col-md-6 col-sm-12 col-12 mb32">
+                                        <div class="card">
+                                            <div class="align-items-center d-flex p-2">
+                                                <img class="float-left img rounded-circle o_forum_avatar align-self-start me-3"
+                                                     t-attf-src="/alumni/user/#{o.id}/avatar"/>
+                                                <a class="student_name">
+                                                    <span id="alumni" t-field="o.name"/>
+                                                </a>
+                                            </div>
+                                            <div class="card-body text-o-color-5">
+                                                <p class="mb8">
+                                                    <span>Passing Year :</span>
+                                                    <b t-field="o.passing_year_id"/>
+                                                </p>
+                                                <p class="mb8">
+                                                    <span>Current Job :</span>
+                                                    <b t-field="o.current_job"/>
+                                                </p>
+                                                <p class="mb8">
+                                                    <span>Current Position :</span>
+                                                    <b t-field="o.current_position"/>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="alumni_event_blog_view" style="background: #f6f6f6;">
+                <div class="container">
+                    <div class="row"></div>
+                </div>
+            </section>
+        </t>
+    </template>
+</odoo>

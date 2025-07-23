@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo noupdate="1">
+
+        <record model="ir.rule" id="exam_attendees_multi_comp_rule">
+            <field name="name">Exam Attendees multi-company</field>
+            <field name="model_id" ref="openeducat_exam.model_op_exam_attendees"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">
+                ['|',('company_id','=',False),'&amp;',('company_id','in',company_ids),'|',('company_id','child_of',[user.company_id.id]),('company_id','in',user.company_ids.ids)]
+            </field>
+        </record>
+
+        <record model="ir.rule" id="exam_session_multi_comp_rule">
+            <field name="name">Exam Session multi-company</field>
+            <field name="model_id" ref="openeducat_exam.model_op_exam_session"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">
+                ['|',('company_id','=',False),'&amp;',('company_id','in',company_ids),'|',('company_id','child_of',[user.company_id.id]),('company_id','in',user.company_ids.ids)]
+            </field>
+        </record>
+
+        <record model="ir.rule" id="exam_room_multi_comp_rule">
+            <field name="name">Exam Room multi-company</field>
+            <field name="model_id" ref="openeducat_exam.model_op_exam_room"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">
+                ['|',('company_id','=',False),'&amp;',('company_id','in',company_ids),'|',('company_id','child_of',[user.company_id.id]),('company_id','in',user.company_ids.ids)]
+            </field>
+        </record>
+
+        <record model="ir.rule" id="exam_type_multi_comp_rule">
+            <field name="name">Exam Type multi-company</field>
+            <field name="model_id" ref="openeducat_exam.model_op_exam_type"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">
+                ['|',('company_id','=',False),'&amp;',('company_id','in',company_ids),'|',('company_id','child_of',[user.company_id.id]),('company_id','in',user.company_ids.ids)]
+            </field>
+        </record>
+
+        <record model="ir.rule" id="exam_multi_comp_rule">
+            <field name="name">Exam multi-company</field>
+            <field name="model_id" ref="openeducat_exam.model_op_exam"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">
+                ['|',('company_id','=',False),'&amp;',('company_id','in',company_ids),'|',('company_id','child_of',[user.company_id.id]),('company_id','in',user.company_ids.ids)]
+            </field>
+        </record>
+
+        <record model="ir.rule" id="grade_configuration_multi_comp_rule">
+            <field name="name">Grade Configuration multi-company</field>
+            <field name="model_id" ref="openeducat_exam.model_op_grade_configuration"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">
+                ['|',('company_id','=',False),'&amp;',('company_id','in',company_ids),'|',('company_id','child_of',[user.company_id.id]),('company_id','in',user.company_ids.ids)]
+            </field>
+        </record>
+
+        <record model="ir.rule" id="marksheet_line_multi_comp_rule">
+            <field name="name">Marksheet Line multi-company</field>
+            <field name="model_id" ref="openeducat_exam.model_op_marksheet_line"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">
+                ['|',('company_id','=',False),'&amp;',('company_id','in',company_ids),'|',('company_id','child_of',[user.company_id.id]),('company_id','in',user.company_ids.ids)]
+            </field>
+        </record>
+
+        <record model="ir.rule" id="marksheet_register_multi_comp_rule">
+            <field name="name">Marksheet Register multi-company</field>
+            <field name="model_id" ref="openeducat_exam.model_op_marksheet_register"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">
+                ['|',('company_id','=',False),'&amp;',('company_id','in',company_ids),'|',('company_id','child_of',[user.company_id.id]),('company_id','in',user.company_ids.ids)]
+            </field>
+        </record>
+
+        <record model="ir.rule" id="result_line_multi_comp_rule">
+            <field name="name">Result Line multi-company</field>
+            <field name="model_id" ref="openeducat_exam.model_op_result_line"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">
+                ['|',('company_id','=',False),'&amp;',('company_id','in',company_ids),'|',('company_id','child_of',[user.company_id.id]),('company_id','in',user.company_ids.ids)]
+            </field>
+        </record>
+
+        <record model="ir.rule" id="result_template_multi_comp_rule">
+            <field name="name">Result Template multi-company</field>
+            <field name="model_id" ref="openeducat_exam.model_op_result_template"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">
+                ['|',('company_id','=',False),'&amp;',('company_id','in',company_ids),'|',('company_id','child_of',[user.company_id.id]),('company_id','in',user.company_ids.ids)]
+            </field>
+        </record>
+
+</odoo>

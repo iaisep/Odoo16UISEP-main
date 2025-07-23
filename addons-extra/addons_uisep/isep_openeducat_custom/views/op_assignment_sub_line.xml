@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="custom_op_assignment_sub_line_form" model="ir.ui.view">
+            <field name="name">op.assignment.sub.line.form</field>
+            <field name="model">op.assignment.sub.line</field>
+            <field name="inherit_id" ref="openeducat_assignment.view_op_assignment_sub_line_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//div/field[@name='note']" position="after">
+                    <group>
+                        <field name="attachment_ids" widget="many2many_binary" />
+                    </group>
+
+                </xpath>
+
+                <xpath expr="//field[@name='assignment_id']" position="attributes">
+                    <attribute name="force_save">1</attribute>
+                    <attribute name="readonly">1</attribute>
+
+                </xpath>
+
+                <xpath expr="//field[@name='progression_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+
+                </xpath>
+                <xpath expr="//button[@name='ignore_submission_attempt']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+
+                </xpath>
+
+
+
+
+
+            </field>
+        </record>
+
+    </data>
+</odoo>
+
+
+ 
+

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <menuitem id="menu_op_placement_offer"
+                name="Placement Offers"
+                parent="openeducat_core.menu_op_general_main"
+                sequence="20"
+                action="act_open_op_placement_offer_view"
+                groups="openeducat_core.group_op_back_office_admin"/>
+
+    <menuitem id="menu_placement_main"
+                name="Placement"
+                sequence="60"
+                web_icon="openeducat_placement_enterprise,static/description/icon.png"
+                groups="openeducat_core.group_op_back_office_admin"/>
+
+    <menuitem id="menu_placement_cell"
+                name="Team"
+                parent="menu_placement_main"
+                sequence="10"
+                action="act_open_op_placement_cell_view"
+                groups="openeducat_core.group_op_back_office_admin"/>
+</odoo>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="plannings_view_form_inherit" model="ir.ui.view">
+        <field name="name">planning.slot.form.inherit</field>
+        <field name="model">planning.slot</field>
+        <field name="inherit_id" ref="project_forecast.planning_slot_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='sale_line_id']" position="after">
+                <field name="project_tasks_id" domain="[('project_id','=',project_id)]" string="Tarea"/>
+            </xpath>
+
+            <xpath expr="//field[@name='sale_line_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="plannings_view_tree_inherit" model="ir.ui.view">
+        <field name="name">planning.slot.tree.inherit</field>
+        <field name="model">planning.slot</field>
+        <field name="inherit_id" ref="project_forecast.planning_slot_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='project_id']" position="after">
+                <field name="project_tasks_id" domain="[('project_id','=',project_id)]" string="Tarea"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="plannings_view_tree_inherit_sale" model="ir.ui.view">
+        <field name="name">planning.slot.tree.inherit</field>
+        <field name="model">planning.slot</field>
+        <field name="inherit_id" ref="sale_planning.planning_slot_view_tree_inherit_sale_planning"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='sale_line_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

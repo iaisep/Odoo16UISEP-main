@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<odoo>
+  
+
+    <record id="view_gpt_origin_tree" model="ir.ui.view">
+        <field name="name">gpt.origin.tree</field>
+        <field name="model">gpt.origin</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="api_key" password="True"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_gpt_origin_form" model="ir.ui.view">
+        <field name="name">gpt.origin.form</field>
+        <field name="model">gpt.origin</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="name"/>
+                    <field name="api_key" password="True"/>
+                    <field name="model_ids">
+                        <tree editable="bottom" delete="0" >
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="max_input"/>
+                            <button name="unlink" confirm="Eliminar?" title="Remove" icon="fa-times" type="object"/>
+                        </tree>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_gpt_origin" model="ir.actions.act_window">
+        <field name="name">GPT Origen</field>
+        <field name="res_model">gpt.origin</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

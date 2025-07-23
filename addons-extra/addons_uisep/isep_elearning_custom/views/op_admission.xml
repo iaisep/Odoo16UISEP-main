@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="custom_op_admission_form" model="ir.ui.view">
+            <field name="name">op.admission.form</field>
+            <field name="model">op.admission</field>
+            <field name="inherit_id" ref="openeducat_admission.view_op_admission_form"/>
+            <field name="arch" type="xml">
+
+
+                <xpath expr="//field[@name='prev_result']" position="after">
+                    <field name="email_send_ok"/>  
+                    <field name="mail_down" />                              
+                </xpath>
+
+                <xpath expr="//button[@name='open_student']" position="after">
+                    <button name="enroll_elearning_wizard" states="pending,admission,done,confirm" string="Inscribir en Campus" type="object"
+                                class="oe_highlight"/>
+                    <button name="send_mail_view" string="Correo de bienvenida" type="object" attrs="{'invisible':[('email_send_ok','=', True)]}"
+                                class="oe_highlight"/>
+
+                    <button name="auto_enroll_student" string="Auto-Asignaturas" type="object" class="btn-warning" states="done"/>
+                    <button name="action_down" string="Dar de baja" type="object" states="done"  class="btn-danger"/>
+                </xpath>
+
+
+            </field>
+        </record>
+
+
+        
+        <menuitem
+            name="Grupos"
+            parent="openeducat_admission.menu_op_admission_root"
+            id="id_grupos_op_batch"
+            action="openeducat_core_enterprise.open_batch_dashboard_kanban"
+            sequence="19"
+        />
+
+
+    </data>
+</odoo>
+
+
+ 
+

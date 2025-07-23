@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_wizard_batch_from" model="ir.ui.view">
+        <field name='name'>wizard.batch.form</field>
+        <field name='model'>wizard.batch</field>
+        <field name='arch' type='xml'>
+            <form string='Automatic Merge Wizard'>
+                <field name="subject_ids">
+                    <tree string="Asignatura" editable="bottom">
+                        <field name="check"/>
+                        <field name="subject_id" options="{'no_create': True, 'no_create_edit':True}"/>
+                        <field name="code" readonly="1"/>
+                        <field name="moodle_id" readonly="1"/>
+                    </tree>   
+                </field>   
+                <footer>
+                    <button name='action_add_subjet' string='Agregar' class='oe_highlight' type='object'/>
+                    <button special="cancel" string="Cerrar" type="object" class="btn btn-secondary oe_inline"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

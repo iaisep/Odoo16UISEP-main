@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="op_meeting_1" model="op.meeting">
+        <field name="active" eval="True"/>
+        <field name="user_id" ref="base.user_root"/>
+        <field name="partner_ids"
+                eval="[(6,0,[ref('openeducat_core.op_res_partner_1'),ref('openeducat_core.op_res_partner_26'),ref('openeducat_parent.res_partner_33')])]"/>
+        <field name="name">Parent Teacher Meeting</field>
+        <field name="description">Parent teacher meeting for monthly review for students</field>
+        <field name="start" eval="time.strftime('%Y-%m-03 10:20:00')"/>
+        <field name="categ_ids" eval="[(6,0,[ref('calendar_event_student_counciling')])]"/>
+        <field name="stop" eval="time.strftime('%Y-%m-03 16:30:00')"/>
+        <field name="duration" eval="6.3"/>
+        <field name="allday" eval="False"/>
+<!--            <field name="state">open</field>-->
+    </record>
+</odoo>

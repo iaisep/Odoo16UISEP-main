@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="mk_typeform_custom_typeform_form" model="ir.ui.view">
+       <field name="name">mk_typeform.custom.typeform.form.inherit</field>
+       <field name="model">mk.typeform.model.relation</field>
+       <field name="inherit_id" ref="mk_typeform.typeform_model_relation_view"/>
+       <field name="arch" type="xml">
+           <xpath expr="//field[@name='reference']" position="after">
+         
+               <field name="conditon_id" attrs="{'invisible': [('type_field', '!=', 'condition')]}">
+                                    <tree editable="buttom">
+                                        <field name="key_value_one"/>
+                                        <field name="value_one"/>
+                                        <field name="key_value_two"/>
+                                        <field name="value_two"/>
+                                        <field name="result"/>
+                                    </tree>
+                                </field>
+            
+                          
+           </xpath>
+       </field>
+   </record>
+   
+   <record id="mk_typeform_custom_typeform_tree" model="ir.ui.view">
+       <field name="name">mk_typeform.custom.typeform.tree.inherit</field>
+       <field name="model">mk.typeform.model.relation</field>
+       <field name="inherit_id" ref="mk_typeform.view_tree_typeform_model_relation"/>
+       <field name="arch" type="xml">
+           <xpath expr="//field[@name='reference']" position="after">
+                            
+                                <field name="conditon_id">
+                                    <tree>
+                                        <field name="key_value_one"/>
+                                        <field name="value_one"/>
+                                        <field name="key_value_two"/>
+                                        <field name="value_two"/>
+                                        <field name="result"/>
+                                    </tree>
+                                </field>
+                           
+               
+           </xpath>
+       </field>
+   </record>
+</odoo>

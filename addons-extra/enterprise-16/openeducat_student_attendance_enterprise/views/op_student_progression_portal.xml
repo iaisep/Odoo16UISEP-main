@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="student_progression_timesheet_portal"
+              inherit_id="openeducat_attendance_enterprise.student_progression_attendance_portal_inherit">
+        <xpath expr="//th[hasclass('timesheet')]" position="after">
+            <th>Attedance Time</th>
+        </xpath>
+        <xpath expr="//td[hasclass('timesheet')]" position="after">
+            <td>
+                <t t-esc="attendance.check_in" t-options="{'widget': 'datetime'}"/>
+            </td>
+        </xpath>
+    </template>
+
+    <template id="student_attendance_timesheet_portal"
+              inherit_id="openeducat_attendance_enterprise.openeducat_attendance_portal">
+        <xpath expr="//th[hasclass('timesheet')]" position="after">
+            <th>Attedance Time</th>
+        </xpath>
+        <xpath expr="//td[hasclass('timesheet')]" position="after">
+            <td>
+                <t t-esc="task.check_in" t-options="{'widget': 'datetime'}"/>
+            </td>
+        </xpath>
+    </template>
+
+</odoo>

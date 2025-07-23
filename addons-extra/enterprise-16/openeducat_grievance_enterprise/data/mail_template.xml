@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="mail_template_gms" model="mail.template">
+            <field name="name">Grievance Mail</field>
+            <field name="subject">{{ object.subject }}</field>
+            <field name="email_from">{{ object.company_id.email }}</field>
+            <field name="email_to">{{ object.get_emails() }}</field>
+            <field name="lang">{{ user.lang }}</field>
+            <field name="model_id" ref="openeducat_grievance_enterprise.model_grievance"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="html">
+                <table border="0" cellpadding="0" cellspacing="0"
+                       style="padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;">
+                    <tr>
+                        <td align="center">
+                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                   style="padding: 16px; background-color: white; color: #454748; border-collapse:separate;">
+                                <tbody>
+                                    <tr>
+                                        <td align="center" style="min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                   style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                                <tr>
+                                                    <td valign="middle">
+                                                        <span style="font-size: 10px;">Grievance Number</span>
+                                                        <br/>
+                                                        <span style="font-size: 20px; font-weight: bold;">
+                                                            <t t-out="object.name or ''"/>
+                                                        </span>
+                                                    </td>
+                                                    <td valign="middle" align="right">
+                                                        <img t-att-src="'/logo.png?company=%s' % object.company_id.id"
+                                                             style="padding: 0px; margin: 0px; height: auto; width: 80px;"
+                                                             t-att-alt="'%s' % object.company_id.name"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" style="text-align:center;">
+                                                        <hr width="100%"
+                                                            style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin:16px 0px 16px 0px;"/>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center" style="min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                   style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                                <tr>
+                                                    <td valign="top" style="font-size: 13px;">
+                                                        <div>
+                                                            Hello,
+                                                            <br/>
+                                                            <p>
+                                                                <t t-if="object.grievance_for == 'student'">
+                                                                    <t t-out="object.student_id.name or ''"/>
+                                                                </t>
+                                                                <t t-if="object.grievance_for == 'faculty'">
+                                                                    <t t-out="object.faculty_id.name or ''"/>
+                                                                </t>
+                                                                <t t-if="object.grievance_for == 'parent'">
+                                                                    <t t-out="object.parent_id.name.name or ''"/>
+                                                                </t>
+                                                                has submitted a Grievance on
+                                                                <t t-out="object.created_date.strftime('%m-%d-%Y')"/>
+                                                            </p>
+                                                            <p>
+                                                                <b>Category:</b>
+                                                                <t t-out="object.grievance_category_id.complete_name or ''"/>
+                                                            </p>
+                                                            <p>
+                                                                <b>Grievance Description:</b>
+                                                                <t t-out="object.description or ''"/>
+                                                            </p>
+                                                            <br/>
+                                                            <p>
+                                                                The Grievance has been assign to your Team
+                                                                <b><t t-out="object.grievance_team_id.name or ''"/>.
+                                                                </b>
+                                                            </p>
+                                                            <br/>
+                                                            <p>Yours faithfully,</p>
+                                                            <p>
+                                                                <t t-out="object.company_id.name or ''"/>
+                                                            </p>
+
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align:center;">
+                                                        <hr width="100%"
+                                                            style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"/>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center" style="min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                   style="min-width: 590px; background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                                <tr>
+                                                    <td valign="middle" align="left">
+                                                        <t t-out="object.company_id.name or ''"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="middle" align="left" style="opacity: 0.7;">
+                                                        <t t-out="object.company_id.phone or ''"/>
+                                                        <t t-if="object.company_id.email">
+                                                            |
+                                                            <a href="'mailto:%s' % {{ object.company_id.email }}"
+                                                               style="text-decoration:none; color: #454748;">
+                                                                <t t-out="object.company_id.email or ''"/>
+                                                            </a>
+                                                        </t>
+                                                        <t t-if="object.company_id.website">
+                                                            |
+                                                            <a href="'%s' % {{ object.company_id.website }}"
+                                                               style="text-decoration:none; color: #454748;">
+                                                                <t t-out="object.company_id.website or ''"/>
+                                                            </a>
+                                                        </t>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </field>
+        </record>
+        <record id="mail_template_gms_assign" model="mail.template">
+            <field name="name">Grievance receive confirmation</field>
+            <field name="subject">"{{ object.subject }}"</field>
+            <field name="email_from">"{{ object.company_id.email }}"</field>
+            <field name="email_to">{{ (object.student_id.email if object.grievance_for == 'student' else False) or (object.parent_id.user_id.login if object.grievance_for == 'parent' else False) or (object.faculty_id.email if object.grievance_for == 'faculty' else False) }}
+            </field>
+            <field name="lang">{{ user.lang }}</field>
+            <field name="model_id" ref="openeducat_grievance_enterprise.model_grievance"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="html">
+                <table border="0" cellpadding="0" cellspacing="0"
+                       style="padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;">
+                    <tr>
+                        <td align="center">
+                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                   style="padding: 16px; background-color: white; color: #454748; border-collapse:separate;">
+                                <tbody>
+                                    <tr>
+                                        <td align="center" style="min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                   style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                                <tr>
+                                                    <td valign="middle">
+                                                        <span style="font-size: 10px;">Grievance Number</span>
+                                                        <br/>
+                                                        <span style="font-size: 20px; font-weight: bold;">
+                                                            <t t-out="object.name or ''"/>
+                                                        </span>
+                                                    </td>
+                                                    <td valign="middle" align="right">
+                                                        <img t-att-src="'/logo.png?company=%s' % object.company_id.id"
+                                                             style="padding: 0px; margin: 0px; height: auto; width: 80px;"
+                                                             t-att-alt="'%s' % object.company_id.name"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" style="text-align:center;">
+                                                        <hr width="100%"
+                                                            style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin:16px 0px 16px 0px;"/>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center" style="min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                   style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                                <tr>
+                                                    <td valign="top" style="font-size: 13px;">
+                                                        <div>
+                                                            Hello
+                                                            <t t-if="object.grievance_for == 'student'">
+                                                                |
+                                                                <t t-out="object.student_id.name or ''"/>
+                                                            </t>
+                                                            <t t-if="object.grievance_for == 'faculty'">
+                                                                |
+                                                                <t t-out="object.faculty_id.name or ''"/>
+                                                            </t>
+                                                            <t t-if="object.grievance_for == 'parent'">
+                                                                |
+                                                                <t t-out="object.parent_id.name.name or ''"/>
+                                                            </t>
+                                                            <br/>
+                                                            <p>Your Grievance has been received and is being reviewed by
+                                                                our team
+                                                                <b>
+                                                                    <t t-out="object.grievance_team_id.name or ''"/>
+                                                                </b>
+                                                            </p>
+                                                            <br/>
+                                                            <a t-att-href="'/my/grievance/detail/%s' % object.id"
+                                                               target="_blank"
+                                                               style="background-color:#875A7B; padding: 2px; text-decoration: none; color: #fff; border-radius: 2px;">
+                                                                View Grievance
+                                                            </a>
+
+                                                            <br/>
+                                                            <p>Yours faithfully,</p>
+                                                            <p>
+                                                                <t t-out="object.company_id.name or ''"/>
+                                                            </p>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align:center;">
+                                                        <hr width="100%"
+                                                            style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"/>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center" style="min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                   style="min-width: 590px; background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                                <tr>
+                                                    <td valign="middle" align="left">
+                                                        <t t-out="object.company_id.name or ''"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="middle" align="left" style="opacity: 0.7;">
+                                                        <t t-out="object.company_id.phone or ''"/>
+                                                        <t t-if="object.company_id.email">
+                                                            |
+                                                            <a href="'mailto:%s' % {{ object.company_id.email }}"
+                                                               style="text-decoration:none; color: #454748;">
+                                                                <t t-out="object.company_id.email or ''"/>
+                                                            </a>
+                                                        </t>
+                                                        <t t-if="object.company_id.website">
+                                                            |
+                                                            <a href="'%s' % {{ object.company_id.website }}"
+                                                               style="text-decoration:none; color: #454748;">
+                                                                <t t-out="object.company_id.website or ''"/>
+                                                            </a>
+                                                        </t>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </field>
+        </record>
+        <record id="mail_template_gms_rejection" model="mail.template">
+            <field name="name">Grievance Rejection</field>
+            <field name="subject">"{{ object.subject }}"</field>
+            <field name="email_from">"{{ object.company_id.email }}"</field>
+            <field name="email_to">{{ (object.student_id.email if object.grievance_for == 'student' else False) or (object.parent_id.user_id.login if object.grievance_for == 'parent' else False) or (object.faculty_id.email if object.grievance_for == 'faculty' else False) }}
+            </field>
+            <field name="lang">{{ user.lang }}</field>
+            <field name="model_id" ref="openeducat_grievance_enterprise.model_grievance"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="html">
+                <table border="0" cellpadding="0" cellspacing="0"
+                       style="padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;">
+                    <tr>
+                        <td align="center">
+                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                   style="padding: 16px; background-color: white; color: #454748; border-collapse:separate;">
+                                <tbody>
+                                    <tr>
+                                        <td align="center" style="min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                   style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                                <tr>
+                                                    <td valign="middle">
+                                                        <span style="font-size: 10px;">Grievance Number</span>
+                                                        <br/>
+                                                        <span style="font-size: 20px; font-weight: bold;">
+                                                            <t t-out="object.name"/>
+                                                        </span>
+                                                    </td>
+                                                    <td valign="middle" align="right">
+                                                        <img t-att-src="'/logo.png?company=%s' % object.company_id.id"
+                                                             style="padding: 0px; margin: 0px; height: auto; width: 80px;"
+                                                             t-att-alt="'%s' % object.company_id.name"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" style="text-align:center;">
+                                                        <hr width="100%"
+                                                            style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin:16px 0px 16px 0px;"/>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center" style="min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                   style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                                <tr>
+                                                    <td valign="top" style="font-size: 13px;">
+                                                        <div>
+                                                            Hello
+                                                            <t t-if="object.grievance_for == 'student'">
+                                                                |
+                                                                <t t-out="object.student_id.name or ''"/>
+                                                            </t>
+                                                            <t t-if="object.grievance_for == 'faculty'">
+                                                                |
+                                                                <t t-out="object.faculty_id.name or ''"/>
+                                                            </t>
+                                                            <t t-if="object.grievance_for == 'parent'">
+                                                                |
+                                                                <t t-out="object.parent_id.name.name or ''"/>
+                                                            </t>
+
+                                                            <br/>
+                                                            <p>You posted a Grievance on
+                                                                <t t-out="object.created_date.strftime('%m-%d-%Y')"/>
+                                                                .
+                                                            </p>
+                                                            <p>
+                                                                <b>Grievance Description:</b>
+                                                                <t t-out="object.description"/>
+                                                                .
+                                                            </p>
+                                                            <br/>
+                                                            <p>Sorry, Your Grievance is not valid so it
+                                                                has been rejected.
+                                                            </p>
+                                                            <br/>
+                                                            <a t-att-href="'/my/grievance/detail/%s' % object.id"
+                                                               target="_blank"
+                                                               style="background-color:#875A7B; padding: 2px; text-decoration: none; color: #fff; border-radius: 2px;">
+                                                                View Grievance
+                                                            </a>
+                                                            <br/>
+                                                            <p>Yours faithfully,</p>
+                                                            <p>
+                                                                <t t-out="object.company_id.name"/>
+                                                            </p>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align:center;">
+                                                        <hr width="100%"
+                                                            style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"/>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center" style="min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                   style="min-width: 590px; background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                                <tr>
+                                                    <td valign="middle" align="left">
+                                                        <t t-out="object.company_id.name or ''"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="middle" align="left" style="opacity: 0.7;">
+                                                        <t t-out="object.company_id.phone or ''"/>
+                                                        <t t-if="object.company_id.email">
+                                                            |
+                                                            <a href="'mailto:%s' % {{ object.company_id.email }}"
+                                                               style="text-decoration:none; color: #454748;">
+                                                                <t t-out="object.company_id.email or ''"/>
+                                                            </a>
+                                                        </t>
+                                                        <t t-if="object.company_id.website">
+                                                            |
+                                                            <a href="'%s' % {{ object.company_id.website }}"
+                                                               style="text-decoration:none; color: #454748;">
+                                                                <t t-out="object.company_id.website or ''"/>
+                                                            </a>
+                                                        </t>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </field>
+        </record>
+
+        <record id="mail_template_gms_for_resolution" model="mail.template">
+            <field name="name">Grievance Resolution Email</field>
+            <field name="subject">"{{ object.subject }}"</field>
+            <field name="email_from">"{{ object.company_id.email }}"</field>
+            <field name="email_to">{{ (object.student_id.email if object.grievance_for == 'student' else False) or (object.parent_id.user_id.login if object.grievance_for == 'parent' else False) or (object.faculty_id.email if object.grievance_for == 'faculty' else False) }}
+            </field>
+            <field name="lang">{{ user.lang }}</field>
+            <field name="model_id" ref="openeducat_grievance_enterprise.model_grievance"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="html">
+                <table border="0" cellpadding="0" cellspacing="0"
+                       style="padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;">
+                    <tr>
+                        <td align="center">
+                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                   style="padding: 16px; background-color: white; color: #454748; border-collapse:separate;">
+                                <tbody>
+                                    <tr>
+                                        <td align="center" style="min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                   style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                                <tr>
+                                                    <td valign="middle">
+                                                        <span style="font-size: 10px;">Grievance Number</span>
+                                                        <br/>
+                                                        <span style="font-size: 20px; font-weight: bold;">
+                                                            <t t-out="object.name"/>
+
+                                                        </span>
+                                                    </td>
+                                                    <td valign="middle" align="right">
+                                                        <img t-att-src="'/logo.png?company=%s' % object.company_id.id"
+                                                             style="padding: 0px; margin: 0px; height: auto; width: 80px;"
+                                                             t-att-alt="'%s' % object.company_id.name"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" style="text-align:center;">
+                                                        <hr width="100%"
+                                                            style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin:16px 0px 16px 0px;"/>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center" style="min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                   style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                                <tr>
+                                                    <td valign="top" style="font-size: 13px;">
+                                                        <div>
+                                                            <t t-if="object.grievance_for == 'student'">
+                                                                <t t-out="object.student_id.name or ''"/>
+                                                            </t>
+                                                            <t t-if="object.grievance_for == 'faculty'">
+                                                                <t t-out="object.faculty_id.name or ''"/>
+                                                            </t>
+                                                            <t t-if="object.grievance_for == 'parent'">
+                                                                <t t-out="object.parent_id.name or ''"/>
+                                                            </t>
+                                                            <br/>
+                                                            <p>Your Grievance has been resolved
+                                                                by our Team
+                                                                <t t-out="object.grievance_team_id.name"/>
+                                                            </p>
+                                                            <p>
+                                                                <b>Grievance Description:</b>
+                                                                <t t-out="object.description"/>
+                                                            </p>
+                                                            <p>
+                                                                <b>This is the action taken against the grievance:</b>
+                                                                <t t-out="object.action_taken"/>
+                                                            </p>
+                                                            <br/>
+                                                            <br/>
+                                                            <a t-att-href="'/my/grievance/detail/%s' % object.id"
+                                                               target="_blank"
+                                                               style="background-color:#875A7B; padding: 2px; text-decoration: none; color: #fff; border-radius: 2px;">
+                                                                View Grievance
+                                                            </a>
+                                                            <br/>
+                                                            <p>Yours faithfully,</p>
+                                                            <p>Team Leader</p>
+                                                            <t t-if="object.grievance_team_id.team_leader.signature">
+                                                                <t t-out="object.grievance_team_id.team_leader.signature"/>
+                                                            </t>
+                                                            <p>
+                                                                <t t-out="object.grievance_team_id.team_leader.name"/>
+                                                            </p>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align:center;">
+                                                        <hr width="100%"
+                                                            style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"/>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center" style="min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                   style="min-width: 590px; background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                                <tr>
+                                                    <td valign="middle" align="left">
+                                                        <t t-out="object.company_id.name or ''"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="middle" align="left" style="opacity: 0.7;">
+                                                        <t t-out="object.company_id.phone or ''"/>
+                                                        <t t-if="object.company_id.email">
+                                                            |
+                                                            <a href="'mailto:%s' % {{ object.company_id.email }}"
+                                                               style="text-decoration:none; color: #454748;">
+                                                                <t t-out="object.company_id.email or ''"/>
+                                                            </a>
+                                                        </t>
+                                                        <t t-if="object.company_id.website">
+                                                            |
+                                                            <a href="'%s' % {{ object.company_id.website }}"
+                                                               style="text-decoration:none; color: #454748;">
+                                                                <t t-out="object.company_id.website or ''"/>
+                                                            </a>
+                                                        </t>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </field>
+        </record>
+
+</odoo>

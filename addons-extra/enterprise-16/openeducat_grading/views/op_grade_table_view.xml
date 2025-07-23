@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="view_op_grade_table_tree" model="ir.ui.view">
+            <field name="name">op.grade.table.tree</field>
+            <field name="model">op.grade.table</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="active" widget="boolean_toggle" optional="hide"/>
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_op_grade_table_form" model="ir.ui.view">
+            <field name="name">op.grade.table.form</field>
+            <field name="model">op.grade.table</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Grade Table">
+                    <header/>
+                    <sheet>
+                        <field name="active" invisible="1"/>
+                        <group col="4" colspan="4">
+                            <field name="name"/>
+                            <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                        </group>
+                        <group>
+                            <field name="grade_table_ids"/>
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_op_grade_table_search" model="ir.ui.view">
+            <field name="name">op.grade.table.search</field>
+            <field name="model">op.grade.table</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Grade Table">
+                    <field name="name"/>
+                    <group>
+                        <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_op_grade_table_view">
+            <field name="name">Grade Table</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.grade.table</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_op_grade_table_search"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_op_grade_table_view_form">
+            <field name="act_window_id" ref="act_op_grade_table_view"/>
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_op_grade_table_form"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_op_grade_table_view_tree">
+            <field name="act_window_id" ref="act_op_grade_table_view"/>
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_op_grade_table_tree"/>
+        </record>
+
+</odoo>

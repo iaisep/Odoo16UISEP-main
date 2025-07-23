@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- View payment.provider form -->
+
+        <record model="ir.cron" id="account_analytic_cron_for_invoice_payment">
+            <field name="name">Venta de suscripción: generar facturas y pagos recurrentes Actualizado</field>
+            <field name="model_id" ref="isep_sale_order_cron_payment.model_sale_order"/>
+            <field name="state">code</field>
+            <field name="code">model.cron_recurring_create_invoice_update()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="nextcall" eval="(datetime.now() + timedelta(minutes=7)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record model="ir.cron" id="account_analytic_cron_for_invoice_payment_massive">
+            <field name="name">Venta de suscripción: Envío de correo de link de pago automático</field>
+            <field name="model_id" ref="isep_sale_order_cron_payment.model_account_move"/>
+            <field name="state">code</field>
+            <field name="code">model.send_template_link_payment_massive()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="nextcall" eval="(datetime.now() + timedelta(minutes=7)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="cron_generate_schedule_invoices" model="ir.cron">
+            <field name="name">Generar Facturas desde Cronograma de Suscripción</field>
+            <field name="model_id" ref="sale.model_sale_order"/>
+            <field name="state">code</field>
+            <field name="code">model.cron_generate_subscription_schedule_invoices()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="active" eval="False"/>
+        </record>
+
+        <record id="ir_cron_generate_payment_links" model="ir.cron">
+            <field name="name">Generar links de pago para facturas (futuro 3 meses)</field>
+            <field name="model_id" ref="account.model_account_move"/>
+            <field name="state">code</field>
+            <field name="code">model.cron_generate_payment_links()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="active">False</field>
+        </record>
+
+    </data>
+
+</odoo>

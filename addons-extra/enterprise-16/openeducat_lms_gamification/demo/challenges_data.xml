@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="challenge_1" model="gamification.challenge">
+            <field name="name">Python competition</field>
+            <field name="period">weekly</field>
+            <field name="visibility_mode">personal</field>
+            <field name="manager_id" ref="openeducat_lms.op_user_student_1"/>
+            <field name="reward_id" ref="gamification.badge_problem_solver"/>
+        </record>
+
+        <record id="goal_definition_1" model="gamification.goal.definition">
+            <field name="name">50% completion</field>
+            <field name="description">Challenge to complete 50% of your course</field>
+            <field name="computation_mode">manually</field>
+            <field name="condition">higher</field>
+            <field name="display_mode">progress</field>
+        </record>
+
+        <record id="goal_1" model="gamification.goal">
+            <field name="definition_id" ref="goal_definition_1"/>
+            <field name="user_id" ref="openeducat_lms.op_user_student_1"/>
+            <field name="challenge_id"
+                   ref="openeducat_lms_gamification.challenge_1"/>
+            <field name="target_goal" type="float">50.0</field>
+        </record>
+
+        <record id="challenge_line_1" model="gamification.challenge.line">
+            <field name="definition_id"
+                   ref="openeducat_lms_gamification.goal_definition_1"/>
+            <field name="challenge_id"
+                   ref="openeducat_lms_gamification.challenge_1"/>
+            <field name="target_goal" type="float">50.0</field>
+        </record>
+
+        <record id="challenge_2" model="gamification.challenge">
+            <field name="name">Get Optimized</field>
+            <field name="period">daily</field>
+            <field name="visibility_mode">personal</field>
+            <field name="manager_id" ref="openeducat_lms.op_user_student_1"/>
+            <field name="reward_id" ref="gamification.badge_idea"/>
+        </record>
+
+        <record id="goal_definition_2" model="gamification.goal.definition">
+            <field name="name">80% completion</field>
+            <field name="description">Challenge to optimize 80% of code</field>
+            <field name="computation_mode">manually</field>
+            <field name="condition">higher</field>
+            <field name="display_mode">progress</field>
+        </record>
+
+        <record id="goal_2" model="gamification.goal">
+            <field name="definition_id" ref="goal_definition_2"/>
+            <field name="user_id" ref="openeducat_lms.op_user_student_1"/>
+            <field name="challenge_id"
+                   ref="openeducat_lms_gamification.challenge_2"/>
+            <field name="target_goal" type="float">50.0</field>
+        </record>
+
+        <record id="challenge_line_2" model="gamification.challenge.line">
+            <field name="definition_id"
+                   ref="openeducat_lms_gamification.goal_definition_2"/>
+            <field name="challenge_id"
+                   ref="openeducat_lms_gamification.challenge_2"/>
+            <field name="target_goal" type="float">80.0</field>
+        </record>
+
+        <record id="openeducat_lms.demo_course_1" model="op.course">
+            <field name="challenge_ids"
+                   eval="[(6,0,[ref('openeducat_lms_gamification.challenge_1'),ref('openeducat_lms_gamification.challenge_2')])]"/>
+        </record>
+
+</odoo>

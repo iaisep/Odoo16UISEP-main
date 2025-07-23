@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="skill_smart_button" model="ir.ui.view">
+        <field name="name">skill.smart.buttons</field>
+        <field name="model">op.student</field>
+        <field name="inherit_id" ref="openeducat_skill_enterprise.view_op_student_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='student_skills']" position="inside">
+                <separator string="Self Assessed Skills"/>
+                <field name="skill_line">
+                    <tree>
+                        <field name="skill_type_id"/>
+                        <field name="level_id"/>
+                        <field name="progress" widget="progressbar"/>
+                    </tree>
+                </field>
+            </xpath>
+        </field>
+    </record>
+</odoo>

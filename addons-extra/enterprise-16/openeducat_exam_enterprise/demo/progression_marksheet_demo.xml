@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="openeducat_student_progress_enterprise.student_progression_demo1" model="op.student.progression">
+            <field name="marksheet_lines" eval="[(4,ref('openeducat_exam.op_exam_attendees_1'))]"/>
+        </record>
+
+</odoo>

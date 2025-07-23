@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <!-- View payment.provider form -->
+    <record id="view_payment_provider_form" model="ir.ui.view">
+        <field name="name">view.payment.provider.form</field>
+        <field name="model">payment.provider</field>
+        <field name="inherit_id" ref="payment.payment_provider_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='configuration']/group[@name='provider_config']/group[@name='availability']/field[@name='available_country_ids']" position='after'>
+                <field name='use_payment_automatic'/>
+            </xpath>
+        </field>
+    </record>
+    <record id="saleOrderStage_inherit_module_name" model="ir.ui.view">
+        <field name="name">saleOrderStage_inherit_module_name</field>
+        <field name="model">sale.order.stage</field>
+        <field name="inherit_id" ref="sale_subscription.sale_subscription_stage_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='rating_template_id']" position="after">
+                <field name="autogenerate_subs_invoices"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>        
+
+        <!-- <record id="action_op_admission_elearning_mail_compose" model="ir.actions.act_window">
+            <field name="name">Confirmación de admisión Elearning</field>
+            <field name="res_model">mail.compose.message</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="context" eval="{
+        'default_composition_mode': 'comment',
+        'default_template_id': ref('isep_elearning_custom.email_op_admission_confirm'),
+                }"/>
+            <field name="binding_model_id" ref="openeducat_admission.model_op_admission"/>
+            <field name="binding_view_types">form</field>
+        </record>
+
+        <record id="view_op_admission_elearning_tree_inherit" model="ir.ui.view">
+            <field name="name">op.admission.tree.inherit</field>
+            <field name="model">op.admission</field>
+            <field name="inherit_id" ref="openeducat_admission.view_op_admission_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree" position="inside">
+                    <button name="%(isep_elearning_custom.action_op_admission_elearning_mail_compose)d" type="action" string="Email" icon="fa-envelope" attrs="{'invisible':[('state', 'in', 'done')]}"/>
+                </xpath>
+            </field>
+        </record> -->
+
+
+        <record id="view_op_admission_elearning_tree_hide_inherit" model="ir.ui.view">
+            <field name="name">op.admission.tree.inherit</field>
+            <field name="model">op.admission</field>
+            <field name="inherit_id" ref="openeducat_admission_enterprise.view_op_admission_tree_inherit"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='%(openeducat_admission_enterprise.action_op_admission_mail_compose)d']" position="replace">
+                </xpath>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>
+
+
+ 
+

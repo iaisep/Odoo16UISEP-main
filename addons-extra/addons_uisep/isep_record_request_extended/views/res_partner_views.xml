@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="res_partner_form_extended_view_inherit" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="isep_sign_sale.res_partner_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='documents']/field[@name='ir_attachment_ids']" position="before">
+                <group>
+                    <group>
+                        <field name="accepted_percentage" widget="percentage"/>
+                    </group>
+                    <group>
+                    </group>
+                </group>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>

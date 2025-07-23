@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.rule" id="circular_faculty_rule">
+        <field name="name">Faculty Circular View</field>
+        <field name="model_id" ref="openeducat_notice_board_enterprise.model_op_circular"/>
+        <field name="groups" eval="[(4, ref('openeducat_core.group_op_faculty'))]"/>
+        <field name="domain_force">['|', ('created_by', '=', user.id),('group_id.faculty_ids.emp_id.user_id', '=', user.id)]</field>
+    </record>
+    <record model="ir.rule" id="circular_admin_rule">
+        <field name="name">Admin Circular View</field>
+        <field name="model_id" ref="openeducat_notice_board_enterprise.model_op_circular"/>
+        <field name="groups" eval="[(4, ref('base.group_erp_manager'))]"/>
+        <field name="domain_force">[(1, '=',1)]</field>
+    </record>
+
+    <record model="ir.rule" id="notice_faculty_rule">
+        <field name="name">Faculty Notice View</field>
+        <field name="model_id" ref="openeducat_notice_board_enterprise.model_op_notice"/>
+        <field name="groups" eval="[(4, ref('openeducat_core.group_op_faculty'))]"/>
+        <field name="domain_force">['|',('created_by', '=', user.id),('group_id.faculty_ids.emp_id.user_id', '=', user.id)]</field>
+    </record>
+    <record model="ir.rule" id="notice_admin_rule">
+        <field name="name">Admin Notice View</field>
+        <field name="model_id" ref="openeducat_notice_board_enterprise.model_op_notice"/>
+        <field name="groups" eval="[(4, ref('base.group_erp_manager'))]"/>
+        <field name="domain_force">[(1, '=',1)]</field>
+    </record>
+</odoo>

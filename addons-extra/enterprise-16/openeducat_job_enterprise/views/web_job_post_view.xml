@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="job_post_list" name="Job Post">
+        <t t-call="website.layout">
+            <div class="oe_structure" id="job_post_list_structure">
+                <section class="job-post-title"
+                         style="background-image: url(&quot;/openeducat_job_enterprise/static/src/img/inner-pagebg.jpg&quot;);position:relative;background-position-y: center;">
+                    <div class="overlay"></div>
+                    <div class="container pt64 pb64">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-6 mt8 mb8">
+                                <h1 class="text-white" style="font-size: 40px;">OUR JOB OFFERS
+                                </h1>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center text-md-left mt8 mb8 search-box">
+                                <form t-attf-action="/campus/jobs" role="search" method="get">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control text-white" name="search"
+                                               t-attf-placeholder="Search" t-att-value="search"
+                                               style="border-radius:0px;border-right: 0; height:50px;"/>
+                                        <span class="input-group-btn">
+                                            <button class="btn" type="submit"
+                                                    style="border-radius:0px">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="breadcrumbs">
+                    <div class="container">
+                        <div class="row border-bottom">
+                            <ul class="breadcrumb mb0">
+                                <li>
+                                    <a href="/">Home</a>
+                                </li>
+                                <li>
+                                    <a href="/campus/jobs">Campus Jobs</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <div class="container pt64 pb64">
+                    <div class="row">
+                        <div t-foreach="job_post_id" t-as="jobs" class="col-md-6 col-lg-4 mb32">
+                            <div id="job_post_list" role="img" aria-label="Job Post"
+                                 title="Job Post">
+                                <div t-if='not activity'>
+                                    <div class="card bg-o-color-3" style="">
+                                        <h5 class="job-post mb0 text-secondary" t-field="jobs.job_post"/>
+                                        <div class="card-body text-o-color-5">
+                                            <p style="font-weight: bold;">Company
+                                                Name
+                                            </p>
+                                            <!--                                                <i class="fa fa-map-marker"></i>-->
+                                            <p class="content_ellipsis">
+                                                <span id="street" t-field="jobs.street"/>
+                                                <span>,</span>
+                                                <span t-field="jobs.street2"/>
+                                                <span>,</span>
+                                                <span t-field="jobs.city"/>
+                                            </p>
+                                            <hr></hr>
+                                            <div class="d-flex">
+                                                <div class="col p-1">
+                                                    <span style="font-size: 14px;font-weight: bold;">
+                                                        Job Openings :
+                                                    </span>
+                                                    <span class="text-secondary" style="font-size: 18px;font-weight: bold;"
+                                                          t-field="jobs.expected_employees"/>
+                                                </div>
+                                                <div class="text-right">
+                                                    <a class="btn btn-lg job-apply"
+                                                       t-attf-href="/job_post/detail/#{ slug(jobs)}">Apply Now
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+    <template id="jobpost_detail" name="Job Detail">
+        <t t-call="website.layout">
+            <t t-set="additional_title">Job Detail</t>
+            <div id="wrap">
+                <div class="oe_structure" id="oe_structure_job_post_detail_1"/>
+
+                <!-- Breadcrumb -->
+                <section class="job-post-title"
+                         style="background-image: url(&quot;/openeducat_job_enterprise/static/src/img/inner-pagebg.jpg&quot;);position:relative;background-position-y: center;">
+                    <div class="overlay"></div>
+                    <div class="container pt64 pb64">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-6 mt8 mb8">
+                                <h1 class="text-white" style="font-size: 40px;">JOB DETAILS
+                                </h1>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center text-md-left mt8 mb8 search-box">
+                                <form t-attf-action="/job_post/detail/#{ slug(job_post_id)}" role="search" method="get">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="search"
+                                               t-attf-placeholder="Search" t-att-value="search"
+                                               style="border-radius:0px;border-right: 0; height:50px;"/>
+                                        <span class="input-group-btn">
+                                            <button class="btn" type="submit"
+                                                    style="border-radius:0px">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="breadcrumbs">
+                    <div class="container">
+                        <div class="row border-bottom">
+                            <ul class="breadcrumb mb0">
+                                <li>
+                                    <a href="/">Home</a>
+                                </li>
+                                <li>
+                                    <a href="/campus/jobs">Campus Jobs</a>
+                                </li>
+                                <li>
+                                    <a>
+                                        <span t-field="job_post_id.job_post"/>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="pt64 pb64 bg-white border-bottom" id="job_detail">
+                    <div class="container">
+                        <!--                        <div class="pb64 text-center">-->
+                        <!--                            <h1 class="mb0 mt0 text-uppercase" t-field="job_post_id.name"/>-->
+                        <!--                        </div>-->
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                <div class="row d-flex" style="background: #e8ebf2;padding: 20px 0px;">
+                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                        <h3 class="mb-md-0 text-secondary" t-field="job_post_id.job_post"  id="job_post_field"/>
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 text-lg-right text-md-right">
+                                        <span style="font-size: 18px;" class="text-o-color-5">
+                                            Job Openings :
+                                        </span>
+                                        <span class="text-secondary" style="font-size: 18px;font-weight: bold;"
+                                              t-field="job_post_id.expected_employees"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 mt16">
+                                <div class="row d-flex">
+                                    <div class="col-12 col-sm-12 col-md-6 col-lg-9">
+                                        <p class="mb8 text-secondary" style="font-weight: bold;">Company
+                                            Name
+                                        </p>
+                                        <p class="mb8 text-o-color-5">
+                                            <span id="street" t-field="job_post_id.street"/>
+                                            <span>,</span>
+                                            <span t-field="job_post_id.street2"/>
+                                            <span>,</span>
+                                            <br/>
+                                            <span t-field="job_post_id.city"/>
+                                        </p>
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-6 col-lg-3">
+                                        <p class="mb8">
+                                            <b class="text-black">Employment Type :</b>
+                                            <span class="mt0 text-o-color-5" id="job_post_field2"
+                                                  t-field="job_post_id.employment_type"/>
+                                        </p>
+                                        <p class="mb8">
+                                            <b class="text-black">Salary <span>(</span><span t-field="job_post_id.payable_at"/><span>)</span> :</b>
+                                            <span class="mt0 text-o-color-5" t-field="job_post_id.salary_from"/>
+                                        </p>
+                                    </div>
+                                </div>
+                                <hr class="mt8"></hr>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 mt24">
+                                <h4 class="mb24 text-secondary">
+                                    Job Description
+                                </h4>
+                                <p class="mt0 text-o-color-5" t-field="job_post_id.description"/>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 key-skill mt24">
+                                <h4 class="mb24 text-secondary">
+                                    Key Skills
+                                </h4>
+                                <ul class="list-unstyled mb0">
+                                    <li class="list-inline-item mb16 text-o-color-5">Web design</li>
+                                    <li class="list-inline-item mb16 text-o-color-5">Indesign</li>
+                                    <li class="list-inline-item mb16 text-o-color-5">Photoshop</li>
+                                    <li class="list-inline-item mb16 text-o-color-5">Html5</li>
+                                    <li class="list-inline-item mb16 text-o-color-5">Css3</li>
+                                </ul>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-6 mt24 resume">
+                                <h4 class="mb24 text-secondary">
+                                    Resume
+                                </h4>
+                                <div id="forms" class="resume-form">
+                                    <form action="/form/submit" method="post"
+                                          class="s_website_form form-horizontal container-fluid"
+                                          enctype="multipart/form-data" data-model_name="op.job.applicant"
+                                          data-success_page="/placement-thanks">
+                                        <div id="apply" class="row">
+                                            <div class="col-12 col-sm-12 col-md-8 col-lg-8 pr-lg-1">
+
+                                                <input id="job_post_apply" type='hidden' name="job_post"
+                                                       t-att-value="job_post_id.id"/>
+                                                <div class="form-group form-field o_website_form_custom">
+                                                    <input type="file" required="1" class="form-control o_website_form_input"
+                                                           name="Resume"/>
+                                                    <!--                                                    <label class="custom-file-upload">-->
+                                                    <!--                                                        <input type="file"/>-->
+                                                    <!--                                                        Custom Upload-->
+                                                    <!--                                                    </label>-->
+                                                </div>
+
+                                            </div>
+                                            <div class="col-12 col-sm-12 col-md-8 col-lg-4 pl-lg-1">
+                                                <div class="form-group">
+                                                    <a href="#" role="button"
+                                                       class="btn apply-resume btn-lg o_website_form_send">
+                                                        Apply Now
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="pt64 pb64">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                <h3 class="mb32">
+                                    Similar Jobs
+                                </h3>
+                            </div>
+                            <div t-foreach="job_post_id" t-as="jobs" class="col-md-6 col-lg-4 mb32">
+                                <div id="job_post_list" role="img" aria-label="Job Post"
+                                     title="Job Post">
+                                    <div t-if='not activity'>
+                                        <div class="bg-o-color-3 card" style="">
+                                            <h5 class="job-post mb0 text-secondary" t-field="jobs.job_post"/>
+                                            <div class="card-body text-o-color-5">
+                                                <p style="font-weight: bold;">Company
+                                                    Name
+                                                </p>
+                                                <!--                                                <i class="fa fa-map-marker"></i>-->
+                                                <p>
+                                                    <span id="street" t-field="jobs.street"/>
+                                                    <span>,</span>
+                                                    <span t-field="jobs.street2"/>
+                                                    <span>,</span>
+                                                    <span t-field="jobs.city"/>
+                                                </p>
+                                                <hr></hr>
+                                                <div class="d-flex">
+                                                    <div class="col p-1">
+                                                        <span style="font-size: 14px;font-weight: bold;">
+                                                            Job Openings :
+                                                        </span>
+                                                        <span class="text-secondary" style="font-size: 18px;font-weight: bold;"
+                                                              t-field="jobs.expected_employees"/>
+                                                    </div>
+                                                    <div class="text-right">
+                                                        <a class="btn btn-lg job-apply"
+                                                           t-attf-href="/job_post/detail/#{ slug(jobs)}">Apply Now
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!--                <div class="oe_structure">-->
+                <!--                    <section class="o_job_bottom_bar mt32 mb32">-->
+                <!--                        <div id="job_apply" class="text-center">-->
+                <!--                            <ul class="list-unstyled">-->
+                <!--                                <li t-if='not activity'>-->
+                <!--                                    <a role="button"-->
+                <!--                                       t-attf-href="/job/post/apply/#{slug(job_post_id)}"-->
+                <!--                                       class="btn btn-primary btn-lg">Yes I-->
+                <!--                                        Am Interested!-->
+                <!--                                    </a>-->
+                <!--                                </li>-->
+                <!--                            </ul>-->
+                <!--                        </div>-->
+                <!--                    </section>-->
+                <!--                </div>-->
+            </div>
+        </t>
+    </template>
+
+    <template id="jobpost_description" name="Job Description">
+        <t t-call="website.layout">
+            <t t-set="additional_title">Job Description</t>
+            <div id="wrap">
+                <div class="oe_structure" id="oe_structure_job_post_Description_1"/>
+
+                <!-- Breadcrumb -->
+
+                <section class="pt64 pb24 bg-white">
+                    <div class="container">
+                        <div class="pb64 text-center">
+                            <h1 class="mb0 mt0 text-uppercase" t-field="job_description_id.name"/>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-5 offset-lg-1">
+                                <div class="row">
+                                    <div class="col-5 col-sm-5 col-md-6 col-lg-4">
+                                        <p>
+                                            <b>Job Post :</b>
+                                        </p>
+                                    </div>
+                                    <div class="col-7 col-sm-7 col-md-6 col-lg-8">
+                                        <p id="job_post" class="mt0" t-field="job_description_id.job_post"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-5 col-sm-5 col-md-6 col-lg-4">
+                                        <p>
+                                            <b>Employment Type :</b>
+                                        </p>
+                                    </div>
+                                    <div class="col-7 col-sm-7 col-md-6 col-lg-8">
+                                        <p class="mt0" t-field="job_description_id.employment_type"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-5 col-sm-5 col-md-6 col-lg-4">
+                                        <p>
+                                            <b>Salary :</b>
+                                        </p>
+                                    </div>
+                                    <div class="col-7 col-sm-7 col-md-6 col-lg-8">
+                                        <p class="mt0" t-field="job_description_id.salary_from"/>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-5 offset-lg-1">
+                                <div class="row">
+                                    <div class="col-5 col-sm-5 col-md-6 col-lg-3">
+                                        <p>
+                                            <b>Address :</b>
+                                        </p>
+                                    </div>
+                                    <div class="col-7 col-sm-7 col-md-6 col-lg-9">
+                                        <p class="mt0" t-field="job_description_id.street"/>
+                                        <p class="mt0" t-field="job_description_id.street2"/>
+                                        <p class="mt0" t-field="job_description_id.city"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-5 col-sm-5 col-md-6 col-lg-3">
+                                        <p>
+                                            <b>Description :</b>
+                                        </p>
+                                    </div>
+                                    <div class="col-7 col-sm-7 col-md-6 col-lg-9">
+                                        <p class="mt0" t-field="job_description_id.description"/>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </section>
+
+                <div class="oe_structure" id="job_description_structure">
+                    <section class="o_job_bottom_bar mt32 mb32">
+                        <div id="job_description" class="text-center">
+                            <ul class="list-unstyled">
+                                <li t-if='not activity'>
+                                    <a role="button"
+                                       t-attf-href="/job_post/detail/#{slug(job_description_id)}"
+                                       class="btn btn-primary btn-lg">Yes I
+                                        Am Interested!
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

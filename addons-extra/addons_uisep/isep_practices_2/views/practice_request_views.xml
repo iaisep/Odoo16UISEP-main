@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Vistas -->
+
+    <!-- VISTA DE ÁRBOL (Tree) -->
+    <record id="view_practice_request_tree" model="ir.ui.view">
+        <field name="name">practice.request.tree</field>
+        <field name="model">practice.request</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="id" string="No."/>
+                <field name="name"/>
+                <field name="email"/>
+                <field name="course_id"/>
+                <field name="practice_center_type_id"/>
+                <field name="state"/>
+                <field name="request_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- VISTA DE FORMULARIO (Form) -->
+    <record id="view_practice_request_form" model="ir.ui.view">
+        <field name="name">practice.request.form</field>
+        <field name="model">practice.request</field>
+        <field name="arch" type="xml">
+            <form string="Practice Request">
+                <header>
+                    <button name="action_submit" string="Assigned" type="object" states="draft"
+                            class="btn-primary"/>
+                    <button name="action_draft" string="Reset to Draft" type="object"
+                            class="btn-info"/>
+
+                    <button name="action_approve" string="Approve" type="object" states="assigned"
+                            class="btn-success"/>
+                    <button name="action_reject" string="Reject" type="object" states="assigned"
+                            class="btn-danger"/>
+
+                    <button name="action_progress" string="Progress" type="object" states="approved"
+                            class="btn-success"/>
+                    <button name="action_end" string="Finnish" type="object" states="progress"
+                            class="btn-danger"/>
+
+                    <button name="action_create_signature_request" string="Send Signature Request"
+                            type="object" states="approved"
+                            class="btn-info"/>
+
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+
+                    <group>
+                        <group>
+                            <field name="user_id"/>
+                            <field name="name"/>
+                            <field name="email"/>
+                            <field name="practice_center_type_id"/>
+                            
+                            <field name="op_student_id" invisible="1" />
+                            <field name="op_admission_id" domain="[('email','=', email)]"/>
+                            
+                        </group>
+                        <group>
+
+                            <field name="course_id"/>
+                            <field name="op_student_course_course_id"/>
+                            <field name="request_date"/>
+                        </group>
+                        <group colspan="2">
+                            <field name="application_description"/>
+                        </group>
+                    </group>
+
+                    <notebook attrs="{'invisible': [('state', 'not in', ['draft', 'assigned'])]}">
+                        <page string="Availability of Student">
+                            <div class="row">
+                                <!-- Día: Monday -->
+                                <div class="col-4">
+                                    <div>Monday</div>
+                                </div>
+                                <div class="col-4">
+                                    <field name="monday_available_start_time" widget="float_time"/>
+                                </div>
+                                <div class="col-4">
+                                    <field name="monday_available_end_time" widget="float_time"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <!-- Día: Tuesday -->
+                                <div class="col-4">
+                                    <div>Tuesday</div>
+                                </div>
+                                <div class="col-4">
+                                    <field name="tuesday_available_start_time" widget="float_time"/>
+                                </div>
+                                <div class="col-4">
+                                    <field name="tuesday_available_end_time" widget="float_time"/>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <!-- Día: Wednesday -->
+                                <div class="col-4">
+                                    <div>Wednesday</div>
+                                </div>
+                                <div class="col-4">
+                                    <field name="wednesday_available_start_time" widget="float_time"/>
+                                </div>
+                                <div class="col-4">
+                                    <field name="wednesday_available_end_time" widget="float_time"/>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <!-- Día: Thursday -->
+                                <div class="col-4">
+                                    <div>Thursday</div>
+                                </div>
+                                <div class="col-4">
+                                    <field name="thursday_available_start_time" widget="float_time"/>
+                                </div>
+                                <div class="col-4">
+                                    <field name="thursday_available_end_time" widget="float_time"/>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <!-- Día: Friday -->
+                                <div class="col-4">
+                                    <div>Friday</div>
+                                </div>
+                                <div class="col-4">
+                                    <field name="friday_available_start_time" widget="float_time"/>
+                                </div>
+                                <div class="col-4">
+                                    <field name="friday_available_end_time" widget="float_time"/>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <!-- Día: Saturday -->
+                                <div class="col-4">
+                                    <div>Saturday</div>
+                                </div>
+                                <div class="col-4">
+                                    <field name="saturday_available_start_time" widget="float_time"/>
+                                </div>
+                                <div class="col-4">
+                                    <field name="saturday_available_end_time" widget="float_time"/>
+                                </div>
+                            </div>
+
+                            <!--                            <div class="row">-->
+                            <!--                                &lt;!&ndash; Día: Sunday &ndash;&gt;-->
+                            <!--                                <div class="col-4">-->
+                            <!--                                     <div>Sunday</div>-->
+                            <!--                                </div>-->
+                            <!--                                <div class="col-4">-->
+                            <!--                                    <field name="sunday_available_start_time" widget="float_time"/>-->
+                            <!--                                </div>-->
+                            <!--                                <div class="col-4">-->
+                            <!--                                    <field name="sunday_available_end_time" widget="float_time"/>-->
+                            <!--                                </div>-->
+                            <!--                            </div>-->
+                        </page>
+                    </notebook>
+
+                    <group string="Available Practice Centers" invisible="1"
+                           >
+                        <!-- Campo Many2many para mostrar centros en un tree view -->
+                        <field name="available_practice_centers_ids" readonly="1" nolabel="1" colspan="2">
+                            <tree>
+                                <field name="name"/>
+                                <field name="official_name"/>
+                                <field name="city"/>
+                                <field name="province"/>
+                                <field name="number_places"/>
+                                <field name="type_ids" widget="many2many_tags"/>
+                            </tree>
+                        </field>
+                    </group>
+                    <group string="Solicited Practice Centers">
+
+                         <field name="solicited_practice_center_ids"   nolabel="1" colspan="2">
+                            <tree>
+                                <field name="name"/>
+                                <field name="official_name"/>
+                                <field name="city"/>
+                                <field name="province"/>
+                                <field name="number_places"/>
+                                <field name="type_ids" widget="many2many_tags"/>
+                            </tree>
+                        </field>
+
+                    </group>
+                    <group string="Assign of Center y Tutors">
+                        <group>
+                            <field name="practice_center_id"/>
+                            <field name="tutor_id"/>
+                            <field name="start_date"/>
+                            <field name="final_date"/>
+                        </group>
+                        <group>
+
+                            <field name="practice_center_type_id_total_hours" widget="float_time"/>
+
+                            <field name="total_available_hours" widget="float_time"/>
+
+                            <field name="weeks_practices"/>
+                            <field name="compute_final_date"/>
+
+
+                        </group>
+                    </group>
+                    <group string="Control of Sign Documents" colspan="2">
+                        <group>
+                            <field name="status_sign_specific"/>
+                        </group>
+                        <!--                         <field name="sign_request_specific_agrement_id"/>-->
+                        <group>
+                            <field name="status_sign_framework"/>
+                        </group>
+                        <!--                          <field name="sign_request_framework_agrement_id"/>-->
+                    </group>
+                    <notebook>
+                        <page string="Documents of Practices">
+                            <!--                            <group>-->
+                            <!--                                <field name="request_document_ids" nolabel="1" colspan="2">-->
+                            <!--                                    <tree string="Practice Request Documents">-->
+                            <!--                                        <field name="name"/>-->
+                            <!--                                        <field name="document_type"/>-->
+                            <!--                                        <field name="description"/>-->
+                            <!--                                        <field name="upload_date"/>-->
+                            <!--                                        <field name="practice_request_id" invisible="1"/>-->
+                            <!--                                    </tree>-->
+                            <!--                                </field>-->
+                            <!--                            </group>-->
+
+                            <group col="2">
+                                <field name="attachment_ids"
+                                       widget="many2many_binary"
+                                       class="oe_edit_only"
+                                />
+
+                            </group>
+                            <field name="attachment2_ids" readonly="1">
+                                <tree create="false" delete="false">
+                                    <field name="name" string="Nombre del Archivo" readonly="1"/>
+                                    <field name="description" string="Descripción" readonly="1"/>
+                                    <field name="create_uid" string="Cargado Por" readonly="1"/>
+                                    <field name="create_date" string="Fecha de Carga" readonly="1"/>
+
+                                </tree>
+                                <form create="false" delete="false">
+
+                                    <label for="name" class="oe_edit_only"/>
+                                    <h1>
+                                        <field name="name"/>
+                                        <field name="datas"
+                                               filename="datas_fname" attrs="{'invisible':[('type','=','url')]}"
+                                               readonly="1"/>
+                                        <field name="name" invisible="1" attrs="{'invisible':[('type','=','url')]}"
+                                               class="oe_inline oe_right"/>
+                                        <!--                                            <field name="datas_fname" invisible="1" attrs="{'invisible':[('type','=','url')]}"-->
+                                        <!--                                                   class="oe_inline oe_right"/>-->
+                                    </h1>
+
+                                    <group>
+                                        <field name="description"/>
+                                        <field name="type" readonly="1"/>
+
+                                        <field name="url" widget="url" attrs="{'invisible':[('type','=','binary')]}"/>
+                                        <field name="mimetype" groups="base.group_no_one"/>
+                                        <field name="create_uid" string="Registrado Por"
+                                               options='{"no_open": True, "no_create": True}'/>
+                                        <field name="create_date" string="Fecha de Registro"/>
+                                    </group>
+
+
+                                </form>
+                            </field>
+                        </page>
+
+
+                        <page string="Checklist">
+                            <field name="checklist_ids">
+                                <tree editable="bottom">
+                                    <field name="name" readonly="1"/>
+                                    <field name="is_mandatory" readonly="1"/>
+                                    <field name="is_completed"/>
+                                </tree>
+                            </field>
+                            <button name="generate_checklist" string="Generate Checklist" type="object"
+                                    class="oe_highlight"/>
+
+                        </page>
+                        <!-- 
+                        <page string="Documentos cargados">
+                            <field name="attachment_upload_ids">
+                                <tree no_open="1">
+                                    <field name="name"/>
+                                    <field name="create_date"/>
+                                    <field name="datas" widget="binary" filename="name"/>
+                                </tree>
+                            </field>
+
+                        </page>
+                        -->
+                    </notebook>
+
+
+                </sheet>
+                <div class="o_attachment_preview"/>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+
+    </record>
+
+    <!-- VISTA KANBAN (Kanban) -->
+    <record id="view_practice_request_kanban" model="ir.ui.view">
+        <field name="name">practice.request.kanban</field>
+        <field name="model">practice.request</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <field name="state"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_content">
+                            <div class="oe_kanban_details">
+                                <strong>
+                                    <span t-field="record.name"/>
+                                </strong>
+                                <div>
+                                    <span t-field="record.email"/>
+                                </div>
+                                <div>
+                                    <span t-field="record.course_id"/>
+                                </div>
+                                <div>
+                                    <span t-field="record.practice_center_type_id"/>
+                                </div>
+                            </div>
+                            <div class="oe_kanban_footer">
+                                <span t-field="record.state"/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- VISTA DE BÚSQUEDA (Search) -->
+    <record id="view_practice_request_search" model="ir.ui.view">
+        <field name="name">practice.request.search</field>
+        <field name="model">practice.request</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="email"/>
+                <field name="course_id"/>
+                <!--                <filter string="Draft" domain="[('state', '=', 'draft')]"/>-->
+                <!--                <filter string="Submitted" domain="[('state', '=', 'submitted')]"/>-->
+                <!--                <filter string="Approved" domain="[('state', '=', 'approved')]"/>-->
+                <!--                <filter string="Rejected" domain="[('state', '=', 'rejected')]"/>-->
+                <group string="Group By">
+                    <group name="state"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+
+    <record id="action_practice_request" model="ir.actions.act_window">
+        <field name="name">Practice Requests</field>
+        <field name="res_model">practice.request</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_id" ref="view_practice_request_tree"/>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+
+    <!-- Menú -->
+
+
+    <menuitem id="menu_practice_request" name="Solicitudes" parent="menu_practice_management"
+              action="action_practice_request" sequence="1"/>
+
+</odoo>

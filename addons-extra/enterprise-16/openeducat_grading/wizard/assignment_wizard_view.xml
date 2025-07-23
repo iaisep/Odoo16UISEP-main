@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="view_assignment_wizard_form" model="ir.ui.view">
+            <field name="name">assignment.wizard.form</field>
+            <field name="model">assignment.wizard</field>
+            <field name="type">form</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Assignment">
+                    <sheet>
+                        
+                            <field name="assignment_ids" nolabel="1"/>
+                       
+                        <footer>
+                            <button string="Confirm" class="oe_highlight" type="object"
+                                    name="action_confirm_assignment"/>
+                         
+                            <button string="Cancel" class="btn-default" special="cancel"/>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_assignment_wizard_view">
+            <field name="name">Assignment</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">assignment.wizard</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_assignment_wizard_view_form">
+            <field name="act_window_id" ref="act_assignment_wizard_view"/>
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_assignment_wizard_form"/>
+        </record>
+
+
+</odoo>

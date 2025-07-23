@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+        <!-- Channel main template: add link to forum -->
+    <template id="my_account_link_custom" name="Link to frontend portal" inherit_id="portal.my_account_link">
+      
+        
+            <xpath expr="//a[hasclass('dropdown-item')][@href='/my/home']" position="after">
+                <a href="/campus" role="menuitem" class="dropdown-item ps-3">
+                    <i class="fa fa-fw fa fa-bookmark me-1 small text-muted"/>  Campus
+                </a>
+
+            </xpath>
+
+      
+    </template>
+
+
+
+</odoo>
+

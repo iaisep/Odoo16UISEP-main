@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<odoo>
+    <!-- Menú -->
+    <menuitem id="menu_gpt_root" name="GPT" parent="base.menu_administration" />
+    
+    <menuitem id="menu_gpt_integration" name="GPT Integraciones" parent="menu_gpt_root" action="action_gpt_integration"/>
+    <menuitem id="menu_gpt_origin" name="GPT Origen" parent="menu_gpt_root" action="action_gpt_origin"/>
+    
+    <menuitem id="menu_gpt_test" action="action_gpt_test" name="Pruebas GPT" parent="menu_gpt_root" sequence="90"/>
+    <menuitem id="menu_gpt_error_log" name="Registro de Errores GPT" parent="menu_gpt_root" action="action_gpt_error_log" sequence="91"/>
+   
+    
+
+</odoo>

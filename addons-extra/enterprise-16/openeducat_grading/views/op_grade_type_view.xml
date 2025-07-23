@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="view_op_grade_type_tree" model="ir.ui.view">
+            <field name="name">op.grade.type.tree</field>
+            <field name="model">op.grade.type</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="gpa_value"/>
+                    <field name="min_percentage"/>
+                    <field name="max_percentage"/>
+                    <field name="earn_credits" optional="hide"/>
+                    <field name="include_gpa" optional="hide"/>
+                    <field name="op_grade_scale_id" optional="hide"/>
+                    <field name="form_factor" optional="hide"/>
+                    <field name="factor" optional="hide"/>
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_op_grade_type_form" model="ir.ui.view">
+            <field name="name">op.grade.type.form</field>
+            <field name="model">op.grade.type</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Grade Type">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="earn_credits"/>
+                            <field name="form_factor"/>
+                            <field name="factor" attrs="{'invisible': [('form_factor', '!=', True)]}"/>
+                            <field name="gpa_value" attrs="{'invisible': [('form_factor', '==', True)]}"/>
+                        </group>
+                        <group>
+                            <field name="min_percentage"/>
+                            <field name="max_percentage"/>
+                            <field name="include_gpa"/>
+                            <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_op_grade_type_search" model="ir.ui.view">
+            <field name="name">op.grade.type.search</field>
+            <field name="model">op.grade.type</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Grade Type">
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_op_grade_type_view">
+            <field name="name">Grade Type</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.grade.type</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_op_grade_type_search"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_op_grade_type_view_form">
+            <field name="act_window_id" ref="act_op_grade_type_view"/>
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_op_grade_type_form"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_op_grade_type_view_tree">
+            <field name="act_window_id" ref="act_op_grade_type_view"/>
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_op_grade_type_tree"/>
+        </record>
+
+</odoo>

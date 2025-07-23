@@ -1,0 +1,1279 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* openeducat_quiz
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-09 09:59+0000\n"
+"PO-Revision-Date: 2019-12-09 09:59+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.quiz_render_exam_main_form_view
+msgid "<b>Average Result</b>\n"
+"                                            :"
+msgstr "<b> ผลเฉลี่ย </ b>\n"
+"                                            :"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.quiz_render_exam_main_form_view
+msgid "<b>Total Attempt</b>\n"
+"                                            :"
+msgstr "<b> รวมความพยายาม </ b>\n"
+"                                            :"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__message_needaction
+msgid "Action Needed"
+msgstr "จำเป็นต้องดำเนินการ"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result_line__question_mark
+msgid "Actual Marks"
+msgstr "Marks ที่เกิดขึ้นจริง"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__que_required
+msgid "All Question are Required"
+msgstr "ทุกคำถามที่จะต้อง"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank_answer__name
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank_line__answer
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_answer__name
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_line__answer
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result_line_answers__name
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.quiz_results_form
+msgid "Answer"
+msgstr "ตอบ"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank_line__line_ids
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_line__line_ids
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result_line__line_ids
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_question_bank_form
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_question_bank_form_onboard
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form_onboard
+msgid "Answers"
+msgstr "คำตอบ"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_question_bank_form_onboard
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form_onboard
+msgid "Apply"
+msgstr "ใช้"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__message_attachment_count
+msgid "Attachment Count"
+msgstr "จำนวนเอกสารแนบ"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.quiz_render_exam_main_form_view
+msgid "Attempt :"
+msgstr "พยายาม:"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.my_result
+msgid "Attempt Date"
+msgstr "วันที่ความพยายาม"
+
+#. module: openeducat_quiz
+#: selection:op.quiz,time_expire:0
+msgid "Attempts must be submitted before time expires, or they are not counted"
+msgstr "ความพยายามที่จะต้องส่งก่อนเวลาหมดอายุหรือพวกเขาจะไม่ถูกนับ"
+
+#. module: openeducat_quiz
+#: selection:op.quiz,start_view:0
+msgid "Audio"
+msgstr "เสียง"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__quiz_audio
+msgid "Audio File"
+msgstr "ไฟล์เสียง"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.quiz_render_exam_main_form_view
+msgid "Avg Result :"
+msgstr "ผลการเฉลี่ย:"
+
+#. module: openeducat_quiz
+#: code:addons/openeducat_quiz/models/result.py:296
+#, python-format
+msgid "Can not set more then actual mark."
+msgstr "ไม่สามารถตั้งค่ามากขึ้นแล้วทำเครื่องหมายที่เกิดขึ้นจริง"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_question_wizard_form
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_update_mark_wizard_form
+#: selection:op.quiz,state:0
+#: selection:op.quiz.result,state:0
+msgid "Cancel"
+msgstr "ยกเลิก"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank_line__case_sensitive
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_line__case_sensitive
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result_line__case_sensitive
+msgid "Case Sensitive"
+msgstr "กรณีที่สำคัญ"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__categ_id
+msgid "Category"
+msgstr "ประเภท"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__challenge_ids
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form_onboard
+msgid "Challenges"
+msgstr "ความท้าทาย"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form_onboard
+#: selection:res.company,onboarding_question_bank_layout_state:0
+#: selection:res.company,onboarding_quiz_layout_state:0
+#: selection:res.company,quiz_enterprise_onboard_panel:0
+msgid "Closed"
+msgstr "ปิด"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_category__code
+msgid "Code"
+msgstr "รหัส"
+
+#. module: openeducat_quiz
+#: model:ir.model,name:openeducat_quiz.model_res_company
+msgid "Companies"
+msgstr "บริษัท"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__quiz_config
+#: model:ir.ui.menu,name:openeducat_quiz.op_quiz_config_menu
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form_onboard
+msgid "Configuration"
+msgstr "องค์ประกอบ"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_question_wizard_form
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form_onboard
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_update_mark_wizard_form
+msgid "Confirm"
+msgstr "ยืนยัน"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result_line__answer
+msgid "Correct Answer"
+msgstr "คำตอบที่ถูกต้อง"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_answer_grade__create_uid
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank__create_uid
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank_answer__create_uid
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank_line__create_uid
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank_type__create_uid
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_wizard__create_uid
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__create_uid
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_answer__create_uid
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_category__create_uid
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_config__create_uid
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_line__create_uid
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result__create_uid
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result_line__create_uid
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result_line_answers__create_uid
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result_message__create_uid
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_update_mark__create_uid
+msgid "Created by"
+msgstr "สร้างโดย"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_answer_grade__create_date
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank__create_date
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank_answer__create_date
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank_line__create_date
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank_type__create_date
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_wizard__create_date
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__create_date
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_answer__create_date
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_category__create_date
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_config__create_date
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_line__create_date
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result__create_date
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result_line__create_date
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result_line_answers__create_date
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result_message__create_date
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_update_mark__create_date
+msgid "Created on"
+msgstr "สร้างบน"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.onboarding_question_bank_layout_step
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.onboarding_quiz_layout_step
+msgid "Customize"
+msgstr "ปรับแต่ง"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank__description
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank_type__description
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_category__description
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_question_bank_form
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_question_bank_form_onboard
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form_onboard
+msgid "Description"
+msgstr "ลักษณะ"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_question_bank_form
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_question_bank_form_onboard
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_question_bank_type_form
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_category_form
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form_onboard
+msgid "Description..."
+msgstr "รายละเอียด ..."
+
+#. module: openeducat_quiz
+#: selection:op.question.bank.line,que_type:0
+#: selection:op.quiz.line,que_type:0
+#: selection:op.quiz.result.line,que_type:0
+msgid "Descriptive"
+msgstr "พรรณนา"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_answer_grade__display_name
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank__display_name
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank_answer__display_name
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank_line__display_name
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank_type__display_name
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_wizard__display_name
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__display_name
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_answer__display_name
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_category__display_name
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_config__display_name
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_line__display_name
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result__display_name
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result_line__display_name
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result_line_answers__display_name
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result_message__display_name
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_update_mark__display_name
+msgid "Display Name"
+msgstr "ชื่อที่แสดง"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__not_attempt_ans
+msgid "Display Not Attempted Answer"
+msgstr "แสดงคำตอบไม่ได้พยายาม"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__show_result
+msgid "Display Result"
+msgstr "แสดงผล"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__right_ans
+msgid "Display Right Answer"
+msgstr "แสดงคำตอบที่เหมาะสม"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__wrong_ans
+msgid "Display Wrong Answer"
+msgstr "แสดงคำตอบที่ผิด"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form_onboard
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_result_form
+#: selection:op.quiz,state:0
+#: selection:op.quiz.result,state:0
+#: selection:res.company,onboarding_question_bank_layout_state:0
+#: selection:res.company,onboarding_quiz_layout_state:0
+#: selection:res.company,quiz_enterprise_onboard_panel:0
+msgid "Done"
+msgstr "เสร็จสิ้น"
+
+#. module: openeducat_quiz
+#: selection:op.quiz,state:0
+msgid "Draft"
+msgstr "ร่าง"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.exam_user_result_profile
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.my_result
+msgid "Exam Name"
+msgstr "ชื่อสอบ"
+
+#. module: openeducat_quiz
+#: model:website.menu,name:openeducat_quiz.website_menu_quiz_menu
+msgid "Exams"
+msgstr "สอบ"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form_onboard
+msgid "Fetch Questions"
+msgstr "Fetch คำถาม"
+
+#. module: openeducat_quiz
+#: selection:op.question.bank.line,que_type:0
+#: selection:op.quiz.line,que_type:0
+#: selection:op.quiz.result.line,que_type:0
+msgid "Fill in the Blank"
+msgstr "เติมลงในช่องว่าง"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.quiz_last_question
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.quiz_render_single_form_view
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.quiz_web_page
+msgid "Finish"
+msgstr "เสร็จสิ้น"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result__finish_date
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_result_search
+msgid "Finished On"
+msgstr "เสร็จสิ้นเมื่อวันที่"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__message_follower_ids
+msgid "Followers"
+msgstr "สมัครพรรคพวก"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "ติดตามเรา (ช่อง)"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "ติดตามเรา (พันธมิตร)"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_update_mark__answer
+msgid "Given Answer"
+msgstr "คำตอบที่ได้รับ"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.quiz_results_form
+msgid "Given Aswer"
+msgstr "ได้รับ aswer"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__grace_period_minute
+msgid "Grace Minutes"
+msgstr "เกรซนาที"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__grace_period
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form_onboard
+msgid "Grace Period"
+msgstr "ระยะเวลาผ่อนผัน"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank_answer__grade_id
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_answer__grade_id
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result_line_answers__grade_id
+msgid "Grade"
+msgstr "เกรด"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_answer_grade__value
+msgid "Grade (%)"
+msgstr "ชั้นประถมศึกษาปี (%)"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank_line__grade_true_id
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_line__grade_true_id
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result_line__grade_true_id
+msgid "Grade for truly given answer"
+msgstr "ชั้นประถมศึกษาปีสำหรับคำตอบที่ได้รับอย่างแท้จริง"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank_line__grade_false_id
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_line__grade_false_id
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result_line__grade_false_id
+msgid "Grade for wrongly given answer"
+msgstr "ชั้นประถมศึกษาปีสำหรับคำตอบที่ได้รับอย่างไม่ยุติธรรม"
+
+#. module: openeducat_quiz
+#: model:ir.actions.act_window,name:openeducat_quiz.act_open_op_answer_grade_view
+#: model:ir.ui.menu,name:openeducat_quiz.menu_op_answer_grade
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_answer_grade_form
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_answer_grade_search
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_answer_grade_tree
+msgid "Grades"
+msgstr "เกรด"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_result_search
+msgid "Group By"
+msgstr "จัดกลุ่มโดย"
+
+#. module: openeducat_quiz
+#: selection:op.quiz,start_view:0
+msgid "HTML"
+msgstr ""
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__quiz_html
+msgid "HTML Content"
+msgstr "เนื้อหา HTML"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__time_limit_hr
+msgid "Hour"
+msgstr "ชั่วโมง"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.quiz_render_single_form_view
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form_onboard
+msgid "Hr"
+msgstr ""
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_answer_grade__id
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank__id
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank_answer__id
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank_line__id
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank_type__id
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_wizard__id
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__id
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_answer__id
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_category__id
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_config__id
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_line__id
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result__id
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result_line__id
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result_line_answers__id
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result_message__id
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_update_mark__id
+msgid "ID"
+msgstr ""
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,help:openeducat_quiz.field_op_quiz__message_unread
+msgid "If checked new messages require your attention."
+msgstr "หากตรวจสอบข้อความใหม่ต้องให้ความสนใจของคุณ"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,help:openeducat_quiz.field_op_quiz__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "หากตรวจสอบข้อความใหม่ต้องให้ความสนใจของคุณ"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,help:openeducat_quiz.field_op_quiz__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr "หากตรวจสอบข้อความบางรายที่มีข้อผิดพลาดในการจัดส่ง"
+
+#. module: openeducat_quiz
+#: selection:op.quiz,state:0
+#: selection:op.quiz.result,state:0
+msgid "In-Progress"
+msgstr "กำลังดำเนินการ"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__message_is_follower
+msgid "Is Follower"
+msgstr "มีผู้ติดตาม"
+
+#. module: openeducat_quiz
+#: selection:res.company,onboarding_question_bank_layout_state:0
+#: selection:res.company,onboarding_quiz_layout_state:0
+#: selection:res.company,quiz_enterprise_onboard_panel:0
+msgid "Just done"
+msgstr "เพิ่งเสร็จ"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_answer_grade____last_update
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank____last_update
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank_answer____last_update
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank_line____last_update
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank_type____last_update
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_wizard____last_update
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz____last_update
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_answer____last_update
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_category____last_update
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_config____last_update
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_line____last_update
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result____last_update
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result_line____last_update
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result_line_answers____last_update
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result_message____last_update
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_update_mark____last_update
+msgid "Last Modified on"
+msgstr "แก้ไขล่าสุดเมื่อ"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_answer_grade__write_uid
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank__write_uid
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank_answer__write_uid
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank_line__write_uid
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank_type__write_uid
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_wizard__write_uid
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__write_uid
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_answer__write_uid
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_category__write_uid
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_config__write_uid
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_line__write_uid
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result__write_uid
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result_line__write_uid
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result_line_answers__write_uid
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result_message__write_uid
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_update_mark__write_uid
+msgid "Last Updated by"
+msgstr "อัพเดทครั้งสุดท้ายโดย"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_answer_grade__write_date
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank__write_date
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank_answer__write_date
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank_line__write_date
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank_type__write_date
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_wizard__write_date
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__write_date
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_answer__write_date
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_category__write_date
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_config__write_date
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_line__write_date
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result__write_date
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result_line__write_date
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result_line_answers__write_date
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result_message__write_date
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_update_mark__write_date
+msgid "Last Updated on"
+msgstr "แก้ไขล่าสุดใน"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.onboarding_question_bank_layout_step
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.onboarding_quiz_layout_step
+msgid "Looks great!"
+msgstr "ดูดี!"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "เอกสารแนบหลัก"
+
+#. module: openeducat_quiz
+#: selection:op.quiz,quiz_config:0
+msgid "Manual"
+msgstr "คู่มือ"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank_line__mark
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_line__mark
+msgid "Marks"
+msgstr "เครื่องหมาย"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__quiz_message_ids
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result_message__message
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form_onboard
+msgid "Message"
+msgstr "ข่าวสาร"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__message_has_error
+msgid "Message Delivery error"
+msgstr "ข้อผิดพลาดการจัดส่งข้อความ"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__message_ids
+msgid "Messages"
+msgstr "ข้อความ"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.quiz_render_single_form_view
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form_onboard
+msgid "Min"
+msgstr "นาที"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__time_limit_minute
+msgid "Minutes"
+msgstr "รายงานการประชุม"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_answer_grade__name
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank__name
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank_type__name
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__name
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_category__name
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result__name
+msgid "Name"
+msgstr "ชื่อ"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.quiz_first_question
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.quiz_middle_question
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.quiz_render_single_form_view
+msgid "Next"
+msgstr "ต่อไป"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__no_of_attempt
+msgid "No of Attempt"
+msgstr "ไม่มีความพยายาม"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__no_of_question
+msgid "No of Question from each Question Bank"
+msgstr "ไม่มีคำถามจากแต่ละธนาคารคำถาม"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.quiz_results_form
+msgid "Not Attempt Answers"
+msgstr "ไม่พยายามตอบ"
+
+#. module: openeducat_quiz
+#: selection:res.company,onboarding_question_bank_layout_state:0
+#: selection:res.company,onboarding_quiz_layout_state:0
+#: selection:res.company,quiz_enterprise_onboard_panel:0
+msgid "Not done"
+msgstr "ยังไม่เสร็จ"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__message_needaction_counter
+msgid "Number of Actions"
+msgstr "จำนวนของการกระทำ"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_config__no_of_question
+msgid "Number of Question"
+msgstr "จำนวนคำถาม"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__message_has_error_counter
+msgid "Number of error"
+msgstr "จำนวนของข้อผิดพลาด"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,help:openeducat_quiz.field_op_quiz__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "จำนวนข้อความซึ่งจะต้องมีการดำเนินการ"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,help:openeducat_quiz.field_op_quiz__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "จำนวนข้อความที่มีข้อผิดพลาดในการจัดส่ง"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,help:openeducat_quiz.field_op_quiz__message_unread_counter
+msgid "Number of unread messages"
+msgstr "จำนวนข้อความที่ยังไม่ได้อ่าน"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__prev_readonly
+msgid "Only One Time Answer"
+msgstr "เพียงคำตอบอีกครั้งหนึ่ง"
+
+#. module: openeducat_quiz
+#: selection:op.quiz,time_expire:0
+msgid "Open attempts are submitted automatically"
+msgstr "เปิดความพยายามที่จะถูกส่งโดยอัตโนมัติ"
+
+#. module: openeducat_quiz
+#: selection:op.question.bank.line,que_type:0
+#: selection:op.quiz.line,que_type:0
+#: selection:op.quiz.result.line,que_type:0
+msgid "Optional"
+msgstr "ไม่จำเป็น"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.quiz_results_form
+msgid "Original Answer"
+msgstr "คำตอบเดิม"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.quiz_starting_page
+msgid "Please hear the audio before start exam"
+msgstr "โปรดฟังเสียงก่อนสอบเริ่มต้น"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.quiz_starting_page
+msgid "Please see the video before start exam"
+msgstr "โปรดดูวิดีโอก่อนสอบเริ่มต้น"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.quiz_last_question
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.quiz_middle_question
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.quiz_render_single_form_view
+msgid "Prev"
+msgstr "ก่อนหน้า"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__prev_allow
+msgid "Previous Question Allowed"
+msgstr "คำถามก่อนหน้านี้ได้รับอนุญาต"
+
+#. module: openeducat_quiz
+#: model:ir.actions.act_window,name:openeducat_quiz.act_open_op_update_mark_wizard_view
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank_answer__question_id
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank_line__name
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_answer__line_id
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_line__name
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result_line__name
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result_line_answers__line_id
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_update_mark__name
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.quiz_results_form
+msgid "Question"
+msgstr "คำถาม"
+
+#. module: openeducat_quiz
+#: model:ir.actions.act_window,name:openeducat_quiz.act_open_op_question_bank_view
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank_line__bank_id
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_wizard__bank_id
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_config__bank_id
+#: model:ir.ui.menu,name:openeducat_quiz.menu_op_question_bank
+#: model:ir.ui.menu,name:openeducat_quiz.op_question_bank_menu
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_question_bank_form
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_question_bank_form_onboard
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_question_bank_search
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_question_bank_tree
+msgid "Question Bank"
+msgstr "ธนาคารคำถาม"
+
+#. module: openeducat_quiz
+#: model:ir.actions.act_window,name:openeducat_quiz.action_onboarding_question_bank_layout
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.onboarding_question_bank_layout_step
+msgid "Question Bank Configuration"
+msgstr "การกำหนดค่าธนาคารคำถาม"
+
+#. module: openeducat_quiz
+#: model:ir.actions.act_window,name:openeducat_quiz.act_open_op_question_bank_type_view
+#: model:ir.ui.menu,name:openeducat_quiz.menu_op_question_bank_type
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_question_bank_type_form
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_question_bank_type_search
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_question_bank_type_tree
+msgid "Question Bank Type"
+msgstr "คำถามประเภทธนาคาร"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.quiz_render_single_form_view
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.quiz_web_page_single_form
+msgid "Question Grid"
+msgstr "คำถามกริด"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank_line__que_type
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_line__que_type
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result_line__que_type
+msgid "Question Type"
+msgstr "ประเภทคำถาม"
+
+#. module: openeducat_quiz
+#: model:ir.actions.act_window,name:openeducat_quiz.act_open_op_question_wizard_view
+#: model:ir.model,name:openeducat_quiz.model_op_quiz_line
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank__line_ids
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_wizard__question_ids
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__line_ids
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_question_bank_form
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_question_bank_form_onboard
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_question_wizard_form
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form_onboard
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_update_mark_wizard_form
+msgid "Questions"
+msgstr "คำถาม"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form_onboard
+msgid "Questions Configuration"
+msgstr "การกำหนดค่าคำถาม"
+
+#. module: openeducat_quiz
+#: sql_constraint:op.quiz.line:0
+msgid "Questions mark should be greater then 0"
+msgstr "เครื่องหมายคำถามที่ควรจะเป็นมากขึ้นแล้ว 0"
+
+#. module: openeducat_quiz
+#: model:ir.actions.act_window,name:openeducat_quiz.act_open_op_quiz_view
+#: model:ir.model,name:openeducat_quiz.model_op_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_config__quiz_id
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_line__quiz_id
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result__quiz_id
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result_message__quiz_id
+#: model:ir.ui.menu,name:openeducat_quiz.menu_op_quiz
+#: model:ir.ui.menu,name:openeducat_quiz.op_quiz_main_menu
+#: model:ir.ui.menu,name:openeducat_quiz.op_quiz_menu
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form_onboard
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_result_search
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_search
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_tree
+msgid "Quiz"
+msgstr "ทดสอบ"
+
+#. module: openeducat_quiz
+#: model:ir.model,name:openeducat_quiz.model_op_answer_grade
+msgid "Quiz Answer Grades"
+msgstr "แบบทดสอบคำตอบเกรด"
+
+#. module: openeducat_quiz
+#: model:ir.model,name:openeducat_quiz.model_op_quiz_answer
+msgid "Quiz Answers"
+msgstr "คำตอบแบบทดสอบ"
+
+#. module: openeducat_quiz
+#: selection:op.quiz,quiz_config:0
+msgid "Quiz Bank with Random Quesiton"
+msgstr "ธนาคารแบบทดสอบกับสุ่ม quesiton"
+
+#. module: openeducat_quiz
+#: selection:op.quiz,quiz_config:0
+msgid "Quiz Bank with Selected Question"
+msgstr "ธนาคารแบบทดสอบกับคำถามที่เลือก"
+
+#. module: openeducat_quiz
+#: model:ir.actions.act_window,name:openeducat_quiz.act_open_op_quiz_category_view
+#: model:ir.model,name:openeducat_quiz.model_op_quiz_category
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result__categ_id
+#: model:ir.ui.menu,name:openeducat_quiz.menu_op_quiz_category
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_category_form
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_category_search
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_category_tree
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_result_search
+msgid "Quiz Category"
+msgstr "แบบทดสอบหมวดหมู่"
+
+#. module: openeducat_quiz
+#: model:ir.actions.act_window,name:openeducat_quiz.action_onboarding_quiz_layout
+#: model:ir.model,name:openeducat_quiz.model_op_quiz_config
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__config_ids
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.onboarding_quiz_layout_step
+msgid "Quiz Configuration"
+msgstr "การกำหนดค่าแบบทดสอบ"
+
+#. module: openeducat_quiz
+#: model:ir.model,name:openeducat_quiz.model_op_question_bank
+msgid "Quiz Question Bank"
+msgstr "แบบทดสอบธนาคารคำถาม"
+
+#. module: openeducat_quiz
+#: model:ir.model,name:openeducat_quiz.model_op_question_bank_answer
+msgid "Quiz Question Bank Answers"
+msgstr "คำตอบแบบทดสอบคำถามธนาคาร"
+
+#. module: openeducat_quiz
+#: model:ir.model,name:openeducat_quiz.model_op_question_bank_type
+msgid "Quiz Question Bank Type"
+msgstr "แบบทดสอบคำถามประเภทธนาคาร"
+
+#. module: openeducat_quiz
+#: model:ir.model,name:openeducat_quiz.model_op_question_bank_line
+msgid "Quiz Question Lines"
+msgstr "แบบทดสอบเส้นคำถาม"
+
+#. module: openeducat_quiz
+#: model:ir.model,name:openeducat_quiz.model_op_question_wizard
+msgid "Quiz Question Wizard"
+msgstr "แบบทดสอบตัวช่วยสร้างคำถาม"
+
+#. module: openeducat_quiz
+#: model:ir.model,name:openeducat_quiz.model_op_quiz_result_line
+msgid "Quiz Result Line"
+msgstr "แบบทดสอบผลสาย"
+
+#. module: openeducat_quiz
+#: model:ir.model,name:openeducat_quiz.model_op_quiz_result_line_answers
+msgid "Quiz Result Line Answer"
+msgstr "แบบทดสอบผลตอบสาย"
+
+#. module: openeducat_quiz
+#: model:ir.model,name:openeducat_quiz.model_op_quiz_result_message
+msgid "Quiz Result Message"
+msgstr "แบบทดสอบผลข้อความ"
+
+#. module: openeducat_quiz
+#: model:ir.model,name:openeducat_quiz.model_op_quiz_result
+msgid "Quiz Results"
+msgstr "ผลการทดสอบ"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form_onboard
+msgid "Qustions"
+msgstr "ยุทธศาสตร์"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form_onboard
+msgid "Re-open"
+msgstr "Re: เปิด"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result__received_marks
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result_line__mark
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.exam_user_result_profile
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.my_result
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.quiz_results_form
+msgid "Received Marks"
+msgstr "เครื่องหมายที่ได้รับ"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result_line__result_id
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.portal_my_result_account_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.quiz_results_form
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_result_form
+msgid "Result"
+msgstr "ผล"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form_onboard
+msgid "Result Configuration"
+msgstr "ส่งผลให้การกำหนดค่า"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result_message__result_from
+msgid "Result From (%)"
+msgstr "ผลลัพธ์จาก (%)"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result__line_ids
+msgid "Result Line"
+msgstr "ส่งผลให้สาย"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form_onboard
+msgid "Result Message"
+msgstr "ส่งผลให้เกิดข้อความ"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result_message__result_to
+msgid "Result To (%)"
+msgstr "ส่งผลให้ (%)"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form_onboard
+msgid "Result won't display if descriptive Questions."
+msgstr "ผลจะไม่แสดงถ้าคำถามพรรณนา"
+
+#. module: openeducat_quiz
+#: model:ir.actions.act_window,name:openeducat_quiz.act_open_op_quiz_result_view
+#: model:ir.ui.menu,name:openeducat_quiz.menu_op_quiz_result
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_result_form
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_result_pivot
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_result_search
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_result_tree
+msgid "Results"
+msgstr "ผล"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.exam_user_result_profile
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.my_result
+msgid "Score"
+msgstr "คะแนน"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result__score
+msgid "Score (%)"
+msgstr "คะแนน (%)"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.quiz_results_form
+msgid "Score Board"
+msgstr "คะแนนคณะกรรมการ"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.quiz_render_single_form_view
+msgid "Sec"
+msgstr "วินาที"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.onboarding_question_bank_layout_step
+msgid "See how to create a Question Bank."
+msgstr "ดูวิธีการสร้างธนาคารคำถาม"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.onboarding_quiz_layout_step
+msgid "See how to create a Quiz."
+msgstr "ดูวิธีการสร้างแบบทดสอบ"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_question_wizard_form
+msgid "Select Questions"
+msgstr "เลือกคำถาม"
+
+#. module: openeducat_quiz
+#: code:addons/openeducat_quiz/wizard/update_mark.py:28
+#, python-format
+msgid "Set proper marks."
+msgstr "เครื่องหมายที่เหมาะสมชุด"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__shuffle
+msgid "Shuffle the Choices"
+msgstr "สุ่มเลือก"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__single_que
+msgid "Single Question Per Page"
+msgstr "โสดคำถามในแต่ละหน้า"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__description
+msgid "Sort Description"
+msgstr "เรียงคำอธิบาย"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result__time_spent_hr
+msgid "Spent Hours"
+msgstr "ใช้เวลาหลายชั่วโมง"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result__time_spent_minute
+msgid "Spent Minutes"
+msgstr "นาทีที่อยู่ในระบบ"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result__time_spent_second
+msgid "Spent Seconds"
+msgstr "วินาทีที่อยู่ในระบบ"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.quiz_render_exam_main_form_view
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.quiz_starting_page
+msgid "Start Exam"
+msgstr "การสอบเริ่มต้น"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form_onboard
+msgid "Starting Page"
+msgstr "หน้าเริ่มต้น"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__start_view
+msgid "Starting View"
+msgstr "เริ่มต้นดู"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__state
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result__state
+msgid "State"
+msgstr "สถานะ"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_res_company__onboarding_question_bank_layout_state
+msgid "State of the onboarding question bank layout  step"
+msgstr "รัฐของขั้นตอนรูปแบบธนาคารคำถามสร้างความคุ้นเคย"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_res_company__onboarding_quiz_layout_state
+msgid "State of the onboarding quiz layout  step"
+msgstr "รัฐของขั้นตอนการจัดวางแบบทดสอบ onboarding"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_res_company__quiz_enterprise_onboard_panel
+msgid "State of the quiz onboarding step"
+msgstr "รัฐขั้นตอนแบบทดสอบความคุ้นเคย"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__grace_period_hr
+msgid "Submission Grace Period"
+msgstr "ส่งระยะเวลาผ่อนผัน"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.quiz_completed
+msgid "Thank you for Quiz"
+msgstr "ขอขอบคุณสำหรับการทดสอบ"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.my_result
+msgid "There are currently no Result for your account."
+msgstr "ขณะนี้มีไม่มีผลสำหรับบัญชีของคุณ"
+
+#. module: openeducat_quiz
+#: selection:op.quiz,time_expire:0
+msgid "There is a grace period when open attempts can be submitted, but no more questions answered"
+msgstr "มีระยะเวลาผ่อนผันเมื่อความพยายามในการเปิดสามารถส่งเป็น แต่ไม่มีคำถามเพิ่มเติมตอบ"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__time_config
+msgid "Time Configuration"
+msgstr "การกำหนดค่าเวลา"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form_onboard
+msgid "Time Limit"
+msgstr "เวลาที่ จำกัด"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form_onboard
+msgid "Timing Configuration"
+msgstr "การกำหนดค่าการกำหนดเวลา"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result__total_correct
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.exam_user_result_profile
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.my_result
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.quiz_results_form
+msgid "Total Correct"
+msgstr "รวมที่ถูกต้อง"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result__total_incorrect
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.exam_user_result_profile
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.my_result
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.quiz_results_form
+msgid "Total Incorrect"
+msgstr "รวมที่ไม่ถูกต้อง"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__total_marks
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result__total_marks
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.exam_user_result_profile
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.my_result
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.quiz_results_form
+msgid "Total Marks"
+msgstr "รวมคะแนน"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result__total_not_attempt
+msgid "Total Not Attempt"
+msgstr "รวมไม่พยายาม"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result__total_question
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.exam_user_result_profile
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.my_result
+msgid "Total Question"
+msgstr "รวมคำถาม"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.quiz_results_form
+msgid "Total Questions"
+msgstr "คำถามทั้งหมด"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.quiz_results_form
+msgid "Truly Given Answers"
+msgstr "ป.ร. ให้ไว้อย่างแท้จริงคำตอบ"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_question_bank__bank_type_id
+msgid "Type"
+msgstr "ชนิด"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__message_unread
+msgid "Unread Messages"
+msgstr "ไม่ได้อ่านข้อความ"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "ไม่ได้อ่านข้อความที่เคาน์เตอร์"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_result_form
+msgid "Update Mark"
+msgstr "ปรับปรุงมาร์ค"
+
+#. module: openeducat_quiz
+#: model:ir.model,name:openeducat_quiz.model_op_update_mark
+msgid "Update Mark Wizard"
+msgstr "ปรับปรุงมาร์คตัวช่วยสร้าง"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_result_search
+msgid "User"
+msgstr "ผู้ใช้งาน"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result_line__given_answer
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_update_mark__mark
+msgid "User Answer"
+msgstr "คำตอบของผู้ใช้"
+
+#. module: openeducat_quiz
+#: selection:op.quiz,start_view:0
+msgid "Video"
+msgstr "วีดีโอ"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__quiz_video
+msgid "Video File"
+msgstr "ไฟล์วิดีโอ"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_quiz_form_onboard
+msgid "View Exam"
+msgstr "ดูการสอบ"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__website_message_ids
+msgid "Website Messages"
+msgstr "ข้อความเว็บไซต์"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,help:openeducat_quiz.field_op_quiz__website_message_ids
+msgid "Website communication history"
+msgstr "ประวัติการสื่อสารเว็บไซต์"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz__time_expire
+msgid "When Time Expires"
+msgstr "เมื่อเวลาหมดอายุ"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.quiz_results_form
+msgid "Wrongly Given Answers"
+msgstr "ป.ร. ให้ไว้ผิดคำตอบ"
+
+#. module: openeducat_quiz
+#: code:addons/openeducat_quiz/models/quiz.py:192
+#, python-format
+msgid "You are already reached maximum attempt of this exam"
+msgstr "คุณกำลังมาถึงแล้วความพยายามสูงสุดของการสอบนี้"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.my_result
+msgid "Your Result"
+msgstr "ผลของคุณ"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.quiz_completed
+msgid "Your answers are recorded"
+msgstr "คำตอบของคุณจะถูกบันทึก"
+
+#. module: openeducat_quiz
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_question_wizard_form
+#: model_terms:ir.ui.view,arch_db:openeducat_quiz.view_op_update_mark_wizard_form
+msgid "or"
+msgstr "หรือ"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_line__que_id
+msgid "question"
+msgstr "คำถาม"
+
+#. module: openeducat_quiz
+#: model:ir.model.fields,field_description:openeducat_quiz.field_op_quiz_result__user_id
+msgid "user"
+msgstr "ผู้ใช้งาน"

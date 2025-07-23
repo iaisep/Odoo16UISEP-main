@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo noupdate="1">
+
+        <record model="ir.rule" id="alumni_group_multi_comp_rule">
+            <field name="name">Alumni Group multi-company</field>
+            <field name="model_id" ref="openeducat_alumni_enterprise.model_op_alumni_group"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">
+                ['|',('company_id','=',False),'&amp;',('company_id','in',company_ids),'|',('company_id','child_of',[user.company_id.id]),('company_id','in',user.company_ids.ids)]
+            </field>
+        </record>
+
+</odoo>

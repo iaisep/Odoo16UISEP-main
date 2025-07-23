@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="1">
+        <!--Validate Transaction-->
+        <record id="penalization_appointment_check" model="base.automation">
+            <field name="name">Penalization Appointment Check</field>
+            <field name="model_id" ref="calendar.model_calendar_event"/>
+            <field name="active" eval="True"/>
+            <field name="trigger">on_time</field>
+<!--            <field name="filter_domain">[]</field>-->
+            <field name="trg_date_id" search="[('model','=','calendar.event'),('name','=','start')]"/>
+            <field name="trg_date_range">15</field>
+            <field name="trg_date_range_type">minutes</field>
+            <field name="state">code</field>
+            <field name="code">
+                for record in records.filtered(lambda x: any(not attendee.is_attend for attendee in x.attendee_ids)):
+                    record._create_penalization()
+            </field>
+        </record>
+    </data>
+</odoo>

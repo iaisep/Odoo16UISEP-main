@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="portal_my_centers"
+              name="Register Center"
+              customize_show="True"
+              inherit_id="portal.portal_my_home"
+              priority="200">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">Centro de práctica</t>
+                <t t-set="url" t-value="'/my/centers'"/>
+                <t t-set="placeholder_count" t-value="'practice_centers_count'"/>
+            </t>
+        </xpath>
+    </template>
+
+
+</odoo>

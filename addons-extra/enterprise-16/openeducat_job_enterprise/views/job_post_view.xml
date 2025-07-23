@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_op_job_post_kanban" model="ir.ui.view">
+        <field name="name">op.job.post.kanban</field>
+        <field name="model">op.job.post</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey o_kanban_dashboard o_hr_recruitment_kanban kanban_view oe-job-post">
+                <field name="name"/>
+                <field name="job_post"/>
+                <field name="post"/>
+                <field name="color"/>
+                <field name="new_application_count"/>
+                <field name="states"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="#{!selection_mode ? kanban_color(record.color.raw_value) : ''}">
+                            <div class="ribbon ribbon-top-right margin-top: -10px"
+                                    attrs="{'invisible': [('states', '!=', 'submit')]}">
+                                <span class="o_ribbon">Published</span>
+                            </div>
+                            <div class="o_kanban_card_header">
+                                <div class="o_kanban_card_header_title">
+
+                                    <div class="o_primary col-12">
+                                        <span>
+                                            <t t-esc="record.job_post.value"/>
+                                        </span>
+                                    </div>
+                                    <div class="o_kanban_record_subtitle col-12 text-muted">
+                                        <field name="job_post"/>
+                                    </div>
+                                </div>
+                                <div class="o_kanban_manage_button_section">
+                                    <a class="o_kanban_manage_toggle_button" href="#">
+                                        <i class="fa fa-ellipsis-v" role="img" aria-label="Manage" title="Manage"/>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="container o_kanban_card_content">
+                                <t>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <button class="btn btn-primary" name="%(act_open_job_applicant_view)d"
+                                                    type="action">
+                                                <field name="application_count"/>
+                                                Applications
+                                            </button>
+                                        </div>
+                                        <div class="col-6">
+                                            <field name="new_application_count"/>
+                                            New Applications
+                                            <br/>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                            <div class="o_kanban_card_manage_pane dropdown-menu" role="menu">
+                                <div class="o_kanban_card_manage_section">
+                                    <div role="menuitem">
+                                        <a t-if="widget.editable" name="edit_job" type="edit">Edit</a>
+                                    </div>
+                                    <div t-if="widget.deletable">
+                                        <a role="menuitem" type="delete" class="dropdown-item">Delete</a>
+                                    </div>
+                                </div>
+                                <div role="menuitem" aria-haspopup="true">
+                                    <ul class="oe_kanban_colorpicker" data-field="color" role="menu"/>
+                                </div>
+
+                            </div>
+                            <div class="o_hr_job_boxes">
+                                <a class="o_hr_job_box" name="%(act_open_job_applicant_view)d" type="action"/>
+                            </div>
+                            <div style="padding-left:8px; text-align:right; background-color:#f0eeee; padding: 5px;">
+                                <span>
+                                    <field name="website_url" invisible="1"/>
+                                    <a t-attf-href="#{record.website_url.raw_value}">Job Description</a>
+                                </span>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+    <record id="view_op_job_post_tree" model="ir.ui.view">
+        <field name="name">op.job.post.tree</field>
+        <field name="model">op.job.post</field>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="job_post"/>
+                <field name="street" placeholder="Street..." class="o_address_street"/>
+                <field name="city" placeholder="City" optional="hide"/>
+                <field name="state_id" placeholder="State" optional="hide"/>
+                <field name="currency_id" invisible="1"/>
+                <field name="salary_from" widget='monetary'/>
+                <field name="salary_upto" widget='monetary'/>
+                <field name="payable_at"/>
+                <field name="employment_type" optional="hide"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="expected_employees" optional="hide"/>
+                <field name="created_by" optional="hide"/>
+                <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                <field name="department_id" groups="openeducat_core.group_multi_department"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_op_job_post_form" model="ir.ui.view">
+        <field name="name">op.job.post.form</field>
+        <field name="model">op.job.post</field>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <form string="Job Post">
+                <header>
+                    <button name="set_review" string="Review" type="object" class="oe_highlight"
+                            attrs="{'invisible': [('states', '=', 'review')]}"
+                            groups="openeducat_core.group_op_back_office_admin"/>
+                    <button name="set_submit" string="Start Recruitment" type="object" class="oe_highlight"
+                            attrs="{'invisible': [('states', '=', 'submit')]}"
+                            groups="openeducat_core.group_op_back_office_admin"/>
+                    <button name="set_done" string="Stop Recruitment" type="object"
+                            attrs="{'invisible': [('states', '=', 'done')]}"
+                            groups="openeducat_core.group_op_back_office_admin"/>
+                    <button name="set_cancel" string="Cancel Recruitment" type="object"
+                            attrs="{'invisible': [('states', '=', 'cancel')]}"
+                            groups="openeducat_core.group_op_back_office_admin"/>
+                    <field name="states" widget="statusbar" statusbar_visible="submit,done"/>
+                </header>
+                <sheet>
+                    <field name="active" invisible="1"/>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                            attrs="{'invisible': [('active', '=', True)]}"/>
+                    <group>
+                        <group string="Job Position" name="job position">
+                            <field name="name"/>
+                            <field name="job_post"/>
+                        </group>
+
+                        <group string="Address Detail" name="address">
+                            <label for="street" string="Address"/>
+                            <div name="div_address">
+                                <field name="street" placeholder="Street..."/>
+                                <field name="street2" placeholder="Street2"/>
+                                <div class="address_format">
+                                    <field name="city" placeholder="City" style="width: 40%"/>
+                                    <field name="zip" placeholder="ZIP" style="width: 20%"/>
+                                </div>
+                                <field name="country_id" placeholder="Country" class="oe_no_button"
+                                        options="{&quot;no_open&quot;: True}"/>
+                                <field name="state_id" class="oe_no_button" placeholder="State"
+                                        style="width: 37%"
+                                        options="{&quot;no_open&quot;: True}"/>
+
+                            </div>
+                        </group>
+                    </group>
+                    <notebook colspan="4">
+                        <page name="offer_information" string="Offer">
+                            <group name="offer" col="4">
+                                <field name="salary_from" widget='monetary'
+                                        option="{'currency_field':'currency_id'}"/>
+                                <field name="salary_upto" widget='monetary'
+                                        option="{'currency_field':'currency_id'}"/>
+                                <field name="payable_at"/>
+                                <field name="employment_type"/>
+                                <field name="currency_id" invisible="1"/>
+                            </group>
+                        </page>
+                        <page name="other_information" string="Other Information">
+                            <group name="otherinformation" col="4">
+                                <field name="created_by"/>
+                                <field name="start_date"/>
+                                <field name="end_date"/>
+                                <field name="expected_employees"/>
+                                <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                                <field name="department_id" groups="openeducat_core.group_multi_department"/>
+                            </group>
+                        </page>
+                    </notebook>
+                    <group>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_op_job_post_pivot" model="ir.ui.view">
+        <field name="name">op.job.post.pivot</field>
+        <field name="model">op.job.post</field>
+        <field name="arch" type="xml">
+            <pivot string="Job Post Records">
+                <field name="job_post" type="col"/>
+                <field name="city" type="row"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_op_job_post_search" model="ir.ui.view">
+        <field name="name">op.job.post.search</field>
+        <field name="model">op.job.post</field>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <search string="Job Post">
+                <field name="name"/>
+                <filter string="Archived" name="inactive"
+                        domain="[('active', '=', False)]"/>
+                <searchpanel>
+                    <field name="company_id" icon="fa-building"/>
+                </searchpanel>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="act_open_op_job_post_view">
+        <field name="name">Job Post</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">op.job.post</field>
+        <field name="binding_view_types">form</field>
+        <field name="view_mode">kanban,tree,form,pivot</field>
+        <field name="search_view_id" ref="view_op_job_post_search"/>
+    </record>
+
+    <record model="ir.actions.act_window.view" id="act_open_op_job_post_view_form">
+        <field name="act_window_id" ref="act_open_op_job_post_view"/>
+        <field name="sequence" eval="20"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_op_job_post_form"/>
+    </record>
+
+    <record model="ir.actions.act_window.view" id="act_open_op_job_post_view_tree">
+        <field name="act_window_id" ref="act_open_op_job_post_view"/>
+        <field name="sequence" eval="10"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_op_job_post_tree"/>
+    </record>
+
+    <record model="ir.actions.act_window.view" id="act_open_op_job_post_view_kanban">
+        <field name="act_window_id" ref="act_open_op_job_post_view"/>
+        <field name="sequence" eval="5"/>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="view_op_job_post_kanban"/>
+    </record>
+</odoo>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="custom_slide_channel_partner_form" model="ir.ui.view">
+            <field name="name">slide.channel.partner.form</field>
+            <field name="model">slide.channel.partner</field>
+            <field name="inherit_id" ref="website_slides.slide_channel_partner_view_tree"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='channel_user_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//button[@name='unlink']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='channel_id']" position="attributes">
+                    <attribute name="readonly">1</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='channel_user_id']" position="after">
+                    <field name="partner_id" readonly="1" force_save="1" string="Estudiante" />
+                    <field name="course_id" readonly="1" force_save="1"  />
+                    <field name="batch_id" readonly="1" force_save="1"  />
+                    <field name="register_id" readonly="1" force_save="1"  />
+                    <field name="active" widget="boolean_toggle"  />
+                </xpath>
+
+            
+            </field>
+        </record>
+
+
+        
+        <record id="custom_slide_channel_partner_view_tree" model="ir.ui.view">
+            <field name="name">Inscritos en Campus</field>
+            <field name="model">slide.channel.partner</field>
+            <field name="arch" type="xml">
+                <tree string="Inscritos en Campus" editable="top" create="false" delete="false" >
+          
+                    <field name="active" widget="boolean_toggle"  />                    
+                    <field name="batch_id" readonly="1"   />
+                    <field name="partner_id" readonly="1"  string="Alumno" />
+                    <field name="partner_email" string="Email" />
+                    
+                    <field name="op_subject_id" readonly="1" string="Asignatura"  />
+                    
+                    <field name="channel_id" readonly="1" string="Contenido en Campus"/>
+                    <field name="register_id" readonly="1"  />
+
+                    <field name="channel_user_id" invisible="1" />
+
+                    <field name="date_from" optional="hide" readonly="1"/> 
+                    <field name="date_to" optional="hide" readonly="1"/>                          
+                                 
+                    <field name="create_date" string="Inscrito el"/>
+                    <field name="write_date"   optional="hide"  string="Ultima accion el"/>
+                    <field name="completion" string="Progress" widget="progressbar"/>
+                    <field name="channel_type" optional="hide"/>
+                    <field name="channel_visibility" optional="hide"/>
+                    <field name="channel_enroll" widget="badge" decoration-success="channel_enroll == 'public'" decoration-info="channel_enroll == 'invite'" decoration-warning="channel_enroll == 'payment'" optional="hide"/>
+                    <field name="channel_website_id" groups="website.group_multi_website" optional="hide"/>
+                    
+                    <button name="unlink" confirm="Eliminar?" title="Remove" icon="fa-times" type="object"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="action_tree_slide_channel_partner" model="ir.actions.act_window">
+            <field name="name">Inscritos en Campus</field>
+            <field name="res_model">slide.channel.partner</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="custom_slide_channel_partner_view_tree" />
+            <field name="context">{}</field>
+        </record>
+
+        <menuitem
+            name="Estudiantes"
+            parent="openeducat_admission.menu_op_admission_root"
+            id="id_tree_slide_channel_partner_root"
+            sequence="20"
+        />
+
+        <menuitem
+            name="Estudiantes en Campus"
+            parent="id_tree_slide_channel_partner_root"
+            id="id_tree_slide_channel_partner"
+            action="action_tree_slide_channel_partner"
+            sequence="20"
+        />
+
+        <menuitem
+            name="Estudiantes"
+            parent="id_tree_slide_channel_partner_root"
+            id="id_tree_slide_channel_partner_student"
+            action="openeducat_core.act_open_op_student_view_2"
+            sequence="20"
+        />
+
+
+
+    </data>
+</odoo>
+
+
+ 

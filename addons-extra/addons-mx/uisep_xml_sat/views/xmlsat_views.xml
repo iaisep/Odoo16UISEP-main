@@ -1,0 +1,216 @@
+<odoo>
+    <data>
+
+        <!-- Solicitud  -->
+        <record id="xmlsat_solicitud_tree" model="ir.ui.view">
+            <field name="name">xmlsat.solicitud.tree</field>
+            <field name="model">xmlsat.solicitud</field>
+            <field name="arch" type="xml">
+                <tree string="Solicitudes">
+                    <field name="id_solicitud"/>
+                    <field name="fecha_inicial"/>
+                    <field name="fecha_final"/>
+                    <field name="rfc_emisor"/>
+                    <field name="rfc_receptor"/>
+                    <field name="estatus"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="xmlsat_solicitud_form" model="ir.ui.view">
+            <field name="name">xmlsat.solicitud.form</field>
+            <field name="model">xmlsat.solicitud</field>
+            <field name="arch" type="xml">
+                <form string="Solicitud de descarga">
+                    <header>
+                        <button  name="regresar" string="Atrás" type="object" attrs="{'invisible':[('estatus','=','nueva')]}"/>
+                        <button class="oe_highlight" name="solicitar" string="Solicitar" type="object" attrs="{'invisible':[('estatus','not in',['nueva','solicitar'])]}"/>
+                        <button class="oe_highlight" name="verificar" string="Verificar" type="object" attrs="{'invisible':[('estatus','!=','verificar')]}"/>
+                        <button class="oe_highlight" name="descargar" string="Descargar" type="object" attrs="{'invisible':[('estatus','!=','descargar')]}"/>
+                        <field name="estatus" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                        </div>
+                        <group>
+                            <group string="Solicitud" >
+                                <field name="rfc_solicitante" attrs="{'readonly':[('estatus','!=','nueva')]}"/>
+                                <field name="fecha_inicial" attrs="{'readonly':[('estatus','!=','nueva')]}"/>
+                                <field name="fecha_final" attrs="{'readonly':[('estatus','!=','nueva')]}"/>
+                                <field name="rfc_emisor" attrs="{'readonly':[('estatus','!=','nueva')]}"/>
+                                <field name="rfc_receptor" attrs="{'readonly':[('estatus','!=','nueva')]}"/>
+                            </group>
+                            <group string="Respuesta">
+                                <field name="id_solicitud" readonly="1"/>
+                                <field name="cod_estatus" readonly="1"/>
+                                <field name="mensaje" readonly="1"/>
+                                <field name="estado_solicitud" readonly="1" attrs="{'invisible':[('estatus','in',['nueva','solicitar'])]}"/>
+                                <field name="codigo_estado_solicitud" readonly="1" attrs="{'invisible':[('estatus','in',['nueva','solicitar'])]}"/>
+                                <field name="numero_cfdis" readonly="1" attrs="{'invisible':[('estatus','in',['nueva','solicitar'])]}"/>
+                                <field name="paquetes" readonly="1" attrs="{'invisible':[('estatus','in',['nueva','solicitar'])]}">
+                                    <tree string="Paquetes">
+                                        <field name="id_paquete"/>
+                                        <field name="archivo"/>
+                                    </tree>
+                                </field>
+                                <button class="oe_highlight" name="get_xml" string="Descomprimir Paq." type="object" attrs="{'invisible':[('cfdis','!=',False)]}"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="CFDI's Descargados" name="cfdis" attrs="{'readonly': 1, 'invisible':[('estatus','!=','finalizado')]}">
+                                <field name="cfdis" widget="section_and_note_one2many" mode="tree,kanban">
+                                    <tree string="Comprobante" editable="bottom" decoration-danger="estatus=='descartada'">
+                                        <field name="folio"/>
+                                        <field name="fecha"/>
+                                        <field name="uuid"/>
+                                        <field name="sello"/>
+                                        <field name="forma_pago"/>
+                                        <field name="no_certificado"/>
+                                        <field name="certificado"/>
+                                        <field name="sub_total"/>
+                                        <field name="moneda"/>
+                                        <field name="total"/>
+                                        <field name="tipo_de_comprobante"/>
+                                        <field name="metodo_pago"/>
+                                        <field name="lugar_expedicion"/>
+                                        <field name="exportada"/>
+                                        <field name="estatus"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="xmlsat_paquete_form" model="ir.ui.view">
+            <field name="name">xmlsat.paquete.form</field>
+            <field name="model">xmlsat.paquete</field>
+            <field name="arch" type="xml">
+                <form string="Paquete">
+                    <header>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="id_paquete"/>
+                                <field name="solicitud"/>
+                                <field name="archivo"/>
+                                <!-- <field name="cfdis"/> -->
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="xmlsat_concepto_tree" model="ir.ui.view">
+            <field name="name">xmlsat.concepto.tree</field>
+            <field name="model">xmlsat.concepto</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom"  string="Conceptos">
+                    <field name="producto"/>
+                    <field name="clave_unidad"/>
+                    <field name="clave_prod_serv"/>
+                    <!-- <field name="no_identificacion"/> -->
+                    <field name="cantidad"/>
+                    <!-- <field name="unidad"/> -->
+                    <!-- <field name="descripcion"/> -->
+                    <field name="valor_unitario"/>
+                    <field name="importe"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="xmlsat_cfdi_tree" model="ir.ui.view">
+            <field name="name">xmlsat.cfdi.tree</field>
+            <field name="model">xmlsat.cfdi</field>
+            <field name="arch" type="xml">
+                <tree string="CFDI's" decoration-muted="estatus=='descartada'" decoration-success="estatus=='completa'">
+                    <field name="emisor_rfc"/>
+                    <field name="emisor_nombre"/>
+                    <field name="uuid"/>
+                    <field name="fecha"/>
+                    <field name="total"/>
+                    <field name="estatus" invisible='1'/>
+                    <field name="estatus"/>
+                    <button name="procesar" class="oe_stat_button" string="Procesar" type="object"  icon="fa-check-square"  attrs="{'invisible':[('estatus','!=','completa')]}"/>
+                    <button name="descartar" class="oe_stat_button" string="Omitir" type="object" icon="fa-window-close" attrs="{'invisible':['|',('estatus','=','exportada'),('estatus','=','descartada')]}"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="xmlsat_cfdi_pivot" model="ir.ui.view">
+                <field name="name">xmlsat.cfdi.pivot</field>
+                <field name="model">xmlsat.cfdi</field>
+                <field name="arch" type="xml">
+                    <pivot string="CFDI's Pivot">
+                        <field name="total" type="measure"/>
+                        <field name="fecha" interval="day" type="row"/>
+                        <field name="emisor_nombre" type="row"/>
+                        <field name="estatus" type="col"/> 
+                    </pivot>
+                </field>
+        </record>
+
+        <record id="xmlsat_cfdi_form" model="ir.ui.view">
+            <field name="name">xmlsat.cfdi.form</field>
+            <field name="model">xmlsat.cfdi</field>
+            <field name="arch" type="xml">
+                <form string="CFDI's">
+                    <header>
+                        <button class="oe_highlight" name="procesar" string="Exportar" type="object" attrs="{'invisible':[('estatus','!=','completa')]}"/>
+                        <button name="descartar" class="oe_stat_button" string="Descartar" type="object" attrs="{'invisible':['|',('estatus','=','exportada'),('estatus','=','descartada')]}"/>
+                        <!-- <field name="estatus" invisible='1'/> -->
+                        <field name="estatus" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group string="Comprobante">
+                                <field name="folio"/>
+                                <field name="fecha"/>
+                                <field name="sello"/>
+                                <field name="forma_pago"/>
+                                <field name="no_certificado"/>
+                                <field name="certificado"/>
+                                <field name="sub_total"/>
+                                <field name="moneda"/>
+                                <field name="total"/>
+                                <field name="tipo_de_comprobante"/>
+                                <field name="metodo_pago"/>
+                                <field name="lugar_expedicion"/>
+                                <field name="exportada"/>
+                            </group>
+                            <group string="Emisor">
+                                <field name="emisor"/>
+                                <field name="emisor_rfc"/>
+                                <field name="emisor_nombre"/>
+                                <field name="emisor_regimen_fiscal"/>
+                            </group>
+                            <group string="Receptor">
+                                <field name="receptor"/>
+                                <field name="receptor_rfc"/>
+                                <field name="receptor_nombre"/>
+                                <field name="receptor_uso_CFDI"/>
+                            </group>
+                            <group string="Conceptos">
+                                <field name="conceptos"/>
+                            </group>
+                            <group string="Timbre Fiscal Digital">
+                                <field name="version"/>
+                                <field name="uuid"/>
+                                <field name="fecha_timbrado"/>
+                                <field name="sello_cfd"/>
+                                <field name="no_certificado_sat"/>
+                                <field name="sello_sat"/>
+                                <field name="rfc_prov_certif"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- <record id="action_op_admission_elearning_mail_compose" model="ir.actions.act_window">
+            <field name="name">Confirmación de admisión Elearning</field>
+            <field name="res_model">mail.compose.message</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="context" eval="{
+        'default_composition_mode': 'comment',
+        'default_template_id': ref('isep_elearning_custom.email_op_admission_confirm'),
+                }"/>
+            <field name="binding_model_id" ref="openeducat_admission.model_op_admission"/>
+            <field name="binding_view_types">form</field>
+        </record>
+
+         -->
+        <record id="view_op_admission_elearning_tree_inherit" model="ir.ui.view">
+            <field name="name">op.admission.tree.inherit</field>
+            <field name="model">op.admission</field>
+            <field name="inherit_id" ref="openeducat_admission.view_op_admission_tree"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='application_number']" position="after">
+                    <xpath expr="//field[@name='batch_id']" position="move"/>
+                </xpath>
+                <xpath expr="//field[@name='batch_id']" position="attributes">
+                    <attribute name="optional">show</attribute>
+                </xpath>
+                <xpath expr="//field[@name='title']" position="attributes">
+                    <attribute name="optional">hide</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='name']" position="after">
+                    <xpath expr="//field[@name='email']" position="move"/>
+                </xpath>
+
+                <xpath expr="//field[@name='state']" position="after">
+                    <field name="duration_state" widget="badge"
+                          decoration-danger="duration_state == 'expired'" decoration-success="duration_state == 'in_progress'" />
+                </xpath>
+
+
+                 
+            </field>
+        </record>
+
+
+        <record id="custom_op_admission_fields_form" model="ir.ui.view">
+            <field name="name">op.admission.form</field>
+            <field name="model">op.admission</field>
+            <field name="inherit_id" ref="openeducat_admission.view_op_admission_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='course_id']" position="after">
+                    <field name="tutor_id"/>
+                    <field name="professor_id"/>
+                    
+                </xpath>
+
+                <xpath expr="//field[@name='register_id']" position="attributes">
+                    <attribute name="widget"></attribute>
+                    <attribute name="options">{'no_create': True}</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='prev_institute_id']" position="before">
+                    <field name="teams_email" />
+                    <field name="teams_email_pass"/>
+                    
+                </xpath>
+
+                
+
+
+            </field>
+        </record>
+
+
+
+
+
+
+
+
+
+
+
+    </data>
+</odoo>
+
+
+ 
+

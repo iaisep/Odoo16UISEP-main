@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- View campus.files View Tree -->
+    <record id="view_campus_files_tree" model="ir.ui.view">
+        <field name="name">view.campus.files.tree</field>
+        <field name="model">campus.files</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="file" filename="file_name"/>
+                <field name="file_name" invisible="1"/>
+                <field name="public" widget="boolean_toggle"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- View campus.files form -->
+    <record id="view_campus_files_form" model="ir.ui.view">
+        <field name="name">view.campus.files.form</field>
+        <field name="model">campus.files</field>
+        <field name="arch" type="xml">
+            <form string="Campus Files">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="Name..."/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="description"/>
+                        <field name="file" filename="file_name"/>
+                        <field name="file_name" invisible="1"/>
+                        <field name="public" widget="boolean_toggle"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- View campus.files search -->
+    <record id="view_campus_files_search" model="ir.ui.view">
+        <field name="name">view.campus.files.search</field>
+        <field name="model">campus.files</field>
+        <field name="arch" type="xml">
+            <search>
+                <group expand="1" string="Group By">
+                    <filter string="Name" name="name" domain="[]" context="{'group_by':'name'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action campus.files -->
+    <record id="action_campus_files" model="ir.actions.act_window">
+        <field name="name">Campus Files</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">campus.files</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                There is no examples click here to add new Campus Files.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_action_campus_files"
+        name="Archivos para Campus"
+        action="action_campus_files"
+        sequence="60"
+        parent="isep_practices_2.menu_practice_configuration"/>
+
+</odoo>

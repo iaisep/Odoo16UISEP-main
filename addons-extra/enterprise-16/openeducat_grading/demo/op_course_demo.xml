@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="openeducat_core.op_course_2" model="op.course">
+            <field name="grade_scale_id" ref="openeducat_grading.grade_scale_1"/>
+            <field name="grade_template_ids" eval="[(6,0, [ref('grade_template_line_4')])]"/>
+        </record>
+
+        <record id="openeducat_core.op_course_3" model="op.course">
+            <field name="grade_scale_id" ref="openeducat_grading.grade_scale_1"/>
+            <field name="grade_template_ids" eval="[(6,0, [ref('grade_template_line_1')])]"/>
+        </record>
+
+</odoo>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="alumni_group_form_view" model="ir.ui.view">
+            <field name="name">alumni.group.form.view</field>
+            <field name="model">op.alumni.group</field>
+            <field name="arch" type="xml">
+                <form string="Alumni Group">
+                    <header>
+                        <button name="createforum" type="object" class="oe_highlight"
+                                string="Create Forum" attrs="{'invisible': [('forum_id', '!=', False)]}"
+                                groups="openeducat_core.group_op_back_office_admin"/>
+                    </header>
+                    <sheet>
+                        <field name="active" invisible="1"/>
+                        <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                                attrs="{'invisible': [('active', '=', True)]}"/>
+                        <div class="oe_avatar">
+                            <field name="image" widget="image" nolabel="1" options="{'size': [100, 100]}"/>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="forum_id"/>
+                                <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                            </group>
+                            <group>
+                                <field name="fees_id"/>
+                                <field name="alumni_fees_amount"/>
+                            </group>
+                        </group>
+                        <separator string="Students"/>
+                        <field name="alumni_student_line" widget="many2many">
+                            <tree>
+                                <field name="name"/>
+                                <field name="invoice_id" invisible="1"/>
+                                <field name="join_date"/>
+                                <field name="number"/>
+                                <field name="state"/>
+                                <button name="get_invoice" type="object"
+                                        attrs="{'invisible': [('state', 'in', ['invoice'])]}"
+                                        class="oe_highlight" string="Create invoice"
+                                        groups="openeducat_core.group_op_back_office_admin"/>
+                                <button string="View Invoice" states="invoice" type="object"
+                                        name="action_get_invoice"
+                                        groups="openeducat_core.group_op_back_office_admin"/>
+                            </tree>
+                        </field>
+                        <separator string="Description"/>
+                        <field name="description" widget="html"/>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="alumni_group_list_view" model="ir.ui.view">
+            <field name="name">alumni.tree.view</field>
+            <field name="model">op.alumni.group</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="alumni_group_search_view" model="ir.ui.view">
+            <field name="name">alumni.search.view</field>
+            <field name="model">op.alumni.group</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Alumni Group">
+                    <field name="name"/>
+                    <filter string="Archived" name="inactive"
+                            domain="[('active', '=', False)]"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="op_alumni_group_action" model="ir.actions.act_window">
+            <field name="name">Alumni</field>
+            <field name="res_model">op.alumni.group</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+</odoo>

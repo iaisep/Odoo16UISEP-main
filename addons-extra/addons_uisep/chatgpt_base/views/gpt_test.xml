@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="view_gpt_test_tree" model="ir.ui.view">
+        <field name="name">gpt.test.tree</field>
+        <field name="model">gpt.test</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="create_date"/>
+                <field name="name"/>
+                <field name="mesasage"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_gpt_test_form" model="ir.ui.view">
+        <field name="name">gpt.test.form</field>
+        <field name="model">gpt.test</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>                            
+                            <label for="name"/>
+                            <div class="o_row">
+                                <field name="name" />
+                                <button name="integration_test" type="object" string="Probar Integración" class="oe_highlight"/>
+                            </div>
+                        </group>
+                        <group>
+                            <field name="create_date" string="Creado el" />
+                        </group>
+                        <notebook>
+                            <page name="test" string="Comunicación">
+                                <label for="mesasage" name="mesasage"/>
+                                <field name="mesasage"/>
+                                <label for="response" name="response"/>
+                                <field name="response"/>
+                            </page>
+                        </notebook>
+                        
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_gpt_test" model="ir.actions.act_window">
+        <field name="name">Pruebas de GPT</field>
+        <field name="res_model">gpt.test</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+</odoo>

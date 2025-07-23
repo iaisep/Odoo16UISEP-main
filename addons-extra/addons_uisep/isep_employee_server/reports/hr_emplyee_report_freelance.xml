@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="report_hr_employee_freelance" model="ir.actions.report">
+        <field name="name">Contrato Freelance</field>
+        <field name="model">hr.employee</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">isep_employee_server.report_hr_employee_freelance_view</field>
+        <field name="report_file">isep_employee_server.report_hr_employee_freelance</field>
+        <field name="print_report_name">'%s' % object.name</field>
+        <field name="binding_model_id" ref="model_hr_employee"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="report_hr_employee_freelance_view">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.basic_layout">
+                    <!--P+agina 1-->
+                    <div class="page" style="padding: 10px 50px; font-family: Arial, sans-serif;text-align: justify; font-size: 15px;">
+
+                        <h2 style="text-align: center;">CONTRATO DE FREELANCE</h2>
+                        <p style="text-align: right;">En Sheridan, a 23 de septiembre de 2024</p>
+                        <h3 style="text-align: center;">REUNIDOS</h3>
+                        <p><strong>y de otra Parte,</strong></p>
+                        <p><strong>J.R. Barnes</strong>, que ostenta el cargo de CEO.</p>
+                        <p><strong>Y de otra Parte,</strong></p>
+                        <p><strong>Nombre: </strong> <span t-field="doc.name"/>, con <strong>CURP:_______________________________</strong> y con domicilio a
+                            efecto de notificaciones en _______________________________ Y que a continuación, serán referidas
+                            individualmente como Parte, CLIENTE, FREELANCE, o de forma conjunta como Partes.</p>
+
+                        <h3 style="text-align: center;">INTERVIENEN</h3>
+                        <p><strong>De una Parte,</strong></p>
+                        <p>La persona jurídica O.O. Business Consulting Group, con NIF 61-2024083, 
+                            constituida en escritura pública otorgada ante Notario de Sheridan, 
+                            Wyoming, e inscrita en el siguiente Registro: Sheridan, con fecha 10 de marzo 2022, 
+                            y con domicilio social en 1309 Coffeen Ave, representada legalmente en este acto por J.R. Barnes,que interviene en este acto en su condición de CEO, como CLIENTE.</p>
+                        <p><strong>De otra Parte,</strong></p>
+                        <p><strong>Nombre: </strong> <span t-field="doc.name"/>, con <strong>CURP:_______________________________</strong> quien comparece en su propio 
+                            nombre y derecho como FREELANCE. Las Partes, en la representación con que 
+                            intervienen, se reconocen capacidad suficiente para contratar y obligarse en los términos 
+                            del presente Contrato y, a tal efecto,</p>
+                        <h3 style="text-align: center;">EXPONEN</h3>
+                        <p><strong>I.-</strong> Que el <strong>FREELANCE</strong> está especializado en la prestación de servicios 
+                            comprendidos dentro de su actividad principal consistente en:</p>
+
+                        <p><strong>II.-</strong> Que el <strong>CLIENTE</strong> desea contar con los servicios del <strong>FREELANCE</strong>.</p>
+
+                        <p><strong>III.-</strong> Que el <strong>FREELANCE</strong> hace constar expresamente la condición de trabajador autónomo 
+                            económicamente independiente respecto del <strong>CLIENTE</strong>. Asimismo, declara que presta su servicio con 
+                            criterios organizativos propios, asumiendo el riesgo y ventura de la misma.</p>
+
+                        <p><strong>IV.-</strong> Que ambas Partes acuerdan formalizar el presente 
+                            <strong>CONTRATO DE FREELANCE</strong> de conformidad con las siguientes</p>
+
+                        
+                        <h3 style="text-align: center;">CLÁUSULAS</h3>
+                        <p><strong>PRIMERA. - OBJETO:</strong></p>
+                        <p>El FREELANCE en su calidad de trabajador independiente, se obliga para con el CLIENTE a ejecutar los trabajos y 
+                            demás actividades propias del servicio contratado, el cual debe realizar de conformidad con las condiciones y 
+                            cláusulas del presente documento y que consistirá en:</p>
+
+                        <p>De ahora en adelante, como "Servicios".</p>
+
+                        <p><strong>SEGUNDA. - MODIFICACIONES O AMPLIACIONES DEL OBJETO:</strong></p>
+                        <p>Si durante la vigencia del presente Contrato, el FREELANCE y/o el CLIENTE consideran</p>
+                    </div>
+
+                    <!--P+agina 2-->
+                    <div class="page" style="padding: 10px 50px; font-family: Arial, sans-serif;text-align: justify; font-size: 15px;">
+                        <p>oportuno modificar y/o ampliar la prestación de Servicios objeto del presente Contrato, ambas Partes deberán
+                             negociar el alcance de dichas modificaciones o ampliaciones en la prestación.</p>
+                        <p>Los acuerdos adoptados en la negociación deberán constar por escrito, y quedarán incorporados como anexos al 
+                            presente Contrato. En el caso que ambas Partes no se pusieran de acuerdo sobre dichas modificaciones o 
+                            ampliaciones, cualquiera de las Partes podrá resolver el presente Contrato.</p>
+                        <p>En su caso, si el FREELANCE y/o el CLIENTE consideran oportuno modificar o alterar los Servicios objeto del presente Contrato, 
+                            este deberá notificar a la otra Parte con el fin de negociar y/o acordar el nuevo precio de la prestación de Servicios.</p>
+                        <p>La prestación de cualquier servicio adicional o complementarios a los aquí descritos, y que así ha 
+                            sido solicitado por el CLIENTE, se regirá por las estipulaciones de este Contrato.</p><br/>
+                        
+                        <p><strong>TERCERA. - DURACIÓN:</strong></p>
+                        <p>Ambas partes acuerdan que la terminación del presente contrato mercantil requerirá una notificación 
+                            formal por escrito con un plazo mínimo de cinco (5) días hábiles de anticipación. En caso de que alguna de 
+                            las partes incumpla con este requisito de notificación previa, se establecen las siguientes condiciones:</p>
+                        <p>1. Si la Empresa decide terminar el contrato sin el aviso previo de cinco (5) días hábiles, deberá pagar al 
+                            Proveedor(a) el equivalente a los honorarios correspondientes a dichos cinco (5) días.</p>
+                        <p>2. Si el(la) Proveedor(a) decide terminar el contrato sin el aviso previo de cinco (5) días 
+                            hábiles, no tendrá derecho a cobrar los honorarios correspondientes a dichos cinco (5) días.</p><br/>
+                        <p><strong>CUARTA. - PRECIO Y FORMA DE PAGO:</strong></p>
+                        <p>El precio que el CLIENTE abonará al FREELANCE por la realización de los Servicios objeto de 
+                            este Contrato se fija de la siguiente manera:</p>
+                        <p>1. Una contraprestación satisfecha en un único pago de: $ _______________</p>
+                        <p>2. Las Partes acuerdan que la contraprestación se hará efectiva mediante ingreso o transferencia bancaria en la siguiente cuenta:</p>
+                        <p><strong>Entidad bancaria:</strong>_______________________</p>
+                        <p><strong>IBAN identificador de la cuenta:</strong>_______________________</p>
+                        <p><strong>Titular de la cuenta:</strong>_______________________</p>
+                        <p>Las Partes acuerdan que dicha contraprestación se deberá realizar de acuerdo al cronograma de entregas y pagos acordado y 
+                            aceptado por el CLIENTE detallado a continuación:</p>
+                        <p>en cada quincena.</p>
+                        <p>El precio establecido en esta cláusula está fijado a efectos de la prestación del servicio de freelance objeto del presente 
+                            Contrato. Si se diera el caso en el que se modifican o amplían los Servicios, el CLIENTE y el FREELANCE se comprometen a 
+                            negociar el nuevo precio por los Servicios.</p><br/>
+                        <p><strong>QUINTA. - TÉRMINOS Y CONDICIONES GENERALES Y ESPECÍFICOS DE LA PRESTACIÓN DE SERVICIOS:</strong></p>
+                    </div>
+
+                    <!--P+agina 3-->
+                    <div class="page" style="padding: 10px 50px; font-family: Arial, sans-serif;text-align: justify; font-size: 15px;">
+                        <p>Respecto a los términos y condiciones generales, se debe concretar las siguientes estipulaciones:</p>
+                        <p>a). El FREELANCE estará obligado a cumplir con lo estipulado en las demás cláusulas y condiciones previstas en este documento.</p>
+                        <p>b). Los honorarios son estimados en base a la realización de los Servicios contratados durante el horario normal de trabajo. 
+                            El CLIENTE deberá abonar un recargo por cualquier Servicio que requiera trabajar fuera del horario de trabajo regular 
+                            por razones de fechas de entrega no programadas, o como consecuencia de que el CLIENTE no haya cumplido con plazos de 
+                            entrega de información, materiales o aprobaciones.</p>
+                        <p>c). El FREELANCE deberá cumplir en forma eficiente y oportuna los trabajos encomendados y aquellas obligaciones que 
+                            se generen de acuerdo con la naturaleza del servicio.</p>
+                        <p>d). El FREELANCE contará con recursos que resulten razonablemente satisfactorios para el CLIENTE para la prestación 
+                            de los Servicios objeto del presente contrato.</p>
+                        <p>e). El FREELANCE informará de manera inmediatamente al CLIENTE, si se prevé o se produce algún incidente que pueda menoscabar o 
+                            perjudicar los intereses de este último, así como cuando detecte un error para que pueda adoptar las medidas y acciones 
+                                correctoras que estime oportunas.</p>
+                        <p>f). El FREELANCE conservará en todo momento un detalle completo y adecuado de las actividades realizadas para la 
+                            prestación de los Servicios. Dicha información podrá ser solicitada por el CLIENTE en cualquier momento sin que 
+                            el FREELANCE pueda negarse sin causa justificada, a entregar tal información.</p>
+                        <p>g). El FREELANCE declara que no puede garantizar que el trabajo terminado estará completamente libre de errores, 
+                            por lo que no puede ser responsable ante el CLIENTE o TERCEROS por daños, incluyendo pérdida de beneficios u 
+                            otros daños incidentales, consecuentes o especiales, incluso con asesoramiento previo.</p><br/>
+
+                        <p><strong>SEXTA. - CESIÓN:</strong></p>
+                        <p>Las Partes en ningún caso podrán ceder su posición contractual a terceros, ni tampoco los derechos u 
+                            obligaciones que de este mismo emanasen a su favor o a su cargo. Por su parte, para la sustitución o 
+                            delegación de la prestación del servicio en un tercero, se tratará como un supuesto de sub-contratación, 
+                            sin quedar desligado el prestador originario de servicios de la relación negocial con el CLIENTE y, por tanto, 
+                            sin liberarse de los deberes que le incumben como prestador de servicios.</p>
+                        <p>El incumplimiento de esta Estipulación por el FREELANCE será motivo suficiente para resolver el presente Contrato.</p><br/>
+
+                        <p><strong>SÉPTIMA. - CONFIDENCIALIDAD:</strong></p>
+                        <p>Las Partes se comprometen a tomar todas las medidas necesarias para mantener en secreto y confidencialmente todas 
+                            las informaciones que les hayan sido comunicadas como tal por la otra Parte durante la ejecución del Contrato, 
+                            o que hayan conocido en el curso de su ejecución. La obligación de este artículo no se aplicará a:</p>
+                        <p>a). toda aquella información que sea del dominio público,</p>
+                        <p>b). toda aquella información de que las Partes dispusieren antes de haberle sido facilitada por la otra Parte; y</p>
+                        <p>c). toda aquella información legalmente adquirida por las Partes de fuentes distintas a la otra Parte.</p>
+                    </div>
+
+                    <!--P+agina 4-->
+                    <div class="page" style="padding: 10px 50px; font-family: Arial, sans-serif;text-align: justify; font-size: 15px;">
+                        <p>Las Partes se comprometen a utilizar estas informaciones únicamente para la ejecución del Contrato. 
+                            Igualmente, se comprometen a no explotar, por cuenta propia o de un tercero, directa o indirectamente, 
+                            toda o parte de estas informaciones.</p>
+                        <p>Esta obligación de confidencialidad deberá respetarse durante toda la vigencia de este Contrato, 
+                            y una vez finalizado el mismo, durante un período de tiempo indefinido.</p>
+                        <p>Toda violación o incumplimiento, por una u otra Parte de la presente estipulación conlleva la obligación, 
+                            para aquella Parte que cometió dicho incumplimiento, de pagar a la otra Parte una indemnización compensatoria, 
+                            cuyo montante queda fijado en 100.000 dólares (cien mil dólares), sin perjuicio, del derecho de la 
+                            Parte considerada afectada a ejercer o iniciar todas las acciones pertinentes a fin de imponer las sanciones que legalmente procedan.</p><br/>
+                        <p><strong>OCTAVA. - DERECHOS DE AUTOR:</strong></p>
+                        <p>EL CLIENTE será propietario de los derechos de autor de todo el material creado bajo este acuerdo 
+                            una vez se haya completado el pago íntegro. El FREELANCE puede exhibir muestras de este Contrato 
+                            como piezas de su portafolio sólo con el consentimiento y la aprobación del CLIENTE.</p>
+                        <p>Por tanto, el FREELANCE reconoce los derechos de propiedad intelectual del CLIENTE sobre todo el material, cediendo todos los 
+                            derechos de explotación y propiedad de los mismos.</p>
+                        <p>La titularidad del material afecta no sólo al producto final de la misma, sino al conjunto de trabajos, 
+                            bocetos, esquemas, documentos previos, diagramas de flujo y, en conjunto, todos y cada uno de los 
+                            trabajos susceptibles de ser objeto de propiedad intelectual e industrial realizados para el material.</p>
+                        <p>El FREELANCE garantiza al CLIENTE que el material es absolutamente original y que cuenta con la totalidad 
+                            de los derechos de propiedad intelectual sobre el mismo, habiendo sido completamente realizado por él, 
+                            por lo que puede garantizar que no se ha vulnerado ninguna normativa, contrato, derecho, interés o propiedad de terceros.</p><br/>
+                        <p><strong>NOVENA. - PROTECCIÓN DE DATOS:</strong></p>
+                        <p>Las Partes de este Contrato conocen y se obligan a cumplir la Ley de Privacidad de 1974, sección 552ª del Código de los 
+                            Estados Unidos, relativo a la protección de las personas físicas en lo que respecta al tratamiento de datos personales 
+                            y a la libre circulación de estos datos (RGPD). Ninguna de las Partes asume responsabilidad alguna por cualquier 
+                            incumplimiento de la normativa vigente de protección de datos por la otra Parte.</p>
+                        <p>En el caso de que la prestación de los Servicios suponga la necesidad de acceder a datos de carácter personal, 
+                            el FREELANCE, como encargado del tratamiento, queda obligado al cumplimiento de la Ley Orgánica de Protección 
+                            de Datos Personales y garantía de los derechos digitales y demás normativa aplicable. El FREELANCE se compromete, por tanto, a:</p>
+
+                        <p>a). Utilizar los datos de carácter personal a los que tenga acceso única y exclusivamente para cumplir con sus obligaciones contractuales.</p>
+                        <p>b). Observar y adoptar cuantas medidas de seguridad sean necesarias para asegurar la confidencialidad, secreto e integridad de los datos de 
+                            carácter personal a los que tenga acceso, así como a adoptar en el futuro cuantas medidas de seguridad sean exigidas por las leyes y 
+                            reglamentos destinadas a preservar el secreto, confidencialidad e integridad en el tratamiento automatizado de datos personales.</p>
+
+                    </div>
+
+                    <!--P+agina 5-->
+                    <div class="page" style="padding: 10px 50px; font-family: Arial, sans-serif;text-align: justify; font-size: 15px;">
+                        <p>c). A no ceder en ningún caso a terceras personas los datos de carácter personal a los que tenga acceso, ni tan siquiera a efectos de su conservación.</p><br/>
+                        <p><strong>DÉCIMA. - LEGISLACIÓN APLICABLE Y FUERO:</strong></p>
+                        <p>Las Partes reconocen quedar obligadas por el presente Contrato, que tiene carácter mercantil, así como por sus correspondientes anexos, 
+                            y sus efectos jurídicos y se comprometen a su cumplimiento de buena fe.</p>
+                        <p>Todo litigio relativo, especialmente, pero no solo, a la formación, validez, interpretación, firma, existencia, ejecución o terminación de este Contrato y, 
+                            en general, a la relación establecida entre las Partes, será sometido a la legislación estadounidense; particularmente, 
+                            al Código de Comercio y supletoriamente al Código Civil.</p>
+                        <p>Las referencias aquí realizadas a cualquier norma legal o reglamentaria, o disposición de las mismas, deben entenderse 
+                            realizadas a las normas o preceptos que puedan sustituirlas en el futuro.</p><br/>
+                        <p><strong>DECIMOPRIMERA. - ARIBITRAJE:</strong></p>
+                        <p>En caso de controversia, diferencia, conflicto o reclamación en cuanto al Contrato, o en relación a o derivado de la interpretación o ejecución del mismo, 
+                            las Partes acuerdan que se someterán expresamente, y con renuncia a su propio fuero, a arbitraje de derecho con un solo árbitro ante: el Estado de Wyoming, 
+                            USA, que nombrará al árbitro y resolverá definitivamente conforme a su Reglamento y/o Estatuto.</p>
+                        <p>Las Partes hacen constar expresamente su compromiso de cumplir el laudo arbitral que se dicte. Asimismo, acuerdan que, si el arbitraje no llegara a realizarse por 
+                            mutuo acuerdo o fuese declarado nulo, ambas se someterán a la jurisdicción de los Juzgados y Tribunales competentes conforme a derecho.</p><br/>
+                        <p><strong>DECIMOSEGUNDA. - GENERALIDADES:</strong></p>
+                        <p>El presente Contrato anula y reemplaza cualquier contrato o acuerdo anterior entre las Partes con el mismo objeto y sólo podrá ser 
+                            modificado por un nuevo acuerdo firmado por ambas Partes.</p>
+                        <p>Si alguna de las cláusulas del presente Contrato fuere declarada nula o inaplicable, dicha cláusula se considerará excluida del Contrato, sin que implique la 
+                            nulidad del mismo. En este caso las Partes harán cuanto esté a su alcance para encontrar una solución equivalente que sea válida y que refleje debidamente sus intenciones.</p>
+                        <p>Los encabezamientos de las distintas cláusulas lo son sólo a efectos informativos, y no afectarán, calificarán o ampliarán la interpretación de este Contrato.</p>
+                        <p>Y de conformidad con lo expuesto en el presente Contrato, ambas Partes firman el presente Contrato de freelance extendido por duplicado, en fecha y lugar indicados al inicio del mismo.</p><br/>
+
+                        <p><strong>EL CLIENTE</strong></p>
+                        <p><strong>Fdo. O.O. Business Consulting Group, representada legalmente en este acto por J.R. Barnes.</strong></p><br/><br/>
+                        <p><strong>EL FREELANCE</strong></p>
+                        <span t-field="doc.name"/>
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+    
+
+</odoo>

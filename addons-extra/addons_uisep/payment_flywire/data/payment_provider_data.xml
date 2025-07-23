@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">    
+
+    <record id="payment_provider_flywire" model="payment.provider">
+        <field name="name">Flywire</field>
+        <field name="code">flywire</field>
+        <field name="image_128" type="base64" file="payment_flywire/static/description/icon.png" />
+        <field name="module_id" ref="base.module_payment_flywire"/>
+        <field name="redirect_form_view_id" ref="redirect_form"/>
+        <field name="allow_tokenization">True</field>
+        <field name="flywire_shared_key">XXXXXXXXXX</field>
+        <field name="flywire_api_key">XXXXXXXXXX</field>
+        <field name="flywire_frontend_api_key">fk_XXXXXXXXXX</field>
+        <field name="payment_icon_ids"
+               eval="[(6, 0, [
+                   ref('payment.payment_icon_cc_mastercard'),
+                   ref('payment.payment_icon_cc_american_express'),
+                   ref('payment.payment_icon_cc_visa'),
+               ])]"/>
+    </record>
+
+</odoo>

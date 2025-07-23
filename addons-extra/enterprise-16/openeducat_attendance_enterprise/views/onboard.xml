@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- openeducat_core module STEPS -->
+    <!-- attendance register view starts -->
+    <template id="onboarding_attendance_layout_step">
+        <t t-call="base.onboarding_step">
+            <t t-set="title">Attendance Register Configuration</t>
+            <t t-set="description">See how to create a attendance register.</t>
+            <t t-set="done_icon" t-value="'fa-star'"/>
+            <t t-set="done_text">Looks great!</t>
+            <t t-set="btn_text">Customize</t>
+            <t t-set="method" t-value="'action_onboarding_attendance_register_layout'"/>
+            <t t-set="model" t-value="'res.company'"/>
+            <t t-set="state" t-value="state.get('onboarding_attendance_register_layout_state')"/>
+        </t>
+    </template>
+    <record id="view_op_attendance_register_form_onboard" model="ir.ui.view">
+        <field name="name">op.attendance.register.form</field>
+        <field name="model">op.attendance.register</field>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <form string="Attendance Register">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="course_id"/>
+                        </group>
+                        <group>
+                            <field name="code"/>
+                            <field name="batch_id"
+                                   context="{'course_id': course_id,'get_parent_batch':1}"/>
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Apply" class="btn btn-primary" type="object"
+                            name="action_onboarding_attendance_register_layout"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_onboarding_attendance_register_layout" model="ir.actions.act_window">
+        <field name="name">Attendance Register Configuration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">op.attendance.register</field>
+        <field name="view_mode">form</field>
+        <field name="binding_view_types">form</field>
+        <field name="view_id" ref="view_op_attendance_register_form_onboard"/>
+        <field name="target">new</field>
+    </record>
+
+    <!-- attendance sheet view starts -->
+
+    <template id="onboarding_attendance_sheet_layout_step">
+        <t t-call="base.onboarding_step">
+            <t t-set="title">Attendance Sheet Configuration</t>
+            <t t-set="description">See how to create a attendance sheet.</t>
+            <t t-set="done_icon" t-value="'fa-star'"/>
+            <t t-set="done_text">Looks great!</t>
+            <t t-set="btn_text">Customize</t>
+            <t t-set="method" t-value="'action_onboarding_attendance_sheet_layout'"/>
+            <t t-set="model" t-value="'res.company'"/>
+            <t t-set="state" t-value="state.get('onboarding_attendance_sheet_layout_state')"/>
+        </t>
+    </template>
+    <record id="view_op_attendance_sheet_form_onboard" model="ir.ui.view">
+        <field name="name">op.attendance.sheet.form</field>
+        <field name="model">op.attendance.sheet</field>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <form string="Attendance Sheet">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="register_id"/>
+                            <field name="session_id"
+                                   domain="[('course_id','=',course_id),('batch_id','=',batch_id)]"/>
+                            <field name="course_id" invisible="1"/>
+                            <field name="batch_id" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="name"/>
+                            <field name="attendance_date"/>
+                        </group>
+                    </group>
+                    <group col="4" string="Students">
+                        <field name="attendance_line" colspan="4" nolabel="1">
+                            <tree editable="top">
+                                <field name="student_id"
+                                       domain="[('course_detail_ids.course_id','=',parent.course_id),('course_detail_ids.batch_id','=',parent.batch_id)]"/>
+                                <field name="present"/>
+                                <field name="remark"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Apply" class="btn btn-primary" type="object"
+                            name="action_onboarding_attendance_sheet_layout"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_onboarding_attendance_sheet_layout" model="ir.actions.act_window">
+        <field name="name">Attendance Sheet Configuration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">op.attendance.sheet</field>
+        <field name="view_mode">form</field>
+        <field name="binding_view_types">form</field>
+        <field name="view_id" ref="view_op_attendance_sheet_form_onboard"/>
+        <field name="target">new</field>
+    </record>
+
+    <!-- attendance lines view starts -->
+
+    <template id="onboarding_attendance_lines_layout_step">
+        <t t-call="base.onboarding_step">
+            <t t-set="title">Attendance Lines Configuration</t>
+            <t t-set="description">See how to create a attendance lines.</t>
+            <t t-set="done_icon" t-value="'fa-star'"/>
+            <t t-set="done_text">Looks great!</t>
+            <t t-set="btn_text">Customize</t>
+            <t t-set="method" t-value="'action_onboarding_attendance_lines_layout'"/>
+            <t t-set="model" t-value="'res.company'"/>
+            <t t-set="state" t-value="state.get('onboarding_attendance_lines_layout_state')"/>
+        </t>
+    </template>
+    <record id="view_op_attendance_line_form_onboard" model="ir.ui.view">
+        <field name="name">op.attendance.line.form</field>
+        <field name="model">op.attendance.line</field>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <form string="Attendance Line">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="attendance_id" widget="selection"/>
+                            <field name="present"/>
+                            <field name="remark"/>
+                            <field name="batch_id" widget="selection"/>
+                        </group>
+                        <group>
+                            <field name="student_id"
+                                   domain="[('course_detail_ids.course_id','=',course_id),('course_detail_ids.batch_id','=',batch_id)]"/>
+                            <field name="attendance_type_id" options='{"no_open": True}'/>
+                            <field name="course_id" widget="selection"/>
+                            <field name="attendance_date"/>
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Apply" class="btn btn-primary" type="object"
+                            name="action_onboarding_attendance_lines_layout"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_onboarding_attendance_lines_layout" model="ir.actions.act_window">
+        <field name="name">Attendance Lines Configuration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">op.attendance.line</field>
+        <field name="view_mode">form</field>
+        <field name="binding_view_types">form</field>
+        <field name="view_id" ref="view_op_attendance_line_form_onboard"/>
+        <field name="target">new</field>
+    </record>
+
+
+    <!-- ONBOARDING PANEL-->
+    <template id="openeducat_attendance_onboarding_panel" name="openeducat.attendance.quotation.onboarding.panel">
+        <t t-call="base.onboarding_container">
+            <t t-set="classes" t-value="'o_onboarding_violet'"/>
+            <t t-set="bg_image" t-value="'/sale/static/src/img/sale_quotation_onboarding_bg.jpg'"/>
+            <t t-set="close_method" t-value="'action_close_attendance_panel_onboarding'"/>
+            <t t-set="close_model" t-value="'res.company'"/>
+            <t t-call="openeducat_attendance_enterprise.onboarding_attendance_layout_step"
+               name="company_step_attendance_register"/>
+            <t t-call="openeducat_attendance_enterprise.onboarding_attendance_sheet_layout_step"
+               name="company_step_attendance_sheet"/>
+            <t t-call="openeducat_attendance_enterprise.onboarding_attendance_lines_layout_step"
+               name="company_step_attendance_lines"/>
+
+        </t>
+    </template>
+</odoo>

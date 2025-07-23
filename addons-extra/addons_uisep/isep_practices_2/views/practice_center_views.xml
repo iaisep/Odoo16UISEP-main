@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Vistas -->
+    <odoo>
+        <record id="view_practice_center_form" model="ir.ui.view">
+            <field name="name">practice.center.form</field>
+            <field name="model">practice.center</field>
+            <field name="arch" type="xml">
+                <form string="Practice Center">
+                    <sheet>
+                        <!-- Botón para crear el registro en res.partner -->
+                        <header>
+                            <field name="partner_id" widget="many2one_avatar" options="{'no_open': True}"/>
+                            <field name="status_form_center" widget="statusbar"
+                                   statusbar_visible="generated,not generated"/>
+                        </header>
+                        <group>
+                            <!-- Información General -->
+                            <group string="General Information">
+
+                                <field name="name"/>
+                                <field name="official_name"/>
+                                <field name="signatory_name"/>
+                                <!--                                <field name="status_form_center"/>-->
+
+                            </group>
+                            <!-- Información de Contacto -->
+                            <group string="Contact Information">
+
+                                <field name="coordinator"/>
+                                <field name="phone"/>
+                                <field name="mobil"/>
+                                <field name="email"/>
+                                <field name="website"/>
+
+                            </group>
+                            <!-- Ubicación -->
+                            <group string="Location">
+                                <field name="country_id"/>
+                                <field name="state_id"/>
+                                <field name="zip_id"/>
+
+                                <field name="street"/>
+                                <field name="city"/>
+                                <field name="province"/>
+                                <field name="postal_code"/>
+
+                            </group>
+                            <!-- Detalles Adicionales -->
+                            <group string="Additional Details">
+
+                                <field name="number_places"/>
+                                <field name="tutor_ids" widget="many2many_tags"/>
+                                <field name="op_course_ids" widget="many2many_tags"/>
+                                <field name="type_ids" widget="many2many_tags"/>
+
+                            </group>
+                            <group>
+
+
+                            </group>
+
+                            <group string="Practice Schedules" colspan="2">
+                                <field name="schedule_description"/>
+                                <field name="schedule_ids" widget="one2many_list">
+                                    <tree editable="bottom">
+                                        <field name="shift_id"/>
+                                        <field name="day_of_week_id"/>
+                                        <field name="start_time"/>
+                                        <field name="end_time"/>
+                                        <field name="description"/>
+                                    </tree>
+                                </field>
+
+                            </group>
+
+                        </group>
+                        <group colspan="2">
+                            <button name="create_res_partner" type="object" string="Generate Center"
+                                    class="btn-primary"/>
+                            <button name="create_schedule2" type="object" string="Create Schedule"
+                                    class="btn-primary"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </odoo>
+
+
+    <record id="view_practice_center_tree" model="ir.ui.view">
+        <field name="name">practice.center.tree</field>
+        <field name="model">practice.center</field>
+        <field name="arch" type="xml">
+            <tree string="Practice Centers">
+                <field name="name"/>
+                <field name="coordinator"/>
+                <field name="province"/>
+                <field name="city"/>
+                <field name="phone"/>
+                <field name="email"/>
+                <field name="status_form_center"/>
+                  <field name="type_ids" widget="many2many_tags"/>
+                    <field name="op_course_ids" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_practice_center_kanban" model="ir.ui.view">
+        <field name="name">practice.center.kanban</field>
+        <field name="model">practice.center</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="status_form_center" string="Practice Centers">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-att-class="'oe_kanban_global_click o_kanban_card'">
+                            <div class="o_kanban_image">
+                                <field name="partner_id" widget="many2one_avatar"/>
+                            </div>
+                            <div class="oe_kanban_details">
+                                <strong>
+                                    <field name="name"/>
+                                </strong>
+                                <div>
+                                    <field name="city"/>
+                                </div>
+                                <div>
+                                    <field name="email"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_practice_center_search" model="ir.ui.view">
+        <field name="name">practice.center.search</field>
+        <field name="model">practice.center</field>
+        <field name="arch" type="xml">
+            <search string="Practice Centers">
+                <field name="name"/>
+                <field name="province"/>
+                <field name="city"/>
+                <!--                <filter string="Not Generated" domain="[('status_form_center', '=', 'not generated')]"/>-->
+                <!--                <filter string="Generated" domain="[('status_form_center', '=', 'generated')]"/>-->
+                <!--                <filter string="Problems to Generate"-->
+                <!--                        domain="[('status_form_center', '=', 'problems to be generated')]"/>-->
+            </search>
+        </field>
+    </record>
+
+    <!-- Acción -->
+    <record id="action_practice_center" model="ir.actions.act_window">
+        <field name="name">Practice Centers</field>
+        <field name="res_model">practice.center</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to create a new practice center.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menú -->
+
+    <menuitem id="menu_practice_center" name="Practice Centers" parent="menu_practice_configuration"
+              action="action_practice_center" sequence="10"/>
+</odoo>

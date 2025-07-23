@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="website_menu_gms_portal_menu" model="openeducat.portal.menu">
+        <field name="name">Grievances</field>
+        <field name="link">/my/grievances</field>
+        <field name="active">True</field>
+        <field name="sequence" type="int">115</field>
+        <field name="background_color">#508A4E</field>
+        <field name="is_visible_to_parent">True</field>
+        <field name="icon_image" type="base64"
+               file="openeducat_grievance_enterprise/static/description/logo.png"/>
+    </record>
+</odoo>

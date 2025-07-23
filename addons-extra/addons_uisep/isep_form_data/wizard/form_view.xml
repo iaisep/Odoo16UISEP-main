@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="isep_form_data_wizard_view" model="ir.ui.view">
+        <field name="name">isep.form.data.wizard</field>
+        <field name="model">isep.form.data.wizard</field>
+        <field name="arch" type="xml">
+            <form class="o_mail_composer_form">
+                <group col="1">
+                    <group col="2">
+                        <field name="sale_order_id" readonly="1" string="Orden"/>
+                        <field name="order_start_url" label="Public share URL" readonly="1" widget="CopyClipboardChar" string="URL"                                
+                            class="mb16"/>
+                    </group>
+                </group>
+			</form>
+        </field>
+    </record>
+</odoo>

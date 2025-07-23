@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="dv_config_ia_view__tree" model="ir.ui.view">
+            <field name="name">dv_config_ia_view__tree</field>
+            <field name="model">dv.config.ia</field>
+            <field eval="100" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Configuracion Calificaciones OpenIA" create="false" delete="False" >
+                    <field name="token_id" password="True" force_save="1"/>
+                    <field name="model_ia" />  
+                    <field name="url" />                
+                </tree>
+            </field>
+        </record>
+        <record id="dv_config_ia_form" model="ir.ui.view">
+            <field name="name">dv_config_ia_form</field>
+            <field name="model">dv.config.ia</field>
+            <field name="arch" type="xml">
+                <form string="Configuracion IA" create="false">
+                    <sheet>                       
+                        <group>
+                            <group>
+                                <field name="url" />
+                                <field name="model_ia" />
+                                <field name="token_id" />
+                                <field name="temp_chat" />
+                            </group>
+                            <group >
+                                <field name="auto_score" widget="boolean_toggle"/>
+                            </group>
+                        </group>
+                       
+                    </sheet>
+                </form>
+            </field>            
+        </record>
+        <record id="action_dv_config_ia_action" model="ir.actions.act_window">
+            <field name="name">Configuracion para IA</field>
+            <field name="res_model">dv.config.ia</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="dv_config_ia_view__tree"/>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                   En espera de nuevos registros
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="submenu_config_calificaciones_gpt_ia"
+            name="Configuraciones Calificaciones OpenIA"
+            sequence="150"
+            parent="website_slides.website_slides_menu_config_settings"/>
+
+        <menuitem
+            id="submenu_calificaciones_ia_embedding"
+            name="Configuracion IA"
+            parent="dv_slide_channel_custom.submenu_config_calificaciones_gpt_ia"
+            action="action_dv_config_ia_action"            
+            sequence="1"/>
+    </data>
+</odoo>

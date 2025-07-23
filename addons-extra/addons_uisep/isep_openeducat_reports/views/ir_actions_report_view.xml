@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="act_report_xml_view_extended" model="ir.ui.view">
+            <field name="model">ir.actions.report</field>
+            <field name="inherit_id" ref="base.act_report_xml_view"/>
+            <field name="arch" type="xml">
+                 <field name="paperformat_id" position="after">
+                     <field name="certificado_web" />
+                     <field name="certificado_gratuito" />
+                     <field name="list_price" />
+                 </field>
+            </field>
+    </record>
+
+    <record id="certificate_xml_view_tree" model="ir.ui.view">
+            <field name="name">certificate_xml_tree</field>
+            <field name="model">ir.actions.report</field>
+            <field name="arch" type="xml">
+                <tree string="Report xml" editable="top" create="0">
+                    <field name="certificado_gratuito" widget="boolean_toggle"/>
+                    <field name="name" string="Nombre del Certificado"/>
+                    <field name="list_price" widget="monetary"/>
+                </tree>
+             </field>
+    </record>
+
+
+        <record id="action_open_certificates" model="ir.actions.act_window">
+            <field name="name">Administrar Certificados</field>
+            <field name="res_model">ir.actions.report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="certificate_xml_view_tree"/>
+            <field name="domain">[('certificado_web','=',True)]</field>
+            <field name="context">{'default_certificado_web': True, 'default_report_type': 'qweb-pdf'}</field> 
+        </record>
+
+        <menuitem 
+            action="action_open_certificates" 
+            id="menu_action_open_certificates" 
+            parent="openeducat_core.menu_op_school_config" 
+            sequence="99"/>
+
+</odoo>

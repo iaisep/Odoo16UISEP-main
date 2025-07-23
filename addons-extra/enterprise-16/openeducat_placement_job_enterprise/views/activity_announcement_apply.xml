@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="activity_apply" name="Activity Apply">
+        <t t-call="website.layout">
+            <t t-set="additional_title">Activity Detail</t>
+            <div id="wrap">
+                <div class="oe_structure" id="oe_structure_website_activity_announcement_detail_1"/>
+
+                <!-- Breadcrumb -->
+                <section class="pt64 pb64 bg-white">
+                    <div class="container">
+                        <div>
+                            <a t-attf-href="/activity/announcement/detail/#{ slug(activity)}">
+                                <h1 class="mb0 mt0 pb48 text-uppercase" t-field="activity.name"/>
+                            </a>
+                        </div>
+                        <div class="row">
+                            <t class="mt0" t-foreach="activity.job_post_id" t-as="o">
+                                <div class="col-sm-12 col-md-6">
+                                    <div style="padding: 20px;
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(72, 73, 121, 0.15);
+-moz-box-shadow: 0px 0px 15px 0px rgba(72, 73, 121, 0.15);
+box-shadow: 0px 0px 15px 0px rgba(72, 73, 121, 0.15); margin-bottom: 30px;">
+                                        <a t-attf-href="/job/post/apply/#{slug(activity)}/#{ slug(o)}">
+                                            <span t-field="o.job_post" class="text-black"/>
+                                            <div style="padding-top:15px;">
+                                                <i class="fa fa-map-marker"></i>
+                                                <span t-field="o.city" class="text-primary"
+                                                      style="font-size:14px;"/>
+                                            </div>
+
+                                            <div style="padding-top:15px;">
+                                                <i class="fa fa-clock-o"></i>
+                                                <span t-field="o.start_date" class="text-primary"
+                                                      style="font-size:14px;"/>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </t>
+    </template>
+</odoo>

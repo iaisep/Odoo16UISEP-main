@@ -1,0 +1,51 @@
+version: '3'
+services:
+  nginx:
+    container_name: nginx
+    image: nginx:latest
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./certbot/conf:/etc/nginx/ssl
+      - ./certbot/data:/var/www/html
+        #depends_on:
+        #- jira
+        #- confluence
+        #- bitbucket
+        #- jenkins
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      default:
+        aliases:
+          - odoodevisep
+    restart: unless-stopped
+  odoo:
+    container_name: odoo
+    image: odoo:16.0@sha256:b4147b40da31ac4a2df8be2b28dd639b2e00bff079837c55e35864d0aa7ab186
+    restart: unless-stopped
+    volumes:
+      - ./addons-extra:/mnt/extra-addons
+      - ./etc/odoo:/etc/odoo
+      - odoo-web-data:/var/lib/odoo
+      - odoo-log-data:/var/log/odoo
+    ports:
+      - "8069:8069"
+    depends_on:
+      - pgodoo
+  pgodoo:
+    container_name: pgodoo
+    image: postgres:14
+    restart: unless-stopped
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=Odoo$$Dev.psswd%&#$$23
+      - POSTGRES_USER=odoo
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - odoo-db-data:/var/lib/postgresql/data/pgdata
+
+volumes:
+  odoo-web-data:
+  odoo-db-data:
+  odoo-log-data:

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="category_library_kids" model="op.digital.library.category">
+            <field name="name">Kids</field>
+            <field name="material_ids"
+                   eval="[(6,0,[ref('material_a_new_visitor'),ref('material_a_special_nest'),ref('material_a_very_green_day')])]"/>
+        </record>
+
+        <record id="category_library_technology" model="op.digital.library.category">
+            <field name="name">Technology</field>
+            <field name="material_ids"
+                   eval="[(6,0,[ref('material_educational_technology')])]"/>
+        </record>
+
+        <record id="category_library_programming" model="op.digital.library.category">
+            <field name="name">Programming</field>
+            <field name="material_ids"
+                   eval="[(6,0,[ref('material_java_programming'),ref('material_python_programming')])]"/>
+        </record>
+
+
+
+</odoo>

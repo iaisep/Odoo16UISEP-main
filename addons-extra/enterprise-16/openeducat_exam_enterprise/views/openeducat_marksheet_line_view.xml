@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+
+        <record id="view_op_student_marksheet_line_progress_form" model="ir.ui.view">
+            <field name="name">op.marksheet.line.form</field>
+            <field name="model">op.marksheet.line</field>
+            <field name="inherit_id" ref="openeducat_exam.view_op_marksheet_line_form"/>
+            <field name="priority" eval="10"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='student_id']" position="after">
+                    <field name="progression_id"/>
+                </xpath>
+            </field>
+        </record>
+
+</odoo>

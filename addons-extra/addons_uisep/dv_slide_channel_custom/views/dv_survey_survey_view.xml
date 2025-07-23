@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+    
+        <record model="ir.ui.view" id="survey_survey_ia_form_inherit">
+            <field name="name">survey_survey_ia_form_inherit</field>
+            <field name="model">survey.survey</field>
+            <field name="inherit_id" ref="survey.survey_survey_view_form"/>            
+            <field name="priority">150</field>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page name="gpt_config" string="Configurar Asistente ChatGPT">                    
+                        <group >                                                      
+                            <group >                               
+                                <field name="active_ia" widget="boolean_toggle"/>
+                            </group>
+                            <group >
+                                <field name="temp_califi" invisible="1"/>                            
+                                <field name="attachment_file" filename="attachment_filename"  attrs="{'invisible': [('active_ia', '=', False)]}"/>
+                                <field name="attachment_filename" readonly="1" invisible="1"/>
+                            </group>     
+                            <group >  
+                                <field name="general_instr" readonly="0" attrs="{'invisible': [('active_ia', '=', False)]}"/>  
+                                <field name="criterio_califi" attrs="{'invisible': [('active_ia', '=', False)]}"/>      
+                                <field name="califi_final" attrs="{'invisible': [('active_ia', '=', False)]}"/>  
+                                <field name="coment_final" attrs="{'invisible': [('active_ia', '=', False)]}"/>                
+                            </group>   
+                            <field name="attach_text_extract" invisible='1'/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record> 
+    
+    </data>
+    
+
+</odoo>

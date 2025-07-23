@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_submited_assignment_score" inherit_id="openeducat_assignment_enterprise.portal_submited_assignment_list">
+        <xpath expr="//div[@id='attempt']" position="after">
+            <div t-if="assin_id.attempt_type == 'multiple'" class="col-md-6 mt8 mb16">
+                <strong>Grade:</strong>
+                <span t-esc="{False:False,
+                    'last_graded':'Last Graded Attempt',
+                    'highest_grade':'Highest Grade',
+                    'lowest_grade':'Lowest Grade',
+                    'first_graded':'First Graded Attempt',
+                    'average_of_graded':'Average of Graded Attempts'}[assin_id.attempt]"/>
+            </div>
+        </xpath>
+    </template>
+</odoo>

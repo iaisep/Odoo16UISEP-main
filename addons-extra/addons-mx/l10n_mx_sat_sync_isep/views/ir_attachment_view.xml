@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_attachment_tree_cfdi_sat_ext" model="ir.ui.view">
+        <field name="model">ir.attachment</field>
+        <field name="inherit_id" ref="l10n_mx_sat_sync_itadmin_ee.view_attachment_tree_cfdi_sat_invoices_files" />
+        <field name="arch" type="xml">
+
+            <field name="serie_folio" position="before">
+                <field name="serie" optional="hide"/>
+            </field>
+
+            <field name="rfc_tercero" position="attributes">
+                <attribute name="optional">hide</attribute>
+            </field>
+
+            <field name="nombre_tercero" position="attributes">
+                <attribute name="optional">hide</attribute>
+            </field>
+
+            <field name="nombre_tercero" position="after">
+                <field name="regimen_emisor" optional="hide"/>
+                <field name="rfc_emisor" optional="hide"/>
+                <field name="razon_emisor" optional="hide"/>
+                <field name="rfc_receptor" optional="hide"/>
+                <field name="razon_receptor" optional="hide"/>
+                <field name="concepto_text" optional="hide"/>
+            </field>
+
+            <field name="cfdi_ieps_ret" position="after">
+                <field name="cfdi_iva_cero_t" optional="hide"/>
+                <field name="cfdi_iva_16_t" optional="hide"/>
+                <field name="cfdi_iva_exe_t" optional="hide"/>
+                <field name="cfdi_ieps_t_8" optional="hide"/>
+                <field name="cfdi_local_t" optional="hide"/>
+                <field name="cfdi_local_r" optional="hide"/>
+            </field>
+
+        </field>
+    </record>
+
+
+</odoo>

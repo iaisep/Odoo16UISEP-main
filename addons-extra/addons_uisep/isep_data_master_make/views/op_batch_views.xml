@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <!-- View op.batch form -->
+    <record id="view_op_batch_form_make" model="ir.ui.view">
+        <field name="name">view.op.batch.form</field>
+        <field name="model">op.batch</field>
+        <field name="inherit_id" ref="openeducat_core.view_op_batch_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='course_id']" position="after">
+            
+                    <field name="date_start_class"/>
+                    
+                </xpath>
+        </field>
+    </record>
+
+</odoo>

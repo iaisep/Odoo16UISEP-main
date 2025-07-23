@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Course Enrollment -->
+    <record id="view_op_course_enrollment_tree" model="ir.ui.view">
+        <field name="name">op.course.enrollment.tree</field>
+        <field name="model">op.course.enrollment</field>
+        <field name="type">tree</field>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="course_id"/>
+                <field name="user_id"/>
+                <field name="enrollment_date"/>
+                <field name="navigation_policy"/>
+                <field name="completion_date" optional="hide"/>
+                <field name="enrollment_material_line" optional="hide"/>
+                <field name="completed_percentage" optional="hide"/>
+                <field name="state"/>
+                <field name="active" widget="boolean_toggle" optional="hide"/>
+                <!--                <field name="access_url" optional="hide"/>-->
+                <!--                <field name="access_token" optional="hide"/>-->
+                <field name="company_id" groups="base.group_multi_company" optional="show"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_op_course_enrollment_form" model="ir.ui.view">
+        <field name="name">op.course.enrollment.form</field>
+        <field name="model">op.course.enrollment</field>
+        <field name="type">form</field>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" widget="statusbar" clickable="1"/>
+                </header>
+                <sheet>
+                    <field name="active" invisible="1"/>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                            attrs="{'invisible': [('active', '=', True)]}"/>
+                    <group>
+                        <group col="4">
+                            <field name="index"/>
+                            <field name="course_id" domain="[('online_course','=',True)]"/>
+                            <field name="user_id"/>
+                            <field name="enrollment_date"/>
+                        </group>
+                        <group col="4">
+                            <field name="completion_date"/>
+                            <field name="navigation_policy"/>
+                            <field name="completed_percentage"/>
+                            <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Materials" style="width:100%; display: block;">
+                            <field name="enrollment_material_line"
+                                   nolabel="1">
+                                <tree editable="bottom">
+                                    <field name="material_id"/>
+                                    <field name="completed"/>
+                                    <field name="completed_date"/>
+                                    <field name="last_access_date"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_op_course_enrollment_search" model="ir.ui.view">
+        <field name="name">op.course.enrollment.search</field>
+        <field name="model">op.course.enrollment</field>
+        <field name="type">search</field>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <search string="Enrollments">
+                <field name="user_id"/>
+                <field name="course_id"/>
+                <group expand="0" string="Group By...">
+                    <filter name="group_by_course"
+                            string="Course" domain="[]"
+                            context="{'group_by':'course_id'}"/>
+                    <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                    <filter name="group_by_user_id"
+                            string="User" domain="[]"
+                            context="{'group_by':'user_id'}"/>
+                </group>
+                <searchpanel>
+                    <field name="course_id" icon="fa fa-book"/>
+                    <field name="user_id" icon="fa-user"/>
+                </searchpanel>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_enrollment_pivot">
+        <field name="name">enrollment.pivot</field>
+        <field name="model">op.course.enrollment</field>
+        <field name="arch" type="xml">
+            <pivot string="Enrolllment">
+                <field name="course_id" type="col"/>
+                <field name="user_id" type="row"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_enrollment_graph" model="ir.ui.view">
+        <field name="name">enrollment.graph</field>
+        <field name="model">op.course.enrollment</field>
+        <field name="arch" type="xml">
+            <graph string="Enrollment graph" type="bar">
+                <field name="course_id" type="row"/>
+                <field name="user_id" type="col"/>
+            </graph>
+        </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="act_open_op_course_enrollment_view">
+        <field name="name">Enrollments</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">op.course.enrollment</field>
+        <field name="binding_view_types">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_op_course_enrollment_search"/>
+
+    </record>
+
+    <record model="ir.actions.act_window.view" id="act_open_op_course_enrollment_view_form">
+        <field name="act_window_id" ref="act_open_op_course_enrollment_view"/>
+        <field name="sequence" eval="20"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_op_course_enrollment_form"/>
+    </record>
+
+    <record model="ir.actions.act_window.view" id="act_open_op_course_enrollment_view_tree">
+        <field name="act_window_id" ref="act_open_op_course_enrollment_view"/>
+        <field name="sequence" eval="10"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_op_course_enrollment_tree"/>
+    </record>
+
+    <record model="ir.actions.act_window.view" id="enrollment_pivot_action">
+        <field name="act_window_id" ref="act_open_op_course_enrollment_view"/>
+        <field name="sequence" eval="10"/>
+        <field name="view_mode">pivot</field>
+        <field name="view_id" ref="view_enrollment_pivot"/>
+    </record>
+
+    <record model="ir.actions.act_window.view" id="enrollment_graph_action">
+        <field name="act_window_id" ref="act_open_op_course_enrollment_view"/>
+        <field name="sequence" eval="10"/>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="view_enrollment_graph"/>
+    </record>
+
+
+    <!-- Course Enrollment -->
+    <record id="view_op_course_enrollment_material_tree" model="ir.ui.view">
+        <field name="name">op.course.enrollment.material.tree</field>
+        <field name="model">op.course.enrollment.material</field>
+        <field name="type">tree</field>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="enrollment_id"/>
+                <field name="course_id"/>
+                <field name="section_id"/>
+                <field name="material_id"/>
+                <field name="completed"/>
+                <field name="completed_date"/>
+                <field name="last_access_date"/>
+                <field name="company_id" groups="base.group_multi_company" optional="show"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_op_course_enrollment_material_form" model="ir.ui.view">
+        <field name="name">op.course.enrollment.material.form</field>
+        <field name="model">op.course.enrollment.material</field>
+        <field name="type">form</field>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group col="4">
+                        <field name="enrollment_id"/>
+                        <field name="course_id"/>
+                        <field name="section_id"/>
+                        <field name="material_id"/>
+                        <field name="completed_date"/>
+                        <field name="last_access_date"/>
+                        <field name="completed"/>
+                        <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="act_open_op_course_enrollment_material_view">
+        <field name="name">Material Enrollments</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">op.course.enrollment.material</field>
+        <field name="binding_view_types">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <record model="ir.actions.act_window.view"
+            id="act_open_op_course_enrollment_material_view_form">
+        <field name="act_window_id" ref="act_open_op_course_enrollment_material_view"/>
+        <field name="sequence" eval="20"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_op_course_enrollment_material_form"/>
+    </record>
+
+    <record model="ir.actions.act_window.view"
+            id="act_open_op_course_enrollment_material_view_tree">
+        <field name="act_window_id" ref="act_open_op_course_enrollment_material_view"/>
+        <field name="sequence" eval="10"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_op_course_enrollment_material_tree"/>
+    </record>
+
+    <record model="ir.actions.act_window" id="act_enrollment_analysis_pivot_view">
+        <field name="name">Enrollments Material Analysis</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">op.course.enrollment</field>
+        <field name="binding_view_types">form</field>
+        <field name="view_id" ref="openeducat_lms.view_enrollment_pivot"/>
+        <field name="view_mode">pivot</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <record id="op_enrollment_analysis_pivot_view" model="ir.actions.act_window.view">
+        <field name="view_mode">pivot</field>
+        <field name="view_id" ref="openeducat_lms.view_enrollment_pivot"/>
+        <field name="act_window_id" ref="act_enrollment_analysis_pivot_view"/>
+    </record>
+
+
+</odoo>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="op_admission_form_inh" model="ir.ui.view">
+        <field name="name">op_admission_form_inh</field>
+        <field name="model">op.admission</field>
+        <field name="inherit_id"  ref="openeducat_admission.view_op_admission_form" />
+        <field name="arch" type="xml">
+            <xpath expr="(//page)[last()]" position="after">
+                <page name="official_detail" string="Detalle Oficialidad">
+                                <group>
+                                   <group>
+                                        <field name="admission_status"/>
+                                        <field name="special_needs"/>
+                                        <field name="academic_background"/>
+                                    </group>
+
+                                    <group>
+                                        <field name="generation"/>
+                                        <field name="period_4month"/>
+                                    </group>
+                                </group>
+                            </page>
+
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>

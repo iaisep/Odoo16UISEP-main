@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-name="OpenEduCat.expiration_panel">
+        <span class="oe_instance_register">
+            <t t-if="diffDays == 0">
+                This database will expire Today. Go to settings for database registration.
+            </t>
+            <t t-if="diffDays &lt; 16 and diffDays &gt; 0">
+                This database will expire in <span t-esc="diffDays"/> days. Go to settings for database registration.
+            </t>
+            <t t-elif="diffDays &lt; 0">
+                This database was expired.
+            </t>
+        </span>
+    </t>
+</templates>

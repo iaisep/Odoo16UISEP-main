@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="op_course_form_inh" model="ir.ui.view">
+        <field name="name">op_course_form_inh</field>
+        <field name="model">op.course</field>
+        <field name="inherit_id"  ref="openeducat_core.view_op_course_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page name="official_detail" string="Detalle Oficialidad" attrs="{'invisible':[('sepyc_program','!=',True)]}">
+                                <group>
+                                    <group>
+                                        <field name="education_level"/>
+                                        <field name="career_key"/>
+                                        <field name="institute_key"/>
+                                        <field name="rvoe_number"/>
+                                        <field name="rvoe_date"/>
+                                    </group>
+                                </group>
+                            </page>
+
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>

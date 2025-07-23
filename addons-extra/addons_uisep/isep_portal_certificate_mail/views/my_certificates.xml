@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="custom_portal_my_certificates" inherit_id="isep_openeducat_reports.portal_my_certificates" name="portal my certificates">
+         <xpath expr="//t[@t-call='portal.portal_searchbar']" position="after">
+        <style>
+          #wrapwrap.o_portal .o_portal_wrap .o_portal_navbar {
+    margin-bottom: 10px !important;
+}
+        </style>
+        <div class="text-end mb-1">
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    Crear ticket
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                  
+                    <li>
+                        <a class="dropdown-item" href="/ticket/certificate"><i class="fa fa-send-o"/> Solicitar por correo</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </xpath>
+    </template>
+
+</odoo>

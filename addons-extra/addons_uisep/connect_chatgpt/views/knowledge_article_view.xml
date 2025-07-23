@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>       
+        <record model="ir.ui.view" id="article_knowledge_form_inherit">
+            <field name="name">article_knowledge_form_inherit</field>
+            <field name="model">knowledge.article</field>
+            <field name="inherit_id" ref="knowledge.knowledge_article_view_form"/>
+            <field name="priority">25</field>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='action_send_to_trash']" position="after">
+                    <button class="dropdown-item" href="#" type="object" name="create_embedding"
+                        attrs="{'invisible': [('user_can_write', '=', False)]}">
+                        <i class="fa fa-fw fa-lg fa-eye"/> Usar en IA
+                    </button>
+                </xpath>
+            </field>
+        </record> 
+        
+
+        <record id="view_article_embedding_tree" model="ir.ui.view">
+            <field name="name">view_article_embedding_tree</field>
+            <field name="model">article.embedding</field>
+            <field eval="100" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Articulo para usar en IA" create="false" edit="true" import="false" delete="true">
+                   <field name="name" />
+                   <field name="create_date" string="Creado el"/> 
+                   <field name="count_tokens" />                   
+                </tree>
+            </field>
+        </record>
+        <record id="model_article_embedding_form" model="ir.ui.view">
+            <field name="name">model_article_embedding_form</field>
+            <field name="model">article.embedding</field>
+            <field name="arch" type="xml">
+                <form string="Articulo par ausar en IA">
+                    <sheet>                       
+                        <group>
+                            <group>
+                                <field name="name" />
+                                <field name="article_id" />
+                                
+                            </group>
+                            <group >
+                                <field name="create_date" string="Creado el"/>                                
+                                <field name="count_tokens" />
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="body_article" string="Cuerpo articulo">
+                                <field name="body" no_label="1" readonly="1"/>
+                            </page>
+                            <page name="adjuntos" string="Adjuntos articulo">
+                                <field name="attanchments_ids" no_label="1" readonly="1"/>
+                            </page>
+                            <page name="convert" string="Texto extraido">
+                               
+                                <field name="convert" no_label="1" readonly="1"/>
+                            </page>
+                            <page name="convert_embeding" string="Embedding">
+                                <field name="embeddings_json" no_label="1" readonly="1"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="action_article_embedding_action" model="ir.actions.act_window">
+            <field name="name">Articulos para IA</field>
+            <field name="res_model">article.embedding</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_article_embedding_tree"/>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                   En espera de nuevos registros
+                </p>
+            </field>
+        </record>
+        <menuitem id="submenu_config_embeddings_ia"
+            name="Configuraciones embeddings OpenIA"
+            sequence="50"
+            parent="knowledge.knowledge_menu_configuration"/>
+
+        <menuitem
+            id="submenu_article_embedding"
+            name="Articulos para IA"
+            parent="connect_chatgpt.submenu_config_embeddings_ia"
+            action="action_article_embedding_action"            
+            sequence="1"/>
+
+        <menuitem
+            id="submenu_article_embedding_alter"
+            name="Articulos para IA"
+            parent="knowledge.knowledge_menu_root"
+            action="action_article_embedding_action"            
+            sequence="4"/>
+
+
+        <record id="config_openia_embedding_view__tree" model="ir.ui.view">
+            <field name="name">config_openia_embedding_view__tree</field>
+            <field name="model">config.openia.embedding</field>
+            <field eval="100" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Configuracion Embeddings OpenIA" create="false" edit="true" import="false" delete="False"  editable="top" multi_edit="1">
+                    <field name="api_key" password="True" force_save="1"/>
+                    <field name="model_gpt" />  
+                    <field name="max_tokens" />  
+                    <field name="webdoc_embeding" widget="url" readonly="1"/>                
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_config_openia_embedding" model="ir.actions.act_window">
+            <field name="name">Configuración de Embeddings OpenIA</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">config.openia.embedding</field>
+            <field name="view_id" ref="config_openia_embedding_view__tree"/>
+            <field name="view_mode">tree</field>
+        </record>
+        <menuitem
+            id="submenu_config_openia_embedding"
+            name="Configuración de Embeddings OpenIA"
+            parent="connect_chatgpt.submenu_config_embeddings_ia"
+            action="action_config_openia_embedding"    
+            groups="base.group_no_one"    
+            sequence="2"/>
+    </data>
+</odoo>

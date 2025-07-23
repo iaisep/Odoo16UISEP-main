@@ -1,0 +1,128 @@
+.o_onboarding_kanban{
+    .o_kanban_record{
+        width: 300px !important;
+        margin-bottom: 12px !important;
+    }
+    .oe_kanban_global_click_css{
+        padding: 15px !important;
+        border-radius: 3px !important;
+        border: 1px solid #dee2e6;
+
+        .step-img{
+            width: 100px;
+        }
+
+        &:hover{
+            border: 1px solid $primary;
+        }
+        .view_button{
+            padding: 5px 12px;
+            background-color: #cecece !important;
+            border-color: #b0b0b0;
+            color: #333 !important;
+            //margin: 16px 0 0 auto;
+            //display: block;
+            line-height: 20px;
+            font-size: 13px;
+            opacity: 1;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &:hover{
+                background-color: #b7b7b7 !important;
+
+                .action-icon{
+                    color: #fff !important;
+                }
+            }
+
+            .action-icon{
+                width: 16px;
+                color: #333 !important;
+            }
+        }
+
+        .youtube_btn{
+            background-color: transparent !important;
+            border-color: #ff1a1a !important;
+
+            i{
+                color: #ff1a1a;
+            }
+
+            &:hover{
+                background-color: #ff1a1a !important;
+                i{
+                    color: #fff;
+                }
+            }
+        }
+
+        .doc_button{
+            background-color: transparent !important;
+            border-color: #333 !important;
+
+            i{
+                color: #333;
+            }
+
+            &:hover{
+                background-color: #333 !important;
+                //color: #fff !important;
+                i{
+                    color: #fff;
+                }
+            }
+        }
+        .start_btn{
+            background-color: #9de0ff !important;
+            border-color: #9de0ff !important;
+
+            &:hover{
+                background-color: #0095d9 !important;
+                color: #fff !important;
+            }
+        }
+
+        .done_btn{
+            background-color: #cef8ce !important;
+            border-color: #cef8ce !important;
+
+            &:hover{
+                background-color: #04bb04 !important;
+                color: #fff !important;
+            }
+        }
+
+        .form-check-input:disabled{
+            opacity: 1;
+        }
+        .button-link{
+            position: absolute;
+            right: 10px;
+            top: 10px;
+
+            .view_button{
+                padding: 4px 6px;
+                line-height: 0;
+            }
+            i{
+                font-size: 24px;
+            }
+            .doc_button{
+                padding: 5px 7px;
+            }
+        }
+        .oe_kanban_details{
+            span{
+                font-size: 18px;
+            }
+        }
+        @media only screen  and (min-device-width: 1024px)  and (max-device-width: 1366px)  and (-webkit-min-device-pixel-ratio: 2){
+           .view_button{
+                        width: auto;
+            }}
+    }
+}

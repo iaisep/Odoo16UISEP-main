@@ -1,0 +1,359 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* openeducat_assignment_grading_bridge
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-13 11:22+0000\n"
+"PO-Revision-Date: 2022-12-13 11:22+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: openeducat_assignment_grading_bridge
+#: model_terms:ir.ui.view,arch_db:openeducat_assignment_grading_bridge.portal_submited_assignment_score
+msgid "<strong>Grade:</strong>"
+msgstr "<strong> الصف: </strong>"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_op_assignment__year_id
+msgid "Academic Year"
+msgstr "السنة الأكاديمية"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_op_assignment__activity_ids
+msgid "Activities"
+msgstr "أنشطة"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_op_assignment__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "استثناء النشاط زخرفة"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_op_assignment__activity_state
+msgid "Activity State"
+msgstr "حالة النشاط"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_op_assignment__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "أيقونة نوع النشاط"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model,name:openeducat_assignment_grading_bridge.model_op_assignment
+msgid "Assignment"
+msgstr "مهمة"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model,name:openeducat_assignment_grading_bridge.model_op_assignment_sub_line
+msgid "Assignment Submission"
+msgstr "تقديم الطلب"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_op_assignment__assignment_type
+msgid "Assignment Type"
+msgstr "نوع المهمة"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields.selection,name:openeducat_assignment_grading_bridge.selection__op_assignment__attempt__average_of_graded
+msgid "Average of Graded Attempts"
+msgstr "متوسط ​​المحاولات المتدرجة"
+
+#. module: openeducat_assignment_grading_bridge
+#: model_terms:ir.ui.view,arch_db:openeducat_assignment_grading_bridge.view_op_assignment_inherited_form_view_grading_bridge
+msgid "Clear Attempt"
+msgstr "محاولة واضحة"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_op_assignment__course_id
+msgid "Course"
+msgstr "مسار"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_late_submission__create_uid
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_late_submission_line__create_uid
+msgid "Created by"
+msgstr "انشأ من قبل"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_late_submission__create_date
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_late_submission_line__create_date
+msgid "Created on"
+msgstr "تم إنشاؤها على"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_late_submission_line__no_of_days
+msgid "Days"
+msgstr "أيام"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_late_submission__display_name
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_late_submission_line__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_op_assignment__faculty_id
+msgid "Faculty"
+msgstr "الأساتذه"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields.selection,name:openeducat_assignment_grading_bridge.selection__op_assignment__attempt__first_graded
+msgid "First Graded Attempt"
+msgstr "أول محاولة تصنيف"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,help:openeducat_assignment_grading_bridge.field_op_assignment__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "الرمز الرائع على سبيل المثال FA-TASKS"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_gradebook_line__marks
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_op_assignment_sub_line__marks
+msgid "Given Marks"
+msgstr "تعطى علامات"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_op_assignment__grade
+msgid "Grade"
+msgstr "صف دراسي"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model,name:openeducat_assignment_grading_bridge.model_gradebook_line
+msgid "Grade Book Line"
+msgstr "خط كتاب الصف"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_op_assignment__gradebook_line_id
+msgid "Gradebook Line"
+msgstr "خط الكتب"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_op_assignment__grading_assignment_id
+msgid "Grading Assignment"
+msgstr "مهمة الدرجات"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_op_assignment__hide
+msgid "Hide"
+msgstr "يخفي"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_op_assignment__hide_subject
+msgid "Hide Subject"
+msgstr "إخفاء الموضوع"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields.selection,name:openeducat_assignment_grading_bridge.selection__op_assignment__attempt__highest_grade
+msgid "Highest Grade"
+msgstr "أعلى درجة"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_late_submission__id
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_late_submission_line__id
+msgid "ID"
+msgstr "بطاقة تعريف"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_op_assignment__activity_exception_icon
+msgid "Icon"
+msgstr "أيقونة"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,help:openeducat_assignment_grading_bridge.field_op_assignment__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "أيقونة للإشارة إلى نشاط استثناء."
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_op_assignment__sequence
+msgid "Index"
+msgstr "فِهرِس"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_op_assignment__issued_date
+msgid "Issued Date"
+msgstr "تاريخ إصدار"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields.selection,name:openeducat_assignment_grading_bridge.selection__op_assignment__attempt__last_graded
+msgid "Last Graded Attempt"
+msgstr "آخر محاولة تصنيف"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_late_submission____last_update
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_late_submission_line____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل على"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_late_submission__write_uid
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_late_submission_line__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_late_submission__write_date
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_late_submission_line__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث على"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.actions.act_window,name:openeducat_assignment_grading_bridge.act_late_submission_view
+#: model:ir.model,name:openeducat_assignment_grading_bridge.model_late_submission
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_late_submission__late_sub_line
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_late_submission_line__late_submission_id
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_op_assignment_sub_line__late_submit
+#: model:ir.ui.menu,name:openeducat_assignment_grading_bridge.menu_late_submission
+#: model_terms:ir.ui.view,arch_db:openeducat_assignment_grading_bridge.view_late_submission_form
+#: model_terms:ir.ui.view,arch_db:openeducat_assignment_grading_bridge.view_late_submission_line_form
+#: model_terms:ir.ui.view,arch_db:openeducat_assignment_grading_bridge.view_late_submission_search
+#: model_terms:ir.ui.view,arch_db:openeducat_assignment_grading_bridge.view_late_submission_tree
+msgid "Late Submission"
+msgstr "تسليم متأخر"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_op_assignment__late_submission_id
+msgid "Late Submission Criteria"
+msgstr "معايير التقديم المتأخرة"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.actions.act_window,name:openeducat_assignment_grading_bridge.act_late_submission_line_view
+#: model:ir.model,name:openeducat_assignment_grading_bridge.model_late_submission_line
+#: model_terms:ir.ui.view,arch_db:openeducat_assignment_grading_bridge.view_late_submission_line_search
+#: model_terms:ir.ui.view,arch_db:openeducat_assignment_grading_bridge.view_late_submission_line_tree
+msgid "Late Submission Line"
+msgstr "خط التقديم المتأخر"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields.selection,name:openeducat_assignment_grading_bridge.selection__op_assignment__attempt__lowest_grade
+msgid "Lowest Grade"
+msgstr "أدنى درجة"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_op_assignment__mark_update
+msgid "Mark Update"
+msgstr "تحديث علامة"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_op_assignment__marks
+msgid "Marks"
+msgstr "علامات"
+
+#. module: openeducat_assignment_grading_bridge
+#. odoo-python
+#: code:addons/openeducat_assignment_grading_bridge/models/assignment.py:0
+#: code:addons/openeducat_assignment_grading_bridge/models/gradebook_line.py:0
+#, python-format
+msgid "Marks should be less than or equal to {}"
+msgstr "يجب أن تكون العلامات أقل من أو تساوي {}"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_op_assignment__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "الموعد النهائي للنشط"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_late_submission__name
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_op_assignment__name
+msgid "Name"
+msgstr "اسم"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_op_assignment__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "حدث تقويم النشاط التالي"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_op_assignment__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "الموعد النهائي للنشاط التالي"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_op_assignment__activity_summary
+msgid "Next Activity Summary"
+msgstr "ملخص النشاط التالي"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_op_assignment__activity_type_id
+msgid "Next Activity Type"
+msgstr "نوع النشاط التالي"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_gradebook_line__obtained_marks
+msgid "Obtained Mark"
+msgstr "تم الحصول عليها"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_op_assignment_sub_line__obtained_mark
+msgid "Obtained Marks"
+msgstr "تم الحصول عليها علامات"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_late_submission_line__penalty
+msgid "Penalty"
+msgstr "ضربة جزاء"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_gradebook_line__penalty
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_op_assignment_sub_line__penalty
+msgid "Penalty %"
+msgstr "ضربة جزاء ٪"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_op_assignment__point
+msgid "Points"
+msgstr "نقاط"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_op_assignment__activity_user_id
+msgid "Responsible User"
+msgstr "المستخدم المسؤول"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_op_assignment__attempt
+msgid "Score Attempt Using"
+msgstr "محاولة المحاولة"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,help:openeducat_assignment_grading_bridge.field_op_assignment__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"الحالة بناءً على الأنشطة\n"
+"متأخر: تم تمرير تاريخ الاستحقاق بالفعل\n"
+"اليوم: تاريخ النشاط اليوم\n"
+"المخطط: الأنشطة المستقبلية."
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_op_assignment__subject_id
+msgid "Subject"
+msgstr "موضوعات"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_op_assignment__term_id
+msgid "Term"
+msgstr "شرط"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,help:openeducat_assignment_grading_bridge.field_op_assignment__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "نوع نشاط الاستثناء المسجل."
+
+#. module: openeducat_assignment_grading_bridge
+#: model_terms:ir.ui.view,arch_db:openeducat_assignment_grading_bridge.view_op_assignment_inherited_form_view_grading_bridge
+msgid "Update Grades"
+msgstr "تحديث الدرجات"
+
+#. module: openeducat_assignment_grading_bridge
+#: model:ir.model.fields,field_description:openeducat_assignment_grading_bridge.field_op_assignment__user_id
+msgid "User"
+msgstr "المستعمل"

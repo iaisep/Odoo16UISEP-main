@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="notice_image_load" name="notice image" inherit_id="openeducat_notice_board_enterprise.student_notice_board_notice_portal">
+            <xpath expr="//t[4]/table[1]" position="replace">
+                <div class="row row-cols-4 g-4">
+                    <t t-foreach="notice_ids" t-as="notice">                    
+                            <div class="col">   
+                                <div class="card bg-primary">
+                                   <a t-attf-href="/notice_board/notice/#{student}/#{notice.id}">                                        
+                                        <img class="card-img-top" t-attf-src="data:image/*;base64,{{notice.preview}}" t-att-alt="notice.preview" style="max-height: 100px;"/> 
+                                    </a>
+                                    <div class="card-body">
+                                        <span t-esc="notice.notice_number"/> <br/>
+                                        <span t-esc="notice.name" id="notice_name"/><br/>
+                                        <span t-field="notice.start_date" t-options='{"format": "dd-MMM-yyyy"}'/><br/>
+                                    </div>
+
+
+                                </div>                             
+                              
+                              
+                            </div>     
+                                       
+                    </t>
+                </div>
+            </xpath>
+        </template>
+    </data>
+</odoo>

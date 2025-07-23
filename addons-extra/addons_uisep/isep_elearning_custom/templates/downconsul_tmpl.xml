@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data >
+        <template id="downconsult_survey_template" name="Encuesta de baja">
+            <t t-call="website.layout">
+                <div class="container mt-4">
+                    <h2>Encuesta del estudiante de Baja - Curso: <t t-esc="consult.course_id.name"/></h2>
+                    <p t-if="consult.description" class="font-italic">
+                        <t t-esc="consult.description"/>
+                    </p>
+                    
+                    <form t-att-action="'/downconsult/submit'" method="post">
+                        <input type="hidden" name="consult_id" t-att-value="consult.id"/>
+                        <input type="hidden" name="token" t-att-value="token"/>
+
+                        <br></br>
+
+                        <div t-foreach="consult.question_line_ids" t-as="line">
+                            <div class="form-group">
+                                <label t-esc="line.name" style="font-size: 1.5em;"/>
+                                <select t-att-name="'rating_%s' % line.id" class="form-control" required="required">
+                                    <option value="">Seleccione una opción</option>
+                                    <option value="malo">Malo</option>
+                                    <option value="regular">Regular</option>
+                                    <option value="bueno">Bueno</option>
+                                    <option value="excelente">Excelente</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <br></br>
+
+                        <div class="form-group">
+                            <label style="font-size: 1.5em;">Comentario Adicional</label>
+                            <textarea 
+                                name="general_comment" 
+                                class="form-control" 
+                                style="font-size: 1.5em;"
+                                rows="3"
+                                placeholder="Escribe aquí tus comentarios adicionales"
+                                t-att-value="consult.description or ''"
+                            ></textarea>
+                        </div>
+
+                        <br></br>
+
+                        <div class=" d-flex justify-content-center align-items-center">
+                            <button type="submit" class="btn btn-primary">Enviar Encuesta</button>
+                        </div>
+                    </form>
+                </div>
+            </t>
+        </template>
+
+        <template id="survey_thankyou_template" name="Encuesta completada">
+            <t t-call="website.layout">
+                <div class="container text-center mt-5">
+                    <h2>¡Gracias por completar la encuesta!</h2>
+                    <p>Sus respuestas han sido registradas.</p>
+                </div>
+            </t>
+        </template>
+
+        <template id="token_expired_template" name="Error enlace">
+            <t t-call="website.layout">
+                <div class="container text-center mt-5">
+                    <h2>Enlace Inválido o Expirado</h2>
+                    <p>Este enlace ha expirado o no es válido.</p>
+                </div>
+            </t>
+        </template>
+
+
+    </data>
+
+
+</odoo>

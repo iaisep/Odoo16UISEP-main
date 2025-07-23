@@ -1,0 +1,61 @@
+<odoo>
+    <record id="inherit_crm_chekcklist_form_view_inherit" model="ir.ui.view">
+        <field name="name">crm.lead.form</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='lead']" position="after">
+                <page name="checklist" string="Check List" attrs="{'invisible': [('type', '!=' , 'lead')]}">
+                    <field name="type" invisible="1" />
+                    <group>
+                        <group>
+                            <field name="checklist_ids">
+                                <tree>
+                                    <field name="date" readonly="1" force_save="1" />
+                                    <field name="user_id"/>
+                                    <field name="checklist_id"/>
+                                    <field name="note" optional="hide" />
+                                </tree>
+                            </field>
+                        </group>
+                        <group>
+                            <div class="oe_title" name="progressbar_template_title">
+                                <field name="progress" widget="percentpie" class="d-block"/>
+
+                            </div>
+
+
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+    <record id="inherit_crm_chekcklist_tree_view_inherit" model="ir.ui.view">
+        <field name="name">crm.lead.tree</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_case_tree_view_leads"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='state_id']" position="before">
+                <field name="progress" widget="progressbar" attrs="{'invisible': [('type', '!=' , 'lead')]}" />
+                <field name="type" invisible="1" />
+            </xpath>
+        </field>
+    </record>
+
+    <!-- 
+
+    <record id="inherit_crm_chekcklist_kanban_view_inherit" model="ir.ui.view">
+        <field name="name">crm.lead.kanban</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_case_kanban_view_leads"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('oe_kanban_footer')]" position="before">
+                    <field name="progress" widget="percentpie" attrs="{'invisible': [('type', '!=' , 'lead')]}" />
+            </xpath>
+        </field>
+    </record>
+
+    -->
+
+</odoo>

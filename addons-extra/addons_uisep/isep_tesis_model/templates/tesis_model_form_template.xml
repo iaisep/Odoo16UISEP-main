@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="tesis_model_form_template" name="Tesis Model Form">
+        <t t-call="portal.portal_layout">
+            <div class="container mt-5">
+                <h2>Solicitar revisión de tesis</h2>
+                <form action="/my/tesis_models/new" method="post" class="mt-3">
+                    <t t-if="student">
+                        <div class="form-group">
+                            <label for="student_name">Nombre de estudiante:</label>
+                            <input type="text" name="student_name" id="student_name" class="form-control"
+                                   t-att-value="student.name or ''"
+                                   readonly="readonly"/>
+                        </div>
+
+                    </t>
+                    <t t-else="">
+                        <p>No hay información del estudiante disponible.</p>
+                    </t>
+                    <div class="form-group">
+                        <label for="student_email">Email:</label>
+                        <input type="email" name="student_email" id="student_email" class="form-control"
+                               t-att-value="student.email or ''"
+                               readonly="readonly"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="type_tesis">Tipo de tesis:</label>
+                        <select class="form-control" name="type_tesis" id="type_tesis" required="true">
+                            <option value="">Seleccione opcion</option>
+                            <option value="1">Tesis por caso clínico</option>
+                            <option value="2">Revisión Bibliográfico con Recurso didáctico</option>
+                            <option value="3">Por Programa de Intervención</option>                   
+                        </select>
+                    </div> 
+                    <div class="form-group mt-3">
+                        <label for="course_id">Curso</label>
+                        <select name="course_id" id="course_id" class="form-control" required="required">
+                            <t t-foreach="courses" t-as="course" t-key="course.id">
+                                <t t-if="course.course_id.activate_tesis">
+                                    <option t-att-value="course.id">
+                                        <t t-esc="course.course_id.name"/>
+                                    </option>
+                                </t>
+                            </t>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="application_description">Comentarios:
+                        </label>
+                        <!-- Descripción de las modalidades, todas ocultas por defecto -->
+                        <textarea
+                                name="application_description"
+                                id="application_description"
+                                class="form-control"
+                                placeholder="Deja un comentario esto es opcional"
+                                rows="4"></textarea>
+
+                    </div>
+
+                    
+
+
+                    <div class="form-group mt-4">
+                        <button type="submit" class="btn btn-success">Solicitar Revision</button>
+                    </div>
+                    <t t-if="error_message">
+                        <div class="alert alert-danger" role="alert">
+                            <t t-esc="error_message"/>
+                        </div>
+                    </t>
+
+                </form>
+            </div>
+
+
+        </t>
+
+
+
+        <script type="text/javascript">
+            function showDescription() {
+            // Obtener el valor seleccionado en el campo de selección
+            var selectedValue = document.getElementById('practice_center_type_id').value;
+
+            // Obtener todos los divs con las descripciones
+            var descriptions = document.querySelectorAll('.practice-description');
+
+            // Iterar sobre todos los divs de descripciones y ocultarlos
+            descriptions.forEach(function(description) {
+            // Ocultar todos los divs de descripción
+            description.setAttribute('hidden', 'true');
+            });
+
+            // Iterar sobre todos los divs de descripciones y mostrarlos
+            descriptions.forEach(function(description) {
+            if ('desc_' + selectedValue ==description.id){
+
+            description.removeAttribute('hidden');
+            }
+            });
+
+            <!--            // Mostrar la descripción que corresponde al valor seleccionado-->
+            <!--            var selectedDescription = document.getElementById('desc_' + selectedValue);-->
+
+            <!--            if (selectedDescription) {-->
+            <!--            selectedDescription.removeAttribute('hidden');-->
+            <!--            }-->
+            }
+
+            // Llamar a la función inicialmente para ocultar todas las descripciones al cargar la página
+            window.onload = showDescription;
+        </script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+            const countrySelect = document.getElementById('country_id');
+            const stateSelect = document.getElementById('state_id');
+
+            // Evento de cambio en el country_id
+            countrySelect.addEventListener('change', function () {
+            const countryId = this.value;
+
+            // Limpia las opciones actuales del state_id
+            stateSelect.innerHTML = '<option value="">Select a State</option>';
+
+            if (countryId) {
+            <!--                // Llama a la ruta /get_states/<country_id>-->
+            fetch(`/get_states/${countryId}`)
+            .then(response => response.json())
+            .then(data => {
+            // Añade las nuevas opciones al state_id
+            data.forEach(state => {
+            const option = document.createElement('option');
+            option.value = state.id;
+            option.textContent = state.name;
+            stateSelect.appendChild(option);
+            });
+            })
+            .catch(error => console.error('Error fetching states:', error));
+            }
+            });
+            });
+        </script>
+        <script>
+            function updateZips() {
+            const stateId = document.getElementById('state_id').value;
+            const zipSelect = document.getElementById('zip_id');
+            zipSelect.innerHTML = '<option value="">Select a ZIP</option>'; // Reset ZIP options
+
+            if (stateId) {
+            fetch(`/get_zips/${stateId}`)
+            .then(response => response.json())
+            .then(data => {
+            data.forEach(zip => {
+            const option = document.createElement('option');
+            option.value = zip.id;
+            option.textContent = zip.name;
+            zipSelect.appendChild(option);
+            });
+            })
+            .catch(error => {
+            console.error('Error fetching ZIPs:', error);
+            });
+            }
+            }
+        </script>
+
+    </template>
+</odoo>

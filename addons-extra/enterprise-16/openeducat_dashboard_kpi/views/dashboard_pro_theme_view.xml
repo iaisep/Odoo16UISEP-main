@@ -1,0 +1,41 @@
+<odoo>
+
+
+         <record model="ir.ui.view" id="dashboard_pro_theme_form_view">
+            <field name="name">dashboard_pro Theme View</field>
+            <field name="model">dashboard_pro.theme</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="dashboard_theme_primary_color" widget="dashboard_pro_color_picker"/>
+                            <field name="dashboard_theme_secondary_color" widget="dashboard_pro_color_picker"/>
+                            <field name="dashboard_theme_font_color" widget="dashboard_pro_color_picker"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+         </record>
+
+        <record model="ir.ui.view" id="dashboard_pro_dashboard_theme_tree_view">
+            <field name="name">dashboard_pro theme tree</field>
+            <field name="model">dashboard_pro.theme</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="dashboard_theme_primary_color"/>
+                    <field name="dashboard_theme_secondary_color"/>
+                    <field name="dashboard_theme_font_color"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="dashboard_pro_theme_act_window">
+            <field name="name">Dashboard Theme</field>
+            <field name="res_model">dashboard_pro.theme</field>
+            <field name="view_mode">form</field>
+        </record>
+
+
+</odoo>

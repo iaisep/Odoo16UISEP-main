@@ -1,0 +1,29 @@
+<odoo>
+
+        <record id="view_op_course_tree_teams" model="ir.ui.view">
+            <field name="name">op.course.teams.tree</field>
+            <field name="model">op.course</field>
+            <field name="inherit_id" ref="openeducat_core.view_op_course_tree"/>
+            <field name="arch" type="xml">
+                <field name="subject_ids" position="after">
+                    <field name="webhook_url" optional="hide"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_op_course_webhook_inherited_form" model="ir.ui.view">
+            <field name="name">op.course.inherited.form</field>
+            <field name="model">op.course</field>
+            <field name="inherit_id" ref="openeducat_core.view_op_course_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='subject']" position="after">
+                        <page string="Microsoft Teams" name="ms_teams">
+                            <group cols="2">
+                                <field name="webhook_url"/>
+                            </group>
+                        </page>
+                </xpath>
+            </field>
+        </record>
+
+</odoo>

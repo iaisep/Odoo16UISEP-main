@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record model="ir.ui.view" id="cambiar_factura_de_compania_form_view">
+        <field name="name">cambiar.factura.de.compania.form.view</field>
+        <field name="model">cambiar.factura.de.compania</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="company_id"/>
+                    </group>
+                </group>
+                <footer>
+                    <button string="Crear" type="object" name="action_crear" class="btn-primary"/>
+                    <button string="CANCELAR" special="cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

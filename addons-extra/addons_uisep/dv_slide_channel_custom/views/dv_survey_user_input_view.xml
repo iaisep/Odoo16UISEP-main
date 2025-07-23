@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="survey_user_input_tree_inherit">
+            <field name="name">survey_user_input_tree_inherit</field>
+            <field name="model">survey.user_input</field>
+            <field name="inherit_id" ref="survey.survey_user_input_view_tree"/>
+            <field name="priority">25</field>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='state']" position="after">
+                    <field name="active_ia" optional="show"/>
+                </xpath>
+            </field>
+        </record> 
+         <record model="ir.ui.view" id="survey_user_input_ia_form_inherit">
+            <field name="name">survey_user_input_ia_form_inherit</field>
+            <field name="model">survey.user_input</field>
+            <field name="inherit_id" ref="survey.survey_user_input_view_form"/>
+            <field name="priority">25</field>
+            <field name="arch" type="xml">
+                 <xpath expr="//field[@name='survey_id']" position="after">
+                    <field name="active_ia" invisible="1"/>
+                </xpath>
+                <xpath expr="//button[@name='action_print_answers']" position="after">
+                    <button name="analiza_a_mano_survey" string="Analizar IA" type="object" class="oe_highlight"/>
+                </xpath>
+                <xpath expr="//notebook" position="inside">
+                    <page name="response_gpt" string="Resumen IA" attrs="{'invisible': [('active_ia', '=', False)]}">
+                        <group>
+                            <field name="resumen_ia" />                            
+                            <field name="score_ia" />
+                            <field name="extrae_alum" invisible="1"/>
+                            <field name="error_ai" />  
+                        </group>
+                        <button name="update_answer_scores" string="Usar analisis y Calificar" type="object" class="oe_highlight"/>
+                    </page>
+                </xpath>
+            </field>
+        </record> 
+    
+    </data>
+</odoo>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- View forum.csv.import.wizard form -->
+    <record id="view_forum_csv_import_wizard_form" model="ir.ui.view">
+        <field name="name">view.forum.csv.import.wizard.form</field>
+        <field name="model">forum.csv.import.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Forum Csv Import Wizard">
+                <group>
+                    <field name="csv_file" filename="file_name"/>
+                    <field name="file_name" invisible="1"/>
+                </group>
+                <footer>
+                    <button name="import_csv" type="object" string="Importar" class="oe_highlight"/>
+                    <button special="cancel" string="Cancelar"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+
+
+    <!-- Action forum.csv.import.wizard -->
+    <record id="action_forum_csv_import_wizard" model="ir.actions.act_window">
+        <field name="name">Importar Foros desde CSV</field>
+        <field name="res_model">forum.csv.import.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <!-- <menuitem id="csv_import_wizard_menu"
+        name="Importar Foros"
+        action="action_forum_csv_import_wizard"
+        sequence="30"
+        parent="website_slides_forum.website_slides_menu_forum"/> -->
+
+
+
+</odoo>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <!-- View sale.order form -->
+    <record id="view_sale_order_form_website_sale" model="ir.ui.view">
+        <field name="name">view.sale.order.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">    
+            <xpath expr="//page[@name='customer_signature']" position="after">
+                <page string="Admisión" name="sale_admission" >
+
+                    
+                    <group colspan="2"   >
+                        <div colspan="2" class="o_row" >
+
+                            <div class="text-start" colspan="1" >
+                                <button name="action_get_register_id" class="btn-success" icon="fa-bars" type="object" string="Asignar Registro de admisión"/>
+                                <button name="action_get_admision_id" class="btn-info" icon="fa-bars" type="object" string="Crear admisión"/>
+                            
+                            </div>
+                            <div class="text-end" colspan="1" >
+                                
+                                
+                            </div>
+                        </div>
+                    </group>
+
+
+
+                    <group>
+                        <group>
+                            <field name="admission_date" invisible="0" />
+                            <field name="period" />
+                            <field name="product_template_id" />
+                            <field name="course_id" />                                                      
+                            <field name="admission_register_id" />
+                            <field name="admission_id" /> 
+                        </group>
+
+                        <group>
+                            <field name="error_admission"/>
+                            <field name="error_admission_msn"/>                        
+                        </group>
+
+                    </group>
+                </page>
+            </xpath>
+
+
+            <xpath expr="//page[@name='optional_products']" position="attributes">
+               <attribute name="invisible">1</attribute>
+            </xpath>
+
+            
+
+        </field>
+    </record>
+
+
+
+
+</odoo>

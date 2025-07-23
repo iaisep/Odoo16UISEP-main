@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+        <record model="ir.ui.view" id="view_op_digital_library_category_form">
+            <field name="name">op.digital.library.category.form</field>
+            <field name="model">op.digital.library.category</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header/>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="material_count"/>
+                            </group>
+                            <group>
+                                <field name="parent_id"/>
+                                <field name="display_name" invisible="1"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="material_ids"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_op_digital_library_category_tree" model="ir.ui.view">
+            <field name="name">op.digital.library.category.tree</field>
+            <field name="model">op.digital.library.category</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="display_name"/>
+                    <field name="material_count"/>
+                    <field name="material_ids"/>
+                    <field name="parent_id" optional="hide"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_open_op_digital_library_category_view">
+            <field name="name">Category</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.digital.library.category</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+</odoo>

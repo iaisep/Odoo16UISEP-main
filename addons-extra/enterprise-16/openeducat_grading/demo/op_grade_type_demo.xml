@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="grade_type_1" model="op.grade.type">
+            <field name="name">A+</field>
+            <field name="earn_credits" eval="True"/>
+            <field name="gpa_value">4.30</field>
+            <field name="min_percentage">97.00</field>
+            <field name="max_percentage">100.00</field>
+            <field name="include_gpa" eval="True"/>
+        </record>
+
+        <record id="grade_type_2" model="op.grade.type">
+            <field name="name">A</field>
+            <field name="earn_credits" eval="True"/>
+            <field name="gpa_value">4.00</field>
+            <field name="min_percentage">93.00</field>
+            <field name="max_percentage">96.99</field>
+            <field name="include_gpa" eval="True"/>
+        </record>
+
+        <record id="grade_type_3" model="op.grade.type">
+            <field name="name">A-</field>
+            <field name="earn_credits" eval="True"/>
+            <field name="gpa_value">3.70</field>
+            <field name="min_percentage">90.00</field>
+            <field name="max_percentage">92.99</field>
+            <field name="include_gpa" eval="True"/>
+        </record>
+
+        <record id="grade_type_4" model="op.grade.type">
+            <field name="name">B+</field>
+            <field name="earn_credits" eval="True"/>
+            <field name="gpa_value">3.30</field>
+            <field name="min_percentage">87.00</field>
+            <field name="max_percentage">89.99</field>
+            <field name="include_gpa" eval="True"/>
+        </record>
+
+        <record id="grade_type_5" model="op.grade.type">
+            <field name="name">B</field>
+            <field name="earn_credits" eval="True"/>
+            <field name="gpa_value">3.00</field>
+            <field name="min_percentage">83.00</field>
+            <field name="max_percentage">86.99</field>
+            <field name="include_gpa" eval="True"/>
+        </record>
+
+        <record id="grade_type_6" model="op.grade.type">
+            <field name="name">B-</field>
+            <field name="earn_credits" eval="True"/>
+            <field name="gpa_value">2.70</field>
+            <field name="min_percentage">80.00</field>
+            <field name="max_percentage">82.99</field>
+            <field name="include_gpa" eval="True"/>
+        </record>
+
+        <record id="grade_type_7" model="op.grade.type">
+            <field name="name">C+</field>
+            <field name="earn_credits" eval="True"/>
+            <field name="gpa_value">2.30</field>
+            <field name="min_percentage">77.00</field>
+            <field name="max_percentage">79.99</field>
+            <field name="include_gpa" eval="True"/>
+        </record>
+
+        <record id="grade_type_8" model="op.grade.type">
+            <field name="name">C</field>
+            <field name="earn_credits" eval="True"/>
+            <field name="gpa_value">2.00</field>
+            <field name="min_percentage">73.00</field>
+            <field name="max_percentage">76.99</field>
+            <field name="include_gpa" eval="True"/>
+        </record>
+
+        <record id="grade_type_9" model="op.grade.type">
+            <field name="name">C-</field>
+            <field name="earn_credits" eval="True"/>
+            <field name="gpa_value">1.70</field>
+            <field name="min_percentage">70.00</field>
+            <field name="max_percentage">72.99</field>
+            <field name="include_gpa" eval="True"/>
+        </record>
+
+        <record id="grade_type_10" model="op.grade.type">
+            <field name="name">D+</field>
+            <field name="earn_credits" eval="True"/>
+            <field name="gpa_value">1.30</field>
+            <field name="min_percentage">67.00</field>
+            <field name="max_percentage">69.99</field>
+            <field name="include_gpa" eval="True"/>
+        </record>
+
+        <record id="grade_type_11" model="op.grade.type">
+            <field name="name">D</field>
+            <field name="earn_credits" eval="True"/>
+            <field name="gpa_value">1</field>
+            <field name="min_percentage">63.00</field>
+            <field name="max_percentage">66.99</field>
+            <field name="include_gpa" eval="True"/>
+        </record>
+
+        <record id="grade_type_12" model="op.grade.type">
+            <field name="name">D-</field>
+            <field name="earn_credits" eval="True"/>
+            <field name="gpa_value">0.70</field>
+            <field name="min_percentage">60.00</field>
+            <field name="max_percentage">62.99</field>
+            <field name="include_gpa" eval="True"/>
+        </record>
+
+        <record id="grade_type_13" model="op.grade.type">
+            <field name="name">F</field>
+            <field name="gpa_value">0.00</field>
+            <field name="min_percentage">00.00</field>
+            <field name="max_percentage">59.99</field>
+        </record>
+
+        <record id="grade_type_14" model="op.grade.type">
+            <field name="name">E</field>
+            <field name="earn_credits" eval="True"/>
+            <field name="gpa_value">4.00</field>
+            <field name="min_percentage">80.00</field>
+            <field name="max_percentage">100.00</field>
+            <field name="include_gpa" eval="True"/>
+        </record>
+
+        <record id="grade_type_15" model="op.grade.type">
+            <field name="name">S</field>
+            <field name="earn_credits" eval="True"/>
+            <field name="gpa_value">3.00</field>
+            <field name="min_percentage">60.00</field>
+            <field name="max_percentage">79.99</field>
+            <field name="include_gpa" eval="True"/>
+        </record>
+
+        <record id="grade_type_16" model="op.grade.type">
+            <field name="name">U</field>
+            <field name="gpa_value">0.00</field>
+            <field name="min_percentage">00.00</field>
+            <field name="max_percentage">59.99</field>
+            <field name="include_gpa" eval="True"/>
+        </record>
+
+        <record id="openeducat_core.op_user_faculty" model="res.users">
+            <field name="groups_id" eval="[(4,ref('openeducat_grading.group_op_grading_user'))]"/>
+        </record>
+
+</odoo>

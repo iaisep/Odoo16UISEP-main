@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="sep_report_log_view_tree" model="ir.ui.view">
+        <field name="name">sep.report.log.view.tree</field>
+        <field name="model">sep.report.log</field>
+        <field name="arch" type="xml">
+            <tree string="Reportes Sep Log" create="false">
+                <field name="date" widget="date"/>
+                <field name="user_id" />
+                <field name="annex" />
+                <field name="attachment_id"/>
+                <button name="action_download_attachment" type="object" string="Descargar"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sep_report_log_search" model="ir.ui.view">
+        <field name="name">sep.report.log.search</field>
+        <field name="model">sep.report.log</field>
+        <field name="arch" type="xml">
+            <search string="Report Sep Log">
+                <field name="annex"/>
+                <filter string="This year" name="year" invisible="1" date="date" default_period="this_year"/>
+                <separator/>
+                <filter string="This Month" name="filter_date" date="date" default_period="this_month"/>
+                <separator/>
+                <field name="user_id"/>
+                <field name="attachment_id"/>
+            </search>
+        </field>
+    </record>
+
+
+    <record id="action_sep_report_log" model="ir.actions.act_window">
+        <field name="name">Log de Reportes Sep</field>
+        <field name="res_model">sep.report.log</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id"></field>  <!-- force empty -->
+        <field name="search_view_id" ref="sep_report_log_search"/> 
+        <field name="context">{'group_by':[]}</field>
+    </record>
+
+        <menuitem id="menu_sep_report_log"
+            name="Log de Reportes SEP"
+            action="action_sep_report_log"
+            parent="openeducat_admission.menu_admission_report_root" 
+            sequence="90"/>
+
+
+
+
+
+
+</odoo>

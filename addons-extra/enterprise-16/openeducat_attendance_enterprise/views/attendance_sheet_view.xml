@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="view_op_attendance_sheet_inherited_tree_view" model="ir.ui.view">
+            <field name="name">op.attendance.sheet.inherited.tree</field>
+            <field name="model">op.attendance.sheet</field>
+            <field name="inherit_id" ref="openeducat_attendance.view_op_attendance_sheet_tree"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="subject_id" optional="hide"/>
+                    <field name="section_id" optional="hide"/>
+                </field>
+                <xpath expr="//field[@name='attendance_date']" position="after">
+                    <field name="company_id" groups="base.group_multi_company"
+                           optional="show"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="view_op_attendance_sheet_inherited_form_view" model="ir.ui.view">
+            <field name="name">op.attendance.sheet.inherited.form</field>
+            <field name="model">op.attendance.sheet</field>
+            <field name="inherit_id" ref="openeducat_attendance.view_op_attendance_sheet_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='session_id']" position="after">
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                </xpath>
+                <xpath expr="//sheet/div[@name='button_box']" position="inside">
+                    <button class="btn oe_stat_button" type="object"
+                            name="total_present_count"
+                            style="border-right: 1px solid;"
+                            icon="fa-user-circle">
+                        <field string="Present" name="total_present"
+                               widget="statinfo"/>
+                    </button>
+                    <button class="btn oe_stat_button" type="object"
+                            name="total_absent_count"
+                            style="border-right: 1px solid;"
+                            icon="fa-user-circle">
+                        <field string="Absent" name="total_absent"
+                               widget="statinfo"/>
+                    </button>
+                    <button class="btn oe_stat_button" type="object"
+                            name="total_excused_count"
+                            style="border-right: 1px solid;"
+                            icon="fa-user-circle">
+                        <field string="Absent Excused" name="excused_count"
+                               widget="statinfo"/>
+                    </button>
+                    <button class="btn oe_stat_button" type="object"
+                            name="total_late_count"
+                            style="border-right: 1px solid;"
+                            icon="fa-user-circle">
+                        <field string="Late" name="late_count"
+                               widget="statinfo"/>
+                    </button>
+                </xpath>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="act_dashboard_op_attendance_sheet_view">
+            <field name="name">Attendance Sheets</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.attendance.sheet</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id"
+                   ref="openeducat_attendance.view_op_attendance_sheet_search"/>
+            <field name="domain">[('batch_id','in',[active_id])]</field>
+        </record>
+        <record id="view_op_attendance_sheet_inherited_search_view" model="ir.ui.view">
+            <field name="name">op.attendance.register.inherited.search</field>
+            <field name="model">op.attendance.sheet</field>
+            <field name="inherit_id" ref="openeducat_attendance.view_op_attendance_sheet_search"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group" position="after">
+                    <searchpanel>
+                        <field name="register_id" icon="fa fa-pencil-square-o"/>
+                    </searchpanel>
+                </xpath>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="act_attendance_analysis_sheet_pivot_view">
+            <field name="name">Attendance Analysis</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.attendance.sheet</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_id" ref="openeducat_attendance.view_op_attendance_sheet_pivot"/>
+            <field name="view_mode">pivot</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+
+        <record id="op_attendance_analysis_sheet_view" model="ir.actions.act_window.view">
+            <field name="sequence" eval="2"/>
+            <field name="view_mode">pivot</field>
+            <field name="view_id" ref="openeducat_attendance.view_op_attendance_sheet_pivot"/>
+            <field name="act_window_id" ref="act_attendance_analysis_sheet_pivot_view"/>
+        </record>
+
+</odoo>

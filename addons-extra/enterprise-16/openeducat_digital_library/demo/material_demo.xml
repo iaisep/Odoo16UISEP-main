@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="material_a_new_visitor" model="op.digital.library.material">
+            <field name="material_cover" type="base64"
+                   file="openeducat_digital_library/static/img/visitor.png"/>
+            <field name="name">A New Visitor</field>
+            <field name="material_type">pdf</field>
+            <field name="publish_online">True</field>
+            <field name="material_edition">First Edition</field>
+            <field name="material_source">Global Digital Library</field>
+            <field name="isbn_code">611324891</field>
+            <field name="material_data" type="base64"
+                   file="openeducat_digital_library/demo/files/A_New_Visitor_compressed.pdf"/>
+            <field name="author_ids"
+                   eval="[(6,0,[ref('author_alisha_berger')])]"/>
+            <field name="publisher_ids"
+                   eval="[(6,0,[ref('publisher_alisha_berger')])]"/>
+            <field name="material_tags"
+                   eval="[(6,0,[ref('material_tag_kids'),ref('material_tag_visitor'),ref('material_tag_new')])]"/>
+            <field name="material_description"><![CDATA[
+            <div>
+            <p>A New Visitor</p>
+            <p>from Room to Read</p>
+            <p>All the animals are excited that someone new has arrived in the forest. Who do you think it is?</p>
+            </div>
+            ]]></field>
+        </record>
+
+        <record id="material_a_special_nest" model="op.digital.library.material">
+            <field name="material_cover" type="base64"
+                   file="openeducat_digital_library/static/img/special_nest.png"/>
+            <field name="name">A Special Nest</field>
+            <field name="material_type">pdf</field>
+            <field name="publish_online">True</field>
+            <field name="material_edition">First Edition</field>
+            <field name="material_source">Global Digital Library</field>
+            <field name="isbn_code">611324892</field>
+            <field name="material_data" type="base64"
+                   file="openeducat_digital_library/demo/files/A_Special_Nest_compressed.pdf"/>
+            <field name="author_ids"
+                   eval="[(6,0,[ref('author_kavita_singh')])]"/>
+            <field name="publisher_ids"
+                   eval="[(6,0,[ref('publisher_kavita_singh')])]"/>
+            <field name="material_tags"
+                   eval="[(6,0,[ref('material_tag_special'),ref('material_tag_nest')])]"/>
+            <field name="material_description"><![CDATA[
+            <div>
+            <p>A Special Nest</p>
+            <p>from Room to Read</p>
+            <p>A bird is trying to build a nest for herself. But everywhere she builds a nest, something or the other disturbs her. What will she do?</p>
+            </div>
+            ]]></field>
+        </record>
+
+        <record id="material_a_very_green_day" model="op.digital.library.material">
+            <field name="material_cover" type="base64"
+                   file="openeducat_digital_library/static/img/green_day.png"/>
+            <field name="name">A Very Green Day</field>
+            <field name="material_type">pdf</field>
+            <field name="publish_online">True</field>
+            <field name="material_edition">First Edition</field>
+            <field name="material_source">Global Digital Library</field>
+            <field name="isbn_code">611324893</field>
+            <field name="material_data" type="base64"
+                   file="openeducat_digital_library/demo/files/A_Very_Green_Day_compressed.pdf"/>
+            <field name="author_ids"
+                   eval="[(6,0,[ref('author_brian_kavnagh')])]"/>
+            <field name="publisher_ids"
+                   eval="[(6,0,[ref('publisher_brian_kavnagh')])]"/>
+            <field name="material_tags"
+                   eval="[(6,0,[ref('material_tag_green'),ref('material_tag_day')])]"/>
+            <field name="material_description"><![CDATA[
+            <div>
+            <p>A Very Green Day</p>
+            <p>from Room to Read</p>
+            <pGreeny has so much energy. She doesn't want to nap! One day, she decides to run away. After playing in the hot sun for a while, Greeny gets tired and wants to go home. But now she's lost! How will she get home to her dad?</p>
+            </div>
+            ]]></field>
+        </record>
+
+        <record id="material_educational_technology" model="op.digital.library.material">
+            <field name="material_cover" type="base64"
+                   file="openeducat_digital_library/static/img/education_tech.png"/>
+            <field name="name">Educational Technology</field>
+            <field name="material_type">pdf</field>
+            <field name="publish_online">True</field>
+            <field name="material_edition">First Edition</field>
+            <field name="material_source">Springer-eBooks</field>
+            <field name="isbn_code">9789811366420</field>
+            <field name="material_data" type="base64"
+                   file="openeducat_digital_library/demo/files/2019_Book_EducationalTechnology_compressed.pdf"/>
+            <field name="author_ids"
+                   eval="[(6,0,[ref('author_huang'),ref('author_ronghuai')])]"/>
+            <field name="publisher_ids"
+                   eval="[(6,0,[ref('publisher_springer_singapore')])]"/>
+            <field name="material_tags"
+                   eval="[(6,0,[ref('material_tag_technology'),ref('material_tag_education')])]"/>
+            <field name="material_description"><![CDATA[
+            <div>
+            Educational Technology is the field of study that investigates the process of analyzing, designing, developing, implementing, and evaluating the instructional environment, learning materials, learners, and the learning process in order to improve teaching and learning.
+            </div>
+            ]]></field>
+        </record>
+
+        <record id="material_java_programming" model="op.digital.library.material">
+            <field name="material_cover" type="base64"
+                   file="openeducat_digital_library/static/img/java.png"/>
+            <field name="name">Java</field>
+            <field name="material_type">pdf</field>
+            <field name="publish_online">True</field>
+            <field name="material_edition">First Edition</field>
+            <field name="material_source">Tutorials Point</field>
+            <field name="material_data" type="base64"
+                   file="openeducat_digital_library/demo/files/java_tutorial_compressed.pdf"/>
+            <field name="author_ids"
+                   eval="[(6,0,[ref('author_tutorials_point')])]"/>
+            <field name="publisher_ids"
+                   eval="[(6,0,[ref('publisher_tutorials_point')])]"/>
+            <field name="material_tags"
+                   eval="[(6,0,[ref('material_tag_technology'),ref('material_tag_programming'),ref('material_tag_education')])]"/>
+            <field name="material_description"><![CDATA[
+            <div>
+            Java is a widely used object-oriented programming language and software platform that runs on billions of devices, including notebook computers, mobile devices, gaming consoles, medical devices and many others.
+            </div>
+            ]]></field>
+        </record>
+
+        <record id="material_python_programming" model="op.digital.library.material">
+            <field name="material_cover" type="base64"
+                   file="openeducat_digital_library/static/img/python.png"/>
+            <field name="name">Python</field>
+            <field name="material_type">pdf</field>
+            <field name="publish_online">True</field>
+            <field name="material_edition">First Edition</field>
+            <field name="material_source">Tutorials Point</field>
+            <field name="material_data" type="base64"
+                   file="openeducat_digital_library/demo/files/Tutorial_EDIT.pdf"/>
+            <field name="author_ids"
+                   eval="[(6,0,[ref('author_tutorials_point')])]"/>
+            <field name="publisher_ids"
+                   eval="[(6,0,[ref('publisher_python_software_foundation')])]"/>
+            <field name="material_tags"
+                   eval="[(6,0,[ref('material_tag_technology'),ref('material_tag_programming'),ref('material_tag_education')])]"/>
+            <field name="material_description"><![CDATA[
+            <div>
+            Python is a computer programming language often used to build websites and software, automate tasks, and conduct data analysis.
+            </div>
+            ]]></field>
+        </record>
+
+        <!--        <record id="category_technology" model="op.digital.library.material">-->
+        <!--            <field name="name">Technology</field>-->
+        <!--        </record>-->
+
+        <!--        <record id="category_history" model="op.digital.library.material">-->
+        <!--            <field name="name">History</field>-->
+        <!--        </record>-->
+
+</odoo>

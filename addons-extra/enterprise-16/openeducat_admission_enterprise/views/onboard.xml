@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- openeducat_core module STEPS -->
+    <!-- admission register view starts -->
+    <template id="onboarding_admission_layout_step">
+        <t t-call="base.onboarding_step">
+            <t t-set="title">Admission Register Configuration</t>
+            <t t-set="description">See how to create an Admission Register.</t>
+            <t t-set="done_icon" t-value="'fa-star'"/>
+            <t t-set="done_text">Looks great!</t>
+            <t t-set="btn_text">Customize</t>
+            <t t-set="method" t-value="'action_onboarding_admission_register_layout'"/>
+            <t t-set="model" t-value="'res.company'"/>
+            <t t-set="state" t-value="state.get('onboarding_admission_register_layout_state')"/>
+        </t>
+    </template>
+    <record id="view_op_admission_register_form_onboard" model="ir.ui.view">
+            <field name="name">op.admission.register.form</field>
+            <field name="model">op.admission.register</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Admission Register">
+                    <header groups="base.group_user">
+                        <button name="confirm_register" states="draft" type="object" string="Confirm" class="oe_highlight"/>
+                        <button name="start_application" states="confirm" type="object" string="Start Application" class="oe_highlight"/>
+                        <button name="start_admission" states="application" type="object" string="Start Admission" class="oe_highlight"/>
+                        <button name="close_register" states="admission" type="object" string="Done" class="oe_highlight"/>
+                        <button name="cancel_register" states="draft,confirm" string="Cancel" type="object"/>
+                        <button name="set_to_draft" states="cancel" string="Set to Draft" type="object"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm,application,admission"/>
+                    </header>
+                    <sheet>
+                        <group col="4">
+                            <field name="name"/>
+                            <field name="course_id"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="product_id" context="{'default_type': 'service'}"/>
+                            <field name="min_count"/>
+                            <field name="max_count"/>
+                        </group>
+                        <group string="Applications">
+                            <field name="admission_ids" nolabel="1" readonly="1"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button string="Apply" class="btn btn-primary" type="object"
+                            name="action_onboarding_admission_register_layout"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+
+    <record id="action_onboarding_admission_register_layout" model="ir.actions.act_window">
+        <field name="name">Admission Register Configuration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">op.admission.register</field>
+        <field name="view_mode">form</field>
+        <field name="binding_view_types">form</field>
+        <field name="view_id" ref="view_op_admission_register_form_onboard"/>
+        <field name="target">new</field>
+    </record>
+
+
+
+
+    <!-- ONBOARDING PANEL-->
+    <template id="openeducat_admission_onboarding_panel" name="openeducat.admission.quotation.onboarding.panel">
+        <t t-call="base.onboarding_container">
+            <t t-set="classes" t-value="'o_onboarding_violet'"/>
+            <t t-set="bg_image" t-value="'/sale/static/src/img/sale_quotation_onboarding_bg.jpg'"/>
+            <t t-set="close_method" t-value="'action_close_admission_panel_onboarding'"/>
+            <t t-set="close_model" t-value="'res.company'"/>
+            <t t-call="openeducat_admission_enterprise.onboarding_admission_layout_step" name="company_step_admission"></t>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="op_qz_ctg_c" model="op.quiz.category">
+            <field name="name">Category Coffee</field>
+            <field name="code">Coffee</field>
+        </record>
+
+        <record id="op_qz_cup1" model="op.quiz">
+            <field name="name">Coffee Quiz</field>
+            <field name="categ_id" ref="op_qz_ctg_c"/>
+            <field name="quiz_config">quiz_bank_selected</field>
+            <field name="time_config">True</field>
+            <field name="time_limit_hr">1</field>
+            <field name="time_limit_minute">30</field>
+            <field name="no_of_attempt">1</field>
+            <field name="description">This quiz is based on Statistics Coffee
+            </field>
+            <field name="state">open</field>
+            <field name="quiz_html">
+                From the Coffee House in the heart of London's Coffee Culture, this is the complete coffee course
+                Would you like to learn more about coffee? Understand its origins, understand roasting grinding?
+                Would you like to find out how to make a better cup of coffee? Do you want to stop drinking bad
+                coffee? If so, this is the course for you.
+            </field>
+        </record>
+        <record id="op_qu_bnk_type_cup1" model="op.question.bank.type">
+            <field name="name">Coffee</field>
+        </record>
+        <record id="op_qu_bnk_co" model="op.question.bank">
+            <field name="name">Coffee Test</field>
+            <field name="bank_type_id" ref="op_qu_bnk_type_cup1"/>
+        </record>
+        <record id="op_c_qc1" model="op.question.bank.line">
+            <field name="name">Dark roasted coffee beans have?</field>
+             <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/cnN5nEUdBMs'"/>
+            <field name="document_id">cnN5nEUdBMs</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_co"/>
+        </record>
+        <record id="op_c_qc1_a01" model="op.question.bank.answer">
+            <field name="name">Richer flavor</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qc1"/>
+        </record>
+        <record id="op_c_qc1_a02" model="op.question.bank.answer">
+            <field name="name">Less caffeine</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qc1"/>
+        </record>
+        <record id="op_c_qc1_a03" model="op.question.bank.answer">
+            <field name="name">Both</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="question_id" ref="op_c_qc1"/>
+        </record>
+        <record id="op_c_qc1_a04" model="op.question.bank.answer">
+            <field name="name">None</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qc1"/>
+        </record>
+
+        <record id="op_qz_ln6_c1" model="op.quiz.line">
+            <field name="name">Dark roasted coffee beans have?</field>
+            <field name="mark" type="float">1.0</field>
+             <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/cnN5nEUdBMs'"/>
+            <field name="document_id">cnN5nEUdBMs</field>
+            <field name="quiz_id" ref="op_qz_cup1"/>
+            <field name="que_id" ref="op_c_qc1"/>
+        </record>
+
+        <record id="op_qz_ln6_c1_l01" model="op.quiz.answer">
+            <field name="name">Richer flavor</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_c1"/>
+        </record>
+        <record id="op_qz_ln6_c1_l02" model="op.quiz.answer">
+            <field name="name">Less caffeine</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_c1"/>
+        </record>
+        <record id="op_qz_ln6_c1_l03" model="op.quiz.answer">
+            <field name="name">Both</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="line_id" ref="op_qz_ln6_c1"/>
+        </record>
+        <record id="op_qz_ln6_c1_l04" model="op.quiz.answer">
+            <field name="name">None</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_c1"/>
+        </record>
+        <record id="op_c_qc2" model="op.question.bank.line">
+            <field name="name">More than ___ countries produce coffee.</field>
+            <field name="material_type">infographic</field>
+            <field name="datas" type="base64"
+                   file="openeducat_quiz/demo/files/graph.jpg"/>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_co"/>
+        </record>
+        <record id="op_c_qc2_a01" model="op.question.bank.answer">
+            <field name="name">100</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qc2"/>
+        </record>
+        <record id="op_c_qc2_a02" model="op.question.bank.answer">
+            <field name="name">25</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qc2"/>
+        </record>
+        <record id="op_c_qc2_a03" model="op.question.bank.answer">
+            <field name="name">50</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="question_id" ref="op_c_qc2"/>
+        </record>
+        <record id="op_c_qc2_a04" model="op.question.bank.answer">
+            <field name="name">20</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qc2"/>
+        </record>
+
+        <record id="op_qz_ln6_c2" model="op.quiz.line">
+            <field name="name">More than ___ countries produce coffee.</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="material_type">infographic</field>
+            <field name="datas" type="base64"
+                   file="openeducat_quiz/demo/files/graph.jpg"/>
+            <field name="quiz_id" ref="op_qz_cup1"/>
+            <field name="que_id" ref="op_c_qc1"/>
+        </record>
+
+        <record id="op_qz_ln6_c2_l01" model="op.quiz.answer">
+            <field name="name">100</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_c2"/>
+        </record>
+        <record id="op_qz_ln6_c2_l02" model="op.quiz.answer">
+            <field name="name">25</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_c2"/>
+        </record>
+        <record id="op_qz_ln6_c2_l03" model="op.quiz.answer">
+            <field name="name">50</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="line_id" ref="op_qz_ln6_c2"/>
+        </record>
+        <record id="op_qz_ln6_c2_l04" model="op.quiz.answer">
+            <field name="name">20</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_c2"/>
+        </record>
+
+        <record id="op_c_qc3" model="op.question.bank.line">
+            <field name="name">Inhaling coffee is a form of aromatherapy that can</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_co"/>
+        </record>
+        <record id="op_c_qc3_a01" model="op.question.bank.answer">
+            <field name="name">Startle your senses</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qc3"/>
+        </record>
+        <record id="op_c_qc3_a02" model="op.question.bank.answer">
+            <field name="name">Perk you up instantly</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qc3"/>
+        </record>
+        <record id="op_c_qc3_a03" model="op.question.bank.answer">
+            <field name="name">Both</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="question_id" ref="op_c_qc3"/>
+        </record>
+        <record id="op_c_qc3_a04" model="op.question.bank.answer">
+            <field name="name">None</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qc3"/>
+        </record>
+
+        <record id="op_qz_ln6_c3" model="op.quiz.line">
+            <field name="name">Inhaling coffee is a form of aromatherapy that can</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="quiz_id" ref="op_qz_cup1"/>
+            <field name="que_id" ref="op_c_qc3"/>
+        </record>
+
+        <record id="op_qz_ln6_c3_l01" model="op.quiz.answer">
+            <field name="name">Startle your senses</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_c3"/>
+        </record>
+        <record id="op_qz_ln6_c3_l02" model="op.quiz.answer">
+            <field name="name">Perk you up instantly</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_c3"/>
+        </record>
+        <record id="op_qz_ln6_c3_l03" model="op.quiz.answer">
+            <field name="name">Both</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="line_id" ref="op_qz_ln6_c3"/>
+        </record>
+        <record id="op_qz_ln6_c3_l04" model="op.quiz.answer">
+            <field name="name">None</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_c3"/>
+        </record>
+
+
+        <record id="op_c_qc4" model="op.question.bank.line">
+            <field name="name">Which are not need to make coffee?</field>
+            <field name="mark" type="float">1.0</field>
+             <field name="material_type">infographic</field>
+            <field name="datas" type="base64"
+                   file="openeducat_quiz/demo/files/coffee-ingredients.jpg"/>
+            <field name="bank_id" ref="op_qu_bnk_co"/>
+        </record>
+        <record id="op_c_qc4_a01" model="op.question.bank.answer">
+            <field name="name">Water</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qc4"/>
+        </record>
+        <record id="op_c_qc4_a02" model="op.question.bank.answer">
+            <field name="name">Oil</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="question_id" ref="op_c_qc4"/>
+        </record>
+        <record id="op_c_qc4_a03" model="op.question.bank.answer">
+            <field name="name">Sugar</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qc4"/>
+        </record>
+        <record id="op_c_qc4_a04" model="op.question.bank.answer">
+            <field name="name">None</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qc4"/>
+        </record>
+
+        <record id="op_qz_ln6_c4" model="op.quiz.line">
+            <field name="name">Which are not need to make coffee?</field>
+            <field name="mark" type="float">1.0</field>
+ <field name="material_type">infographic</field>
+            <field name="datas" type="base64"
+                   file="openeducat_quiz/demo/files/coffee-ingredients.jpg"/>
+            <field name="quiz_id" ref="op_qz_cup1"/>
+            <field name="que_id" ref="op_c_qc4"/>
+        </record>
+
+        <record id="op_qz_ln6_c4_l01" model="op.quiz.answer">
+            <field name="name">Water</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_c4"/>
+        </record>
+        <record id="op_qz_ln6_c4_l02" model="op.quiz.answer">
+            <field name="name">Oil</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="line_id" ref="op_qz_ln6_c4"/>
+        </record>
+        <record id="op_qz_ln6_c4_l03" model="op.quiz.answer">
+            <field name="name">Sugar</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_c4"/>
+        </record>
+        <record id="op_qz_ln6_c4_l04" model="op.quiz.answer">
+            <field name="name">None</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_c4"/>
+        </record>
+
+
+        <record id="op_c_qc5" model="op.question.bank.line">
+            <field name="name">Coffee is a daily drink for ___% of US adults.</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_co"/>
+        </record>
+        <record id="op_c_qc5_a01" model="op.question.bank.answer">
+            <field name="name">20%</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qc5"/>
+        </record>
+        <record id="op_c_qc5_a02" model="op.question.bank.answer">
+            <field name="name">23%</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qc5"/>
+        </record>
+        <record id="op_c_qc5_a03" model="op.question.bank.answer">
+            <field name="name">80%</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="question_id" ref="op_c_qc5"/>
+        </record>
+        <record id="op_c_qc5_a04" model="op.question.bank.answer">
+            <field name="name">100%</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qc5"/>
+        </record>
+
+        <record id="op_qz_ln6_c5" model="op.quiz.line">
+            <field name="name">Coffee is a daily drink for ___% of US adults.</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="quiz_id" ref="op_qz_cup1"/>
+            <field name="que_id" ref="op_c_qc5"/>
+        </record>
+
+        <record id="op_qz_ln6_c5_l01" model="op.quiz.answer">
+            <field name="name">20%</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_c5"/>
+        </record>
+        <record id="op_qz_ln6_c5_l02" model="op.quiz.answer">
+            <field name="name">23%</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_c5"/>
+        </record>
+        <record id="op_qz_ln6_c5_l03" model="op.quiz.answer">
+            <field name="name">80%</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="line_id" ref="op_qz_ln6_c5"/>
+        </record>
+        <record id="op_qz_ln6_c5_l04" model="op.quiz.answer">
+            <field name="name">100%</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_c5"/>
+        </record>
+
+</odoo>

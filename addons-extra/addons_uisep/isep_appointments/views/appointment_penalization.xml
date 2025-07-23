@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--TREE FORM INHERIT APPOINTMENT PENALIZATION-->
+    <record id="appointment_penalization_view_tree" model="ir.ui.view">
+        <field name="name">appointment_penalization_view_tree</field>
+        <field name="model">appointment.penalization</field>
+        <field name="arch" type="xml">
+            <tree string="appointment_penalization_tree" editable="bottom">
+                <field name="name"/>
+                <field name="qty_absence"/>
+                <field name="qty_days"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--TREE FORM INHERIT APPOINTMENT PENALIZATION-->
+    <record id="appointment_penalization_line_view_tree" model="ir.ui.view">
+        <field name="name">appointment_penalization_line_view_tree</field>
+        <field name="model">appointment.penalization.line</field>
+        <field name="arch" type="xml">
+            <tree string="appointment_penalization_tree" editable="bottom">
+                <field name="datetime_create"/>
+                <field name="user_id"/>
+                <field name="total_absence"/>
+                <field name="penalization_id"/>
+                <field name="next_date_book"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--ACTIONS-->
+    <record id="appointment_penalization_action" model="ir.actions.act_window">
+        <field name="name">Appointment Penalization View Action</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">appointment.penalization</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="appointment_penalization_line_action" model="ir.actions.act_window">
+        <field name="name">Appointment Penalization Line View Action</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">appointment.penalization.line</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--MENUITEM-->
+    <menuitem id="menuitem_root_penalization"
+              name="Penalization"
+              parent="calendar.mail_menu_calendar"
+              sequence="14"/>
+    <menuitem id="menuitem_appointment_penalization"
+              name="Penalization Type"
+              parent="menuitem_root_penalization"
+              action="appointment_penalization_action"
+              sequence="1"/>
+    <menuitem id="menuitem_penalizations"
+              name="Penalization User"
+              action="appointment_penalization_line_action"
+              parent="menuitem_root_penalization"
+              sequence="2"/>
+</odoo>

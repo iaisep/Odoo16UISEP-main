@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="poratl_menu_alumni_job_list" model="openeducat.portal.menu">
+        <field name="name">Alumni Job</field>
+        <field name="menu_ref_name">Alumni Job</field>
+        <field name="link">/alumni/job/list</field>
+        <field name="active">True</field>
+        <field name="sequence" type="int">50</field>
+        <field name="background_color">#304cd5</field>
+        <field name="icon_image" type="base64"
+               file="openeducat_alumni_job_enterprise/static/img/alumni_job.png"/>
+    </record>
+</odoo>

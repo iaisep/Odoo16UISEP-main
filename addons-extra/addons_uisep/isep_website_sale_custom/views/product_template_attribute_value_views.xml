@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <!-- View product.template.attribute.value form -->
+    <record id="view_product_template_attribute_value_form" model="ir.ui.view">
+        <field name="name">view.product.template.attribute.value.form</field>
+        <field name="model">product.template.attribute.value</field>
+        <field name="inherit_id" ref="product.product_template_attribute_value_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='price_extra']" position="after">
+                <field name="plazo"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

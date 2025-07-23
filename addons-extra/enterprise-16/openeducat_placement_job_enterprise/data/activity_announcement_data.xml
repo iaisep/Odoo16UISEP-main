@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="activity_open" model="mail.message.subtype">
+        <field name="name">Opened Activity</field>
+        <field name="res_model">op.activity.announcement</field>
+        <field name="default" eval="False"/>
+        <field name="description">Opened Activity</field>
+    </record>
+    <record id="activity_closed" model="mail.message.subtype">
+        <field name="name">Closed Activity</field>
+        <field name="res_model">op.activity.announcement</field>
+        <field name="default" eval="False"/>
+        <field name="hidden" eval="True"/>
+        <field name="description">Closed Activity</field>
+    </record>
+</odoo>

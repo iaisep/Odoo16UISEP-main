@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="view_op_student_form_badge_inherit" model="ir.ui.view">
+            <field name="name">op.student.form.badge_inherit</field>
+            <field name="model">op.student</field>
+            <field name="inherit_id" ref="openeducat_core.view_op_student_form"/>
+            <field name="priority" eval="1"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='email']" position="after">
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                </xpath>
+                <xpath expr="//div[@name='button_box']" position="inside">
+                    <button class="btn oe_stat_button"
+                            type="object"
+                            name="get_student"
+                            style="border-right: 1px solid;"
+                            icon="fa-book">
+                        <field string="Admission" name="student_count" widget="statinfo"/>
+                    </button>
+                </xpath>
+                <xpath expr="//notebook/page[@name='miscellaneous']" position="before">
+                    <page name="badge" string="Received Badges"
+                          groups="openeducat_core.group_op_back_office_admin,openeducat_core.group_op_faculty">
+                        <field name="student_badge_ids" widget="many2many_kanban" colspan="4" nolabel="1">
+                            <kanban create="false" edit="false" class="oe_background_grey">
+                                <field name="badge_name"/>
+                                <field name="badge_id"/>
+                                <field name="student_id"/>
+                                <field name="comment"/>
+                                <field name="create_date"/>
+                                <templates>
+                                    <t t-name="kanban-box">
+                                        <div class="oe_kanban_card oe_kanban_global_click oe_kanban_badge oe_kanban_color_white o_kanban_gamification">
+                                            <div class="o_kanban_content">
+                                                <div class="pull-left">
+                                                    <a type="open">
+                                                        <img t-att-src="kanban_image('op.gamification.badge', 'image', record.badge_id.raw_value)"
+                                                             t-att-title="record.badge_name.value"
+                                                             width="24" height="24" alt="Badge"/>
+                                                    </a>
+                                                </div>
+                                                <h4>
+                                                    <a type="open">
+                                                        <t t-esc="record.badge_name.raw_value"/>
+                                                    </a>
+                                                </h4>
+                                                <t t-if="record.comment.raw_value">
+                                                    <p>
+                                                        <em>
+                                                            <field name="comment"/>
+                                                        </em>
+                                                    </p>
+                                                </t>
+                                                <p>Granted by
+                                                    <a type="open">
+                                                        <field name="create_uid"/>
+                                                    </a>
+                                                    on
+                                                    <t t-esc="luxon.DateTime.fromISO(record.create_date.raw_value).toFormat('MM/dd/yyyy')"/>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </templates>
+                            </kanban>
+                            <form>
+                                <group col="4">
+                                    <field name="badge_id"/>
+                                    <field name="badge_name"/>
+                                    <field name="sender_id"/>
+                                    <field name="comment"/>
+                                    <field name="create_date"/>
+                                </group>
+                            </form>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_op_student_inherited_tree_view" model="ir.ui.view">
+            <field name="name">op.student.tree</field>
+            <field name="model">op.student</field>
+            <field name="type">tree</field>
+            <field name="inherit_id" ref="openeducat_core.view_op_student_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='lang']" position="after">
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Dashboard Actions -->
+        <record model="ir.actions.act_window" id="act_batch_dashboard_op_student_view">
+            <field name="name">Students</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.student</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="search_view_id" ref="openeducat_core.view_op_student_search"/>
+            <field name="domain">[('course_detail_ids.batch_id','in',[active_id])]</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_course_dashboard_op_student_view">
+            <field name="name">Students</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.student</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="search_view_id" ref="openeducat_core.view_op_student_search"/>
+            <field name="domain">[('course_detail_ids.course_id','in',[active_id])]</field>
+        </record>
+
+</odoo>

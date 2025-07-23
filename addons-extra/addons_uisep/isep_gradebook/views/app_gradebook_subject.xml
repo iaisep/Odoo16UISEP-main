@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="app_gradebook_subject_form" model="ir.ui.view">
+            <field name="name">app_gradebook_subject_form</field>
+            <field name="model">app.gradebook.subject</field>
+            <field name="arch" type="xml">
+                <form create="0" edit="1" delete="0">
+
+                    <header>                      
+                        <field name="state" widget="statusbar" statusbar_visible="in_progress,done"/>
+                    </header>
+
+                    <field name="show_assignment" invisible="1"/>   
+                    <field name="show_exam" invisible="1"/>   
+                    <field name="show_interaction" invisible="1"/>   
+                    <field name="show_foro" invisible="1"/>   
+
+                    <field name="admission_id" invisible="1"/>       
+                    <field name="course_id" invisible="1"/>
+                    <field name="gradebook_student_id" invisible="1"/>
+
+                    <sheet>
+                        <div class="oe_title">
+                            <h2>
+                                <field name="name"/>
+                                
+                            </h2>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="op_subject_id"  attrs="{'readonly': [('state','=','done')]}"  required="1" options="{'no_open': True,'no_create':True}"/>
+                                <field name="final_subject_note"/>
+                            </group>
+                            <group>   
+
+                                <label for="point_average_assignment" attrs="{'invisible': [('show_assignment','=', False )]}" />
+                                <div name="point_average_assignment_div" class="d-flex"  attrs="{'invisible': [('show_assignment','=', False )]}" >
+                                    <field name="point_average_assignment" class="oe_inline mx-3" />
+                                    <span class="oe_inline o_form_label mx-3">=> </span>
+                                    <field name="info_assignment" />
+                                </div>
+
+                                <label for="point_average_exam"  attrs="{'invisible': [('show_exam','=', False )]}" />
+                                <div name="point_average_exam_div" class="d-flex"  attrs="{'invisible': [('show_exam','=', False )]}" >
+                                    <field name="point_average_exam" class="oe_inline mx-3" />
+                                    <span class="oe_inline o_form_label mx-3" >=> </span>
+                                    <field name="info_exam" />
+                                </div>
+
+                                <label for="point_average_interaction" attrs="{'invisible': [('show_interaction','=', False )]}" />
+                                <div name="point_average_interaction_div" class="d-flex" attrs="{'invisible': [('show_interaction','=', False )]}" >
+                                    <field name="point_average_interaction" class="oe_inline mx-3" />
+                                    <span class="oe_inline o_form_label mx-3" >=> </span>
+                                    <field name="info_interaction" />
+                                </div>
+
+                                <label for="point_average_foro" attrs="{'invisible': [('show_foro','=', False )]}" />
+                                <div name="point_average_foro_div" class="d-flex"  attrs="{'invisible': [('show_foro','=', False )]}">
+                                    <field name="point_average_foro" class="oe_inline mx-3" />
+                                    <span class="oe_inline o_form_label mx-3" >=> </span>
+                                    <field name="info_foro" />
+                                </div>
+
+
+  
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Evaluaciones" name="exams">
+                                <field name="gradebook_result_ids"  attrs="{'readonly': [('state','=','done')]}"  context="{'default_admission_id': admission_id }" >
+                                    <tree editable="bottom" delete="0">
+                                        <field name="survey_type" optional="show" required="1"/>
+                                        <field name="description"/>                                       
+                                        <field name="name" optional="hide" readonly="0" force_save="1"/>
+                                        <field name="scoring_total"/>
+                                        <field name="post_qty" attrs="{'invisible':[('survey_type','!=','foro')] }" />
+                                        
+                                        <field name="comment"  optional="hide" />
+                                        <field name="channel_id" optional="hide" options="{'no_open': True, 'no_create':True}"/>
+                                        <field name="channel_partner_id" optional="hide" options="{'no_open': True, 'no_create':True}"/>
+                                        <field name="survey_user_input_id" optional="hide" options="{'no_open': True, 'no_create':True}"/>
+                                        <field name="gradebook_subject_id"  optional="hide" />
+                                        <button name="unlink" confirm="Eliminar?" title="Remove" icon="fa-times" type="object"/>
+                                    </tree>
+                                </field>
+                            </page>
+
+                            <page string="Opciones" name="exams">
+                                <group>   
+                                    <group>                             
+                                        <field name="gradebook_id"  attrs="{'readonly': [('state','=','done')]}"  options="{'no_create':True}"  />
+                                    </group>
+                                    <group>
+                                    </group>
+
+                                </group>
+                            </page>
+
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="app_gradebook_subject_tree" model="ir.ui.view">
+            <field name="name">app_gradebook_subject_tree</field>
+            <field name="model">app.gradebook.subject</field>
+            <field name="arch" type="xml">
+                <tree create="1" edit="0" delete="0">
+                    <field name="name"/>
+                    <field name="point_average_assignment"/>
+                    <field name="point_average_exam"/>
+                    <field name="point_average_interaction"/>
+                    <field name="point_average_foro"/>
+                    <field name="final_subject_note"/>
+                    <field name="op_subject_id" invisible="1" />
+                    <field name="gradebook_student_id" invisible="1"  />
+                </tree>
+            </field>
+        </record>
+
+        <record id="act_app_gradebook_subject_view" model="ir.actions.act_window">
+            <field name="name">Asignaturas en Libreta</field>
+            <field name="res_model">app.gradebook.subject</field>
+            <field name="view_mode">tree,form</field>
+            <field name="target">current</field>
+        </record>
+    </data>
+</odoo>

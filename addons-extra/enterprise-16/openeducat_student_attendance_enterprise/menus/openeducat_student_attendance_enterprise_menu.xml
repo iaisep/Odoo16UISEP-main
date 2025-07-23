@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <menuitem id="menu_root_stu_att" name="Student Attendances"
+                  sequence="60"
+                  web_icon="openeducat_student_attendance_enterprise,static/description/icon.png"/>
+
+        <menuitem id="menu_student_attendance_kiosk_mode" name="Kiosk Mode"
+                  sequence="30"
+                  parent="openeducat_attendance.menu_op_attendance_root"
+                  action="student_attendance_action_kiosk_mode"/>
+
+</odoo>

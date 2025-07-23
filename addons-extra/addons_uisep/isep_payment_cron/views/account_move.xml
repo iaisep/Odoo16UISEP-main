@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_account_move_force_payment_form_inherit" model="ir.ui.view">
+        <field name="name">account.move.tree.inherit</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='other_info']//field[@name='to_check']" position="after">
+                <button name="recurring_payment_invoice" colspan="2" attrs="{'invisible': ['|', ('sale_order_count', '=', 0), ('move_type', 'not in', ('out_invoice'))]}" confirm="Se intentara prorcesar el pago con el token guardado en la orden del cliente." type="object" icon="fa-dollar" string=" Cobrar con Token" class="btn-link mb-1 px-0" />
+            </xpath>
+        </field>
+    </record>
+</odoo>

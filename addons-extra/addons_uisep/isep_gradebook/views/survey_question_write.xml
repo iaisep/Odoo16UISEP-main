@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <record id="survey_user_input_write_form" model="ir.ui.view">
+        <field name='name'>survey.user_input.write.form</field>
+        <field name='model'>survey.user_input.write</field>
+        <field name='arch' type='xml'>
+            <form string='Calificar'>
+                <sheet>   
+                          
+                    <group>
+                        
+                        <group>
+                            <field name="survey_id" invisible="1" options="{'no_open': True}" readonly="1" force_save="1"/>
+                            <field name="question_id"   options="{'no_open': True}" readonly="1" force_save="1"/>
+                            <field name="value_file_ids" widget="many2many_binary" string="Adjuntos"  >
+                                <tree create="0" edit="0">
+                                    <field name="name" invisible="1"/>
+                                    <field name="datas" widget="binary" filename="name"/>
+                                </tree>
+                            </field>
+                            <field name="answer_score"  readonly="0" force_save="1"/>
+                        </group>
+                        <group>
+                                                   
+                        </group>                    
+                    </group>
+                    
+                </sheet>
+                <footer>
+                    <button name='save_result' string='Calificar'  class="btn btn-info" type='object'/>
+                    <button special="cancel" string="Descartar" type="object" class="btn btn-secondary oe_inline"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    
+
+    
+
+    <record id="survey_user_input_write_action" model="ir.actions.act_window">
+        <field name="name">Calificar</field>
+        <field name="res_model">survey.user_input.write</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="survey_user_input_write_form"/>
+        <field name="target">new</field>
+    </record>
+
+
+</odoo>

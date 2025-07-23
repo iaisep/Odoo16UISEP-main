@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+   <t t-inherit="mail.ChannelMemberList" t-inherit-mode="extension" owl="1">
+        <xpath expr="//*[@t-name='mail.ChannelMemberList']" position="replace">
+            <t t-name="mail.ChannelMemberList" owl="1">
+                <div class="o_ChannelMemberList d-flex flex-column overflow-auto bg-light" t-attf-class="{{ className }}" t-ref="root">
+                <t t-if="channelMemberListView and channelMemberListView.onlineCategoryView">
+                    <ChannelMemberListCategory record="channelMemberListView.onlineCategoryView"/>
+                </t>
+            </div>
+            </t>
+        </xpath>
+    </t>
+    <t t-inherit="mail.ChannelMemberListCategory" t-inherit-mode="extension" owl="1">
+        <xpath expr="//*[@t-name='mail.ChannelMemberListCategory']" position="replace">
+            <t t-name="mail.ChannelMemberListCategory" owl="1">
+                <h6 class="m-2" t-esc="record.title"/>
+                <t t-if="messaging">
+                    <t t-if="messaging.discuss">
+                        <t t-if="messaging.discuss.threadView">
+                            <t t-if="messaging.discuss.threadView.callView">
+                                <t t-if="messaging.discuss.threadView.callView.participantCards">
+                                    <t t-foreach="messaging.discuss.threadView.callView.participantCards" t-as="member" t-key="member.localId">
+                                        <div class="o_ChannelMember d-flex align-items-center mx-3 my-1" t-att-class="{'cursor-pointer': member.hasOpenChat}" t-attf-class="{{ className }}" t-att-data-partner-id="member.channelMember.persona.partner and member.channelMember.persona.partner.id" t-att-title="member.memberTitleText" t-on-click="member.onClickMember" t-ref="root">
+                                            <div class="o_ChannelMember_avatarContainer position-relative flex-shrink-0">
+                                                <img class="o_ChannelMember_avatar rounded-circle w-100 h-100" t-att-src="member.channelMember.avatarUrl" alt="Avatar"/>
+                                                <t t-if="member.personaImStatusIconView">
+                                                    <PersonaImStatusIcon className="'o_ChannelMember_personaImStatusIcon position-absolute bottom-0 end-0 d-flex align-items-center justify-content-center text-light'" classNameObj="{
+                                            'o-isDeviceSmall': messaging.device.isSmall,
+                                            'small': !messaging.device.isSmall,
+                                        }" hasOpenChat="member.hasOpenChat" record="member.personaImStatusIconView" />
+                                                </t>
+                                            </div>
+                                            <span class="o_ChannelMember_name ms-2 flex-column-1 text-truncate">
+                                                <t t-esc="member.channelMember.channel.thread.getMemberName(member.channelMember.persona)"/>
+                                            </span>
+                                            <t t-if="member.rtcSession">
+                                                <span style="margin-left: 5px;">
+                                                    <t t-esc="member.rtcSession.isEmoji"/>
+                                                </span>
+                                                <t t-esc="member.rtcSession.isbadgeemoji"/>
+                                                <t t-if="member.rtcSession.isHandRaised">
+                                                    <div class="raiseHand">
+                                                        <span style="margin-left: 5px;color:black; background-color:transparent;" title="hand">
+                                                            <img src="/openeducat_live/static/src/img/hand.png" style="width:17px;"/>
+                                                        </span>
+                                                    </div>
+                                                </t>
+                                                <t t-if="member.rtcSession.isAttentiveness">
+                                                    <div>
+                                                        <span class="o_RtcCallParticipantCard_overlayTopElement" style="color:black; background-color:transparent;" title="eye">
+                                                            <img src="/openeducat_live_attentiveness/static/src/img/eye.png" style="width:17px;"/>
+                                                        </span>
+                                                    </div>
+                                                </t>
+                                            </t>
+                                        </div>
+
+                                    </t>
+                                </t>
+                            </t>
+                        </t>
+                    </t>
+                </t>
+
+            </t>
+        </xpath>
+    </t>
+</templates>

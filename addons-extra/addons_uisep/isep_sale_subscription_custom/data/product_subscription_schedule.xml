@@ -1,0 +1,50 @@
+<odoo>
+    <data noupdate="1">
+        <!-- Plan de Suscripción de 3 meses -->
+        <record id="subscription_plan_3_term_number" model="product.term.schedule">
+            <field name="name">03 Plazos</field>
+            <field name="term_number">3</field>
+        </record>
+
+        <!-- Plan de Suscripción de 6 meses -->
+        <record id="subscription_plan_6_term_number" model="product.term.schedule">
+            <field name="name">06 Plazos</field>
+            <field name="term_number">6</field>
+        </record>
+
+        <!-- Plan de Suscripción de 12 meses -->
+        <record id="subscription_plan_12_term_number" model="product.term.schedule">
+            <field name="name">12 Plazos</field>
+            <field name="term_number">12</field>
+        </record>
+
+        <!-- Plan de Suscripción de 16 meses -->
+        <record id="subscription_plan_16_term_number" model="product.term.schedule">
+            <field name="name">16 Plazos</field>
+            <field name="term_number">16</field>
+        </record>
+
+        <!-- Plan de Suscripción de 18 meses -->
+        <record id="subscription_plan_18_term_number" model="product.term.schedule">
+            <field name="name">18 Plazos</field>
+            <field name="term_number">18</field>
+        </record>
+
+        <!-- Plan de Suscripción de 24 meses -->
+        <record id="subscription_plan_24_term_number" model="product.term.schedule">
+            <field name="name">24 Plazos</field>
+            <field name="term_number">24</field>
+        </record>
+
+        <!-- Plan de Suscripción de 48 meses -->
+        <record id="subscription_plan_48_term_number" model="product.term.schedule">
+            <field name="name">48 Plazos</field>
+            <field name="term_number">48</field>
+        </record>
+        <record id="subscription_plan_custom" model="product.term.schedule">
+            <field name="name">Personalizado</field>
+            <field name="term_number">1</field>
+            <field name="custom">True</field>            
+        </record>
+    </data>
+</odoo>

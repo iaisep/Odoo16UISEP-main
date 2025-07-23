@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+
+        <record id="view_op_student_progress_attendance_form_inherite" model="ir.ui.view">
+            <field name="name">Student Progression Attendance Form</field>
+            <field name="model">op.student.progression</field>
+            <field name="inherit_id" ref="openeducat_student_progress_enterprise.view_student_progress_form"/>
+            <field name="priority" eval="40"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page name="Attendance" string="Attendance">
+                        <button name="%(act_win_progress_attendance_wizard_action)d" type="action"
+                                string="Get Attendance"
+                                class="oe_highlight"
+                                attrs="{'invisible':[('state','!=','open'),('state','!=','draft')]}"/>
+                        <group class="pt-4 pb-4">
+                            <group>
+                                <field name="total_attendance"/>
+                            </group>
+                        </group>
+                        <field name="attendance_lines"
+                               attrs="{'readonly':[('state','!=','open'),('state','!=','draft')]}">
+                            <tree editable="bottom" default_order='attendance_date asc'>
+                                <field name="attendance_date"/>
+                                <field name="attendance_id"/>
+                                <field name="present"/>
+                                 <field name="remark"/>
+                                <field name="course_id"/>
+                                <field name="batch_id"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_op_student_progress_attendance_tree_inherite" model="ir.ui.view">
+            <field name="name">Student Progression Attendance Tree</field>
+            <field name="model">op.student.progression</field>
+            <field name="inherit_id" ref="openeducat_student_progress_enterprise.view_student_progress_tree"/>
+            <field name="priority" eval="30"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='student_id']" position="after">
+                    <field name="attendance_lines" string="Attendance"/>
+                </xpath>
+            </field>
+        </record>
+
+</odoo>

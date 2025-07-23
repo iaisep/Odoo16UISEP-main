@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<templates xml:space="preserve">
+    <t t-name="op_quiz_question">
+        <div id="question_template">
+            <t t-foreach="res" t-as="data">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group" style="font-size: 17px;">
+                            <div class="card bg-o-color-3">
+                                <t t-if="section_name">
+                                    <div>
+                                        <h4 class="px-3 pt-4 mb0 text-secondary">
+                                            <t t-esc="section_name"/>
+                                        </h4>
+                                    </div>
+                                </t>
+                                <div class="d-flex align-items-baseline">
+                                    <div class="col-md-8 px-0">
+                                        <t t-if="section_name">
+                                            <h5 class="que_no mb0 text-secondary">
+                                            Question
+                                                <t t-esc="data['question_no']"></t>
+                                            of
+                                                <t t-esc="data['total_question']"></t>
+
+                                            </h5>
+                                        </t>
+                                        <t t-else="">
+                                            <h4 class="que_no mb0 text-secondary">
+                                            Question
+                                                <t t-esc="data['question_no']"></t>
+                                            of
+                                                <t t-esc="data['total_question']"></t>
+
+                                            </h4>
+                                        </t>
+
+                                    </div>
+                                </div>
+                                <div t-attf-value="{{data.id}}" t-attf-type="{{data['que_type']}}" class="question card-body">
+                                    <div class="col-12">
+                                        <t t-if="data['embed_code']">
+                                            <div class="embed-responsive embed-responsive-16by9 embed-responsive-item mb8">
+                                                <t t-raw="data['embed_code']" />
+                                            </div>
+                                        </t>
+                                    </div>
+                                    <t t-if="data['que_type'] != 'drag_into_text'">
+                                        <h4 class="mb16 text-secondary">
+                                            <t t-esc="data['name']"></t>
+                                        </h4>
+                                    </t>
+                                    <t t-if="data['que_type'] == 'drag_into_text'">
+                                        <h4 class="mb16 text-secondary">
+                                            <t>Drag and drop into text.</t>
+                                        </h4>
+                                    </t>
+                                    <div class="answer">
+                                        <t t-if="data['que_type'] == 'optional'">
+                                            <t t-foreach="data.line_ids" t-as="abc">
+                                                <t t-if="quiz.prev_readonly">
+                                                    <t t-if="data['given_answer']">
+                                                        <t t-if="data.line_ids[abc]">
+                                                            <input type="radio" checked="checked" disabled="disabled" t-attf-name="answer" t-attf-style="margin-top:5px;" t-att-value="abc" t-attf-id="{{data.line_ids[abc]}}" required="true"/>
+                                                        </t>
+                                                        <t t-else="">
+                                                            <input type="radio" t-attf-name="answer" disabled="disabled" t-attf-style="margin-top:5px;" t-att-value="abc" t-attf-id="{{data.line_ids[abc]}}" required="true"/>
+                                                        </t>
+                                                    </t>
+                                                    <t t-else="">
+                                                        <input type="radio" t-attf-name="answer" t-attf-style="margin-top:5px;" t-att-value="abc" t-attf-id="{{data.line_ids[abc]}}" required="true"/>
+                                                    </t>
+                                                </t>
+                                                <t t-else="">
+                                                    <t t-if="data.line_ids[abc]">
+                                                        <input type="radio" checked="checked" t-attf-name="answer" t-attf-style="margin-top:5px;" t-att-value="abc" t-attf-id="{{data.line_ids[abc]}}" required="true"/>
+                                                    </t>
+                                                    <t t-else="">
+                                                        <input type="radio" t-attf-name="answer" t-attf-style="margin-top:5px;" t-att-value="abc" t-attf-id="{{data.line_ids[abc]}}" required="true"/>
+                                                    </t>
+                                                </t>
+                                                <t t-esc="abc"></t>
+                                                <br />
+                                            </t>
+                                        </t>
+                                        <t t-if="data['que_type'] == 'blank'">
+                                            <t t-if="data['given_answer']">
+                                                <input type="text" t-attf-name="answer" t-attf-value="{{data.given_answer}}" style="width: 50%;"/>
+                                            </t>
+                                            <t t-else="">
+                                                <input type="text" t-attf-name="answer" style="width: 50%;"/>
+                                            </t>
+                                        </t>
+                                        <t t-if="data['que_type'] == 'descriptive'">
+                                            <t t-if="data['given_answer']">
+                                                <textarea id="descriptive_ans" type="textarea" t-attf-value="{{data.given_answer}}" rows="8" style="width:100%;">
+                                                    <t t-esc="data.given_answer"/>
+                                                </textarea>
+                                            </t>
+                                            <t t-else="">
+                                                <textarea id="descriptive_ans" type="textarea" rows="8" style="width:100%;" />
+                                            </t>
+                                        </t>
+                                        <t t-if="data['que_type'] == 'drag_into_text'">
+                                            <div id="drag_into_text_data">
+                                                <div class="drag_question" t-attf-id="{{data.id}}" t-attf-value="{{data.id}}"></div>
+                                                <div id="drag_into_text"></div>
+                                            </div>
+                                        </t>
+                                        <t t-if="data['que_type'] == 'match_following'">
+                                            <div class="quiz_data">
+                                                <div class="match_following" t-att-data-id="data.id"></div>
+                                                <div t-attf-id="quiz_question#{data.id}" class="row"></div>
+                                            </div>
+                                        </t>
+                                        <t t-if="data['que_type'] == 'match_following_images'">
+                                            <div class="match_following_images" t-att-data-id="data.id"></div>
+                                            <div id="quiz_data">
+                                                <div id="quiz_answer"></div>
+                                                <div t-attf-id="quiz_question#{data.id}"></div>
+                                            </div>
+                                        </t>
+                                        <t t-if="data['que_type'] == 'multiple_choice'">
+                                            <div t-att-data="data.id" class="quiz_multiple_choice row">
+                                                <t t-foreach="data.multiple_choice_line_ids" t-as="option">
+                                                    <t t-if="data.multiple_choice_que_type == 'text'">
+                                                        <div class="col-md-12">
+                                                            <input class="quiz_multiple_choice_text" type="Checkbox" t-attf-id="#{option.id}" t-attf-name="#{option.que_text}">
+                                                                <t t-esc="option.que_text"></t>
+                                                            </input>
+                                                        </div>
+                                                    </t>
+
+                                                    <t t-if="data.multiple_choice_que_type == 'image'">
+                                                        <div t-attf-id="#{option.id}" class="col-md-3 multiple_choice_image_div">
+                                                            <img class="quiz_multiple_choice_image" t-attf-src="data:image/*;base64,{{option.que_image}}" t-att-alt="option.que_image" />
+                                                        </div>
+                                                    </t>
+                                                </t>
+                                            </div>
+                                        </t>
+                                        <t t-if="data['que_type'] == 'sort_paragraphs'">
+                                            <div id="sort_paragraphs_data">
+                                                <ul t-att-class="data.id" id="sort-paragraphs"></ul>
+                                                <div class="sort_paragraphs_question" t-att-data-id="data.id" t-att-value="data.que_type" t-att-id="data.id"></div>
+                                                <div id="sort_paragraphs"></div>
+                                            </div>
+                                        </t>
+                                        <t t-if="data['que_type'] == 'numeric'">
+                                            <input id="numeric_answer" type="number" step="any" t-attf-value="#{data.given_answer}" t-attf-name="answer" required="True"/>
+                                        </t>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </div>
+    </t>
+</templates>

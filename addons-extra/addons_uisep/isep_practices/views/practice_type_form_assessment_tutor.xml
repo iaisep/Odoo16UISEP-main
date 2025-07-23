@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- View practice.type.form.assessment.tutor View Tree -->
+    <record id="view_practice_type_form_assessment_tutor_tree" model="ir.ui.view">
+        <field name="name">view.practice.type.form.assessment.tutor.tree</field>
+        <field name="model">practice.type.form.assessment.tutor</field>
+        <field name="arch" type="xml">
+            <tree string="TypeForm Assessment Tutor">
+                <field name="name_tutor"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- View practice.type.form.assessment.tutor form -->
+    <record id="view_practice_type_form_assessment_tutor_form" model="ir.ui.view">
+        <field name="name">view.practice.type.form.assessment.tutor.form</field>
+        <field name="model">practice.type.form.assessment.tutor</field>
+        <field name="arch" type="xml">
+            <form string="TypeForm Assessment Tutor">
+                    <header>
+                        <button name="ratings_student" type="object" string="TEST"
+                            class="oe_highlight"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group string="Información">
+                                <field name="name_tutor" required="1" string="Nombre del Tutor"/>
+                                <field name="name_center" required="1" string="Nombre del Centro"/>
+                                <field name="name_student" required="1" string="Nombre del Estudiante"/>
+                                <field name="city" required="1" string="Ciudad"/>
+                                <field name="area" required="1" string="Area"/>
+                                <field name="master_psychology_bool" invisible="1"/>
+                                <field name="master_neuropsychology_bool" invisible="1"/>
+                                <field name="master_study_bool" invisible="1"/>
+                                <field name="master_speech_therapy_bool" invisible="1"/>
+                                <field name="master_neuropsychology" attrs="{'invisible': [('master_neuropsychology_bool','=', False)]}"/>
+                                    <field name="master_psychology" attrs="{'invisible': [('master_psychology_bool','=', False)]}"/>
+                                <field name="master_study" attrs="{'invisible': [('master_study_bool','=', False)]}"/>
+                                <field name="master_speech_therapy" attrs="{'invisible': [('master_speech_therapy_bool','=', False)]}"/>
+                            </group>
+                            <group string="Assessment Tutor">
+                                    <field name="assessment_responsibility" string="Responsabilidad"/>
+                                    <field name="assessment_started" string="Iniciativa"/>
+                                    <field name="assessment_teacher_interaction" string="Interacción con los Profesionales del Centro"/>
+                                    <field name="assessment_patients_interaction" string="Interacción con los Pacientes y Familiares"/>
+                                    <field name="assessment_capacity_observation" string="Capacidad de Observación"/>
+                                    <field name="assessment_capacity_participation" string="Capacidad de Participación"/>
+                                    <field name="assessment_meets_set_objectives" string="Cumple los objetivos marcados por el Centro"/>
+                                    <field name="assessment_ability_to_take_cases" string="Capacidad para asumir casos"/>
+                                    <field name="assessment_involvement_development_material" string="Implicación en la elaboración del material"/>
+                                    <field name="assessment_evaluation_internship_period_general" string="Evaluación del periodo de prácticas en general"/>
+                            </group>
+                        </group>
+                        <notebook colspan="4">
+                            <page name="Observations" string="Observaciones">
+                                <field name="assessment_observations"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- View practice.type.form.assessment.tutor search -->
+    <record id="view_practice_type_form_assessment_tutor_search" model="ir.ui.view">
+        <field name="name">view.practice.type.form.assessment.tutor.search</field>
+        <field name="model">practice.type.form.assessment.tutor</field>
+        <field name="arch" type="xml">
+            <search string="TypeForm Assessment Tutor">
+                <field name="name_tutor"/>
+                <group expand="1" string="Group By">
+                    <filter string="Name Tutor" name="name_tutor" domain="[]" context="{'group_by':'name_tutor'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action practice.type.form.assessment.tutor -->
+    <record id="action_practice_type_form_assessment_tutor" model="ir.actions.act_window">
+        <field name="name">Practice Type Form Assessment Tutor</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">practice.type.form.assessment.tutor</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                There is no examples click here to add new Practice Type Form Assessment Tutor.
+            </p>
+        </field>
+    </record>
+
+</odoo>

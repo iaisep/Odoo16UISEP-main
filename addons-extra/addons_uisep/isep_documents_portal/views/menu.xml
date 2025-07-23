@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <menuitem 
+            name="Documentación" 
+            id="op_document_root" 
+            parent="openeducat_core.menu_op_school_root"
+            groups="isep_documents_portal.group_document_user"
+            sequence="10"/>
+
+
+         <menuitem 
+            name="Folders" 
+            id="isep_documents_portal.folder_menu" 
+            parent="op_document_root"
+            action="folder_action" 
+            groups="isep_documents_portal.group_document_manager" 
+            sequence="1"/>
+
+
+        
+    </data>
+</odoo>

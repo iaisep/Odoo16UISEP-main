@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template xml:space="preserve">
+
+    <t t-name="GetBatchData">
+        <select class="form-control" name="batch_id" id="batch_id">
+            <option value="" class="disabled selected">
+            <lable>Select your option</lable>
+        </option>
+            <t t-foreach="batches" t-as="batch">
+                <option t-att-value="batch.id">
+                    <t t-esc="batch.name"/>
+                </option>
+            </t>
+        </select>
+    </t>
+
+    <t t-name="GetSubjectData">
+        <t t-foreach="subjects" t-as="subject">
+            <option t-att-value="subject.id" t-att-selected="subject.name">
+                <t t-esc="subject.name"/>
+            </option>
+        </t>
+    </t>
+</template>

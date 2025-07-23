@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template xml:space="preserve">
+
+    <t t-name="GetCountryData">
+        <select class="form-control" name="state_id">
+            <option value="" class="disabled selected">
+                <lable>Select State</lable>
+            </option>
+            <t t-foreach="states" t-as="state">
+                <option t-att-value="state.id">
+                    <t t-esc="state.name"/>
+                </option>
+            </t>
+        </select>
+    </t>
+
+</template>

@@ -1,0 +1,1171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <template id="portal_my_home_grievance" name="Show Grievances" inherit_id="portal.portal_my_home"
+                  customize_show="True" priority="30">
+            <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+                <t t-if="request.env.user.user_has_groups('openeducat_core.group_op_faculty') and
+                not request.env.user.user_has_groups('openeducat_core.group_op_back_office_admin')">
+                    <t t-call="portal.portal_docs_entry">
+                        <t t-set="title">Grievances</t>
+                        <t t-set="url" t-value="'/my/grievances'"/>
+                        <t t-set="placeholder_count" t-value="'grievance_count'"/>
+                    </t>
+                </t>
+            </xpath>
+        </template>
+
+        <template id="portal_my_home_menu_grievance"
+                  name="Portal layout : Grievances"
+                  inherit_id="openeducat_core_enterprise.portal_breadcrumbs_inhetrite" priority="10">
+            <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+                <li t-if="page_name == 'my_grievances' or my_grievances"
+                    t-attf-class="breadcrumb-item #{'active ' if not notice_board else ''}">
+                    <t t-if="user_id.sudo().is_student">
+                        <a t-if="grievance_data" t-attf-href="/my/grievances?{{ keep_query() }}">Grievances</a>
+                        <t t-else=" ">
+                            <span>Grievances</span>
+                        </t>
+                    </t>
+                    <t t-else=" ">
+                        <a t-if="gms_student_id"
+                           t-attf-href="/my/grievances/#{gms_student_id}?{{ keep_query() }}">
+                            <span>Grievances</span>
+                        </a>
+                        <t t-else=" ">
+                            <span>Grievances</span>
+                        </t>
+                    </t>
+                </li>
+                <li t-if="page_name == 'grievance_form' or grievance_form"
+                    t-attf-class="breadcrumb-item #{'active ' if not notice_board else ''}">
+                    <t t-if="user_id.sudo().is_student">
+                        <a t-attf-href="/my/grievances?{{ keep_query() }}">Grievances</a>
+                    </t>
+                    <t t-else=" ">
+                        <a t-if="gms_student_id"
+                           t-attf-href="/my/grievances/#{gms_student_id.id}?{{ keep_query() }}">
+                            <span>Grievances</span>
+                        </a>
+                        <t t-else=" ">
+                            <span>Grievances</span>
+                        </t>
+                    </t>
+                </li>
+
+                <li t-if="page_name == 'my_grievance_details' or my_grievance_details"
+                    t-attf-class="breadcrumb-item #{'active ' if not notice_board else ''}">
+                    <t t-if="user_id.sudo().is_student">
+                        <a t-if="grievance_data" t-attf-href="/my/grievances?{{ keep_query() }}">Grievances</a>
+                        <t t-else=" ">
+                            <span>Grievances</span>
+                        </t>
+                        <li t-if="grievance_data" class="breadcrumb-item active text-truncate col-8 col-lg-10">
+                            <t t-esc="grievance_data.name"/>
+                        </li>
+                    </t>
+                    <t t-else=" ">
+                        <a t-if="grievance_data"
+                           t-attf-href="/my/grievances/#{grievance_data.student_id.id}?{{ keep_query() }}">
+                            <span>Grievances</span>
+                        </a>
+                        <t t-else=" ">
+                            <span>Grievances</span>
+                        </t>
+                        <li t-if="grievance_data" class="breadcrumb-item active text-truncate col-8 col-lg-10">
+                            <t t-esc="grievance_data.name"/>
+                        </li>
+                    </t>
+                </li>
+            </xpath>
+        </template>
+
+        <template id="grievance_registration" name="grievance form">
+            <t t-call="portal.portal_layout">
+                <div style="background-color:white; padding: 20px 40px 20px 40px;" class="grievance_portal_form">
+                    <div class="mt32">
+                        <t t-if="gms_student_id">
+                            <form t-attf-action="/my/grievance/grievance-form/#{gms_student_id.id}" method="post"
+                                  role="form"
+                                  enctype="multipart/form-data">
+                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                <div class="row col-md-12 pt-3" t-if="grievance_parent_id">
+                                    <div class="col-md-2">
+                                        <label>Parent Grievance:</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input type="text" t-attf-class="form-control"
+                                               t-att-value="grievance_parent_id.subject" readonly="1"/>
+                                        <input type="hidden" name="grievance_parent_id" t-attf-class="form-control"
+                                               t-att-value="grievance_parent_id.id"/>
+                                    </div>
+                                </div>
+                                <div class="row col-md-12">
+                                    <div class="col-md-2 pt-3" t-if="student"/>
+                                    <div class="col-md-10 pt-3" t-if="student">
+                                        <input type="hidden" name="grievance_for" t-attf-class="form-control"
+                                               value="student" readonly=""/>
+                                    </div>
+                                    <div class="col-md-2 pt-3" t-if="faculty"/>
+                                    <div class="col-md-10 pt-3" t-if="faculty">
+                                        <input type="hidden" name="grievance_for" t-attf-class="form-control"
+                                               value="faculty" readonly=""/>
+                                    </div>
+                                    <div class="col-md-2 pt-3" t-if="parent"/>
+                                    <div class="col-md-10 pt-3" t-if="parent">
+                                        <input type="hidden" name="grievance_for" t-attf-class="form-control"
+                                               value="parent" readonly=""/>
+                                    </div>
+                                    <div class="col-md-2 pt-3" t-if="parent">
+                                        <label>Student Name:</label>
+                                    </div>
+                                    <div class="col-md-10 pt-3" t-if="parent">
+                                        <input type="hidden" name="student_id" t-attf-class="form-control"
+                                               t-att-value="gms_student_id.id" readonly=""/>
+                                        <input type="text" name="student" t-attf-class="form-control"
+                                               t-att-value="gms_student_id.name" readonly="1"/>
+                                    </div>
+                                    <div class="col-md-2 pt-3">
+                                        <label>Name/Subject:</label>
+                                    </div>
+                                    <div class="col-md-10 pt-3">
+                                        <input id="subject_input" type="text" name="subject"
+                                               t-attf-class="form-control" required="required"/>
+                                    </div>
+                                </div>
+                                <t t-if="not grievance_parent_id">
+                                    <div class="row col-md-12 pt-3">
+                                        <div class="col-md-2">
+                                            <label>Category:</label>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <select class="form-control"
+                                                    name="grievance_category_id">
+                                                <t t-foreach="grievance_category_ids" t-as="data">
+                                                    <option t-att-value="data.id"
+                                                            t-att-data-academic="'academic' if data.is_academic else 'non_academic'">
+                                                        <t t-esc="data.complete_name"/>
+                                                    </option>
+                                                </t>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </t>
+                                <t t-else="">
+                                    <div class="row col-md-12 pt-3">
+                                        <div class="col-md-2">
+                                            <label>Category:</label>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <select class="form-control appeal_grievance_category"
+                                                    name="grievance_category_id">
+                                                <t t-foreach="grievance_category_ids" t-as="data">
+                                                    <option t-att-value="data.id"
+                                                            t-att-data-academic="'academic' if data.is_academic else 'non_academic'"
+                                                            t-att-selected="data.id == grievance_parent_id.grievance_category_id.id"
+                                                            readonly="">
+                                                        <t t-esc="data.complete_name"/>
+                                                    </option>
+                                                </t>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </t>
+                                <div class="row col-md-12">
+                                    <div class="col-md-2 pt-3">
+                                        <label>Description</label>
+                                    </div>
+                                    <div class="col-md-10 pt-3">
+                                        <textarea style="height:100px;" name="description" t-attf-class="form-control"/>
+                                    </div>
+                                </div>
+                                <div class="row col-md-12">
+                                    <div class="col-md-2 pt-3">
+                                        <label>Attachment</label>
+                                    </div>
+                                    <div class="col-md-10 pt-3">
+                                        <input id="upload" name="file"
+                                               class="inputfile"
+                                               type="file"
+                                               multiple="true"/>
+                                    </div>
+                                </div>
+                                <div class="row col-md-12 pt-3 non_academic_year">
+                                    <div class="col-md-6">
+                                        <label for="course_dropdown">Course:</label>
+                                        <select id="course_dropdown" class="form-control" name="course_id">
+                                            <t t-foreach="course_ids" t-as="course_data">
+                                                <option t-att-value="course_data.id">
+                                                    <t t-esc="course_data.name"/>
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="academic_year_dropdown">Academic Year:</label>
+                                        <select id="academic_year_dropdown" class="form-control"
+                                                name="academic_year_id">
+                                            <t t-foreach="academic_year_ids" t-as="data">
+                                                <option t-att-value="data.id">
+                                                    <t t-esc="data.name"/>
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row col-md-12 pt-3 non_academic_year">
+                                    <div class="col-md-6">
+                                        <label for="batch_id">Batch:</label>
+                                        <select class="form-control custom batches" id="batch_on_courses_gms"
+                                                name="batch_id"
+                                                required="1">
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="academic_term_id">Academic Term:</label>
+                                        <select class="form-control custom batches" id="term_on_academic_year"
+                                                name="academic_term_id"
+                                                required="1">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div lass="clearfix mb16 mt16 row col-md-12 pt-3">
+                                    <div class="col-md-4 pt-3">
+                                        <button type="submit" class="btn btn-primary">
+                                            Next
+                                            <span class="fa fa-long-arrow-right"/>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </t>
+                        <t t-else="">
+                            <form action="/my/grievance/grievance-form" method="post"
+                                  role="form"
+                                  enctype="multipart/form-data">
+                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                <div class="row col-md-12 pt-3" t-if="grievance_parent_id">
+                                    <div class="col-md-2">
+                                        <label>Parent Grievance:</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input type="text" t-attf-class="form-control"
+                                               t-att-value="grievance_parent_id.subject" readonly="1"/>
+                                        <input type="hidden" name="grievance_parent_id" t-attf-class="form-control"
+                                               t-att-value="grievance_parent_id.id"/>
+                                    </div>
+                                </div>
+                                <div class="row col-md-12">
+                                    <div class="col-md-2 pt-3" t-if="student"/>
+                                    <div class="col-md-10 pt-3" t-if="student">
+                                        <input type="hidden" name="grievance_for" t-attf-class="form-control"
+                                               value="student" readonly=""/>
+                                    </div>
+                                    <div class="col-md-2 pt-3" t-if="faculty"/>
+                                    <div class="col-md-10 pt-3" t-if="faculty">
+                                        <input type="hidden" name="grievance_for" t-attf-class="form-control"
+                                               value="faculty" readonly=""/>
+                                    </div>
+                                    <div class="col-md-2 pt-3" t-if="parent"/>
+                                    <div class="col-md-10 pt-3" t-if="parent">
+                                        <input type="hidden" name="grievance_for" t-attf-class="form-control"
+                                               value="parent" readonly="1"/>
+                                    </div>
+                                    <div class="col-md-2 pt-3" t-if="parent">
+                                        <label>Student Name:</label>
+                                    </div>
+                                    <div class="col-md-10 pt-3" t-if="parent">
+                                        <input type="hidden" name="student_id" t-attf-class="form-control"
+                                               t-att-value="gms_student_id.id" readonly=""/>
+                                        <input type="text" name="student" t-attf-class="form-control"
+                                               t-att-value="gms_student_id.name" readonly="1"/>
+                                    </div>
+                                    <div class="col-md-2 pt-3">
+                                        <label>Name/Subject:</label>
+                                    </div>
+                                    <div class="col-md-10 pt-3">
+                                        <input id="subject_input" type="text" name="subject"
+                                               t-attf-class="form-control" required="required"/>
+                                    </div>
+                                </div>
+                                <t t-if="not grievance_parent_id">
+                                    <div class="row col-md-12 pt-3">
+                                        <div class="col-md-2">
+                                            <label>Category:</label>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <select class="form-control" name="grievance_category_id">
+                                                <t t-foreach="grievance_category_ids" t-as="data">
+                                                    <option t-att-value="data.id"
+                                                            t-att-data-academic="'academic' if data.is_academic else 'non_academic'">
+                                                        <t t-esc="data.complete_name"/>
+                                                    </option>
+                                                </t>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </t>
+                                <t t-else="">
+                                    <div class="row col-md-12 pt-3" t-if="grievance_parent_id">
+                                        <div class="col-md-2">
+                                            <label>Category:</label>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <select class="form-control appeal_grievance_category"
+                                                    name="grievance_category_id" readonly="">
+                                                <t t-foreach="grievance_category_ids" t-as="data">
+                                                    <option t-att-value="data.id"
+                                                            t-att-data-academic="'academic' if data.is_academic else 'non_academic'"
+                                                            t-att-selected="data.id == grievance_parent_id.grievance_category_id.id"
+                                                            readonly="">
+                                                        <t t-esc="data.complete_name"/>
+                                                    </option>
+                                                </t>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </t>
+                                <div class="row col-md-12">
+                                    <div class="col-md-2 pt-3">
+                                        <label>Description</label>
+                                    </div>
+                                    <div class="col-md-10 pt-3">
+                                        <textarea style="height:100px;" name="description" t-attf-class="form-control" required="required"/>
+                                    </div>
+                                </div>
+                                <div class="row col-md-12">
+                                    <div class="col-md-2 pt-3">
+                                        <label>Attachment</label>
+                                    </div>
+                                    <div class="col-md-10 pt-3">
+                                        <input id="upload" name="file"
+                                               class="inputfile"
+                                               type="file"
+                                               multiple="true"/>
+                                    </div>
+                                </div>
+                                <t t-if="not grievance_parent_id">
+                                    <div class="row col-md-12 pt-3 non_academic_year">
+                                        <div class="col-md-6">
+                                            <label for="course_dropdown">Course:</label>
+                                            <select id="course_dropdown" class="form-control" name="course_id">
+                                                <t t-foreach="course_ids" t-as="course_data">
+                                                    <option t-att-value="course_data.id">
+                                                        <t t-esc="course_data.name"/>
+                                                    </option>
+                                                </t>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="academic_year_dropdown">Academic Year:</label>
+                                            <select id="academic_year_dropdown" class="form-control"
+                                                    name="academic_year_id">
+                                                <t t-foreach="academic_year_ids" t-as="data">
+                                                    <option t-att-value="data.id">
+                                                        <t t-esc="data.name"/>
+                                                    </option>
+                                                </t>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row col-md-12 pt-3 non_academic_year">
+                                        <div class="col-md-6">
+                                            <label for="batch_id">Batch:</label>
+                                            <select class="form-control custom batches" id="batch_on_courses_gms"
+                                                    name="batch_id"
+                                                    required="1">
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="academic_term_id">Academic Term:</label>
+                                            <select class="form-control custom batches" id="term_on_academic_year"
+                                                    name="academic_term_id"
+                                                    required="1">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </t>
+                                <t t-else="">
+                                    <div class="row col-md-12 pt-3 non_academic_year">
+                                        <div class="col-md-6">
+                                            <label for="course_dropdown">Course:</label>
+                                            <select id="course_dropdown" class="form-control" name="course_id">
+                                                <t t-foreach="course_ids" t-as="course_data">
+                                                    <option t-att-value="course_data.id"
+                                                            t-att-selected="course_data.id == grievance_parent_id.course_id.id">
+                                                        <t t-esc="course_data.name"/>
+                                                    </option>
+                                                </t>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="academic_year_dropdown">Academic Year:</label>
+                                            <select id="academic_year_dropdown" class="form-control"
+                                                    name="academic_year_id">
+                                                <t t-foreach="academic_year_ids" t-as="data">
+                                                    <option t-att-value="data.id"
+                                                            t-att-selected="data.id == grievance_parent_id.academic_year_id.id">
+                                                        <t t-esc="data.name"/>
+                                                    </option>
+                                                </t>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row col-md-12 pt-3 non_academic_year">
+                                        <div class="col-md-6">
+                                            <label for="batch_id">Batch:</label>
+                                            <select class="form-control custom batches" id="batch_on_courses_gms"
+                                                    name="batch_id"
+                                                    required="1">
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="academic_term_id">Academic Term:</label>
+                                            <select class="form-control custom batches" id="term_on_academic_year"
+                                                    name="academic_term_id"
+                                                    required="1">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </t>
+                                <div lass="clearfix mb16 mt16 row col-md-12 pt-3">
+                                    <div class="col-md-4 pt-3">
+                                        <button type="submit" class="btn btn-primary">
+                                            Next
+                                            <span class="fa fa-long-arrow-right"/>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </t>
+
+                    </div>
+                </div>
+
+            </t>
+        </template>
+
+        <template id="grievance_edit" name="edit-grievance">
+            <t t-call="portal.portal_layout">
+                <div style="background-color:white; padding: 20px 40px 20px 40px;" class="grievance_portal_form">
+                    <div class="">
+                        <t t-if="gms_student_id">
+                            <form t-att-action="'/my/grievance/grievance-edit/'+str(gms_student_id.id)+'/'+str(grievances.id)"
+                                  method="post"
+                                  role="form"
+                                  enctype="multipart/form-data">
+                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                <div class="row col-md-12 pt-3" t-if="grievance_parent_id">
+                                    <div class="col-md-2">
+                                        <label>Parent Grievance:</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input type="text" t-attf-class="form-control"
+                                               t-att-value="grievance_parent_id.subject" readonly="1"/>
+                                        <input type="hidden" name="grievance_parent_id" t-attf-class="form-control"
+                                               t-att-value="grievance_parent_id.id"/>
+                                    </div>
+                                </div>
+                                <div class="row col-md-12">
+                                    <div class="col-md-2 pt-3" t-if="student"/>
+                                    <div class="col-md-10 pt-3" t-if="student">
+                                        <input type="hidden" name="grievance_for" t-attf-class="form-control"
+                                               value="student" readonly=""/>
+                                    </div>
+                                    <div class="col-md-2 pt-3" t-if="faculty"/>
+                                    <div class="col-md-10 pt-3" t-if="faculty">
+                                        <input type="hidden" name="grievance_for" t-attf-class="form-control"
+                                               value="faculty" readonly=""/>
+                                    </div>
+                                    <div class="col-md-2 pt-3" t-if="parent"/>
+                                    <div class="col-md-10 pt-3" t-if="parent">
+                                        <input type="hidden" name="grievance_for" t-attf-class="form-control"
+                                               value="parent" readonly=""/>
+                                    </div>
+                                    <div class="col-md-2 pt-3" t-if="parent">
+                                        <label>Student Name:</label>
+                                    </div>
+                                    <div class="col-md-10 pt-3" t-if="parent">
+                                        <input type="hidden" name="student_id" t-attf-class="form-control"
+                                               t-att-value="gms_student_id.id" readonly=""/>
+                                        <input type="text" name="student" t-attf-class="form-control"
+                                               t-att-value="gms_student_id.name" readonly="1"/>
+                                    </div>
+                                    <div class="col-md-2 pt-3">
+                                        <label>Name/Subject:</label>
+                                    </div>
+                                    <div class="col-md-10 pt-3">
+                                        <input id="edit_subject" type="text" name="subject" t-attf-class="form-control"
+                                               t-att-value="grievances.subject" required="required"/>
+                                    </div>
+                                </div>
+                                <t t-if="not grievance_parent_id">
+                                    <div class="row col-md-12 pt-3">
+                                        <div class="col-md-2">
+                                            <label>Category:</label>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <select class="form-control "
+                                                    name="grievance_category_id">
+                                                <t t-foreach="grievance_category_ids" t-as="data">
+                                                    <option t-att-value="data.id"
+                                                            t-att-data-academic="'academic' if data.is_academic else 'non_academic'"
+                                                            t-att-selected="data.id == grievances.grievance_category_id.id">
+                                                        <t t-esc="data.complete_name"/>
+                                                        <t t-esc="data.id"/>
+                                                    </option>
+                                                </t>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </t>
+                                <t t-else="">
+                                    <div class="row col-md-12 pt-3">
+                                        <div class="col-md-2">
+                                            <label>Category:</label>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <select class="form-control appeal_grievance_category"
+                                                    name="grievance_category_id">
+                                                <t t-foreach="grievance_category_ids" t-as="data">
+                                                    <option t-att-value="data.id"
+                                                            t-att-data-academic="'academic' if data.is_academic else 'non_academic'"
+                                                            t-att-selected="data.id == grievances.grievance_category_id.id">
+                                                        <t t-esc="data.complete_name"/>
+                                                        <t t-esc="data.id"/>
+                                                    </option>
+                                                </t>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </t>
+                                <div class="row col-md-12">
+                                    <div class="col-md-2 pt-3">
+                                        <label>Description</label>
+                                    </div>
+                                    <div class="col-md-10 pt-3">
+                                        <textarea style="height:100px;" name="description" t-attf-class="form-control" required="required"><t t-esc="grievances.description"/></textarea>
+                                    </div>
+                                </div>
+                                <div class="row col-md-12">
+                                    <div class="col-md-2 pt-3">
+                                        <label>Attachment</label>
+                                    </div>
+                                    <div class="col-md-10 pt-3">
+                                        <input id="upload" name="file"
+                                               class="inputfile"
+                                               type="file"
+                                               multiple="true"/>
+                                    </div>
+                                </div>
+                                <div class="row col-md-12 pt-3 non_academic_year">
+                                    <div class="col-md-6">
+                                        <label for="course_dropdown">Course:</label>
+                                        <select id="course_dropdown" class="form-control" name="course_id">
+                                            <t t-foreach="course_ids" t-as="course_data">
+                                                <option t-att-value="course_data.id"
+                                                        t-att-selected="course_data.id == grievances.course_id.id">
+                                                    <t t-esc="course_data.name"/>
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="academic_year_dropdown">Academic Year:</label>
+                                        <select id="academic_year_dropdown" class="form-control"
+                                                name="academic_year_id">
+                                            <t t-foreach="academic_year_ids" t-as="data">
+                                                <option t-att-value="data.id"
+                                                        t-att-selected="data.id == grievances.academic_year_id.id">
+                                                    <t t-esc="data.name"/>
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row col-md-12 pt-3 non_academic_year">
+                                    <div class="col-md-6">
+                                        <label for="batch_id">Batch:</label>
+                                        <select class="form-control custom batches" id="batch_on_courses_gms"
+                                                t-att-data-selected="grievances.batch_id.id"
+                                                name="batch_id"
+                                                required="1">
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="academic_term_id">Academic Term:</label>
+                                        <select class="form-control custom batches" id="term_on_academic_year"
+                                                t-att-data-selected="grievances.academic_term_id.id"
+                                                name="academic_term_id"
+                                                required="1">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="clearfix pt-3">
+                                    <button type="submit" class="btn btn-primary">
+                                        Update
+                                        <span class="fa fa-long-arrow-right"/>
+                                    </button>
+                                    <button type="submit" class="btn btn-primary gms-submit-grievance">
+                                        Submit
+                                    </button>
+                                </div>
+                            </form>
+                        </t>
+                        <t t-else="">
+                            <form t-att-action="'/my/grievance/grievance-edit/'+str(grievances.id)"
+                                  method="post"
+                                  role="form"
+                                  enctype="multipart/form-data">
+                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                <div class="row col-md-12 pt-3" t-if="grievance_parent_id">
+                                    <div class="col-md-2">
+                                        <label>Parent Grievance:</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input type="text" t-attf-class="form-control"
+                                               t-att-value="grievance_parent_id.subject" readonly="1"/>
+                                        <input type="hidden" name="grievance_parent_id" t-attf-class="form-control"
+                                               t-att-value="grievance_parent_id.id"/>
+                                    </div>
+                                </div>
+                                <div class="row col-md-12">
+                                    <div class="col-md-2 pt-3" t-if="student"/>
+                                    <div class="col-md-10 pt-3" t-if="student">
+                                        <input type="hidden" name="grievance_for" t-attf-class="form-control"
+                                               value="student" readonly=""/>
+                                    </div>
+                                    <div class="col-md-2 pt-3" t-if="faculty"/>
+                                    <div class="col-md-10 pt-3" t-if="faculty">
+                                        <input type="hidden" name="grievance_for" t-attf-class="form-control"
+                                               value="faculty" readonly=""/>
+                                    </div>
+                                    <div class="col-md-2 pt-3" t-if="parent"/>
+                                    <div class="col-md-10 pt-3" t-if="parent">
+                                        <input type="hidden" name="grievance_for" t-attf-class="form-control"
+                                               value="parent" readonly=""/>
+                                    </div>
+                                    <div class="col-md-2 pt-3" t-if="parent">
+                                        <label>Student Name:</label>
+                                    </div>
+                                    <div class="col-md-10 pt-3" t-if="parent">
+                                        <input type="hidden" name="student_id" t-attf-class="form-control"
+                                               t-att-value="gms_student_id" readonly=""/>
+                                        <input type="text" name="student" t-attf-class="form-control"
+                                               t-att-value="gms_student_id" readonly="1"/>
+                                    </div>
+                                    <div class="col-md-2 pt-3">
+                                        <label>Name/Subject:</label>
+                                    </div>
+                                    <div class="col-md-10 pt-3">
+                                        <input id="edit_subject" type="text" name="subject" t-attf-class="form-control"
+                                               t-att-value="grievances.subject" required="required"/>
+                                    </div>
+                                </div>
+                                <div class="row col-md-12 pt-3">
+                                    <div class="col-md-2">
+                                        <label>Category:</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <select class="form-control" name="grievance_category_id">
+                                            <t t-foreach="grievance_category_ids" t-as="data">
+                                                <option t-att-value="data.id"
+                                                        t-att-data-academic="'academic' if data.is_academic else 'non_academic'"
+                                                        t-att-selected="data.id == grievances.grievance_category_id.id">
+                                                    <t t-esc="data.complete_name"/>
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row col-md-12">
+                                    <div class="col-md-2 pt-3">
+                                        <label>Description</label>
+                                    </div>
+                                    <div class="col-md-10 pt-3">
+                                        <textarea style="height:100px;" name="description" t-attf-class="form-control" required="required"><t t-esc="grievances.description"/></textarea>
+                                    </div>
+                                </div>
+                                <div class="row col-md-12">
+                                    <div class="col-md-2 pt-3">
+                                        <label>Attachment</label>
+                                    </div>
+                                    <div class="col-md-10 pt-3">
+                                        <input id="upload" name="file"
+                                               class="inputfile"
+                                               type="file"
+                                               multiple="true"/>
+                                    </div>
+                                </div>
+                                <div class="row col-md-12 pt-3 non_academic_year">
+                                    <div class="col-md-6">
+                                        <label for="course_dropdown">Course:</label>
+                                        <select id="course_dropdown" class="form-control" name="course_id">
+                                            <t t-foreach="course_ids" t-as="course_data">
+                                                <option t-att-value="course_data.id"
+                                                        t-att-selected="course_data.id == grievances.course_id.id">
+                                                    <t t-esc="course_data.name"/>
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="academic_year_dropdown">Academic Year:</label>
+                                        <select id="academic_year_dropdown" class="form-control"
+                                                name="academic_year_id">
+                                            <t t-foreach="academic_year_ids" t-as="data">
+                                                <option t-att-value="data.id"
+                                                        t-att-selected="data.id == grievances.academic_year_id.id">
+                                                    <t t-esc="data.name"/>
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row col-md-12 pt-3 non_academic_year">
+                                    <div class="col-md-6">
+                                        <label for="batch_id">Batch:</label>
+                                        <select class="form-control custom batches" id="batch_on_courses_gms"
+                                                t-att-data-selected="grievances.batch_id.id"
+                                                name="batch_id"
+                                                required="1">
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="academic_term_id">Academic Term:</label>
+                                        <select class="form-control custom batches" id="term_on_academic_year"
+                                                t-att-data-selected="grievances.academic_term_id.id"
+                                                name="academic_term_id"
+                                                required="1">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="clearfix pt-3">
+                                    <button type="submit" class="btn btn-primary">
+                                        Update
+                                        <span class="fa fa-long-arrow-right"/>
+                                    </button>
+                                    <button type="submit" class="btn btn-primary gms-submit-grievance">
+                                        Submit
+                                    </button>
+                                </div>
+                            </form>
+                        </t>
+                    </div>
+                </div>
+            </t>
+        </template>
+        <template id="all_grievance" name="All Grievances">
+            <t t-call="portal.portal_layout">
+                <t t-set="breadcrumbs_searchbar" t-value="True"/>
+                <t t-call="portal.portal_searchbar">
+                    <t t-set="title">Grievances</t>
+                </t>
+                <div class="mt16 mb16 text-left portal_buttons">
+                    <div>
+                        <t t-if="not user_id.sudo().is_parent">
+                            <a t-attf-href="/my/grievance/grievance-form">
+                                <button>Grievance</button>
+                            </a>
+                        </t>
+                        <t t-else="">
+                            <a t-if="gms_student_id"
+                               t-attf-href="/my/grievance/grievance-form/#{gms_student_id}">
+                                <button>Grievance</button>
+                            </a>
+                        </t>
+                    </div>
+                </div>
+                <t t-if="not categories">
+                    <div class="alert alert-warning mt8" role="alert">
+                        There are no Grievances
+                    </div>
+                </t>
+                <t t-if="categories" t-call="portal.portal_table">
+                    <t t-foreach="categories" t-as="grievance">
+                        <thead>
+                            <tr class="active" t-attf-class="{{'thead-light' if not groupby == 'none' else ''}}">
+                                <t t-if="groupby == 'none'">
+                                    <th>#</th>
+                                </t>
+                                <t t-else="">
+                                    <th>#
+                                        <span t-esc="grievance.grievance_category_id.parent_id.name"/>
+                                    </th>
+                                </t>
+                                <th>Grievance</th>
+                                <th>Category</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-if="grievance" t-foreach="grievance" t-as="o">
+                                <tr>
+                                    <td>
+                                        <a t-if="gms_student_id"
+                                           t-attf-href="/my/grievance/detail/#{gms_student_id}/#{slug(o)}">
+                                            <span t-esc="o.name"/>
+                                        </a>
+                                        <a t-else="" t-attf-href="/my/grievance/detail/{{ slug(o) }}">
+                                            <span t-esc="o.name"/>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <span id="gms_subject_list" t-field="o.subject"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="o.grievance_category_id.complete_name"/>
+                                    </td>
+                                    <td style="overflow: inherit;">
+                                        <t t-if="o.state == 'draft'">
+                                            <span class="badge badge-pill text-bg-info">
+                                                <i class="fa fa-fw fa-clock-o" aria-label="Draft" title="Draft"
+                                                   role="img"/>
+                                                <span class="d-none d-md-inline">Draft</span>
+                                            </span>
+                                            <t t-if="gms_student_id">
+                                                <a t-attf-href="/my/grievance/submit/#{gms_student_id}/{{ slug(o) }}">
+                                                    <button class="btn btn-primary">Submit Grievance</button>
+                                                </a>
+                                            </t>
+                                            <t t-else="">
+                                                <a t-attf-href="/my/grievance/submit/{{ slug(o) }}">
+                                                    <button class="btn btn-primary">Submit Grievance</button>
+                                                </a>
+                                            </t>
+                                        </t>
+                                        <t t-if="o.state == 'submitted'">
+                                            <span class="badge badge-pill text-bg-info">
+                                                <i class="fa fa-fw fa-check" aria-label="Draft" title="Draft"
+                                                   role="img"/>
+                                                <span class="d-none d-md-inline">Submitted</span>
+                                            </span>
+                                        </t>
+                                        <t t-if="o.state == 'resolve'">
+                                            <span class="badge badge-pill text-bg-info">
+                                                <i class="fa fa-fw fa-check" aria-label="Draft" title="Draft"
+                                                   role="img"/>
+                                                <span class="d-none d-md-inline">Resolve</span>
+                                            </span>
+                                        </t>
+                                        <t t-if="o.state == 'action'">
+                                            <span class="badge badge-pill text-bg-info">
+                                                <i class="fa fa-fw fa-check" aria-label="Draft" title="Draft"
+                                                   role="img"/>
+                                                <span class="d-none d-md-inline">Action</span>
+                                            </span>
+                                        </t>
+                                        <t t-if="o.state == 'in_review'">
+                                            <span class="badge badge-pill text-bg-primary">
+                                                <i class="fa fa-fw fa-clock-o" aria-label="In Progress"
+                                                   title="In Progress"
+                                                   role="img"/>
+                                                <span class="d-none d-md-inline">In Review</span>
+                                            </span>
+                                        </t>
+                                        <t t-if="o.state == 'close'">
+                                            <span class="badge badge-pill text-bg-success">
+                                                <i class="fa fa-fw fa-check" aria-label="Approved" title="Done"
+                                                   role="img"/>
+                                                <span class="d-none d-md-inline">Close</span>
+                                            </span>
+                                        </t>
+                                        <t t-if="o.state == 'reject'">
+                                            <span class="badge badge-pill text-bg-danger">
+                                                <i class="fa fa-fw fa-check" aria-label="Approved" title="Done"
+                                                   role="img"/>
+                                                <span class="d-none d-md-inline">Reject</span>
+                                            </span>
+                                        </t>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+        <template id="portal_grievance_details" name="grievance details">
+            <t t-call="portal.portal_layout">
+                <br/>
+                <div class="panel panel-default">
+                    <div class="bg-400 container mt-3 p-lg-2 row-md-12" style="padding-right: 6px;">
+                        <div class="pull-left col-md-6">
+                            <t t-if="grievance_data.state != 'draft'">
+                                <h4>
+                                    <strong>
+                                        Grievance :
+                                        <span>
+                                            <t t-esc="grievance_data.name"/>
+                                        </span>
+                                    </strong>
+                                </h4>
+                            </t>
+                        </div>
+                        <t t-if="grievance_data.state == 'draft'">
+                            <div class="pull-left col-md-12">
+                                <h4 style="padding-top: 5px;">
+                                    <t t-if="gms_student_id">
+                                        <a t-attf-href="/my/grievance/grievance-edit/#{gms_student_id}/{{ slug(grievance_data) }}">
+                                            <button class="btn btn-primary ">Edit</button>
+                                        </a>
+                                        <a t-attf-href="/my/grievance/cancel/#{gms_student_id}/{{ slug(grievance_data) }}">
+                                            <button class="btn btn-primary">Cancel</button>
+                                        </a>
+                                    </t>
+                                    <t t-else="">
+                                        <a t-attf-href="/my/grievance/grievance-edit/{{ slug(grievance_data) }}">
+                                            <button class="btn btn-primary ">Edit</button>
+                                        </a>
+                                        <a t-attf-href="/my/grievance/cancel/{{ slug(grievance_data) }}">
+                                            <button class="btn btn-primary">Cancel</button>
+                                        </a>
+                                    </t>
+                                </h4>
+                            </div>
+                        </t>
+                        <t t-if="grievance_data.state != 'draft'">
+                            <div class="pull-right col-md-6">
+                                <h4 style="padding-top: 5px;">
+                                    <span class="pull-right label label-info badge badge-pill badge-info margin"
+                                          t-field="grievance_data.state">
+                                    </span>
+                                </h4>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+
+                <div t-if="grievance_data" style="background-color:white; padding: 20px 40px 20px 40px;">
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                            <div class="row">
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                                    <p>
+                                        <strong>Grievance Subject:</strong>
+                                    </p>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-8">
+                                    <p>
+                                        <span id="gms_subject" t-esc="grievance_data.subject"/>
+                                    </p>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                                    <p>
+                                        <strong>Category:</strong>
+                                    </p>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-8">
+                                    <p>
+                                        <span t-esc="grievance_data.grievance_category_id.complete_name"/>
+                                    </p>
+                                </div>
+                                <t t-if="grievance_data.grievance_category_id.is_academic == True">
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                                        <p>
+                                            <strong>Course:</strong>
+                                        </p>
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-8">
+                                        <p>
+                                            <span t-esc="grievance_data.course_id.name"/>
+                                        </p>
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                                        <p>
+                                            <strong>Academic Term:</strong>
+                                        </p>
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-8">
+                                        <p>
+                                            <span t-esc="grievance_data.academic_term_id.name"/>
+                                        </p>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                            <t t-if="grievance_data.parent_id">
+                                <div class="row">
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                                        <p>
+                                            <strong>Student:</strong>
+                                        </p>
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-8">
+                                        <p>
+                                            <span id="student_name" t-esc="grievance_data.student_id.name"/>
+                                        </p>
+                                    </div>
+                                </div>
+                            </t>
+                            <div class="row">
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                                    <p>
+                                        <strong>Created Date:</strong>
+                                    </p>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-8">
+                                    <p>
+                                        <span t-field="grievance_data.created_date"
+                                              t-att-options="{'format': 'DD/MM/YYYY'}"/>
+                                    </p>
+                                </div>
+                            </div>
+                            <t t-if="grievance_data.grievance_category_id.is_academic == True">
+                                <div class="row">
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                                        <p>
+                                            <strong>Batch:</strong>
+                                        </p>
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-8">
+                                        <p>
+                                            <span t-esc="grievance_data.batch_id.name"/>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                                        <p>
+                                            <strong>Academic Year:</strong>
+                                        </p>
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-8">
+                                        <p>
+                                            <span t-esc="grievance_data.academic_year_id.name"/>
+                                        </p>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="row">
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-2">
+                                    <p>
+                                        <strong>Description:</strong>
+                                    </p>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-10">
+                                    <p>
+                                        <span t-esc="grievance_data.description"/>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <t t-if="grievance_data.state == 'resolve'">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                <div class="row">
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-2">
+                                        <p>
+                                            <strong>Action Taken:</strong>
+                                        </p>
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-10">
+                                        <p>
+                                            <span t-esc="grievance_data.action_taken"/>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                        <t t-if="grievance_data.attachment_ids">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                <div class="row">
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-2">
+                                        <p>
+                                            <strong>Attachment:</strong>
+                                        </p>
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-10">
+                                        <p>
+                                            <t t-foreach="grievance_data.attachment_ids" t-as="attachment">
+                                                <a t-attf-href="/attachment/download/#{attachment.id}">
+                                                    <t t-if="attachment.name" t-esc="attachment.name"/>
+                                                    <i t-if="attachment.name" class="fa fa-download"/>
+                                                </a>
+                                            </t>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                    <table style="width:100%" t-if="grievance_data.state == 'resolve'">
+                        <tr t-if="not grievance_data.is_satisfied">
+                            <div class="col-md-6 mb8">
+                                <td class="text-danger">
+                                    Are you satisfied with the given resolution?
+                                    <t t-if="gms_student_id">
+                                        <a t-attf-href="/my/grievance/satisfied/#{gms_student_id}/#{grievance_data.id}">
+                                            <button class="btn btn-primary ">Satisfied &#128516;</button>
+                                        </a>
+                                        <a t-attf-href="/my/grievance/not-satisfied/#{gms_student_id}/#{grievance_data.id}">
+                                            <button class="btn btn-primary" style="">Not-Satisfied &#128577;</button>
+                                        </a>
+                                    </t>
+                                    <t t-else="">
+                                        <a t-attf-href="/my/grievance/satisfied/{{ slug(grievance_data) }}">
+                                            <button class="btn btn-primary ">Satisfied &#128516;</button>
+                                        </a>
+                                        <a t-attf-href="/my/grievance/not-satisfied/{{ slug(grievance_data) }}">
+                                            <button class="btn btn-primary" style="">Not-Satisfied &#128577;</button>
+                                        </a>
+                                    </t>
+                                </td>
+                            </div>
+                        </tr>
+                        <t t-if="grievance_data.is_satisfied == 'no'">
+                            <tr>
+                                <div class="col-md-6 mb8" style="width:50%">
+                                    <td t-if="grievance_data.id not in grievance_parent_data" class="text-danger">
+                                        <t t-if="not grievance_data.grievance_parent_id">
+                                            Do you wish to appeal?
+                                            <t t-if="not user_id.sudo().is_parent">
+                                                <a t-attf-href="/my/grievance/appeal/{{ slug(grievance_data) }}">
+                                                    <button class="btn btn-primary " name="appeal">Appeal</button>
+                                                </a>
+                                            </t>
+                                            <t t-else="">
+                                                <a t-if="gms_student_id"
+                                                   t-attf-href="/my/grievance/appeal/#{gms_student_id}/{{ slug(grievance_data) }}">
+                                                    <button class="btn btn-primary " name="appeal">Appeal</button>
+                                                </a>
+                                            </t>
+                                        </t>
+                                    </td>
+                                </div>
+                            </tr>
+                        </t>
+                    </table>
+                    <div id="grievance_communication" class="mt-4" t-if="grievance_data.state == 'resolve'">
+                        <h2>History</h2>
+                        <t t-call="portal.message_thread">
+                            <t t-set="object" t-value="grievance_data"/>
+                        </t>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <template id="grievance_access_denied" name="grievance access denied">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty">
+                    <section class="mt32 mb64">
+                        <div class="container">
+                            <div class="row">
+                                <div class="text-center">
+                                    <br/>
+                                    <h2>
+                                        You are not Allowed to Access this data.
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+
+</odoo>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+         <record model="ir.ui.view" id="ticketteam_view_gpt_form_inherit">
+            <field name="name">ticketteam_view_gpt_form_inherit</field>
+            <field name="model">helpdesk.team</field>
+            <field name="inherit_id" ref="helpdesk.helpdesk_team_view_form"/>
+            <field name="priority">25</field>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@id='after-sales']" position="after">                    
+                    <h2>Configurar Asistente ChatGPT <a href="https://platform.openai.com/docs/introduction" title="Documentation" class="o_doc_link" target="_blank"/></h2>
+                    <div class="row mt16 o_settings_container" id="gpt_asisstans">                     
+                        
+                        <div class="col-lg-6">
+                            <div class="col-lg-9">
+                                <label for="activate_gpt"/>: <field name="activate_gpt" />
+                            </div>
+                            <div attrs="{'invisible': [('activate_gpt','!=', True)]}">
+                                <div class="col-lg-9">
+                                    <hr/>
+                                </div>
+                                <div class="col-lg-9">
+                                    <label for="url_gpt"/>: <field name="url_gpt" />
+                                </div>
+                                <div class="col-lg-9"> 
+                                    <label for="model_gpt"/>: <field name="model_gpt" />
+                                </div>
+                                <div class="col-lg-9"> 
+                                    <label for="token_gpt"/>: <field name="token_gpt" password="True" force_save="1"/>
+                                </div>
+                                <div class="col-lg-9"> 
+                                    <label for="instructions_gpt"/>: <field name="instructions_gpt" />
+                                </div>
+                                <div class="col-lg-9"> 
+                                    <label for="temperature_gpt"/>: <field name="temperature_gpt" />
+                                </div>
+                                <div class="col-lg-9"> 
+                                    <label for="max_tokens_gpt"/>: <field name="max_tokens_gpt" />
+                                </div> 
+                                <div class="col-lg-9">
+                                    <label for="consult_gpt"/>: <field name="consult_gpt" />
+                                </div> 
+                                <div class="col-lg-9" attrs="{'invisible': [('consult_gpt','!=', True)]}">
+                                    <label for="consult_consult_gpt"/>: <field name="consult_consult_gpt" />
+                                </div>                                                               
+                                <div class="col-lg-9">
+                                    <hr/>
+                                </div>                                
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="col-lg-9">
+                                <b>Otras configuraciones:</b>
+                            </div>
+                            <div attrs="{'invisible': [('activate_gpt','!=', True)]}">
+                                <div class="col-lg-9">
+                                    <hr/>
+                                </div>
+                                <div class="col-lg-9"> 
+                                    <label for="mail_parser_ids"/>: <field name="mail_parser_ids"  widget="many2many_tags" options="{'no_quick_create': True,'no_create_edit': True}" />
+                                </div>
+                                <div class="col-lg-9">
+                                    <hr/>
+                                </div>                                
+                                <div class="col-lg-9"> 
+                                    <label for="finish_gpt_ids"/>: <field name="finish_gpt_ids"  widget="many2many_tags"/>
+                                </div>
+                                <div class="col-lg-9"> 
+                                    <label for="stage_id"/>: <field name="stage_id" options="{'no_quick_create': True,'no_create_edit': True}" domain="[('team_ids', 'in', id)]"/> <label for="activate_autoclose"/>: <field name="activate_autoclose"/>
+                                    <label for="stage_cancel_id"/>: <field name="stage_cancel_id" options="{'no_quick_create': True,'no_create_edit': True}" domain="[('team_ids', 'in', id)]"/> <label for="activate_autocancel"/>: <field name="activate_autocancel"/>
+                                </div>
+                                <div class="col-lg-9">
+                                    <hr/>
+                                </div>
+                                <div class="col-lg-9"> 
+                                    <label for="config_consult_ids"/>: <field name="config_consult_ids"  options="{'no_quick_create': True,'no_create_edit': True}"  widget="many2many_tags"/>
+                                </div>
+                                <div class="col-lg-9"> 
+                                    <label for="article_embeding_ids"/>: <field name="article_embeding_ids"  options="{'no_quick_create': True,'no_create_edit': True}" widget="many2many_tags"/>
+                                </div>
+                                <div class="col-lg-9"> 
+                                    <label for="slide_channel_ids"/>: <field name="slide_channel_ids"  options="{'no_quick_create': True,'no_create_edit': True}" widget="many2many_tags"/>
+                                </div>
+                                <div class="col-lg-9" > 
+                                    <label for="slide_slide_ids"/>: <field name="slide_slide_ids"  options="{'no_quick_create': True,'no_create_edit': True}" domain="[('create_text', '=', True)]" widget="many2many_tags"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="ticket_stage_view_gpt_form_inherit">
+            <field name="name">ticket_stage_view_gpt_form_inherit</field>
+            <field name="model">helpdesk.stage</field>
+            <field name="inherit_id" ref="helpdesk.helpdesk_stage_view_form"/>
+            <field name="priority">25</field>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='fold']" position="after">
+                    <field name="acti_state_ia" invisible="0"/>
+                </xpath>
+            </field>
+        </record>
+        
+    </data>
+</odoo>

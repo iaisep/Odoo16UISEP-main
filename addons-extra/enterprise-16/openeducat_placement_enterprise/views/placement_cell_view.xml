@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_op_placement_cell_kanban" model="ir.ui.view">
+        <field name="name">op.placement.cell.kanban</field>
+        <field name="model">op.placement.cell</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey o_kanban_dashboard o_hr_recruitment_kanban">
+                <field name="name"/>
+                <field name="user_id"/>
+                <field name="color"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="#{!selection_mode ? kanban_color(record.color.raw_value) : ''}">
+                            <div class="o_kanban_card_header">
+                                <div class="o_kanban_card_header_title">
+                                    <div class="o_primary col-12">
+                                        <span>
+                                            <t t-esc="record.name.value"/>
+                                        </span>
+                                    </div>
+                                    <div id="placement_cell_view"
+                                            class="o_kanban_record_subtitle col-12 text-muted">
+                                        Leader:
+                                        <field name="user_id"/>
+                                    </div>
+                                </div>
+                                <div class="o_kanban_manage_button_section">
+                                    <a class="o_kanban_manage_toggle_button" href="#">
+                                        <i class="fa fa-ellipsis-v" role="img" aria-label="Manage" title="Manage"/>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="o_kanban_card_manage_pane dropdown-menu" role="menu">
+                                <div class="o_kanban_card_manage_section">
+                                    <div role="menuitem">
+                                        <a t-if="widget.editable" name="edit_job" type="edit">Edit</a>
+                                    </div>
+                                    <div t-if="widget.deletable">
+                                        <a role="menuitem" type="delete" class="dropdown-item">Delete</a>
+                                    </div>
+                                </div>
+                                <div role="menuitem" aria-haspopup="true">
+                                    <ul class="oe_kanban_colorpicker" data-field="color" role="menu"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_op_placement_cell_tree" model="ir.ui.view">
+        <field name="name">op.placement.cell.tree</field>
+        <field name="model">op.placement.cell</field>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="user_id"/>
+                <field name="department_id" groups="openeducat_core.group_multi_department"/>
+                <field name="member_ids" optional="hide"/>
+                <field name="active" widget="boolean_toggle" optional="hide"/>
+                <field name="company_id" groups="base.group_multi_company" optional="show"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_op_placement_cell_form" model="ir.ui.view">
+        <field name="name">op.placement.cell.form</field>
+        <field name="model">op.placement.cell</field>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <form string="Placement Cell Team">
+                <header/>
+                <sheet>
+                    <field name="active" invisible="1"/>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                            attrs="{'invisible': [('active', '=', True)]}"/>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="department_id" groups="openeducat_core.group_multi_department"/>
+                        </group>
+                        <group>
+                            <field name="user_id"/>
+                            <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="members" string="Team Members">
+                            <field name="member_ids" widget="many2many"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_op_placement_cell_search" model="ir.ui.view">
+        <field name="name">op.placement.cell.search</field>
+        <field name="model">op.placement.cell</field>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <search string="Placement Cell Team">
+                <field name="name"/>
+                <filter string="Archived" name="inactive"
+                        domain="[('active', '=', False)]"/>
+                <searchpanel>
+                    <field name="company_id" icon="fa-building"/>
+                </searchpanel>
+            </search>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="act_open_op_placement_cell_view">
+        <field name="name">Placement Cell Team</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">op.placement.cell</field>
+        <field name="binding_view_types">form</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="search_view_id" ref="view_op_placement_cell_search"/>
+    </record>
+
+    <record model="ir.actions.act_window.view" id="act_open_op_placement_cell_view_form">
+        <field name="act_window_id" ref="act_open_op_placement_cell_view"/>
+        <field name="sequence" eval="20"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_op_placement_cell_form"/>
+    </record>
+
+    <record model="ir.actions.act_window.view" id="act_open_op_placement_cell_view_tree">
+        <field name="act_window_id" ref="act_open_op_placement_cell_view"/>
+        <field name="sequence" eval="10"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_op_placement_cell_tree"/>
+    </record>
+
+    <record model="ir.actions.act_window.view" id="act_open_op_placement_cell_view_kanban">
+        <field name="act_window_id" ref="act_open_op_placement_cell_view"/>
+        <field name="sequence" eval="5"/>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="view_op_placement_cell_kanban"/>
+    </record>
+</odoo>

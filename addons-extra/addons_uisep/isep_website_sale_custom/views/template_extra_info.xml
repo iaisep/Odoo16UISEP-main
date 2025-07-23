@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template id="extra_info_website_sale_custom" inherit_id="website_sale.extra_info">
+
+        <xpath expr="//form" position="replace">
+            <form action="/website/form/" method="post" enctype="multipart/form-data" class="o_mark_required s_website_form_no_recaptcha" data-mark="*" data-force_action="shop.sale.order" data-model_name="sale.order" data-success-mode="redirect" data-success-page="/shop/payment" hide-change-model="true">
+                <div class="s_website_form_rows row s_col_no_bgcolor">                 
+                  
+                  
+                    <div class="mb-0 py-2 col-12 s_website_form_submit s_website_form_no_submit_options">
+                        <div style="width: 200px;" class="s_website_form_label"/>
+                        <a role="button" href="/shop/checkout" class="btn btn-secondary float-start">
+                            <span class="fa fa-chevron-left"/> Anterior</a>
+                        <a role="button" class="btn btn-primary float-end s_website_form_send" href="/shop/confirm_order">Siguiente <span class="fa fa-chevron-right"/>
+                        </a>
+                        <span id="s_website_form_result"/>
+                    </div>
+                    
+                    
+
+                
+
+            <div class="alert alert-danger mt-3" t-if="order.error_admission" >
+                <div class="row border rounded p-2 align-items-center">
+                   
+                    <div class="col">
+                            <span t-if="order.error_admission_msn" t-esc="order.error_admission_msn"/>
+                        
+                    </div>
+                </div>
+            </div>
+
+
+                        
+                    <div class="s_website_form_field mb-3 col-12 col-lg-6 s_website_form_custom s_website_form_required" data-type="selection" data-name="admission_date">
+                        <label class="s_website_form_label" style="width: 200px">
+                            <span class="s_website_form_label_content">Fecha de Inicio</span>
+                            <span class="s_website_form_mark"> *</span>
+                        </label>
+                        <select name="admission_date" required="1" class="form-control s_website_form_input">
+                            
+
+                            <option value="">Seleccione una periodo...</option>
+                            <t t-foreach="request.env['sale.order'].get_admission_availability()" t-as="date_option">
+                                <option t-att-value="date_option[0]"
+                                        t-att-selected="order and order.admission_date and date_option[0] == order.admission_date.strftime('%Y-%m-%d')">
+                                    <t t-esc="date_option[1]"/>
+                                </option>
+                            </t>
+                        </select>
+                    </div>
+                    
+            
+                    <div class="s_website_form_field mb-3 col-12 col-lg-6 s_website_form_custom s_website_form_required" data-type="char" data-name="Field">
+                        <label class="s_website_form_label" style="width: 200px">
+                            <span class="s_website_form_label_content">Nombre</span>
+                            <span class="s_website_form_mark">   *</span>
+                        </label>
+                        <input type="text" name="partner_name" required="1" t-att-value="order and order.partner_id.name or ''" class="form-control s_website_form_input"/>
+                    </div>
+
+                    <div class="s_website_form_field mb-3 col-12 col-lg-6 s_website_form_custom s_website_form_required" data-type="date" data-name="Field">
+                        <label class="s_website_form_label " style="width: 200px">
+                            <span class="s_website_form_label_content">Fecha de Nacimiento</span>
+                            <span class="s_website_form_mark"> *</span>
+                        </label>
+                        <div class="s_website_form_date input-group date" id="datepicker48933518751754734" data-target-input="nearest">
+                            <input type="text" name="birth_date" required="1" t-att-value="order and order.partner_id.birth_date and order.partner_id.birth_date.strftime('%d/%m/%Y')  or ''" class="form-control datetimepicker-input s_website_form_input" data-target="#datepicker48933518751754734"/>
+                            <div class="input-group-text" data-target="#datepicker48933518751754734" data-toggle="datetimepicker">
+                                <i class="fa fa-calendar"/>
+                            </div>
+                        </div>
+                    </div>
+
+
+                             
+                    <div class="s_website_form_field mb-3 col-12 col-lg-6 s_website_form_custom s_website_form_required" data-type="selection" data-name="gender">
+                        <label class="s_website_form_label" style="width: 200px">
+                            <span class="s_website_form_label_content">Género</span>
+                            <span class="s_website_form_mark"> *</span>
+                        </label>
+                        <select name="gender" required="1" class="form-control s_website_form_input">
+                            <option value="">Seleccionar género...</option>
+                            <t t-foreach="order.get_partner_gender()" t-as="gender_values">
+                                <option t-att-value="gender_values[0]"
+                                        t-att-selected="gender_values[0] == order.gender and 'selected' or None">
+                                    <t t-esc="gender_values[1]"/>
+                                </option>
+                            </t>
+                        </select>
+                    </div>
+
+
+
+                    <!-- <div data-visibility-condition="" data-visibility-between="" class="s_website_form_field mb-3 col-12 col-lg-6 s_website_form_custom s_website_form_required" data-type="char" data-name="Field">
+                        <label class="s_website_form_label " style="width: 200px">
+                            <span class="s_website_form_label_content">Universidad</span>
+                            <span class="s_website_form_mark"> *</span>
+                        </label>
+                        <input type="text" name="university" required="1" t-att-value="order and order.partner_id.university or ''" class="form-control s_website_form_input"/>
+                    </div>
+
+                    <div class="s_website_form_field mb-3 col-12 col-lg-6 s_website_form_custom s_website_form_required" data-type="char" data-name="Field" data-visibility-condition="" data-visibility-between="">
+                        <label class="s_website_form_label " style="width: 200px">
+                            <span class="s_website_form_label_content">Profesión</span>
+                            <span class="s_website_form_mark"> *</span>
+                        </label>
+                        <input type="text" name="profession" required="1" t-att-value="order and order.partner_id.profession or ''" class="form-control s_website_form_input"/>
+                    </div>
+
+                    <div class="s_website_form_field mb-3 col-12 col-lg-6 s_website_form_custom s_website_form_required" data-type="char" data-name="Field" data-visibility-condition="" data-visibility-between="">
+                        <label class="s_website_form_label " style="width: 200px">
+                            <span class="s_website_form_label_content">Titulación</span>
+                            <span class="s_website_form_mark"> *</span>
+                        </label>
+                        <input type="text" name="titulacion" required="1" t-att-value="order and order.partner_id.titulacion or ''" class="form-control s_website_form_input"/>
+                    </div>
+
+                    <div data-visibility-condition="" data-visibility-between="" class="s_website_form_field mb-3 col-12 col-lg-6 s_website_form_custom s_website_form_required" data-type="date" data-name="Field">
+                        <label class="s_website_form_label " style="width: 200px">
+                            <span class="s_website_form_label_content">Fecha de graduación</span>
+                            <span class="s_website_form_mark"> *</span>
+                        </label>
+                        <div class="s_website_form_date input-group date" id="datepicker9088259313971603" data-target-input="nearest">
+                            <input type="text" name="finalizacionestudios" required="1" t-att-value="order and order.partner_id.finalizacionestudios and order.partner_id.finalizacionestudios.strftime('%d/%m/%Y')  or ''" class="form-control datetimepicker-input s_website_form_input" data-target="#datepicker9088259313971603"/>
+                            <div class="input-group-text" data-target="#datepicker9088259313971603" data-toggle="datetimepicker">
+                                <i class="fa fa-calendar"/>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <div data-visibility-condition="" data-visibility-between="" class="s_website_form_field mb-3 col-12 col-lg-6 s_website_form_custom s_website_form_required" data-type="tel" data-name="Field">
+                        <label class="s_website_form_label " style="width: 200px">
+                            <span class="s_website_form_label_content">Teléfono</span>
+                            <span class="s_website_form_mark"> *</span>
+                        </label>
+                        <input type="tel" name="phone" required="1" t-att-value="order and order.partner_id.phone or ''" class="form-control s_website_form_input"/>
+                    </div>
+
+
+                     <div style="display:none">
+                       <input type="number" class="form-control s_website_form_input" name="isep_custom_form_shop" value="1"/>
+                    </div>
+                    
+                              
+                    <div class="s_website_form_field col-12">
+                       <hr/>
+                        <h6 class="fw-bold my-3">Detalle de plazos de pago</h6>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Período</th>
+                                    <th class="text-center">Fecha de Vencimiento</th>
+                                    <th class="text-end">Monto</th>
+                                    <th>Moneda</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="order.subscription_schedule" t-as="subscription">
+                                    <tr>
+                                        <td><t t-esc="subscription.term_label"/></td>
+                                        
+                                        <td class="text-center">
+                                            <t t-if="subscription.date_due">
+                                                <t t-esc="subscription.date_due.strftime('%d-%m-%Y')"/>
+                                            </t>
+                                        </td>
+                    
+                                        <td class="text-end">
+                                            <t t-esc="'{:.2f}'.format(subscription.amount_recurring_taxinc)"/>
+                                        </td>
+                    
+                                        <td><t t-esc="subscription.currency_id.name"/></td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+                
+
+            </form>
+
+        </xpath>
+
+
+    </template>
+
+
+
+
+</odoo>

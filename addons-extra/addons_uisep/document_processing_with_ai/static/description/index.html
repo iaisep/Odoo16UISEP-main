@@ -1,0 +1,138 @@
+<h1 class="code-line" data-line-start=0 data-line-end=1><a id="Document_Processing_with_AI_0"></a>Document Processing
+    with AI</h1>
+<h2 class="code-line" data-line-start=2 data-line-end=3><a id="Descripcin_2"></a>Descripción</h2>
+<p class="has-line-data" data-line-start="3" data-line-end="4">Este módulo integra funciones avanzadas de inteligencia
+    artificial para analizar, validar y gestionar flujos de documentos en Odoo. Utiliza OCR y GPT para extraer texto y
+    evaluar documentos de manera eficiente.</p>
+<h2 class="code-line" data-line-start=5 data-line-end=6><a id="Requisitos_previos_5"></a>Requisitos previos</h2>
+<ol>
+    <li class="has-line-data" data-line-start="6" data-line-end="7"><strong>Odoo 16</strong> instalado en su servidor.
+    </li>
+    <li class="has-line-data" data-line-start="7" data-line-end="11">Dependencias del módulo (indicadas en el archivo
+        <code>requirements.txt</code>):
+        <ul>
+            <li class="has-line-data" data-line-start="8" data-line-end="9">Python 3.8 o superior.</li>
+            <li class="has-line-data" data-line-start="9" data-line-end="11">Bibliotecas: <code>requests</code>, <code>pillow</code>,
+                <code>PyPDF2</code>, <code>pytesseract</code>, <code>openai</code>.
+            </li>
+        </ul>
+    </li>
+</ol>
+<h2 class="code-line" data-line-start=11 data-line-end=12><a id="Instalacin_11"></a>Instalación</h2>
+<h3 class="code-line" data-line-start=13 data-line-end=14><a id="1_Descargar_el_mdulo_13"></a>1. Descargar el módulo
+</h3>
+<p class="has-line-data" data-line-start="14" data-line-end="15">Descargue el código del módulo y colóquelo en la
+    carpeta <code>addons</code> de su instancia de Odoo.</p>
+<h3 class="code-line" data-line-start=16 data-line-end=17><a id="2_Instalar_dependencias_16"></a>2. Instalar
+    dependencias</h3>
+<p class="has-line-data" data-line-start="17" data-line-end="18">Ejecute el siguiente comando para instalar las
+    dependencias:</p>
+<pre><code class="has-line-data" data-line-start="19" data-line-end="21" class="language-bash">pip install -r requirements.txt
+</code></pre>
+<p class="has-line-data" data-line-start="21" data-line-end="22">Luego instala el OCR Tesseract</p>
+<pre><code class="has-line-data" data-line-start="23" data-line-end="25" class="language-bash">sudo apt install tesseract-ocr
+</code></pre>
+<p class="has-line-data" data-line-start="25" data-line-end="28">para mas información para instalar Tesseract visite
+    esta página:<br>
+    Windows<br>
+    <a href="https://ucd-dnp.github.io/ConTexto/versiones/master/instalacion/instalacion_popple_teseract_windows.html">https://ucd-dnp.github.io/ConTexto/versiones/master/instalacion/instalacion_popple_teseract_windows.html</a>
+</p>
+<p class="has-line-data" data-line-start="29" data-line-end="31">Linux<br>
+    <a href="https://ucd-dnp.github.io/ConTexto/versiones/master/instalacion/instalacion_popple_teseract_linux.html">https://ucd-dnp.github.io/ConTexto/versiones/master/instalacion/instalacion_popple_teseract_linux.html</a>
+</p>
+<p>
+    Asegúrese de instalar el paquete de idioma Español.<br>
+</p>
+<h3 class="code-line" data-line-start=33 data-line-end=34><a id="3_Instalar_el_mdulo_33"></a>3. Instalar el módulo</h3>
+<ul>
+    <li class="has-line-data" data-line-start="34" data-line-end="35">Vaya a <em>Aplicaciones &gt; Actualizar lista de
+        aplicaciones</em>.
+    </li>
+    <li class="has-line-data" data-line-start="35" data-line-end="37">Busque e instale <code>Document Processing with
+        AI</code>.
+    </li>
+</ul>
+<h3 class="code-line" data-line-start=37 data-line-end=38><a id="4_Configurar_parmetros_del_sistema_37"></a>4.
+    Configurar parámetros del sistema</h3>
+<p class="has-line-data" data-line-start="38" data-line-end="39">Acceda a <em>Configuración &gt; Parámetros &gt;
+    Parámetros del sistema</em> y configure los siguientes valores:</p>
+<ul>
+    <li class="has-line-data" data-line-start="39" data-line-end="40"><strong><code>openai_api_key</code></strong>:
+        Clave API de OpenAI.
+    </li>
+    <li class="has-line-data" data-line-start="40" data-line-end="41">
+        <strong><code>tesseract_route</code></strong>: Ruta de Tesseract en Linux (por defecto: <code>/usr/bin/tesseract</code>).
+    </li>
+<!--    <li class="has-line-data" data-line-start="41" data-line-end="43">-->
+<!--        <strong><code>tesseract_route_windows</code></strong>: Ruta de Tesseract en Windows (por defecto: <code>C:\\Program-->
+<!--        Files\\Tesseract-OCR\\tesseract.exe</code>).-->
+<!--    </li>-->
+</ul>
+<hr>
+<h2 class="code-line" data-line-start=45 data-line-end=46><a id="Uso_45"></a>Uso</h2>
+<h3 class="code-line" data-line-start=47 data-line-end=48><a id="1_Configurar_parmetros_de_IA_47"></a>1. Configurar
+    parámetros de IA</h3>
+<ul>
+    <li class="has-line-data" data-line-start="48" data-line-end="49">Vaya a <em>Configuración &gt; IA Personalizada
+        &gt; Parámetros de IA</em>.
+    </li>
+    <li class="has-line-data" data-line-start="49" data-line-end="54">Cree un nuevo registro seleccionando:
+        <ul>
+            <li class="has-line-data" data-line-start="50" data-line-end="51">Tipo de documento (<code>Acta de
+                grado</code>, <code>Notas de certificación</code>, <code>Registro civil</code>).
+            </li>
+            <li class="has-line-data" data-line-start="51" data-line-end="52">Activar el motor GPT si desea usar la
+                integración con OpenAI.
+            </li>
+            <li class="has-line-data" data-line-start="52" data-line-end="54">Configurar parámetros específicos para
+                GPT.
+            </li>
+        </ul>
+    </li>
+</ul>
+<h3 class="code-line" data-line-start=54 data-line-end=55><a id="2_Procesamiento_de_documentos_54"></a>2. Procesamiento
+    de documentos</h3>
+<p class="has-line-data" data-line-start="55" data-line-end="56">El módulo analizará automáticamente cualquier archivo
+    subido en el modelo <code>Adjuntos</code>. Este análisis puede:</p>
+<ul>
+    <li class="has-line-data" data-line-start="56" data-line-end="57">Validar el formato del documento.</li>
+    <li class="has-line-data" data-line-start="57" data-line-end="58">Extraer texto utilizando OCR (Tesseract).</li>
+    <li class="has-line-data" data-line-start="58" data-line-end="60">Evaluar documentos con reglas definidas o con
+        GPT.
+    </li>
+</ul>
+<h3 class="code-line" data-line-start=60 data-line-end=61><a id="3_Estados_del_documento_60"></a>3. Estados del
+    documento</h3>
+<p class="has-line-data" data-line-start="61" data-line-end="62">Los documentos analizados serán clasificados
+    automáticamente en los siguientes estados:</p>
+<ul>
+    <li class="has-line-data" data-line-start="62" data-line-end="63"><strong>Aceptado (<code>accepted</code>)</strong>:
+        Cumple con todos los requisitos.
+    </li>
+    <li class="has-line-data" data-line-start="63" data-line-end="64"><strong>Formato incorrecto
+        (<code>incorrect_format</code>)</strong>: Problemas en la estructura del documento.
+    </li>
+    <li class="has-line-data" data-line-start="64" data-line-end="66"><strong>Documento incorrecto (<code>incorrect_document</code>)</strong>:
+        Datos inválidos o insuficientes.
+    </li>
+    <li class="has-line-data" data-line-start="64" data-line-end="66"><strong>Legibilidad deficiente (<code>poor_readability</code>)</strong>:
+        Legibilidad deficiente para la lectura.
+    </li>
+</ul>
+<h3 class="code-line" data-line-start=66 data-line-end=67><a id="4_Notificaciones_automticas_66"></a>4. Notificaciones
+    automáticas</h3>
+<p class="has-line-data" data-line-start="67" data-line-end="68">El sistema notificará automáticamente cualquier
+    problema detectado en el procesamiento.</p>
+<hr>
+<h2 class="code-line" data-line-start=71 data-line-end=72><a id="Consideraciones_71"></a>Consideraciones</h2>
+<ol>
+    <li class="has-line-data" data-line-start="72" data-line-end="73">Configure correctamente la ruta de Tesseract para
+        evitar errores en el análisis OCR.
+    </li>
+    <li class="has-line-data" data-line-start="73" data-line-end="74">Asegúrese de tener una clave válida de OpenAI para
+        usar la integración GPT.
+    </li>
+    <li class="has-line-data" data-line-start="74" data-line-end="76">Los parámetros del sistema configurados
+        manualmente no se sobrescribirán al actualizar el módulo.
+    </li>
+</ol>

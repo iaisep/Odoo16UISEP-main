@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record model="ir.ui.view" id="result_test_form_view">
+            <field name="name">op.quiz.result.form</field>
+            <field name="model">op.quiz.result</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="openeducat_quiz.view_op_quiz_result_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/sheet/group[@name='result']" position="after">
+                    <group name="warning" string="Warning">
+                            <field name="warning_line_ids" nolabel="1" colspan="2">
+                                <tree>
+                                    <field name="warning_no" readonly="1" width="130"/>
+                                    <field name="warning_name" readonly="1" width="480px"/>
+                                    <field name="time" readonly="1" width="200px"/>
+                                    <field name="warning_attachment" widget="image" height="20" width="40"
+                                           class="oe_avatar"/>
+                                    <field name="result_id" optional="hide"/>
+                                </tree>
+                            </field>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+        <record id="result_test_tree_view_anti_cheating" model="ir.ui.view">
+            <field name="name">op.quiz.result.anti.cheating.tree</field>
+            <field name="model">op.quiz.result</field>
+            <field name="inherit_id" ref="openeducat_quiz.view_op_quiz_result_tree"/>
+            <field name="arch" type="xml">
+                <field name="state" position="before">
+                    <field name="warning_line_ids" optional="hide"/>
+                </field>
+            </field>
+        </record>
+
+</odoo>

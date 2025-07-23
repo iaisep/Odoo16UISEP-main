@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <!--Course For Python-->
+        <record id="demo_course_1" model="op.course">
+            <field name="name">Introduction To Python Programming</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="sequence">1</field>
+            <field name="code">Py1</field>
+            <field name="faculty_ids"
+                   eval="[(6,0,[ref('openeducat_core.op_faculty_1')])]"/>
+            <field name="category_ids"
+                   eval="[(6,0,[ref('openeducat_core_enterprise.category_2')])]"/>
+            <field name="visibility">public</field>
+            <field name="level_id" ref="op_course_level_beginner"/>
+            <field name="navigation_policy">free_learn</field>
+            <field name="state">open</field>
+            <field name="online_course" eval="True"/>
+            <field name="confirm_date" eval="(DateTime.today() - relativedelta(days=11))"/>
+            <field name="image_1920" type="base64"
+                   file="openeducat_lms/static/src/img/python.jpg"/>
+            <field name="full_description"><![CDATA[
+<div class="description__title">
+            <div>
+                    <p>Learning Python will give you more&nbsp;<strong>opportunities for jobs and career advancement</strong>&nbsp;because Python is one of the most requested skills in 2019!</p>
+                    <p>Importantly, our courses teach students the real-life skills needed to get those in-demand jobs or further your programming skills.</p>
+                    <p>In summary, this course has been designed for all skill levels and even if you have no programming or statistical background you will be successful in this course!</p>
+                    </p>
+            </div>
+            ]]></field>
+        </record>
+
+        <!--Course For French-->
+        <record id="demo_course_2" model="op.course">
+            <field name="name">Learn to Speak: French</field>
+            <field name="sequence">2</field>
+            <field name="code">ConFr</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="faculty_ids"
+                   eval="[(6,0,[ref('openeducat_core.op_faculty_4')])]"/>
+            <field name="category_ids"
+                   eval="[(6,0,[ref('openeducat_core_enterprise.category_1')])]"/>
+            <field name="suggested_course_ids"
+                   eval="[(6,0,[ref('demo_course_1')])]"/>
+            <field name="visibility">logged_user</field>
+            <field name="level_id" ref="op_course_level_intermediate"/>
+            <field name="navigation_policy">free_learn</field>
+            <field name="state">open</field>
+            <field name="online_course" eval="True"/>
+            <field name="confirm_date"
+                   eval="(DateTime.today() - relativedelta(days=8))"/>
+            <field name="image_1920" type="base64"
+                   file="openeducat_lms/static/src/img/learn-french.jpg"/>
+            <field name="full_description"><![CDATA[
+            <div>
+                    <p> This French Course is designed to help everyone from the ab initio stage - those who have never learned French before - to those wanting to brush up in preparation for an upcoming holiday or business trip. The course is pdf as well as audio video  based using a bilingual speaker (myself) and it will be supported with on-screen transcripts for easier learning and better retention. There are also printable vocabulary guides to take with you wherever you go! </p>
+                    <p> This course takes you from learning how to pronounce French words correctly to understanding others and expressing your needs in a number of situations.</p>
+            </div>
+            ]]></field>
+        </record>
+
+        <!--Course For Sell-->
+        <record id="demo_course_3" model="op.course">
+            <field name="name">Learn to Sell Anything</field>
+            <field name="code">sellAny</field>
+            <field name="sequence">4</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="faculty_ids"
+                   eval="[(6,0,[ref('openeducat_core.op_faculty_2'),ref('openeducat_core.op_faculty_3')])]"/>
+            <field name="category_ids"
+                   eval="[(6,0,[ref('openeducat_core_enterprise.category_3')])]"/>
+            <field name="suggested_course_ids"
+                   eval="[(6,0,[ref('demo_course_1'),ref('demo_course_2')])]"/>
+            <field name="visibility">public</field>
+            <field name="level_id" ref="op_course_level_advanced"/>
+            <field name="navigation_policy">seq_learn</field>
+            <field name="invited_users_ids"
+                   eval="[(6,0,[ref('base.user_admin')])]"/>
+            <field name="state">open</field>
+            <field name="online_course" eval="True"/>
+            <field name="confirm_date"
+                   eval="(DateTime.today() - relativedelta(days=5))"/>
+            <field name="image_1920" type="base64"
+                   file="openeducat_lms/static/src/img/sell-business.jpg"/>
+            <field name="full_description"><![CDATA[
+            <div>
+                    <p> This course lays out the foundation of what it takes in order to succeed in selling ANY product or service in ANY industry. Grant demystifies what selling really is and how in fact, every person on the planet is a salesperson, regardless of their job title or profession.</p>
+                    <p> Contrary to what some say, people are not “born" salespeople. Selling is a skill that can be learned, developed, and mastered. This course will set you down the path to increased sales, higher levels of confidence, and more motivation as you approach prospective clients of your products or services in the marketplace.</p>
+            </div>
+            ]]></field>
+        </record>
+
+</odoo>

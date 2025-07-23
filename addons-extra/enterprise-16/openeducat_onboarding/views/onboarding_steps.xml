@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_op_boarding_steps_kanban" model="ir.ui.view">
+        <field name="name">oe.onboarding.steps</field>
+        <field name="model">oe.onboarding.steps</field>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <kanban class="o_onboarding_kanban" create="false"
+                    js_class="no_search_panel_onboarding">
+                <field name="image"/>
+                <field name="step_name"/>
+                <field name="is_done"/>
+                <field name="is_start"/>
+                <field name="doc_link"/>
+                <field name="youtube_link"/>
+                <field name="plan_id"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click_css o_res_partner_kanban shadow"
+                                t-attf-style="#{record.is_done.raw_value ? 'background-color: #fff3e080; border-color: #e9cfb6;' : 'background-color: #ffffff;'}">
+                            <div class="button-link">
+                                <t t-if="record.youtube_link.raw_value">
+                                    <a role="button"
+                                        t-attf-href="{{ record.youtube_link.raw_value }}"
+                                        data-fancybox=""
+                                        class="btn btn-primary oe_highlight view_button youtube_btn mt-0 mb-2">
+                                        <i class="fa fa-youtube-play" title="youtube"/>
+                                    </a>
+                                </t>
+                                <t t-if="record.doc_link.raw_value">
+                                    <a t-attf-href="{{ record.doc_link.raw_value }}" role="button"
+                                        target="_blank"
+                                        class="btn btn-primary oe_highlight view_button mt-0 doc_button">
+                                        <i class="fa fa-file-text-o" title="document"/>
+                                    </a>
+                                </t>
+                            </div>
+                            <div class="mb16">
+                                <t t-if="record.image.value">
+                                    <img t-att-src="kanban_image('oe.onboarding.steps', 'image', record.id.raw_value)"
+                                            alt="step" class="mx-auto step-img"/>
+                                </t>
+                                <t t-if="!record.image.value">
+                                    <img t-att-src='_s + "/base/static/img/avatar.png"'
+                                            alt="step" class="step-img"/>
+                                </t>
+                            </div>
+                            <div class="oe_kanban_details" style="text-align:center;">
+                                <field name="step_name"/>
+                            </div>
+                            <div class="d-flex justify-content-center mt-2">
+                                <button type="object" name="open_action_view"
+                                        class="oe_highlight view_button start_btn mx-1">
+                                    <i class="fa fa-power-off action-icon" title="power"/>
+                                    <span class="ms-1">start</span>
+                                </button>
+                                <button class="oe_highlight view_button done_btn mx-1" type="object"
+                                        name="step_done"
+                                        attrs="{'invisible': [('is_start', '!=', True)]}">
+                                    <field name="is_done" invisible="1"/>
+                                    <i class="fa fa-check-square-o action-icon" title="checkbox"/>
+                                    <span class="ms-1">Mark as done</span>
+                                </button>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+                <field name="id" attrs="{'invisible': True}"/>
+            </kanban>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="act_op_boarding_steps">
+        <field name="name">OnBoarding</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">oe.onboarding.steps</field>
+        <field name="binding_view_types">kanban</field>
+        <field name="view_mode">kanban</field>
+        <field name="search_view_id" eval="False"/>
+    </record>
+</odoo>

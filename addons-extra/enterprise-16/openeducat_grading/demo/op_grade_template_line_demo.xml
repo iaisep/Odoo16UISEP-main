@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="grade_template_line_1" model="op.grade.template">
+            <field name="name">Semester Template</field>
+            <field name="template_line_ids" eval="[(6,0, [ref('template_1'), ref('template_1_1')])]"/>
+        </record>
+
+        <record id="grade_template_line_2" model="op.grade.template">
+            <field name="name">English/reading</field>
+            <field name="template_line_ids" eval="[(6,0, [ref('template_2')])]"/>
+        </record>
+
+        <record id="grade_template_line_3" model="op.grade.template">
+            <field name="name">Arabic/islamic</field>
+            <field name="template_line_ids" eval="[(6,0, [ref('template_3')])]"/>
+        </record>
+
+        <record id="grade_template_line_4" model="op.grade.template">
+            <field name="name">Quarter Template</field>
+            <field name="template_line_ids" eval="[(6,0, [ref('template_4'), ref('template_4_1'), ref('template_4_2'), ref('template_4_3')])]"/>
+        </record>
+
+</odoo>

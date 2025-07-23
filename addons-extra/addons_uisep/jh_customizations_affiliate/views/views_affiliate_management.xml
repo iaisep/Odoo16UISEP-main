@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="affiliate_visit_view_form_inherit_jh_type" model="ir.ui.view">
+            <field name="name">affiliate.visit.form.inherit.jh.type</field>
+            <field name="model">affiliate.visit</field>
+            <field name="inherit_id" ref="affiliate_management.affiliate_visit_view_form"/>
+            <field name="mode">extension</field>
+            <field name="priority">20</field>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='amt_type']" position="after">
+                    <field name="jh_type_compute" readonly="1"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

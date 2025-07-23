@@ -1,0 +1,382 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* openeducat_student_attendance_enterprise
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-09-30 08:36+0000\n"
+"PO-Revision-Date: 2019-09-30 08:36+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.actions.client,name:openeducat_student_attendance_enterprise.student_attendance_action_kiosk_mode
+msgid " Student Attendances"
+msgstr ""
+
+#. module: openeducat_student_attendance_enterprise
+#: code:addons/openeducat_student_attendance_enterprise/models/student_attendance.py:39
+#, python-format
+msgid "%(stu_name)s signed in at % (check_in) s"
+msgstr "% (Stu_name) s đăng nhập tại% (check_in) s"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:99
+#, python-format
+msgid "<b>Warning! Last check in was over 12 hours ago.</b><br/>If this isn't right, please contact Human Resource staff"
+msgstr "<B> Cảnh báo! đăng ký cuối cùng đã kết thúc 12 giờ trước. </ b> <br/> Nếu đây là không đúng, xin vui lòng liên hệ với nhân viên nhân sự"
+
+#. module: openeducat_student_attendance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_student_attendance_enterprise.view_student_attendance_kanban
+msgid "<i class=\"fa fa-calendar\" aria-label=\"Period\" role=\"img\" title=\"Period\"/>"
+msgstr "<I class = \"fa fa-lịch\" aria-label = \"Thời gian\" role = \"img\" title = \"Thời gian\" />"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:114
+#, python-format
+msgid "An apple a day keeps the doctor away"
+msgstr "Mỗi ngày một quả táo, bác sĩ không tới nhà"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:103
+#, python-format
+msgid "Another good day's work! See you soon!"
+msgstr "Một tác phẩm khác trong ngày ngon! Hẹn sớm gặp lại!"
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.model.fields,field_description:openeducat_student_attendance_enterprise.field_op_student__attendance_ids
+#: model_terms:ir.ui.view,arch_db:openeducat_student_attendance_enterprise.view_student_form_inherit_student_attendance
+msgid "Attendance"
+msgstr "sự tham dự"
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.model,name:openeducat_student_attendance_enterprise.model_op_attendance_line
+msgid "Attendance Lines"
+msgstr "Các đường tham dự"
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.model.fields,field_description:openeducat_student_attendance_enterprise.field_op_attendance_line__attendance_id
+msgid "Attendance Sheet"
+msgstr "Phiếu điểm danh"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:49
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:155
+#, python-format
+msgid "Attendance Sheets"
+msgstr "Sheets tham dự"
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.model.fields,field_description:openeducat_student_attendance_enterprise.field_op_attendance_line__check_in
+msgid "Attendance Time"
+msgstr "Thời gian tham dự"
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.model.fields,field_description:openeducat_student_attendance_enterprise.field_op_student__barcode
+msgid "Badge ID"
+msgstr ""
+
+#. module: openeducat_student_attendance_enterprise
+#: code:addons/openeducat_student_attendance_enterprise/models/op_student.py:148
+#, python-format
+msgid "Cannot perform sign in on multiple students."
+msgstr "Không thể thực hiện đăng nhập trên nhiều sinh viên."
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:10
+#, python-format
+msgid "Company Logo"
+msgstr "Công ty Logo"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:120
+#, python-format
+msgid "Early to bed and early to rise, makes a man healthy, wealthy and wise"
+msgstr "Sớm để ngủ và đầu tăng lên, làm cho một người đàn ông khỏe mạnh, giàu có và khôn ngoan"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:112
+#, python-format
+msgid "Eat breakfast as a king, lunch as a merchant and supper as a beggar"
+msgstr "Ăn sáng như một vị vua, ăn trưa như một thương gia và bữa ăn tối như một người ăn xin"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:97
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:186
+#, python-format
+msgid "Error: could not find corresponding student."
+msgstr "Lỗi: Không thể tìm thấy sinh viên tương ứng."
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:76
+#, python-format
+msgid "First come, first served"
+msgstr "Đến trước phục vụ trước"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:35
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:36
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:128
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:141
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:142
+#, python-format
+msgid "Go back"
+msgstr "Quay lại"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:83
+#, python-format
+msgid "Good afternoon"
+msgstr "Chào buổi trưa"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:85
+#, python-format
+msgid "Good evening"
+msgstr "Chào buổi tối"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:79
+#, python-format
+msgid "Good morning"
+msgstr "Chào buổi sáng"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:70
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:87
+#, python-format
+msgid "Good night"
+msgstr "Chúc ngủ ngon"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:117
+#, python-format
+msgid "Have a good afternoon"
+msgstr "Có một buổi chiều tốt"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:108
+#, python-format
+msgid "Have a good day!"
+msgstr "Chúc bạn ngày mới tốt lành!"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:122
+#, python-format
+msgid "Have a good evening"
+msgstr "Chúc buổi tối tốt lành"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:110
+#, python-format
+msgid "Have a nice lunch!"
+msgstr "Có một buổi trưa tốt đẹp!"
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.model.fields,help:openeducat_student_attendance_enterprise.field_op_student__barcode
+msgid "ID used for student identification"
+msgstr ""
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:127
+#, python-format
+msgid "Invalid request, please return to the main menu."
+msgstr "yêu cầu hợp lệ, hãy quay trở lại menu chính."
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.ui.menu,name:openeducat_student_attendance_enterprise.menu_student_attendance_kiosk_mode
+msgid "Kiosk Mode"
+msgstr "chế độ kiosk"
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.model.fields,field_description:openeducat_student_attendance_enterprise.field_op_student__last_attendance_id
+msgid "Last Attendance"
+msgstr "Attendance cuối"
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.actions.client,name:openeducat_student_attendance_enterprise.student_attendance_action_greeting_message
+msgid "Message"
+msgstr "Thông điệp"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:92
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:181
+#, python-format
+msgid "No open Attendance Sheet."
+msgstr "Không tham dự mở Sheet."
+
+#. module: openeducat_student_attendance_enterprise
+#: code:addons/openeducat_student_attendance_enterprise/models/op_student.py:57
+#, python-format
+msgid "No student corresponding to barcode % (barcode) s"
+msgstr "Không học sinh nào tương ứng với mã vạch% (barcode) s"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:123
+#, python-format
+msgid "OK"
+msgstr ""
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.model.fields,field_description:openeducat_student_attendance_enterprise.field_op_student__pin
+msgid "PIN"
+msgstr "GHIM"
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.model.fields,help:openeducat_student_attendance_enterprise.field_op_student__pin
+msgid "PIN used to Sign In in Kiosk Mode"
+msgstr "PIN dùng để đăng nhập vào chế độ Kiosk"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:92
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:181
+#, python-format
+msgid "Please contact the administrator."
+msgstr "Vui lòng liên hệ người quản trị."
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:74
+#, python-format
+msgid "Please enter your PIN to check in"
+msgstr "Vui lòng nhập mã PIN của bạn để kiểm tra trong"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:97
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:186
+#, python-format
+msgid "Please return to the main menu."
+msgstr "Hãy quay trở lại menu chính."
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:14
+#, python-format
+msgid "Scan your badge"
+msgstr "Quét huy hiệu của bạn"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:21
+#, python-format
+msgid "Select Student"
+msgstr "Chọn Sinh viên"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:116
+#, python-format
+msgid "Signed in at"
+msgstr "Đăng nhập tại"
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.model,name:openeducat_student_attendance_enterprise.model_op_student
+#: model:ir.model.fields,field_description:openeducat_student_attendance_enterprise.field_op_attendance_line__student_id
+#: model_terms:ir.ui.view,arch_db:openeducat_student_attendance_enterprise.student_view_kanban
+msgid "Student"
+msgstr "Sinh viên"
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.actions.act_window,name:openeducat_student_attendance_enterprise.student_attendance_action
+#: model:ir.ui.menu,name:openeducat_student_attendance_enterprise.menu_root_stu_att
+msgid "Student Attendances"
+msgstr "khán giả sinh viên"
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.actions.act_window,name:openeducat_student_attendance_enterprise.open_view_student_list_my
+#: model:ir.actions.act_window,name:openeducat_student_attendance_enterprise.student_attendance_action_kanban
+msgid "Students"
+msgstr "Sinh viên"
+
+#. module: openeducat_student_attendance_enterprise
+#: sql_constraint:op.student:0
+msgid "The Badge ID must be unique,                          this one is already assigned to another student."
+msgstr "Các Badge ID phải là duy nhất, chương trình này đã được giao cho sinh viên khác."
+
+#. module: openeducat_student_attendance_enterprise
+#: code:addons/openeducat_student_attendance_enterprise/models/op_student.py:110
+#, python-format
+msgid "The PIN must be a sequence of digits."
+msgstr "Mã PIN phải là một chuỗi các chữ số."
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:74
+#, python-format
+msgid "The early bird catches the worm"
+msgstr "Con chim đầu bắt sâu"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:114
+#, python-format
+msgid "Welcome"
+msgstr "Chào mừng bạn"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:8
+#, python-format
+msgid "Welcome to"
+msgstr "Chào mừng bạn đến"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:46
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:152
+#, python-format
+msgid "Welcome!"
+msgstr "Chào mừng bạn!"
+
+#. module: openeducat_student_attendance_enterprise
+#: code:addons/openeducat_student_attendance_enterprise/models/op_student.py:116
+#, python-format
+msgid "Wrong PIN"
+msgstr "Pin sai"
+
+#. module: openeducat_student_attendance_enterprise
+#: code:addons/openeducat_student_attendance_enterprise/models/student_attendance.py:51
+#, python-format
+msgid "You cannot duplicate an attendance."
+msgstr "Bạn không thể lặp lại một tham dự."
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.model.fields,help:openeducat_student_attendance_enterprise.field_op_student__attendance_ids
+msgid "list of attendances for students"
+msgstr "danh sách các khán giả dành cho sinh viên"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:17
+#, python-format
+msgid "or"
+msgstr ""

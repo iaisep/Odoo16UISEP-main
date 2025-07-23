@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>       
+        <record model="ir.ui.view" id="slide_slide_ia_form_inherit">
+            <field name="name">slide_slide_ia_form_inherit</field>
+            <field name="model">slide.slide</field>
+            <field name="inherit_id" ref="website_slides.view_slide_slide_form"/>
+            <field name="priority">25</field>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[@name='quiz']" position="after">
+                    <page name="convertido" string="Generar texto">
+                        <group >                                                      
+                            <group >                               
+                                <button string="Generar" name="conver_pre_embedding" type="object" attrs="{'invisible': [('text_write', '=', True)]}" class="oe_highlight"/>    
+                                <button string="Generar." name="generate_and_store_embeddings" attrs="{'invisible': [('text_write', '=', False)]}" type="object" class="oe_highlight"/>  
+                                <button string="Borrar" name="eliminate_use_embeding" type="object"/>
+                            </group>
+                            <group >
+                                <field name="html_content"  invisible="1"/>                                
+                                <field name="count_tokens" />
+                                <field name="text_write" widget="boolean_toggle" />
+                            </group>      
+                            <button string="Resumen IA" name="action_wizard_resume" type="object" class="oe_highlight" attrs="{'invisible': ['|', ('count_tokens', '&lt;', 8191), ('count_tokens', '&gt;', 100000)]}"/>                       
+                            <field name="convert" string="Generar texto"  readonly="0"/>
+                            <field name="create_text" invisible="1" />
+                        </group>
+                    </page>
+                    <page name="embedding" string="Embedding">
+                        <field name="embeddings_json" readonly="1"/>
+                    </page>
+                    
+                </xpath>
+            </field>
+        </record> 
+        <record model="ir.ui.view" id="slide_channel_ia_form_inherit">
+            <field name="name">slide_channel_ia_form_inherit</field>
+            <field name="model">slide.channel</field>
+            <field name="inherit_id" ref="website_slides.view_slide_channel_form"/>
+            <field name="priority">26</field>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[@name='content']/field[@name='slide_ids']/tree/field[@name='is_published']" position="after"> 
+                    <field name="create_text" string="IA" optional="hide"/>                     
+                </xpath>
+                <xpath expr="//header" position="inside"> 
+                    <button string="Convertir IA"
+                        name="execute_convert_pre_embedding"
+                        type="object"
+                        class="oe_highlight"/>
+                   
+                </xpath>
+            </field>
+        </record> 
+
+        <record id="resume_gpt_wizard_wizard_form" model="ir.ui.view">
+            <field name="name">resume.gpt.wizard.wizard.form</field>
+            <field name="model">resume.gpt.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Token Confirmation">
+                    <group >
+                        <field name="message" string="Comando"/>
+                        <group>                            
+                            <field name="slide_id" invisible="1"/>
+                            <field name="resume_content" invisible="1"/>
+                            <field name="convert" invisible="1"/>
+                        </group>                        
+                    </group>                    
+                    <footer>
+                        <button string="Resumir" type="object" name="action_confirm" class="btn-primary"/>
+                        <button string="Cancel" type="object" name="action_cancel" class="btn-default"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    
+        <record id="action_resume_gpt_wizard" model="ir.actions.act_window">
+            <field name="name">Resume GPT Wizard</field>
+            <field name="res_model">resume.gpt.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="resume_gpt_wizard_wizard_form"/>
+            <field name="target">new</field>
+        </record>
+        
+        
+    </data>
+</odoo>

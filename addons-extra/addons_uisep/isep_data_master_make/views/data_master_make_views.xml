@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- View data.master.make View Tree -->
+    <record id="view_data_master_make_tree" model="ir.ui.view">
+        <field name="name">view.data.master.make.tree</field>
+        <field name="model">data.master.make</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name_student"/>
+                <field name="name_admission"/>
+                <field name="date_first_payment"/>
+                <field name="date_start_class"/>
+                <field name="progress_campus" optional="show"/>
+                <field name="name_suscription" optional="show"/>
+                <field name="email" optional="hide"/>
+                <field name="phone" optional="hide"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- View data.master.make form -->
+    <record id="view_data_master_make_form" model="ir.ui.view">
+        <field name="name">view.data.master.make.form</field>
+        <field name="model">data.master.make</field>
+        <field name="arch" type="xml">
+            <form string="Data Master Make">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name_student"/>
+                            <field name="name_admission"/>
+                            <field name="date_first_payment"/>
+                            <field name="date_start_class"/>
+                            <field name="progress_campus"/>
+                            <field name="name_suscription"/>
+                            <field name="email"/>
+                            <field name="phone"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- View data.master.make search -->
+    <record id="view_data_master_make_search" model="ir.ui.view">
+        <field name="name">view.data.master.make.search</field>
+        <field name="model">data.master.make</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name_student"/>
+                <field name="name_admission"/>
+                <field name="date_first_payment"/>
+                <field name="date_start_class"/>
+                <field name="name_suscription"/>
+                <field name="email"/>
+                <group expand="1" string="Group By">
+                    <filter string="Nombre del Estudiante" name="name_student" domain="[]" context="{'group_by':'name_student'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action data.master.make -->
+    <record id="action_data_master_make" model="ir.actions.act_window">
+        <field name="name">Data Master Make</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">data.master.make</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                There is no examples click here to add new Data Master Make.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="submenu_master_make" 
+            name="Datos para make" 
+            parent="openeducat_core.menu_op_general_student" 
+            action="action_data_master_make" 
+            sequence="50"/>
+
+</odoo>

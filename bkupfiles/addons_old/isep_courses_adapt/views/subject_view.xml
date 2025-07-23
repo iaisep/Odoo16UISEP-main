@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="op_subject_from_view_inherited_isep" model="ir.ui.view">
+        <field name="name">op.subject.inherit.form</field>
+        <field name="model">op.subject</field>
+        <field name="inherit_id" ref="openeducat_core_enterprise.op_subject_from_view_inherited"/>
+        <field name="arch" type="xml">
+           	<xpath expr="//field[@name='course_id']" position="replace">
+                <field name="course_id" invisible="1"/>
+            </xpath>
+            <xpath expr="//field[@name='code']" position="after">
+            	<field name="course_ids" widget="many2many_tags" options="{'no_create_edit': True}" required="1"/>
+            	<field name="moodle_id" />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

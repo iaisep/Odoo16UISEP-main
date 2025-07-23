@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="op_digital_library_material_web_template" name="Library">
+        <t t-call="website.layout">
+            <div class="oe_structure oe_empty" id="digital_library_material_detail_view">
+                <section class="material-title"
+                         style="background-image: url(&quot;/openeducat_digital_library/static/src/img/inner-pagebg.jpg&quot;);position: relative;background-position-y: center;">
+                    <div class="overlay"/>
+                    <div class="container pt64 pb64">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                                <h1 class="text-white mb0" style="font-size: 40px;">DOCUMENT DETAIL
+                                </h1>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center text-md-left search-box">
+                                <form t-attf-action="/digital-library" role="search" method="get">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="search"
+                                               list="search_box_values"
+                                               t-attf-placeholder="Search" id="material_detail_search_box" t-att-value="search"
+                                               style="border-radius:0px;border-right: 0;height:50px;"/>
+                                        <input type="hidden" id="search_box_filter" name="filter_name" value="name"/>
+                                        <datalist id="search_box_values"/>
+                                        <span class="input-group-btn">
+                                            <button class="btn" type="submit" id="search_box_filter_submit"
+                                                    style="border-radius:0px">
+                                                <i class="fa fa-search"/>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="breadcrumbs">
+                    <div class="container">
+                        <div class="row border-bottom">
+                            <ul class="breadcrumb mb0">
+                                <li>
+                                    <a href="/">Home</a>
+                                </li>
+                                <li>
+                                    <a href="/digital-library">Library</a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span id="material_name" t-field="material.name"/>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="pt64 pb64">
+                    <div class="container">
+                        <div class="row col-md-12 d-flex">
+                            <div class="col-md-9 material_detail_border">
+                                <div class="row p-0 mt0">
+                                    <div class="col-md-12 mt8">
+                                        <h2 class="material-name-h2" t-esc="material.name"/>
+                                    </div>
+                                    <div class="col-md-12 col-lg-12 col-xs-12 mt24">
+                                        <div class="zoom_image" style="overflow:hidden;">
+                                            <img t-if="material.material_cover" data-scale="2.4"
+                                                 t-att-src="image_data_uri(material.material_cover)"
+                                                 height="50" width="80" style="width:100% !important;"
+                                                 class="img img-fluid zoom_image_img"/>
+                                            <img t-if="not material.material_cover" data-scale="2.4"
+                                                 height="50" width="80" style="width:100% !important;"
+                                                 t-attf-src="/openeducat_digital_library/static/src/img/channel-default.jpg"
+                                                 class="img img-fluid zoom_image_img"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 my-2" id="material-review-description">
+                                        <div class="tab-info col-md-12 my-3 pl-0">
+                                            <ul class="nav nav-pills">
+                                                <li class="description">
+                                                    <a data-bs-toggle="tab" role="tab" href="#desc_toggle" class="active"
+                                                       aria-expanded="false">
+                                                        <span>Detail</span>
+                                                    </a>
+                                                </li>
+                                                <li class="review">
+                                                    <a data-bs-toggle="tab" role="tab" href="#review_toggle" aria-expanded="false">
+                                                        <span>Review</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                            <div class="tab-content tab-content-info border p-4">
+                                                <div id="review_toggle" class="tab-pane fade">
+                                                    <div class="info">
+                                                        <form role="form" data-toggle="validator"
+                                                              id="review_course_form">
+                                                            <div class="form-group" id="review">
+                                                                <label for="review" style="color:#0069af;">Your
+                                                                    Review*
+                                                                </label>
+                                                                <input type="text" class="form-control"
+                                                                       id="review_course_review"
+                                                                       name="review" placeholder="Your Review"
+                                                                       required="1"/>
+                                                            </div>
+                                                            <div class="form-group" id="name">
+                                                                <label for="name" style="color:#0069af;">Name*
+                                                                </label>
+                                                                <input type="text" class="form-control"
+                                                                       id="review_name_course"
+                                                                       name="name" placeholder="Your Name"
+                                                                       required="1"/>
+                                                            </div>
+                                                            <div class="form-group" id="email">
+                                                                <label for="email" style="color:#0069af;">Email*
+                                                                </label>
+                                                                <input type="text" class="form-control"
+                                                                       id="review_email_course"
+                                                                       name="email" placeholder="Your Email"
+                                                                       required="1"/>
+                                                            </div>
+                                                            <div class="stars form-group" id="rate">
+                                                                <input class="star star-5" value="5" id="star-5"
+                                                                       type="radio"
+                                                                       name="star"/>
+                                                                <label class="star star-5" value="5" name="star"
+                                                                       for="star-5"/>
+                                                                <input class="star star-4" value="4" id="star-4"
+                                                                       type="radio"
+                                                                       name="star"/>
+                                                                <label class="star star-4" value="4" name="star"
+                                                                       for="star-4"/>
+                                                                <input class="star star-3" value="3" id="star-3"
+                                                                       type="radio"
+                                                                       name="star"/>
+                                                                <label class="star star-3" value="3" name="star"
+                                                                       for="star-3"/>
+                                                                <input class="star star-2" value="2" id="star-2"
+                                                                       type="radio"
+                                                                       name="star"/>
+                                                                <label class="star star-2" value="2" name="star"
+                                                                       for="star-2"/>
+                                                                <input class="star star-1" value="1" id="star-1"
+                                                                       type="radio"
+                                                                       name="star"/>
+                                                                <label class="star star-1" value="1" name="star"
+                                                                       for="star-1"/>
+                                                            </div>
+                                                            <input type="hidden" id="rating_star_val" value=""/>
+                                                            <input type="hidden" id="material_id_value"
+                                                                   t-att-value="material.id"/>
+                                                            <div class="align ">
+                                                                <button type="submit" id="course_review_submit"
+                                                                        class="btn btn-primary mb16 mt16 col-md-12">
+                                                                    Submit
+                                                                </button>
+                                                            </div>
+                                                        </form>
+                                                        <div class="review_success_class">
+                                                            <div style="color:#0069af;">
+                                                                Your Review Submitted Successfully!
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div id="desc_toggle" class="tab-pane fade active show">
+                                                    <div class="info">
+                                                        <div>
+                                                            <span t-field="material.material_description"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-lg-3 d-block mx-auto material_side_bar pt-1">
+                                <div class="col-md-12 col-sm-12 col-xs-12 pb16 read-now-btn"
+                                     id="read-now-button"
+                                     style="padding:0px;text-transform: uppercase;border-bottom: 1px solid #e7e7e7;">
+                                    <a t-if="material.material_type == 'pdf' or material.material_type == 'epub'"
+                                       t-attf-href="/digital-library/read/#{material.id}"
+                                       class="btn btn-block btn-primary"
+                                       style="border-radius: 0px; padding: 14px 12px;">
+                                        Read Now
+                                    </a>
+                                    <a t-if="material.material_type == 'audiobook'"
+                                       t-attf-href="/digital-library/read/#{material.id}"
+                                       class="btn btn-block btn-primary"
+                                       style="border-radius: 0px; padding: 14px 12px;">
+                                        Listen Now
+                                    </a>
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12 nbt-date-lang mb16 align-items-center mt16 p-0">
+                                    <div>
+                                        Category
+                                    </div>
+                                    <t t-set="category_val"
+                                       t-value="material.get_data_of_category(material.id)"/>
+                                    <p t-esc="category_val" class="mb0 text-secondary"
+                                       style="display: inline-block; font-weight: bold;font-size:18px;"/>
+                                </div>
+                                <div t-if="material.author_ids"
+                                     class="col-md-12 col-sm-12 col-xs-12 nbt-date-lang mb16 align-items-center p-0">
+                                    <div>
+                                        Author
+                                    </div>
+                                    <t t-set="author_val"
+                                       t-value="material.get_data_of_author_name(material.id)"/>
+                                    <p t-esc="author_val" class="mb0 text-secondary"
+                                       style="display: inline-block; font-weight: bold;font-size:18px;"/>
+                                </div>
+                                <div t-if="material.publisher_ids"
+                                     class="col-md-12 col-sm-12 col-xs-12 nbt-date-lang mb16 align-items-center p-0">
+                                    <div>
+                                        Publisher
+                                    </div>
+                                    <t t-set="publisher_val"
+                                       t-value="material.get_data_of_publisher_name(material.id)"/>
+                                    <p t-esc="publisher_val" class="mb0 text-secondary"
+                                       style="display: inline-block; font-weight: bold;font-size:18px;"/>
+                                </div>
+                                <div t-if="material.material_edition"
+                                     class="col-md-12 col-sm-12 col-xs-12 nbt-date-lang mb16 align-items-center p-0">
+                                    <div>
+                                        Edition
+                                    </div>
+                                    <p t-esc="material.material_edition" class="mb0 text-secondary"
+                                       style="display: inline-block; font-weight: bold;font-size:18px;"/>
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12 nbt-date-lang mb16 align-items-center p-0">
+                                    <div>
+                                        Type Of File
+                                    </div>
+                                    <p t-field="material.material_type" class="mb0 text-secondary"
+                                       style="display: inline-block; font-weight: bold;font-size:18px;"/>
+                                </div>
+                                <div t-if="material.language_id.name"
+                                     class="col-md-12 col-sm-12 col-xs-12 nbt-date-lang mb16 align-items-center p-0">
+                                    <div>
+                                        Language
+                                    </div>
+                                    <p t-esc="material.language_id.name" class="mb0 text-secondary"
+                                       style="display: inline-block; font-weight: bold;font-size:18px;"/>
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12 nbt-date-lang mb16 align-items-center p-0">
+                                    <div>
+                                        Reads
+                                    </div>
+                                    <p t-esc="len(material.material_enrollment_line)" class="mb0 text-secondary"
+                                       style="display: inline-block; font-weight: bold;font-size:18px;"/>
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12 nbt-date-lang mb16 align-items-center p-0">
+                                    <div>
+                                        Review
+                                    </div>
+                                    <t t-set="rate_value"
+                                       t-value="material.get_material_rating_stats_value(material.id)"/>
+                                    <div class="d-flex">
+                                        <div class="pt8 me-1 rating_star_review">
+                                            <t t-foreach="range(0,rate_value['rate_floor'])" t-as="record">
+                                                <i class="fa fa-star"/>
+                                            </t>
+                                            <t t-if="rate_value['rate_decimal']">
+                                                <i class="fa fa-star-half-o"/>
+                                            </t>
+                                            <t t-foreach="range(0,rate_value['rate_empty'])" t-as="record">
+                                                <i class="fa fa-star-o"/>
+                                            </t>
+                                        </div>
+                                        <div class="mt8 text-epsilon" style="font-size: 13px;">
+                                            <span>(</span>
+                                            <t t-esc="material.total_reviews"/>
+                                            <span>Review</span>
+                                            <span>)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </t>
+    </template>
+
+    <template id="op_digital_my_library_web_template" name="My Library">
+        <t t-call="website.layout">
+            <div class="oe_structure oe_empty" id="my_digital_library_detail">
+                <section class="library-title"
+                         style="background-image: url(&quot;/openeducat_digital_library/static/src/img/inner-pagebg.jpg&quot;);position: relative;background-position-y: center;">
+                    <div class="overlay"/>
+                    <div class="container pt64 pb64">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                                <h1 class="text-white mb0" style="font-size: 40px;">MY LIBRARY
+                                </h1>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center text-md-left search-box">
+                                <form t-attf-action="/digital-library" role="search" method="get">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="search"
+                                               list="search_box_values"
+                                               t-attf-placeholder="Search" id="material_detail_search_box" t-att-value="search"
+                                               style="border-radius:0px;border-right: 0;height:50px;"/>
+                                        <input type="hidden" id="search_box_filter" name="filter_name" value="name"/>
+                                        <datalist id="search_box_values"/>
+                                        <span class="input-group-btn">
+                                            <button class="btn" type="submit" id="search_box_filter_submit"
+                                                    style="border-radius:0px">
+                                                <i class="fa fa-search"/>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <div class="p-5">
+                    <div class="container mt64" id="my-material">
+                        <div class="row">
+                            <t t-foreach="enrollments" t-as="enrollment">
+                                <div class="col-md-6 col-sm-12 col-xs-12 col-lg-4 mb32">
+                                    <div class="card-body text-o-color-5"
+                                         style="padding:0px;box-shadow: 0 8px 6px -6px #a7a7a7;border: 1px solid #dadada;">
+                                        <div class="material-thumbnail">
+                                            <a t-attf-href="/digital-library/material/#{enrollment.material_id.id}">
+                                                <img t-if="not enrollment.material_id.material_cover"
+                                                     t-attf-src="/openeducat_digital_library/static/src/img/channel-default.jpg"
+                                                     class="img img-fluid"/>
+                                                <img t-if="enrollment.material_id.material_cover"
+                                                     t-att-src="image_data_uri(enrollment.material_id.material_cover)"
+                                                     class="img img-fluid"/>
+                                            </a>
+                                        </div>
+                                        <div>
+                                            <div class="material-title">
+                                                <h2 class="website_lms_h2">
+                                                    <a id="course_name"
+                                                       t-attf-href="/digital-library/material/#{enrollment.material_id.id}"
+                                                       t-esc="enrollment.material_id.name"/>
+                                                </h2>
+                                            </div>
+                                            <div class="material-instructor">
+                                                Author:
+                                                <span class="text-black" style="font-weight: 600;float: right;">
+                                                    <t t-if="enrollment.material_id.author_ids">
+                                                        <t t-set="author_val"
+                                                           t-value="enrollment.material_id.get_data_of_author_name(enrollment.material_id.id)"/>
+                                                        <t t-esc="author_val"/>
+                                                    </t>
+                                                </span>
+                                            </div>
+                                            <div class="material-instructor"
+                                                 style="padding-top: 6px; padding-bottom: 6px;">
+                                                <span style="font-weight: 600;">
+                                                    Category:
+                                                    <span class="text-black" style="float: right;">
+                                                        <t t-set="category_val"
+                                                           t-value="enrollment.material_id.get_data_of_category(enrollment.material_id.id)"/>
+                                                        <span t-esc="category_val"/>
+                                                    </span>
+                                                </span>
+                                            </div>
+                                            <div class="material-instructor"
+                                                 style="padding-top: 6px; padding-bottom: 6px;">
+                                                <span style="font-weight: 600;">
+                                                    Edition:
+                                                    <span class="text-black" style="float: right;">
+                                                        <t t-raw="enrollment.material_id.material_edition"/>
+                                                    </span>
+                                                </span>
+                                            </div>
+                                            <div class="material-price">
+                                                <a t-if="enrollment.material_id.material_type == 'pdf' or enrollment.material_id.material_type == 'epub'"
+                                                   t-attf-href="/digital-library/read/#{enrollment.material_id.id}"
+                                                   class="btn btn-block start_reading d-block mx-auto"
+                                                   style="border-radius: 0px;">
+                                                    Start Reading
+                                                </a>
+                                                <a t-if="enrollment.material_id.material_type == 'audiobook'"
+                                                   t-attf-href="/digital-library/read/#{enrollment.material_id.id}"
+                                                   class="btn btn-block start_reading d-block mx-auto"
+                                                   style="border-radius: 0px;">
+                                                    Start Listening
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="op_digital_library_read_mode_web_template" name="Digital Library">
+        <t t-if="enrollments.material_type == 'epub'">
+            <head>
+                <title>Digital Library</title>
+            </head>
+            <script src="/web/static/lib/jquery/jquery.js"/>
+            <script type="text/javascript" src="/openeducat_digital_library/static/src/js/jszip.min.js"/>
+            <script type="text/javascript" src="/openeducat_digital_library/static/src/js/epub.min.js"/>
+            <link rel="stylesheet" href="/openeducat_digital_library/static/src/css/epub.css"/>
+            <script type="text/javascript" src="/openeducat_digital_library/static/src/js/epub.js"/>
+            <div id="epub_top_bar">
+                <a class="back_button" t-attf-href="/digital-library/material/#{enrollments.id}">
+                    Back
+                </a>
+            </div>
+            <div id="epub_digital_library" t-att-data-id="enrollments.id" t-att-data-vals="enrollments.material_data.decode('utf-8')"/>
+            <a id="prev" href="#prev" class="arrow">‹</a>
+            <a id="next" href="#next" class="arrow">›</a>
+        </t>
+        <t t-if="enrollments.material_type == 'pdf'">
+            <div id="pdf_byte_value_div">
+                <div t-att-data-material="enrollments.material_data.decode('utf-8')"
+                     class="pdf_data_values"/>
+                <div id="pdf_library_render"/>
+                <iframe t-attf-src="/digital-library/embed/#{enrollments.id}"
+                        allowFullScreen="true"
+                        style="width:100%;height:100%;"
+                        id="pdf_render_i_frame" webkitallowfullscreen="true"
+                        frameborder="0">
+                </iframe>
+            </div>
+            <style>
+                body{
+                margin:0px;
+                }
+            </style>
+        </t>
+        <t t-if="enrollments.material_type == 'audiobook'">
+            <t t-call="website.layout">
+                <div id="pdf_byte_value_div">
+                    <div t-att-data-material="enrollments.material_data"
+                         class="pdf_data_values"/>
+                    <div id="pdf_library_render"/>
+                    <div class="p-4" style="margin:auto;width:50%;font-size:18px;">
+                        <div class="title">
+                            Name:
+                            <t t-esc="enrollments.name"/>
+                        </div>
+                        <br/>
+                        <audio t-if="enrollments.material_type == 'audiobook'"
+                               controls="" controlsList="nodownload">
+                            <source class="audio" t-att-src="audio"/>
+                        </audio>
+                    </div>
+                </div>
+            </t>
+        </t>
+
+    </template>
+
+</odoo>

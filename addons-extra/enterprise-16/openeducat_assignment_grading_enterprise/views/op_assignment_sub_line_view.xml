@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="view_op_assign_sub_line_inherit_tree" model="ir.ui.view">
+            <field name="name">op.assign.sub.line.inherit.tree</field>
+            <field name="model">op.assignment.sub.line</field>
+            <field name="inherit_id" ref="openeducat_assignment.view_op_assignment_sub_line_tree"/>
+            <field name="arch" type="xml">
+                <field name="state" position="after">
+                    <field name="grades_id" optional="hide"/>
+                    <field name="evaluation_boolean" optional="hide"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_op_assign_sub_line_inherit_form" model="ir.ui.view">
+            <field name="name">op.assign.sub.line.inherit.form</field>
+            <field name="model">op.assignment.sub.line</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="openeducat_assignment.view_op_assignment_sub_line_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='marks']" position="after">
+                    <field name="evaluation_boolean" invisible="1"/>
+                    <field name="grades_id" attrs="{'invisible': [('evaluation_boolean', '=', False)]}"/>
+                </xpath>
+                <xpath expr="//field[@name='marks']" position="attributes">
+                    <attribute name="attrs">{'invisible': ['|', ('evaluation_boolean', '=', True), ('assignment_id', '=', False)]}</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_op_assign_inherit_tree" model="ir.ui.view">
+            <field name="name">op.assign.inherit.tree</field>
+            <field name="model">op.assignment</field>
+            <field name="inherit_id" ref="openeducat_assignment.view_op_assignment_tree"/>
+            <field name="arch" type="xml">
+                <field name="state" position="before">
+                    <field name="evaluation_type" optional="hide"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_op_assign_inherit_form" model="ir.ui.view">
+            <field name="name">op.assign.inherit.form</field>
+            <field name="model">op.assignment</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="openeducat_assignment.view_op_assignment_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='submission_date']" position="after">
+                    <field name="evaluation_type"/>
+                </xpath>
+
+                <xpath expr="//field[@name='marks']" position="attributes">
+                    <attribute name="attrs">{'invisible': [('evaluation_type', '=', 'grade')]}</attribute>
+                </xpath>
+            </field>
+        </record>
+
+</odoo>

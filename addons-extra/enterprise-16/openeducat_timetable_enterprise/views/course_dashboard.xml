@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record model="ir.actions.act_window" id="act_open_op_timing_view">
+            <field name="name">Sessions</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.session</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">kanban,calendar,pivot</field>
+            <field name="domain">[('course_id','=',context.get('active_id', False))]</field>
+            <field name="search_view_id" ref="openeducat_timetable.view_op_session_search"/>
+        </record>
+
+
+        <record id="openeducat_child_course_dashboard_kanban_view" model="ir.ui.view">
+            <field name="name">op.course.admission.dashboard.kanban</field>
+            <field name="model">op.course</field>
+            <field name="inherit_id" ref="openeducat_core_enterprise.openeducat_course_dashboard_kanban_view"/>
+            <field name="arch" type="xml">
+                    <xpath expr="//div[@name='seven_column']" position="inside">
+                        <a name="%(openeducat_timetable_enterprise.act_open_op_timing_view)d"
+                           type="action" style="overflow: visible;">
+                            <field name="timing_course_count" string="Admission Count"/>
+                            Time Table
+                        </a>
+                    </xpath>
+            </field>
+        </record>
+</odoo>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="result_survey_custom" name="Results Survey Custom">
+        <t t-call="website.layout">
+          <div class="container mb32 mt48">
+            <div class="row mt-4">
+              <div class="col-sm-12">
+                <div class="bs-component">
+                  <h3>Resultados del Exámen</h3>
+                  <ul>
+                      <li t-foreach="answers" t-as="answer">
+                            <strong>Pregunta:</strong> <span t-esc="answer.question_id.title"/>
+                          <br/>
+                          <strong>Respuesta:</strong> 
+                              <span t-if="answer.answer_is_correct" class="text-success" >Correcto</span>
+                              <span t-if="not answer.answer_is_correct" class="text-danger">Incorrecto</span>
+                          <hr/>
+                      </li>
+                  </ul>
+                </div>
+              </div>
+          </div>
+          </div>
+        </t>
+    </template>
+</odoo>

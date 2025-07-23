@@ -1,0 +1,34 @@
+<odoo>
+
+
+    <record id="survey_survey_type" model="ir.ui.view">
+        <field name="name">survey.question.validation</field>
+        <field name="model">survey.survey</field>
+        <field name="inherit_id" ref="survey.survey_survey_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='background_image']" position="replace">
+                <field name="survey_type" widget="radio" options="{'horizontal': true}"/>
+            </xpath>
+        </field>
+
+    </record>
+
+
+    <record id="survey_user_input_hide_failed" model="ir.ui.view">
+        <field name="name">survey_user_input_hide_failed</field>
+        <field name="model">survey.user_input</field>
+        <field name="inherit_id" ref="survey.survey_user_input_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//widget[@name='web_ribbon' and @bg_color='bg-danger']" position="attributes">
+                <attribute name="attrs">{'invisible': True}</attribute>
+            </xpath>
+        </field>
+
+    </record>
+
+
+    
+
+
+
+</odoo>

@@ -1,0 +1,86 @@
+.container {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+.heading-style {
+    color: white !important;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+}
+
+canvas {
+    transition: transform .3s;
+}
+
+canvas:hover {
+    transform: scale(1.1);
+}
+
+.subject-table > thead {
+    color: #f7f7f7;
+    background: rgba(103, 138, 251, .9);
+}
+
+.subject-table > thead > tr > th {
+    text-align: center;
+    padding: 15px;
+}
+
+.subject-table > tbody > tr {
+    border-radius: 10px !important;
+    background-color: #ebebeb;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+}
+
+.subject-table > tbody > tr:hover {
+    background-color: #f7f7f7;
+}
+
+.subject-table > tbody > tr > td {
+    border-top: 1px solid transparent !important;
+    padding: 15px;
+    color: #6C7A89;
+}
+
+.subject-table > tbody > tr > td:first-child {
+    cursor: pointer;
+    color: blue;
+    font-weight: bolder;
+}
+
+.subject-table {
+    border-collapse: separate !important;
+    border-spacing: 0 15px;
+    text-align: center;
+}
+
+.graph-panel {
+    border-radius: 10px !important;
+    transition: all 0.3s;
+}
+
+.graph-panel:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.card-green {
+    background: rgba(42, 156, 77, 1);
+}
+
+.card-blue {
+    background: rgba(103, 138, 251, .9);
+}
+
+.card-orange {
+    background: rgba(226, 206, 107, 0.9);
+}
+
+.card-grey {
+    background: rgba(105, 148, 172, 0.9);
+}
+
+.big {
+    font-size: 1.5rem;
+}

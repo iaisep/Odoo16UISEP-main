@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="op_qz_result_1" model="op.quiz.result">
+            <field name="name">Quiz Round 1</field>
+            <field name="index">QR009</field>
+            <field name="quiz_id" ref="openeducat_quiz.op_qz_1"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="total_question">10</field>
+            <field name="total_marks">10.00</field>
+            <field name="state">open</field>
+<!--            <field name="finish_date" eval="DateTime.now()"/>-->
+            <field name="line_ids" eval="[(4,ref('op_qz_result_line_1')),(4,ref('op_qz_result_line_2')),(4,ref('op_qz_result_line_3')),
+            (4,ref('op_qz_result_line_4')),(4,ref('op_qz_result_line_5')),(4,ref('op_qz_result_line_6')),(4,ref('op_qz_result_line_7')),
+            (4,ref('op_qz_result_line_8')),(4,ref('op_qz_result_line_9')),(4,ref('op_qz_result_line_10'))]"/>
+        </record>
+
+</odoo>

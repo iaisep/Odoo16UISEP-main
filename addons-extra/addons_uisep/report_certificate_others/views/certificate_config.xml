@@ -1,0 +1,50 @@
+<odoo>
+    <data>      
+        <record id="view_certificate_inherit_configurate" model="ir.ui.view">
+            <field name="name">view.certificat.inherit.configuratefield</field>
+            <field name="model">survey.survey</field>
+            <field name="inherit_id" ref="survey.survey_survey_view_form"/>
+            <field name="arch" type="xml">            
+                 <xpath expr="//field[@name='certification_report_layout']" position="replace">
+                    <span class="w-50">Universidad ISEP</span>           
+                </xpath>
+                <xpath expr="//notebook[1]" position="inside">                    
+                        <page string="Certificado" name="cerconf">                           
+                               <group name="Configura">                           
+                                  <group>                                       
+                                    <field name="backgroundimage" widget="image"/>
+                                  </group>
+                                  <group>
+                                    <field name="firm_response" widget="image"/>
+                                  </group>
+                                   <group>
+                                    <field name="title_certification"/>
+                                  </group>
+                                    <group>
+                                    <field name="ref_certification"/>
+                                  </group>
+                                   <group>
+                                    <field name="studen_school"/>
+                                  </group>
+                                   <group>
+                                    <field name="motivational"/>
+                                  </group>
+                                   <group>
+                                    <field name="firm_direction"/>
+                                  </group>
+                                   <group>
+                                    <field name="firm_firm"/>
+                                  </group>
+                                 
+                               </group>
+                                <group>
+                                    <field name="body_certification" widget="html"/>
+                                </group>
+                        </page>
+                </xpath>
+            </field>
+        </record>       
+    </data>
+</odoo>
+
+

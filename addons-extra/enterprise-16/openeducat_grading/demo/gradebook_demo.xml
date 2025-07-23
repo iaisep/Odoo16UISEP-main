@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="gradebook_1" model="gradebook.gradebook">
+            <field name="student_id" ref="openeducat_core.op_student_1"/>
+            <field name="course_id" ref="openeducat_core.op_course_2"/>
+            <field name="academic_year_id" eval="[(6,0,[ref('openeducat_core.academic_year_3')])]"/>
+            <field name="gradebook_line_id" eval="[(4,ref('openeducat_grading.line_1')), (4,ref('openeducat_grading.line_2')),
+             (4,ref('openeducat_grading.line_3')), (4,ref('openeducat_grading.line_4')), (4,ref('openeducat_grading.line_5'))]"/>
+            <field name="state">publish</field>
+        </record>
+
+        <record id="gradebook_2" model="gradebook.gradebook">
+            <field name="student_id" ref="openeducat_core.op_student_4"/>
+            <field name="course_id" ref="openeducat_core.op_course_2"/>
+            <field name="academic_year_id" eval="[(6,0,[ref('openeducat_core.academic_year_3')])]"/>
+            <field name="state">publish</field>
+            <field name="gradebook_line_id" eval="[(4,ref('openeducat_grading.line_6')), (4,ref('openeducat_grading.line_7')),
+             (4,ref('openeducat_grading.line_8')), (4,ref('openeducat_grading.line_9')), (4,ref('openeducat_grading.line_10'))]"/>
+        </record>
+
+         <record id="gradebook_3" model="gradebook.gradebook">
+            <field name="student_id" ref="openeducat_core.op_student_6"/>
+             <field name="course_id" ref="openeducat_core.op_course_3"/>
+             <field name="academic_year_id" eval="[(6,0,[ref('openeducat_core.academic_year_1')])]"/>
+            <field name="gradebook_line_id" eval="[(4,ref('openeducat_grading.line_11')), (4,ref('openeducat_grading.line_12')),
+             (4,ref('openeducat_grading.line_13')), (4,ref('openeducat_grading.line_14'))]"/>
+        </record>
+
+        <record id="gradebook_4" model="gradebook.gradebook">
+            <field name="student_id" ref="openeducat_core.op_student_5"/>
+            <field name="course_id" ref="openeducat_core.op_course_3"/>
+            <field name="academic_year_id" eval="[(6,0,[ref('openeducat_core.academic_year_1')])]"/>
+            <field name="state">publish</field>
+            <field name="gradebook_line_id" eval="[(4,ref('openeducat_grading.line_15')), (4,ref('openeducat_grading.line_16')),
+             (4,ref('openeducat_grading.line_17')), (4,ref('openeducat_grading.line_18'))]"/>
+        </record>
+
+        <function model="gradebook.gradebook" name="calculate_percentage">
+            <value eval="gradebook_1"/>
+        </function>
+
+        <function model="gradebook.gradebook" name="calculate_percentage">
+            <value eval="gradebook_2"/>
+        </function>
+
+        <function model="gradebook.gradebook" name="calculate_percentage">
+            <value eval="gradebook_3"/>
+        </function>
+
+        <function model="gradebook.gradebook" name="calculate_percentage">
+            <value eval="gradebook_4"/>
+        </function>
+
+</odoo>

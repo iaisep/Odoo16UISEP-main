@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <menuitem id="menu_op_alumni_root"
+                  name="Alumni"
+                  action="op_alumni_group_action"
+                  web_icon="openeducat_alumni_enterprise,static/description/icon.png"
+                  groups="openeducat_core.group_op_back_office_admin"/>
+
+        <menuitem id="op_alumni_group_menu" name="Alumni Group"
+                  action="op_alumni_group_action"
+                  parent="menu_op_alumni_root"/>
+
+        <!-- Website Views -->
+        <record id="website_menu_alumni_view" model="website.menu">
+            <field name="name">Alumni</field>
+            <field name="url">/alumni</field>
+            <field name="parent_id" ref="website.main_menu"/>
+        </record>
+
+</odoo>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="event_detail" name="Event Detail" inherit_id="openeducat_alumni_enterprise.alumni_group"
+              priority="10">
+        <xpath expr="//section[@id='alumni_event_blog_view']//div//div" position="inside">
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 event-item">
+                <div class="row align-items-baseline" id="event_view">
+                    <div class="col-md-7 col-7 pl-4">
+                        <h3>Our Events</h3>
+                    </div>
+                    <div class="col-md-4 col-4 pr-0 text-right">
+                        <a class="text-secondary" style="font-size: 16px;" href="/event">View All</a>
+                    </div>
+                    <ul class="col-lg-11 list-unstyled pt16" id="middle_column" style="margin: 0px 15px;">
+                        <li class="" t-foreach="alumnievents" t-as="event">
+                            <div itemscope="itemscope" class="row event-box mb32 bg-white">
+                                <div class="col-lg-2 col-md-3 col-sm-3 col-3 bg-primary"
+                                     style="padding: 10px;">
+                                    <div class="text-center">
+                                        <!-- <i class="fa fa-clock-o" role="img" aria-label="Start date"-->
+                                        <!-- title="Start date"></i>-->
+                                        <p class="mb0 evnt-dt" itemprop="startDate"
+                                           t-field="event.with_context(tz=event.date_tz).date_begin"
+                                           t-options='{"hide_seconds":"True", "format": "d"}'></p>
+                                        <p class="mb0 evnt-mt" itemprop="startDate"
+                                           t-field="event.with_context(tz=event.date_tz).date_begin"
+                                           t-options='{"hide_seconds":"True", "format": "MMMM"}'></p>
+                                        <p class="mb0 evnt-tm" itemprop="startDate"
+                                           t-field="event.with_context(tz=event.date_tz).date_begin"
+                                           t-options='{"hide_seconds":"True", "format": "H:MM"}'></p>
+                                        <!-- <i>to</i>-->
+                                        <!-- <span itemprop="endDate"-->
+                                        <!-- t-field="event.with_context(tz=event.date_tz).date_end"-->
+                                        <!-- t-options='{"hide_seconds":"True"}'></span>-->
+                                    </div>
+                                </div>
+                                <div class="col-lg-10 col-md-9 col-sm-9 col-9" style="padding: 10px 20px;">
+                                    <div>
+                                        <h4 class="event-name d-lg-flex d-md-flex">
+                                            <div class="w-lg-75 w-md-75 content_ellipsis">
+                                                <a itemprop="url"
+                                                   t-att-class="event.registration_ids.state == 'done' and 'text-success'"
+                                                   t-attf-href="/event/#{ slug(event) }/#{(not event.menu_id) and 'register' or ''}">
+                                                    <span id="event" itemprop="name"
+                                                          t-field="event.name"></span>
+                                                </a>
+                                            </div>
+                                            <div class="w-lg-25 w-md-25 text-lg-right text-md-right">
+                                                <small t-if="event.is_participating" class="badge badge-info">
+                                                    Participating
+                                                </small>
+<!--                                                <small t-if="event.is_online" class="badge badge-info">Online-->
+<!--                                                </small>-->
+                                                <small t-if="not event.website_published"
+                                                       class="badge badge-danger">
+                                                    unpublished
+                                                </small>
+                                            </div>
+                                        </h4>
+                                        <div class="event-org">
+                                            <i class="fa fa-user" role="img" aria-label="Organizer"
+                                               title="Organizer"></i>
+                                            <t t-if="event.organizer_id">
+                                                <span t-field="event.organizer_id"></span>
+                                            </t>
+                                        </div>
+<!--                                        <t t-if="not event.is_online">-->
+<!--                                            <div class="event-loc" itemprop="location"-->
+<!--                                                 t-field="event.address_id" t-options='{-->
+<!--                                                 "widget": "contact",-->
+<!--                                                 "fields": ["city"]-->
+<!--                                                 }'/>-->
+<!--                                        </t>-->
+                                        <div class="text-muted" t-if="event.event_type_id">
+                                            <i class="fa fa-tag" role="img" aria-label="Event type"
+                                               title="Event type"></i>
+                                            <span t-field="event.event_type_id"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

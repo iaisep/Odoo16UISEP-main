@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="action_op_notice_board_mail_compose" model="ir.actions.act_window">
+        <field name="name">Send Email</field>
+        <field name="res_model">mail.compose.message</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context" eval="{
+'default_composition_mode': 'comment',
+'default_use_template': True,
+'default_template_id': ref('openeducat_notice_board_enterprise.email_circular_template'),
+            }"/>
+        <field name="binding_model_id" ref="openeducat_notice_board_enterprise.model_op_circular"/>
+        <field name="binding_view_types">form</field>
+    </record>
+
+    <record id="action_op_notice_board_mass_mail" model="ir.actions.act_window">
+        <field name="name">Send Email</field>
+        <field name="res_model">mail.compose.message</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context" eval="{
+'default_composition_mode': 'mass_mail',
+'default_use_template': True,
+'default_template_id': ref('openeducat_notice_board_enterprise.email_circular_template'),
+            }"/>
+        <field name="binding_model_id" ref="openeducat_notice_board_enterprise.model_op_circular"/>
+        <field name="binding_view_types">list</field>
+    </record>
+    <record id="op_circular_view_form" model="ir.ui.view">
+        <field name="name">Op Circular Form View</field>
+        <field name="model">op.circular</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button string="In Progress" name="action_in_progress" type="object"
+                            class="oe_highlight" attrs="{'invisible':[('state','not in','draft')]}"/>
+                    <button string="Publish" name="action_publish" type="object"
+                            class="oe_highlight" attrs="{'invisible':[('state','not in','in_progress')]}"/>
+                    <button string="Cancel" name="action_cancel" type="object"
+                            class="oe_highlight"
+                            attrs="{'invisible':[('state','not in','in_progress')]}"/>
+                    <button string="Unpublish" name="action_unpublish" type="object"
+                            class="oe_highlight" attrs="{'invisible':[('state','not in','publish')]}"/>
+                    <button string="Mark as Draft" name="action_draft" type="object"
+                            attrs="{'invisible':[('state','not in','cancel')]}"/>
+                    <!--                        <button string="Send Email" name="circular_action_send_email" type="object"-->
+                    <!--                                attrs="{'invisible':[('state','not in','publish')]}"/>-->
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="circular_number" readonly="1"/>
+                        <field name="name"
+                                attrs="{'readonly':[('state','!=','draft'),('state','!=','in_progress')]}"/>
+                        <field name="subject"
+                                attrs="{'readonly':[('state','!=','draft'),('state','!=','in_progress')]}"/>
+                    </group>
+                    <group>
+                        <group col="4">
+                            <field name="created_by" readonly="1"/>
+                            <field name="created_date" readonly="1"/>
+                            <field name="group_id"
+                                    attrs="{'readonly':[('state','!=','draft'),('state','!=','in_progress')]}"/>
+                            <label for="start_date"
+                                    string="Start From"/>
+                            <div class="o_row">
+                                <field name="start_date" nolabel="1" class="oe_inline"
+                                        attrs="{'readonly':[('state','not in','draft'),('state','!=','in_progress')]}"/>
+                                <i class="fa fa-long-arrow-right mx-2" aria-label="Arrow icon" title="Arrow"/>
+                                <field name="end_date" nolabel="1" class="oe_inline"
+                                        attrs="{'readonly':[('state','not in','draft'),('state','!=','in_progress')]}"/>
+                            </div>
+                        </group>
+                        <group col="4">
+                            <field name="academic_year_id"
+                                    attrs="{'readonly':[('state','!=','draft'),('state','!=','in_progress')]}"/>
+                            <field name="academic_term_id"
+                                    attrs="{'readonly':[('state','!=','draft'),('state','!=','in_progress')]}"/>
+                            <field name="high_priority" widget="priority"
+                                    attrs="{'readonly':[('state','!=','draft'),('state','!=','in_progress')]}"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="description"
+                                attrs="{'readonly':[('state','!=','draft'),('state','!=','in_progress')]}"
+                                widget="html"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="op_circular_view_tree" model="ir.ui.view">
+        <field name="name">Op Circular Tree View</field>
+        <field name="model">op.circular</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="circular_number"/>
+                <field name="name"/>
+                <field name="subject"/>
+                <field name="academic_year_id"/>
+                <field name="academic_term_id"/>
+                <field name="start_date" widget="date"/>
+                <field name="end_date" widget="date"/>
+                <field name="group_id"/>
+                <field name="created_by"/>
+                <field name="created_date"/>
+                <field name="high_priority" widget="priority" optional="hide"/>
+                <field name="state" optional="hide"/>
+                <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                <button name="%(openeducat_notice_board_enterprise.action_op_notice_board_mail_compose)d"
+                        type="action" string="Email" icon="fa-envelope"
+                        attrs="{'invisible':[('state','not in','publish')]}"/>
+                <header>
+                    <button name="%(openeducat_notice_board_enterprise.action_op_notice_board_mail_compose)d"
+                            type="action"/>
+                </header>
+            </tree>
+        </field>
+    </record>
+
+    <record id="op_circular_view_kanban" model="ir.ui.view">
+        <field name="name">Op Circular Kanban View</field>
+        <field name="model">op.circular</field>
+        <field name="arch" type="xml">
+            <kanban class="op_circular_view_kanban" create="0" sample="1">
+                <field name="name"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="created_by"/>
+                <field name="state"/>
+                <field name="description"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click container">
+                            <div>
+                                <div style="height: 15px; text-overflow: ellipsis;
+                                -webkit-line-clamp: 1; -webkit-box-orient: vertical;
+                                overflow: hidden;display: -webkit-box;">
+                                    <strong class="o_kanban_record_title">
+                                        <h4>
+                                            <t t-esc="record.name.value"/>
+                                        </h4>
+                                    </strong>
+                                </div>
+                                <div class="o_kanban_record_subtitle">
+                                    <span class="fw-bold">Status:</span>
+                                    <t t-esc="record.state.value"/>
+                                </div>
+                                <div class="o_kanban_record_subtitle" style="height: 62px; text-overflow: ellipsis;
+                                -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+                                overflow: hidden;display: -webkit-box;">
+                                    <span class="fw-bold">Description:</span>
+                                    <t t-esc="record.description.value"/>
+                                </div>
+                                <div class="row no-gutters o_kanban_record_subtitle">
+                                    <span class="fw-bold">Start Date:</span>
+                                    <field name="start_date" widget="date"/>
+                                    <i class="fa fa-long-arrow-right mx-2" aria-label="Arrow icon"
+                                        title="Arrow"/>
+                                    <field name="end_date" widget="date"/>
+                                </div>
+                                <div class="o_dropdown_kanban dropdown" groups="base.group_user">
+                                    <a role="button" class="dropdown-toggle o-no-caret btn"
+                                        data-toggle="dropdown" href="#" aria-label="Dropdown menu"
+                                        title="Dropdown menu">
+                                        <span class="fa fa-ellipsis-v"/>
+                                    </a>
+                                    <div class="dropdown-menu" role="menu">
+                                        <t t-if="['Draft','In Progress'].includes(record.state.value)">
+                                            <a t-if="widget.editable" role="menuitem" type="edit"
+                                                class="dropdown-item">Edit Notice
+                                            </a>
+                                        </t>
+                                        <a t-if="widget.deletable" role="menuitem" type="delete"
+                                            class="dropdown-item">Delete
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="o_kanban_record_bottom row mx-1">
+                                <div class="oe_kanban_bottom_left">
+                                    <button t-if="['Draft'].includes(record.state.value)" name="action_in_progress"
+                                            type="object" class="btn btn-primary btn-sm mt8"
+                                            style="padding: 10px 15px;width: 125px;margin-top: 12px;margin-bottom: 12px;font-size: 16px;padding-top: 5px;padding-bottom: 5px;padding-left: 5px;padding-right: 5px;">
+                                        <i class="fa fa-fw fa-clock-o me-2"/>
+                                        In Progress
+                                    </button>
+                                    <button t-if="['In Progress'].includes(record.state.value)"
+                                            name="action_publish" type="object" class="btn btn-primary btn-sm mt8"
+                                            style="padding: 10px 15px;width: 110px;margin-top: 12px;margin-bottom: 12px;font-size: 16px;padding-top: 5px;padding-bottom: 5px;padding-left: 5px;padding-right: 5px;">
+                                        <i class="fa fa-fw fa-check me-2"/>
+                                        Publish
+                                    </button>
+                                    <button t-if="['In Progress'].includes(record.state.value)" name="action_cancel"
+                                            type="object" class="btn btn-primary btn-sm mt8"
+                                            style="padding: 10px 15px;width: 110px;margin-top: 12px;margin-bottom: 12px;font-size: 16px;padding-top: 5px;padding-bottom: 5px;padding-left: 5px;padding-right: 5px;">
+                                        <i class="fa fa-fw fa-remove me-2"/>
+                                        Cancel
+                                    </button>
+                                    <button t-if="['Published'].includes(record.state.value)"
+                                            name="action_unpublish"
+                                            type="object" class="btn btn-primary btn-sm mt8"
+                                            style="padding: 10px 15px;width: 110px;margin-top: 12px;margin-bottom: 12px;font-size: 16px;padding-top: 5px;padding-bottom: 5px;padding-left: 5px;padding-right: 5px;">
+                                        <i class="fa fa-check fa-remove me-2"/>
+                                        Unpublish
+                                    </button>
+                                    <button t-if="['Canceled'].includes(record.state.value)"
+                                            name="action_draft"
+                                            type="object" class="btn btn-secondary btn-sm mt8"
+                                            style="padding: 10px 15px;width: 145px;margin-top: 12px;margin-bottom: 12px;font-size: 16px;padding-top: 5px;padding-bottom: 5px;padding-left: 5px;padding-right: 5px;">
+                                        <i class="fa fa-fw fa-square me-2"/>
+                                        Make as Draft
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="op_circular_view_action" model="ir.actions.act_window">
+        <field name="name">My Circular</field>
+        <field name="res_model">op.circular</field>
+        <field name="view_mode">tree,kanban,form</field>
+    </record>
+
+    <record id="view_op_batch_tree_notice_board" model="ir.ui.view">
+        <field name="name">op.batch.notice.board.tree</field>
+        <field name="model">op.batch</field>
+        <field name="inherit_id" ref="openeducat_core.view_op_batch_tree"/>
+        <field name="arch" type="xml">
+            <field name="course_id" position="after">
+                <field name="notice_group_id" optional="hide"/>
+            </field>
+        </field>
+    </record>
+    <record id="view_op_course_tree_notice_board" model="ir.ui.view">
+        <field name="name">op.course.notice.board.tree</field>
+        <field name="model">op.course</field>
+        <field name="inherit_id" ref="openeducat_core.view_op_course_tree"/>
+        <field name="arch" type="xml">
+            <field name="subject_ids" position="after">
+                <field name="notice_group_id" optional="hide"/>
+            </field>
+        </field>
+    </record>
+</odoo>

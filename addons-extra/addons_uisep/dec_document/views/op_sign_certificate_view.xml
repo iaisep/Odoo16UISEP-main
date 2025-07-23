@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+        <record id="op_certificate_form_view_inh" model="ir.ui.view">
+            <field name="name">op_sign_certificate.form.inh</field>
+            <field name="model">op.sign_certificate</field>
+            <field name="inherit_id" ref="isep_openeducat_reports.op_certificate_form_view" />
+
+            <field name="arch" type="xml">
+                <field name="password" position="after">                    
+                    <field name="dec_certificate"/>
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="certificate_tree_view_inh">
+            <field name="name">op_sign_certificate.tree.inh</field>
+            <field name="model">op.sign_certificate</field>
+            <field name="inherit_id" ref="isep_openeducat_reports.certificate_tree_view" />
+            <field name="arch" type="xml">
+                    <field name="serial_number" position="before">
+                        <field name="dec_certificate"/>
+                    </field>
+            </field>
+        </record>
+</odoo>

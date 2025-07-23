@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <!-- View op.admission form -->
+    <record id="view_op_admission_sepyc_form" model="ir.ui.view">
+        <field name="name">view.op.admission.form</field>
+        <field name="model">op.admission</field>
+        <field name="inherit_id" ref="openeducat_admission.view_op_admission_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='admission_detail']/group/group/field[@name='batch_id']" position="after">
+                <field name="sepyc_program"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

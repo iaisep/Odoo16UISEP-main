@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sh_allow_login_as_other_user" model="res.groups">
+        <field name="name">Login as Other User</field>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]" />
+    </record>
+    <record id="sh_allow_login_as_other_user_only_portal" model="res.groups">
+        <field name="name">Iniciar sesión en cuenta de estudiante</field>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]" />
+    </record>
+</odoo>

@@ -1,0 +1,1181 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* openeducat_multi_approval
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-14 09:16+0000\n"
+"PO-Revision-Date: 2022-12-14 09:16+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: openeducat_multi_approval
+#: model:mail.template,body_html:openeducat_multi_approval.email_template_multi_approve
+msgid ""
+"\n"
+"                    <p>Dear <b><t t-out=\"object.user_id.name\"/></b>\n"
+"                    </p>\n"
+"                    <br/>\n"
+"                    <br/>\n"
+"                    Your Request has been approved.\n"
+"                "
+msgstr ""
+"\n"
+"                    <p> Уважаемый <b> <t t-out = \"object.user_id.name\"/> </b>\n"
+"                    </p>\n"
+"                    <br/>\n"
+"                    <br/>\n"
+"                    Ваш запрос был утвержден.\n"
+"                "
+
+#. module: openeducat_multi_approval
+#: model:mail.template,body_html:openeducat_multi_approval.email_template_multi_reject
+msgid ""
+"\n"
+"                    <p>Dear <b><t t-out=\"object.user_id.name\"/></b>\n"
+"                    </p>\n"
+"                    <br/>\n"
+"                    <br/>\n"
+"                   Your Request has been Rejected.\n"
+"                "
+msgstr ""
+"\n"
+"                    <p> Уважаемый <b> <t t-out = \"object.user_id.name\"/> </b>\n"
+"                    </p>\n"
+"                    <br/>\n"
+"                    <br/>\n"
+"                   Ваш запрос был отклонен.\n"
+"                "
+
+#. module: openeducat_multi_approval
+#. odoo-python
+#: code:addons/openeducat_multi_approval/models/multi_approval.py:0
+#, python-format
+msgid ""
+"<?xml version=\"1.0\"?><data><field name=\"state\" position=\"after\"><field"
+" name=\"x_is_request\" invisible=\"1\"/><field name=\"x_is_view_approval\" "
+"invisible=\"1\"/><field name=\"x_result_approval\" invisible=\"1\"/><field "
+"name=\"x_is_hide\" invisible=\"1\"/><button name=\"%s\" string=\"Create New "
+"Request\" type=\"action\" class=\"btn-primary\" attrs=\"%s\"/><button "
+"name=\"%s\" string=\"View Approval\" type=\"action\" class=\"btn-primary\" "
+"attrs=\"%s\"/></field><xpath expr=\"//form/header\" "
+"position=\"after\"><div><div attrs=\"%s\" class=\"alert alert-warning\" "
+"style=\"margin-bottom:0px;\" role=\"alert\">This document need to be "
+"approved !</div><div attrs=\"%s\" class=\"alert alert-info\" style=\"margin-"
+"bottom:0px;\" role=\"alert\">This document has been approved !</div><div "
+"attrs=\"%s\" class=\"alert alert-danger\" style=\"margin-bottom:0px;\" "
+"role=\"alert\">This document has been refused !</div></div></xpath></data>"
+msgstr ""
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid ""
+"<code style=\"white-space: pre-wrap\">\n"
+"                                                partner_name = record.name + '_code'\n"
+"                                                env['res.partner'].create({'name': partner_name})\n"
+"                                            </code>"
+msgstr ""
+"<code style=\"Белое пространство: предварительное проклятие\">\n"
+"                                                partner_name = record.name + '_code'\n"
+"                                                env ['res.partner']. Create ({'name': partner_name})\n"
+"                                            </code>"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid ""
+"<code>UserError</code>: Warning Exception to use with\n"
+"                                                <code>raise</code>"
+msgstr ""
+"<code> userError </code>: исключение предупреждения для использования с\n"
+"                                                <code> поднять </code>"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid "<code>env</code>: Odoo Environment on which the action is triggered"
+msgstr "<code> env </code>: среда odoo, на которой запускается действие"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid ""
+"<code>log(message, level='info')</code>:logging function to record debug\n"
+"                                                information in <code>ir.logging</code> table"
+msgstr ""
+"<code> log (сообщение, level = 'info') </code>: функция журнала для записи отладки\n"
+"                                                Информация в <code> ir.logging </code> Таблица"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid ""
+"<code>model</code>: Odoo Model of the record on which the action is\n"
+"                                                triggered; is a void recordset"
+msgstr ""
+"<code> model </code>: odoo модель записи, на которой действия\n"
+"                                                вызвано; это void -набор записей"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid ""
+"<code>record</code>: record on which the action is triggered; may be be\n"
+"                                                void"
+msgstr ""
+"<code> record </code>: запись, на которой запускается действие; может быть\n"
+"                                                пустота"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid ""
+"<code>records</code>: recordset of all records on which the action is\n"
+"                                                triggered in multi mode; may be void"
+msgstr ""
+"<code> записи </code>: Запись всех записей, в которых действие\n"
+"                                                запускается в многочисленном режиме; может быть недействительным"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid ""
+"<code>time</code>, <code>datetime</code>, <code>dateutil</code>, <code>\n"
+"                                                timezone</code>: useful Python libraries"
+msgstr ""
+"<code> time </code>, <code> datetime </code>, <code> dateutil </code>, <code>\n"
+"                                                Timezone </code>: полезные библиотеки Python"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_kanban_approval_type
+msgid "<i class=\"fa fa-edit\" role=\"img\" aria-label=\"Manage\" title=\"Manage\"/>"
+msgstr "<i class=\"fa fa-edit\" rol=\"img\" aria-label=\"Manage\" title=\"Manage\"/>"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_request
+msgid "<span>From:</span>"
+msgstr ""
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_request
+msgid "<span>to:</span>"
+msgstr ""
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__message_needaction
+msgid "Action Needed"
+msgstr "Действие необходимо"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__active
+msgid "Active"
+msgstr "Активный"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__activity_ids
+msgid "Activities"
+msgstr "мероприятия"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Украшение исключения деятельности"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__activity_state
+msgid "Activity State"
+msgstr "Состояние деятельности"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Значок типа деятельности"
+
+#. module: openeducat_multi_approval
+#: model:ir.actions.act_window,name:openeducat_multi_approval.mail_activity_type_action_config_approval
+#: model:ir.ui.menu,name:openeducat_multi_approval.multi_approval_menu_config_activity_type
+msgid "Activity Types"
+msgstr "Типы деятельности"
+
+#. module: openeducat_multi_approval
+#: model:res.groups,name:openeducat_multi_approval.group_approval_manager
+msgid "Administrator"
+msgstr "Администратор"
+
+#. module: openeducat_multi_approval
+#: model:ir.ui.menu,name:openeducat_multi_approval.menu_all_approval
+msgid "All Approval"
+msgstr "Все одобрение"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__amount_opt
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__amount
+msgid "Amount"
+msgstr "Количество"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__amount_opt
+msgid "Amount Opt"
+msgstr "Сумма Опт"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__apply_for_model
+msgid "Apply For Model ?"
+msgstr "Подать заявку на модель?"
+
+#. module: openeducat_multi_approval
+#: model:ir.module.category,name:openeducat_multi_approval.module_category_multi_approval
+msgid "Approval"
+msgstr "Одобрение"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request_line__approval_minimum
+msgid "Approval Minimum"
+msgstr "Минимум одобрения"
+
+#. module: openeducat_multi_approval
+#: model:ir.actions.act_window,name:openeducat_multi_approval.action_window_approval_model_request
+msgid "Approval Model Request"
+msgstr "Запрос модели утверждения"
+
+#. module: openeducat_multi_approval
+#. odoo-python
+#: code:addons/openeducat_multi_approval/models/multi_approval.py:0
+#: model:ir.actions.act_window,name:openeducat_multi_approval.action_window_approval_request
+#: model:ir.actions.act_window,name:openeducat_multi_approval.action_window_approval_request_my_request
+#: model:ir.actions.act_window,name:openeducat_multi_approval.action_window_approval_request_to_review
+#: model:ir.actions.act_window,name:openeducat_multi_approval.action_window_approval_request_to_review_kanban
+#: model:ir.model,name:openeducat_multi_approval.model_multi_request
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_request
+#, python-format
+msgid "Approval Request"
+msgstr "Запрашивать разрешение"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_model_request__approval_type_id
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__approval_type_id
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid "Approval Type"
+msgstr "Тип утверждения"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_kanban_approval_type
+msgid "Approval Type Image"
+msgstr "Изображение типа одобрения"
+
+#. module: openeducat_multi_approval
+#: model:ir.actions.act_window,name:openeducat_multi_approval.action_window_approval_type
+#: model:ir.ui.menu,name:openeducat_multi_approval.menu_approval_types
+msgid "Approval Types"
+msgstr "Типы одобрения"
+
+#. module: openeducat_multi_approval
+#: model:mail.template,subject:openeducat_multi_approval.email_template_multi_approve
+msgid ""
+"Approval for {{object.source_document.name if object.source_document else "
+"object.name}}"
+msgstr ""
+"Утверждение для {{object.source_document.name if object.source_document else"
+" object.name}}"
+
+#. module: openeducat_multi_approval
+#: model:ir.model,name:openeducat_multi_approval.model_multi_model_request
+msgid "ApprovalModelRequest"
+msgstr "ApprovalmodelRequest"
+
+#. module: openeducat_multi_approval
+#: model:ir.model,name:openeducat_multi_approval.model_multi_product_line
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_product_line__line_product
+msgid "ApprovalProductLine"
+msgstr "ApprovalProductline"
+
+#. module: openeducat_multi_approval
+#: model:ir.model,name:openeducat_multi_approval.model_multi_request_line
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request_line__line
+msgid "ApprovalRequestLine"
+msgstr "ApprovalRequestline"
+
+#. module: openeducat_multi_approval
+#: model:ir.ui.menu,name:openeducat_multi_approval.menu_approvals
+#: model:ir.ui.menu,name:openeducat_multi_approval.menu_root
+msgid "Approvals"
+msgstr "Разрешения"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_request
+msgid "Approve"
+msgstr "Одобрить"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type_line__approve_tmpl_id
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request_line__approve_tmpl_id
+msgid "Approve Template"
+msgstr "Утвердить шаблон"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__request_status__approved
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__user_status__approved
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request_line__status__approved
+msgid "Approved"
+msgstr "Одобренный"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__approve_python_code
+msgid "Approved Action"
+msgstr "Утвержденные действия"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_request
+msgid "Approver(s)"
+msgstr "Утверждающий (ы)"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__line_ids
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__line_ids
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid "Approvers"
+msgstr "Утверждает"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_request
+msgid "Attach Document"
+msgstr "Прикрепить документ"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_request
+msgid "Attach Receipt"
+msgstr "Прикрепить квитанцию"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__message_attachment_count
+msgid "Attachment Count"
+msgstr "Подсчет приложений"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_request
+msgid "Back To Draft"
+msgstr "Вернемся к черновику"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__request_status__cancel
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__user_status__cancel
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request_line__status__cancel
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_request
+msgid "Cancel"
+msgstr "Отмена"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_multi_approval_model_request
+msgid "Close"
+msgstr "Закрывать"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid "Configure"
+msgstr "Настройка"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__is_configured
+msgid "Configured"
+msgstr "Настроен"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__partner_opt
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__partner_id
+msgid "Contact"
+msgstr "Контакт"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid "Create New Request"
+msgstr "Создайте новый запрос"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.actions.act_window,help:openeducat_multi_approval.action_window_approval_request
+#: model_terms:ir.actions.act_window,help:openeducat_multi_approval.action_window_approval_request_my_request
+#: model_terms:ir.actions.act_window,help:openeducat_multi_approval.action_window_approval_request_to_review
+#: model_terms:ir.actions.act_window,help:openeducat_multi_approval.action_window_approval_request_to_review_kanban
+msgid ""
+"Create a new Approval Request, the first step of a new Approval Request!"
+msgstr ""
+"Создайте новый запрос на утверждение, первый шаг в новом запросе одобрения!"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.actions.act_window,help:openeducat_multi_approval.action_window_approval_type
+msgid "Create a new Approval Types, the first step of a new Approval!"
+msgstr "Создайте новые типы одобрения, первый шаг в новом одобрении!"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__create_uid
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type_line__create_uid
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_model_request__create_uid
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_product_line__create_uid
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__create_uid
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request_line__create_uid
+msgid "Created by"
+msgstr "Сделано"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__create_date
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type_line__create_date
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_model_request__create_date
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_product_line__create_date
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__create_date
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request_line__create_date
+msgid "Created on"
+msgstr "Создано на"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__date_opt
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_request
+msgid "Date"
+msgstr "Свидание"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__date_confirmed
+msgid "Date Confirm"
+msgstr "Дата подтверждения"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__date_start
+msgid "Date End"
+msgstr "Конец даты"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__date_opt
+msgid "Date Opt"
+msgstr "Дата Опт"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__date_end
+msgid "Date Start"
+msgstr "Дата старт"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,help:openeducat_multi_approval.field_multi_product_line__product_uom_id
+msgid "Default unit of measure used for all stock operations."
+msgstr "По умолчанию единица измерения, используемая для всех акций."
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__description
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_model_request__description
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__reason
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_request
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_multi_approval_model_request
+msgid "Description"
+msgstr "Описание"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__display_name
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type_line__display_name
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_model_request__display_name
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_product_line__display_name
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__display_name
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request_line__display_name
+msgid "Display Name"
+msgstr "Показать имя"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__document_opt
+msgid "Document"
+msgstr "Документ"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__document_opt
+msgid "Document Opt"
+msgstr "Документ Опт"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_request
+msgid "Documents"
+msgstr "Документы"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__domain
+msgid "Domain"
+msgstr "Домен"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_request
+msgid "E.g: Expenses Paris business trip"
+msgstr "Например: расходы по делам парижской деловой поездки"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid "Example of Python code"
+msgstr "Пример кода Python"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid "Fields"
+msgstr "Поля"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__message_follower_ids
+msgid "Followers"
+msgstr "Последователи"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Последователи (партнеры)"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,help:openeducat_multi_approval.field_multi_request__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Awesome икона шрифта, например FA-задачи"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__has_message
+msgid "Has Message"
+msgstr "Имеет сообщение"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid "Help"
+msgstr "Помощь"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid "Help with Python expressions"
+msgstr "Помощь с выражениями питона"
+
+#. module: openeducat_multi_approval
+#: model:ir.module.category,description:openeducat_multi_approval.module_category_multi_approval
+msgid ""
+"Helps you manage your Approval Types-related processes such as requests for\n"
+"                approval etc...\n"
+"            "
+msgstr ""
+"Помогает вам управлять вашими процессами, связанными с типами одобрения, такими как запросы на\n"
+"                одобрение и т. Д.\n"
+"            "
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__hide_button
+msgid "Hide Buttons from Model View?"
+msgstr "Скрыть кнопки из модели?"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__id
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type_line__id
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_model_request__id
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_product_line__id
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__id
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request_line__id
+msgid "ID"
+msgstr "Я БЫ"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__activity_exception_icon
+msgid "Icon"
+msgstr "Значок"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,help:openeducat_multi_approval.field_multi_request__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Значок, чтобы указать на исключение."
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,help:openeducat_multi_approval.field_multi_request__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "При проверке новые сообщения требуют вашего внимания."
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,help:openeducat_multi_approval.field_multi_request__message_has_error
+#: model:ir.model.fields,help:openeducat_multi_approval.field_multi_request__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "При проверке некоторые сообщения имеют ошибку доставки."
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__image
+msgid "Image"
+msgstr "Изображение"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__message_is_follower
+msgid "Is Follower"
+msgstr "Это последователь"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type____last_update
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type_line____last_update
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_model_request____last_update
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_product_line____last_update
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request____last_update
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request_line____last_update
+msgid "Last Modified on"
+msgstr "Последнее изменено"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__write_uid
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type_line__write_uid
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_model_request__write_uid
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_product_line__write_uid
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__write_uid
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request_line__write_uid
+msgid "Last Updated by"
+msgstr "Последнее обновлено"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__write_date
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type_line__write_date
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_model_request__write_date
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_product_line__write_date
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__write_date
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request_line__write_date
+msgid "Last Updated on"
+msgstr "Последнее обновлено"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__location_opt
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__location
+msgid "Location"
+msgstr "Расположение"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__location_opt
+msgid "Location Opt"
+msgstr "Расположение Опт"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Основное вложение"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__message_has_error
+msgid "Message Delivery error"
+msgstr "Ошибка доставки сообщения"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__message_ids
+msgid "Messages"
+msgstr "Сообщения"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__approval_minimum
+msgid "Minimum Approvers"
+msgstr "Минимальные утверждения"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__model_id
+msgid "Model"
+msgstr "Модель"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__model_name
+msgid "Model Name"
+msgstr "Название модели"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid "Model Settings"
+msgstr "Модель настройки"
+
+#. module: openeducat_multi_approval
+#: model:mail.template,name:openeducat_multi_approval.email_template_multi_approve
+msgid "Multi Approved(User) - Send by Email"
+msgstr "Multi утвержденный (пользователь) - отправить по электронной почте"
+
+#. module: openeducat_multi_approval
+#: model:mail.template,name:openeducat_multi_approval.email_template_multi_reject
+msgid "Multi Rejected(User) - Send by Email"
+msgstr "Multi отклонен (пользователь) - отправить по электронной почте"
+
+#. module: openeducat_multi_approval
+#: model:ir.model,name:openeducat_multi_approval.model_multi_approval_type
+msgid "MultiApproval"
+msgstr "Мультиапровал"
+
+#. module: openeducat_multi_approval
+#: model:ir.model,name:openeducat_multi_approval.model_multi_approval_type_line
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type_line__line
+msgid "MultiApprovalLine"
+msgstr "Мультиапполваллиновый"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Мой крайний срок действия"
+
+#. module: openeducat_multi_approval
+#: model:ir.ui.menu,name:openeducat_multi_approval.menu_my_request
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_search_approval_request
+msgid "My Request"
+msgstr "Мой запрос"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__name
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_model_request__name
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__name
+msgid "Name"
+msgstr "Имя"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request_line__status__new
+msgid "New"
+msgstr "Новый"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_kanban_approval_type
+msgid "New Request"
+msgstr "Новый запрос"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "Следующее мероприятие календаря деятельности"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Следующий крайний срок действия"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__activity_summary
+msgid "Next Activity Summary"
+msgstr "Следующее резюме деятельности"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__activity_type_id
+msgid "Next Activity Type"
+msgstr "Следующий тип деятельности"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__amount_opt__none
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__date_opt__none
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__location_opt__none
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__partner_opt__none
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__payment_opt__none
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__period_opt__none
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__product_opt__none
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__quantity_opt__none
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__reference_opt__none
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__amount_opt__none
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__date_opt__none
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__location_opt__none
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__partner_opt__none
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__payment_opt__none
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__period_opt__none
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__product_opt__none
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__quantity_opt__none
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__reference_opt__none
+msgid "None"
+msgstr "Никто"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Количество действий"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__attachment_number
+msgid "Number of Attachments"
+msgstr "Количество вложений"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__message_has_error_counter
+msgid "Number of errors"
+msgstr "Количество ошибок"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,help:openeducat_multi_approval.field_multi_request__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Количество сообщений, которые требуют действия"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,help:openeducat_multi_approval.field_multi_request__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Количество сообщений с ошибкой доставки"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__amount_opt__optional
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__date_opt__optional
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__document_opt__optional
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__location_opt__optional
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__partner_opt__optional
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__payment_opt__optional
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__period_opt__optional
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__product_opt__optional
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__quantity_opt__optional
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__reference_opt__optional
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type_line__require_opt__optional
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__amount_opt__optional
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__date_opt__optional
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__document_opt__optional
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__location_opt__optional
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__partner_opt__optional
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__payment_opt__optional
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__period_opt__optional
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__product_opt__optional
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__quantity_opt__optional
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__reference_opt__optional
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request_line__require_opt__optional
+msgid "Optional"
+msgstr "По желанию"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid "Options"
+msgstr "Опции"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__partner_opt
+msgid "Partner Opt"
+msgstr "Партнер Opt"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__payment_opt
+msgid "Payment"
+msgstr "Оплата"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__payment_opt
+msgid "Payment Opt"
+msgstr "Оплата Оп"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__period_opt
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_request
+msgid "Period"
+msgstr "Период"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__period_opt
+msgid "Period Opt"
+msgstr "Период Опт"
+
+#. module: openeducat_multi_approval
+#. odoo-python
+#: code:addons/openeducat_multi_approval/models/approval_model_request.py:0
+#, python-format
+msgid "Please Configure Sender Email"
+msgstr ""
+
+#. module: openeducat_multi_approval
+#. odoo-python
+#: code:addons/openeducat_multi_approval/models/approval_model_request.py:0
+#, python-format
+msgid "Please Configure Your Email %s ."
+msgstr ""
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__priority
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_model_request__priority
+msgid "Priority"
+msgstr "Приоритет"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__product_opt
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_product_line__product_id
+msgid "Product"
+msgstr "Товар"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__product_opt
+msgid "Product Opt"
+msgstr "Продукт Опт"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__product_line_ids
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_request
+msgid "Products"
+msgstr "Товары"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid "Python code"
+msgstr "Код Python"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__quantity_opt
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_product_line__quantity
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__quantity
+msgid "Quantity"
+msgstr "Количество"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__quantity_opt
+msgid "Quantity Opt"
+msgstr "Количество Опт"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__reference_opt
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__reference
+msgid "Reference"
+msgstr "Ссылка"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__reference_opt
+msgid "Reference Opt"
+msgstr "Ссылка Opt"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_request
+msgid "Refuse"
+msgstr "Мусор"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__request_status__refused
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__user_status__refused
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request_line__status__refused
+msgid "Refused"
+msgstr "Отказался"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__refuse_python_code
+msgid "Refused Action"
+msgstr "Отказался от действия"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type_line__reject_tmpl_id
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request_line__reject_tmpl_id
+msgid "Reject Template"
+msgstr "Отклонить шаблон"
+
+#. module: openeducat_multi_approval
+#: model:mail.template,subject:openeducat_multi_approval.email_template_multi_reject
+msgid ""
+"Rejection for {{object.source_document.name if object.source_document else "
+"object.name}}"
+msgstr ""
+"Отклонение для {{object.source_document.name if object.source_document else "
+"object.name}}"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__is_request
+msgid "Request"
+msgstr "Запрос"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_multi_approval_model_request
+msgid "Request Approval"
+msgstr "Запросить утверждение"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__date
+msgid "Request Date"
+msgstr "Дата заказа"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__request_status
+msgid "Request Status"
+msgstr "Запрос статус"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__user_id
+msgid "Request by"
+msgstr "Запрос по"
+
+#. module: openeducat_multi_approval
+#: model:mail.template,name:openeducat_multi_approval.email_template_multi_approve_from_sale
+msgid "Request for Approval - Send by Email"
+msgstr "Запрос на утверждение - отправить по электронной почте"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_model_request__request_date
+msgid "Requested Date"
+msgstr "Запрашиваемая дата"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__amount_opt__required
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__date_opt__required
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__document_opt__required
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__location_opt__required
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__partner_opt__required
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__payment_opt__required
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__period_opt__required
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__product_opt__required
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__quantity_opt__required
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type__reference_opt__required
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_approval_type_line__require_opt__required
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__amount_opt__required
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__date_opt__required
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__document_opt__required
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__location_opt__required
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__partner_opt__required
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__payment_opt__required
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__period_opt__required
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__product_opt__required
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__quantity_opt__required
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__reference_opt__required
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request_line__require_opt__required
+msgid "Required"
+msgstr "Необходимый"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__activity_user_id
+msgid "Responsible User"
+msgstr "Ответственный пользователь"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "СМС ошибка доставки"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_model_request__source_document
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__source_document
+msgid "Source Document"
+msgstr "Исходный документ"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request_line__status
+msgid "Status"
+msgstr "Статус"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,help:openeducat_multi_approval.field_multi_request__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Статус на основе деятельности\n"
+"Просрочен: дата срока уже прошла\n"
+"Сегодня: дата деятельности сегодня\n"
+"Запланировано: будущие мероприятия."
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_request
+msgid "Submit"
+msgstr "Представлять на рассмотрение"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_multi_approval_model_request
+msgid "Submit Request"
+msgstr "Отправить запрос"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__request_status__pending
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__user_status__pending
+msgid "Submitted"
+msgstr "Поданный"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid "This type has been configured!"
+msgstr "Этот тип был настроен!"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_multi_approval_model_request
+msgid "Title"
+msgstr "Заголовок"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request_line__status__pending
+msgid "To Approve"
+msgstr "Утвердить"
+
+#. module: openeducat_multi_approval
+#: model:ir.ui.menu,name:openeducat_multi_approval.menu_to_review
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_search_approval_request
+msgid "To Review"
+msgstr "Для просмотра"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_kanban_approval_type
+msgid "To Review:"
+msgstr "Чтобы рассмотреть:"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__request_status__new
+#: model:ir.model.fields.selection,name:openeducat_multi_approval.selection__multi_request__user_status__new
+msgid "To Submit"
+msgstr "Отправить"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid ""
+"To return an action, assign:\n"
+"                                                <code>action = {...}</code>"
+msgstr ""
+"Чтобы вернуть действие, назначить:\n"
+"                                                <code> action = {...} </code>"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type_line__require_opt
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request_line__require_opt
+msgid "Type of Approval"
+msgstr "Тип одобрения"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,help:openeducat_multi_approval.field_multi_request__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Тип исключения деятельности на записи."
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_product_line__product_uom_id
+msgid "Unit Of Measure"
+msgstr "Единица измерения"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type_line__user_id
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_model_request__user_id
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request_line__user_id
+#: model:res.groups,name:openeducat_multi_approval.group_approval_user
+msgid "User"
+msgstr "Пользователь"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__user_status
+msgid "User Status"
+msgstr "Статус пользователь"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid ""
+"Various fields may use Python code or Python expressions. The following\n"
+"                                            variables can be used:"
+msgstr ""
+"Различные поля могут использовать код Python или выражения Python. Следующее\n"
+"                                            можно использовать переменные:"
+
+#. module: openeducat_multi_approval
+#. odoo-python
+#: code:addons/openeducat_multi_approval/models/approval_request.py:0
+#: model:ir.actions.server,name:openeducat_multi_approval.action_window_approval_request_view_approval
+#, python-format
+msgid "View Approval Request"
+msgstr "Просмотреть запрос на утверждение"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_request__website_message_ids
+msgid "Website Messages"
+msgstr "Сообщения веб -сайта"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,help:openeducat_multi_approval.field_multi_request__website_message_ids
+msgid "Website communication history"
+msgstr "История общения веб -сайта"
+
+#. module: openeducat_multi_approval
+#. odoo-python
+#: code:addons/openeducat_multi_approval/models/approval_request.py:0
+#: code:addons/openeducat_multi_approval/models/approval_request.py:0
+#, python-format
+msgid "You are not in the user allowed list."
+msgstr ""
+
+#. module: openeducat_multi_approval
+#. odoo-python
+#: code:addons/openeducat_multi_approval/models/multi_approval.py:0
+#, python-format
+msgid "You have to add at least 1 approvers to Approval Type."
+msgstr ""
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_request
+msgid "e.g. Brussels"
+msgstr "например Брюссель"
+
+#. module: openeducat_multi_approval
+#: model_terms:ir.ui.view,arch_db:openeducat_multi_approval.view_from_approval_type
+msgid "e.g. Procurement"
+msgstr "например Закупка"
+
+#. module: openeducat_multi_approval
+#: model:ir.model.fields,field_description:openeducat_multi_approval.field_multi_approval_type__request_to_validate_count
+msgid "record count"
+msgstr "Запись"

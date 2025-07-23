@@ -1,0 +1,29 @@
+
+<odoo>
+    <data>
+        <record id="view_loyalty_program_form_inherit" model="ir.ui.view">
+            <field name="name">loyalty.program.form.inherit</field>
+            <field name="model">loyalty.program</field>
+            <field name="inherit_id" ref="loyalty.loyalty_program_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='currency_id']" position="before">
+                    <field name="user_id"/>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record id="view_loyalty_program_tree_inherit" model="ir.ui.view">
+            <field name="name">loyalty.program.tree.inherit</field>
+            <field name="model">loyalty.program</field>
+            <field name="inherit_id" ref="loyalty.loyalty_program_view_tree" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="user_id"/>
+                </xpath>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

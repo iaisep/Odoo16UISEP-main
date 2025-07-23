@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+        <record id="assignment_rubrics_sub_line1" model="op.assignment.rubric.sub.line">
+            <field name="rubric_element_id" ref="rubrics_element_demo4"/>
+            <field name="rubrics_type">percent</field>
+            <field name="maximum">20.0</field>
+            <field name="percentage">12.0</field>
+        </record>
+        <record id="assignment_rubrics_sub_line2" model="op.assignment.rubric.sub.line">
+            <field name="rubric_element_id" ref="rubrics_element_demo5"/>
+            <field name="rubrics_type">percent</field>
+            <field name="maximum">40.0</field>
+            <field name="percentage">32</field>
+        </record>
+        <record id="assignment_rubrics_sub_line3" model="op.assignment.rubric.sub.line">
+            <field name="rubric_element_id" ref="rubrics_element_demo6"/>
+            <field name="rubrics_type">percent</field>
+            <field name="maximum">40.0</field>
+            <field name="percentage">33.5</field>
+        </record>
+        <record id="assignment_rubrics_sub_line4" model="op.assignment.rubric.sub.line">
+            <field name="rubric_element_id" ref="rubrics_element_demo7"/>
+            <field name="maximum">20.0</field>
+            <field name="point">18</field>
+        </record>
+
+        <record id="assignment_rubrics_sub_line5" model="op.assignment.rubric.sub.line">
+            <field name="rubric_element_id" ref="rubrics_element_demo8"/>
+            <field name="maximum">20.0</field>
+            <field name="point">13.5</field>
+        </record>
+
+        <record id="assignment_rubrics_sub_line6" model="op.assignment.rubric.sub.line">
+            <field name="rubric_element_id" ref="rubrics_element_demo9"/>
+            <field name="maximum">30.0</field>
+            <field name="point">23</field>
+        </record>
+
+        <record id="assignment_rubrics_sub_line7" model="op.assignment.rubric.sub.line">
+            <field name="rubric_element_id" ref="rubrics_element_demo10"/>
+            <field name="maximum">30.0</field>
+            <field name="point">25</field>
+        </record>
+
+</odoo>

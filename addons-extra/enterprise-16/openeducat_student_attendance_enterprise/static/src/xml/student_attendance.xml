@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template xml:space="preserve">
+    <t t-name="StudentAttendanceKioskMode">
+        <div class="o_student_attendance_kiosk_mode_container o_home_menu_background">
+            <span class="o_student_attendance_kiosk_backdrop"/>
+            <div class="o_student_attendance_clock text-center"/>
+            <div class="o_student_attendance_kiosk_mode">
+                <h1><small>Welcome to</small>
+                    <t t-esc="widget.company_name"/></h1>
+                <img t-attf-src="{{widget.company_image_url}}" alt="Company Logo" class="o_student_attendance_kiosk_company_image"/>
+                <div class="row o_student_attendance_kiosk_welcome_row">
+                    <div class="col-sm-5">
+                        <img class="img img-fluid d-block mx-auto" src="/openeducat_student_attendance_enterprise/static/src/img/barcode.png"/>
+                        <h5 class="mt8 mb0 text-muted">Scan your badge</h5>
+                    </div>
+                    <div class="col-sm-2">
+                        <h3 class="mt0 mb8"><i>or</i></h3>
+                    </div>
+                    <div class="col-sm-5">
+                        <button class="o_student_attendance_button_students btn btn-primary mb16">
+                            <div class="mb16 mt16">Select Student</div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="StudentAttendanceKioskConfirm">
+        <div class="o_student_attendance_kiosk_mode_container o_home_menu_background">
+            <span class="o_student_attendance_kiosk_backdrop"/>
+            <div class="o_student_attendance_clock text-center"/>
+            <div class="o_student_attendance_kiosk_mode">
+                <div class="o_student_attendance_back_button">
+                    <span class="btn btn-secondary btn-lg d-block d-md-none"><i class="fa fa-chevron-left mr8"/>Go back</span>
+                    <span class="btn btn-secondary d-none d-md-inline-block"><i class="fa fa-chevron-left" role="img" aria-label="Go back" title="Go back"/></span>
+                </div>
+                <t t-if="widget.student_id">
+                    <div class="o_student_attendance_user_badge o_home_menu_background">
+                        <img class="img rounded-circle" t-attf-src="/web/image?model=op.student&amp;field=image_1920&amp;id=#{widget.student_id}" t-att-title="widget.student_name" t-att-alt="widget.student_name"/>
+                    </div>
+                    <h1 class="mb8"><t t-esc="widget.student_name"/></h1>
+                    <div class="pt-3">
+                            <t t-if="widget.attendance_sheets">
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                                    <h3><t>Welcome!</t></h3>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 pb-3 text-center">
+                                    <h3>Attendance Sheets</h3>
+                                </div>
+                                <div class="row">
+                                    <t t-foreach="widget.attendance_sheets" t-as="sheet">
+                                        <t t-if="sheet == widget.max_id">
+                                            <div class="col p-2 border mb16">
+                                                 <label class="form-check-label" style="font-size:1.3em">
+                                                     <input type="radio" class="mx-2" name="attendance_sheets" t-att-value='sheet' checked="checked">
+                                                         <t t-esc='widget.attendance_sheets[sheet]' domain="[('state', 'in', ['start'])]"/>
+                                                     </input>
+                                                 </label>
+                                            </div>
+                                        </t>
+                                        <t t-else="1">
+                                            <div class="col p-2 border mb16">
+                                                 <label class="form-check-label" style="font-size:1.3em">
+                                                     <input type="radio" class="mx-2" name="attendance_sheets" t-att-value='sheet' >
+                                                         <t t-esc='widget.attendance_sheets[sheet]' domain="[('state', 'in', ['start'])]"/>
+                                                     </input>
+                                                 </label>
+                                            </div>
+                                        </t>
+                                    </t>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                                    <h3 class="mt0 mb0 text-muted">Please enter your PIN to check in</h3>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8 offset-md-2 o_student_attendance_pin_pad">
+                                        <div class="row">
+                                            <div class="col-12 mb8 mt8"><input class="o_student_attendance_PINbox text-center" type="password" disabled="true"/></div>
+                                        </div>
+                                        <div class="row">
+                                            <t t-foreach="['1', '2', '3', '4', '5', '6', '7', '8', '9', ['C', 'btn-warning'], '0', ['ok', 'btn-primary']]" t-as="btn_name">
+                                                <div class="col-4 mb4">
+                                                    <a t-attf-class="btn {{btn_name[1]? btn_name[1] : 'btn-secondary'}} btn-block btn-lg {{ 'o_student_attendance_pin_pad_button_' + btn_name[0] }}"><t t-esc="btn_name[0]"/></a>
+                                                </div>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </div>
+                            </t>
+                            <t t-else="not widget.attendance_sheets">
+                                <h3 class="mt8 mb24">No open Attendance Sheet.<br/>Please contact the administrator.</h3>
+                            </t>
+                    </div>
+                </t>
+                <div t-else="" class="alert alert-danger" role="alert">
+                    <b>Error: could not find corresponding student.</b><br/>Please return to the main menu.
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="StudentAttendanceGreetingMessage">
+        <div class="o_student_attendance_kiosk_mode_container o_home_menu_background">
+            <span class="o_student_attendance_kiosk_backdrop"/>
+            <div class="o_student_attendance_clock text-center"/>
+            <div class="o_student_attendance_kiosk_mode">
+                <t t-if="widget.attendance">
+                    <div class="o_student_attendance_user_badge o_home_menu_background">
+                        <img class="img rounded-circle"
+                             t-attf-src="/web/image?model=op.student&amp;field=image_1920&amp;id=#{widget.attendance.student_id[0]}"
+                             t-att-title="widget.student_name" t-att-alt="widget.student_name"/>
+                    </div>
+                    <h1 class="mb0">Welcome <t t-esc="widget.student_name"/>!</h1>
+                    <h2 class="o_student_attendance_message_message mt4 mb24"/>
+                    <div class="alert alert-info h2 mt0" role="status">
+                            Signed in at <b><t t-esc="widget.attendance.check_in_time"/></b>
+                    </div>
+                    <h3 class="o_student_attendance_random_message mb24"/>
+                    <div class="o_student_attendance_warning_message mt24 alert alert-warning" style="display:none"
+                         role="alert"/>
+                    <button class="o_student_attendance_button_dismiss btn btn-primary btn-lg">
+                        <span class="text-capitalize">OK</span>
+                    </button>
+                </t>
+                <t t-else="">
+                    <div class="alert alert-warning" role="alert">Invalid request, please return to the main menu.</div>
+                    <button class="o_student_attendance_button_dismiss btn btn-secondary btn-lg">Go back</button>
+                </t>
+            </div>
+        </div>
+    </t>
+
+
+    <t t-name="StudentAttendanceKioskBarcode">
+        <div class="o_student_attendance_kiosk_mode_container o_home_menu_background">
+            <span class="o_student_attendance_kiosk_backdrop"/>
+            <div class="o_student_attendance_clock text-center"/>
+            <div class="o_student_attendance_kiosk_mode">
+                <div class="o_student_attendance_back_button">
+                    <span class="btn btn-secondary btn-lg d-block d-md-none"><i class="fa fa-chevron-left mr8"/>Go back</span>
+                    <span class="btn btn-secondary d-none d-md-inline-block"><i class="fa fa-chevron-left" role="img" aria-label="Go back" title="Go back"/></span>
+                </div>
+                <t t-if="widget.student_id">
+                    <div class="o_student_attendance_user_badge o_home_menu_background">
+                        <img class="img rounded-circle" t-attf-src="/web/image?model=op.student&amp;field=image_1920&amp;id=#{widget.student_id}" t-att-title="widget.student_name" t-att-alt="widget.student_name"/>
+                    </div>
+                    <h1 class="mb8"><t t-esc="widget.student_name"/></h1>
+                    <div class="pt-3">
+                            <t t-if="widget.attendance_sheets">
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                                    <h3><t>Welcome!</t></h3>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 pb-3 text-center">
+                                    <h3>Attendance Sheets</h3>
+                                </div>
+                              <div class="row">
+                                    <t t-foreach="widget.attendance_sheets" t-as="sheet">
+                                        <t t-if="sheet == widget.max_id">
+                                            <div class="col p-2 border mb16">
+                                                 <label class="form-check-label" style="font-size:1.3em">
+                                                     <input type="radio" class="mx-2" name="attendance_sheets" t-att-value='sheet' checked="checked">
+                                                         <t t-esc='widget.attendance_sheets[sheet]' domain="[('state', 'in', ['start'])]"/>
+                                                     </input>
+                                                 </label>
+                                            </div>
+                                        </t>
+                                        <t t-else="1">
+                                            <div class="col p-2 border mb16">
+                                                 <label class="form-check-label" style="font-size:1.3em">
+                                                     <input type="radio" class="mx-2" name="attendance_sheets" t-att-value='sheet' >
+                                                         <t t-esc='widget.attendance_sheets[sheet]' domain="[('state', 'in', ['start'])]"/>
+                                                     </input>
+                                                 </label>
+                                            </div>
+                                        </t>
+                                    </t>
+                                </div>
+                            </t>
+                            <t t-else="not widget.attendance_sheets">
+                                <h3 class="mt8 mb24">No open Attendance Sheet.<br/>Please contact the administrator.</h3>
+                            </t>
+                    </div>
+                </t>
+                <div t-else="" class="alert alert-danger" role="alert">
+                    <b>Error: could not find corresponding student.</b><br/>Please return to the main menu.
+                </div>
+            </div>
+        </div>
+    </t>
+</template>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="student_attendance_progression_report"
+              inherit_id="openeducat_student_progress_enterprise.student_progression_report"
+              priority="30">
+        <xpath expr="//div[hasclass('progression')]" position="after">
+            <style>
+                table { overflow: visible !important; }
+                thead { display: table-header-group; }
+                tbody { display: table-row-group; }
+                tr { page-break-inside: avoid; }
+            </style>
+            <div t-if="objs.attendance_lines" class="row mt32" style="page-break-inside:avoid;">
+                <div class="col-md-12" style="page-break-inside:avoid;">
+                    <div class="row mb16 col-md-6" style="page-break-inside:avoid;">
+                        <strong>Attendance:</strong>
+                    </div>
+                    <table class="table table-bordered table-condensed" style="page-break-inside:avoid;">
+                        <thead class="text-center"
+                               style="background-color:#eeeeee; font-size:14px; font-weight:600; display: table-header-group;">
+                            <tr>
+                                <th>Date</th>
+                                <th class="student">Attendance Sheet</th>
+                                <th>Present</th>
+                                <th>Remark</th>
+                                <th>Course</th>
+                                <th>Batch</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center" style="font-size:12px; display: table-row-group;">
+                            <t t-foreach="objs.attendance_lines.sorted(key=lambda record: record.attendance_date, reverse=False)"
+                               t-as="lines">
+                                <tr style=" page-break-inside: avoid;">
+                                    <td>
+                                        <t t-esc="lines.attendance_date"
+                                           t-options="{'widget': 'date'}"/>
+                                    </td>
+                                    <td class="student">
+                                        <t t-foreach="lines.attendance_id" t-as="attendance">
+                                            <t t-esc="attendance.name"/>
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <t t-esc="lines.present"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="lines.remark"/>
+                                    </td>
+                                    <td>
+                                        <t t-foreach="lines.course_id" t-as="course">
+                                            <t t-esc="course.name"/>
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <t t-foreach="lines.batch_id" t-as="batch">
+                                            <t t-esc="batch.name"/>
+                                        </t>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

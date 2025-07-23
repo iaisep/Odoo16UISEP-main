@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_op_placement_cell_inherit_kanban" model="ir.ui.view">
+        <field name="name">op.placement.cell.inherit.kanban</field>
+        <field name="model">op.placement.cell</field>
+        <field name="inherit_id" ref="openeducat_placement_enterprise.view_op_placement_cell_kanban"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='placement_cell_view']" position='after'>
+                <div class="row">
+                    <div name="application_button" class="col-6 o_kanban_primary_left">
+                        <button class="btn btn-primary mt16 md16" name="%(act_open_activity_announcement_view)d"
+                                type="action">
+                            Announcement(s)
+                        </button>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

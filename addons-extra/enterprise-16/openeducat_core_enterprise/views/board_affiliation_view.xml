@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <!-- Company view -->
+        <record id="view_res_company_affiliation_form" model="ir.ui.view">
+            <field name="name">res.company.form</field>
+            <field name="model">res.company</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page string="Board Affiliation">
+                        <field name="affiliation_ids"/>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Board Affiliation -->
+        <record id="view_op_board_affiliation_tree" model="ir.ui.view">
+            <field name="name">op.board.affiliation.tree</field>
+            <field name="model">op.board.affiliation</field>
+            <field name="type">tree</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_op_board_affiliation_form" model="ir.ui.view">
+            <field name="name">op.board.affiliation.form</field>
+            <field name="model">op.board.affiliation</field>
+            <field name="type">form</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Board Affiliation">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" required="1"/>
+                                <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                            </group>
+                            <group>
+                                <field name="code" required="1"/>
+                            </group>
+                            <label for="note" string="Description" class="mt-3"/>
+                            <field name="note" nolabel="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_open_op_board_affiliation_view">
+            <field name="name">Board Affiliation</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.board.affiliation</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_open_op_board_affiliation_view_form">
+            <field name="act_window_id" ref="act_open_op_board_affiliation_view"/>
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_op_board_affiliation_form"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_open_op_board_affiliation_view_tree">
+            <field name="act_window_id" ref="act_open_op_board_affiliation_view"/>
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_op_board_affiliation_tree"/>
+        </record>
+
+        <menuitem id="menu_op_board_affiliation"
+                  parent="base.menu_users"
+                  sequence="20"
+                  action="act_open_op_board_affiliation_view"/>
+
+</odoo>

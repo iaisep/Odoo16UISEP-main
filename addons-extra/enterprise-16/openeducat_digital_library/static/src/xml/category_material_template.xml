@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+
+    <t t-name="digital_library_category_material_template">
+        <t t-foreach="materials" t-as="material">
+            <div class="col-md-6 col-sm-4 col-xs-12 mb32 my_div search_filter_div"
+                 t-att-data-author="material.material_author"
+                 t-att-data-type="material.material_type" t-att-data-name="material.name">
+                <div class="card-body">
+                    <div class="course-thumbnail">
+                        <a t-attf-href="/digital-library/material/#{material.id}">
+                            <img t-if="material.cover_boolean == 'false'"
+                                 t-attf-src="/openeducat_digital_library/static/src/img/channel-default.jpg"
+                                 class="img img-fluid"/>
+                            <img t-if="material.cover_boolean == 'true'"
+                                 t-att-src="material.material_cover"
+                                 class="img img-fluid"/>
+                        </a>
+                    </div>
+                    <div class="p-3 list-responsive">
+                        <div class="d-flex">
+                            <div class="subject-title col-lg-7 col-md-6 col-6">
+                                <p class="website_lms_p content-ellipsis">
+                                    <span t-field="material.category_value"/>
+                                </p>
+                            </div>
+                            <!--                            <t t-set="review_val_integer" t-value="Math.floor(material.rating)"/>-->
+                            <!--                            <t t-set="review_val_decimal" t-value="material.rating - review_val_integer"/>-->
+                            <!--                            <t t-set="review_empty_star"-->
+                            <!--                               t-value="5 - (review_val_integer+Math.ceil(review_val_decimal))"/>-->
+                            <!--                            <div class="o_website_rating_static col-lg-5 col-md-6 col-6 text-right">-->
+                            <!--                                <t t-foreach="range(0,review_val_integer)" t-as="record">-->
+                            <!--                                    <i class="fa fa-star"/>-->
+                            <!--                                </t>-->
+                            <!--                                <t t-if="review_val_decimal">-->
+                            <!--                                    <i class="fa fa-star-half-o"/>-->
+                            <!--                                </t>-->
+                            <!--                                <t t-foreach="range(0,review_empty_star)" t-as="record">-->
+                            <!--                                    <i class="fa fa-star-o"/>-->
+                            <!--                                </t>-->
+                            <!--                            </div>-->
+                        </div>
+                        <div class="course-title">
+                            <h2 class="website_lms_h2">
+                                <a t-attf-href="/digital-library/material/#{material.id}"
+                                   t-esc="material.name"/>
+                            </h2>
+                        </div>
+                        <div class="course-instructor">
+                            <span class="text-secondary">By</span>
+                            <span style="font-weight: 600;" class="text-secondary">
+                                <t t-if="material.material_author"
+                                   t-esc="material.material_author"/>
+                            </span>
+                        </div>
+                        <div class="d-lg-flex course-abt-list">
+                            <div class="d-flex course-about col px-0">
+                                <div class="course-student">
+                                    <span>
+                                        <i class="fa fa-users"/>
+                                        <b>
+                                            <!--                                            <t t-esc="len(material.material_enrollment_line)"/>-->
+                                        </b>
+
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="enroll btn_enroll text-center text-lg-right px-lg-0"
+                                 style="">
+                                <a
+                                        class="w-auto">Add To List
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </t>
+
+</templates>

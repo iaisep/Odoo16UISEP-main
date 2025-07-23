@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+
+        <!--     Model: Grievance Category   -->
+        <record id="grievance_category_object1" model="grievance.category">
+            <field name="name">Academic</field>
+            <field name="parent_id"/>
+            <field name="is_academic">True</field>
+        </record>
+        <record id="grievance_category_object2" model="grievance.category">
+            <field name="name">Non-Academic</field>
+            <field name="parent_id"/>
+            <field name="is_academic">False</field>
+        </record>
+        <record id="grievance_category_object3" model="grievance.category">
+            <field name="name">Security and Parking</field>
+            <field name="parent_id" ref="grievance_category_object2"/>
+            <field name="is_academic">False</field>
+        </record>
+        <record id="grievance_category_object7" model="grievance.category">
+            <field name="name">Issues related to transport facility</field>
+            <field name="parent_id" ref="grievance_category_object2"/>
+            <field name="is_academic">False</field>
+        </record>
+        <record id="grievance_category_object11" model="grievance.category">
+            <field name="name">Issues related to Canteen</field>
+            <field name="parent_id" ref="grievance_category_object2"/>
+            <field name="is_academic">False</field>
+        </record>
+        <record id="grievance_category_object12" model="grievance.category">
+            <field name="name">Issues related to Sports</field>
+            <field name="parent_id" ref="grievance_category_object2"/>
+            <field name="is_academic">False</field>
+        </record>
+        <record id="grievance_category_object9" model="grievance.category">
+            <field name="name">Issues related to applying/receiving certificates</field>
+            <field name="parent_id" ref="grievance_category_object1"/>
+            <field name="is_academic">True</field>
+        </record>
+        <record id="grievance_category_object4" model="grievance.category">
+            <field name="name">Grades Issues</field>
+            <field name="parent_id" ref="grievance_category_object1"/>
+            <field name="is_academic">True</field>
+        </record>
+        <record id="grievance_category_object5" model="grievance.category">
+            <field name="name">Issues related to course registration</field>
+            <field name="parent_id" ref="grievance_category_object1"/>
+            <field name="is_academic">True</field>
+        </record>
+        <record id="grievance_category_object6" model="grievance.category">
+            <field name="name">Examinations related issues</field>
+            <field name="parent_id" ref="grievance_category_object1"/>
+            <field name="is_academic">True</field>
+        </record>
+        <record id="grievance_category_object8" model="grievance.category">
+            <field name="name">Issues related to Admissions</field>
+            <field name="parent_id" ref="grievance_category_object1"/>
+            <field name="is_academic">True</field>
+        </record>
+        <record id="grievance_category_object10" model="grievance.category">
+            <field name="name">course requirement and course content</field>
+            <field name="parent_id" ref="grievance_category_object1"/>
+            <field name="is_academic">True</field>
+        </record>
+
+        <!--   Model: Grievance Team    -->
+        <record id="grievance_team_object1" model="grievance.team">
+            <field name="name">Sports Club</field>
+            <field name="team_leader" ref="base.user_demo"/>
+            <field name="member_ids" eval="[(6,0,[ref('base.user_demo'),ref('openeducat_core.op_user_bo')])]"/>
+            <field name="grievance_category_id"
+                   eval="[(6,0,[ref('openeducat_grievance_enterprise.grievance_category_object12'),
+                   ref('openeducat_grievance_enterprise.grievance_category_object10'),
+                   ref('openeducat_grievance_enterprise.grievance_category_object11')])]"/>
+        </record>
+
+        <record id="grievance_team_object2" model="grievance.team">
+            <field name="name">Cashier</field>
+            <field name="team_leader" ref="base.user_demo"/>
+            <field name="member_ids" eval="[(6,0,[ref('base.user_demo'),ref('base.demo_user0')])]"/>
+            <field name="grievance_category_id"
+                   eval="[(6,0,[ref('openeducat_grievance_enterprise.grievance_category_object9'),
+                   ref('openeducat_grievance_enterprise.grievance_category_object6'),
+                   ref('openeducat_grievance_enterprise.grievance_category_object8')])]"/>
+        </record>
+
+        <record id="grievance_team_object3" model="grievance.team">
+            <field name="name">Security Service</field>
+            <field name="team_leader" ref="base.user_demo"/>
+            <field name="member_ids" eval="[(6,0,[ref('base.user_demo'),ref('base.demo_user0')])]"/>
+            <field name="grievance_category_id"
+                   eval="[(6,0,[ref('openeducat_grievance_enterprise.grievance_category_object3'),
+                   ref('openeducat_grievance_enterprise.grievance_category_object7'),
+                   ref('openeducat_grievance_enterprise.grievance_category_object5')])]"/>
+        </record>
+
+        <record id="grievance_team_object4" model="grievance.team">
+            <field name="name">Den</field>
+            <field name="team_leader" ref="base.user_demo"/>
+            <field name="member_ids" eval="[(6,0,[ref('base.user_demo'),ref('openeducat_core.op_user_boa')])]"/>
+            <field name="grievance_category_id"
+                   eval="[(6,0,[ref('openeducat_grievance_enterprise.grievance_category_object4')])]"/>
+        </record>
+
+        <!--   Model: Grievance root cause   -->
+        <record id="grievance_root_cause_object1" model="grievance.root.cause">
+            <field name="name">sports issues</field>
+        </record>
+        <record id="grievance_root_cause_object2" model="grievance.root.cause">
+            <field name="name">fees issues</field>
+        </record>
+        <record id="grievance_root_cause_object3" model="grievance.root.cause">
+            <field name="name">grades issues</field>
+        </record>
+        <record id="grievance_root_cause_object4" model="grievance.root.cause">
+            <field name="name">exams issues</field>
+        </record>
+        <record id="grievance_root_cause_object5" model="grievance.root.cause">
+            <field name="name">canteen issues</field>
+        </record>
+
+        <!--   Model: Grievance   -->
+        <record id="gms_grievance_object1" model="grievance">
+            <field name="subject">Grievance About Grades</field>
+            <field name="grievance_for">student</field>
+            <field name="student_id" ref="openeducat_core.op_student_1"/>
+            <field name="created_date" eval="(DateTime.today())"/>
+            <field name="description">The assignment of a course grade to me on some basis other than performance in the course.</field>
+            <field name="grievance_category_id" ref="grievance_category_object4"/>
+            <field name="grievance_team_id" ref="grievance_team_object4"/>
+            <field name="course_id" ref="openeducat_core.op_course_2"/>
+            <field name="batch_id" ref="openeducat_core.op_batch_1"/>
+            <field name="academic_year_id" ref="openeducat_core.academic_year_1"/>
+            <field name="academic_term_id" ref="openeducat_core.academic_term_1"/>
+        </record>
+
+        <record id="gms_grievance_object2" model="grievance">
+            <field name="subject">Grievance About parking</field>
+            <field name="grievance_for">faculty</field>
+            <field name="faculty_id" ref="openeducat_core.op_faculty_1"/>
+            <field name="created_date" eval="(DateTime.today())"/>
+            <field name="description">i am writing to lodge a complaint regarding traffic offences related to the illegal parking of cars.</field>
+            <field name="grievance_category_id" ref="grievance_category_object3"/>
+            <field name="grievance_team_id" ref="grievance_team_object3"/>
+        </record>
+
+        <record id="gms_grievance_object3" model="grievance">
+            <field name="subject">Hostel Service irregular</field>
+            <field name="grievance_for">parent</field>
+            <field name="parent_id" ref="openeducat_parent.op_parent_1"/>
+            <field name="student_id" ref="openeducat_core.op_student_1"/>
+            <field name="created_date" eval="(DateTime.today())"/>
+            <field name="description">We remained very disappointing by the poor facilities of your hostel.There is no other place in 21th century with a single bathroom per floor!</field>
+            <field name="grievance_category_id" ref="grievance_category_object7"/>
+            <field name="grievance_team_id" ref="grievance_team_object3"/>
+        </record>
+
+</odoo>

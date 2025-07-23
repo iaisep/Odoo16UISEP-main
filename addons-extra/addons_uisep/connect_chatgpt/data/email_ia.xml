@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="email_template_response_ia_gpt" model="mail.template">
+        <field name="name">Envio respuesta IA gpt ticket</field>
+        <field name="email_from">{{ctx.get('email_from')}}</field>
+        <field name="subject"> {{ctx.get('name')}}</field>
+        <field name="email_to">{{ctx.get('email_to')}}</field>
+        <field name="model_id" ref="connect_chatgpt.model_helpdesk_ticket"/>        
+        <field name="auto_delete" eval="False"/>
+        <field name="body_html" type="html">
+            <div style="margin: 0px; padding: 0px;">   
+                <br/>
+                <div dir="ltr">
+                    <pre t-out="object.message_temp_gpt" contenteditable="false" data-oe-t-inline="true" style="white-space: pre-wrap; margin: 0; padding: 0;"> Mensaje IA</pre>                    
+                </div>
+            </div>
+        </field>
+    </record>
+</odoo>

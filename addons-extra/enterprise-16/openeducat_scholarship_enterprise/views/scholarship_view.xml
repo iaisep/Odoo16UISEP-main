@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="view_scholarship_kanban" model="ir.ui.view">
+            <field name="name">op.scholarship.kanban</field>
+            <field name="model">op.scholarship</field>
+            <field name="arch" type="xml">
+                <kanban class="o_res_partner_kanban" default_group_by="scholarship_stages_id">
+                    <field name="name"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <div class="oe_module_desc">
+                                    <a type="open">
+                                        <h7>
+                                            <b>Name:</b>
+                                            <field name="name"/>
+                                        </h7>
+                                        <br/>
+                                        <h7>
+                                            <b>Student:</b>
+
+                                            <t t-if="record.student_id.raw_value">
+                                                <field name="student_id"/>
+                                            </t>
+                                        </h7>
+                                    </a>
+                                    <br/>
+                                    <h8>
+                                        <b>Type:</b>
+                                    </h8>
+                                    <t t-if="record.type_id.raw_value">
+                                        <field name="type_id"/>
+                                    </t>
+                                    <br/>
+                                    <h8>
+                                        <b>Amount:</b>
+                                    </h8>
+                                    <t t-if="record.amount.raw_value">
+                                        <field name="amount"/>
+                                    </t>
+                                    <br/>
+                                    <a type="open">
+                                        <h8>
+                                            <b>Course:</b>
+                                        </h8>
+                                        <t t-if="record.course_id.raw_value">
+                                            <field name="course_id"/>
+                                        </t>
+                                        <br/>
+                                        <h8>
+                                            <b>Batch:</b>
+                                        </h8>
+                                        <t t-if="record.batch_id.raw_value">
+                                            <field name="batch_id"/>
+                                        </t>
+                                    </a>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+        <record id="view_op_scholarship_tree" model="ir.ui.view">
+            <field name="name">op.scholarship.tree</field>
+            <field name="model">op.scholarship</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="student_id"/>
+                    <field name="type_id"/>
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                    <field name="sponsor_id"/>
+                    <field name="course_id"/>
+                    <field name="batch_id"/>
+                    <field name="scholarship_stages_id"/>
+                    <field name="amount" optional="hide"/>
+                    <field name="active" widget="boolean_toggle" optional="hide"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_op_scholarship_form" model="ir.ui.view">
+            <field name="name">op.scholarship.form</field>
+            <field name="model">op.scholarship</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Scholarship">
+                    <header>
+                        <field name="scholarship_stages_id" widget="statusbar"
+                               options="{'clickable': '1', 'name': 'name'}"
+                               statusbar_visible="scholarship_stages_id"/>
+
+                    </header>
+
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button" type="object"
+                                    name="make_invoices"
+                                    icon="fa-pencil-square-o" string="Invoice">
+                            </button>
+                        </div>
+                        <field name="active" invisible="1"/>
+                        <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                                attrs="{'invisible': [('active', '=', True)]}"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                        <group class="mt32">
+                            <!--                            <field name="sponsor_id"/>-->
+                            <group>
+                                <field name="student_id"/>
+                                <field name="course_id"/>
+                                <field name="amount"/>
+                                <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                            </group>
+                            <group>
+                                <field name="type_id"/>
+                                <field name="batch_id"/>
+                                <field name="sponsor_id"/>
+                            </group>
+                            <!--                            <field name="scholarship_stages_id"/>-->
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+
+                </form>
+            </field>
+        </record>
+
+        <record id="view_op_scholarship_search" model="ir.ui.view">
+            <field name="name">op.scholarship.search</field>
+            <field name="model">op.scholarship</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Scholarship">
+                    <field name="name"/>
+                    <filter string="Archived" name="inactive"
+                            domain="[('active', '=', False)]"/>
+                    <newline/>
+                    <group expand="0" string="Group By...">
+                        <filter string="Name" name="group_by_schol_name"
+                                domain="[]" context="{'group_by':'name'}"/>
+                        <filter string="Student" name="group_by_schol_student"
+                                domain="[]" context="{'group_by':'student_id'}"/>
+                        <filter string="Type" name="group_by_schol_type"
+                                domain="[]" context="{'group_by':'type_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_open_op_scholarship_view">
+            <field name="name">Scholarships</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.scholarship</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="search_view_id" ref="view_op_scholarship_search"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_open_op_scholarship_view_form">
+            <field name="act_window_id" ref="act_open_op_scholarship_view"/>
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_op_scholarship_form"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_open_op_scholarship_view_tree">
+            <field name="act_window_id" ref="act_open_op_scholarship_view"/>
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_op_scholarship_tree"/>
+        </record>
+        <record model="ir.actions.act_window.view" id="act_open_op_scholarship_stages_view_kanban">
+            <field name="act_window_id" ref="act_open_op_scholarship_view"/>
+            <field name="sequence" eval="5"/>
+            <field name="view_mode">kanban</field>
+            <field name="view_id" ref="view_scholarship_kanban"/>
+        </record>
+
+
+</odoo>

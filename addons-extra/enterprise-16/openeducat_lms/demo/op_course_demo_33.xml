@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="category_go" model="op.course.category">
+            <field name="name">Google</field>
+            <field name="code">gol</field>
+            <field name="icon">fa fa-cog</field>
+        </record>
+        <record id="demo_course_07" model="op.course">
+            <field name="name">Introduction to Google Sheets</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="code">GST</field>
+            <field name="sequence">15</field>
+            <field name="faculty_ids"
+                   eval="[(6,0,[ref('openeducat_core.op_faculty_1')])]"/>
+            <field name="category_ids"
+                   eval="[(6,0,[ref('category_go')])]"/>
+            <field name="visibility">public</field>
+            <field name="level_id" ref="op_course_level_advanced"/>
+            <field name="navigation_policy">free_learn</field>
+            <field name="state">open</field>
+            <field name="online_course" eval="True"/>
+            <field name="confirm_date" eval="(DateTime.today() - relativedelta(days=11))"/>
+            <field name="image_1920" type="base64"
+                   file="openeducat_lms/static/src/img/google.png"/>
+            <field name="full_description"><![CDATA[
+            <div class="description__title">
+            <div>
+                <p>  This course is designed to teach students how to use the Google App, Google Sheets, to create sophisticated</p>
+                <p> spreadsheets for tracking, analyzing and storing data. Geared towards users with strong basic computer skills,</p>
+                <p> the videos in this course will cover:</p>
+                <p>Creating new spreadsheets</p>
+                <p>Editing and formatting cell contents in sheets</p>
+                <p>Navigating</p>
+                <p>Adding and deleting columns and rows</p>
+                <p>Moving columns and rows</p>
+                <p>Freezing columns and rows</p>
+                <p>Adding, removing and renaming sheets within a file</p>
+                <p>Inserting functions</p>
+                <p>Building formulas</p>
+                <p>Sharing sheets and live collaborating with other users</p>
+                <p>Using comments</p>
+                <p>Export sheets</p>
+                <p>Printing sheets</p>
+            </div>
+            ]]></field>
+        </record>
+
+
+        <record id="op_course_section_sheet_intro" model="op.course.section">
+            <field name="sequence" type="int">1</field>
+            <field name="name">Introduction</field>
+            <field name="course_id" ref="demo_course_07"/>
+        </record>
+
+        <record id="op_course_section_sheet_create" model="op.course.section">
+            <field name="sequence" type="int">2</field>
+            <field name="name">Creating a New Spreadsheet</field>
+            <field name="course_id" ref="demo_course_07"/>
+        </record>
+
+        <record id="op_course_section_sheet_edit" model="op.course.section">
+            <field name="sequence" type="int">3</field>
+            <field name="name">Editing and Formatting Data</field>
+            <field name="course_id" ref="demo_course_07"/>
+        </record>
+
+        <record id="op_course_section_sheet_work" model="op.course.section">
+            <field name="sequence" type="int">4</field>
+            <field name="name">Working with Rows, Columns and Sheets</field>
+            <field name="course_id" ref="demo_course_07"/>
+        </record>
+
+        <record id="op_course_section_sheet_function" model="op.course.section">
+            <field name="sequence" type="int">5</field>
+            <field name="name">Function Basics</field>
+            <field name="course_id" ref="demo_course_07"/>
+        </record>
+
+        <record id="op_course_section_sheet_share" model="op.course.section">
+            <field name="sequence" type="int">6</field>
+            <field name="name">Sharing and Collaborating</field>
+            <field name="course_id" ref="demo_course_07"/>
+        </record>
+
+        <record id="op_course_section_sheet_print" model="op.course.section">
+            <field name="sequence" type="int">7</field>
+            <field name="name">Printing and Exporting</field>
+            <field name="course_id" ref="demo_course_07"/>
+        </record>
+
+        <record id="op_course_section_sheet_bonus" model="op.course.section">
+            <field name="sequence" type="int">8</field>
+            <field name="name">Bonus Material</field>
+            <field name="course_id" ref="demo_course_07"/>
+        </record>
+
+        <record id="op_course_section_sheet_quiz" model="op.course.section">
+            <field name="sequence" type="int">9</field>
+            <field name="name">Quiz</field>
+            <field name="course_id" ref="demo_course_07"/>
+        </record>
+
+        <!--Course Material for Python-->
+        <record id="material_sheet_intro" model="op.material">
+            <field name="name">Introduction</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">7.50</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=xv8RXzUMTng'"/>
+            <field name="document_id">xv8RXzUMTng</field>
+        </record>
+
+        <record id="material_sheet_create" model="op.material">
+            <field name="name">Creating, renaming and understanding general layout</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">5.75</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=dgHjAHIBvsI'"/>
+            <field name="document_id">dgHjAHIBvsI</field>
+        </record>
+        <record id="material_sheet_edit" model="op.material">
+            <field name="name">Use menus and toolbars, format cells and format data</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">11.60</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=TKY_AuLMQIc'"/>
+            <field name="document_id">TKY_AuLMQIc</field>
+        </record>
+
+        <record id="material_sheet_row" model="op.material">
+            <field name="name">Add, delete and move columns and rows</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">8.59</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=JBNNIQnj5r8'"/>
+            <field name="document_id">JBNNIQnj5r8</field>
+        </record>
+
+        <record id="material_sheet_columns" model="op.material">
+            <field name="name">Freeze columns and rows; add, remove and rename sheets</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">5.06</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=gaEr_Hwdhuo'"/>
+            <field name="document_id">gaEr_Hwdhuo</field>
+        </record>
+
+        <record id="material_sheet_function" model="op.material">
+            <field name="name">Inserting functions; using the sum and average functions</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">10.77</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=Jgi0KR5aMVI'"/>
+            <field name="document_id">Jgi0KR5aMVI</field>
+        </record>
+
+        <record id="material_sheet_comments" model="op.material">
+            <field name="name">Share sheets, live collaborate, and use comments</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">5.60</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=xKb3Y9hcVTo'"/>
+            <field name="document_id">xKb3Y9hcVTo</field>
+        </record>
+
+        <record id="material_sheet_live" model="op.material">
+            <field name="name">Live Collaborate</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">4.61</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=-H4qve5TfO8'"/>
+            <field name="document_id">-H4qve5TfO8</field>
+        </record>
+
+        <record id="material_sheet_use" model="op.material">
+            <field name="name">Use Comments</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">12.98</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=4MqCNhdSfpA'"/>
+            <field name="document_id">4MqCNhdSfpA</field>
+        </record>
+
+        <record id="material_sheet_print" model="op.material">
+            <field name="name">Exporting options and printing</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">7.49</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=jrCy1_CGe2Q'"/>
+            <field name="document_id">jrCy1_CGe2Q</field>
+        </record>
+
+        <record id="material_sheet_doc" model="op.material">
+            <field name="name">Creating a document in Google Docs</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">8.75</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=wTtDA0YM6Rk'"/>
+            <field name="document_id">wTtDA0YM6Rk</field>
+        </record>
+
+        <record id="material_sheet_format" model="op.material">
+            <field name="name">Editing and formatting in Google Docs</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">1.94</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=Y0_7Cp3DZnA'"/>
+            <field name="document_id">Y0_7Cp3DZnA</field>
+        </record>
+
+
+        <record id="material_sheet_present" model="op.material">
+            <field name="name">Creating a presentation in Google Slides</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="website_published" eval="True"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">12.66</field>
+            <field name="url"
+                   eval="'https://www.youtube.com/watch?v=kYA6GLAzz9A'"/>
+            <field name="document_id">kYA6GLAzz9A</field>
+        </record>
+
+
+        <!--                Course For Python-->
+        <record id="op_course_material_sheet_intro" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_sheet_intro"/>
+            <field name="section_id" ref="op_course_section_sheet_intro"/>
+            <field name="preview" eval="True"/>
+        </record>
+        <record id="op_course_material_sheet_create" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_sheet_create"/>
+            <field name="section_id" ref="op_course_section_sheet_create"/>
+            <field name="preview" eval="True"/>
+        </record>
+        <record id="op_course_material_sheet_edit" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_sheet_edit"/>
+            <field name="section_id" ref="op_course_section_sheet_edit"/>
+            <field name="preview" eval="True"/>
+        </record>
+
+        <record id="op_course_material_sheet_row" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_sheet_row"/>
+            <field name="section_id" ref="op_course_section_sheet_work"/>
+            <field name="preview" eval="True"/>
+        </record>
+
+
+        <record id="op_course_material_sheet_columns" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_sheet_columns"/>
+            <field name="section_id" ref="op_course_section_sheet_work"/>
+            <field name="preview" eval="True"/>
+        </record>
+
+        <record id="op_course_material_sheet_function" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_sheet_function"/>
+            <field name="section_id" ref="op_course_section_sheet_function"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_sheet_comments" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_sheet_comments"/>
+            <field name="section_id" ref="op_course_section_sheet_share"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_sheet_live" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_sheet_live"/>
+            <field name="section_id" ref="op_course_section_sheet_share"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_sheet_use" model="op.course.material">
+            <field name="sequence" type="int">3</field>
+            <field name="material_id" ref="material_sheet_use"/>
+            <field name="section_id" ref="op_course_section_sheet_share"/>
+            <field name="preview" eval="True"/>
+        </record>
+
+        <record id="op_course_material_sheet_print" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_sheet_print"/>
+            <field name="section_id" ref="op_course_section_sheet_print"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_sheet_doc" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_sheet_doc"/>
+            <field name="section_id" ref="op_course_section_sheet_bonus"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_sheet_format" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_sheet_format"/>
+            <field name="section_id" ref="op_course_section_sheet_bonus"/>
+            <field name="preview" eval="False"/>
+        </record>
+
+        <record id="op_course_material_sheet_present" model="op.course.material">
+            <field name="sequence" type="int">3</field>
+            <field name="material_id" ref="material_sheet_present"/>
+            <field name="section_id" ref="op_course_section_sheet_bonus"/>
+            <field name="preview" eval="True"/>
+        </record>
+
+        <record id="material_sheet_quiz_q5" model="op.material">
+            <field name="name">Sheets Quiz</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">quiz</field>
+            <field name="total_time" type="float">90.00</field>
+            <field name="quiz_id" ref="openeducat_quiz.op_qz_gs1"/>
+        </record>
+
+        <!--Course For Python-->
+        <record id="op_course_sheet_quiz" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_sheet_quiz_q5"/>
+            <field name="section_id" ref="op_course_section_sheet_quiz"/>
+            <field name="preview" eval="True"/>
+        </record>
+
+
+        <record id="op_user_student_51" model="res.users" context="{'no_reset_password': True}">
+            <field name="name">Robert</field>
+            <field name="password">openeducat</field>
+            <field name="login">Robert@openeducat.com</field>
+            <field name="groups_id"
+                   eval="[(4,ref('openeducat_lms.group_op_lms_admin'))]"/>
+        </record>
+
+        <record id="demo_enrollment_free_sheet_class" model="op.course.enrollment">
+            <field name="course_id" ref="openeducat_lms.demo_course_07"/>
+            <field name="user_id" ref="openeducat_lms.op_user_student_51"/>
+            <field name="state">in_progress</field>
+            <field name="enrollment_date" eval="(DateTime.today() - relativedelta(days=1))"/>
+        </record>
+
+
+</odoo>

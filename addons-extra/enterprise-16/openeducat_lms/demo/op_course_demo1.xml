@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="demo_course_vegetable" model="op.course">
+            <field name="name">The Beginner's Guide to Vegetable Gardening</field>
+            <field name="code">Vegetable-11</field>
+            <field name="sequence">6</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="faculty_ids"
+                   eval="[(6,0,[ref('openeducat_core.op_faculty_1'),ref('openeducat_core.op_faculty_2')])]"/>
+            <field name="category_ids"
+                   eval="[(6,0,[ref('openeducat_core_enterprise.category_3')])]"/>
+            <field name="suggested_course_ids"
+                   eval="[(6,0,[ref('demo_course_maths')])]"/>
+            <field name="visibility">logged_user</field>
+            <field name="level_id" ref="op_course_level_beginner"/>
+            <field name="navigation_policy">free_learn</field>
+            <field name="state">open</field>
+            <field name="online_course" eval="True"/>
+            <field name="confirm_date"
+                   eval="(DateTime.today() - relativedelta(days=8))"/>
+            <field name="image_1920" type="base64"
+                   file="openeducat_lms/static/src/img/the-beginners-guide-to-vegetable-gardening-min.jpg"/>
+            <field name="full_description"><![CDATA[
+            <div>
+<p>
+Ripe juicy tomatoes, delicious sweet corn or crisp lettuce. It's possible for any one that has a small back yard to grow surprising amounts of vegetables. A small 150 square foot plot can produce several hundred pounds of yummy veggies thru the spring, summer and fall.
+
+In this Vegetable Gardening Basics course you will learn where to put your garden, when to plant it and what are some of the easiest veggies to grow. The course is designed to teach the new gardener the basics to get started. The course will also teach you more experienced gardeners some of the basic principals that you need to know to "pump up" your garden production:</p>
+            <p>This is a step by step course that takes you through the process of creating an edible garden for any size garden: apartment or condominium balconies or patios, small or large backyards, or a plot in a community garden.</p>
+            </div>
+            ]]></field>
+        </record>
+
+        <record id="op_course_section_vegetable_variable" model="op.course.section">
+            <field name="name">Gardening Basic</field>
+            <field name="course_id" ref="demo_course_vegetable"/>
+            <field name="sequence" type="int">1</field>
+        </record>
+        <record id="op_course_section_vegetable_variable2" model="op.course.section">
+            <field name="name">where to plant your garden</field>
+            <field name="course_id" ref="demo_course_vegetable"/>
+            <field name="sequence" type="int">2</field>
+        </record>
+
+        <record id="op_course_section_vegetable_variable3" model="op.course.section">
+            <field name="name">when to plant your garden</field>
+            <field name="course_id" ref="demo_course_vegetable"/>
+            <field name="sequence" type="int">3</field>
+        </record>
+
+        <record id="op_course_section_vegetable_variable4" model="op.course.section">
+            <field name="name">What to plant in your Garden</field>
+            <field name="course_id" ref="demo_course_vegetable"/>
+            <field name="sequence" type="int">4</field>
+        </record>
+
+        <record id="op_course_section_vegetable_variable6" model="op.course.section">
+            <field name="name">Quiz</field>
+            <field name="course_id" ref="demo_course_vegetable"/>
+            <field name="sequence" type="int">6</field>
+        </record>
+
+        <record id="material_veg_introduction1" model="op.material">
+            <field name="name">Introduction</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">7.53</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=nSa_ey9Q7oI'"/>
+            <field name="document_id">nSa_ey9Q7oI</field>
+        </record>
+
+        <record id="op_course_material_veg_introduction1" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_veg_introduction1"/>
+            <field name="section_id" ref="op_course_section_vegetable_variable"/>
+            <field name="preview" eval="True"/>
+        </record>
+
+        <record id="material_plant_garden1" model="op.material">
+            <field name="name">Introduction to where to plant your garden</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">9.00</field>
+            <field name="url" eval="'https://youtu.be/e3vO4v-HiC0'"/>
+            <field name="document_id">e3vO4v-HiC0</field>
+        </record>
+        <record id="material_plant_garden2" model="op.material">
+            <field name="name">Raised Beds</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">15.75</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=fThviH71CaI'"/>
+            <field name="document_id">fThviH71CaI</field>
+        </record>
+        <record id="material_plant_garden3" model="op.material">
+            <field name="name">Flat Gardens</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">11.57</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=YF2iQAGA5Bg'"/>
+            <field name="document_id">YF2iQAGA5Bg</field>
+        </record>
+        <record id="material_plant_garden4" model="op.material">
+            <field name="name">Sun</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">5.04</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=-Vw1HVO3T20'"/>
+            <field name="document_id">-Vw1HVO3T20</field>
+        </record>
+        <record id="material_plant_garden5" model="op.material">
+            <field name="name">Soil</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">4.75</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=9bbQF_M48kY'"/>
+            <field name="document_id">9bbQF_M48kY</field>
+        </record>
+        <record id="material_plant_garden6" model="op.material">
+            <field name="name">Water</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">16.90</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=ueQCiSD5AdM'"/>
+            <field name="document_id">ueQCiSD5AdM</field>
+        </record>
+
+        <record id="material_plant_garden8" model="op.material">
+            <field name="name">Container Gardens</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">8.25</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=y1eXnlzXdBE'"/>
+            <field name="document_id">y1eXnlzXdBE</field>
+        </record>
+
+        <record id="op_course_material_garden1" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_plant_garden1"/>
+            <field name="section_id" ref="op_course_section_vegetable_variable2"/>
+            <field name="preview" eval="True"/>
+        </record>
+        <record id="op_course_material_garden2" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_plant_garden2"/>
+            <field name="section_id" ref="op_course_section_vegetable_variable2"/>
+        </record>
+        <record id="op_course_material_garden3" model="op.course.material">
+            <field name="sequence" type="int">3</field>
+            <field name="material_id" ref="material_plant_garden3"/>
+            <field name="section_id" ref="op_course_section_vegetable_variable2"/>
+
+        </record>
+        <record id="op_course_material_garden4" model="op.course.material">
+            <field name="sequence" type="int">4</field>
+            <field name="material_id" ref="material_plant_garden4"/>
+            <field name="section_id" ref="op_course_section_vegetable_variable2"/>
+        </record>
+
+        <record id="op_course_material_garden5" model="op.course.material">
+            <field name="sequence" type="int">5</field>
+            <field name="material_id" ref="material_plant_garden5"/>
+            <field name="section_id" ref="op_course_section_vegetable_variable2"/>
+        </record>
+        <record id="op_course_material_garden6" model="op.course.material">
+            <field name="sequence" type="int">6</field>
+            <field name="material_id" ref="material_plant_garden6"/>
+            <field name="section_id" ref="op_course_section_vegetable_variable2"/>
+        </record>
+
+        <record id="op_course_material_garden8" model="op.course.material">
+            <field name="sequence" type="int">8</field>
+            <field name="material_id" ref="material_plant_garden8"/>
+            <field name="section_id" ref="op_course_section_vegetable_variable2"/>
+        </record>
+        <record id="material_plant_when1" model="op.material">
+            <field name="name">Introduction to When to plant</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">82.95</field>
+            <field name="url" eval="'https://youtu.be/yDnu9VcSoHo'"/>
+            <field name="document_id">yDnu9VcSoHo</field>
+        </record>
+        <record id="material_plant_when2" model="op.material">
+            <field name="name">Cool Weather Crops</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">9.70</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=xlENKT33dTE'"/>
+            <field name="document_id">xlENKT33dTE</field>
+        </record>
+
+        <record id="material_plant_when3" model="op.material">
+            <field name="name">Warm Weather Crops</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">25.00</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=v0kkGBi-6V4'"/>
+            <field name="document_id">v0kkGBi-6V4</field>
+        </record>
+
+        <record id="material_plant_when4" model="op.material">
+            <field name="name">Estimated planting Dates</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">6.00</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=viLMi3Kkqo0'"/>
+            <field name="document_id">viLMi3Kkqo0</field>
+        </record>
+
+        <record id="op_course_material_when1" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_plant_when1"/>
+            <field name="section_id" ref="op_course_section_vegetable_variable3"/>
+            <field name="preview" eval="True"/>
+        </record>
+        <record id="op_course_material_when2" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_plant_when2"/>
+            <field name="section_id" ref="op_course_section_vegetable_variable3"/>
+
+        </record>
+        <record id="op_course_material_when3" model="op.course.material">
+            <field name="sequence" type="int">3</field>
+            <field name="material_id" ref="material_plant_when3"/>
+            <field name="section_id" ref="op_course_section_vegetable_variable3"/>
+        </record>
+        <record id="op_course_material_when4" model="op.course.material">
+            <field name="sequence" type="int">4</field>
+            <field name="material_id" ref="material_plant_when4"/>
+            <field name="section_id" ref="op_course_section_vegetable_variable3"/>
+        </record>
+
+        <record id="material_plant_what1" model="op.material">
+            <field name="name">What to plant in your Garden</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">13.75</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=b3waibCUoKo'"/>
+            <field name="document_id">b3waibCUoKo</field>
+        </record>
+        <record id="material_plant_what2" model="op.material">
+            <field name="name">Seedlings vs. Seeds</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">3.25</field>
+            <field name="url" eval="'https://youtu.be/g_EGPiebPeA'"/>
+            <field name="document_id">g_EGPiebPeA</field>
+        </record>
+        <record id="material_plant_what3" model="op.material">
+            <field name="name">Hybrid vs Open Pollinated/Heirloom Plants</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">8.70</field>
+            <field name="url" eval="'https://youtu.be/KNNWjBHFBvo'"/>
+            <field name="document_id">KNNWjBHFBvo</field>
+        </record>
+        <record id="material_plant_what4" model="op.material">
+            <field name="name">5 Easy Cool weather crops to grow</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">3.09</field>
+            <field name="url" eval="'https://youtu.be/0CFhLUdIYPQ'"/>
+            <field name="document_id">0CFhLUdIYPQ</field>
+        </record>
+        <record id="material_plant_what5" model="op.material">
+            <field name="name">7 Easy warm weather crops to grow</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">10.80</field>
+            <field name="url" eval="'https://youtu.be/h4CSSXcj9EI'"/>
+            <field name="document_id">h4CSSXcj9EI</field>
+        </record>
+        <record id="material_plant_what6" model="op.material">
+            <field name="name">What to Plant wrap up</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">2.75</field>
+            <field name="url" eval="'https://youtu.be/RGVDeXqN1ao'"/>
+            <field name="document_id">RGVDeXqN1ao</field>
+        </record>
+
+        <record id="op_course_material_what1" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_plant_what1"/>
+            <field name="section_id" ref="op_course_section_vegetable_variable4"/>
+            <field name="preview" eval="True"/>
+        </record>
+        <record id="op_course_material_what2" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_plant_what2"/>
+            <field name="section_id" ref="op_course_section_vegetable_variable4"/>
+        </record>
+        <record id="op_course_material_what3" model="op.course.material">
+            <field name="sequence" type="int">3</field>
+            <field name="material_id" ref="material_plant_what3"/>
+            <field name="section_id" ref="op_course_section_vegetable_variable4"/>
+            <field name="preview" eval="True"/>
+        </record>
+        <record id="op_course_material_what4" model="op.course.material">
+            <field name="sequence" type="int">4</field>
+            <field name="material_id" ref="material_plant_what4"/>
+            <field name="section_id" ref="op_course_section_vegetable_variable4"/>
+        </record>
+        <record id="op_course_material_what5" model="op.course.material">
+            <field name="sequence" type="int">5</field>
+            <field name="material_id" ref="material_plant_what5"/>
+            <field name="section_id" ref="op_course_section_vegetable_variable4"/>
+        </record>
+        <record id="op_course_material_what6" model="op.course.material">
+            <field name="sequence" type="int">6</field>
+            <field name="material_id" ref="material_plant_what6"/>
+            <field name="section_id" ref="op_course_section_vegetable_variable4"/>
+        </record>
+
+        <record id="material_veg_quiz" model="op.material">
+            <field name="name">Vegetable Quiz</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">quiz</field>
+            <field name="total_time" type="float">1.45</field>
+            <field name="quiz_id" ref="openeducat_quiz.op_qz_veg1"/>
+        </record>
+        <record id="op_course_material_veg_quiz" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_veg_quiz"/>
+            <field name="section_id" ref="op_course_section_vegetable_variable6"/>
+        </record>
+        <record id="op_user_student_42" model="res.users" context="{'no_reset_password': True}">
+            <field name="name">Mariya</field>
+            <field name="password">openeducatvegetable</field>
+            <field name="login">openeducatvegetable@openeducat.com</field>
+            <field name="groups_id"
+                   eval="[(4,ref('openeducat_lms.group_op_lms_admin'))]"/>
+        </record>
+        <record id="demo_enrollment_vegetable" model="op.course.enrollment">
+            <field name="course_id" ref="openeducat_lms.demo_course_vegetable"/>
+            <field name="user_id" ref="openeducat_lms.op_user_student_42"/>
+            <field name="state">in_progress</field>
+            <field name="enrollment_date" eval="(DateTime.today() - relativedelta(days=1))"/>
+        </record>
+
+</odoo>

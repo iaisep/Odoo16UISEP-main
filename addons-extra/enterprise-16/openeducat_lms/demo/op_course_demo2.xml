@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="category_5" model="op.course.category">
+            <field name="name">Calculation</field>
+            <field name="code">abc-234</field>
+            <field name="icon">fa fa-calculator</field>
+        </record>
+        <record id="demo_course_maths" model="op.course">
+            <field name="name">Learn Mathematics</field>
+            <field name="code">Con11</field>
+            <field name="sequence">5</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="faculty_ids"
+                   eval="[(6,0,[ref('openeducat_core.op_faculty_4'),ref('openeducat_core.op_faculty_1')])]"/>
+            <field name="category_ids"
+                   eval="[(6,0,[ref('category_5')])]"/>
+            <field name="suggested_course_ids"
+                   eval="[(6,0,[ref('openeducat_lms.demo_course_1')])]"/>
+            <field name="visibility">logged_user</field>
+            <field name="level_id" ref="op_course_level_intermediate"/>
+            <field name="navigation_policy">free_learn</field>
+            <field name="state">open</field>
+            <field name="online_course" eval="True"/>
+            <field name="confirm_date"
+                   eval="(DateTime.today() - relativedelta(days=8))"/>
+
+            <field name="image_1920" type="base64"
+                   file="openeducat_lms/static/src/img/learn-mathematics-img-min.jpg"/>
+
+
+            <field name="full_description"><![CDATA[
+            <div>
+                    <p> This Maths Course is designed to help everyone from the ab initio stage - those who have never learned French before - to those wanting to brush up in preparation for an upcoming holiday or business trip. The course is pdf as well as audio video  based using a bilingual speaker (myself) and it will be supported with on-screen transcripts for easier learning and better retention. There are also printable vocabulary guides to take with you wherever you go! </p>
+                    <p> This course takes you from learning how to pronounce Maths words correctly to understanding others and expressing your needs in a number of situations.</p>
+            </div>
+            ]]></field>
+        </record>
+
+        <record id="op_course_section_maths_variable" model="op.course.section">
+            <field name="name">Introduction</field>
+            <field name="course_id" ref="demo_course_maths"/>
+            <field name="sequence" type="int">1</field>
+        </record>
+        <record id="op_course_section_maths_variable2" model="op.course.section">
+            <field name="name">Geometric Mean</field>
+            <field name="course_id" ref="demo_course_maths"/>
+            <field name="sequence" type="int">2</field>
+        </record>
+        <record id="op_course_section_maths_variable3" model="op.course.section">
+            <field name="name">Median</field>
+            <field name="course_id" ref="demo_course_maths"/>
+            <field name="sequence" type="int">3</field>
+        </record>
+        <record id="op_course_section_maths_variable4" model="op.course.section">
+            <field name="name">Mode</field>
+            <field name="course_id" ref="demo_course_maths"/>
+            <field name="sequence" type="int">4</field>
+        </record>
+        <record id="op_course_section_maths_variable5" model="op.course.section">
+            <field name="name">Harmonic Mean</field>
+            <field name="course_id" ref="demo_course_maths"/>
+            <field name="sequence" type="int">5</field>
+        </record>
+        <record id="op_course_section_maths_variable6" model="op.course.section">
+            <field name="name">Weighted Mean</field>
+            <field name="course_id" ref="demo_course_maths"/>
+            <field name="sequence" type="int">6</field>
+        </record>
+        <record id="op_course_section_maths_variable7" model="op.course.section">
+            <field name="name">Partition Values</field>
+            <field name="course_id" ref="demo_course_maths"/>
+            <field name="sequence" type="int">7</field>
+        </record>
+        <record id="op_course_section_maths_variable8" model="op.course.section">
+            <field name="name">Ogives</field>
+            <field name="course_id" ref="demo_course_maths"/>
+            <field name="sequence" type="int">8</field>
+        </record>
+        <record id="op_course_section_maths_variable9" model="op.course.section">
+            <field name="name">Dispersion</field>
+            <field name="course_id" ref="demo_course_maths"/>
+            <field name="sequence" type="int">9</field>
+        </record>
+        <record id="op_course_section_maths_variable10" model="op.course.section">
+            <field name="name">Measures of Dispersion</field>
+            <field name="course_id" ref="demo_course_maths"/>
+            <field name="sequence" type="int">10</field>
+        </record>
+        <record id="op_course_section_maths_variable11" model="op.course.section">
+            <field name="name">Coefficient of Dispersion Coefficient of Variation</field>
+            <field name="course_id" ref="demo_course_maths"/>
+            <field name="sequence" type="int">11</field>
+        </record>
+        <record id="op_course_section_maths_variable12" model="op.course.section">
+            <field name="name">Moments</field>
+            <field name="course_id" ref="demo_course_maths"/>
+            <field name="sequence" type="int">12</field>
+        </record>
+        <record id="op_course_section_maths_variable13" model="op.course.section">
+            <field name="name">Skewness</field>
+            <field name="course_id" ref="demo_course_maths"/>
+            <field name="sequence" type="int">13</field>
+        </record>
+        <record id="op_course_section_maths_variable14" model="op.course.section">
+            <field name="name">Quiz</field>
+            <field name="course_id" ref="demo_course_maths"/>
+            <field name="sequence" type="int">14</field>
+        </record>
+
+
+        <record id="material_introduction11" model="op.material">
+            <field name="name">Introduction</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">72.09</field>
+            <field name="url" eval="'https://youtu.be/TMubSggUOVE'"/>
+            <field name="document_id">TMubSggUOVE</field>
+        </record>
+        <record id="material_introduction12" model="op.material">
+            <field name="name">Measures of Central Tendency</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">8.31</field>
+            <field name="url" eval="'https://youtu.be/NM_iOLUwZFA'"/>
+            <field name="document_id">NM_iOLUwZFA</field>
+        </record>
+        <record id="material_introduction13" model="op.material">
+            <field name="name">Arithmetic Mean</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">2.19</field>
+            <field name="url" eval="'https://youtu.be/SNwjr5o0kBE'"/>
+            <field name="document_id">SNwjr5o0kBE</field>
+        </record>
+        <record id="material_introduction14" model="op.material">
+            <field name="name">Arithmetic Mean Numerical</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">6.26</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=Yn3yOPEtggE'"/>
+            <field name="document_id">Yn3yOPEtggE</field>
+        </record>
+        <record id="material_introduction15" model="op.material">
+            <field name="name">Effect of Change of Origin Scale on AM</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">5.28</field>
+            <field name="url" eval="'https://youtu.be/xQme02Q0S3M'"/>
+            <field name="document_id">xQme02Q0S3M</field>
+        </record>
+        <record id="material_introduction16" model="op.material">
+            <field name="name">Theorems</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">4.40</field>
+            <field name="url" eval="'https://youtu.be/S0DSM-EkQE8'"/>
+            <field name="document_id">S0DSM-EkQE8</field>
+        </record>
+
+        <record id="op_course_material_maths_introduction1" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_introduction11"/>
+            <field name="section_id" ref="op_course_section_maths_variable"/>
+            <field name="preview" eval="True"/>
+        </record>
+
+        <record id="op_course_material_maths_introduction2" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_introduction12"/>
+            <field name="section_id" ref="op_course_section_maths_variable"/>
+        </record>
+        <record id="op_course_material_maths_introduction3" model="op.course.material">
+            <field name="sequence" type="int">3</field>
+            <field name="material_id" ref="material_introduction13"/>
+            <field name="section_id" ref="op_course_section_maths_variable"/>
+        </record>
+        <record id="op_course_material_maths_introduction4" model="op.course.material">
+            <field name="sequence" type="int">4</field>
+            <field name="material_id" ref="material_introduction14"/>
+            <field name="section_id" ref="op_course_section_maths_variable"/>
+        </record>
+        <record id="op_course_material_maths_introduction5" model="op.course.material">
+            <field name="sequence" type="int">5</field>
+            <field name="material_id" ref="material_introduction15"/>
+            <field name="section_id" ref="op_course_section_maths_variable"/>
+        </record>
+        <record id="op_course_material_maths_introduction6" model="op.course.material">
+            <field name="sequence" type="int">6</field>
+            <field name="material_id" ref="material_introduction16"/>
+            <field name="section_id" ref="op_course_section_maths_variable"/>
+        </record>
+
+        <record id="material_geometric1" model="op.material">
+            <field name="name">Geometric Mean Case 1</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">3.15</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=mQsWZIaffRk'"/>
+            <field name="document_id">mQsWZIaffRk</field>
+        </record>
+
+        <record id="material_geometric2" model="op.material">
+            <field name="name">Geometric Mean Case 2</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">3.52</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=vrgQCl0God0'"/>
+            <field name="document_id">vrgQCl0God0</field>
+        </record>
+
+        <record id="material_geometric4" model="op.material">
+            <field name="name">Geometric Mean for Combined Series</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">9.42</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=xXPmu7VWswg'"/>
+            <field name="document_id">xXPmu7VWswg</field>
+        </record>
+
+        <record id="op_course_material_maths_geometric1" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_geometric1"/>
+            <field name="section_id" ref="op_course_section_maths_variable2"/>
+            <field name="preview" eval="True"/>
+        </record>
+        <record id="op_course_material_maths_geometric2" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_geometric2"/>
+            <field name="section_id" ref="op_course_section_maths_variable2"/>
+        </record>
+
+        <record id="op_course_material_maths_geometric4" model="op.course.material">
+            <field name="sequence" type="int">4</field>
+            <field name="material_id" ref="material_geometric4"/>
+            <field name="section_id" ref="op_course_section_maths_variable2"/>
+        </record>
+
+
+        <record id="material_median1" model="op.material">
+            <field name="name">Definition And Calculation of Median</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">3.38</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=0ifDuw-Qgvo'"/>
+            <field name="document_id">0ifDuw-Qgvo</field>
+        </record>
+
+        <record id="material_median4" model="op.material">
+            <field name="name">Numerical Set on Median</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">3.04</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=cc7ELv2_Xww'"/>
+            <field name="document_id">cc7ELv2_Xww</field>
+        </record>
+
+        <record id="op_course_material_maths_median1" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_median1"/>
+            <field name="section_id" ref="op_course_section_maths_variable3"/>
+            <field name="preview" eval="True"/>
+        </record>
+
+        <record id="op_course_material_maths_median4" model="op.course.material">
+            <field name="sequence" type="int">4</field>
+            <field name="material_id" ref="material_median4"/>
+            <field name="section_id" ref="op_course_section_maths_variable3"/>
+        </record>
+
+        <record id="material_mode1" model="op.material">
+            <field name="name">Definition Calculation of Mode</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">2.02</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=Er3_dQSWED0'"/>
+            <field name="document_id">Er3_dQSWED0</field>
+        </record>
+        <record id="material_mode2" model="op.material">
+            <field name="name">Numerical on Mode</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">2.42</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=oop3_5XxMWM'"/>
+            <field name="document_id">oop3_5XxMWM</field>
+        </record>
+
+        <record id="op_course_material_maths_mode1" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_mode1"/>
+            <field name="section_id" ref="op_course_section_maths_variable4"/>
+        </record>
+        <record id="op_course_material_maths_mode2" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_mode2"/>
+            <field name="section_id" ref="op_course_section_maths_variable4"/>
+        </record>
+
+        <record id="material_harmonic1" model="op.material">
+            <field name="name">Calculation Application of Harmonic Mean</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">8.30</field>
+            <field name="url" eval="'https://youtu.be/F8_5GgSrxE8'"/>
+            <field name="document_id">F8_5GgSrxE8</field>
+        </record>
+        <record id="material_harmonic2" model="op.material">
+            <field name="name">Numerical Set on Harmonic Mean</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">4.06</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=w0aaN82ysJI'"/>
+            <field name="document_id">w0aaN82ysJI</field>
+        </record>
+
+        <record id="op_course_material_maths_harmonic1" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_harmonic1"/>
+            <field name="section_id" ref="op_course_section_maths_variable5"/>
+        </record>
+        <record id="op_course_material_maths_harmonic2" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_harmonic2"/>
+            <field name="section_id" ref="op_course_section_maths_variable5"/>
+        </record>
+
+        <record id="material_weighted1" model="op.material">
+            <field name="name">Definition Application of Weighted Mean</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">2.17</field>
+            <field name="url" eval="'https://youtu.be/kA4Jvl3_G7U'"/>
+            <field name="document_id">kA4Jvl3_G7U</field>
+        </record>
+
+        <record id="op_course_material_maths_weighted1" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_weighted1"/>
+            <field name="section_id" ref="op_course_section_maths_variable6"/>
+        </record>
+
+
+        <record id="material_partition1" model="op.material">
+            <field name="name">Definition Application of Weighted Mean</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">3.47</field>
+            <field name="url" eval="'https://youtu.be/Yl1aOD3CZbM'"/>
+            <field name="document_id">Yl1aOD3CZbM</field>
+        </record>
+        <record id="material_partition2" model="op.material">
+            <field name="name">Numerical Set on Quartiles</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">5.11</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=4Nd7-iUTDOI'"/>
+            <field name="document_id">4Nd7-iUTDOI</field>
+        </record>
+        <record id="material_partition3" model="op.material">
+            <field name="name">Numerical Set</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">8.36</field>
+            <field name="url" eval="'https://youtu.be/6S7cP9XHaHA'"/>
+            <field name="document_id">6S7cP9XHaHA</field>
+        </record>
+        <record id="material_partition4" model="op.material">
+            <field name="name">Deciles</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">2.42</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=iOiO3pTvJis'"/>
+            <field name="document_id">iOiO3pTvJis</field>
+        </record>
+
+        <record id="op_course_material_maths_partition1" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_partition1"/>
+            <field name="section_id" ref="op_course_section_maths_variable7"/>
+            <field name="preview" eval="True"/>
+        </record>
+        <record id="op_course_material_maths_partition2" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_partition2"/>
+            <field name="section_id" ref="op_course_section_maths_variable7"/>
+        </record>
+        <record id="op_course_material_maths_partition3" model="op.course.material">
+            <field name="sequence" type="int">3</field>
+            <field name="material_id" ref="material_partition3"/>
+            <field name="section_id" ref="op_course_section_maths_variable7"/>
+        </record>
+        <record id="op_course_material_maths_partition4" model="op.course.material">
+            <field name="sequence" type="int">4</field>
+            <field name="material_id" ref="material_partition4"/>
+            <field name="section_id" ref="op_course_section_maths_variable7"/>
+        </record>
+
+
+        <record id="material_ogives1" model="op.material">
+            <field name="name">Ogives and Its Uses to find out the Partion Values Graphically</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">14.28</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=Og2dv7-SNq4'"/>
+            <field name="document_id">Og2dv7-SNq4</field>
+        </record>
+        <record id="op_course_material_maths_ogives1" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_ogives1"/>
+            <field name="section_id" ref="op_course_section_maths_variable8"/>
+        </record>
+
+        <record id="material_dispersion11" model="op.material">
+            <field name="name">Need and Definition of Dispersion</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">0.31</field>
+            <field name="url" eval="'https://youtu.be/IGQxAedUrFs'"/>
+            <field name="document_id">IGQxAedUrFs</field>
+        </record>
+        <record id="op_course_material_maths_dispersion11" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_dispersion11"/>
+            <field name="section_id" ref="op_course_section_maths_variable9"/>
+        </record>
+
+        <record id="material_meassure_dispersion1" model="op.material">
+            <field name="name">Measures of Dispersion Range</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">12.27</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=1jqgwEvOzcg'"/>
+            <field name="document_id">1jqgwEvOzcg</field>
+        </record>
+        <record id="material_meassure_dispersion2" model="op.material">
+            <field name="name">Standard Deviation Variance</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">5.05</field>
+            <field name="url" eval="'https://youtu.be/qqOyy_NjflU'"/>
+            <field name="document_id">qqOyy_NjflU</field>
+        </record>
+
+        <record id="material_meassure_dispersion3" model="op.material">
+            <field name="name">Example on Mean And Standard Deviation</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">4.41</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=JmqZ5J6hH2M'"/>
+            <field name="document_id">JmqZ5J6hH2M</field>
+        </record>
+
+
+        <record id="op_course_material_maths_dispersion1" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_meassure_dispersion1"/>
+            <field name="section_id" ref="op_course_section_maths_variable10"/>
+            <field name="preview" eval="True"/>
+        </record>
+
+        <record id="op_course_material_maths_dispersion2" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_meassure_dispersion2"/>
+            <field name="section_id" ref="op_course_section_maths_variable10"/>
+        </record>
+        <record id="op_course_material_maths_dispersion3" model="op.course.material">
+            <field name="sequence" type="int">3</field>
+            <field name="material_id" ref="material_meassure_dispersion3"/>
+            <field name="section_id" ref="op_course_section_maths_variable10"/>
+        </record>
+
+        <record id="material_meassure_variation1" model="op.material">
+            <field name="name">Coefficient of Dispersion And Coefficient of Variation</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">4.28</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=-OgrA9mf8Tc'"/>
+            <field name="document_id">-OgrA9mf8Tc</field>
+        </record>
+        <record id="material_meassure_variation2" model="op.material">
+            <field name="name">Example on Coefficient of Variation</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">3.45</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=b_dafTU6opk'"/>
+            <field name="document_id">b_dafTU6opk</field>
+        </record>
+        <record id="op_course_material_maths_variation1" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_meassure_variation1"/>
+            <field name="section_id" ref="op_course_section_maths_variable11"/>
+        </record>
+        <record id="op_course_material_maths_variation2" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_meassure_variation2"/>
+            <field name="section_id" ref="op_course_section_maths_variable11"/>
+            <field name="preview" eval="True"/>
+        </record>
+
+
+        <record id="material_meassure_moments1" model="op.material">
+            <field name="name">Moments</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">24.21</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=l3bGdVAFohs'"/>
+            <field name="document_id">l3bGdVAFohs</field>
+        </record>
+        <record id="op_course_material_maths_moments1" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_meassure_moments1"/>
+            <field name="section_id" ref="op_course_section_maths_variable12"/>
+        </record>
+
+        <record id="material_meassure_skewness1" model="op.material">
+            <field name="name">Skewness</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">3.24</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=XSSRrVMOqlQ'"/>
+            <field name="document_id">XSSRrVMOqlQ</field>
+        </record>
+        <record id="op_course_material_maths_skewness1" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_meassure_skewness1"/>
+            <field name="section_id" ref="op_course_section_maths_variable13"/>
+            <field name="preview" eval="True"/>
+        </record>
+        <record id="material_maths_quiz" model="op.material">
+            <field name="name">Maths Quiz</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">quiz</field>
+            <field name="total_time" type="float">1.45</field>
+            <field name="quiz_id" ref="openeducat_quiz.op_qz_maths1"/>
+        </record>
+
+        <record id="op_course_material_maths_quiz" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_maths_quiz"/>
+            <field name="section_id" ref="op_course_section_maths_variable14"/>
+        </record>
+
+        <record id="op_user_student_43" model="res.users" context="{'no_reset_password': True}">
+            <field name="name">Jeck</field>
+            <field name="password">openeducatmaths</field>
+            <field name="login">openeducatmaths@openeducat.com</field>
+            <field name="groups_id"
+                   eval="[(4,ref('openeducat_lms.group_op_lms_admin'))]"/>
+        </record>
+
+        <record id="demo_enrollment_course_maths" model="op.course.enrollment">
+            <field name="course_id" ref="openeducat_lms.demo_course_maths"/>
+            <field name="user_id" ref="openeducat_lms.op_user_student_43"/>
+            <field name="state">in_progress</field>
+            <field name="enrollment_date" eval="(DateTime.today() - relativedelta(days=1))"/>
+        </record>
+
+</odoo>

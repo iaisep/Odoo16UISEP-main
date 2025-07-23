@@ -1,0 +1,722 @@
+.item_icon {
+    width : 110px !important;
+}
+
+.item_icon>img {
+    width : 50px;
+}
+
+.field_required{
+    color : red;
+}
+
+.dashboard_element_preview{
+    width: 280px;
+}
+.dashboard_element_add_text_preview{
+    width:350px;
+}
+.not_click{
+    pointer-events: none;
+}
+.add_element_submenu_menu{
+    left:100%;
+    bottom:0 !important;
+}
+.color_picker{
+    margin-right: 10px;
+}
+.color_opacity{
+    vertical-align:middle;
+}
+.image_widget_icon_container{
+    background : transparent;
+    border: none;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.domain_content{
+    overflow : auto;
+}
+.db_item_preview_footer_note{
+    margin-top : 10px;
+}
+.md_heading{
+    justify-content: center;
+    font-size: 16px;
+    color:black;
+}
+.dashboard_menu_container{
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    border-radius: 5px;
+    max-width: 174px;
+}
+.dashboard_menu_container > li{
+    margin: 2px;
+    display:flex;
+}
+.dashboard_menu_container > li > button{
+    margin-top : 5px;
+    margin-left: 2px;
+    border-radius: 5px;
+}
+#add_item_selection,#date_selector_container{
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+#dashboard_layout_edit{
+    border-radius: 4px !important;
+    color: #fff;
+}
+.add_item_type_button{
+    color:#fff;
+    border-radius:4px !important;
+    border-radius: 3px;
+}
+
+
+.dashboard_kpi_name_preview {
+    font-weight:bold;
+    font-size: 21px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-top: 30px;
+    overflow: hidden;
+}
+
+.kpi_main_body {
+    width: 100%;
+}
+.dashboard_kpi_count_preview {
+    font-weight: bold;
+    width:auto;
+    font-size: x-large;
+    text-align: right;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-transform: none;
+    overflow: hidden;
+}
+.dashboard_kpi_arrow_preview {
+    font-size: medium;
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    text-transform: none;
+}
+.dashboard_kpi_preview {
+        width: 249px;
+        height: 130px;
+        padding-bottom:30px;
+}
+
+.dashboard_kpi {
+    overflow:visible !important;
+    position : relative;
+    margin-top: 15px;
+    height: auto;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.dashboard_kpi:hover{
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.target_previous {
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 0 15px 0px 15px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    text-align:center;
+}
+.progress{
+    bottom:0px;
+    width:100%;
+    position:absolute;
+    overflow:hidden;
+    margin-bottom: 0px;
+
+}
+ .progress progress {
+    background-color: #000;
+    border: 0;
+    width: 80%;
+    height: 5px;
+    border-radius: 9px;
+}
+ .progress progress::-webkit-progress-bar {
+    background-color: #000;
+    border-radius: 9px;
+}
+.progress progress::progress-value {
+    background: #fff;
+    border-radius: 9px;
+}
+.progress progress::progress-bar {
+    background: #fff;
+    border-radius: 9px;
+}
+.dashboard_theme_input::before {
+    content: '';
+    position: relative;
+    width: 25px;
+    height: 20px;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+.color_white::before {
+    background: #ffffff;
+    color:black;
+}
+
+.color_white {
+    border: 1px solid #bdbdbd
+}
+
+.color_blue::before {
+    background: #337ab7;
+}
+.color_red::before{
+    background: #d9534f;
+}
+.color_yellow::before{
+    background: #f0ad4e;
+}
+.color_green::before{
+    background: #5cb85c;
+}
+.dashboard_theme_view_render{
+    display: flex;
+}
+.dashboard_theme_input:checked:before{
+    content: '✔';
+}
+
+.dashboard_theme_input_container{
+        margin-right: 20px;
+}
+
+
+
+.dashboard_top_settings .fa-cog{
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.dashboard_setting_container{
+    padding: 5px 10px 5px 10px;
+    cursor: pointer;
+}
+
+.dashboard_setting_container:hover{
+    color: #333333;
+    background-color: #f5f5f5;
+}
+.dashboard_pro_toggle_menu::after {
+    display:none !important;
+}
+
+.dashboard_theme_input{
+    -webkit-appearance: none;
+}
+
+.kpi_target_grey {
+    color: #777777;
+}
+
+.-options-btn{
+    border-radius: 25px;
+    margin-top: 2%;
+    visibility:collapse;
+}
+
+.dashboard_link{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.date_apply_clear_print,.dashboard_top_menu{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+i.-options-plus {
+    color: white;
+    display: inline-block;
+    border-radius: 60px;
+    background: #7c7bad;
+    box-shadow: 0px 0px 2px #888;
+    padding: 0.5em 0.6em;
+}
+
+.apply-dashboard-date-filter{
+    margin-left: 10px;
+    border-radius:4px !important;
+}
+
+.clear-dashboard-date-filter{
+    margin-left:5px;
+    border-radius:4px !important;
+}
+
+#start_date_picker{
+    height: 30px;
+    width: 100px;
+    border: 1px solid #ccc;
+    padding: 2px 4px;
+    color: #1f1f1f;
+}
+
+#end_date_picker{
+    height: 30px;
+    width: 100px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 2px 4px;
+    color: #1f1f1f;
+}
+
+.ui-datepicker .ui-datepicker-title {
+    display: flex;
+}
+
+.o_view_manager_content{
+    font-family: arial;
+}
+.html2canvas-container {
+  height: 4000px !important;
+}
+
+.dashboard_header_name {
+    text-align: start;
+}
+
+.-dashboard-date-labels{
+    font-weight: bold;
+    margin-top: inherit;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.event_offer_list {
+    pointer-events: none;
+    color: #8080805e !important;
+}
+
+.event_offer_list:focus {
+    box-shadow: none;
+}
+.toggle_icon_input{
+    vertical-align: middle;
+}
+
+.select_dashboard_item_toggle{
+    display: flex;
+}
+
+.select_icon_div{
+    margin-right : 45px;
+}
+
+.dashboard_element_buttons_container{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.dashboard_quick_edit_action > button{
+    position: absolute;
+    right: -30px;
+    visibility: hidden;
+}
+
+.dashboard_quick_edit_action{
+    z-index: 99;
+}
+
+.qe_footer_span{
+    display: block;
+    width: 18px;
+    height: 18px;
+    -webkit-transform: rotate(-135deg) translateZ(0);
+    transform: rotate(-135deg) translateZ(0);
+    outline: 1px solid transparent;
+    background-color: white;
+    border-top: 1px solid #c7c7c7;
+    border-right: 1px solid #c7c7c7;
+    position: absolute;
+    left: -9px;
+    top: 22px;
+}
+
+.qe_dropdown_menu{
+   max-width: 280px;
+   box-shadow: 3px 7px 12px 1px rgba(0, 0, 0, 0.32);
+}
+
+.item_field_info{
+    max-height: 225px;
+    overflow-y: scroll;
+}
+
+.qe_form_view{
+    padding-bottom: 0px !important;
+        padding-top: 0px !important;
+}
+
+.qe_form_view > .qe_form_view_group{
+    margin-bottom: 0 !important;
+}
+.item_field_info::-webkit-scrollbar,
+.dashboard_custom_scrollbar::-webkit-scrollbar {
+  width: 7px;
+}
+
+.item_field_info::-webkit-scrollbar-track,
+.dashboard_custom_scrollbar::-webkit-scrollbar-track,
+ {
+  background: #f1f1f1;
+}
+
+.item_field_info::-webkit-scrollbar-thumb,
+.dashboard_custom_scrollbar::-webkit-scrollbar-thumb {
+  background: #888;
+}
+.item_field_info::-webkit-scrollbar-thumb:hover,
+.dashboard_custom_scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.icon_container_grid_view{
+    width:100%;
+}
+
+.icon_container_list{
+   border: 1px solid transparent;
+    position: relative;
+    padding:2%;
+    float:left;
+    display:block;
+    transition: 0.3s ease-in-out;
+    width: 16.66%;
+    text-align: center;
+ }
+
+ .font {
+    font-weight: bold;
+    min-width: 129px
+ }
+
+
+.icon_container_list:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.icon_selected{
+    background: #f2f2f2;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+.icon_selected img{
+    transform: scale(0.7) !important;
+    padding: 5px;
+}
+
+.icon_container_open_button{
+    display:none;
+}
+
+.modal_icon_input_div{
+    width: 100%;
+    text-align: right;
+    margin-bottom: 12px;
+}
+
+.modal_icon_input{
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+}
+
+.fa_icon_search{
+    float: right;
+    padding: 6px 10px;
+    margin-top: 8px;
+    margin-right: 16px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+}
+
+.search_modal_container{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.x-tree-icon-leaf, .x-tree-icon-text::before {
+  font: normal normal normal 14px/1 "FontAwesome";
+  display: inline-block;
+  color: #5fa2dd;
+}
+@media (max-width: 475px){
+.icon_container_list{
+    width: 33.33%;
+}
+}
+
+@media (max-width: 1024px){
+    .dashboard_element_hover > button, .dashboard_element_hover > .chart_inner_buttons{
+        visibility: visible !important;
+    }
+}
+
+@media (max-width: 1024px) {
+     .dropdown-max-height {
+        max-height: 40vh;
+        overflow: auto;
+    }
+}
+.dashboard_element {
+    height: 132px;
+    margin-top:5px;
+}
+.row {
+    margin-left: unset;
+    margin-right: unset;
+    width:100%
+}
+/* Form pie chart no data */
+.dn_graph_preview > .nv-noData > .pie_chart_nocontent{
+    padding: 100px 0 0 137px;
+    min-height: 327px;
+    font-size: 125%;
+}
+
+.dashboard_item_action {
+    color: black;
+}
+
+.group_width {
+    width : 40% !important;
+}
+.dashboard_quick_edit_action_popup {
+    color: black;
+}
+
+.dashboard_element_buttons_container > .chart_inner_buttons > button {
+    color:black;
+    background:transparent;
+}
+/* Chart No Content Css */
+.chart_nocontent_form {
+    display: inherit !important;
+}
+
+.pie_chart_nocontent > .nv-noData {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    font-size: 125%;
+}
+
+.pie_chart_nocontent > .ChartTitle {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+
+.dashboarditem_id, .dashboard_chart_container{
+    overflow-x : visible !important;
+    overflow-y : visible !important;
+}
+.dashboard_chart_container{
+    padding: 25px;
+    background : white;
+    border-radius : 8px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    margin-top:5px;
+}
+.dashboard_chart_container:hover{
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.dashboard_item_header_l6{
+    top: 5px !important;
+    right: 10px;
+}
+
+.chart_json_export {
+    padding-right: 10px !important;
+}
+
+
+.chart_card_body{
+    position: absolute;
+    top: 50px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+}
+table#ListViewTable {
+  margin: 0 auto;
+  border-collapse: collapse;
+  font-family: Agenda-Light, sans-serif;
+  text-rendering: optimizeLegibility;
+  border-radius: 5px;
+  width: -webkit-fill-available;
+}
+#item_info {
+    cursor:pointer;
+}
+#delete_todo_list{
+    cursor:pointer;
+}
+.chart_heading{
+    /*width: 50%; */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dashboard_item_drill_up {
+    min-width:89px;
+}
+
+.list_view_heading{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.pager {
+    margin-top:-10px;
+    min-width:98px;
+}
+.dashboard_item_hover:hover .dashboard_element_hover > .chart_inner_buttons{
+    visibility: visible;
+}
+ .chart_inner_buttons{
+    visibility: hidden;
+
+}
+.chart_color_options, .item_size_options{
+        display: block;
+    padding: 3px 10px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    white-space: nowrap;
+    cursor: pointer;
+        margin-left: 24px;
+    text-transform: capitalize;
+}
+.chart_color_options:hover, .item_size_options:hover{
+        color: #333333;
+    background-color: #f5f5f5;
+}
+.pro_print_hide{
+    display:none !important;
+}
+.dashboard_item_menu_show > .chart_inner_buttons{
+    visibility: visible !important;
+}
+.MaxTableContent{
+    max-height: 300px;
+}
+.list_view_container{
+    padding:25px;
+    background : white;
+    border-radius : 8px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+.list_view_container:hover{
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.chart_export_menu{
+    padding: 6px 0 6px 0;
+}
+.chart_export_menu_header{
+    font-weight: 600;
+    color:black;
+    padding: 0 14px 10px 14px;
+}
+.chart_export_menu_item{
+    padding: 5px 14px 5px 14px;
+    cursor : pointer;
+}
+.chart_image_export{
+    line-height: 29.5px;
+    padding-top: 7.5px;
+    padding-bottom: 7px;
+}
+.chart_export_menu_item{
+    color: #f0eeee;
+}
+.chart_export_menu_item:hover{
+    color: #4d4c4c;
+    background-color: #f5f5f5;
+}
+.chart_export_menu_item > i{
+    padding-right: 10px;
+}
+.chart_export_menu_item {
+    color:black;
+}
+.my_container {
+
+}
+.pro-custom-scrollbar{
+    position: relative;
+    height: 82%;
+    margin-top:-10px;
+    overflow: auto;
+}
+.table > tbody > tr > td.info{
+    background-color:transparent;
+}
+.table-fixed{
+     width: 100%;
+}
+.dropdown-menu{
+    top:auto;
+}
+.tbody : hover{
+    background-color:transparent;
+}
+.table > tbody > tr > td.info : hover{
+    background-color:transparent;
+}
+.change_to_do_done_state{
+    background-color:#4e4e4e !important;
+    color:white;
+}
+.change_to_do_done_state > .change_to_do_done_state_text{
+    text-decoration: line-through;
+}
+.change_to_do_done_state:hover{
+    background-color:grey !important;
+    color:white !important;
+}
+.change_to_do_state > .info > i {
+    visibility:hidden;
+}
+.change_to_do_state:hover > .info > i {
+    visibility:visible !important;
+}

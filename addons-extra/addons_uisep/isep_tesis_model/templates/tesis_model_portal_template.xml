@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="tesis_model_portal_template" name="Tesis Model Portal">
+        <t t-call="portal.portal_layout">
+            <h2>Mi Revisión tesis</h2>
+             <table class="table table-striped">
+
+                        <tr>
+                            <th><a t-att-href="'/my/tesis_models/new'"
+                                       class="btn btn-primary">Nueva
+                                    </a></th>
+                        </tr>
+
+             </table>
+            <t t-if="not tesis_models">
+                <h4>Aún no has enviado ninguna solicitud de revisión.</h4>
+            </t>
+            <t t-else="">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Curso</th>
+                            <th>Estado</th>
+                            <th>Fecha de solicitud</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="tesis_models" t-as="tesis_model">
+                            <tr>
+                                <td>
+                                    <t t-esc="tesis_model.id"/>
+                                </td>
+                                <td>
+                                    <t t-esc="tesis_model.course_id.course_id.name or 'N/A'"/>
+                                </td>
+                                <td>
+                                    <t t-esc="dict(tesis_model.fields_get(['state'])['state']['selection'])[tesis_model.state]"/>
+                                    <t t-if="tesis_model.state == 'progress'">
+                                        <i class="fa fa-exclamation-circle text-warning" title="En progreso: Este estado le permite subir sus archivos"></i>
+                                    </t>
+                                     <t t-if="tesis_model.state == 'end'">
+                                        <i class="fa fa-exclamation-circle text-success" title="Finalizado: El proceso a finalizado"></i>
+                                    </t>
+                                     <t t-if="tesis_model.state == 'draft'">
+                                        <i class="fa fa-exclamation-circle text-danger" title="En espera: Se inicio el proceso de revision de tesis, espere a que sea aceptado"></i>
+                                    </t>
+                                </td>
+                                <td>
+                                    <t t-esc="tesis_model.request_date"/>
+                                </td>
+                                <td>
+                                    <a t-att-href="'/my/tesis_model/'+str(tesis_model.id)"
+                                       class="btn btn-primary">Revisar
+                                    </a>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </t>
+        </t>
+    </template>
+
+
+</odoo>

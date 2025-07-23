@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-inherit="web.sign_name_and_signature" owl="1" t-inherit-mode="extension">
+        <xpath expr="//div[@class='o_web_sign_signature_group position-relative mt-3 border']" position="replace">
+            <div class="o_web_sign_signature_group position-relative mt-3 border" style="overflow: hidden;">
+                <div class="card-header">
+                    <div class="row g-0 flex-nowrap">
+                        
+                        <div class="col-auto">
+                            <a role="button" href="#" t-attf-class="o_web_sign_draw_button me-2 btn btn-light {{ widget.signMode === 'draw' ? 'active': '' }}">
+                                Draw
+                            </a>
+                        </div>
+                        
+                        <div class="pushend col-auto ms-auto"/>
+                        <div t-attf-class="o_web_sign_draw_clear col-auto {{ widget.signMode !== 'draw' ? 'd-none' : '' }}">
+                            <a role="button" href="#" class="btn btn-link fa fa-trash"/>
+                        </div>
+                       
+                        
+                    </div>
+                </div>
+
+                <div class="o_web_sign_signature_container">
+                    <div class="o_signature_stroke position-absolute"/>
+                    <div class="o_web_sign_signature p-0 bg-transparent position-relative"/>
+                </div>
+
+                <div t-attf-class="o_web_sign_load_invalid card-footer d-none">
+                    <div class="alert alert-danger mb-0" role="alert">
+                        This file is invalid. Please select an image.
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </t>
+</templates>

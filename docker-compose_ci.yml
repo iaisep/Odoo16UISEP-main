@@ -1,0 +1,26 @@
+version: '3'
+services:
+  odoo_service:
+    container_name: odoo_container
+    image: odoo:16.0@sha256:f1aa50a8fc3b4abc9b67dd4b38d133888f72d5ec755f71a3d45ee81842ff5150
+    restart: unless-stopped
+    volumes:
+      - ./addons-extra:/mnt/extra-addons
+      - ./etc/odoo:/etc/odoo
+      - ./log:/var/log/odoo
+    depends_on:
+      - pgodoo_service
+  pgodoo_service:
+    container_name: pgodoo_container
+    image: postgres:14
+    restart: unless-stopped
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=Odoo$$Dev.psswd%&#$$23
+      - POSTGRES_USER=odoo
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - odoo_volume-db-data:/var/lib/postgresql/data/pgdata
+
+volumes:
+  odoo_volume-db-data:

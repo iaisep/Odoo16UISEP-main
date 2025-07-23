@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="op_ans_grd_100p4" model="op.answer.grade">
+            <field name="name">+100%</field>
+            <field name="value">100</field>
+        </record>
+
+        <record id="op_ans_grd_50p4" model="op.answer.grade">
+            <field name="name">+50%</field>
+            <field name="value">50</field>
+        </record>
+
+        <record id="op_ans_grd_25p4" model="op.answer.grade">
+            <field name="name">+25%</field>
+            <field name="value">25</field>
+        </record>
+
+        <record id="op_ans_grd_04" model="op.answer.grade">
+            <field name="name">0</field>
+            <field name="value">0</field>
+        </record>
+
+        <record id="op_ans_grd_100n4" model="op.answer.grade">
+            <field name="name">-100%</field>
+            <field name="value">-100</field>
+        </record>
+
+        <record id="op_ans_grd_50n4" model="op.answer.grade">
+            <field name="name">-50%</field>
+            <field name="value">-50</field>
+        </record>
+
+        <record id="op_ans_grd_25n4" model="op.answer.grade">
+            <field name="name">-25%</field>
+            <field name="value">-25</field>
+        </record>
+
+
+        <record id="op_qz_ctg_t" model="op.quiz.category">
+            <field name="name">Category MGMT</field>
+            <field name="code">CT</field>
+        </record>
+
+
+        <record id="op_qz_t1" model="op.quiz">
+            <field name="name">Management Quiz</field>
+            <field name="categ_id" ref="op_qz_ctg_t"/>
+            <field name="quiz_config">quiz_bank_selected</field>
+            <field name="time_config">True</field>
+            <field name="time_limit_hr">1</field>
+            <field name="time_limit_minute">30</field>
+            <field name="no_of_attempt">1</field>
+            <field name="description">This quiz is based on Change Management
+            </field>
+            <field name="state">open</field>
+            <field name="quiz_html">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
+                but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in
+                the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with
+                desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </field>
+
+        </record>
+
+        <record id="op_qu_bnk_typ_t" model="op.question.bank.type">
+            <field name="name">Management</field>
+        </record>
+
+        <record id="op_qu_bnk_t" model="op.question.bank">
+            <field name="name">Change Management TEST</field>
+            <field name="bank_type_id" ref="op_qu_bnk_typ_t"/>
+        </record>
+
+        <record id="op_c_qt1" model="op.question.bank.line">
+            <field name="name">What are the two types of change management?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/PmuNsYmEAoc'"/>
+            <field name="document_id">PmuNsYmEAoc</field>
+            <field name="bank_id" ref="op_qu_bnk_t"/>
+        </record>
+
+        <record id="op_c_qt1_a01" model="op.question.bank.answer">
+            <field name="name">Real change and superficial change</field>
+            <field name="grade_id" ref="op_ans_grd_04"/>
+            <field name="question_id" ref="op_c_qt1"/>
+        </record>
+
+        <record id="op_c_qt1_a02" model="op.question.bank.answer">
+            <field name="name">Incremental change and circular change</field>
+            <field name="grade_id" ref="op_ans_grd_04"/>
+            <field name="question_id" ref="op_c_qt1"/>
+        </record>
+
+        <record id="op_c_qt1_a03" model="op.question.bank.answer">
+            <field name="name">Radical change and transformational change</field>
+            <field name="grade_id" ref="op_ans_grd_04"/>
+            <field name="question_id" ref="op_c_qt1"/>
+        </record>
+
+        <record id="op_c_qt1_a04" model="op.question.bank.answer">
+            <field name="name">Incremental change and transformational change</field>
+            <field name="grade_id" ref="op_ans_grd_100p4"/>
+            <field name="question_id" ref="op_c_qt1"/>
+        </record>
+
+
+        <record id="op_qz_ln_t1" model="op.quiz.line">
+            <field name="name">What are the two types of change management?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/PmuNsYmEAoc'"/>
+            <field name="document_id">PmuNsYmEAoc</field>
+            <field name="quiz_id" ref="op_qz_t1"/>
+            <field name="que_id" ref="op_c_qt1"/>
+        </record>
+
+        <record id="op_qz_ln_t1_c_qm1_am1" model="op.quiz.answer">
+            <field name="name">Real change and superficial change</field>
+            <field name="grade_id" ref="op_ans_grd_04"/>
+            <field name="line_id" ref="op_qz_ln_t1"/>
+        </record>
+
+        <record id="op_qz_ln_t1_c_qm1_am2" model="op.quiz.answer">
+            <field name="name">Incremental change and circular change</field>
+            <field name="grade_id" ref="op_ans_grd_04"/>
+            <field name="line_id" ref="op_qz_ln_t1"/>
+        </record>
+
+        <record id="op_qz_ln_t1_c_qm1_am3" model="op.quiz.answer">
+            <field name="name">Radical change and transformational change</field>
+            <field name="grade_id" ref="op_ans_grd_04"/>
+            <field name="line_id" ref="op_qz_ln_t1"/>
+        </record>
+
+        <record id="op_qz_ln_t1_c_qm1_am4" model="op.quiz.answer">
+            <field name="name">Incremental change and transformational change</field>
+            <field name="grade_id" ref="op_ans_grd_100p4"/>
+            <field name="line_id" ref="op_qz_ln_t1"/>
+        </record>
+
+        <record id="op_c_qt2" model="op.question.bank.line">
+            <field name="name">In high power distance cultures:</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_t"/>
+        </record>
+
+        <record id="op_c_qt2_a01" model="op.question.bank.answer">
+            <field name="name">change tends to be implemented top down.</field>
+            <field name="grade_id" ref="op_ans_grd_100p4"/>
+            <field name="question_id" ref="op_c_qt2"/>
+        </record>
+
+        <record id="op_c_qt2_a02" model="op.question.bank.answer">
+            <field name="name">change tends to be implemented bottom up.</field>
+            <field name="grade_id" ref="op_ans_grd_04"/>
+            <field name="question_id" ref="op_c_qt2"/>
+        </record>
+
+        <record id="op_c_qt2_a03" model="op.question.bank.answer">
+            <field name="name">leaders must consult lower level employees.</field>
+            <field name="grade_id" ref="op_ans_grd_04"/>
+            <field name="question_id" ref="op_c_qt2"/>
+        </record>
+
+        <record id="op_c_qt2_a04" model="op.question.bank.answer">
+            <field name="name">change tends to be implemented horizontally.</field>
+            <field name="grade_id" ref="op_ans_grd_04"/>
+            <field name="question_id" ref="op_c_qt2"/>
+        </record>
+
+
+        <record id="op_qz_ln_t2" model="op.quiz.line">
+            <field name="name">In high power distance cultures:</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="quiz_id" ref="op_qz_t1"/>
+            <field name="que_id" ref="op_c_qt2"/>
+        </record>
+
+        <record id="op_qz_ln_t1_c_qm2_am1" model="op.quiz.answer">
+            <field name="name">change tends to be implemented top down.</field>
+            <field name="grade_id" ref="op_ans_grd_100p4"/>
+            <field name="line_id" ref="op_qz_ln_t2"/>
+        </record>
+
+        <record id="op_qz_ln_t1_c_qm2_am2" model="op.quiz.answer">
+            <field name="name">change tends to be implemented bottom up.</field>
+            <field name="grade_id" ref="op_ans_grd_04"/>
+            <field name="line_id" ref="op_qz_ln_t2"/>
+        </record>
+
+        <record id="op_qz_ln_t1_c_qm2_am3" model="op.quiz.answer">
+            <field name="name">leaders must consult lower level employees.</field>
+            <field name="grade_id" ref="op_ans_grd_04"/>
+            <field name="line_id" ref="op_qz_ln_t2"/>
+        </record>
+
+        <record id="op_qz_ln_t1_c_qm2_am4" model="op.quiz.answer">
+            <field name="name">change tends to be implemented horizontally.</field>
+            <field name="grade_id" ref="op_ans_grd_04"/>
+            <field name="line_id" ref="op_qz_ln_t2"/>
+        </record>
+
+
+        <record id="op_c_qt3" model="op.question.bank.line">
+            <field name="name">A change agent is the individual who:</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_t"/>
+        </record>
+
+        <record id="op_c_qt3_a01" model="op.question.bank.answer">
+            <field name="name">supports change.</field>
+            <field name="grade_id" ref="op_ans_grd_04"/>
+            <field name="question_id" ref="op_c_qt3"/>
+        </record>
+
+        <record id="op_c_qt3_a02" model="op.question.bank.answer">
+            <field name="name">opposes change.</field>
+            <field name="grade_id" ref="op_ans_grd_04"/>
+            <field name="question_id" ref="op_c_qt3"/>
+        </record>
+
+        <record id="op_c_qt3_a03" model="op.question.bank.answer">
+            <field name="name">initiates change.</field>
+            <field name="grade_id" ref="op_ans_grd_04"/>
+            <field name="question_id" ref="op_c_qt3"/>
+        </record>
+
+        <record id="op_c_qt3_a04" model="op.question.bank.answer">
+            <field name="name">helps implement change.</field>
+            <field name="grade_id" ref="op_ans_grd_100p4"/>
+            <field name="question_id" ref="op_c_qt3"/>
+        </record>
+
+
+        <record id="op_qz_ln_t3" model="op.quiz.line">
+            <field name="name">A change agent is the individual who:</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="quiz_id" ref="op_qz_t1"/>
+            <field name="que_id" ref="op_c_qt3"/>
+        </record>
+
+        <record id="op_qz_ln_t1_c_qm3_am1" model="op.quiz.answer">
+            <field name="name">supports change.</field>
+            <field name="grade_id" ref="op_ans_grd_04"/>
+            <field name="line_id" ref="op_qz_ln_t3"/>
+        </record>
+
+        <record id="op_qz_ln_t1_c_qm3_am2" model="op.quiz.answer">
+            <field name="name">opposes change.</field>
+            <field name="grade_id" ref="op_ans_grd_04"/>
+            <field name="line_id" ref="op_qz_ln_t3"/>
+        </record>
+
+        <record id="op_qz_ln_t1_c_qm3_am3" model="op.quiz.answer">
+            <field name="name">initiates change.</field>
+            <field name="grade_id" ref="op_ans_grd_04"/>
+            <field name="line_id" ref="op_qz_ln_t3"/>
+        </record>
+
+        <record id="op_qz_ln_t1_c_qm3_am4" model="op.quiz.answer">
+            <field name="name">helps implement change.</field>
+            <field name="grade_id" ref="op_ans_grd_100p4"/>
+            <field name="line_id" ref="op_qz_ln_t3"/>
+        </record>
+
+        <record id="op_c_qt4" model="op.question.bank.line">
+            <field name="name">What is NOT one of the five stages of the negotiation process?</field>
+            <field name="mark" type="float">1.0</field>
+             <field name="material_type">infographic</field>
+            <field name="datas" type="base64"
+                   file="openeducat_quiz/demo/files/process.jpg"/>
+            <field name="bank_id" ref="op_qu_bnk_t"/>
+        </record>
+
+        <record id="op_c_qt4_a01" model="op.question.bank.answer">
+            <field name="name">Preparation</field>
+            <field name="grade_id" ref="op_ans_grd_04"/>
+            <field name="question_id" ref="op_c_qt4"/>
+        </record>
+
+        <record id="op_c_qt4_a02" model="op.question.bank.answer">
+            <field name="name">Getting to know you</field>
+            <field name="grade_id" ref="op_ans_grd_04"/>
+            <field name="question_id" ref="op_c_qt4"/>
+        </record>
+
+        <record id="op_c_qt4_a03" model="op.question.bank.answer">
+            <field name="name">Persuasion</field>
+            <field name="grade_id" ref="op_ans_grd_04"/>
+            <field name="question_id" ref="op_c_qt4"/>
+        </record>
+
+        <record id="op_c_qt4_a04" model="op.question.bank.answer">
+            <field name="name">Communication</field>
+            <field name="grade_id" ref="op_ans_grd_100p4"/>
+            <field name="question_id" ref="op_c_qt4"/>
+        </record>
+
+
+        <record id="op_qz_ln_t4" model="op.quiz.line">
+            <field name="name">What is NOT one of the five stages of the negotiation process?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="material_type">infographic</field>
+            <field name="datas" type="base64"
+                   file="openeducat_quiz/demo/files/process.jpg"/>
+            <field name="quiz_id" ref="op_qz_t1"/>
+            <field name="que_id" ref="op_c_qt4"/>
+        </record>
+
+        <record id="op_qz_ln_t1_c_qm4_am1" model="op.quiz.answer">
+            <field name="name">Preparation</field>
+            <field name="grade_id" ref="op_ans_grd_04"/>
+            <field name="line_id" ref="op_qz_ln_t4"/>
+        </record>
+
+        <record id="op_qz_ln_t1_c_qm4_am2" model="op.quiz.answer">
+            <field name="name">Getting to know you</field>
+            <field name="grade_id" ref="op_ans_grd_04"/>
+            <field name="line_id" ref="op_qz_ln_t4"/>
+        </record>
+
+        <record id="op_qz_ln_t1_c_qm4_am3" model="op.quiz.answer">
+            <field name="name">Persuasion</field>
+            <field name="grade_id" ref="op_ans_grd_04"/>
+            <field name="line_id" ref="op_qz_ln_t4"/>
+        </record>
+
+        <record id="op_qz_ln_t1_c_qm4_am4" model="op.quiz.answer">
+            <field name="name">Communication</field>
+            <field name="grade_id" ref="op_ans_grd_100p4"/>
+            <field name="line_id" ref="op_qz_ln_t4"/>
+        </record>
+
+        <record id="op_c_qt5" model="op.question.bank.line">
+            <field name="name">Transformational change is often carried out:</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_t"/>
+        </record>
+
+        <record id="op_c_qt5_a01" model="op.question.bank.answer">
+            <field name="name">by middle managers.</field>
+            <field name="grade_id" ref="op_ans_grd_04"/>
+            <field name="question_id" ref="op_c_qt5"/>
+        </record>
+
+        <record id="op_c_qt5_a02" model="op.question.bank.answer">
+            <field name="name">top down.</field>
+            <field name="grade_id" ref="op_ans_grd_100p4"/>
+            <field name="question_id" ref="op_c_qt5"/>
+        </record>
+
+        <record id="op_c_qt5_a03" model="op.question.bank.answer">
+            <field name="name">bottom up.</field>
+            <field name="grade_id" ref="op_ans_grd_04"/>
+            <field name="question_id" ref="op_c_qt5"/>
+        </record>
+
+        <record id="op_c_qt5_a04" model="op.question.bank.answer">
+            <field name="name">after extensive consultation.</field>
+            <field name="grade_id" ref="op_ans_grd_04"/>
+            <field name="question_id" ref="op_c_qt5"/>
+        </record>
+
+
+        <record id="op_qz_ln_t5" model="op.quiz.line">
+            <field name="name">Transformational change is often carried out:</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="quiz_id" ref="op_qz_t1"/>
+            <field name="que_id" ref="op_c_qt5"/>
+        </record>
+
+        <record id="op_qz_ln_t1_c_qm5_am1" model="op.quiz.answer">
+            <field name="name">by middle managers.</field>
+            <field name="grade_id" ref="op_ans_grd_04"/>
+            <field name="line_id" ref="op_qz_ln_t5"/>
+        </record>
+
+        <record id="op_qz_ln_t1_c_qm5_am2" model="op.quiz.answer">
+            <field name="name">top down.</field>
+            <field name="grade_id" ref="op_ans_grd_100p4"/>
+            <field name="line_id" ref="op_qz_ln_t5"/>
+        </record>
+
+        <record id="op_qz_ln_t1_c_qm5_am3" model="op.quiz.answer">
+            <field name="name">bottom up.</field>
+            <field name="grade_id" ref="op_ans_grd_04"/>
+            <field name="line_id" ref="op_qz_ln_t5"/>
+        </record>
+
+        <record id="op_qz_ln_t1_c_qm5_am4" model="op.quiz.answer">
+            <field name="name">after extensive consultation.</field>
+            <field name="grade_id" ref="op_ans_grd_04"/>
+            <field name="line_id" ref="op_qz_ln_t5"/>
+        </record>
+
+
+</odoo>

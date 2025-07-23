@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <menuitem id="menu_op_grading_root" name="Grade Book"
+                  sequence="30"
+                  groups="openeducat_grading.group_op_grading_user"
+                  web_icon="openeducat_grading,static/description/icon.png"/>
+
+        <menuitem id="menu_grading_assignment" name="Grading Assignment"
+                  sequence="10"
+                  parent="menu_op_grading_root"
+                  action="act_grading_assignment_view"/>
+
+        <menuitem id="menu_gradebook_gradebook" name="Grade Book"
+                  sequence="11"
+                  parent="menu_op_grading_root"
+                  action="act_gradebook_gradebook_view"/>
+
+        <!--####################### Configuration ################################-->
+        <menuitem id="menu_config_root" name="Configuration"
+                  parent="menu_op_grading_root"
+                  sequence="40"/>
+
+        <menuitem id="menu_grade_scale" name="Grade Scale"
+                  sequence="30"
+                  parent="menu_config_root"
+                  action="act_op_grade_scale_view"/>
+
+        <menuitem id="menu_grade_table" name="Grade Table"
+                  sequence="50"
+                  parent="menu_config_root"
+                  action="act_op_grade_table_view"/>
+
+        <menuitem id="menu_grade_template" name="Grade Template"
+                  sequence="80"
+                  parent="menu_config_root"
+                  action="act_grade_template_view"/>
+
+        <menuitem id="menu_op_assignment_type" name="Assignment Types"
+                  parent="menu_config_root" sequence="10"
+                  action="openeducat_assignment.act_open_op_assignment_type_view"/>
+
+        <!--        student view menu-->
+        <menuitem id="student_gradebook_view"
+                  name="Reports"
+                  parent="menu_op_grading_root"
+                  sequence="30"/>
+
+        <menuitem id="gradebook_excel_report_menu"
+                  name="Gradebook Excel Report"
+                  parent="student_gradebook_view"
+                  sequence="10"
+                  groups="openeducat_grading.group_op_grading_user"
+                  action="act_grading_wizard_view"/>
+
+        <menuitem id="student_progress_grade_book_view_by_course_menu"
+                  name="Grade By Course"
+                  parent="student_gradebook_view"
+                  sequence="20"
+                  action="openeducat_core.act_open_op_course_view"/>
+
+        <menuitem id="student_progress_grade_book_view_by_batch_menu"
+                  name="Grade By Batch"
+                  parent="student_gradebook_view"
+                  sequence="30"
+                  action="openeducat_core.act_open_op_batch_view"/>
+
+        <menuitem id="student_progress_grade_book_view_by_subject_menu"
+                  name="Grade By Subject"
+                  parent="student_gradebook_view"
+                  sequence="30"
+                  action="openeducat_core.act_open_op_subject_view"/>
+
+        <menuitem id="grades_analysis"
+                  name="Grades Analysis"
+                  parent="student_gradebook_view"
+                  sequence="30"
+                  action="openeducat_grading.act_gradebook_line_view"/>
+        <menuitem id="honor_roll_main"
+                  name="Honour Roll"
+                  parent="student_gradebook_view"
+                  sequence="30"
+                  action="openeducat_grading.act_op_honorroll_view"/>
+
+</odoo>

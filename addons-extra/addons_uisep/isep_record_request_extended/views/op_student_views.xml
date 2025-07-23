@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="op_student_form_extended_view_inherit" model="ir.ui.view">
+        <field name="name">op.student.form.inherit</field>
+        <field name="model">op.student</field>
+        <field name="inherit_id" ref="openeducat_core.view_op_student_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="accepted_percentage" widget="percentage"/>
+            </xpath>
+
+            <xpath expr="//notebook" position="inside">
+                <page name="doc" string="Documentacion del estudiante">
+                     <field name="ir_attachment_ids" context="{'default_partner_id': id, 'default_public': True}">
+                        <tree editable="bottom">
+                            <field name="public" invisible="1"/>
+                            <field name="partner_id" invisible="1"/>
+                            <field name="document"/>
+                            <field name="name"/>
+                            <field name="datas" filename="name" string="Archivo"/>
+                            <field name="mimetype" invisible="1"/>
+                            <field name="reason_for_observation"/>
+                            <field name="state"
+                                   widget="badge"
+                                   decoration-info="state == 'on_hold'"
+                                   decoration-success="state == 'accepted'"
+                                   decoration-warning="state == 'observed'"/>
+                            <button name="action_observe" type="object" string="Observar" class="btn btn-primary"/>
+                            <button name="action_accept" type="object" string="Aceptar" class="btn btn-primary"/>
+                        </tree>
+                    </field>
+                    
+                    
+                </page>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>

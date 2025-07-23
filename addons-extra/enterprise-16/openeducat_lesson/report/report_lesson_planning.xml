@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <template id="report_lesson_planning">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <h2 class='text-center'>
+                                <b>
+                                    Lesson Planning :
+                                    <span t-field="o.name"/>
+                                </b>
+                            </h2>
+                            <br/>
+                            <br/>
+                            <div style="max-height: 400px; width: 700px;">
+                                <table width="100%" class="table table-borderless">
+                                    <tbody>
+                                        <tr style="float:left">
+                                            <tr>
+                                                <td>
+                                                    <b>Lecture Name:</b>
+                                                    <span t-field="o.name"/>
+                                                </td>
+                                                <td>
+                                                    <b>Faculty:</b>
+                                                    <t t-foreach="o.faculty_id" t-as="p">
+                                                        <span t-field="p.name"/>
+                                                    </t>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <b>Course:</b>
+                                                    <t t-foreach="o.course_id" t-as="l">
+                                                        <span t-field="l.name"/>
+                                                    </t>
+                                                </td>
+                                                <td>
+                                                    <b>Start Time:</b>
+                                                    <span t-field="o.start_datetime"/>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <b>Batch:</b>
+                                                    <t t-foreach="o.batch_id" t-as="l">
+                                                        <span t-field="l.name"/>
+                                                    </t>
+                                                </td>
+                                                <td>
+                                                    <b>End Time:</b>
+                                                    <span t-field="o.end_datetime"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <b>Subject:</b>
+                                                    <t t-foreach="o.subject_id" t-as="k">
+                                                        <span t-field="k.name"/>
+                                                    </t>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <b>Session:</b>
+                                                    <t t-foreach="o.session_ids" t-as="l">
+                                                        <span t-field="l.name"/>
+                                                        <br/>
+                                                    </t>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <b>Lesson Topic:</b>
+                                                    <span t-field="o.lesson_topic"/>
+                                                    <br/>
+                                                </td>
+                                            </tr>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+</odoo>

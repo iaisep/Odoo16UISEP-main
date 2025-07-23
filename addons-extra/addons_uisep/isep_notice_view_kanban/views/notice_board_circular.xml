@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="notice_image_cirular_load" name="notice image" inherit_id="openeducat_notice_board_enterprise.student_notice_board_notice_circular_portal">
+            <xpath expr="//t[4]/table[1]" position="replace">
+                <div class="row row-cols-4 g-4">
+                    <t t-foreach="circular_ids" t-as="circular">                    
+                            <div class="col">   
+                                <div class="card bg-primary">
+                                   <a t-attf-href="/notice_board/circular/#{student}/#{circular.id}">                                        
+                                        <img class="card-img-top" t-attf-src="data:image/*;base64,{{circular.preview}}" t-att-alt="circular.preview" style="max-height: 100px;"/> 
+                                    </a>
+                                    <div class="card-body">
+                                         <span t-esc="circular.circular_number"/> <br/>
+                                        <span t-esc="circular.name" id="circular_name"/><br/>
+                                        <span t-field="circular.start_date" t-options='{"format": "dd-MMM-yyyy"}'/><br/>
+                                    </div>
+
+
+                                </div>                             
+                              
+                              
+                            </div>     
+                                       
+                    </t>
+                </div>
+            </xpath>
+        </template>
+    </data>
+</odoo>

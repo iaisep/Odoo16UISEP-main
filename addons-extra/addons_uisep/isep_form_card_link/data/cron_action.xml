@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+
+        <record model="ir.cron" id="cron_send_link_card_for_mes">
+            <field name="name">Envío de link de registro de tarjeta</field>
+            <field name="model_id" ref="isep_form_card_link.model_sale_order"/>
+            <field name="state">code</field>
+            <field name="code">model.send_link_card_for_mes_cron()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="nextcall" eval="(datetime.now() + timedelta(minutes=7)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+    </data>
+</odoo>

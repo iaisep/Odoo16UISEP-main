@@ -1,0 +1,2497 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+
+    <t t-name="full_screen_overlay">
+        <div class="full_screen_overlay" style="position: fixed !important;left: 0;bottom: 0;right: 0;top: 0;z-index: 1000 !important;">
+            <div style="position:absolute;width:100%;height:100%;background-color:#484747d9;" />
+            <button class="close_full_screen btn" title="Close Full Screen" type="button"
+                    style="position:fixed;font-size:30px;z-index:10;right:15px;color:white;">
+                <i class="fa fa-times"/>
+            </button>
+        </div>
+    </t>
+
+    <t t-name="gridstack_container">
+        <div class="grid-stack-item chart_container" t-att-id="chart_id">
+            <div class="grid-stack-item-content dashboard_chart_container container  dashboard_item_hover card shadow">
+                <div class="row">
+                    <div class="d-flex align-items-center col-xs-12  justify-content-between "  style="display : flex;padding-left:0px;padding-right:0px;width:100%;">
+                        <div class="col-xs-6 d-flex align-items-center w-50 col-sm col-md-6" style="padding-left:0px;padding-right:0px;">
+                            <h6 class="m-0 fw-bold h3 chart_heading me-3" t-att-title="chart_title" style="margin-top:0;">
+                                <t t-esc="chart_title"/>
+                            </h6>
+                        </div>
+
+                        <div class="col-md-6 col-xs-6 dashboard_element_buttons_container dropdown_container col-sm highlight  dashboard_element_header dashboard_element_hover chart_button_container d-flex"
+                             style="margin-right:0;padding-left:0px;padding-right:0px;" t-att-data-element_id="chart_id">
+
+                            <t t-if="IsDashboardManager">
+                                <button class="dashboard_item_chart_info" title="More Info" type="button"
+                                        t-att-data-item-id="chart_id">
+                                    <i class="fa fa-info-circle"/>
+                                </button>
+                                <button class="full_screen_element" title="Full Screen" type="button"
+                                        t-att-data-item-id="chart_id">
+                                    <i class="fa fa-expand"/>
+                                </button>
+
+                                <div class="chart_inner_buttons">
+                                    <button title="Chart Theme" data-bs-toggle="dropdown"
+                                            class="dashboard_item_action dashboard_color_option btn dropdown-toggle btn-xs o-no-caret btn"
+                                            type="button"
+                                            aria-expanded="true">
+                                        <i class="fa fa-paint-brush"/>
+                                    </button>
+                                    <ul role="menu" class="dropdown-menu dropdown-menu-right chart_theme"
+                                        t-att-data-item-id="chart_id"
+                                        t-att-data-chart-type="chart_type" t-att-data-chart-family="chart_family">
+                                        <t t-foreach="ChartColorOptions" t-as="color_option">
+                                            <li t-att-class="'li_'+color_option">
+                                                <span t-att-class="color_option + ' chart_color_options'"
+                                                      t-att-data-chart-color="color_option">
+                                                    <t t-esc="color_option"/>
+                                                </span>
+                                            </li>
+                                        </t>
+                                    </ul>
+                                </div>
+
+                                <div class="chart_inner_buttons">
+                                    <button title="Move/Duplicate" data-bs-toggle="dropdown"
+                                            class="dashboard_item_action btn  btn-xs" type="button"
+                                            aria-expanded="true">
+                                        <i class="fa fa-files-o"/>
+                                    </button>
+                                    <ul role="menu" class="dashboard_menu_container dropdown-menu dropdown-menu-right">
+                                        <li class="md_heading">
+                                            <span>Select Dashboard</span>
+                                        </li>
+                                        <li class="my-3">
+                                            <select class="o_input o_group_selector o_add_group dashboard_select">
+                                                <t t-foreach="dashboard_list" t-as="dashboard">
+                                                    <option t-att-value="dashboard['id']">
+                                                        <t t-esc="dashboard['name']"/>
+                                                    </option>
+                                                </t>
+                                            </select>
+                                        </li>
+                                        <li class="mt-3">
+                                            <button class="btn btn-primary o_apply_group o_add_group duplicate_item"
+                                                    tabindex="-1" type="button">Duplicate
+                                            </button>
+                                            <button class="btn btn-primary o_apply_group o_add_group move_item"
+                                                    tabindex="-1"
+                                                    type="button">Move
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </div>
+
+
+                                <button class="dashboard_element_edit d-block " title="Edit Element"
+                                        type="button">
+                                    <i class="fa fa-pencil"/>
+                                </button>
+                                <div class="btn-group">
+                                    <button class="btn btn-xs dashboard_item_action"
+                                            data-bs-toggle="dropdown"
+                                            t-att-style="'color:'+ font_color + ';'"
+                                            aria-expanded="true">
+                                        <i class="fa fa-filter"/>
+                                    </button>
+
+                                    <ul id="date_selector_container"
+                                        class="dropdown-menu date_specific_filters_menu dropdown-max-height"
+                                        role="menu" style="position:absolute;top:100%;">
+                                        <li id="none">
+                                            <span class="dashboard_item_action df_selection_text">All Time</span>
+                                        </li>
+                                        <li class="divider"/>
+                                        <t t-foreach="date_selection_order" t-as="date_id">
+                                            <li t-att-id="date_id">
+                                                <span class="dashboard_item_action df_selection_text">
+                                                    <t t-esc="date_selection_data[date_id]"/>
+                                                </span>
+                                            </li>
+                                        </t>
+                                    </ul>
+                                </div>
+
+                                <button class="dashboard_element_delete" title="Remove Element" type="button">
+                                    <i class="fa fa-times"/>
+                                </button>
+
+                                <div class="chart_inner_buttons dashboard_more_action" t-att-data-item-id="chart_id">
+                                    <button title="Export Chart" data-bs-toggle="dropdown"
+                                            class="dashboard_item_action  btn dropdown-toggle btn-xs o-no-caret btn"
+                                            type="button"
+                                            aria-expanded="true">
+                                        <i class="fa fa-ellipsis-v"/>
+                                    </button>
+                                    <div role="menu" class="dropdown-menu dropdown-menu-right">
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+
+                    </div>
+                    <div class="card-body chart_card_body"/>
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="MoreChartOptions">
+        <div class="chart_export_menu">
+            <div class="chart_export_menu_header">
+                <span>Export</span>
+            </div>
+            <div class="chart_xls_csv_export chart_export_menu_item" t-att-data-chart-id="chart_id"
+                 data-format="chart_xls">
+                <i class="fa fa-file-excel-o"/>
+                <span>Export to Excel</span>
+            </div>
+            <div class="chart_xls_csv_export chart_export_menu_item" t-att-data-chart-id="chart_id"
+                 data-format="chart_csv">
+                <i class="fa fa-file-code-o"/>
+                <span>Export to CSV</span>
+            </div>
+
+            <div t-att-data-chart-id="chart_id" class="chart_pdf_export chart_export_menu_item">
+                <i class="fa fa-file-pdf-o"/>
+                <span>Save as PDF</span>
+            </div>
+            <a class="chart_export_menu_item chart_image_export" t-att-href="href"
+               t-att-download="download_fileName+'.png'">
+                <i class="fa fa-file-image-o"/>
+                <span>Save as Image</span>
+            </a>
+            <div class="chart_json_export chart_export_menu_item" t-att-data-item-id="element_id"
+                 data-format="chart_xls">
+                <i class="fa fa-file-code-o"/>
+                <span>Export Item</span>
+            </div>
+        </div>
+    </t>
+
+    <div t-name="pager_template" class="pager row" style="text-align:center;display:inline-block;">
+        <span class="counter">
+            <span class="value">
+                <t t-esc="count"/>
+            </span>
+        </span>
+        <span class="btn-group" aria-atomic="true" t-att-data-next_offset="intial_count"
+              t-att-data-prev-offset="offset">
+            <button type="button"
+                    class="fa fa-chevron-left btn  load_previous event_offer_list"
+                    t-att-data-item-id="element_id" title="Previous"/>
+            <button type="button" class="fa fa-chevron-right btn  load_next"
+                    t-att-data-item-id="element_id" title="Next"/>
+        </span>
+    </div>
+
+    <t t-name="gridstack_list_view_container">
+        <div class="grid-stack-item" t-att-id="element_id">
+            <div class="grid-stack-item-content list_view_container dashboard_item_hover card shadow" style="overflow:visible;">
+                <div style="display:flex;">
+                    <div class="row">
+                        <div class="col-sm d-flex align-items-center">
+                            <h6 class="m-0 fw-bold h3 me-3 list_view_heading" t-att-title="chart_title" style="margin-top:0;">
+                                <t t-esc="chart_title"/>
+                            </h6>
+                    </div>
+                        <t t-if="IsDashboardManager">
+                        <div class="col-sm d-flex dashboard_element_buttons_container dropdown_container dashboard_element_header dashboard_element_hover chart_button_container"
+                             t-att-data-element_id="element_id">
+
+                            <button title="Move/Duplicate" data-bs-toggle="dropdown" t-att-data-item-id="element_id"
+                                    class="dashboard_item_action btn  btn-xs" type="button"
+                                    aria-expanded="true">
+                                <i class="fa fa-files-o"/>
+                            </button>
+                            <ul role="menu" class="dashboard_menu_container dropdown-menu dropdown-menu-right">
+                                <li class="md_heading">
+                                    <span>Select Dashboard</span>
+                                </li>
+                                <li class="my-3">
+                                    <select class="o_input o_group_selector o_add_group dashboard_select">
+                                        <t t-foreach="dashboard_list" t-as="dashboard">
+                                            <option t-att-value="dashboard['id']">
+                                                <t t-esc="dashboard['name']"/>
+                                            </option>
+                                        </t>
+                                    </select>
+                                </li>
+                                <li class="mt-3">
+                                    <button class="btn btn-primary o_apply_group o_add_group duplicate_item"
+                                            tabindex="-1" type="button">Duplicate
+                                    </button>
+                                    <button class="btn btn-primary o_apply_group o_add_group move_item" tabindex="-1"
+                                            type="button">Move
+                                    </button>
+                                </li>
+                            </ul>
+
+                            <button class="dashboard_element_edit d-block " title="Edit Element"
+                                    type="button">
+                                <i class="fa fa-pencil"/>
+                            </button>
+                            <div class="btn-group">
+                                <button class="btn btn-xs dashboard_item_action"
+                                        data-bs-toggle="dropdown"
+                                        t-att-style="'color:'+ font_color + ';'"
+                                        aria-expanded="true">
+                                    <i class="fa fa-filter"/>
+                                </button>
+
+                                <ul id="date_selector_container"
+                                    class="dropdown-menu date_specific_filters_menu dropdown-max-height"
+                                    role="menu" style="position:absolute;top:100%;">
+                                    <li id="none">
+                                        <span class="dashboard_item_action df_selection_text">All Time</span>
+                                    </li>
+                                    <li class="divider"/>
+                                    <t t-foreach="date_selection_order" t-as="date_id">
+                                        <li t-att-id="date_id">
+                                            <span class="dashboard_item_action df_selection_text">
+                                                <t t-esc="date_selection_data[date_id]"/>
+                                            </span>
+                                        </li>
+                                    </t>
+                                </ul>
+                            </div>
+                            <button class="dashboard_element_delete" title="Remove Element" type="button">
+                                <i class="fa fa-times"/>
+                            </button>
+                            <div class="chart_inner_buttons">
+                                <button title="Export Item" data-bs-toggle="dropdown"
+                                        class="dashboard_item_action_export  btn dropdown-toggle btn-xs o-no-caret btn"
+                                        type="button"
+                                        aria-expanded="true">
+                                    <i class="fa fa-ellipsis-v"/>
+                                </button>
+                                <div role="menu" class="dropdown-menu dropdown-menu-right">
+                                    <div class="chart_export_menu">
+                                        <div class="chart_export_menu_header">
+                                            <span>Export</span>
+                                        </div>
+                                        <div class="chart_json_export chart_export_menu_item"
+                                             t-att-data-item-id="element_id"
+                                             data-format="chart_xls">
+                                            <i class="fa fa-file-code-o"/>
+                                            <span>Export Item</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </t>
+                    <div class="col-xs-12 pager_name row">
+                        <t t-if="pager" t-call="pager_template"/>
+                    </div>
+                </div>
+
+                    </div>
+
+                <div class="card-body table-responsive pro-custom-scrollbar"/>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="list_view_table">
+        <t t-if="json_list_data">
+            <table id="ListViewTable" class="table table-hover table-striped table-fixed list_view_layout_1" t-att-data-model="json_list_data['model']">
+                <thead>
+                    <tr style="position:sticky;top:0;">
+                        <t t-foreach="json_list_data['label']" t-as="table_header">
+                            <th>
+                                <t t-esc="table_header"/>
+                            </th>
+                        </t>
+                        <th/>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-call="list_view_tmpl"></t>
+                </tbody>
+            </table>
+
+        </t>
+        <t t-else="">
+            No Data Present
+        </t>
+    </t>
+
+    <t t-name="list_view_tmpl">
+        <t t-foreach="json_list_data['data_rows']" t-as="table_row">
+            <tr class="tr" t-att-data-record-id="table_row['id']" t-att-data-domain="table_row['domain']"
+                t-att-data-item-Id="element_id"
+                t-att-data-sequence="table_row['sequence']" t-att-data-last_seq="table_row['last_seq']">
+                <t t-foreach="table_row['data']" t-as="row_data">
+                    <t t-if ="json_list_data['type']=='grouped'">
+                        <td class="list_canvas_click">
+                            <t t-esc="row_data"/>
+                        </td>
+                    </t>
+                    <t t-else="">
+                        <td>
+                            <t t-esc="row_data"/>
+                        </td>
+                    </t>
+                </t>
+                <td class="info" style="background-color:transparent;">
+                    <i id="item_info" t-att-data-model="json_list_data['model']"
+                       t-att-data-list-type="json_list_data['list_view_type']"
+                       t-att-data-groupby="json_list_data['groupby']"
+                       t-att-data-record-id="table_row['id']" t-att-data-item-id="element_id"
+                       t-att-data-list-view-type="list_type"
+                       class="fa fa-pencil"/>
+                </td>
+            </tr>
+        </t>
+    </t>
+
+    <t t-name="dashboard_item_state_layout">
+<!--        <div  style="position:relative;">-->
+                    <div t-att-class="'element_click ' + container_class">
+                <div t-att-id="item.id"
+                     t-att-class="'approved-box-cover dashboarditem_id dashboard_element dashboard_item_hover '+ inner_container_class"
+                     t-att-style="style_field">
+                    <div class="dashboard_element_buttons_container dropdown_container dashboard_element_header dashboard_element_hover" t-att-data-element_id="item.id">
+                        <t t-if="item.IsDashboardManager">
+
+                            <button title="Move/Duplicate" data-bs-toggle="dropdown"
+                                    class="dashboard_item_action btn  btn-xs" type="button"
+                                    t-att-style="'color:'+ font_color + ';'"
+                                    aria-expanded="true">
+                                <i class="fa fa-files-o"/>
+                            </button>
+                            <ul role="menu" class="dashboard_menu_container dropdown-menu dropdown-menu-right">
+                                <li class="md_heading">
+                                    <span>Select Dashboard</span>
+                                </li>
+                                <li class="my-3">
+                                    <select class="o_input o_group_selector o_add_group dashboard_select">
+                                        <t t-foreach="dashboard_list" t-as="dashboard">
+                                            <option t-att-value="dashboard['id']">
+                                                <t t-esc="dashboard['name']"/>
+                                            </option>
+                                        </t>
+                                    </select>
+                                </li>
+                                <li class="mt-3">
+                                    <button class="btn btn-primary o_apply_group o_add_group duplicate_item"
+                                            tabindex="-1" type="button">Duplicate
+                                    </button>
+                                    <button class="btn btn-primary o_apply_group o_add_group move_item" tabindex="-1"
+                                            type="button">Move
+                                    </button>
+                                </li>
+                            </ul>
+
+                            <button type="button" title="Edit Element"
+                                    t-att-style="'color:'+ font_color + ';'" class="dashboard_element_edit d-block ">
+                                <i class="fa fa-pencil"/>
+                            </button>
+                            <div class="btn-group">
+                                <button class="btn btn-xs dashboard_item_action"
+                                        data-bs-toggle="dropdown"
+                                        t-att-style="'color:'+ font_color + ';'"
+                                        aria-expanded="true">
+                                    <i class="fa fa-filter"/>
+                                </button>
+
+                                <ul id="date_selector_container"
+                                    class="dropdown-menu date_specific_filters_menu dropdown-max-height"
+                                    role="menu" style="position:absolute;top:100%;">
+                                    <li id="none">
+                                        <span class="dashboard_item_action df_selection_text">All Time</span>
+                                    </li>
+                                    <li class="divider"/>
+                                    <t t-foreach="date_selection_order" t-as="date_id">
+                                        <li t-att-id="date_id">
+                                            <span class="dashboard_item_action df_selection_text">
+                                                <t t-esc="date_selection_data[date_id]"/>
+                                            </span>
+                                        </li>
+                                    </t>
+                                </ul>
+                            </div>
+                            <button type="button" t-att-style="'color:'+ font_color + ';'" title="Remove Element" class="dashboard_element_delete">
+                                <i class="fa fa-times"/>
+                            </button>
+                            <div class="chart_inner_buttons">
+                                <button title="Export Item" data-bs-toggle="dropdown"
+                                            class="dashboard_item_action  btn dropdown-toggle btn-xs o-no-caret btn"
+                                            type="button"
+                                            t-att-style="'color:'+ font_color + ';'"
+                                            aria-expanded="true">
+                                        <i class="fa fa-ellipsis-v"/>
+                                    </button>
+                                    <div role="menu" class="dropdown-menu dropdown-menu-right">
+                                        <div class="chart_export_menu">
+                                    <div class="chart_export_menu_header">
+                                        <span>Export</span>
+                                    </div>
+                                    <div class="chart_json_export chart_export_menu_item" t-att-data-item-id="element_id"
+                                         data-format="chart_xls">
+                                        <i class="fa fa-file-code-o"/>
+                                        <span>Export Item</span>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                    <div class="approved-box-inr" style="display:flex;">
+                        <div class="dashboard_element_layout_3" style="opacity:0.8;left:-3%;font-size:24px;position:absolute;">
+                            <t t-if="item.selection_icon_field=='Custom'">
+                                <t t-if="icon_url">
+                                    <img t-att-src="icon_url"/>
+                                </t>
+                            </t>
+                            <t t-elif="item.selection_icon_field=='Default'">
+                                <span t-att-style="'color:'+ default_icon_color_rgba_format + ';'"
+                                      t-att-class="'fa fa-' + item.default_icon + ' fa-5x'"/>
+                            </t>
+                        </div>
+                        <div class="dashboard_element_main_body" style="width:100%">
+                            <div class="dashboard_element_info dashboard_element_info_layout_3" style="width:100%">
+                                <div class="dashboard_element_count_layout_3" t-att-title="count">
+                                    <t t-esc="data_count"/>
+                                </div>
+                                <div class="dashboard_element_name_layout_3" t-att-title="item.name">
+                                    <t t-esc="item.name"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+<!--        </div>-->
+    </t>
+
+    <t t-name="dashboard_item_state_layout_1">
+        <div t-att-class="'element_click ' + container_class">
+            <div t-att-id="item.id"
+                 t-att-class="'dashboarditem_id bg_white dashboard_element_layout_2 dashboard_item_hover '+ inner_container_class">
+                <div style="display:flex;width:100%;">
+                    <div class="side_bar_div" t-att-style="style_field"></div>
+                <div class="dashboard_icon_layout_4" t-att-style="style_image_body_l2">
+                    <t t-if="item.selection_icon_field=='Custom'">
+                        <t t-if="icon_url">
+                            <img t-att-src="icon_url"/>
+                        </t>
+                    </t>
+                    <t t-elif="item.selection_icon_field=='Default'">
+                        <span t-att-style="'color:'+ default_icon_color_rgba_format + ';'"
+                              t-att-class="'fa fa-' + item.default_icon + ' fa-5x'"/>
+                    </t>
+                </div>
+
+                <div class="dashboard_element_main_layout_2 bg_white" t-att-style="'color:'+ font_color + ';text-align:right;margin-right:10%;'">
+                    <div class="dashboard_element_count_layout_2"  t-att-title="count">
+                        <t t-esc="data_count"/>
+                    </div>
+                    <div class="dashboard_element_name_layout_2" style="width:initial;margin-left:unset;" t-att-title="item.name">
+                        <t t-esc="item.name"/>
+                    </div>
+                </div>
+
+                <t t-if="item.IsDashboardManager">
+                    <div class="dashboard_element_buttons_container dropdown_container dashboard_item_header_l6 dashboard_element_hover" t-att-data-element_id="item.id">
+
+                        <button title="Move/Duplicate" data-bs-toggle="dropdown"
+                                class="dashboard_item_action btn  btn-xs"
+                                t-att-style="'color:'+ font_color + ';'"
+                                type="button"
+                                aria-expanded="true">
+                            <i class="fa fa-files-o"/>
+                        </button>
+                        <ul role="menu" class="dashboard_menu_container dropdown-menu dropdown-menu-right">
+                            <li class="md_heading">
+                                <span>Select Dashboard</span>
+                            </li>
+                            <li class="my-3">
+                                <select class="o_input o_group_selector o_add_group dashboard_select">
+                                    <t t-foreach="dashboard_list" t-as="dashboard">
+                                        <option t-att-value="dashboard['id']">
+                                            <t t-esc="dashboard['name']"/>
+                                        </option>
+                                    </t>
+                                </select>
+                            </li>
+                            <li class="mt-3">
+                                <button class="btn btn-primary o_apply_group o_add_group duplicate_item"
+                                        tabindex="-1" type="button">Duplicate
+                                </button>
+                                <button class="btn btn-primary o_apply_group o_add_group move_item" tabindex="-1"
+                                        type="button">Move
+                                </button>
+                            </li>
+                        </ul>
+
+                        <button type="button" title="Edit Element" t-att-style="'color:'+ font_color + ';'"
+                                class="dashboard_element_edit d-block "
+                        >
+                            <i class="fa fa-pencil"/>
+                        </button>
+                        <div class="btn-group">
+                            <button class="btn btn-xs dashboard_item_action"
+                                    data-bs-toggle="dropdown"
+                                    t-att-style="'color:'+ font_color + ';'"
+                                    aria-expanded="true">
+                                <i class="fa fa-filter"/>
+                            </button>
+
+                            <ul id="date_selector_container"
+                                class="dropdown-menu date_specific_filters_menu dropdown-max-height"
+                                role="menu" style="position:absolute;top:100%;">
+                                <li id="none">
+                                    <span class="dashboard_item_action df_selection_text">All Time</span>
+                                </li>
+                                <li class="divider"/>
+                                <t t-foreach="date_selection_order" t-as="date_id">
+                                    <li t-att-id="date_id">
+                                        <span class="dashboard_item_action df_selection_text">
+                                            <t t-esc="date_selection_data[date_id]"/>
+                                        </span>
+                                    </li>
+                                </t>
+                            </ul>
+                        </div>
+                        <button type="button" t-att-style="'color:'+ font_color + ';'" title="Remove Element" class="dashboard_element_delete"
+                        >
+                            <i class="fa fa-times"/>
+                        </button>
+                        <div class="chart_inner_buttons">
+                            <button title="Export Item" data-bs-toggle="dropdown"
+                                        class="dashboard_item_action  btn dropdown-toggle btn-xs o-no-caret btn"
+                                        type="button" t-att-style="'color:'+ font_color + ';'"
+                                        aria-expanded="true">
+                                    <i class="fa fa-ellipsis-v"/>
+                                </button>
+                                <div role="menu" class="dropdown-menu dropdown-menu-right">
+                                    <div class="chart_export_menu">
+                                <div class="chart_export_menu_header">
+                                    <span>Export</span>
+                                </div>
+                                <div class="chart_json_export chart_export_menu_item" t-att-data-item-id="element_id"
+                                     data-format="chart_xls">
+                                    <i class="fa fa-file-code-o"/>
+                                    <span>Export Item</span>
+                                </div>
+                             </div>
+                            </div>
+                            </div>
+                    </div>
+                </t>
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="DashboardProHeader">
+        <div class="dashboard_header d-flex w-100 bg-white justify-content-between flex-column flex-lg-row" t-att-style="'background-color:'+dashboard_theme_secondary_color+' !important; '">
+            <div id="dashboard_title" class="col-sm-2">
+                <span id="dashboard_title_label" class="am_element" t-att-style="'color:'+dashboard_theme_font_color+';'">
+                    <t t-esc="dashboard_name"/>
+                </span>
+                <input id="dashboard_title_input" typ="text" maxlength="30"
+                       class="form-control form-control-lg em_element hide"
+                />
+                <t t-if="dashboard_manager">
+                    <div class="dashboard_top_settings dropdown d-md-block d-lg-none">
+                        <ul class="oe_dashboard_lin dashboard_lin dropdown-menu dropdown-menu-right" role="menu">
+                            <li class="dashboard_setting_container dashboard_add_layout" title="Add Item">
+                                <i class="fa fa-plus-circle"/>
+                                <span>Add Item</span>
+                            </li>
+                            <li class="dashboard_setting_container dashboard_edit_layout hide"
+                                title="Edit Layout">
+                                <i class="fa fa-pencil"/>
+                                <span>Edit Layout</span>
+                            </li>
+                            <li class="dashboard_setting_container hide"
+                                title="Print">
+                                <i class="fa fa-refresh"/>
+                            </li>
+                        </ul>
+                    </div>
+                </t>
+            </div>
+
+
+                <div class="dashboard_top_menu select_none">
+                    <div class="dashboard_link am_content_element hide me-4">
+                        <div class="date_filter_selection_input">
+                            <div class="date_selection_box">
+                                <div class="btn-group ">
+                                    <button class="btn btn-primary o_dropdown_toggler_btn dropdown-toggle date_filter_dropdown"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        <span class="fa fa-lg fa-calendar"/>
+                                        <span id="date_domain_fields"/>
+                                        <span class="caret"/>
+                                    </button>
+
+                                    <ul id="date_selector_container" class="dropdown-menu date_filters_menu dropdown-max-height"
+                                        role="menu" style="position:absolute;top:100%;">
+                                        <li id="none">
+                                            <span class="df_selection_text">All Time</span>
+                                        </li>
+                                        <li class="divider"/>
+                                        <t t-foreach="date_selection_order" t-as="date_id">
+                                            <li t-att-id="date_id">
+                                                <span class="df_selection_text">
+                                                    <t t-esc="date_selection_data[date_id]"/>
+                                                </span>
+                                            </li>
+                                        </t>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="date_input_fields hide">
+                            </div>
+                            <div class="date_input_fields_specific_element d-flex hide">
+                            </div>
+                        </div>
+                        <div class="date_apply_clear_print col-md-3">
+                            <button type='button' class='button btn btn-primary apply-dashboard-date-filter hide'
+                            >Apply
+                            </button>
+                            <button type='button' class='button btn btn-primary clear-dashboard-date-filter hide'
+                            >Clear
+                            </button>
+                            <button type='button'
+                                    class='btn btn-primary d-none d-lg-block fa fa-print print-dashboard-btn m-1 ms-3'
+                                    title="Print"/>
+                        </div>
+                        <div class="date_specific_apply_clear_print hide col-md-3">
+                            <button type='button' class='button btn btn-primary apply-specific-dashboard-date-filter hide'
+                            >Apply
+                            </button>
+                            <button type='button' class='button btn btn-primary clear-specific-dashboard-date-filter hide'
+                            >Clear
+                            </button>
+                        </div>
+                    </div>
+
+                    <t t-if="dashboard_manager">
+
+                        <div class="dashboard_top_settings dropdown d-lg-block">
+
+                            <button class="btn btn-primary add_item_type_button me-1"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                <span class="fa fa-lg fa-plus-circle"/>
+                                Add
+                                <span class="caret"/>
+                            </button>
+                            <ul id="add_item_selection" class="dropdown-menu"
+                                role="menu">
+
+                                <li class="add_element_submenu dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle"
+                                       data-bs-toggle="dropdown" href="#" tabindex="-1">Charts</a>
+
+                                    <ul class="dropdown-menu add_element_submenu_menu" role="menu">
+                                         <li data-item="bar_chart">
+                                            <span class="df_selection_text">
+                                                Bar Chart
+                                            </span>
+                                        </li>
+                                        <li data-item="horizontalBar_chart">
+                                            <span class="df_selection_text">
+                                                Horizontal Bar Chart
+                                            </span>
+                                        </li>
+                                        <li data-item="line_chart">
+                                            <span class="df_selection_text">
+                                                Line Chart
+                                            </span>
+                                        </li>
+                                        <li data-item="area_chart">
+                                            <span class="df_selection_text">
+                                                Area Chart
+                                            </span>
+                                        </li>
+                                        <li data-item="pie_chart">
+                                            <span class="df_selection_text">
+                                                Pie Chart
+                                            </span>
+                                        </li>
+                                        <li data-item="doughnut_chart">
+                                            <span class="df_selection_text">
+                                                Doughnut Chart
+                                            </span>
+                                        </li>
+                                        <li data-item="polarArea_chart">
+                                            <span class="df_selection_text">
+                                                Polar Area Chart
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="add_element_submenu dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle"
+                                       data-bs-toggle="dropdown" href="#" tabindex="-1">Tile</a>
+
+                                    <ul class="dropdown-menu add_element_submenu_menu" role="menu">
+                                        <li data-item="tile">
+                                            <span class="df_selection_text">
+                                                Tile
+                                            </span>
+                                        </li>
+                                        <li data-item="kpi">
+                                            <span class="df_selection_text">
+                                                KPI
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="add_element_submenu dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle"
+                                       data-bs-toggle="dropdown" href="#" tabindex="-1">Static</a>
+
+                                    <ul class="dropdown-menu add_element_submenu_menu" role="menu">
+                                        <li data-item="add_text">
+                                            <span class="df_selection_text">
+                                                Text
+                                            </span>
+                                        </li>
+                                        <li data-item="add_link">
+                                            <span class="df_selection_link">
+                                                Link
+                                            </span>
+                                        </li>
+                                        <li data-item="add_divider">
+                                            <span class="df_selection_add_divider">
+                                                Divider
+                                            </span>
+                                        </li>
+                                        <li data-item="add_image">
+                                            <span class="df_selection_add_image">
+                                                Image
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="add_element_submenu dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle"
+                                       data-bs-toggle="dropdown" href="#" tabindex="-1">List</a>
+
+                                    <ul class="dropdown-menu add_element_submenu_menu" role="menu">
+                                        <li data-item="list_view">
+                                            <span class="df_selection_text">
+                                                List View
+                                            </span>
+                                        </li>
+                                        <li data-item="to_do">
+                                            <span class="df_selection_text">
+                                                To-Do List
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="add_element_submenu dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle"
+                                       data-bs-toggle="dropdown" href="#" tabindex="-1">Import</a>
+
+                                    <ul class="dropdown-menu dropdown-menu-right add_element_submenu_menu" role="menu">
+                                        <li data-item="json">
+                                            <span class="df_selection_text">
+                                                Import Item
+                                            </span>
+                                        </li>
+                                        <input accept=".json " t-attf-id="file_#{_id}"
+                                            name="file" class="input_import_item_button" type="file" style="display:none;"/>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <button id="dashboard_layout_edit" class="btn btn-primary dashboard_edit_layout">
+                                <span class="fa fa-lg fa-pencil"/>
+                                Edit Layout
+                            </button>
+                            <t t-if="dashboard_manager">
+                                <button id="dashboard_layout_refresh" class="btn btn-primary hide">
+                                    <span class="fa fa-lg fa-refresh"/>
+                                </button>
+                            </t>
+                        </div>
+
+                        <div class="dashboard_edit_mode_settings hide">
+                            <div class="oe_dashboard_lin ">
+                                <button type="button"
+                                        class="button dashboard_save_layout btn btn-primary o_form_button_save"
+                                        title="Save Changes">
+                                    <span>Save</span>
+                                </button>
+
+                                <button type="button"
+                                        class="button dashboard_cancel_layout btn btn-secondary o_form_button_cancel"
+                                        title="Discard Changes">
+                                    <span>Discard</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="theme_group">
+
+                            <button class="btn btn-primary" data-bs-toggle="dropdown">
+                                <span class="fa fa-lg fa-adjust">
+                                    Theme
+                                </span>
+                            </button>
+                            <ul id="dashboard_theme_selection" class="dropdown-menu"
+                                role="menu">
+                                <t t-foreach="all_dashboard_theme" t-as="theme_id">
+                                    <li t-att-data-theme="theme_id['name']" t-att-id="theme_id['id']">
+                                        <t t-if="current_dashboard_theme == theme_id['id']">
+                                            <span style="background-color:grey;color:white;" class="df_selection_text">
+                                                <t t-esc="theme_id['name']"/>
+                                            </span>
+                                        </t>
+                                        <t t-else="current_dashboard_theme != theme_id['id']">
+                                            <span class="df_selection_text">
+                                                <t t-esc="theme_id['name']"/>
+                                            </span>
+                                        </t>
+                                    </li>
+                                </t>
+                                <li data-theme="new">
+                                    <span class="df_selection_text">
+                                        Add New
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </t>
+
+                </div>
+        </div>
+    </t>
+
+    <t t-name="main_body_container">
+
+        <div class="dashboard_main_content" t-att-style="'background-color:' + dashboard_theme_primary_color + ';'">
+            <div class="dashboard_item_content grid-stack dashboard_items_list m-3" data-gs-width="36" t-att-style="'padding-bottom:10px;padding-top:10px;background-color:'+dashboard_theme_primary_color+';'"/>
+        </div>
+    </t>
+
+    <t t-name="NoItemView">
+        <div class="o_view_nocontent" t-att-style="'background-color:' + dashboard_theme_primary_color + ';position: unset; height: 100%;'">
+            <div class="o_nocontent_help">
+                <p class="o_view_nocontent_neutral_face">
+                    Your personal dashboard is empty
+                </p>
+                <p>
+                    To add dashboard item, use <strong>Add button</strong> on top right corner.
+                </p>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="add_text_element_main_dashboard">
+        <div t-att-class="add_text_container_class">
+            <div t-att-id="textElement.id"
+                 t-att-class="'dashboarditem_id dashboard_add_text_element_main dashboard_element_add_text_preview dashboard_item_hover ' + add_text_inner_container_class" t-att-style="'background-color:'+ background_color + ';'">
+                <div class="dashboard_element_buttons_container dropdown_container dashboard_element_header dashboard_element_hover" t-att-data-element_id="textElement.id">
+                    <t t-if="textElement.IsDashboardManager">
+
+                        <button title="Move/Duplicate" data-bs-toggle="dropdown"
+                                class="dashboard_item_action btn  btn-xs" type="button"
+                                t-att-style="'color:'+ font_color + ';'"
+                                aria-expanded="true">
+                            <i class="fa fa-files-o"/>
+                        </button>
+                        <ul role="menu" class="dashboard_menu_container dropdown-menu dropdown-menu-right">
+                            <li class="md_heading">
+                                <span>Select Dashboard</span>
+                            </li>
+                            <li class="my-3">
+                                <select class="o_input o_group_selector o_add_group dashboard_select">
+                                    <t t-foreach="dashboard_list" t-as="dashboard">
+                                        <option t-att-value="dashboard['id']">
+                                            <t t-esc="dashboard['name']"/>
+                                        </option>
+                                    </t>
+                                </select>
+                            </li>
+                            <li class="mt-3">
+                                <button class="btn btn-primary o_apply_group o_add_group duplicate_item"
+                                        tabindex="-1" type="button">Duplicate
+                                </button>
+                                <button class="btn btn-primary o_apply_group o_add_group move_item" tabindex="-1"
+                                        type="button">Move
+                                </button>
+                            </li>
+                        </ul>
+                        <button type="button" title="Edit Element" t-att-style="'color:'+ font_color + ';'"
+                                class="dashboard_element_edit d-block ">
+                            <i class="fa fa-pencil"/>
+                        </button>
+                        <button t-att-style="'color:'+ font_color + ';'" type="button" title="Remove Element" class="dashboard_element_delete">
+                            <i class="fa fa-times"/>
+                        </button>
+                        <div class="chart_inner_buttons">
+                            <button title="Export Item" data-bs-toggle="dropdown"
+                                        class="dashboard_item_action  btn dropdown-toggle btn-xs o-no-caret btn"
+                                        type="button"
+                                        t-att-style="'color:'+ font_color + ';'"
+                                        aria-expanded="true">
+                                    <i class="fa fa-ellipsis-v"/>
+                                </button>
+                                <div role="menu" class="dropdown-menu dropdown-menu-right">
+                                    <div class="chart_export_menu">
+                                <div class="chart_export_menu_header">
+                                    <span>Export</span>
+                                </div>
+                                <div class="chart_json_export chart_export_menu_item" t-att-data-item-id="element_id"
+                                     data-format="chart_xls">
+                                    <i class="fa fa-file-code-o"/>
+                                    <span>Export Item</span>
+                                </div>
+                             </div>
+                            </div>
+                            </div>
+                    </t>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 px-0">
+                        <div>
+                            <span t-att-style="'color:'+ default_icon_color_rgba_format + ';'"
+                                  t-att-class="'fa fa-' + default_icon + ' fa-5x'"/>
+                        </div>
+                    </div>
+                    <div class="col-md-9 pr-0">
+                        <div>
+                            <h3 t-att-style="'color:'+ font_color + ';'">
+                                <t t-esc="name_title"/>
+                            </h3>
+                        </div>
+                        <t t-if="font_style_selection=='h3'">
+                            <h3 class="dashboard_add_text_main_body" t-att-style="'color:'+ font_color + ';text-align:'+add_text_align_field+';'">
+                                <t t-esc="main_content"/>
+                            </h3>
+                        </t>
+                        <t t-elif="font_style_selection=='h2'">
+                            <h2 class="dashboard_add_text_main_body" t-att-style="'color:'+ font_color + ';text-align:'+add_text_align_field+';'">
+                                <t t-esc="main_content"/>
+                            </h2>
+                        </t>
+                        <t t-elif="font_style_selection=='h1'">
+                            <h1 class="dashboard_add_text_main_body" t-att-style="'color:'+ font_color + ';text-align:'+add_text_align_field+';'">
+                                <t t-esc="main_content"/>
+                            </h1>
+                        </t>
+                        <t t-elif="font_style_selection=='p'">
+                            <p class="dashboard_add_text_main_body" t-att-style="'color:'+ font_color + ';text-align:'+add_text_align_field+';'">
+                                <t t-esc="main_content"/>
+                            </p>
+                        </t>
+                        <t t-elif="font_style_selection=='custom'">
+                            <p class="dashboard_add_text_main_body" t-att-style="'color:'+ font_color + ';font-style:'+add_text_italic+';font-weight:'+add_text_bold+';font-size:'+add_text_font_size+'px;text-align:'+add_text_align_field+';'">
+                                <t t-esc="main_content"/>
+                            </p>
+                        </t>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </t>
+
+    <t t-name="dashboard_item_layout1">
+        <div t-att-class="'element_click ' + container_class">
+            <div t-att-id="item.id"
+                 t-att-class="'dashboarditem_id dashboard_element dashboard_item_hover ' + inner_container_class"
+                 t-att-style="style_field">
+                <div class="dashboard_element_buttons_container dropdown_container dashboard_element_header dashboard_element_hover" t-att-data-element_id="item.id">
+                    <t t-if="item.IsDashboardManager">
+
+                        <button title="Move/Duplicate" data-bs-toggle="dropdown"
+                                class="dashboard_item_action btn  btn-xs" type="button"
+                                t-att-style="'color:'+ font_color + ';'"
+                                aria-expanded="true">
+                            <i class="fa fa-files-o"/>
+                        </button>
+                        <ul role="menu" class="dashboard_menu_container dropdown-menu dropdown-menu-right">
+                            <li class="md_heading">
+                                <span>Select Dashboard</span>
+                            </li>
+                            <li class="my-3">
+                                <select class="o_input o_group_selector o_add_group dashboard_select">
+                                    <t t-foreach="dashboard_list" t-as="dashboard">
+                                        <option t-att-value="dashboard['id']">
+                                            <t t-esc="dashboard['name']"/>
+                                        </option>
+                                    </t>
+                                </select>
+                            </li>
+                            <li class="mt-3">
+                                <button class="btn btn-primary o_apply_group o_add_group duplicate_item"
+                                        tabindex="-1" type="button">Duplicate
+                                </button>
+                                <button class="btn btn-primary o_apply_group o_add_group move_item" tabindex="-1"
+                                        type="button">Move
+                                </button>
+                            </li>
+                        </ul>
+                        <button type="button" title="Edit Element" t-att-style="'color:'+ font_color + ';'"
+                                class="dashboard_element_edit d-block ">
+                            <i class="fa fa-pencil"/>
+                        </button>
+                        <div class="btn-group">
+                            <button class="btn btn-xs dashboard_item_action"
+                                    data-bs-toggle="dropdown"
+                                    t-att-style="'color:'+ font_color + ';'"
+                                    aria-expanded="true">
+                                <i class="fa fa-filter"/>
+                            </button>
+
+                            <ul id="date_selector_container"
+                                class="dropdown-menu date_specific_filters_menu dropdown-max-height"
+                                role="menu" style="position:absolute;top:100%;">
+                                <li id="none">
+                                    <span class="dashboard_item_action df_selection_text">All Time</span>
+                                </li>
+                                <li class="divider"/>
+                                <t t-foreach="date_selection_order" t-as="date_id">
+                                    <li t-att-id="date_id">
+                                        <span class="dashboard_item_action df_selection_text">
+                                            <t t-esc="date_selection_data[date_id]"/>
+                                        </span>
+                                    </li>
+                                </t>
+                            </ul>
+                        </div>
+                        <button t-att-style="'color:'+ font_color + ';'" type="button" title="Remove Element" class="dashboard_element_delete">
+                            <i class="fa fa-times"/>
+                        </button>
+                        <div class="chart_inner_buttons">
+                            <button title="Export Item" data-bs-toggle="dropdown"
+                                        class="dashboard_item_action  btn dropdown-toggle btn-xs o-no-caret btn"
+                                        type="button"
+                                        t-att-style="'color:'+ font_color + ';'"
+                                        aria-expanded="true">
+                                    <i class="fa fa-ellipsis-v"/>
+                                </button>
+                                <div role="menu" class="dropdown-menu dropdown-menu-right">
+                                    <div class="chart_export_menu">
+                                <div class="chart_export_menu_header">
+                                    <span>Export</span>
+                                </div>
+                                <div class="chart_json_export chart_export_menu_item" t-att-data-item-id="element_id"
+                                     data-format="chart_xls">
+                                    <i class="fa fa-file-code-o"/>
+                                    <span>Export Item</span>
+                                </div>
+                             </div>
+                            </div>
+                            </div>
+                    </t>
+                </div>
+
+                <div class="dashboard_element_main_body">
+                    <div class="dashboard_icon">
+                        <t t-if="item.selection_icon_field=='Custom'">
+                            <t t-if="icon_url">
+                                <img t-att-src="icon_url"/>
+                            </t>
+                        </t>
+                        <t t-elif="item.selection_icon_field=='Default'">
+                            <span t-att-style="'color:'+ default_icon_color_rgba_format + ';'"
+                                  t-att-class="'fa fa-' + item.default_icon + ' fa-5x'"/>
+                        </t>
+                    </div>
+                    <div class="dashboard_element_info">
+                        <div class="dashboard_element_name" t-att-title="item.name">
+                            <t t-esc="item.name"/>
+                        </div>
+                        <div class="dashboard_element_count" t-att-title="count">
+                            <t t-esc="data_count"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="dashboard_item_layout2">
+        <div t-att-class="'element_click ' + container_class">
+            <div t-att-id="item.id"
+                 t-att-class="'dashboarditem_id dashboard_element_layout_2 dashboard_item_hover ' + inner_container_class"
+                 t-att-style="style_field">
+                <div class="dashboard_icon_layout_2" t-att-style="style_image_body_l2">
+                    <t t-if="item.selection_icon_field=='Custom'">
+                        <t t-if="icon_url">
+                            <img t-att-src="icon_url"/>
+                        </t>
+                    </t>
+                    <t t-elif="item.selection_icon_field=='Default'">
+                        <span t-att-style="'color:'+ default_icon_color_rgba_format + ';'"
+                              t-att-class="'fa fa-' + item.default_icon"/>
+                    </t>
+                </div>
+
+                <div class="dashboard_element_main_layout_2 ">
+                    <div class="dashboard_element_count_layout_2" t-att-title="count">
+                        <t t-esc="data_count"/>
+                    </div>
+                    <div class="dashboard_element_name_layout_2" t-att-title="item.name">
+                        <t t-esc="item.name"/>
+                    </div>
+                </div>
+
+                <t t-if="item.IsDashboardManager">
+                    <div class="dashboard_element_buttons_container dropdown_container dashboard_item_header_l6 dashboard_element_hover"
+                         t-att-data-element_id="item.id">
+
+                        <button title="Move/Duplicate" data-bs-toggle="dropdown"
+                                class="dashboard_item_action btn  btn-xs"
+                                type="button" t-att-style="'color:'+ font_color + ';'"
+                                aria-expanded="true">
+                            <i class="fa fa-files-o"/>
+                        </button>
+                        <ul role="menu" class="dashboard_menu_container dropdown-menu dropdown-menu-right">
+                            <li class="md_heading">
+                                <span>Select Dashboard</span>
+                            </li>
+                            <li class="my-3">
+                                <select class="o_input o_group_selector o_add_group dashboard_select">
+                                    <t t-foreach="dashboard_list" t-as="dashboard">
+                                        <option t-att-value="dashboard['id']">
+                                            <t t-esc="dashboard['name']"/>
+                                        </option>
+                                    </t>
+                                </select>
+                            </li>
+                            <li class="mt-3">
+                                <button class="btn btn-primary o_apply_group o_add_group duplicate_item"
+                                        tabindex="-1" type="button">Duplicate
+                                </button>
+                                <button class="btn btn-primary o_apply_group o_add_group move_item" tabindex="-1"
+                                        type="button">Move
+                                </button>
+                            </li>
+                        </ul>
+
+                        <button type="button" title="Edit Element"
+                                t-att-style="'color:'+ font_color + ';'" class="dashboard_element_edit d-block ">
+                            <i class="fa fa-pencil"/>
+                        </button>
+                        <div class="btn-group">
+                            <button class="btn btn-xs dashboard_item_action"
+                                    data-bs-toggle="dropdown"
+                                    t-att-style="'color:'+ font_color + ';'"
+                                    aria-expanded="true">
+                                <i class="fa fa-filter"/>
+                            </button>
+
+                            <ul id="date_selector_container"
+                                class="dropdown-menu date_specific_filters_menu dropdown-max-height"
+                                role="menu" style="position:absolute;top:100%;">
+                                <li id="none">
+                                    <span class="dashboard_item_action df_selection_text">All Time</span>
+                                </li>
+                                <li class="divider"/>
+                                <t t-foreach="date_selection_order" t-as="date_id">
+                                    <li t-att-id="date_id">
+                                        <span class="dashboard_item_action df_selection_text">
+                                            <t t-esc="date_selection_data[date_id]"/>
+                                        </span>
+                                    </li>
+                                </t>
+                            </ul>
+                        </div>
+                        <button type="button" t-att-style="'color:'+ font_color + ';'" title="Remove Element" class="dashboard_element_delete">
+                            <i class="fa fa-times"/>
+                        </button>
+                        <div class="chart_inner_buttons">
+                            <button title="Export Item" data-bs-toggle="dropdown"
+                                        class="dashboard_item_action  btn dropdown-toggle btn-xs o-no-caret btn"
+                                        type="button" t-att-style="'color:'+ font_color + ';'"
+                                        aria-expanded="true">
+                                    <i class="fa fa-ellipsis-v"/>
+                                </button>
+                                <div role="menu" class="dropdown-menu dropdown-menu-right">
+                                    <div class="chart_export_menu">
+                                <div class="chart_export_menu_header">
+                                    <span>Export</span>
+                                </div>
+                                <div class="chart_json_export chart_export_menu_item" t-att-data-item-id="element_id"
+                                     data-format="chart_xls">
+                                    <i class="fa fa-file-code-o"/>
+                                    <span>Export Item</span>
+                                </div>
+                             </div>
+                            </div>
+                            </div>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="dashboard_item_layout3">
+        <div t-att-class="'element_click ' + container_class">
+            <div t-att-id="item.id"
+                 t-att-class="'dashboarditem_id dashboard_element dashboard_item_hover '+ inner_container_class"
+                 t-att-style="style_field">
+
+                <div class="dashboard_element_buttons_container dropdown_container dashboard_element_header dashboard_element_hover" t-att-data-element_id="item.id">
+                    <t t-if="item.IsDashboardManager">
+
+                        <button title="Move/Duplicate" data-bs-toggle="dropdown"
+                                class="dashboard_item_action btn  btn-xs" type="button"
+                                t-att-style="'color:'+ font_color + ';'"
+                                aria-expanded="true">
+                            <i class="fa fa-files-o"/>
+                        </button>
+                        <ul role="menu" class="dashboard_menu_container dropdown-menu dropdown-menu-right">
+                            <li class="md_heading">
+                                <span>Select Dashboard</span>
+                            </li>
+                            <li class="my-3">
+                                <select class="o_input o_group_selector o_add_group dashboard_select">
+                                    <t t-foreach="dashboard_list" t-as="dashboard">
+                                        <option t-att-value="dashboard['id']">
+                                            <t t-esc="dashboard['name']"/>
+                                        </option>
+                                    </t>
+                                </select>
+                            </li>
+                            <li class="mt-3">
+                                <button class="btn btn-primary o_apply_group o_add_group duplicate_item"
+                                        tabindex="-1" type="button">Duplicate
+                                </button>
+                                <button class="btn btn-primary o_apply_group o_add_group move_item" tabindex="-1"
+                                        type="button">Move
+                                </button>
+                            </li>
+                        </ul>
+
+                        <button type="button" title="Edit Element"
+                               t-att-style="'color:'+ font_color + ';'" class="dashboard_element_edit d-block ">
+                            <i class="fa fa-pencil"/>
+                        </button>
+                        <div class="btn-group">
+                            <button class="btn btn-xs dashboard_item_action"
+                                    data-bs-toggle="dropdown"
+                                    t-att-style="'color:'+ font_color + ';'"
+                                    aria-expanded="true">
+                                <i class="fa fa-filter"/>
+                            </button>
+
+                            <ul id="date_selector_container"
+                                class="dropdown-menu date_specific_filters_menu dropdown-max-height"
+                                role="menu" style="position:absolute;top:100%;">
+                                <li id="none">
+                                    <span class="dashboard_item_action df_selection_text">All Time</span>
+                                </li>
+                                <li class="divider"/>
+                                <t t-foreach="date_selection_order" t-as="date_id">
+                                    <li t-att-id="date_id">
+                                        <span class="dashboard_item_action df_selection_text">
+                                            <t t-esc="date_selection_data[date_id]"/>
+                                        </span>
+                                    </li>
+                                </t>
+                            </ul>
+                        </div>
+                        <button type="button" t-att-style="'color:'+ font_color + ';'" title="Remove Element" class="dashboard_element_delete">
+                            <i class="fa fa-times"/>
+                        </button>
+                        <div class="chart_inner_buttons">
+                            <button title="Export Item" data-bs-toggle="dropdown"
+                                        class="dashboard_item_action  btn dropdown-toggle btn-xs o-no-caret btn"
+                                        type="button"
+                                        t-att-style="'color:'+ font_color + ';'"
+                                        aria-expanded="true">
+                                    <i class="fa fa-ellipsis-v"/>
+                                </button>
+                                <div role="menu" class="dropdown-menu dropdown-menu-right">
+                                    <div class="chart_export_menu">
+                                <div class="chart_export_menu_header">
+                                    <span>Export</span>
+                                </div>
+                                <div class="chart_json_export chart_export_menu_item" t-att-data-item-id="element_id"
+                                     data-format="chart_xls">
+                                    <i class="fa fa-file-code-o"/>
+                                    <span>Export Item</span>
+                                </div>
+                             </div>
+                            </div>
+                            </div>
+                    </t>
+                </div>
+                <div class="dashboard_element_main_body">
+                    <div class="dashboard_element_layout_3">
+                        <t t-if="item.selection_icon_field=='Custom'">
+                            <t t-if="icon_url">
+                                <img t-att-src="icon_url"/>
+                            </t>
+                        </t>
+                        <t t-elif="item.selection_icon_field=='Default'">
+                            <span t-att-style="'color:'+ default_icon_color_rgba_format + ';'"
+                                  t-att-class="'fa fa-' + item.default_icon + ' fa-5x'"/>
+                        </t>
+                    </div>
+                    <div class="dashboard_element_info dashboard_element_info_layout_3">
+                        <div class="dashboard_element_count_layout_3" t-att-title="count">
+                            <t t-esc="data_count"/>
+                        </div>
+                        <div class="dashboard_element_name_layout_3" t-att-title="item.name">
+                            <t t-esc="item.name"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="add_link_element_main_dashboard">
+        <div t-att-class="add_link_container_class">
+            <div t-att-id="DashboardLinkElement.id"
+                 t-att-class="'dashboarditem_id dashboard_add_link_element dashboard_element_add_link_preview dashboard_item_hover ' + add_link_inner_container_class" t-att-style="'background-color:'+ background_color + ';'">
+                <div class="dashboard_element_buttons_container dropdown_container dashboard_element_header dashboard_element_hover" t-att-data-element_id="DashboardLinkElement.id">
+
+                    <t t-if="DashboardLinkElement.IsDashboardManager">
+
+                        <button title="Move/Duplicate" data-bs-toggle="dropdown"
+                                class="dashboard_item_action btn  btn-xs" type="button"
+                                t-att-style="'color:'+ font_color + ';'"
+                                aria-expanded="true">
+                            <i class="fa fa-files-o"/>
+                        </button>
+                        <ul role="menu" class="dashboard_menu_container dropdown-menu dropdown-menu-right">
+                            <li class="md_heading">
+                                <span>Select Dashboard</span>
+                            </li>
+                            <li class="my-3">
+                                <select class="o_input o_group_selector o_add_group dashboard_select">
+                                    <t t-foreach="dashboard_list" t-as="dashboard">
+                                        <option t-att-value="dashboard['id']">
+                                            <t t-esc="dashboard['name']"/>
+                                        </option>
+                                    </t>
+                                </select>
+                            </li>
+                            <li class="mt-3">
+                                <button class="btn btn-primary o_apply_group o_add_group duplicate_item"
+                                        tabindex="-1" type="button">Duplicate
+                                </button>
+                                <button class="btn btn-primary o_apply_group o_add_group move_item" tabindex="-1"
+                                        type="button">Move
+                                </button>
+                            </li>
+                        </ul>
+
+                        <button type="button" title="Edit Element" t-att-style="'color:'+ font_color + ';'"
+                                class="dashboard_element_edit d-block ">
+                            <i class="fa fa-pencil"/>
+                        </button>
+                        <button t-att-style="'color:'+ font_color + ';'" type="button" title="Remove Element" class="dashboard_element_delete">
+                            <i class="fa fa-times"/>
+                        </button>
+                        <div class="chart_inner_buttons">
+                            <button title="Export Item" data-bs-toggle="dropdown"
+                                        class="dashboard_item_action  btn dropdown-toggle btn-xs o-no-caret btn"
+                                        type="button"
+                                        t-att-style="'color:'+ font_color + ';'"
+                                        aria-expanded="true">
+                                    <i class="fa fa-ellipsis-v"/>
+                                </button>
+                                <div role="menu" class="dropdown-menu dropdown-menu-right">
+                                    <div class="chart_export_menu">
+                                <div class="chart_export_menu_header">
+                                    <span>Export</span>
+                                </div>
+                                <div class="chart_json_export chart_export_menu_item" t-att-data-item-id="element_id"
+                                     data-format="chart_xls">
+                                    <i class="fa fa-file-code-o"/>
+                                    <span>Export Item</span>
+                                </div>
+                             </div>
+                            </div>
+                            </div>
+                    </t>
+                </div>
+                    <t t-if="add_link_title">
+                        <div t-att-style="'color:'+font_color+';font-size:20px;'">
+                            <t t-esc="add_link_title_name"/>
+                        </div>
+                    </t>
+                    <a t-att-href="add_link_content" target="_blank" t-att-style="'color:'+font_color+';font-size:20px;'">
+                        <t t-esc="add_link_content_main"/>
+                    </a>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="to_do_grid_stack_list_view_container">
+        <div class="grid-stack-item" t-att-id="element_id">
+            <div class="grid-stack-item-content list_view_container dashboard_item_hover card shadow">
+                <div style="display:flex;">
+                    <div class="row">
+                        <div class="col-sm d-flex align-items-center">
+                            <h6 class="m-0 fw-bold h3 me-3 list_view_heading" t-att-title="chart_title" style="margin-top:0;">
+                                <t t-esc="chart_title"/>
+                            </h6>
+                    </div>
+                        <t t-if="IsDashboardManager">
+                        <div class="col-sm d-flex dashboard_element_buttons_container dropdown_container dashboard_element_header dashboard_element_hover chart_button_container"
+                             t-att-data-element_id="element_id">
+
+                            <button title="Move/Duplicate" data-bs-toggle="dropdown" t-att-data-item-id="element_id"
+                                    class="dashboard_item_action btn  btn-xs" type="button"
+                                    aria-expanded="true">
+                                <i class="fa fa-files-o"/>
+                            </button>
+                            <ul role="menu" class="dashboard_menu_container dropdown-menu dropdown-menu-right">
+                                <li class="md_heading">
+                                    <span>Select Dashboard</span>
+                                </li>
+                                <li class="my-3">
+                                    <select class="o_input o_group_selector o_add_group dashboard_select">
+                                        <t t-foreach="dashboard_list" t-as="dashboard">
+                                            <option t-att-value="dashboard['id']">
+                                                <t t-esc="dashboard['name']"/>
+                                            </option>
+                                        </t>
+                                    </select>
+                                </li>
+                                <li class="mt-3">
+                                    <button class="btn btn-primary o_apply_group o_add_group duplicate_item"
+                                            tabindex="-1" type="button">Duplicate
+                                    </button>
+                                    <button class="btn btn-primary o_apply_group o_add_group move_item" tabindex="-1"
+                                            type="button">Move
+                                    </button>
+                                </li>
+                            </ul>
+
+                            <button class="dashboard_element_edit d-block " title="Edit Element"
+                                    type="button">
+                                <i class="fa fa-pencil"/>
+                            </button>
+                            <button class="dashboard_element_delete" title="Remove Element" type="button">
+                                <i class="fa fa-times"/>
+                            </button>
+                            <div class="chart_inner_buttons">
+                                <button title="Export Item" data-bs-toggle="dropdown"
+                                        class="dashboard_item_action_export  btn dropdown-toggle btn-xs o-no-caret btn"
+                                        type="button"
+                                        aria-expanded="true">
+                                    <i class="fa fa-ellipsis-v"/>
+                                </button>
+                                <div role="menu" class="dropdown-menu dropdown-menu-right">
+                                    <div class="chart_export_menu">
+                                        <div class="chart_export_menu_header">
+                                            <span>Export</span>
+                                        </div>
+                                        <div class="chart_json_export chart_export_menu_item"
+                                             t-att-data-item-id="element_id"
+                                             data-format="chart_xls">
+                                            <i class="fa fa-file-code-o"/>
+                                            <span>Export Item</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </t>
+                </div>
+
+                    </div>
+
+                <div style="margin-top:0.5px;" class="card-body table-responsive pro-custom-scrollbar"/>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="to_do_list_view_table">
+        <t t-if="json_todo_list_data">
+            <table id="ListViewTable" class="table table-hover table-striped table-fixed list_view_layout_1"
+                    t-att-data-model="json_todo_list_data['model']">
+                <thead>
+                    <tr style="position:sticky;top:0;">
+                        <t t-foreach="json_todo_list_data['label']" t-as="table_header">
+                            <th>
+                                <t t-esc="table_header"/>
+                            </th>
+                        </t>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-call="to_do_list_view_tmpl"></t>
+                </tbody>
+            </table>
+        </t>
+    </t>
+
+    <t t-name="to_do_list_view_tmpl">
+        <t t-foreach="json_todo_list_data['data_rows']" t-as="table_row">
+            <t t-if="table_row['state'] == 'to_do'">
+                <tr class="tr change_to_do_state" t-att-data-record-id="table_row['id']" t-att-data-domain="table_row['domain']"
+                    t-att-data-item-Id="element_id">
+                    <td class="info" style="background-color:transparent;">
+                    </td>
+                    <t t-foreach="table_row['data']" t-as="row_data">
+                        <td t-att-data-state="table_row['state']" style="cursor:pointer;" t-att-data-record-id="table_row['id']" class="change_to_do_done_state_text">
+                            <t t-esc="row_data"/>
+                        </td>
+                    </t>
+                    <td class="info" style="background-color:transparent;text-align:center;">
+                        <i id="delete_todo_list" t-att-data-model="json_todo_list_data['model']"
+                           t-att-data-item-id="table_row['id']"
+                           class="fa fa-times"/>
+                    </td>
+                </tr>
+            </t>
+            <t t-if="table_row['state'] == 'done'">
+                <tr class="tr change_to_do_state change_to_do_done_state" t-att-data-record-id="table_row['id']" t-att-data-domain="table_row['domain']"
+                    t-att-data-item-Id="element_id" style="background-color:#4e4e4e !important;">
+                    <td style="text-align:center;background-color:transparent;">
+                        <i t-att-data-model="json_todo_list_data['model']"
+                           t-att-data-item-id="table_row['id']"
+                           class="fa fa-check"/>
+                    </td>
+                    <t t-foreach="table_row['data']" t-as="row_data">
+                        <td t-att-data-state="table_row['state']" style="cursor:pointer;" t-att-data-record-id="table_row['id']" class="change_to_do_done_state_text">
+                            <t t-esc="row_data"/>
+                        </td>
+                    </t>
+                    <td class="info" style="background-color:transparent;text-align:center;">
+                        <i id="delete_todo_list" t-att-data-model="json_todo_list_data['model']"
+                           t-att-data-item-id="table_row['id']"
+                           class="fa fa-times"/>
+                    </td>
+                </tr>
+            </t>
+        </t>
+    </t>
+
+    <t t-name="dashboard_item_layout4">
+        <div t-att-class="'element_click ' + container_class">
+            <div t-att-id="item.id"
+                 t-att-class="'dashboarditem_id dashboard_element_layout_2 dashboard_item_hover '+ inner_container_class"
+                 t-att-style="style_field">
+                <div class="dashboard_icon_layout_4" t-att-style="style_image_body_l2">
+                    <t t-if="item.selection_icon_field=='Custom'">
+                        <t t-if="icon_url">
+                            <img t-att-src="icon_url"/>
+                        </t>
+                    </t>
+                    <t t-elif="item.selection_icon_field=='Default'">
+                        <span t-att-style="'color:'+ default_icon_color_rgba_format + ';'"
+                              t-att-class="'fa fa-' + item.default_icon + ' fa-5x'"/>
+                    </t>
+                </div>
+
+                <div class="dashboard_element_main_layout_2 bg_white">
+                    <div class="dashboard_element_count_layout_2" t-att-title="count">
+                        <t t-esc="data_count"/>
+                    </div>
+                    <div class="dashboard_element_name_layout_2" t-att-title="item.name">
+                        <t t-esc="item.name"/>
+                    </div>
+                </div>
+
+                <t t-if="item.IsDashboardManager">
+                    <div class="dashboard_element_buttons_container dropdown_container dashboard_item_header_l6 dashboard_element_hover" t-att-data-element_id="item.id">
+
+                        <button title="Move/Duplicate" data-bs-toggle="dropdown"
+                                class="dashboard_item_action btn  btn-xs"
+                                t-att-style="'color:'+ font_color + ';'"
+                                type="button"
+                                aria-expanded="true">
+                            <i class="fa fa-files-o"/>
+                        </button>
+                        <ul role="menu" class="dashboard_menu_container dropdown-menu dropdown-menu-right">
+                            <li class="md_heading">
+                                <span>Select Dashboard</span>
+                            </li>
+                            <li class="my-3">
+                                <select class="o_input o_group_selector o_add_group dashboard_select">
+                                    <t t-foreach="dashboard_list" t-as="dashboard">
+                                        <option t-att-value="dashboard['id']">
+                                            <t t-esc="dashboard['name']"/>
+                                        </option>
+                                    </t>
+                                </select>
+                            </li>
+                            <li class="mt-3">
+                                <button class="btn btn-primary o_apply_group o_add_group duplicate_item"
+                                        tabindex="-1" type="button">Duplicate
+                                </button>
+                                <button class="btn btn-primary o_apply_group o_add_group move_item" tabindex="-1"
+                                        type="button">Move
+                                </button>
+                            </li>
+                        </ul>
+
+                        <button type="button" title="Edit Element" t-att-style="'color:'+ font_color + ';'"
+                                class="dashboard_element_edit d-block "
+                        >
+                            <i class="fa fa-pencil"/>
+                        </button>
+                        <div class="btn-group">
+                            <button class="btn btn-xs dashboard_item_action"
+                                    data-bs-toggle="dropdown"
+                                    t-att-style="'color:'+ font_color + ';'"
+                                    aria-expanded="true">
+                                <i class="fa fa-filter"/>
+                            </button>
+
+                            <ul id="date_selector_container"
+                                class="dropdown-menu date_specific_filters_menu dropdown-max-height"
+                                role="menu" style="position:absolute;top:100%;">
+                                <li id="none">
+                                    <span class="dashboard_item_action df_selection_text">All Time</span>
+                                </li>
+                                <li class="divider"/>
+                                <t t-foreach="date_selection_order" t-as="date_id">
+                                    <li t-att-id="date_id">
+                                        <span class="dashboard_item_action df_selection_text">
+                                            <t t-esc="date_selection_data[date_id]"/>
+                                        </span>
+                                    </li>
+                                </t>
+                            </ul>
+                        </div>
+                        <button type="button" t-att-style="'color:'+ font_color + ';'" title="Remove Element" class="dashboard_element_delete"
+                        >
+                            <i class="fa fa-times"/>
+                        </button>
+                        <div class="chart_inner_buttons">
+                            <button title="Export Item" data-bs-toggle="dropdown"
+                                        class="dashboard_item_action  btn dropdown-toggle btn-xs o-no-caret btn"
+                                        type="button" t-att-style="'color:'+ font_color + ';'"
+                                        aria-expanded="true">
+                                    <i class="fa fa-ellipsis-v"/>
+                                </button>
+                                <div role="menu" class="dropdown-menu dropdown-menu-right">
+                                    <div class="chart_export_menu">
+                                <div class="chart_export_menu_header">
+                                    <span>Export</span>
+                                </div>
+                                <div class="chart_json_export chart_export_menu_item" t-att-data-item-id="element_id"
+                                     data-format="chart_xls">
+                                    <i class="fa fa-file-code-o"/>
+                                    <span>Export Item</span>
+                                </div>
+                             </div>
+                            </div>
+                            </div>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="dashboard_item_layout5">
+        <div t-att-class="'element_click ' + container_class">
+            <div t-att-id="item.id"
+                 t-att-class="'dashboarditem_id dashboard_element_layout_5 dashboard_item_hover '+ inner_container_class"
+                 t-att-style="style_field">
+                <div class="dashboard_icon_layout_5">
+                    <t t-if="item.selection_icon_field=='Custom'">
+                        <t t-if="icon_url">
+                            <img t-att-src="icon_url"/>
+                        </t>
+                    </t>
+                    <t t-elif="item.selection_icon_field=='Default'">
+                        <span t-att-style="'color:'+ default_icon_color_rgba_format + ';'"
+                              t-att-class="'fa fa-' + item.default_icon + ' fa-5x'"/>
+                    </t>
+                </div>
+                <div class="dashboard_element_body_layout_5">
+                    <div class="dashboard_element_count_layout_5" t-att-title="count">
+                        <t t-esc="data_count"/>
+                    </div>
+                    <div class="dashboard_element_name_layout_5" t-att-title="item.name">
+                        <t t-esc="item.name"/>
+                    </div>
+                </div>
+                <t t-if="item.IsDashboardManager">
+
+                    <div class="dashboard_element_buttons_container dropdown_container dashboard_element_header_layout_2 dashboard_element_hover" t-att-data-element_id="item.id">
+
+                        <button title="Move/Duplicate" data-bs-toggle="dropdown"
+                                class="dashboard_item_action btn  btn-xs" type="button"
+                                t-att-style="'color:'+ font_color + ';'"
+                                aria-expanded="true">
+                            <i class="fa fa-files-o"/>
+                        </button>
+                        <ul role="menu" class="dashboard_menu_container dropdown-menu dropdown-menu-right">
+                            <li class="md_heading">
+                                <span>Select Dashboard</span>
+                            </li>
+                            <li class="my-3">
+                                <select class="o_input o_group_selector o_add_group dashboard_select">
+                                    <t t-foreach="dashboard_list" t-as="dashboard">
+                                        <option t-att-value="dashboard['id']">
+                                            <t t-esc="dashboard['name']"/>
+                                        </option>
+                                    </t>
+                                </select>
+                            </li>
+                            <li class="mt-3">
+                                <button class="btn btn-primary o_apply_group o_add_group duplicate_item"
+                                        tabindex="-1" type="button">Duplicate
+                                </button>
+                                <button class="btn btn-primary o_apply_group o_add_group move_item" tabindex="-1"
+                                        type="button">Move
+                                </button>
+
+                            </li>
+                        </ul>
+
+                        <button type="button" title="Edit Element" t-att-style="'color:'+ font_color + ';'"
+                                class="dashboard_element_edit d-block ">
+                            <i class="fa fa-pencil"/>
+                        </button>
+                        <div class="btn-group">
+                            <button class="btn btn-xs dashboard_item_action"
+                                    data-bs-toggle="dropdown"
+                                    t-att-style="'color:'+ font_color + ';'"
+                                    aria-expanded="true">
+                                <i class="fa fa-filter"/>
+                            </button>
+
+                            <ul id="date_selector_container"
+                                class="dropdown-menu date_specific_filters_menu dropdown-max-height"
+                                role="menu" style="position:absolute;top:100%;">
+                                <li id="none">
+                                    <span class="dashboard_item_action df_selection_text">All Time</span>
+                                </li>
+                                <li class="divider"/>
+                                <t t-foreach="date_selection_order" t-as="date_id">
+                                    <li t-att-id="date_id">
+                                        <span class="dashboard_item_action df_selection_text">
+                                            <t t-esc="date_selection_data[date_id]"/>
+                                        </span>
+                                    </li>
+                                </t>
+                            </ul>
+                        </div>
+                        <button type="button" title="Remove Element" t-att-style="'color:'+ font_color + ';'" class="dashboard_element_delete">
+                            <i class="fa fa-times"/>
+                        </button>
+                        <div class="chart_inner_buttons">
+                            <button title="Export Item" data-bs-toggle="dropdown"
+                                        class="dashboard_item_action  btn dropdown-toggle btn-xs o-no-caret btn"
+                                        type="button"
+                                        t-att-style="'color:'+ font_color + ';'"
+                                        aria-expanded="true">
+                                    <i class="fa fa-ellipsis-v"/>
+                                </button>
+                                <div role="menu" class="dropdown-menu dropdown-menu-right">
+                                    <div class="chart_export_menu">
+                                <div class="chart_export_menu_header">
+                                    <span>Export</span>
+                                </div>
+                                <div class="chart_json_export chart_export_menu_item" t-att-data-item-id="element_id"
+                                     data-format="chart_xls">
+                                    <i class="fa fa-file-code-o"/>
+                                    <span>Export Item</span>
+                                </div>
+                             </div>
+                            </div>
+                            </div>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="add_divider_main_dashboard">
+        <t t-if="add_divider_line == 'horizontal'">
+
+            <div t-att-class="add_divider_container_class + ' add_divider_grid'" style="min-height:3%;">
+                <div t-att-id="divider.id"
+                     t-att-class="add_divider_inner_container_class">
+                    <t t-if="divider.IsDashboardManager">
+                        <div class="dashboard_divider_remove_element">
+                            <button type="button" title="Remove Divider" class="dashboard_element_delete">
+                                <i class="fa fa-times"/>
+                            </button>
+                        </div>
+                    </t>
+                        <hr class="add_divider_class" t-att-style="'border-top:1px solid '+dashboard_theme_font_color+';'"/>
+                </div>
+            </div>
+        </t>
+        <t t-if="add_divider_line == 'vertical'">
+            <div t-att-class="add_divider_container_class + ' add_divider_grid'" >
+                <div t-att-id="divider.id"
+                     t-att-class="add_divider_inner_container_class">
+                    <t t-if="divider.IsDashboardManager">
+                        <div  class="dashboard_divider_remove_element">
+                            <button type="button" title="Remove Divider" class="dashboard_element_delete">
+                                <i class="fa fa-times"/>
+                            </button>
+                        </div>
+                    </t>
+                        <div class="add_divider_class_vertical" t-att-style="'border-left:1px solid '+dashboard_theme_font_color+';'"/>
+                </div>
+            </div>
+        </t>
+    </t>
+
+    <t t-name="add_image_main_dashboard">
+        <div t-att-class="add_image_container_class + ' add_divider_grid'">
+            <div t-att-id="imageElement.id"
+                 t-att-class="'dashboarditem_id dashboard_add_image_hover ' + add_image_inner_container_class">
+                <t t-if="imageElement.IsDashboardManager">
+
+                    <div class="dashboard_element_buttons_container dropdown_container dashboard_element_header_layout_2 dashboard_element_hover" t-att-data-element_id="imageElement.id">
+
+                        <button title="Move/Duplicate" data-bs-toggle="dropdown"
+                                class="dashboard_item_action btn  btn-xs" type="button"
+                                aria-expanded="true">
+                            <i class="fa fa-files-o"/>
+                        </button>
+                        <ul role="menu" class="dashboard_menu_container dropdown-menu dropdown-menu-right">
+                            <li class="md_heading">
+                                <span>Select Dashboard</span>
+                            </li>
+                            <li class="my-3">
+                                <select class="o_input o_group_selector o_add_group dashboard_select">
+                                    <t t-foreach="dashboard_list" t-as="dashboard">
+                                        <option t-att-value="dashboard['id']">
+                                            <t t-esc="dashboard['name']"/>
+                                        </option>
+                                    </t>
+                                </select>
+                            </li>
+                            <li class="mt-3">
+                                <button class="btn btn-primary o_apply_group o_add_group duplicate_item"
+                                        tabindex="-1" type="button">Duplicate
+                                </button>
+                                <button class="btn btn-primary o_apply_group o_add_group move_item" tabindex="-1"
+                                        type="button">Move
+                                </button>
+
+                            </li>
+                        </ul>
+
+                        <button type="button" title="Edit Element"
+                                class="dashboard_element_edit d-block ">
+                            <i class="fa fa-pencil"/>
+                        </button>
+                        <button type="button" title="Remove Element"  class="dashboard_element_delete">
+                            <i class="fa fa-times"/>
+                        </button>
+                        <div class="chart_inner_buttons">
+                            <button title="Export Item" data-bs-toggle="dropdown"
+                                        class="dashboard_item_action  btn dropdown-toggle btn-xs o-no-caret btn"
+                                        type="button"
+                                        aria-expanded="true">
+                                    <i class="fa fa-ellipsis-v"/>
+                                </button>
+                                <div role="menu" class="dropdown-menu dropdown-menu-right">
+                                    <div class="chart_export_menu">
+                                <div class="chart_export_menu_header">
+                                    <span>Export</span>
+                                </div>
+                                <div class="chart_json_export chart_export_menu_item" t-att-data-item-id="element_id"
+                                     data-format="chart_xls">
+                                    <i class="fa fa-file-code-o"/>
+                                    <span>Export Item</span>
+                                </div>
+                             </div>
+                            </div>
+                            </div>
+                    </div>
+                </t>
+                <div class="add_image_parent">
+                    <img t-att-src="image_main"/>
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="dashboard_item_layout6">
+        <div t-att-class="'element_click ' + container_class">
+            <div t-att-id="item.id"
+                 t-att-class="'dashboarditem_id dashboard_element_layout_2 dashboard_item_hover '+ inner_container_class"
+                 t-att-style="style_field">
+
+
+                <div class="dashboard_element_main_layout_2">
+                    <div class="dashboard_element_count_layout_2" t-att-title="count">
+                        <t t-esc="data_count"/>
+                    </div>
+                    <div class="dashboard_element_name_layout_2" t-att-title="item.name">
+                        <t t-esc="item.name"/>
+                    </div>
+                </div>
+
+                <div class="dashboard_icon_layout_2">
+                    <t t-if="item.selection_icon_field=='Custom'">
+                        <t t-if="icon_url">
+                            <img t-att-src="icon_url"/>
+                        </t>
+                    </t>
+                    <t t-elif="item.selection_icon_field=='Default'">
+                        <span t-att-style="'color:'+ default_icon_color_rgba_format + ';'"
+                              t-att-class="'fa fa-' + item.default_icon + ' fa-5x'"/>
+                    </t>
+                </div>
+
+                <t t-if="item.IsDashboardManager">
+                    <div class="dashboard_element_buttons_container dropdown_container dashboard_item_header_l6 dashboard_element_hover" t-att-data-element_id="item.id">
+
+                        <button title="Move/Duplicate" data-bs-toggle="dropdown"
+                                class="dashboard_item_action btn  btn-xs" type="button"
+                                t-att-style="'color:'+ font_color + ';'"
+                                aria-expanded="true">
+                            <i class="fa fa-files-o"/>
+                        </button>
+                        <ul role="menu" class="dashboard_menu_container dropdown-menu dropdown-menu-right">
+                            <li class="md_heading">
+                                <span>Select Dashboard</span>
+                            </li>
+                            <li class="my-3">
+                                <select class="o_input o_group_selector o_add_group dashboard_select">
+                                    <t t-foreach="dashboard_list" t-as="dashboard">
+                                        <option t-att-value="dashboard['id']">
+                                            <t t-esc="dashboard['name']"/>
+                                        </option>
+                                    </t>
+                                </select>
+                            </li>
+                            <li class="mt-3">
+                                <button class="btn btn-primary o_apply_group o_add_group duplicate_item"
+                                        tabindex="-1" type="button">Duplicate
+                                </button>
+                                <button class="btn btn-primary o_apply_group o_add_group move_item" tabindex="-1"
+                                        type="button">Move
+                                </button>
+                            </li>
+                        </ul>
+
+                        <button type="button" title="Edit Element" t-att-style="'color:'+ font_color + ';'"
+                                class="dashboard_element_edit d-block ">
+                            <i class="fa fa-pencil"/>
+                        </button>
+                        <div class="btn-group">
+                            <button class="btn btn-xs dashboard_item_action"
+                                    data-bs-toggle="dropdown"
+                                    t-att-style="'color:'+ font_color + ';'"
+                                    aria-expanded="true">
+                                <i class="fa fa-filter"/>
+                            </button>
+
+                            <ul id="date_selector_container"
+                                class="dropdown-menu date_specific_filters_menu dropdown-max-height"
+                                role="menu" style="position:absolute;top:100%;">
+                                <li id="none">
+                                    <span class="dashboard_item_action df_selection_text">All Time</span>
+                                </li>
+                                <li class="divider"/>
+                                <t t-foreach="date_selection_order" t-as="date_id">
+                                    <li t-att-id="date_id">
+                                        <span class="dashboard_item_action df_selection_text">
+                                            <t t-esc="date_selection_data[date_id]"/>
+                                        </span>
+                                    </li>
+                                </t>
+                            </ul>
+                        </div>
+                        <button type="button" t-att-style="'color:'+ font_color + ';'" title="Remove Element" class="dashboard_element_delete">
+                            <i class="fa fa-times"/>
+                        </button>
+                        <div class="chart_inner_buttons">
+                            <button title="Export Item" data-bs-toggle="dropdown"
+                                        class="dashboard_item_action  btn dropdown-toggle btn-xs o-no-caret btn"
+                                        type="button" t-att-style="'color:'+ font_color + ';'"
+                                        aria-expanded="true">
+                                    <i class="fa fa-ellipsis-v"/>
+                                </button>
+                                <div role="menu" class="dropdown-menu dropdown-menu-right">
+                                    <div class="chart_export_menu">
+                                <div class="chart_export_menu_header">
+                                    <span>Export</span>
+                                </div>
+                                <div class="chart_json_export chart_export_menu_item" t-att-data-item-id="element_id"
+                                     data-format="chart_xls">
+                                    <i class="fa fa-file-code-o"/>
+                                    <span>Export Item</span>
+                                </div>
+                             </div>
+                            </div>
+                            </div>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </t>
+
+
+    <t t-name="dashboard_item_layout_default">
+        <div t-att-class="'element_click ' + container_class">
+            <div t-att-id="item.id" class="dashboard_element dashboard_item_hover"
+                 t-att-style="style_field">
+                <t t-if="item.IsDashboardManager">
+
+                    <div class="dashboard_element_header dashboard_element_hover">
+                        <button type="button" title="Edit Element" class="dashboard_element_edit">
+                            <i class="fa fa-pencil"/>
+                        </button>
+                        <button type="button" title="Remove Element" class="dashboard_element_delete">
+                            <i class="fa fa-times"/>
+                        </button>
+                    </div>
+                </t>
+                <p>Layout Coming Soon</p>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="kpi_template">
+        <div class="element_click grid-stack-item">
+            <div t-att-id="id" t-att-style="dark_border_color_kpi_1"
+                 class="dashboard_kpi dashboard_kpi_dashboard dashboard_custom_scrollbar dashboarditem_id dashboard_item_hover dashboard_element_preview_color_picker grid-stack-item-content">
+                <div class="dashboard_icon_layout_5 dashboard_icon_color_picker ">
+                    <t t-if="selection_icon_field=='Custom'">
+                        <t t-if="icon_url">
+                            <img t-att-src="icon_url"/>
+                        </t>
+                    </t>
+                    <t t-elif="selection_icon_field=='Default'">
+                        <span t-att-style="'color:'+ icon_color + ';'"
+                              t-att-class="'fa fa-' + default_icon + ' fa-5x'"/>
+                    </t>
+                </div>
+                <div class="dashboard_element_body_layout_5 kpi_main_body">
+                    <div class="dashboard_kpi_name_preview" t-att-title="name">
+                        <t t-esc="name"/>
+                    </div>
+                    <div class="dashboard_kpi_count_preview" t-att-title="count_1_tooltip">
+                        <t t-esc="count_1"/>
+                    </div>
+                </div>
+                <div class=" d-flex target_previous">
+                    <t t-if="enable_goal">
+                        <div >
+                            <div t-att-style="'color:'+ font_color + ';'" style="font-weight:bold;" >
+                                <span>vs Target</span>
+                            </div>
+                            <div>
+                                <span class="target_deviation" style="font-size : medium;">
+                                    <t t-esc="target_deviation"/>
+                                    <t t-if="target_arrow">
+                                        <i t-att-class="'fa fa-arrow-'+ target_arrow"/>
+                                    </t>
+                                </span>
+                            </div>
+                        </div>
+                    </t>
+                    <t t-if="previous_data_field">
+                        <div style="text-align: right;">
+                            <div style="color: rgba(0, 0, 0, 0.61);">
+                                <span>vs Prev</span>
+                            </div>
+                            <div>
+                                <span class="pre_deviation " style="font-size:medium;">
+                                    <t t-esc="pre_deviation"/>
+                                    <i t-att-class="'fa fa-arrow-'+ pre_arrow"/>
+                                </span>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+                <t t-if="item.IsDashboardManager">
+                    <div class="dashboard_element_buttons_container dropdown_container dashboard_item_header_l6 dashboard_element_hover" t-att-data-element_id="item.id">
+
+                        <button title="Move/Duplicate" data-bs-toggle="dropdown"
+                                class="dashboard_item_action btn  btn-xs" type="button"
+                                t-att-style="'color:'+ font_color + ';'"
+                                aria-expanded="true">
+                            <i class="fa fa-files-o"/>
+                        </button>
+                        <ul role="menu" class="dashboard_menu_container dropdown-menu dropdown-menu-right">
+                            <li class="md_heading">
+                                <span>Select Dashboard</span>
+                            </li>
+                            <li class="my-3">
+                                <select class="o_input o_group_selector o_add_group dashboard_select">
+                                    <t t-foreach="dashboard_list" t-as="dashboard">
+                                        <option t-att-value="dashboard['id']">
+                                            <t t-esc="dashboard['name']"/>
+                                        </option>
+                                    </t>
+                                </select>
+                            </li>
+                            <li class="mt-3">
+                                <button class="btn btn-primary o_apply_group o_add_group duplicate_item"
+                                        tabindex="-1" type="button">Duplicate
+                                </button>
+                                <button class="btn btn-primary o_apply_group o_add_group move_item" tabindex="-1"
+                                        type="button">Move
+                                </button>
+                            </li>
+                        </ul>
+
+                        <button type="button" title="Edit Element" t-att-style="'color:'+ font_color + ';'"
+                                class="dashboard_element_edit d-block ">
+                            <i class="fa fa-pencil"/>
+                        </button>
+                        <div class="btn-group">
+                            <button class="btn btn-xs dashboard_item_action"
+                                    data-bs-toggle="dropdown"
+                                    t-att-style="'color:'+ font_color + ';'"
+                                    aria-expanded="true">
+                                <i class="fa fa-filter"/>
+                            </button>
+
+                            <ul id="date_selector_container"
+                                class="dropdown-menu date_specific_filters_menu dropdown-max-height"
+                                role="menu" style="position:absolute;top:100%;">
+                                <li id="none">
+                                    <span class="dashboard_item_action df_selection_text">All Time</span>
+                                </li>
+                                <li class="divider"/>
+                                <t t-foreach="date_selection_order" t-as="date_id">
+                                    <li t-att-id="date_id">
+                                        <span class="dashboard_item_action df_selection_text">
+                                            <t t-esc="date_selection_data[date_id]"/>
+                                        </span>
+                                    </li>
+                                </t>
+                            </ul>
+                        </div>
+                        <button type="button" t-att-style="'color:'+ font_color + ';'" title="Remove Element" class="dashboard_element_delete">
+                            <i class="fa fa-times"/>
+                        </button>
+                         <div class="chart_inner_buttons">
+                            <button title="Export Item" data-bs-toggle="dropdown"
+                                        class="dashboard_item_action  btn dropdown-toggle btn-xs o-no-caret btn"
+                                        type="button" t-att-style="'color:'+ font_color + ';'"
+                                        aria-expanded="true">
+                                    <i class="fa fa-ellipsis-v"/>
+                                </button>
+                                <div role="menu" class="dropdown-menu dropdown-menu-right">
+                                    <div class="chart_export_menu">
+                                <div class="chart_export_menu_header">
+                                    <span>Export</span>
+                                </div>
+                                <div class="chart_json_export chart_export_menu_item" t-att-data-item-id="element_id"
+                                     data-format="chart_xls">
+                                    <i class="fa fa-file-code-o"/>
+                                    <span>Export Item</span>
+                                </div>
+                             </div>
+                            </div>
+                            </div>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="kpi_template_3">
+        <div class="element_click grid-stack-item">
+            <div t-att-id="id" t-att-style="dark_border_color_kpi_1"
+                 class="dashboard_kpi dashboard_custom_scrollbar dashboarditem_id dashboard_item_hover dashboard_element_preview_color_picker grid-stack-item-content">
+                <div class="dashboard_icon_layout_5 dashboard_icon_color_picker ">
+                    <t t-if="selection_icon_field=='Custom'">
+                        <t t-if="icon_url">
+                            <img t-att-src="icon_url"/>
+                        </t>
+                    </t>
+                    <t t-elif="selection_icon_field=='Default'">
+                        <span t-att-style="'color:'+ icon_color + ';'"
+                              t-att-class="'fa fa-' + default_icon + ' fa-5x'"/>
+                    </t>
+                </div>
+                <div class="dashboard_element_body_layout_5 kpi_main_body">
+                    <div class="dashboard_kpi_name_preview">
+                        <t t-esc="name"/>
+                    </div>
+                    <div class="dashboard_kpi_count_preview" t-att-title="count_1_tooltip">
+                        <span class="count">
+                            <t t-esc="count_1"/>
+                        </span>
+                        /
+                        <span>
+                            <t t-esc="target"/>
+                        </span>
+                    </div>
+                </div>
+                <div class="text-center progress progress-bar" style="height:20px;background:transparent;box-shadow:none;bottom:15%;">
+                    <div>
+                        <progress id="progressbar" value="0" max="100"/>
+                    </div>
+                    <div class="text-center">
+                        <t t-esc="target_progress_deviation"/>%
+                    </div>
+                </div>
+                <t t-if="previous_data_field and previous_period_data">
+                    <div class="text-center mt-1">
+                        <div>
+                            <span>vs Prev</span>
+                        </div>
+                        <div>
+                            <t t-esc="previous_period_data"/>
+                            <span class="pre_deviation">
+                                <t t-esc="pre_deviation"/>
+                                <i t-att-class="'fa fa-arrow-'+ pre_arrow"/>
+                            </span>
+                        </div>
+                    </div>
+                </t>
+                <t t-if="item.IsDashboardManager">
+                    <div class="dashboard_element_buttons_container dropdown_container dashboard_item_header_l6 dashboard_element_hover" t-att-data-element_id="item.id">
+
+                        <button title="Move/Duplicate" data-bs-toggle="dropdown"
+                                class="dashboard_item_action btn  btn-xs" type="button"
+                                t-att-style="'color:'+ font_color + ';'" aria-expanded="true">
+                            <i class="fa fa-files-o"/>
+                        </button>
+                        <ul role="menu" class="dashboard_menu_container dropdown-menu dropdown-menu-right">
+                            <li class="md_heading">
+                                <span>Select Dashboard</span>
+                            </li>
+                            <li class="my-3">
+                                <select class="o_input o_group_selector o_add_group dashboard_select">
+                                    <t t-foreach="dashboard_list" t-as="dashboard">
+                                        <option t-att-value="dashboard['id']">
+                                            <t t-esc="dashboard['name']"/>
+                                        </option>
+                                    </t>
+                                </select>
+                            </li>
+                            <li class="mt-3">
+                                <button class="btn btn-primary o_apply_group o_add_group duplicate_item"
+                                        tabindex="-1" type="button">Duplicate
+                                </button>
+                                <button class="btn btn-primary o_apply_group o_add_group move_item" tabindex="-1"
+                                        type="button">Move
+                                </button>
+                            </li>
+                        </ul>
+
+                        <button type="button" title="Edit Element" t-att-style="'color:'+ font_color + ';'"
+                                class="dashboard_element_edit d-block ">
+                            <i class="fa fa-pencil"/>
+                        </button>
+                        <div class="btn-group">
+                            <button class="btn btn-xs dashboard_item_action"
+                                    data-bs-toggle="dropdown"
+                                    t-att-style="'color:'+ font_color + ';'"
+                                    aria-expanded="true">
+                                <i class="fa fa-filter"/>
+                            </button>
+
+                            <ul id="date_selector_container"
+                                class="dropdown-menu date_specific_filters_menu dropdown-max-height"
+                                role="menu" style="position:absolute;top:100%;">
+                                <li id="none">
+                                    <span class="dashboard_item_action df_selection_text">All Time</span>
+                                </li>
+                                <li class="divider"/>
+                                <t t-foreach="date_selection_order" t-as="date_id">
+                                    <li t-att-id="date_id">
+                                        <span class="dashboard_item_action df_selection_text">
+                                            <t t-esc="date_selection_data[date_id]"/>
+                                        </span>
+                                    </li>
+                                </t>
+                            </ul>
+                        </div>
+                        <button type="button" t-att-style="'color:'+ font_color + ';'" title="Remove Element" class="dashboard_element_delete">
+                            <i class="fa fa-times"/>
+                        </button>
+                         <div class="chart_inner_buttons">
+                            <button title="Export Item" data-bs-toggle="dropdown"
+                                        class="dashboard_item_action  btn dropdown-toggle btn-xs o-no-caret btn"
+                                        type="button" t-att-style="'color:'+ font_color + ';'"
+                                        aria-expanded="true">
+                                    <i class="fa fa-ellipsis-v"/>
+                                </button>
+                                <div role="menu" class="dropdown-menu dropdown-menu-right">
+                                    <div class="chart_export_menu">
+                                <div class="chart_export_menu_header">
+                                    <span>Export</span>
+                                </div>
+                                <div class="chart_json_export chart_export_menu_item" t-att-data-item-id="element_id"
+                                     data-format="chart_xls">
+                                    <i class="fa fa-file-code-o"/>
+                                    <span>Export Item</span>
+                                </div>
+                             </div>
+                            </div>
+                            </div>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="kpi_template_2">
+        <div class="element_click grid-stack-item">
+            <div t-att-id="id" t-att-style="dark_border_color_kpi_1"
+                 class="dashboard_kpi dashboard_kpi_dashboard dashboard_custom_scrollbar dashboarditem_id dashboard_item_hover dashboard_element_preview_color_picker grid-stack-item-content">
+                <div class="dashboard_icon_layout_5 dashboard_icon_color_picker ">
+                    <t t-if="selection_icon_field=='Custom'">
+                        <t t-if="icon_url">
+                            <img t-att-src="icon_url"/>
+                        </t>
+                    </t>
+                    <t t-elif="selection_icon_field=='Default'">
+                        <span t-att-style="'color:'+ icon_color + ';'"
+                              t-att-class="'fa fa-' + default_icon + ' fa-5x'"/>
+                    </t>
+                </div>
+                <div class="dashboard_element_body_layout_5 kpi_main_body">
+                    <div class="dashboard_kpi_name_preview">
+                        <t t-esc="name"/>
+                    </div>
+                    <div class="dashboard_kpi_count_preview" t-att-title="count_tooltip">
+                        <span>
+                            <t t-esc="count"/>
+                            <t t-if="target_view =='Progress Bar' and target_enable">/
+                                <t t-esc="target"/>
+                            </t>
+                        </span>
+                    </div>
+                </div>
+                <t t-if="enable_goal and target_enable">
+                    <t t-if="target_deviation and target_view =='Number'">
+                        <div class="text-center">
+                            <div>
+                                <span class="kpi_target_grey">vs Target</span>
+                            </div>
+                            <div>
+                                <span class="target_deviation">
+                                    <t t-esc="target_deviation"/>
+                                    <t t-if="pre_arrow">
+                                        <i t-att-class="'fa fa-arrow-'+ pre_arrow"/>
+                                    </t>
+                                </span>
+                            </div>
+                        </div>
+                    </t>
+                    <t t-if="target_progress_deviation and target_view =='Progress Bar'">
+                        <div class="text-center  progress proress-bar">
+                            <div>
+                                <progress id="progressbar" value="0" max="100"/>
+                            </div>
+                            <div class="text-center">
+                                <t t-esc="target_progress_deviation"/>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+                <t t-if="item.IsDashboardManager">
+                    <div class="dashboard_element_buttons_container dropdown_container dashboard_item_header_l6 dashboard_element_hover" t-att-data-element_id="item.id">
+
+                        <button title="Move/Duplicate" data-bs-toggle="dropdown" t-att-style="'color:'+ font_color + ';'"
+                                class="dashboard_item_action btn  btn-xs" type="button"
+                                aria-expanded="true">
+                            <i class="fa fa-files-o"/>
+                        </button>
+                        <ul role="menu" class="dashboard_menu_container dropdown-menu dropdown-menu-right">
+                            <li class="md_heading">
+                                <span>Select Dashboard</span>
+                            </li>
+                            <li class="my-3">
+                                <select class="o_input o_group_selector o_add_group dashboard_select">
+                                    <t t-foreach="dashboard_list" t-as="dashboard">
+                                        <option t-att-value="dashboard['id']">
+                                            <t t-esc="dashboard['name']"/>
+                                        </option>
+                                    </t>
+                                </select>
+                            </li>
+                            <li class="mt-3">
+                                <button class="btn btn-primary o_apply_group o_add_group duplicate_item"
+                                        tabindex="-1" type="button">Duplicate
+                                </button>
+                                <button class="btn btn-primary o_apply_group o_add_group move_item" tabindex="-1"
+                                        type="button">Move
+                                </button>
+                            </li>
+                        </ul>
+
+                        <button type="button" title="Edit Element" t-att-style="'color:'+ font_color + ';'"
+                                class="dashboard_element_edit d-block ">
+                            <i class="fa fa-pencil"/>
+                        </button>
+                        <div class="btn-group">
+                            <button class="btn btn-xs dashboard_item_action"
+                                    data-bs-toggle="dropdown"
+                                    t-att-style="'color:'+ font_color + ';'"
+                                    aria-expanded="true">
+                                <i class="fa fa-filter"/>
+                            </button>
+
+                            <ul id="date_selector_container"
+                                class="dropdown-menu date_specific_filters_menu dropdown-max-height"
+                                role="menu" style="position:absolute;top:100%;">
+                                <li id="none">
+                                    <span class="dashboard_item_action df_selection_text">All Time</span>
+                                </li>
+                                <li class="divider"/>
+                                <t t-foreach="date_selection_order" t-as="date_id">
+                                    <li t-att-id="date_id">
+                                        <span class="dashboard_item_action df_selection_text">
+                                            <t t-esc="date_selection_data[date_id]"/>
+                                        </span>
+                                    </li>
+                                </t>
+                            </ul>
+                        </div>
+                        <button type="button" title="Remove Element" t-att-style="'color:'+ font_color + ';'" class="dashboard_element_delete">
+                            <i class="fa fa-times"/>
+                        </button>
+                         <div class="chart_inner_buttons">
+                            <button title="Export Item" data-bs-toggle="dropdown"
+                                        class="dashboard_item_action  btn dropdown-toggle btn-xs o-no-caret btn"
+                                        type="button" t-att-style="'color:'+ font_color + ';'"
+                                        aria-expanded="true">
+                                    <i class="fa fa-ellipsis-v"/>
+                                </button>
+                                <div role="menu" class="dropdown-menu dropdown-menu-right">
+                                    <div class="chart_export_menu">
+                                <div class="chart_export_menu_header">
+                                    <span>Export</span>
+                                </div>
+                                <div class="chart_json_export chart_export_menu_item" t-att-data-item-id="element_id"
+                                     data-format="chart_xls">
+                                    <i class="fa fa-file-code-o"/>
+                                    <span>Export Item</span>
+                                </div>
+                             </div>
+                            </div>
+                            </div>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </t>
+
+
+    <t t-name="QuickEditButtonContainer">
+        <div class="dashboard_quick_edit_action grid-stack-item" t-att-data-gs-x="grid.gsX"
+             t-att-data-gs-y="grid.gsY" t-att-data-gs-width="grid.gsWidth" t-att-data-gs-height="grid.gsHeight">
+            <button title="Quick Customize" data-bs-toggle="dropdown"
+                    class="dashboard_item_action  btn dropdown-toggle btn-xs o-no-caret btn"
+                    type="button"
+                    aria-expanded="true">
+                <i class="fa fa-cog"/>
+            </button>
+            <div role="menu" class="dropdown-menu qe_dropdown_menu ">
+            </div>
+        </div>
+    </t>
+
+</templates>

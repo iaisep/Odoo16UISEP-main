@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <record id="view_res_config_settings_form_date_tarjet" model="ir.ui.view">
+        <field name="name">view.res.config.settings.form.time</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="account.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='default_taxes_setting_container']" position="after">
+                <h2>Registro de tarjeta</h2>
+                    <div class="row mt16 o_settings_container" name="api_invoice_setting_container">
+                        <div class="o_setting_left_panel">
+                            <group>
+                                <field name="date_start_tarjet" />
+                                <!-- <field name="date_end_tarjet" /> -->
+                            </group>
+                        </div>
+                    </div>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>

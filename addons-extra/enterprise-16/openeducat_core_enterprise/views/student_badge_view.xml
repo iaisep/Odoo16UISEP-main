@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="op_badge_kanban_view" model="ir.ui.view">
+            <field name="name">Badge Kanban View</field>
+            <field name="model">op.gamification.badge</field>
+            <field name="arch" type="xml">
+                <kanban class="oe_background_grey">
+                    <field name="name"/>
+                    <field name="id"/>
+                    <field name="image"/>
+                    <field name="description"/>
+                    <field name="create_date"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_card oe_kanban_global_click oe_kanban_badge oe_kanban_color_white o_kanban_gamification">
+                                <div class="o_kanban_image">
+                                    <a type="open">
+                                        <img alt="Badge"
+                                             t-att-src="kanban_image('op.gamification.badge', 'image', record.id.value)"/>
+                                    </a>
+                                </div>
+                                <div class="oe_kanban_details">
+                                    <h4><a type="open"><t t-esc="record.name.raw_value"/></a></h4>
+                                    <t t-if="record.description.raw_value">
+                                        <p><em><field name="description"/></em></p>
+                                    </t>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="op_student_badge_tree_view" model="ir.ui.view">
+            <field name="name">Badge Tree</field>
+            <field name="model">op.gamification.badge</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="op_student_badge_form_view" model="ir.ui.view">
+            <field name="name">Badge Form</field>
+            <field name="model">op.gamification.badge</field>
+            <field name="arch" type="xml">
+                <form string="Badge">
+                    <header>
+                        <button string="Grant this Badge"
+                                type="action"
+                                name="%(action_student_grant_wizard)d"
+                                class="oe_highlight"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box"/>
+                        <field name="image" widget='image' class="oe_avatar"/>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1><field name="name" placeholder="Badge Name"/></h1>
+                        </div>
+                        <field name="description" nolabel="1" placeholder="Badge Description"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="student_badge_list_action" model="ir.actions.act_window">
+            <field name="name">Badges</field>
+            <field name="res_model">op.gamification.badge</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Click to create a badge.</p>
+            </field>
+        </record>
+
+        <menuitem id="op_student_badge_menu"
+                  name="Student Badges"
+                  parent="openeducat_core.menu_op_faculty_root"
+                  sequence="30"
+                  groups="openeducat_core.group_op_back_office_admin,openeducat_core.group_op_faculty"
+                  action="student_badge_list_action"/>
+
+</odoo>

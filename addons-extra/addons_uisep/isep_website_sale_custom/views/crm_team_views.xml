@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <!-- View crm.team form -->
+    <record id="view_crm_team_form_inherit" model="ir.ui.view">
+        <field name="name">view.crm.team.form</field>
+        <field name="model">crm.team</field>
+        <field name="inherit_id" ref="sales_team.crm_team_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='member_company_ids']" position="after">
+                <field name="is_web" />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

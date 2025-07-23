@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="op_area_course_view_tree" model="ir.ui.view">
+        <field name="name">op.area.course.view.tree</field>
+        <field name="model">op.area.course</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="code"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="op_area_course_view_form" model="ir.ui.view">
+        <field name="name">op.area.course.view.form</field>
+        <field name="model">op.area.course</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="code"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="op_area_course_action" model="ir.actions.act_window">
+        <field name="name">Áreas de curso</field>
+        <field name="res_model">op.area.course</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="op_area_course_menu"
+              name="Áreas de curso"
+              action="op_area_course_action"
+              sequence="12"
+              parent="openeducat_core.menu_op_school_config_course"
+              groups="openeducat_core.group_op_back_office_admin"/>
+</odoo>

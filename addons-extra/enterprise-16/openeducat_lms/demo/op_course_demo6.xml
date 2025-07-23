@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="demo_course_coffee_cup" model="op.course">
+            <field name="name">Become a Coffee Expert: How to Make the Perfect Cup</field>
+            <field name="code">cup-146</field>
+            <field name="sequence">10</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="faculty_ids"
+                   eval="[(6,0,[ref('openeducat_core.op_faculty_3'),ref('openeducat_core.op_faculty_1')])]"/>
+            <field name="category_ids"
+                   eval="[(6,0,[ref('category_food')])]"/>
+            <field name="suggested_course_ids"
+                   eval="[(6,0,[ref('demo_course_vegetable')])]"/>
+            <field name="visibility">logged_user</field>
+            <field name="level_id" ref="op_course_level_beginner"/>
+            <field name="navigation_policy">free_learn</field>
+            <field name="state">open</field>
+            <field name="online_course" eval="True"/>
+            <field name="confirm_date"
+                   eval="(DateTime.today() - relativedelta(days=8))"/>
+
+            <field name="image_1920" type="base64"
+                   file="openeducat_lms/static/src/img/become-a-coffee-expert-how-to-make-the-perfect-cup-min.jpg"/>
+
+            <field name="full_description"><![CDATA[
+            <div><p>From the Coffee House in the heart of London's Coffee Culture, this is the complete coffee course from bean to cup and beyond taught by two coffee experts and former Judges of the UK Barista Championship!
+Would you like to learn more about coffee? Understand its origins, understand roasting & grinding? Would you like to find out how to make a better cup of coffee? Do you want to stop drinking bad coffee? If so, this is the course for you.</p></div>
+            ]]></field>
+        </record>
+        <record id="op_course_section_coffee_variable" model="op.course.section">
+            <field name="name">Introduction</field>
+            <field name="course_id" ref="demo_course_coffee_cup"/>
+            <field name="sequence" type="int">1</field>
+        </record>
+        <record id="op_course_section_coffee_variable2" model="op.course.section">
+            <field name="name">Origins</field>
+            <field name="course_id" ref="demo_course_coffee_cup"/>
+            <field name="sequence" type="int">2</field>
+        </record>
+
+        <record id="op_course_section_coffee_variable3" model="op.course.section">
+            <field name="name">Beans</field>
+            <field name="course_id" ref="demo_course_coffee_cup"/>
+            <field name="sequence" type="int">3</field>
+        </record>
+
+        <record id="op_course_section_coffee_variable4" model="op.course.section">
+            <field name="name">Grinding</field>
+            <field name="course_id" ref="demo_course_coffee_cup"/>
+            <field name="sequence" type="int">4</field>
+        </record>
+        <record id="op_course_section_coffee_variable5" model="op.course.section">
+            <field name="name">Brewing</field>
+            <field name="course_id" ref="demo_course_coffee_cup"/>
+            <field name="sequence" type="int">5</field>
+        </record>
+        <record id="op_course_section_coffee_variable6" model="op.course.section">
+            <field name="name">Espresso</field>
+            <field name="course_id" ref="demo_course_coffee_cup"/>
+            <field name="sequence" type="int">6</field>
+        </record>
+        <record id="op_course_section_coffee_variable7" model="op.course.section">
+            <field name="name">Final Tips And Tricks</field>
+            <field name="course_id" ref="demo_course_coffee_cup"/>
+            <field name="sequence" type="int">7</field>
+        </record>
+        <record id="op_course_section_coffee_variable8" model="op.course.section">
+            <field name="name">Quiz</field>
+            <field name="course_id" ref="demo_course_coffee_cup"/>
+            <field name="sequence" type="int">8</field>
+        </record>
+        <record id="material_cup_introduction1" model="op.material">
+            <field name="name">Introduction</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">2.45</field>
+            <field name="url" eval="'https://youtu.be/gK_qiu9W7TU'"/>
+            <field name="document_id">gK_qiu9W7TU</field>
+        </record>
+        <record id="material_cup_introduction2" model="op.material">
+            <field name="name">What will you learn on this course?</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">4.45</field>
+            <field name="url" eval="'https://youtu.be/C0QcnZQCQ7A'"/>
+            <field name="document_id">C0QcnZQCQ7A</field>
+        </record>
+        <record id="material_cup_introduction3" model="op.material">
+            <field name="name">How to get the most from this course</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">2.55</field>
+            <field name="url" eval="'https://youtu.be/33kIj__tD90'"/>
+            <field name="document_id">33kIj__tD90</field>
+        </record>
+
+        <record id="op_course_material_cup_introduction1" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_cup_introduction1"/>
+            <field name="section_id" ref="op_course_section_coffee_variable"/>
+            <field name="preview" eval="True"/>
+        </record>
+        <record id="op_course_material_cup_introduction2" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_cup_introduction2"/>
+            <field name="section_id" ref="op_course_section_coffee_variable"/>
+            <field name="preview" eval="True"/>
+        </record>
+        <record id="op_course_material_cup_introduction3" model="op.course.material">
+            <field name="sequence" type="int">3</field>
+            <field name="material_id" ref="material_cup_introduction3"/>
+            <field name="section_id" ref="op_course_section_coffee_variable"/>
+            <field name="preview" eval="True"/>
+        </record>
+
+        <record id="material_cup_origin2" model="op.material">
+            <field name="name">History of coffee</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">10.05</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=wuIiy5c_iHw'"/>
+            <field name="document_id">wuIiy5c_iHw</field>
+        </record>
+        <record id="material_cup_origin3" model="op.material">
+            <field name="name">Coffee stories</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">0.95</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=cxYhjF3APds'"/>
+            <field name="document_id">cxYhjF3APds</field>
+        </record>
+        <record id="material_cup_origin4" model="op.material">
+            <field name="name">Coffee as a commodity</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">8.18</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=v7RQ0FFCzvw'"/>
+            <field name="document_id">v7RQ0FFCzvw</field>
+        </record>
+        <record id="material_cup_origin5" model="op.material">
+            <field name="name">Activities</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">2.44</field>
+            <field name="url" eval="'https://youtu.be/gK_qiu9W7TU'"/>
+            <field name="document_id">gK_qiu9W7TU</field>
+        </record>
+
+        <record id="op_course_material_cup_origin2" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_cup_origin2"/>
+            <field name="section_id" ref="op_course_section_coffee_variable2"/>
+            <field name="preview" eval="True"/>
+        </record>
+        <record id="op_course_material_cup_origin3" model="op.course.material">
+            <field name="sequence" type="int">3</field>
+            <field name="material_id" ref="material_cup_origin3"/>
+            <field name="section_id" ref="op_course_section_coffee_variable2"/>
+            <field name="preview" eval="True"/>
+        </record>
+        <record id="op_course_material_cup_origin4" model="op.course.material">
+            <field name="sequence" type="int">4</field>
+            <field name="material_id" ref="material_cup_origin4"/>
+            <field name="section_id" ref="op_course_section_coffee_variable2"/>
+            <field name="preview" eval="True"/>
+        </record>
+        <record id="op_course_material_cup_origin5" model="op.course.material">
+            <field name="sequence" type="int">5</field>
+            <field name="material_id" ref="material_cup_origin5"/>
+            <field name="section_id" ref="op_course_section_coffee_variable2"/>
+            <field name="preview" eval="True"/>
+
+        </record>
+
+        <record id="material_cup_beans1" model="op.material">
+            <field name="name">Introductions</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">2.26</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=ryaa5NbeXko'"/>
+            <field name="document_id">ryaa5NbeXko</field>
+        </record>
+        <record id="material_cup_beans2" model="op.material">
+            <field name="name">Types of beans</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">1.78</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=RWnSYAq9PPw'"/>
+            <field name="document_id">RWnSYAq9PPw</field>
+        </record>
+
+        <record id="op_course_material_cup_beans1" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_cup_beans1"/>
+            <field name="section_id" ref="op_course_section_coffee_variable3"/>
+        </record>
+
+        <record id="op_course_material_cup_beans2" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_cup_beans2"/>
+            <field name="section_id" ref="op_course_section_coffee_variable3"/>
+        </record>
+
+        <record id="material_cup_grind2" model="op.material">
+            <field name="name">Methods of Grinding</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">2.25</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=1fQXIVpmX08'"/>
+            <field name="document_id">1fQXIVpmX08</field>
+        </record>
+
+        <record id="op_course_material_cup_grind2" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_cup_grind2"/>
+            <field name="section_id" ref="op_course_section_coffee_variable4"/>
+        </record>
+
+        <record id="material_cup_brewing1" model="op.material">
+            <field name="name">Introduction</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">3.76</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=GOd9lCIVfF0'"/>
+            <field name="document_id">GOd9lCIVfF0</field>
+        </record>
+
+        <record id="material_cup_brewing2" model="op.material">
+            <field name="name">Syphon Method</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">1.55</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=JLV3RwemCqo'"/>
+            <field name="document_id">JLV3RwemCqo</field>
+        </record>
+        <record id="material_cup_brewing3" model="op.material">
+            <field name="name">Aeropress Method</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">2.76</field>
+            <field name="url" eval="'https://youtu.be/NVcgSBJFhgM'"/>
+            <field name="document_id">NVcgSBJFhgM</field>
+        </record>
+        <record id="material_cup_brewing4" model="op.material">
+            <field name="name">Chemex Method</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">4.42</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=JrcH-4wHK9w'"/>
+            <field name="document_id">JrcH-4wHK9w</field>
+        </record>
+        <record id="material_cup_brewing5" model="op.material">
+            <field name="name">V60 method</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">12.17</field>
+            <field name="url" eval="'https://youtu.be/AI4ynXzkSQo'"/>
+            <field name="document_id">AI4ynXzkSQo</field>
+        </record>
+
+        <record id="op_course_material_cup_brewing1" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_cup_brewing1"/>
+            <field name="section_id" ref="op_course_section_coffee_variable5"/>
+        </record>
+        <record id="op_course_material_cup_brewing2" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_cup_brewing2"/>
+            <field name="section_id" ref="op_course_section_coffee_variable5"/>
+        </record>
+        <record id="op_course_material_cup_brewing3" model="op.course.material">
+            <field name="sequence" type="int">3</field>
+            <field name="material_id" ref="material_cup_brewing3"/>
+            <field name="section_id" ref="op_course_section_coffee_variable5"/>
+        </record>
+        <record id="op_course_material_cup_brewing4" model="op.course.material">
+            <field name="sequence" type="int">4</field>
+            <field name="material_id" ref="material_cup_brewing4"/>
+            <field name="section_id" ref="op_course_section_coffee_variable5"/>
+        </record>
+        <record id="op_course_material_cup_brewing5" model="op.course.material">
+            <field name="sequence" type="int">5</field>
+            <field name="material_id" ref="material_cup_brewing5"/>
+            <field name="section_id" ref="op_course_section_coffee_variable5"/>
+        </record>
+
+        <record id="material_cup_espresso1" model="op.material">
+            <field name="name">Espresso</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">0.50</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=1n452-kQ02E'"/>
+            <field name="document_id">1n452-kQ02E</field>
+        </record>
+        <record id="material_cup_espresso2" model="op.material">
+            <field name="name">Correct Method - Tips and Tricks</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">2.60</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=j1dcxol0dNA'"/>
+            <field name="document_id">j1dcxol0dNA</field>
+        </record>
+        <record id="material_cup_espresso3" model="op.material">
+            <field name="name">The Good, the Bad and the Ugly</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">6.90</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=viwKkeBBIsc'"/>
+            <field name="document_id">viwKkeBBIsc</field>
+        </record>
+        <record id="material_cup_espresso4" model="op.material">
+            <field name="name">Americano</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">2.05</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=5aDqNwMVEyc'"/>
+            <field name="document_id">5aDqNwMVEyc</field>
+        </record>
+        <record id="material_cup_espresso5" model="op.material">
+            <field name="name">Flat White</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">4.60</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=SbrLUjBe8tI'"/>
+            <field name="document_id">SbrLUjBe8tI</field>
+        </record>
+        <record id="material_cup_espresso6" model="op.material">
+            <field name="name">Latte</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">2.75</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=UxwscVIZ8Qg'"/>
+            <field name="document_id">UxwscVIZ8Qg</field>
+        </record>
+        <record id="material_cup_espresso7" model="op.material">
+            <field name="name">Cappuccino</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">6.70</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=gvPetTPFsZM'"/>
+            <field name="document_id">gvPetTPFsZM</field>
+        </record>
+        <record id="material_cup_espresso8" model="op.material">
+            <field name="name">Modern twist on the cappuccino</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">5.58</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=Ly84ggFNTv4'"/>
+            <field name="document_id">Ly84ggFNTv4</field>
+        </record>
+
+
+        <record id="op_course_material_cup_espresso1" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_cup_espresso1"/>
+            <field name="section_id" ref="op_course_section_coffee_variable6"/>
+        </record>
+
+        <record id="op_course_material_cup_espresso2" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_cup_espresso2"/>
+            <field name="section_id" ref="op_course_section_coffee_variable6"/>
+        </record>
+        <record id="op_course_material_cup_espresso3" model="op.course.material">
+            <field name="sequence" type="int">3</field>
+            <field name="material_id" ref="material_cup_espresso3"/>
+            <field name="section_id" ref="op_course_section_coffee_variable6"/>
+        </record>
+        <record id="op_course_material_cup_espresso4" model="op.course.material">
+            <field name="sequence" type="int">4</field>
+            <field name="material_id" ref="material_cup_espresso4"/>
+            <field name="section_id" ref="op_course_section_coffee_variable6"/>
+        </record>
+        <record id="op_course_material_cup_espresso5" model="op.course.material">
+            <field name="sequence" type="int">5</field>
+            <field name="material_id" ref="material_cup_espresso5"/>
+            <field name="section_id" ref="op_course_section_coffee_variable6"/>
+        </record>
+        <record id="op_course_material_cup_espresso6" model="op.course.material">
+            <field name="sequence" type="int">6</field>
+            <field name="material_id" ref="material_cup_espresso6"/>
+            <field name="section_id" ref="op_course_section_coffee_variable6"/>
+        </record>
+        <record id="op_course_material_cup_espresso7" model="op.course.material">
+            <field name="sequence" type="int">7</field>
+            <field name="material_id" ref="material_cup_espresso7"/>
+            <field name="section_id" ref="op_course_section_coffee_variable6"/>
+        </record>
+        <record id="op_course_material_cup_espresso8" model="op.course.material">
+            <field name="sequence" type="int">8</field>
+            <field name="material_id" ref="material_cup_espresso8"/>
+            <field name="section_id" ref="op_course_section_coffee_variable6"/>
+        </record>
+
+
+        <record id="material_cup_conclusion1" model="op.material">
+            <field name="name">Conclusion</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">4.09</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=iQyHeWaJIec'"/>
+            <field name="document_id">iQyHeWaJIec</field>
+        </record>
+        <record id="op_course_material_cup_conclusion1" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_cup_conclusion1"/>
+            <field name="section_id" ref="op_course_section_coffee_variable7"/>
+        </record>
+        <record id="material_coffee_quiz" model="op.material">
+            <field name="name">Coffee Quiz</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">quiz</field>
+            <field name="total_time" type="float">1.45</field>
+            <field name="quiz_id" ref="openeducat_quiz.op_qz_cup1"/>
+        </record>
+
+        <record id="op_course_material_coffee_quiz" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_coffee_quiz"/>
+            <field name="section_id" ref="op_course_section_coffee_variable8"/>
+        </record>
+
+
+        <record id="op_user_student_47" model="res.users" context="{'no_reset_password': True}">
+            <field name="name">Roz</field>
+            <field name="password">openeducatcoffee</field>
+            <field name="login">openeducatcoffee@openeducat.com</field>
+            <field name="groups_id"
+                   eval="[(4,ref('openeducat_lms.group_op_lms_admin'))]"/>
+        </record>
+
+        <record id="demo_enrollment_coffee" model="op.course.enrollment">
+            <field name="course_id" ref="openeducat_lms.demo_course_coffee_cup"/>
+            <field name="user_id" ref="openeducat_lms.op_user_student_47"/>
+            <field name="state">in_progress</field>
+            <field name="enrollment_date" eval="(DateTime.today() - relativedelta(days=1))"/>
+        </record>
+
+</odoo>

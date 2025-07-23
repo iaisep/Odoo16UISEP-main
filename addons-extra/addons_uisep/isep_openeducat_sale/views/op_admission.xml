@@ -1,0 +1,33 @@
+<odoo>
+    <data>
+ 
+        <record id="isep_custom_op_admission_form" model="ir.ui.view">
+            <field name="name">op.admission.form</field>
+            <field name="model">op.admission</field>
+            <field name="inherit_id" ref="openeducat_admission.view_op_admission_form"/>        
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='student_id']" position="after">
+                    <field name="sale_id" string="Pedido de venta"  invisible="1"  />
+                    <field name="sale_line_id"   invisible="1" />
+
+                </xpath>
+            </field>
+        </record>       
+
+        <record id="isep_custom_op_admission_search" model="ir.ui.view">
+            <field name="name">op.admission.search</field>
+            <field name="model">op.admission</field>
+            <field name="inherit_id" ref="openeducat_admission_enterprise.view_op_admission_search_inherit"/>        
+            <field name="arch" type="xml">
+                <xpath expr="//searchpanel/field[@name='course_id']" position="before">
+                    <field name="state"    />
+                </xpath>
+            </field>
+        </record>
+
+
+
+
+
+    </data>
+</odoo>

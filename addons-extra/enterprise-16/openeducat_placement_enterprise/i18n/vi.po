@@ -1,0 +1,408 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* openeducat_placement_enterprise
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-09-30 08:32+0000\n"
+"PO-Revision-Date: 2019-09-30 08:32+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_cell__message_needaction
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_offer__message_needaction
+msgid "Action Needed"
+msgstr "Hành động cần thiết"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_cell__message_attachment_count
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_offer__message_attachment_count
+msgid "Attachment Count"
+msgstr "Đếm tập tin đính kèm"
+
+#. module: openeducat_placement_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_placement_enterprise.view_op_placement_offer_form
+#: selection:op.placement.offer,state:0
+msgid "Cancel"
+msgstr "Hủy"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_cell__member_ids
+msgid "Channel Members"
+msgstr "kênh viên"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_offer__company_id
+msgid "Company"
+msgstr "Công ty"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_offer__name
+#: model_terms:ir.ui.view,arch_db:openeducat_placement_enterprise.student_portal_placement_offers
+#: model_terms:ir.ui.view,arch_db:openeducat_placement_enterprise.view_op_placement_offer_form
+msgid "Company Name"
+msgstr "Tên công ty"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_cell__create_uid
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_offer__create_uid
+msgid "Created by"
+msgstr "Được tạo bởi"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_cell__create_date
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_offer__create_date
+msgid "Created on"
+msgstr "Được tạo ra"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_cell__display_name
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_offer__display_name
+msgid "Display Name"
+msgstr "Tên hiển thị"
+
+#. module: openeducat_placement_enterprise
+#: selection:op.placement.offer,state:0
+msgid "Draft"
+msgstr "Bản nháp"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_cell__message_follower_ids
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_offer__message_follower_ids
+msgid "Followers"
+msgstr "Người theo dõi"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_cell__message_channel_ids
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_offer__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "Người theo dõi (Channels)"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_cell__message_partner_ids
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_offer__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Người theo dõi (Partners)"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_cell__id
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_offer__id
+msgid "ID"
+msgstr ""
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,help:openeducat_placement_enterprise.field_op_placement_cell__message_unread
+#: model:ir.model.fields,help:openeducat_placement_enterprise.field_op_placement_offer__message_unread
+msgid "If checked new messages require your attention."
+msgstr "Nếu kiểm tra tin nhắn mới đòi hỏi sự chú ý của bạn."
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,help:openeducat_placement_enterprise.field_op_placement_cell__message_needaction
+#: model:ir.model.fields,help:openeducat_placement_enterprise.field_op_placement_offer__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Nếu được chọn, các thông điệp mới đòi hỏi sự chú ý của bạn."
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,help:openeducat_placement_enterprise.field_op_placement_cell__message_has_error
+#: model:ir.model.fields,help:openeducat_placement_enterprise.field_op_placement_offer__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Nếu được chọn, một số thông báo có một lỗi giao hàng."
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_cell__message_is_follower
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_offer__message_is_follower
+msgid "Is Follower"
+msgstr "là người theo dõi"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_cell__is_published
+msgid "Is published"
+msgstr "Được công bố"
+
+#. module: openeducat_placement_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_placement_enterprise.view_op_placement_offer_form
+#: selection:op.placement.offer,state:0
+msgid "Join"
+msgstr "Tham gia"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_offer__join_date
+msgid "Join Date"
+msgstr "Ngày tham gia"
+
+#. module: openeducat_placement_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_placement_enterprise.student_portal_placement_offers
+msgid "Join date"
+msgstr "Ngày tham gia"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_cell____last_update
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_offer____last_update
+msgid "Last Modified on"
+msgstr "Sửa đổi lần cuối trên"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_cell__write_uid
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_offer__write_uid
+msgid "Last Updated by"
+msgstr "Cập nhật lần cuối bởi"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_cell__write_date
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_offer__write_date
+msgid "Last Updated on"
+msgstr "Cập nhật lần cuối vào"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_cell__message_main_attachment_id
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_offer__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Đính kèm chính"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_cell__message_has_error
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_offer__message_has_error
+msgid "Message Delivery error"
+msgstr "thông báo lỗi giao hàng"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_cell__message_ids
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_offer__message_ids
+msgid "Messages"
+msgstr "Tin nhắn"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_cell__message_needaction_counter
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_offer__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Số Actions"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_cell__message_has_error_counter
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_offer__message_has_error_counter
+msgid "Number of error"
+msgstr "Số lỗi"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,help:openeducat_placement_enterprise.field_op_placement_cell__message_needaction_counter
+#: model:ir.model.fields,help:openeducat_placement_enterprise.field_op_placement_offer__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Số lượng tin nhắn mà đòi hỏi phải có một hành động"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,help:openeducat_placement_enterprise.field_op_placement_cell__message_has_error_counter
+#: model:ir.model.fields,help:openeducat_placement_enterprise.field_op_placement_offer__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Số lượng tin nhắn với lỗi giao hàng"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,help:openeducat_placement_enterprise.field_op_placement_cell__message_unread_counter
+#: model:ir.model.fields,help:openeducat_placement_enterprise.field_op_placement_offer__message_unread_counter
+msgid "Number of unread messages"
+msgstr "Số tin nhắn chưa đọc"
+
+#. module: openeducat_placement_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_placement_enterprise.view_op_placement_offer_form
+#: selection:op.placement.offer,state:0
+msgid "Offer"
+msgstr "Phục vụ"
+
+#. module: openeducat_placement_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_placement_enterprise.student_portal_placement_offers
+msgid "Offer Package"
+msgstr "Cung cấp trọn gói"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_offer__offer_package
+msgid "Offered Package"
+msgstr "gói được cung cấp"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.ui.menu,name:openeducat_placement_enterprise.menu_placement_main
+msgid "Placement"
+msgstr "Vị trí"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.actions.act_window,name:openeducat_placement_enterprise.act_open_op_placement_cell_view
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_cell__name
+#: model_terms:ir.ui.view,arch_db:openeducat_placement_enterprise.view_op_placement_cell_form
+#: model_terms:ir.ui.view,arch_db:openeducat_placement_enterprise.view_op_placement_cell_search
+#: model_terms:ir.ui.view,arch_db:openeducat_placement_enterprise.view_op_placement_cell_tree
+msgid "Placement Cell Team"
+msgstr "Đội vị trí di động"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_student__placement_line
+msgid "Placement Details"
+msgstr "Thông tin chi tiết Vị trí"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model,name:openeducat_placement_enterprise.model_op_placement_offer
+#: model_terms:ir.ui.view,arch_db:openeducat_placement_enterprise.view_op_placement_offer_form
+#: model_terms:ir.ui.view,arch_db:openeducat_placement_enterprise.view_op_placement_offer_search
+#: model_terms:ir.ui.view,arch_db:openeducat_placement_enterprise.view_op_placement_offer_tree
+msgid "Placement Offer"
+msgstr "Cung cấp vị trí"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.actions.act_window,name:openeducat_placement_enterprise.act_open_op_placement_offer_view
+#: model:ir.ui.menu,name:openeducat_placement_enterprise.menu_op_placement_offer
+#: model_terms:ir.ui.view,arch_db:openeducat_placement_enterprise.placement_student_form_view
+msgid "Placement Offers"
+msgstr "Chào Placement"
+
+#. module: openeducat_placement_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_placement_enterprise.student_portal_placement_offers
+msgid "Placement Offers\n"
+"                                <span style=\"float:left;padding: 0 20px 0 20px;\">+</span>"
+msgstr "Chào Placement\n"
+"                                <span style=\"float:left;padding: 0 20px 0 20px;\">+</span>"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_res_users__placement_team_id
+msgid "Placement Team Members"
+msgstr "Vị trí Đội bóng thành viên"
+
+#. module: openeducat_placement_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_placement_enterprise.view_op_placement_offer_form
+msgid "Reject"
+msgstr "Từ chối"
+
+#. module: openeducat_placement_enterprise
+#: selection:op.placement.offer,state:0
+msgid "Rejected"
+msgstr "Từ chối"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,help:openeducat_placement_enterprise.field_op_placement_cell__website_id
+msgid "Restrict publishing to this website."
+msgstr "Hạn chế xuất bản vào trang web này."
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_cell__is_seo_optimized
+msgid "SEO optimized"
+msgstr "SEO tối ưu hóa"
+
+#. module: openeducat_placement_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_placement_enterprise.view_op_placement_offer_form
+msgid "Set to Draft"
+msgstr "Set để Dự thảo"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_offer__state
+#: model_terms:ir.ui.view,arch_db:openeducat_placement_enterprise.student_portal_placement_offers
+msgid "State"
+msgstr "Tiểu bang"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model,name:openeducat_placement_enterprise.model_op_student
+msgid "Student"
+msgstr "Sinh viên"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_offer__student_id
+#: model_terms:ir.ui.view,arch_db:openeducat_placement_enterprise.view_op_placement_offer_form
+msgid "Student Name"
+msgstr "Tên học sinh"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.ui.menu,name:openeducat_placement_enterprise.menu_placement_cell
+msgid "Team"
+msgstr "Đội"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_cell__user_id
+msgid "Team Leader"
+msgstr "trưởng nhóm"
+
+#. module: openeducat_placement_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_placement_enterprise.view_op_placement_cell_form
+msgid "Team Members"
+msgstr "Thành viên của nhóm"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,help:openeducat_placement_enterprise.field_op_placement_cell__website_url
+msgid "The full URL to access the document through the website."
+msgstr "URL đầy đủ để truy cập tài liệu thông qua các trang web."
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_offer__training_period
+#: model_terms:ir.ui.view,arch_db:openeducat_placement_enterprise.student_portal_placement_offers
+msgid "Training Period"
+msgstr "Thời gian luyện tập"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_cell__message_unread
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_offer__message_unread
+msgid "Unread Messages"
+msgstr "Tin nhắn chưa đọc"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_cell__message_unread_counter
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_offer__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Tin nhắn chưa đọc Counter"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model,name:openeducat_placement_enterprise.model_res_users
+msgid "Users"
+msgstr "Người dùng"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_cell__website_published
+msgid "Visible on current website"
+msgstr "Visible trên trang web hiện tại"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_cell__website_id
+msgid "Website"
+msgstr "Trang mạng"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_cell__website_message_ids
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_offer__website_message_ids
+msgid "Website Messages"
+msgstr "Tin nhắn của trang web"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_cell__website_url
+msgid "Website URL"
+msgstr "website URL"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,help:openeducat_placement_enterprise.field_op_placement_cell__website_message_ids
+#: model:ir.model.fields,help:openeducat_placement_enterprise.field_op_placement_offer__website_message_ids
+msgid "Website communication history"
+msgstr "lịch sử truyền thông website"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_cell__website_meta_description
+msgid "Website meta description"
+msgstr "Trang web mô tả meta"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_cell__website_meta_keywords
+msgid "Website meta keywords"
+msgstr "từ khóa website meta"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_cell__website_meta_title
+msgid "Website meta title"
+msgstr "Website tiêu đề meta"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model.fields,field_description:openeducat_placement_enterprise.field_op_placement_cell__website_meta_og_img
+msgid "Website opengraph image"
+msgstr "hình ảnh opengraph website"
+
+#. module: openeducat_placement_enterprise
+#: model:ir.model,name:openeducat_placement_enterprise.model_op_placement_cell
+msgid "op.placement.cell"
+msgstr ""

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="view_op_tree_onboarding_timetable" model="ir.ui.view">
+            <field name="name">op.timetable.onboard</field>
+            <field name="model">op.session</field>
+            <field name="inherit_id" ref="openeducat_timetable.view_session_kanban"/>
+            <field name="arch" type="xml">
+                <xpath expr="//kanban" position="attributes">
+                    <attribute name="banner_route">/openeducat_timetable_enterprise/openeducat_timing_onboarding_panel
+                    </attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_op_timetable_inherited_form_view" model="ir.ui.view">
+            <field name="name">op.timetable.inherited.form</field>
+            <field name="model">op.session</field>
+            <field name="inherit_id" ref="openeducat_timetable.view_op_session_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='button_box']" position="inside">
+                    <button class="btn oe_stat_button"
+                            type="object"
+                            name="get_student"
+                            style="border-right: 1px solid;"
+                            icon="fa-users">
+                        <field string="Students" name="student_count" widget="statinfo"/>
+                    </button>
+                </xpath>
+                <xpath expr="//field[@name='end_datetime']" position="after">
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_op_timetable_inherited_tree_view" model="ir.ui.view">
+            <field name="name">op.timetable.inherited.tree</field>
+            <field name="model">op.session</field>
+            <field name="inherit_id" ref="openeducat_timetable.view_op_session_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='state']" position="after">
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_op_timetable_inherited_search_view" model="ir.ui.view">
+            <field name="name">op.timetable.inherited.search</field>
+            <field name="model">op.session</field>
+            <field name="inherit_id" ref="openeducat_timetable.view_op_session_search"/>
+            <field name="arch" type="xml">
+                <xpath expr="." position="inside">
+                    <searchpanel>
+                        <field name="faculty_id" icon="fa fa-users"/>
+                        <field name="subject_id" icon="fa fa-book"/>
+                    </searchpanel>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Dashboard Action -->
+        <record model="ir.actions.act_window" id="act_dashboard_op_timetable_view">
+            <field name="name">Sessions</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.session</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">kanban,calendar</field>
+            <field name="search_view_id" ref="openeducat_timetable.view_op_session_search"/>
+            <field name="domain">[('batch_id','in',[active_id]),('start_datetime','&gt;=',time.strftime('%Y-%m-%d')),
+                ('start_datetime','&lt;=',time.strftime('%Y-%m-%d'))]
+            </field>
+        </record>
+
+        <!-- Main Dashboard Action -->
+        <record model="ir.actions.act_window" id="act_main_dashboard_op_timetable_view">
+            <field name="name">Sessions</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.session</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">kanban,calendar</field>
+            <field name="search_view_id" ref="openeducat_timetable.view_op_session_search"/>
+            <field name="domain">[('batch_id','in',[active_id]),('start_datetime','&gt;=',time.strftime('%Y-%m-%d
+                00:00:00')),('start_datetime','&lt;=',time.strftime('%Y-%m-%d 23:59:59'))]
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_session_analysis_pivot_view">
+            <field name="name">Timetable Analysis</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.session</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_id" ref="openeducat_timetable.view_op_session_pivot"/>
+            <field name="view_mode">pivot</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+        <record id="op_session_analysis_pivot_view" model="ir.actions.act_window.view">
+            <field name="view_mode">pivot</field>
+            <field name="view_id" ref="openeducat_timetable.view_op_session_pivot"/>
+            <field name="act_window_id" ref="act_session_analysis_pivot_view"/>
+        </record>
+
+</odoo>

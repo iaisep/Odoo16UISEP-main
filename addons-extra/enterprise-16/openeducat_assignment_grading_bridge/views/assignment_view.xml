@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="view_op_assignment_inherited_form_view_grading_bridge" model="ir.ui.view">
+            <field name="name">op.assignment.inherited.form</field>
+            <field name="model">op.assignment</field>
+            <field name="priority">100</field>
+            <field name="inherit_id" ref="openeducat_assignment.view_op_assignment_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header" position="inside">
+                    <button name="update_mark" type="object" class="btn btn-primary" string="Update Grades"
+                    attrs="{'invisible':[('state', '!=', 'publish')]}"/>
+                </xpath>
+                <xpath expr="//field[@name='assignment_type']" position="after">
+                    <field name="grading_assignment_id" required="0"/>
+                </xpath>
+                <xpath expr="//field[@name='attempt_type']" position="after">
+                    <field name="attempt" attrs="{'required':[('attempt_type', '=', 'multiple')],
+                    'invisible': [('attempt_type', '=', 'single')]}"/>
+                </xpath>
+                <xpath expr="//group[@name='i_date']" position="after">
+                    <group>
+                        <field name="grade" required="0"/>
+                    </group>
+                </xpath>
+                <xpath expr="//field[@name='assignment_type']" position="replace">
+                    <field name="assignment_type"/>
+                </xpath>
+                <xpath expr="//field[@name='marks']" position="replace">
+                    <field name="marks" required="0" invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='point']" position="attributes">
+                    <attribute name="invisible">0</attribute>
+                </xpath>
+                <xpath expr="//group[@id='mark']" position="inside">
+                    <field name="hide" invisible="1"/>
+                </xpath>
+                <xpath expr="//group[@id='mark']" position="attributes">
+                    <attribute name="col">4</attribute>
+                    <attribute name="colspan">4</attribute>
+                    <attribute name="attrs">{'invisible': [('hide', '=', True)]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='reviewer']" position="after">
+                    <field name="late_submission_id"/>
+                    <field name="mark_update" invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='assignment_sub_line']/tree" position="inside">
+                    <field name="late_submit"/>
+                    <field name="penalty"/>
+                    <field name="obtained_mark"/>
+                </xpath>
+                <xpath expr="//notebook/page/field/tree/field[@name='obtained_mark']" position="after">
+                    <button name="clear_attempt" type="object" class="oe_highlight"
+                            string="Clear Attempt"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_op_assignment_inherited_tree_view_grading_bridge" model="ir.ui.view">
+            <field name="name">op.assignment.inherited.tree</field>
+            <field name="model">op.assignment</field>
+            <field name="priority">100</field>
+            <field name="inherit_id" ref="openeducat_assignment.view_op_assignment_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='assignment_type']" position="replace">
+                    <field name="assignment_type"/>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record id="view_assignment_sub_inherited_form_view_grading_bridge" model="ir.ui.view">
+            <field name="name">op.assignment.sub.line.inherited.form</field>
+            <field name="model">op.assignment.sub.line</field>
+            <field name="inherit_id" ref="openeducat_assignment.view_op_assignment_sub_line_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='marks']" position="after">
+                    <field name="late_submit"/>
+                </xpath>
+                <xpath expr="//field[@name='submission_date']" position="after">
+                    <field name="penalty"/>
+                    <field name="obtained_mark"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_assignment_sub_inherited_tree_view_grading_bridge" model="ir.ui.view">
+            <field name="name">op.assignment.sub.line.inherited.tree</field>
+            <field name="model">op.assignment.sub.line</field>
+            <field name="inherit_id" ref="openeducat_assignment.view_op_assignment_sub_line_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='submission_date']" position="after">
+                    <field name="obtained_mark"/>
+                    <field name="late_submit"/>
+                </xpath>
+            </field>
+        </record>
+
+</odoo>

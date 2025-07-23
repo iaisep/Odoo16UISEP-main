@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <menuitem id="menu_activity_announcement"
+                name="Announcement"
+                parent="openeducat_placement_enterprise.menu_placement_main"
+                sequence="10"
+                action="act_open_activity_announcement_view"
+                groups="openeducat_core.group_op_back_office_admin"/>
+
+    <!-- Website Views -->
+    <record id="website_menu_activity_announcement_view" model="website.menu">
+        <field name="name">Campus Activities</field>
+        <field name="url">/website/activity/announcement</field>
+        <field name="parent_id" ref="website.main_menu"/>
+    </record>
+</odoo>

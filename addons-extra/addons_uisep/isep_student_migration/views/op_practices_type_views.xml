@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="op_practices_type_view_tree" model="ir.ui.view">
+        <field name="name">op.practices.type.view.tree</field>
+        <field name="model">op.practices.type</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="op_practices_type_view_form" model="ir.ui.view">
+        <field name="name">op.practices.type.view.form</field>
+        <field name="model">op.practices.type</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="op_practices_type_action" model="ir.actions.act_window">
+        <field name="name">Tipo de prácticas</field>
+        <field name="res_model">op.practices.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="op_practices_type_menu"
+              name="Tipo de prácticas"
+              action="op_practices_type_action"
+              sequence="90"
+              parent="openeducat_core.menu_op_school_config_general"
+              groups="openeducat_core.group_op_back_office_admin"/>
+</odoo>

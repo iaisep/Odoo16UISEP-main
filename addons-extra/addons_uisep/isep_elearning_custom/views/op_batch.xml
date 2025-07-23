@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="custom_op_batch_subject_form" model="ir.ui.view">
+            <field name="name">custom_op_batch_subject_form</field>
+            <field name="model">op.batch</field>
+            <field name="inherit_id" ref="openeducat_core.view_op_batch_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//sheet/group[last()]" position="after">
+                    <notebook>
+                        <page string="Programar Asignaturas" name="pro_subject">
+                                <field name="subject_to_batch_ids" nolabel="1" readonly="0">
+                                    <tree name="Details" editable="bottom">
+                                        <field name="subject_id" readonly="1"/>
+                                        <field name="code" readonly="1"/>
+                                        <field name="date_from" />
+                                        <field name="date_to" />
+                                    </tree>
+                                </field>
+                            </page>
+                    </notebook>
+                </xpath>
+
+            </field>
+        </record>
+
+        
+    </data>
+</odoo>
+
+
+ 

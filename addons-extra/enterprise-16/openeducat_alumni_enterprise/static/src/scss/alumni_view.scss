@@ -1,0 +1,277 @@
+#breadcrumbs{
+ul.breadcrumb {
+  list-style: none;
+  background-color: unset;
+}
+
+ul.breadcrumb li {
+  display: inline;
+  font-size: 14px;
+  color: theme-color('epsilon');
+}
+
+ul.breadcrumb li+li:before {
+  padding: 8px;
+  color: theme-color('epsilon');
+  content: "/\00a0";
+}
+
+ul.breadcrumb li a {
+  color: theme-color('epsilon');
+  text-decoration: none;
+  font-weight: normal;
+}
+
+ul.breadcrumb li a:hover {
+  color: theme-color('delta');
+  text-decoration: none;
+}
+}
+
+@media(max-width: 440px){
+    #breadcrumbs{
+        display: none;
+    }
+}
+
+.alumni-title{
+
+.overlay {
+        background: map-get($theme-colors, 'secondary') none repeat 0 0;
+        content: "";
+        height: 100%;
+        left: 0;
+        opacity: 0.5;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+}
+
+.btn:focus, .btn.focus {
+    outline: 0;
+    box-shadow: unset;
+}
+
+#alumni_view{
+
+    .card{
+        box-shadow: 0 8px 6px -6px #a7a7a7;
+        border-radius: 0;
+    }
+
+    .content-ellipsis{
+        //color: #666666;
+        height: 40px;
+        display: -webkit-box;
+        max-width: 100%;
+        margin: 0 auto;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+#alumni_detail_view{
+
+    .alumni_dec p{
+        font-size: 16px;
+        //color: #666666;
+    }
+
+    #student_data{
+       .card{
+            background: map-get($theme-colors, 'secondary');
+            box-shadow: 0 8px 6px -6px #a7a7a7;
+            border-radius: 0;
+            border: 1px solid #ccc;
+        }
+
+       .card-body{
+            background-color: #ffffff !important;
+            border-bottom-left-radius: 0 !important;
+            border-bottom-right-radius: 0 !important;
+       }
+
+       img.o_forum_avatar {
+            width: 70px;
+            height: 70px;
+            padding: 5px;
+            object-fit: cover;
+       }
+
+       .student_name{
+            color: map-get($theme-colors, 'primary');
+            font-weight: bold;
+            font-size: 18px;
+       }
+    }
+}
+
+#event_view{
+    .event-box{
+        -webkit-box-shadow: 1px 1px 5px 0px #d4d4d4;
+        box-shadow: 1px 1px 5px 0px #d4d4d4;
+        border: 1px solid #dedede;
+        min-height: 113px;
+    }
+
+    .evnt-dt{
+        font-size: 36px;
+        line-height: 1;
+        color: #002147;
+    }
+
+    .evnt-mt{
+        font-size: 15px;
+        font-weight: bold;
+        line-height: initial;
+        color: map-get($theme-colors, 'secondary');
+    }
+
+    .evnt-tm{
+        font-size: 16px;
+        margin-top: 5px;
+        font-weight: bold;
+        color: map-get($theme-colors, 'secondary');
+        bottom: 6px;
+        position: absolute;
+        left: 0;
+        right: 0;
+    }
+
+    .event-name a{
+        font-size: 19px;
+        color: map-get($theme-colors, 'secondary');
+        margin-bottom: 10px;
+    }
+
+    .event-org{
+        margin-bottom: 5px;
+        i{
+            font-size: 18px;
+            margin-right: 5px;
+        }
+        span{
+            color: theme-color('epsilon');
+        }
+    }
+
+    .event-loc{
+        .fa-fw {
+            width: auto;
+            text-align: left;
+            font-size: 18px;
+            margin-right: 11px;
+        }
+        span{
+            color: theme-color('epsilon');
+        }
+    }
+
+    .content_ellipsis{
+        display: block;
+        display: -webkit-box;
+        max-width: 100%;
+        margin: 0 auto;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    #middle_column{
+        overflow: hidden;
+        max-height: 435px;
+    }
+
+    @media(max-width: 425px){
+       #middle_column{
+            max-height: 470px;
+        }
+    }
+
+    @media(max-width: 320px){
+       #middle_column{
+            max-height: 525px;
+        }
+    }
+}
+
+.event-item{
+        padding-top: 64px;
+        padding-bottom: 64px;
+    }
+
+    @media(max-width: 768px){
+       .event-item{
+            padding-bottom: 0;
+        }
+    }
+
+#blog_view{
+    .blog-box{
+        -webkit-box-shadow: 1px 1px 5px 0px #d4d4d4;
+        box-shadow: 1px 1px 5px 0px #d4d4d4;
+        border: 1px solid #dedede;
+        min-height: 113px;
+    }
+
+    .blog-dt{
+        font-size: 36px;
+        line-height: initial;
+        color: map-get($theme-colors, 'primary');
+        margin-bottom: 5px;
+    }
+
+    .blog-mt{
+        font-size: 16px;
+        font-weight: bold;
+        line-height: initial;
+        color: map-get($theme-colors, 'primary');
+    }
+
+    .blog-name a{
+        font-size: 19px;
+        color: map-get($theme-colors, 'secondary');
+        margin-bottom: 10px;
+    }
+
+    .blog-id span{
+        color: theme-color('epsilon');
+    }
+
+    .blog-overflow{
+        overflow: hidden;
+        max-height: 435px;
+    }
+
+    .blog-item{
+        padding-top: 64px;
+        padding-bottom: 64px;
+    }
+
+    .content_ellipsis{
+        display: block;
+        display: -webkit-box;
+        max-width: 100%;
+        max-height:50px;
+        margin: 0 auto;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    @media(max-width: 425px){
+       .content_ellipsis{
+            -webkit-line-clamp: 1;
+       }
+    }
+}
+
+.blog-item{
+        padding-top: 64px;
+        padding-bottom: 64px;
+    }

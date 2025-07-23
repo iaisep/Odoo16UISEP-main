@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t t-inherit="mail.CallSettingsMenu" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('o_CallSettingsMenu_category')]" position="inside">
+            <div class="o_RtcConfigurationMenu_option">
+                <label class="o_RtcConfigurationMenu_optionLabel" title="Screen Share Disable" aria-label="Screen Share Disable">
+                    <span class="o_RtcConfigurationMenu_optionName">Screen Share Disable
+                        <input type="checkbox" id="checked" name="screenShare" value="screenShare" t-on-change="_hidescreenshare" t-att-checked="!messaging.rtc.currentRtcSession.isScreenShow ? 'checked' : ''"/>
+                    </span>
+                </label>
+            </div>
+        </xpath>
+    </t>
+</templates>

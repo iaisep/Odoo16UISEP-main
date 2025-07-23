@@ -1,0 +1,821 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="op_qz_ln_01" model="op.quiz.line">
+            <field name="name">Who was the first man to fly into space ?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="quiz_id" ref="op_qz_1"/>
+            <field name="que_id" ref="op_c_q01"/>
+        </record>
+
+        <record id="op_qz_ln_01_c_q01_a01" model="op.quiz.answer">
+            <field name="name">Yuri Gagarin (Russia)</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln_01"/>
+        </record>
+
+        <record id="op_qz_ln_01_c_q01_a02" model="op.quiz.answer">
+            <field name="name">Rakesh Sharma (India)</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln_01"/>
+        </record>
+
+        <record id="op_qz_ln_01_c_q01_a03" model="op.quiz.answer">
+            <field name="name">Neil Alden Armstrong (U.S.A)</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="line_id" ref="op_qz_ln_01"/>
+        </record>
+
+        <record id="op_qz_ln_01_c_q01_a04" model="op.quiz.answer">
+            <field name="name">Michael Collins (U.S.A)</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln_01"/>
+        </record>
+
+
+        <record id="op_qz_ln_02" model="op.quiz.line">
+            <field name="name">GPS is space based satellite navigation system. GPS stands for</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="quiz_id" ref="op_qz_1"/>
+            <field name="que_id" ref="op_c_q02"/>
+        </record>
+
+        <record id="op_qz_ln_02_c_q02_a01" model="op.quiz.answer">
+            <field name="name">Global positioning system</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="line_id" ref="op_qz_ln_02"/>
+        </record>
+
+        <record id="op_qz_ln_02_c_q02_a02" model="op.quiz.answer">
+            <field name="name">Global pointer satellite</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln_02"/>
+        </record>
+
+        <record id="op_qz_ln_02_c_q02_a03" model="op.quiz.answer">
+            <field name="name">General positioning system</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln_02"/>
+        </record>
+
+        <record id="op_qz_ln_02_c_q02_a04" model="op.quiz.answer">
+            <field name="name">General purpose satellite system</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln_02"/>
+        </record>
+
+
+        <record id="op_qz_ln_03" model="op.quiz.line">
+            <field name="name">ISRO stands for</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="quiz_id" ref="op_qz_1"/>
+            <field name="que_id" ref="op_c_q03"/>
+        </record>
+
+        <record id="op_qz_ln_03_gk_q01_a01" model="op.quiz.answer">
+            <field name="name">Indian Space Research Organisation</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="line_id" ref="op_qz_ln_03"/>
+        </record>
+
+        <record id="op_qz_ln_03_gk_q01_a02" model="op.quiz.answer">
+            <field name="name">International Space Research Organisation</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln_03"/>
+        </record>
+
+        <record id="op_qz_ln_03_gk_q01_a03" model="op.quiz.answer">
+            <field name="name">International Special Research Organisation</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln_03"/>
+        </record>
+
+        <record id="op_qz_ln_03_gk_q01_a04" model="op.quiz.answer">
+            <field name="name">Indian Software Research Organisation</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln_03"/>
+        </record>
+
+
+        <record id="op_qz_ln_04" model="op.quiz.line">
+            <field name="name">Telephone was invented by</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="quiz_id" ref="op_qz_1"/>
+            <field name="que_id" ref="op_c_q04"/>
+        </record>
+
+        <record id="op_qz_ln_04_gk_q02_a01" model="op.quiz.answer">
+            <field name="name">Alexander Graham Bell</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="line_id" ref="op_qz_ln_04"/>
+        </record>
+
+        <record id="op_qz_ln_04_gk_q02_a02" model="op.quiz.answer">
+            <field name="name">Nikolay Benardos</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln_04"/>
+        </record>
+
+        <record id="op_qz_ln_04_gk_q02_a03" model="op.quiz.answer">
+            <field name="name">Isaac Newton</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln_04"/>
+        </record>
+
+        <record id="op_qz_ln_04_gk_q02_a04" model="op.quiz.answer">
+            <field name="name">Francis Beaufort</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln_04"/>
+        </record>
+
+
+        <record id="op_qz_ln_05" model="op.quiz.line">
+            <field name="name">The world’s first intercity rail line was between</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="quiz_id" ref="op_qz_1"/>
+            <field name="que_id" ref="op_c_q05"/>
+        </record>
+
+        <record id="op_qz_ln_05_math_q01_a01" model="op.quiz.answer">
+            <field name="name">Liverpool and Manchester</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="line_id" ref="op_qz_ln_05"/>
+        </record>
+
+        <record id="op_qz_ln_05_math_q01_a02" model="op.quiz.answer">
+            <field name="name">Washington and New York</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln_05"/>
+        </record>
+
+        <record id="op_qz_ln_05_math_q01_a03" model="op.quiz.answer">
+            <field name="name">Moscow and St Petersburg</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln_05"/>
+        </record>
+
+        <record id="op_qz_ln_05_math_q01_a04" model="op.quiz.answer">
+            <field name="name">Rome and Naples</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln_05"/>
+        </record>
+
+
+        <record id="op_qz_ln_06" model="op.quiz.line">
+            <field name="name">FIFA is responsible for the organization of which of these sports event</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="quiz_id" ref="op_qz_1"/>
+            <field name="que_id" ref="op_c_q06"/>
+        </record>
+
+        <record id="op_qz_ln_06_math_q02_a01" model="op.quiz.answer">
+            <field name="name">Cricket world cup</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln_06"/>
+        </record>
+
+        <record id="op_qz_ln_06_math_q02_a02" model="op.quiz.answer">
+            <field name="name">Hockey world cup</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln_06"/>
+        </record>
+
+        <record id="op_qz_ln_06_math_q02_a03" model="op.quiz.answer">
+            <field name="name">Football world cup</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="line_id" ref="op_qz_ln_06"/>
+        </record>
+
+        <record id="op_qz_ln_06_math_q02_a04" model="op.quiz.answer">
+            <field name="name">Olympic games</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln_06"/>
+        </record>
+
+        <record id="op_qz_ln_07" model="op.quiz.line">
+            <field name="name">Which of these is the international governing body of cricket.</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="quiz_id" ref="op_qz_1"/>
+            <field name="que_id" ref="op_c_q07"/>
+        </record>
+
+        <record id="op_qz_ln_07_sci_q09_a01" model="op.quiz.answer">
+            <field name="name">BCCI</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln_07"/>
+        </record>
+
+        <record id="op_qz_ln_07_sci_q09_a02" model="op.quiz.answer">
+            <field name="name">ICC</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="line_id" ref="op_qz_ln_07"/>
+        </record>
+
+        <record id="op_qz_ln_07_sci_q09_a03" model="op.quiz.answer">
+            <field name="name">PCA</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln_07"/>
+        </record>
+
+        <record id="op_qz_ln_07_sci_q09_a04" model="op.quiz.answer">
+            <field name="name">FIFA</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln_07"/>
+        </record>
+
+
+        <record id="op_qz_ln_08" model="op.quiz.line">
+            <field name="name">The first Atomic bomb was dropped on which city</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="quiz_id" ref="op_qz_1"/>
+            <field name="que_id" ref="op_c_q08"/>
+        </record>
+
+        <record id="op_qz_ln_08_sci_q10_a01" model="op.quiz.answer">
+            <field name="name">Hiroshima</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="line_id" ref="op_qz_ln_08"/>
+        </record>
+
+        <record id="op_qz_ln_08_sci_q10_a02" model="op.quiz.answer">
+            <field name="name">Nagasaki</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln_08"/>
+        </record>
+
+        <record id="op_qz_ln_08_sci_q10_a03" model="op.quiz.answer">
+            <field name="name">Both</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln_08"/>
+        </record>
+
+        <record id="op_qz_ln_08_sci_q10_a04" model="op.quiz.answer">
+            <field name="name">None of these.</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln_08"/>
+        </record>
+
+
+        <record id="op_qz_ln_09" model="op.quiz.line">
+            <field name="name">For which of the following disciplines is Nobel Prize awarded?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="quiz_id" ref="op_qz_1"/>
+            <field name="que_id" ref="op_c_q09"/>
+        </record>
+
+        <record id="op_qz_ln_09_cpp_q01_a01" model="op.quiz.answer">
+            <field name="name">Literature, Peace and Economics</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln_09"/>
+        </record>
+
+        <record id="op_qz_ln_09_cpp_q01_a02" model="op.quiz.answer">
+            <field name="name">Physics and Chemistry</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln_09"/>
+        </record>
+
+        <record id="op_qz_ln_09_cpp_q01_a03" model="op.quiz.answer">
+            <field name="name">Physiology or Medicine</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln_09"/>
+        </record>
+
+        <record id="op_qz_ln_09_cpp_q01_a04" model="op.quiz.answer">
+            <field name="name">All of the above</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="line_id" ref="op_qz_ln_09"/>
+        </record>
+
+
+        <record id="op_qz_ln_10" model="op.quiz.line">
+            <field name="name">Who is the first Asian Winner of Nobel Prize?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="quiz_id" ref="op_qz_1"/>
+            <field name="que_id" ref="op_c_q10"/>
+        </record>
+
+        <record id="op_qz_ln_10_cpp_q02_a01" model="op.quiz.answer">
+            <field name="name">C. V. Raman</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln_10"/>
+        </record>
+
+        <record id="op_qz_ln_10_cpp_q02_a02" model="op.quiz.answer">
+            <field name="name">Rajiv Gandhi</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln_10"/>
+        </record>
+
+        <record id="op_qz_ln_10_cpp_q02_a03" model="op.quiz.answer">
+            <field name="name">Rabindranath Tagore</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="line_id" ref="op_qz_ln_10"/>
+        </record>
+
+        <record id="op_qz_ln_10_cpp_q02_a04" model="op.quiz.answer">
+            <field name="name">Mother Teresa</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln_10"/>
+        </record>
+
+
+        <record id="op_qz_ln2_01" model="op.quiz.line">
+            <field name="name">Which is the largest land animal in the world?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="quiz_id" ref="op_qz_2"/>
+            <field name="que_id" ref="op_gk_q01"/>
+        </record>
+
+        <record id="op_qz_ln2_01_gk_q01_a01" model="op.quiz.answer">
+            <field name="name">Elephant</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="line_id" ref="op_qz_ln2_01"/>
+        </record>
+
+        <record id="op_qz_ln2_01_gk_q01_a02" model="op.quiz.answer">
+            <field name="name">Giraffe</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln2_01"/>
+        </record>
+
+        <record id="op_qz_ln2_01_gk_q01_a03" model="op.quiz.answer">
+            <field name="name">Camel</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln2_01"/>
+        </record>
+
+        <record id="op_qz_ln2_01_gk_q01_a04" model="op.quiz.answer">
+            <field name="name">Hippo</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln2_01"/>
+        </record>
+
+
+        <record id="op_qz_ln2_02" model="op.quiz.line">
+            <field name="name">Which is the highest mountain peak in the world?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="quiz_id" ref="op_qz_2"/>
+            <field name="que_id" ref="op_gk_q02"/>
+        </record>
+
+        <record id="op_qz_ln2_02_gk_q02_a01" model="op.quiz.answer">
+            <field name="name">K2</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln2_02"/>
+        </record>
+
+        <record id="op_qz_ln2_02_gk_q02_a02" model="op.quiz.answer">
+            <field name="name">Kanchenjunga</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln2_02"/>
+        </record>
+
+        <record id="op_qz_ln2_02_gk_q02_a03" model="op.quiz.answer">
+            <field name="name">Mount Everest</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="line_id" ref="op_qz_ln2_02"/>
+        </record>
+
+        <record id="op_qz_ln2_02_gk_q02_a04" model="op.quiz.answer">
+            <field name="name">Lhotse</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln2_02"/>
+        </record>
+
+
+        <record id="op_qz_ln2_03" model="op.quiz.line">
+            <field name="name">Which is the largest continent by Area?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="quiz_id" ref="op_qz_2"/>
+            <field name="que_id" ref="op_gk_q03"/>
+        </record>
+
+        <record id="op_qz_ln2_03_gk_q03_a01" model="op.quiz.answer">
+            <field name="name">Africa</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln2_03"/>
+        </record>
+
+        <record id="op_qz_ln2_03_gk_q03_a02" model="op.quiz.answer">
+            <field name="name">Asia</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="line_id" ref="op_qz_ln2_03"/>
+        </record>
+
+        <record id="op_qz_ln2_03_gk_q03_a03" model="op.quiz.answer">
+            <field name="name">Europe</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln2_03"/>
+        </record>
+
+        <record id="op_qz_ln2_03_gk_q03_a04" model="op.quiz.answer">
+            <field name="name">North America</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln2_03"/>
+        </record>
+
+
+        <record id="op_qz_ln2_04" model="op.quiz.line">
+            <field name="name">Which country has the highest population?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="quiz_id" ref="op_qz_2"/>
+            <field name="que_id" ref="op_gk_q04"/>
+        </record>
+
+        <record id="op_qz_ln2_04_gk_q04_a01" model="op.quiz.answer">
+            <field name="name">India</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln2_04"/>
+        </record>
+
+        <record id="op_qz_ln2_04_gk_q04_a02" model="op.quiz.answer">
+            <field name="name">China</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="line_id" ref="op_qz_ln2_04"/>
+        </record>
+
+        <record id="op_qz_ln2_04_gk_q04_a03" model="op.quiz.answer">
+            <field name="name">USA</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln2_04"/>
+        </record>
+
+        <record id="op_qz_ln2_04_gk_q04_a04" model="op.quiz.answer">
+            <field name="name">Russia</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln2_04"/>
+        </record>
+
+
+        <record id="op_qz_ln2_05" model="op.quiz.line">
+            <field name="name">Which is the tallest building in the world?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="quiz_id" ref="op_qz_2"/>
+            <field name="que_id" ref="op_gk_q05"/>
+        </record>
+
+        <record id="op_qz_ln2_05_gk_q05_a01" model="op.quiz.answer">
+            <field name="name">Eiffel Tower</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln2_05"/>
+        </record>
+
+        <record id="op_qz_ln2_05_gk_q05_a02" model="op.quiz.answer">
+            <field name="name">Sanghai Tower</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln2_05"/>
+        </record>
+
+        <record id="op_qz_ln2_05_gk_q05_a03" model="op.quiz.answer">
+            <field name="name">Petronas twin towers</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln2_05"/>
+        </record>
+
+        <record id="op_qz_ln2_05_gk_q05_a04" model="op.quiz.answer">
+            <field name="name">Burj Khalifa</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="line_id" ref="op_qz_ln2_05"/>
+        </record>
+
+
+        <record id="op_qz_ln2_06" model="op.quiz.line">
+            <field name="name">Largest living creature in world?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="quiz_id" ref="op_qz_2"/>
+            <field name="que_id" ref="op_gk_q06"/>
+        </record>
+
+        <record id="op_qz_ln2_06_gk_q06_a01" model="op.quiz.answer">
+            <field name="name">Elephant</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln2_06"/>
+        </record>
+
+        <record id="op_qz_ln2_06_gk_q06_a02" model="op.quiz.answer">
+            <field name="name">Giraffe</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln2_06"/>
+        </record>
+
+        <record id="op_qz_ln2_06_gk_q06_a03" model="op.quiz.answer">
+            <field name="name">Blue Whale</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="line_id" ref="op_qz_ln2_06"/>
+        </record>
+
+        <record id="op_qz_ln2_06_gk_q06_a04" model="op.quiz.answer">
+            <field name="name">Camel</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln2_06"/>
+        </record>
+
+
+        <record id="op_qz_ln2_07" model="op.quiz.line">
+            <field name="name">Which is the largest bird in the world?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="quiz_id" ref="op_qz_2"/>
+            <field name="que_id" ref="op_gk_q07"/>
+        </record>
+
+        <record id="op_qz_ln2_07_gk_q09_a01" model="op.quiz.answer">
+            <field name="name">Emu</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln2_07"/>
+        </record>
+
+        <record id="op_qz_ln2_07_gk_q09_a02" model="op.quiz.answer">
+            <field name="name">Northern cassowary</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln2_07"/>
+        </record>
+
+        <record id="op_qz_ln2_07_gk_q09_a03" model="op.quiz.answer">
+            <field name="name">Southern cassowary</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln2_07"/>
+        </record>
+
+        <record id="op_qz_ln2_07_gk_q09_a04" model="op.quiz.answer">
+            <field name="name">Ostrich</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="line_id" ref="op_qz_ln2_07"/>
+        </record>
+
+
+        <record id="op_qz_ln2_08" model="op.quiz.line">
+            <field name="name">Which is the smallest bird in the world?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="quiz_id" ref="op_qz_2"/>
+            <field name="que_id" ref="op_gk_q08"/>
+        </record>
+
+        <record id="op_qz_ln2_08_gk_q08_a01" model="op.quiz.answer">
+            <field name="name">The Weebill</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="line_id" ref="op_qz_ln2_08"/>
+        </record>
+
+        <record id="op_qz_ln2_08_gk_q08_a02" model="op.quiz.answer">
+            <field name="name">The Pardalote</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln2_08"/>
+        </record>
+
+        <record id="op_qz_ln2_08_gk_q08_a03" model="op.quiz.answer">
+            <field name="name">The Bee hummingbird</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="line_id" ref="op_qz_ln2_08"/>
+        </record>
+
+        <record id="op_qz_ln2_08_gk_q08_a04" model="op.quiz.answer">
+            <field name="name">The Goldcrest</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln2_08"/>
+        </record>
+
+
+        <record id="op_qz_ln2_09" model="op.quiz.line">
+            <field name="name">Which planet is also known as the Red planet?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="quiz_id" ref="op_qz_2"/>
+            <field name="que_id" ref="op_gk_q09"/>
+        </record>
+
+        <record id="op_qz_ln2_09_gk_q09_a01" model="op.quiz.answer">
+            <field name="name">Mars</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="line_id" ref="op_qz_ln2_09"/>
+        </record>
+
+        <record id="op_qz_ln2_09_gk_q09_a02" model="op.quiz.answer">
+            <field name="name">Earth</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln2_09"/>
+        </record>
+
+        <record id="op_qz_ln2_09_gk_q09_a03" model="op.quiz.answer">
+            <field name="name">Jupiter</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln2_09"/>
+        </record>
+
+        <record id="op_qz_ln2_09_gk_q09_a04" model="op.quiz.answer">
+            <field name="name">Saturn</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln2_09"/>
+        </record>
+
+
+        <record id="op_qz_ln2_10" model="op.quiz.line">
+            <field name="name">Which is the smallest planet in our solar system?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="quiz_id" ref="op_qz_2"/>
+            <field name="que_id" ref="op_gk_q10"/>
+        </record>
+
+        <record id="op_qz_ln2_10_gk_q10_a01" model="op.quiz.answer">
+            <field name="name">Mercury</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln2_10"/>
+        </record>
+
+        <record id="op_qz_ln2_10_gk_q10_a02" model="op.quiz.answer">
+            <field name="name">Mars</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln2_10"/>
+        </record>
+
+        <record id="op_qz_ln2_10_gk_q10_a03" model="op.quiz.answer">
+            <field name="name">Jupitor</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln2_10"/>
+        </record>
+
+        <record id="op_qz_ln2_10_gk_q10_a04" model="op.quiz.answer">
+            <field name="name">Pluto</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="line_id" ref="op_qz_ln2_10"/>
+        </record>
+
+        <record id="op_qz_ln3_01" model="op.quiz.line">
+            <field name="name">Which is the shape mentioned in above video?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="' https://youtu.be/EOYGpHBBAr8'"/>
+            <field name="document_id">EOYGpHBBAr8</field>
+            <field name="quiz_id" ref="op_qz_3"/>
+            <field name="que_id" ref="op_sp_q01"/>
+        </record>
+
+        <record id="op_qz_ln3_01_sp_q01_a01" model="op.quiz.answer">
+            <field name="name">Circle</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln3_01"/>
+        </record>
+
+        <record id="op_qz_ln3_01_sp_q01_a02" model="op.quiz.answer">
+            <field name="name">Square</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln3_01"/>
+        </record>
+
+        <record id="op_qz_ln3_01_sp_q01_a03" model="op.quiz.answer">
+            <field name="name">Triangle</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln3_01"/>
+        </record>
+
+        <record id="op_qz_ln3_01_sp_q01_a04" model="op.quiz.answer">
+            <field name="name">Rectangle</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln3_01"/>
+        </record>
+
+        <record id="op_qz_ln3_01_sp_q01_a05" model="op.quiz.answer">
+            <field name="name">All Of Above</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="line_id" ref="op_qz_ln3_01"/>
+        </record>
+
+        <record id="op_qz_ln3_02" model="op.quiz.line">
+            <field name="name">Which is the animal mentioned in above video?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/l_nfVh5moYs'"/>
+            <field name="document_id">l_nfVh5moYs</field>
+            <field name="quiz_id" ref="op_qz_3"/>
+            <field name="que_id" ref="op_sp_q02"/>
+        </record>
+
+        <record id="op_qz_ln3_02_sp_q02_a01" model="op.quiz.answer">
+            <field name="name">Cat</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln3_02"/>
+        </record>
+
+        <record id="op_qz_ln3_02_sp_q02_a02" model="op.quiz.answer">
+            <field name="name">Dog</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="line_id" ref="op_qz_ln3_02"/>
+        </record>
+
+        <record id="op_qz_ln3_02_sp_q02_a03" model="op.quiz.answer">
+            <field name="name">Goat</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln3_02"/>
+        </record>
+
+        <record id="op_qz_ln3_02_sp_q02_a04" model="op.quiz.answer">
+            <field name="name">None</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="line_id" ref="op_qz_ln3_02"/>
+        </record>
+
+        <record id="op_qz_ln3_03" model="op.quiz.line">
+            <field name="name">Which is the bird shown in above Image?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="material_type">infographic</field>
+            <field name="datas" type="base64"
+                   file="openeducat_quiz/demo/files/Pigeon.jpg"/>
+            <field name="quiz_id" ref="op_qz_3"/>
+            <field name="que_id" ref="op_sp_q03"/>
+        </record>
+        <record id="op_qz_ln3_03_sp_q03_a01" model="op.quiz.answer">
+            <field name="name">Parrot</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln3_03"/>
+        </record>
+
+        <record id="op_qz_ln3_03_sp_q03_a02" model="op.quiz.answer">
+            <field name="name">Crow</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln3_03"/>
+        </record>
+
+        <record id="op_qz_ln3_03_sp_q03_a03" model="op.quiz.answer">
+            <field name="name">Pigeon</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="line_id" ref="op_qz_ln3_03"/>
+        </record>
+
+        <record id="op_qz_ln3_03_sp_q03_a04" model="op.quiz.answer">
+            <field name="name">Hen</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln3_03"/>
+        </record>
+
+        <record id="op_qz_ln3_04" model="op.quiz.line">
+            <field name="name">Which bird's voice in above audio?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="material_type">audio</field>
+            <field name="datas" type="base64"
+                   file="openeducat_quiz/demo/files/Birds-Sound.mp3"/>
+            <field name="quiz_id" ref="op_qz_3"/>
+            <field name="que_id" ref="op_sp_q04"/>
+        </record>
+
+        <record id="op_qz_ln3_03_sp_q04_a01" model="op.quiz.answer">
+            <field name="name">Peacock</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln3_04"/>
+        </record>
+
+        <record id="op_qz_ln3_03_sp_q04_a02" model="op.quiz.answer">
+            <field name="name">BulBul</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln3_04"/>
+        </record>
+
+        <record id="op_qz_ln3_03_sp_q04_a03" model="op.quiz.answer">
+            <field name="name">Crow</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln3_04"/>
+        </record>
+
+        <record id="op_qz_ln3_03_sp_q04_a04" model="op.quiz.answer">
+            <field name="name">All Of Above</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="line_id" ref="op_qz_ln3_04"/>
+        </record>
+
+        <record id="op_qz_ln3_05" model="op.quiz.line">
+            <field name="name">Which body part chew the food?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="material_type">document</field>
+            <field name="datas" type="base64"
+                   file="openeducat_quiz/demo/files/Our-Body.pdf"/>
+            <field name="quiz_id" ref="op_qz_3"/>
+            <field name="que_id" ref="op_sp_q05"/>
+        </record>
+
+        <record id="op_qz_ln3_03_sp_q05_a01" model="op.quiz.answer">
+            <field name="name">Teeth</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="line_id" ref="op_qz_ln3_05"/>
+        </record>
+
+        <record id="op_qz_ln3_03_sp_q05_a02" model="op.quiz.answer">
+            <field name="name">Eyes</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln3_05"/>
+        </record>
+
+        <record id="op_qz_ln3_03_sp_q05_a03" model="op.quiz.answer">
+            <field name="name">Nose</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln3_05"/>
+        </record>
+
+        <record id="op_qz_ln3_03_sp_q05_a04" model="op.quiz.answer">
+            <field name="name">Ear</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="line_id" ref="op_qz_ln3_05"/>
+        </record>
+
+</odoo>

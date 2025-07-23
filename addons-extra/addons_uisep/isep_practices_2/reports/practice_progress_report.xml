@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="paperformat_practice_report" model="report.paperformat">
+	    <field name="name">Inicio de Práctica</field>
+	    <field name="margin_top">0</field>     <!-- No top margin -->
+	    <field name="margin_bottom">0</field>  <!-- No bottom margin -->
+	    <field name="margin_left">0</field>    <!-- No left margin -->
+	    <field name="margin_right">0</field>   <!-- No right margin -->
+	    <field name="header_line" eval="False"/>  <!-- No header line -->
+	    <field name="header_spacing">0</field>    <!-- No header spacing -->
+	    <field name="dpi">90</field>  <!-- DPI settings can be adjusted if needed -->
+	    <field name="orientation">Portrait</field>  <!-- Portrait orientation -->
+	    <field name="format">A4</field>
+	    <field name="default" eval="True"/>
+        </record>
+
+        <!-- QWeb Reports -->
+        <record id="r_practices" model="ir.actions.report">
+            <!-- <field name="certificado_practica" eval="True"/> -->
+            <field name="name">Inicio de Práctica</field>
+            <field name="model">practice.request</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">isep_practices_2.t_practices</field>
+            <field name="report_file">isep_practices_2.t_practices</field>
+            <!-- <field name="binding_model_id" eval="False"/>  -->
+            <field name="binding_model_id" ref="model_practice_request"/>
+            <field name="binding_type">report</field>
+            <field name="paperformat_id" ref="isep_practices_2.paperformat_practice_report"/>
+            <field name="attachment">(object.name or 'Practica').replace('/','_')+'.pdf'</field>
+        </record>
+
+        <template id="t_practices">
+            <t t-set="practices" t-value="docs"/>
+            <t t-foreach="practices" t-as="o">
+                <t t-call="isep_practices_2.t_practices_document"/>
+            </t>
+        </template>
+
+
+        <template id="t_practices_document">
+            
+            <t t-call="web.basic_layout">
+                
+                        <div class="watermark" style="position: absolute; opacity:1.0; width:100%; height:100%; text-align:center; z-index:-1; margin: 0px; page-break-after: avoid;">
+
+                            <img class="border border-light" style="margin: 0px !important; width: 100%;" t-att-src="'/isep_practices_2/static/src/img/backgroung.png'"/>  
+                         </div> 
+
+                        <div class="page" style="width:100%; height:100%; padding-left: 100px; padding-right: 100px; page-break-after:always;">
+
+
+                            <div class="row" style="text-align:right; padding-top:250px;">    
+                                <div class="col-12">
+                                    <p style='font-size:20px;'>Culiacán, Sinaloa, México a  <span t-out="today_string"/></p>
+                                </div>
+                                    
+                            </div>
+
+                            <div class="row" style="text-align:justify; padding-top: 50px;">
+                                <div class="col-12">
+                                    <t t-set="op_admision" t-value="request.env['op.admission'].search([
+                                    ('email','=',o.email),
+                                    ('course_id.id','=',o.op_student_course_course_id.id)
+                                    ], limit=1)"/>
+                                    <p style='font-size:20px;'><span t-out="o.practice_center_id.name"/>,  <span t-out="o.practice_center_id.state_id.name"/>.</p>
+                                    <strong style='font-size:20px;'>PRESENTE.-</strong>
+                                    <br/>
+                                    <br/>
+                                    <p style='font-size:20px;'>Hace constar que de acuerdo al expediente que obra en nuestro poder, el alumno <strong t-out="o.name"/> 
+                                        con número de matrícula  <strong t-out="op_admision.application_number"/>,                            
+                                        es estudiante de nuestra institución y de acuerdo con las disposiciones reglamentarias en vigor, cursa la  <strong t-out="o.op_student_course_course_id.name"/>
+                                    </p>
+                                    <p style='font-size:20px;'>Se extiende la presente constancia a solicitud del interesado para cumplir con 
+                                        <span t-field="o.practice_center_type_id_total_hours" t-options='{"widget": "float", "precision": 0}'/> horas de prácticas profesionales bajo su supervisión.</p>
+                                    
+                                    <br/>
+                                    <p style='font-size:20px;'>Atentamente,</p>
+                                
+                                </div>
+                            </div>
+                        </div>
+
+             </t>
+        </template>
+
+
+    </data>
+</odoo>

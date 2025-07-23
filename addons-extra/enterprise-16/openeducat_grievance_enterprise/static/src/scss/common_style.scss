@@ -1,0 +1,30 @@
+.o_kanban_view.oe_grievance {
+
+  .o_kanban_record {
+    width: 450px;
+  }
+
+  .o_kanban_group {
+    width: 450px !important;
+  }
+
+  &.o_kanban_ungrouped {
+    .o_kanban_record {
+      width: 450px;
+    }
+  }
+}
+
+.o_helpdesk_kanban{
+    .o_dropdown_kanban{
+        position: absolute !important;
+        top: 8px !important;
+        right: 8px !important;
+    }
+    .o_kanban_card_header_title .o_primary{
+        padding-left: 0px !important;
+    }
+    .o_kanban_card_content .o_kanban_primary_right{
+        width: 50% !important;
+    }
+}

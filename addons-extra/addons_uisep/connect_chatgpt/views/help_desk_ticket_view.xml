@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <record model="ir.ui.view" id="ticket_view_gpt_form_inherit">
+            <field name="name">ticket_view_gpt_form_inherit</field>
+            <field name="model">helpdesk.ticket</field>
+            <field name="inherit_id" ref="helpdesk.helpdesk_ticket_view_form"/>
+            <field name="priority">25</field>
+            <field name="arch" type="xml"> 
+                <xpath expr="//button[@name='assign_ticket_to_self']" position="after">                                     
+                    <button name="action_send_response_gpt" string="Enviar GPT" type="object" class="oe_highlight" attrs="{'invisible': ['|', '|', ['consult_gpt', '=', False], ['acti_state_ia', '=', False], ['message_temp_gpt', '=', '']]}" icon="fa-eye"/>
+                </xpath> 
+                <xpath expr="//field[@name='description']" position="after">
+                    <field name="acti_state_ia" invisible="1"/>  
+                    <field name="consult_gpt" invisible="1"/>
+                    <field name="consult_consult_gpt" invisible="1"/>
+                    <div attrs="{'invisible': ['|',['consult_gpt','!=', True],['acti_state_ia','!=', True]]}"><h4>Respuesta ChatGPT</h4>
+                        <field name="message_temp_gpt" attrs="{'readonly': [['message_temp_gpt', '=', '']]}" style='border: 1.5px solid #DCDCDC;border-radius: 10px;' invisible="0"/>
+                        <div attrs="{'invisible': [['message_temp_gpt', '=', '']]}">
+                            <field name="field_send_gpt" style='border: 1px solid #DCDCDC;width: 70%;border-radius: 5px;' placeholder="Escribe para reconsultar..."/> <strong attrs="{'invisible': [('field_send_gpt', '!=', False)]}"> Enviar</strong><button name="call_assistant_ia" string="Enviar" type="object" class="oe_highlight" icon="fa-sign-out" attrs="{'invisible': [('field_send_gpt', '=', False)]}"/>
+                        </div>
+                        <field name="model_content" readonly='1' attrs="{'invisible': [('consult_consult_gpt','!=', True)]}" /> 
+                    </div>                   
+                </xpath>
+            </field>
+        </record>        
+    </data>
+</odoo>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>       
+
+        <record id="voip_phonecall_view_pivot" model="ir.ui.view">
+            <field name="name">voip.phonecall.pivot.view</field>
+            <field name="model">voip.phonecall</field>
+            <field name="arch" type="xml">
+                <pivot string="Leads" display_quantity="true">
+                    <field name="user_id" type="row"/>
+                    <field name="duration" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record id="voip_phonecall_view_graph" model="ir.ui.view">
+            <field name="name">voip.phonecall.graph.view</field>
+            <field name="model">voip.phonecall</field>
+            <field name="arch" type="xml">
+                <graph string="Llamadas" type="line">
+                    <field name="call_date" interval="week" type="row"/>
+                </graph>
+            </field>
+        </record>
+       
+        <record id="voip_phonecall_dashboard_view" model="ir.ui.view">
+            <field name="name">voip.phonecall.view.dashboard.lead</field>
+            <field name="model">voip.phonecall</field>
+            <field name="mode">primary</field>
+            <field name="arch" type="xml">
+                <dashboard>
+                    <view type="graph" ref="fanlab_llamadas_contactos.voip_phonecall_view_graph"/>
+                    <group>
+                        <group>
+                                <aggregate name="calls" string="Totales" group_operator="count_distinct" field="id" measure="__count__"/>
+				<aggregate name="done" string="Respondidas" field="id" domain="[('state','=','done')]" group_operator="count"/>
+                                <aggregate name="duration" string="Duración promedio" group_operator="avg" field="duration"/>
+				<formula name="responded_percent" string="% Respondido" value="record.done / record.calls" widget="percentage"/>
+				<aggregate name="contacts" string="Contactos" group_operator="count_distinct" field="partner_id" measure="__count__" invisible="1"/>
+                                <formula name="per_contact_percent" string="Por contacto promedio" value="record.calls / record.contacts"/>
+                                <!--<aggregate name="responded_percent" string="Days to Assign" field="day_open" group_operator="avg" value_label="day(s)"/>
+                                <formula name="opportunity_percent" string="% Opportunities" value="record.opportunities / record.leads" widget="percentage"/>
+                                <aggregate name="planned_revenue" string="Expected Revenue" field="planned_revenue"
+                                group_operator="sum" widget="monetary"/>
+                                <aggregate name="expected_revenue" string="Prorated Revenue" field="expected_revenue" group_operator="sum" widget="monetary"/>
+                                <aggregate name="day_close" string="Days to Close" field="day_close" group_operator="avg" value_label="day(s)"/>
+                                <aggregate name="opportunities" string="Opportunities" field="id" domain="[('type','=','opportunity')]" group_operator="count" invisible="1"/>-->
+                        </group>
+                        <!--<group>
+                            <widget name="pie_chart" title="Sales Teams" attrs="{'groupby': 'team_id'}"/>
+                            <widget name="pie_chart" title="Medium" attrs="{'groupby': 'medium_id'}"/>
+                        </group>-->
+                    </group>
+                    <view type="pivot" ref="fanlab_llamadas_contactos.voip_phonecall_view_pivot"/>
+                </dashboard>
+            </field>
+        </record>
+
+          <record id="voip_phonecall_action_dashboard" model="ir.actions.act_window">
+            <field name="name">Análisis de llamadas</field>
+            <field name="res_model">voip.phonecall</field>
+            <field name="view_mode">dashboard,pivot,graph</field>
+            <field name="search_view_id" ref="voip.view_voip_case_phonecalls_filter"/>
+            <field name="context" eval="{'time_ranges': {'field':'create_date', 'range':'last_30_days'}}"/>
+        </record>
+
+        <record id="voip_phonecall_action_dashboard_dashboard" model="ir.actions.act_window.view">
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">dashboard</field>
+            <field name="view_id" ref="voip_phonecall_dashboard_view"/>
+            <field name="act_window_id" ref="fanlab_llamadas_contactos.voip_phonecall_action_dashboard"/>
+        </record>
+
+        <record id="voip_phonecall_dashboard_pivot" model="ir.actions.act_window.view">
+            <field name="sequence" eval="2"/>
+            <field name="view_mode">pivot</field>
+            <field name="view_id" ref="fanlab_llamadas_contactos.voip_phonecall_view_pivot"/>
+            <field name="act_window_id" ref="fanlab_llamadas_contactos.voip_phonecall_action_dashboard"/>
+        </record>
+
+        <record id="voip_phonecall_action_dashboard_graph" model="ir.actions.act_window.view">
+            <field name="sequence" eval="3"/>
+            <field name="view_mode">graph</field>
+            <field name="view_id" ref="fanlab_llamadas_contactos.voip_phonecall_view_graph"/>
+            <field name="act_window_id" ref="fanlab_llamadas_contactos.voip_phonecall_action_dashboard"/>
+        </record>
+
+
+
+        <!-- menuitem 
+        <record id="crm.crm_opportunity_report_menu" model="ir.ui.menu">
+            <field name="action" ref="crm_enterprise.crm_opportunity_action_dashboard"/>
+        </record>
+
+        <record id="fanlab_llamadas_contactos.voip_phonecall_report_menu" model="ir.ui.menu">
+            <field name="action" ref="fanlab_llamadas_contactos.voip_phonecall_action_dashboard"/>
+    </record>
+    -->
+	<menuitem id="menu_voip_phonecall_view_report" name="Llamadas" sequence="3"
+    parent="crm.crm_menu_report" action="voip_phonecall_action_dashboard" />
+
+    </data>
+</odoo>

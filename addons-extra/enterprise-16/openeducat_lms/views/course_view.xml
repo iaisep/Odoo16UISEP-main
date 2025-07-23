@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+        <record model="ir.ui.view" id="view_report_course_pivot">
+            <field name="name">courses.pivot</field>
+            <field name="model">op.course</field>
+            <field name="arch" type="xml">
+                <pivot string="Course" disable_linking="True">
+                    <field name="name" type="col"/>
+                    <field name="user_id" type="row"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record id="view_op_lms_course_tree" model="ir.ui.view">
+            <field name="name">op.course.tree</field>
+            <field name="model">op.course</field>
+            <field name="type">tree</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree banner_route="/openeducat_lms/openeducat_lms_onboarding_panel">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="parent_id"/>
+                    <field name="online_course" optional="hide"/>
+                    <field name="active" widget="boolean_toggle" optional="hide"/>
+                    <field name="short_description" optional="hide"/>
+                    <field name="thumbnail_type" optional="hide"/>
+                    <field name="thumb_video" attrs="{'invisible': [('thumbnail_type', '!=', 'video')]}" optional="hide"/>
+                    <field name="thumb_url" attrs="{'invisible': [('thumbnail_type', '!=', 'url')]}" optional="hide"/>
+                    <field name="thumb_document" optional="hide"/>
+                    <field name="image_1920" optional="hide"/>
+                    <field name="image_medium" optional="hide"/>
+                    <field name="image_thumb" optional="hide"/>
+                    <field name="certificate" widget="boolean_toggle" optional="hide"/>
+                    <field name="background" attrs="{'invisible': [('certificate', '!=', True)]}" optional="hide"/>
+                    <field name="title" widget="boolean_toggle" attrs="{'invisible': [('certificate', '!=', True)]}" optional="hide"/>
+                    <field name="certi_title" attrs="{'invisible': [('certificate', '!=', True)]}" optional="hide"/>
+                    <field name="certi_date" attrs="{'invisible': [('certificate', '!=', True)]}" optional="hide"/>
+                    <field name="certi_num" attrs="{'invisible': [('certificate', '!=', True)]}" optional="hide"/>
+                    <field name="faculty_ids" widget="many2many_tags" optional="hide"/>
+                    <field name="suggested_course_ids" widget="many2many_tags" optional="hide"/>
+                    <field name="user_id" optional="hide"/>
+                    <field name="user_ids" widget="many2many_tags" optional="hide"/>
+                    <field name="category_ids" widget="many2many_tags" optional="hide"/>
+                    <field name="state" optional="hide"/>
+                    <field name="promoted_material_id" optional="hide"/>
+                    <field name="navigation_policy" optional="hide"/>
+                    <field name="visibility" optional="hide"/>
+                    <field name="course_section_ids" optional="hide"/>
+                    <field name="course_enrollment_ids" optional="hide"/>
+                    <field name="enrollment_user_ids" widget="many2many_tags" optional="hide"/>
+                    <field name="invited_users_ids" widget="many2many_tags" optional="hide"/>
+                    <field name="type" optional="hide"/>
+                    <field name="language" optional="hide"/>
+                    <field name="website_message_ids" optional="hide"/>
+                    <field name="total_time" widget="float_time" optional="hide"/>
+                    <field name="display_time" widget="float_time" optional="hide"/>
+                    <field name="confirm_date" optional="hide"/>
+                    <field name="is_published" widget="boolean_toggle" optional="hide"/>
+                    <field name="level_id" optional="hide"/>
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_op_lms_course_form" model="ir.ui.view">
+            <field name="name">op.course.form</field>
+            <field name="model">op.course</field>
+            <field name="type">form</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Course">
+                    <header>
+                        <button name="action_confirm" states="draft"
+                                string="Confirm" type="object" class="oe_highlight"/>
+                        <button name="action_draft" states="closed"
+                                string="Re-open" type="object" class="oe_highlight"/>
+                        <button name="action_closed" states="open"
+                                string="Closed" type="object" class="oe_highlight"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <field name="active" invisible="1"/>
+                        <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                                attrs="{'invisible': [('active', '=', True)]}"/>
+                        <div>
+                            <div class="oe_button_box" name="button_box" width="100%">
+                                <button name="action_view_section"
+                                        class="btn oe_stat_button"
+                                        icon="fa-book"
+                                        type="object"
+                                        groups="openeducat_lms.group_op_lms_admin,openeducat_lms.group_op_lms_user">
+                                    <field string="Section" name="section_count" widget="statinfo"/>
+                                </button>
+
+                                <button name="action_view_material"
+                                        type="object"
+                                        icon="fa-files-o"
+                                        class="btn oe_stat_button"
+                                        groups="openeducat_lms.group_op_lms_admin,openeducat_lms.group_op_lms_user">
+                                    <div class="o_field_widget o_stat_info">
+                                        <span class="o_stat_value">
+                                            <field name="training_material" nolabel="1"/>
+                                        </span>
+                                        <span name="total_slides_label" class="o_stat_text">Material</span>
+                                    </div>
+                                </button>
+                                <button name="action_course_completed"
+                                        type="object"
+                                        icon="fa-trophy"
+                                        class="btn oe_stat_button"
+                                        groups="openeducat_core.group_op_back_office_admin,openeducat_core.group_op_faculty">
+                                    <div class="o_field_widget o_stat_info">
+                                        <span class="o_stat_value">
+                                            <field name="course_completed" nolabel="1"/>
+                                        </span>
+                                        <span name="members_done_count_label" class="o_stat_text">Completed</span>
+                                    </div>
+                                </button>
+                                <button name="action_view_users"
+                                        type="object"
+                                        icon="fa-users"
+                                        class="btn oe_stat_button"
+                                        groups="openeducat_core.group_op_back_office_admin,openeducat_core.group_op_faculty">
+                                    <field name="enrolled_users" string="Enrollments" widget="statinfo"/>
+                                </button>
+                            </div>
+                        </div>
+                        <field name="image_1920" widget="image" class="oe_avatar"/>
+                        <div class="oe_title">
+                            <field name="online_course" class="oe_edit_only" readonly="1"/>
+                            <label class="oe_edit_only" for="online_course" string="Online Course ?"/>
+                            <h1>
+                                <field name="name" placeholder="Course Name"/>
+                            </h1>
+                        </div>
+                        <group col="2">
+                            <group>
+                                <field name="code" required="1"/>
+                                <field name="confirm_date" readonly="1"/>
+                                <field name="user_id" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="language"/>
+                                <field name="level_id"/>
+                                <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                                <field name="department_id" invisible="1"/>
+                            </group>
+                        </group>
+                        <group col="4" string="Thumbnail">
+                            <field name="thumbnail_type"/>
+                            <field name="thumb_url" attrs="{'invisible': [('thumbnail_type', '!=', 'url')],
+                                                            'required': [('thumbnail_type', '=', 'url')]}"/>
+                            <field name="thumb_video" attrs="{'invisible': [('thumbnail_type', '!=', 'video')],
+                                                                'required': [('thumbnail_type', '=', 'video')]}"
+                                   options="{'accepted_file_extensions': 'video/*'}"/>
+                            <field name="thumb_document" invisible="1"/>
+                        </group>
+                        <notebook>
+                            <page name="general" string="General">
+                                <group col="2">
+                                    <group>
+                                        <field name="visibility" widget="radio"/>
+                                    </group>
+                                    <group>
+                                        <field name="navigation_policy" widget="radio"/>
+                                    </group>
+                                    <group>
+                                        <field name="certificate"/>
+                                        <field name="title" attrs="{'invisible': [('certificate', '!=', True)]}"/>
+                                        <field name="certi_title"
+                                               attrs="{'invisible': [('certificate', '!=', True)], 'required':[('certificate','=',True)]}"/>
+                                        <field name="certi_date" attrs="{'invisible': [('certificate', '!=', True)]}"/>
+                                        <field name="certi_num" attrs="{'invisible': [('certificate', '!=', True)]}"/>
+                                    </group>
+                                    <group>
+                                        <field name="background" widget="image"
+                                               class="oe_avatar" style="float: left;"
+                                               attrs="{'invisible': [('certificate', '!=', True)]}"/>
+                                    </group>
+                                </group>
+                                <group string="Short Description">
+                                    <field name="short_description" colspan="4" nolabel="1"/>
+                                </group>
+                                <group string="Full Description">
+                                    <field name="full_description" colspan="4" nolabel="1"/>
+                                </group>
+                            </page>
+                            <page string="Invited Users" attrs="{'invisible': [('visibility', '!=', 'invited_user')]}">
+                                <button name="%(act_open_course_invitation_wizard_view)d" string="Invited Users"
+                                        type="action" class="oe_highlight"/>
+                                <field name="invited_users_ids">
+                                    <tree editable="top">
+                                        <field name="name"/>
+                                        <field name="login"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page name="course_materials" string="Course Materials">
+                                <group col="4" colspan="4">
+                                    <field name="total_time" widget="float_time"/>
+                                </group>
+                                <field name="course_section_ids">
+                                    <tree default_order="sequence">
+                                        <field name="sequence"/>
+                                        <field name="name"/>
+                                        <field name="total_time" widget="float_time"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page name="faculties" string="Faculties">
+                                <field name="faculty_ids" options="{'no_create': True}"/>
+                            </page>
+                            <page name="suggested course" string="Suggested Course">
+                                <field name="suggested_course_ids" options="{'no_create': True}"
+                                       domain="[('online_course','=',True)]"/>
+                            </page>
+                            <page name="categories" string="Categories">
+                                <field name="category_ids" options="{'no_create': True}"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_op_lms_course_search" model="ir.ui.view">
+            <field name="name">op.course.search</field>
+            <field name="model">op.course</field>
+            <field name="type">search</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Course">
+                    <field name="name" select="True"/>
+                    <separator/>
+                    <filter string="Online Course" name="online_course" domain="[('online_course','=',1)]"/>
+                    <filter string="Archived" name="inactive"
+                            domain="[('active', '=', False)]"/>
+                    <searchpanel>
+                        <field name="user_id" icon="fa-user"/>
+                    </searchpanel>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_open_op_lms_course_view">
+            <field name="name">Course</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.course</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form,pivot</field>
+            <field name="search_view_id" ref="view_op_lms_course_search"/>
+            <field name="context">{'default_online_course':1,'search_default_online_course':1}</field>
+        </record>
+
+        <record id="action_migration_report" model="ir.actions.act_window">
+            <field name="name">course</field>
+            <field name="res_model">op.course</field>
+            <field name="view_mode">pivot</field>
+            <field name="view_id" ref="view_report_course_pivot"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_open_op_lms_course_view_form">
+            <field name="act_window_id" ref="act_open_op_lms_course_view"/>
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_op_lms_course_form"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_open_op_lms_course_view_tree">
+            <field name="act_window_id" ref="act_open_op_lms_course_view"/>
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_op_lms_course_tree"/>
+        </record>
+
+</odoo>

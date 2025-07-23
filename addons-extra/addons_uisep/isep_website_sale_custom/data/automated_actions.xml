@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+
+        <record model="ir.cron" id="automated_action_sale_order_sign_model_cron">
+            <field name="name">Enviar Link de  Firma a Compras Website </field>
+            <field name="model_id" ref="isep_website_sale_custom.model_sale_order"/>
+            <field name="state">code</field>
+            <field name="code">model.send_automated_action()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="nextcall" eval="(datetime.now() + timedelta(minutes=7)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+    </data>
+</odoo>

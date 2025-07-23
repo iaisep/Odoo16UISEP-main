@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo noupdate="1">
+
+        <record id="blog_1" model="blog.blog">
+            <field name="name">Introduction To Python Programming</field>
+        </record>
+
+        <record id="openeducat_lms.demo_course_1" model="op.course">
+            <field name="blog_id" ref="openeducat_lms_blog.blog_1"/>
+        </record>
+
+        <record id="blog_2" model="blog.blog">
+            <field name="name">Learn to Sell Anything</field>
+        </record>
+
+        <record id="openeducat_lms.demo_course_3" model="op.course">
+            <field name="blog_id" ref="openeducat_lms_blog.blog_2"/>
+        </record>
+
+</odoo>

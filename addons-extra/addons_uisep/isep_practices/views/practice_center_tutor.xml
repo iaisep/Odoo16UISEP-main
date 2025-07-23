@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- View practice.center.tutor View Tree -->
+    <record id="view_practice_center_tutor_tree" model="ir.ui.view">
+        <field name="name">view.practice.center.tutor.tree</field>
+        <field name="model">practice.center.tutor</field>
+        <field name="arch" type="xml">
+            <tree string="Association center tutor">
+                <field name="tutor_id"/>
+                <field name="partner_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- View practice.center.tutor form -->
+    <record id="view_practice_center_tutor_form" model="ir.ui.view">
+        <field name="name">view.practice.center.tutor.form</field>
+        <field name="model">practice.center.tutor</field>
+        <field name="arch" type="xml">
+            <form string="Association center tutor">
+                <sheet>
+                    <group col="4">
+                        <field name="tutor_id" />
+                        <field name="partner_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- View practice.center.tutor search -->
+    <record id="view_practice_center_tutor_search" model="ir.ui.view">
+        <field name="name">view.practice.center.tutor.search</field>
+        <field name="model">practice.center.tutor</field>
+        <field name="arch" type="xml">
+            <search string="Association center tutor">
+                <field name="tutor_id"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action practice.center.tutor -->
+    <record id="action_practice_center_tutor" model="ir.actions.act_window">
+        <field name="name">Practice Center Tutor</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">practice.center.tutor</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                There is no examples click here to add new Practice Center Tutor.
+            </p>
+        </field>
+    </record>
+
+</odoo>

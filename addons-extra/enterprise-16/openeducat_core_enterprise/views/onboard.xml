@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- openeducat_core_enterprise module STEPS -->
+    <!-- course view starts -->
+    <template id="onboarding_course_layout_step">
+        <t t-call="base.onboarding_step">
+            <t t-set="title">Course Configuration</t>
+            <t t-set="description">See how to create a course.</t>
+            <t t-set="done_icon" t-value="'fa-star'"/>
+            <t t-set="done_text">Looks great!</t>
+            <t t-set="btn_text">Customize</t>
+            <t t-set="method" t-value="'action_onboarding_course_layout'"/>
+            <t t-set="model" t-value="'res.company'"/>
+            <t t-set="state" t-value="state.get('onboarding_course_layout_state')"/>
+        </t>
+    </template>
+    <record id="view_op_course_form_onboard" model="ir.ui.view">
+        <field name="name">op.course.form</field>
+        <field name="model">op.course</field>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <form string="Course">
+                <sheet>
+                    <group>
+                        <group class="course_info">
+                            <field name="name"/>
+                            <field name="code"/>
+                        </group>
+                    </group>
+                    <group class="pt-3">
+                        <group name="main">
+                            <field name="evaluation_type"/>
+                            <field name="min_unit_load"/>
+                            <field name="department_id" groups="openeducat_core.group_multi_department"/>
+                        </group>
+                        <group>
+                            <field name="parent_id"/>
+                            <field name="max_unit_load"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Subjects" name="subject">
+                            <field name="subject_ids" nolabel="1" readonly="1">
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <footer>
+                    <button string="Apply" class="btn btn-primary" type="object"
+                            name="action_onboarding_course_layout"/>
+
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_onboarding_course_layout" model="ir.actions.act_window">
+        <field name="name">course Configuration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">op.course</field>
+        <field name="view_mode">form</field>
+        <field name="binding_view_types">form</field>
+        <field name="view_id" ref="view_op_course_form_onboard"/>
+        <field name="target">new</field>
+    </record>
+
+    <!-- batch view starts -->
+    <template id="onboarding_batch_layout_step">
+        <t t-call="base.onboarding_step">
+            <t t-set="title">Batch Configuration</t>
+            <t t-set="description">See how to create a Batch.</t>
+            <t t-set="done_icon" t-value="'fa-star'"/>
+            <t t-set="done_text">Looks great!</t>
+            <t t-set="btn_text">Customize</t>
+            <t t-set="method" t-value="'action_onboarding_batch_layout'"/>
+            <t t-set="model" t-value="'res.company'"/>
+            <t t-set="state" t-value="state.get('onboarding_batch_layout_state')"/>
+        </t>
+    </template>
+
+    <record id="view_op_batch_form_onboard" model="ir.ui.view">
+        <field name="name">op.batch.form</field>
+        <field name="model">op.batch</field>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <form string="Batch">
+                <sheet>
+                    <group>
+                        <group name="main">
+                            <field name="name"/>
+                            <field name="start_date"/>
+                            <field name="course_id"/>
+                        </group>
+                        <group>
+                            <field name="code"/>
+                            <field name="end_date"/>
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Apply" class="btn btn-primary" type="object"
+                            name="action_onboarding_batch_layout"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_onboarding_batch_layout" model="ir.actions.act_window">
+        <field name="name">Batch Configuration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">op.batch</field>
+        <field name="view_mode">form</field>
+        <field name="binding_view_types">form</field>
+        <field name="view_id" ref="view_op_batch_form_onboard"/>
+        <field name="target">new</field>
+    </record>
+
+    <!-- subject view starts -->
+
+    <template id="onboarding_subject_layout_step">
+        <t t-call="base.onboarding_step">
+            <t t-set="title">Subject Configuration</t>
+            <t t-set="description">See how to create a subject.</t>
+            <t t-set="done_icon" t-value="'fa-star'"/>
+            <t t-set="done_text">Looks great!</t>
+            <t t-set="btn_text">Customize</t>
+            <t t-set="method" t-value="'action_onboarding_subject_layout'"/>
+            <t t-set="model" t-value="'res.company'"/>
+            <t t-set="state" t-value="state.get('onboarding_subject_layout_state')"/>
+        </t>
+    </template>
+    <record id="view_op_subject_form_onboard" model="ir.ui.view">
+        <field name="name">op.subject.form</field>
+        <field name="model">op.subject</field>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <form string="Subject">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="type"/>
+                            <field name="subject_type"/>
+                            <field name="department_id" groups="openeducat_core.group_multi_department"/>
+                        </group>
+                        <group>
+                            <field name="code"/>
+                            <field name="grade_weightage"/>
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Apply" class="btn btn-primary" type="object"
+                            name="action_onboarding_subject_layout"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_onboarding_subject_layout" model="ir.actions.act_window">
+        <field name="name">Subject Configuration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">op.subject</field>
+        <field name="view_mode">form</field>
+        <field name="binding_view_types">form</field>
+        <field name="view_id" ref="view_op_subject_form_onboard"/>
+        <field name="target">new</field>
+    </record>
+
+
+    <!-- ONBOARDING PANEL-->
+    <template id="openeducat_core_enterprise_onboarding_panel"
+              name="openeducat_core_enterprise.quotation.onboarding.panel">
+        <t t-call="base.onboarding_container">
+            <t t-set="classes" t-value="'o_onboarding_violet'"/>
+            <t t-set="bg_image" t-value="'/openeducat_core_enterprise/static/src/img/banner.jpg'"/>
+            <t t-set="close_method" t-value="'action_close_core_onboarding'"/>
+            <t t-set="close_model" t-value="'res.company'"/>
+            <t t-call="openeducat_core_enterprise.onboarding_course_layout_step" name="company_step"/>
+            <t t-call="openeducat_core_enterprise.onboarding_batch_layout_step" name="company_step_batch"/>
+            <t t-call="openeducat_core_enterprise.onboarding_subject_layout_step" name="company_step_subject"/>
+        </t>
+    </template>
+</odoo>

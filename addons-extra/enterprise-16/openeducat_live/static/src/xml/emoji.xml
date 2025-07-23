@@ -1,0 +1,14 @@
+<templates id="template" xml:space="preserve">
+
+    <t t-name="Emogi_popover">
+        <div style="cursor: pointer;     --rowHeight: 30px;--itemWidth: 30px;height: 285px;width:auto;">
+            <div class="o_EmojiGridView o_EmojiGridView_container" style="--rowHeight: 30px; --itemWidth: 30px; height: 285px;">
+                <t t-foreach="emoji" t-as="emoji_val">
+                    <span class="emoji_select" t-att-value="emoji_val.codepoints">
+                        <t t-esc="emoji_val.codepoints"/>
+                    </span>
+                </t>
+            </div>
+        </div>
+    </t>
+</templates>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <menuitem name="ChatBot"
+            id="whatsapp_connector_bot_root_menu"
+            parent="whatsapp_connector.whatsapp_connector_settings_menu"
+            sequence="150"/>
+        <menuitem
+                id="whatsapp_connector_bot_menu"
+                action="whatsapp_connector_bot_action"
+                parent="whatsapp_connector_bot.whatsapp_connector_bot_root_menu"
+                sequence="151"/>
+        <menuitem
+                id="whatsapp_connector_bot_log_menu"
+                action="whatsapp_connector_bot_log_action"
+                parent="whatsapp_connector_bot.whatsapp_connector_bot_root_menu"
+                sequence="152"/>
+
+</odoo>

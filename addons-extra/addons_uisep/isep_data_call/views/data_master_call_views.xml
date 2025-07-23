@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- View data.master.call View Tree -->
+    <record id="view_data_master_call_tree" model="ir.ui.view">
+        <field name="name">view.data.master.call.tree</field>
+        <field name="model">data.master.call</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name_team"/>
+                <field name="modules_consult"/>
+                <field name="articles_ai"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- View data.master.call form -->
+    <record id="view_data_master_call_form" model="ir.ui.view">
+        <field name="name">view.data.master.call.form</field>
+        <field name="model">data.master.call</field>
+        <field name="arch" type="xml">
+            <form string="Data Master Call">
+                <sheet>
+                    <group>
+                        <field name="name_team"/>
+                        <field name="modules_consult"/>
+                        <field name="articles_ai"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- View data.master.call search -->
+    <record id="view_data_master_call_search" model="ir.ui.view">
+        <field name="name">view.data.master.call.search</field>
+        <field name="model">data.master.call</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name_team"/>
+                <field name="modules_consult"/>
+                <field name="articles_ai"/>
+                <group expand="1" string="Group By">
+                    <filter string="Nombre de Equipo" name="name_team" domain="[]" context="{'group_by':'name_team'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action data.master.call -->
+    <record id="action_data_master_call" model="ir.actions.act_window">
+        <field name="name">Data Master Call</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">data.master.call</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                There is no examples click here to add new Data Master Call.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="submenu_master_call" 
+            name="Datos para llamadas" 
+            parent="openeducat_core.menu_op_general_student" 
+            action="action_data_master_call" 
+            sequence="50"/>
+
+</odoo>

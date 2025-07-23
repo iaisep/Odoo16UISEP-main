@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_multi_approval_model_request" model="ir.ui.view">
+            <field name="name">New Approval Request</field>
+            <field name="model">multi.model.request</field>
+            <field name="arch" type="xml">
+                <form string="Request Approval" delete="false">
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" placeholder="Title"/>
+                        </h1>
+                    <field name="priority"/>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="request_date" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="approval_type_id"/>
+                            <field name="source_document" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description" name="description">
+                            <field name="description" nolabel="1" placeholder="Description"/>
+                        </page>
+                    </notebook>
+                    <footer>
+                        <button name="action_request" string="Submit Request" type="object" class="btn-primary"/>
+                        <button string="Close" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_window_approval_model_request">
+      <field name="name">Approval Model Request</field>
+      <field name="res_model">multi.model.request</field>
+      <field name="view_mode">form</field>
+      <field name="target">new</field>
+    </record>
+
+</odoo>

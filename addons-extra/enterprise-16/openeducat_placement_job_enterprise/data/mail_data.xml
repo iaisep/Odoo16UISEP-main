@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="placement_team_activity_opened" model="mail.message.subtype">
+        <field name="name">Opened Activity</field>
+        <field name="sequence">22</field>
+        <field name="res_model">op.placement.cell</field>
+        <field name="parent_id" eval="ref('openeducat_placement_job_enterprise.activity_open')"/>
+    </record>
+    <record id="placement_team_activity_closed" model="mail.message.subtype">
+        <field name="name">Closed Activity</field>
+        <field name="sequence">23</field>
+        <field name="res_model">op.placement.cell</field>
+        <field name="parent_id" eval="ref('openeducat_placement_job_enterprise.activity_closed')"/>
+    </record>
+</odoo>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="blog_post_lms_rule" model="ir.rule">
+        <field name="name">Blog Post LMS Rule</field>
+        <field name="model_id" ref="model_blog_post" />
+        <field name="global" eval="True" />
+        <field name="domain_force">['|','|',('course_id.enrollment_user_ids','in',user.id),('course_id.user_id','=',user.id),('course_id','=',False)]</field>
+    </record>
+</odoo>

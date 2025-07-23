@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="view_op_rubrics_template_config_tree" model="ir.ui.view">
+            <field name="name">op.rubric.template.tree</field>
+            <field name="model">op.rubric.template</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="rubric_element_line" optional="hide"/>
+                    <field name="rubrics_type" optional="hide"/>
+                    <field name="state" optional="hide"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_op_rubrics_template_config_form" model="ir.ui.view">
+            <field name="name">op.rubric.template.form</field>
+            <field name="model">op.rubric.template</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Rubrics Template Configuration">
+                    <header>
+                        <button name="act_re_open" type="object"
+                                string="Re-open" states="cancel" class="oe_highlight"/>
+                        <button name="act_in_use" type="object" states="draft"
+                                string="In Use" class="oe_highlight"/>
+                        <button name="act_cancel" type="object" states="draft,in_use"
+                                string="Cancel" class="oe_highlight"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,in_use,cancel"/>
+                    </header>
+                    <sheet>
+                        <group colspan="4">
+                            <field name="name"/>
+                            <field name="rubrics_type"/>
+                        </group>
+                        <notebook>
+                            <page string="Rubric Elements" name="rubric_element_line">
+                            <field name="rubric_element_line">
+                                <form>
+                                    <group>
+                                        <field name="name"/>
+                                        <field name="rubrics_template_id" invisible="1"/>
+                                        <field name="rubrics_type" invisible="1"/>
+                                        <field name="point" attrs="{'invisible': [('rubrics_type', '!=', 'points')]}"/>
+                                        <field name="percentage"
+                                               attrs="{'invisible': [('rubrics_type', '!=', 'percent')]}"/>
+                                    </group>
+                                </form>
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="point"/>
+                                    <field name="percentage"/>
+                                </tree>
+                            </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_op_rubric_template_config_view">
+            <field name="name">Rubrics Template</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.rubric.template</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_op_rubric_template_view_form">
+            <field name="act_window_id" ref="act_op_rubric_template_config_view"/>
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_op_rubrics_template_config_form"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_op_rubric_template_view_tree">
+            <field name="act_window_id" ref="act_op_rubric_template_config_view"/>
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_op_rubrics_template_config_tree"/>
+        </record>
+
+</odoo>

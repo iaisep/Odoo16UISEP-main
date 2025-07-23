@@ -1,0 +1,38 @@
+<odoo noupdate="1">
+        <record id="demo_template1_dashboard" model="dashboard_pro.main_dashboard">
+            <field name="name">Demo Dashboard</field>
+            <field name="menu_name_dashboard">Demo</field>
+            <field name="dashboard_top_menu_id" eval="ref('openeducat_dashboard_kpi.dashboard_pro_root')"/>
+            <field name="dashboard_theme_id" eval="ref('openeducat_dashboard_kpi.demo_dashboard_theme_1')"/>
+            <field name="dashboard_group_access" eval="False"/>
+        </record>
+
+        <record id="demo_admission_dashboard" model="dashboard_pro.main_dashboard">
+            <field name="name">OpenEduCat Dashboard</field>
+            <field name="menu_name_dashboard">OpenEduCat</field>
+            <field name="dashboard_top_menu_id" eval="ref('openeducat_dashboard_kpi.dashboard_pro_root')"/>
+            <field name="dashboard_theme_id" eval="ref('openeducat_dashboard_kpi.demo_dashboard_theme_1')"/>
+            <field name="dashboard_group_access" eval="False"/>
+            <field name="grid_configuration">
+                {"11":{"x":0,"y":0,"width":13,"height":4},"12":{"x":13,"y":0,"width":13,"height":4},"13":{"x":26,"y":0,"width":8,"height":2},"14":{"x":26,"y":2,"width":8,"height":2},"15":{"x":0,"y":4,"width":13,"height":4},"16":{"x":13,"y":4,"width":13,"height":4},"17":{"x":26,"y":4,"width":8,"height":2},"18":{"x":26,"y":6,"width":8,"height":2},"19":{"x":0,"y":8,"width":13,"height":4},"20":{"x":13,"y":8,"width":13,"height":4},"21":{"x":26,"y":8,"width":8,"height":2}}
+            </field>
+        </record>
+
+        <record id="template_1" model="dashboard_pro.dashboard_template">
+        <field name="name">Demo</field>
+            <field name="grid_configuration">[
+                {"element_id":"openeducat_dashboard_kpi.default_element_1", "data": {"x": 0, "y": 0, "width": 8, "height": 2}},
+                {"element_id":"openeducat_dashboard_kpi.default_element_2", "data": {"x": 8, "y": 0, "width": 8, "height": 2}},
+                {"element_id":"openeducat_dashboard_kpi.default_element_3", "data": {"x": 16, "y": 0, "width": 8, "height": 2}}
+                {"element_id":"openeducat_dashboard_kpi.default_element_4", "data": {"x": 24, "y": 0, "width": 8, "height": 2}}
+                {"element_id":"openeducat_dashboard_kpi.default_element_5", "data": {"x": 0, "y": 2, "width": 8, "height": 2}}
+                {"element_id":"openeducat_dashboard_kpi.default_element_6", "data": {"x": 8, "y": 2, "width": 8, "height": 2}}
+                {"element_id":"openeducat_dashboard_kpi.default_element_7", "data": {"x": 16, "y": 2, "width": 8, "height": 2}}
+                {"element_id":"openeducat_dashboard_kpi.default_element_8", "data": {"x": 24, "y": 2, "width": 8, "height": 2}}
+                {"element_id":"openeducat_dashboard_kpi.default_element_9", "data": {"x": 0, "y": 4, "width": 8, "height": 2}}
+                {"element_id":"openeducat_dashboard_kpi.default_element_10", "data": {"x": 13, "y": 4, "width": 8, "height": 2}}
+                ]
+            </field>
+            <field name="item_count">9</field>
+    </record>
+</odoo>

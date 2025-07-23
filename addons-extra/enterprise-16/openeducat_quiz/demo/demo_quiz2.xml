@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="op_qz_ctg_m1" model="op.quiz.category">
+            <field name="name">Category Maths</field>
+            <field name="code">maths122</field>
+        </record>
+
+        <record id="op_qz_maths1" model="op.quiz">
+            <field name="name">Maths Quiz</field>
+            <field name="categ_id" ref="op_qz_ctg_m1"/>
+            <field name="quiz_config">quiz_bank_selected</field>
+            <field name="time_config">True</field>
+            <field name="time_limit_hr">1</field>
+            <field name="no_of_attempt">1</field>
+            <field name="time_limit_minute">30</field>
+            <field name="description">This quiz is based on Statistics Maths
+            </field>
+            <field name="state">open</field>
+            <field name="quiz_html">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
+                but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in
+                the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with
+                desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </field>
+        </record>
+        <record id="op_qu_bnk_type_maths1" model="op.question.bank.type">
+            <field name="name">Mathematics</field>
+        </record>
+        <record id="op_qu_bnk_me" model="op.question.bank">
+            <field name="name">Mathematics Quiz</field>
+            <field name="bank_type_id" ref="op_qu_bnk_type_maths1"/>
+        </record>
+        <record id="op_c_qme1" model="op.question.bank.line">
+            <field name="name">What is the average of the numbers: 0, 0, 4, 10, 5, and 5 ?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/9VZsMY15xeU'"/>
+            <field name="document_id">9VZsMY15xeU</field>
+            <field name="bank_id" ref="op_qu_bnk_me"/>
+        </record>
+        <record id="op_c_qme1_a01" model="op.question.bank.answer">
+            <field name="name">2</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qme1"/>
+        </record>
+        <record id="op_c_qme1_a02" model="op.question.bank.answer">
+            <field name="name">3</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qme1"/>
+        </record>
+        <record id="op_c_qme1_a03" model="op.question.bank.answer">
+            <field name="name">4</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="question_id" ref="op_c_qme1"/>
+        </record>
+        <record id="op_c_qme1_a04" model="op.question.bank.answer">
+            <field name="name">5</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qme1"/>
+        </record>
+
+        <record id="op_qz_ln6_me1" model="op.quiz.line">
+            <field name="name">What is the average of the numbers: 0, 0, 4, 10, 5, and 5 ?</field>
+             <field name="mark" type="float">1.0</field>
+            <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/9VZsMY15xeU'"/>
+            <field name="document_id">9VZsMY15xeU</field>
+            <field name="quiz_id" ref="op_qz_maths1"/>
+            <field name="que_id" ref="op_c_qme1"/>
+        </record>
+
+        <record id="op_qz_ln6_me1_l01" model="op.quiz.answer">
+            <field name="name">2</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_me1"/>
+        </record>
+        <record id="op_qz_ln6_me1_l02" model="op.quiz.answer">
+            <field name="name">3</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_me1"/>
+        </record>
+        <record id="op_qz_ln6_me1_l03" model="op.quiz.answer">
+            <field name="name">4</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="line_id" ref="op_qz_ln6_me1"/>
+        </record>
+        <record id="op_qz_ln6_me1_l04" model="op.quiz.answer">
+            <field name="name">5</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_me1"/>
+        </record>
+
+        <record id="op_c_qme2" model="op.question.bank.line">
+            <field name="name">The number of 3-digit numbers divisible by 6, is …………</field>
+            <field name="mark" type="float">1.0</field>
+             <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/L0n_jJDNvrE'"/>
+            <field name="document_id">L0n_jJDNvrE</field>
+            <field name="bank_id" ref="op_qu_bnk_me"/>
+        </record>
+        <record id="op_c_qme2_a01" model="op.question.bank.answer">
+            <field name="name">149</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qme2"/>
+        </record>
+        <record id="op_c_qme2_a02" model="op.question.bank.answer">
+            <field name="name">166</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qme2"/>
+        </record>
+        <record id="op_c_qme2_a03" model="op.question.bank.answer">
+            <field name="name">150</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="question_id" ref="op_c_qme2"/>
+        </record>
+        <record id="op_c_qme2_a04" model="op.question.bank.answer">
+            <field name="name">151</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qme2"/>
+        </record>
+
+        <record id="op_qz_ln6_me2" model="op.quiz.line">
+            <field name="name">The number of 3-digit numbers divisible by 6, is …………</field>
+            <field name="mark" type="float">1.0</field>
+             <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/L0n_jJDNvrE'"/>
+            <field name="document_id">L0n_jJDNvrE</field>
+            <field name="quiz_id" ref="op_qz_maths1"/>
+            <field name="que_id" ref="op_c_qme2"/>
+        </record>
+
+        <record id="op_qz_ln6_me2_l01" model="op.quiz.answer">
+            <field name="name">149</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_me2"/>
+        </record>
+        <record id="op_qz_ln6_me2_l02" model="op.quiz.answer">
+            <field name="name">166</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_me2"/>
+        </record>
+        <record id="op_qz_ln6_me2_l03" model="op.quiz.answer">
+            <field name="name">150</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="line_id" ref="op_qz_ln6_me2"/>
+        </record>
+        <record id="op_qz_ln6_me2_l04" model="op.quiz.answer">
+            <field name="name">151</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_me2"/>
+        </record>
+
+
+        <record id="op_c_qme3" model="op.question.bank.line">
+            <field name="name">What is 1004 divided by 2?</field>
+            <field name="mark" type="float">1.0</field>
+              <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/KzdbThwGNGI'"/>
+            <field name="document_id">KzdbThwGNGI</field>
+            <field name="bank_id" ref="op_qu_bnk_me"/>
+        </record>
+        <record id="op_c_qme3_a01" model="op.question.bank.answer">
+            <field name="name">52</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qme3"/>
+        </record>
+        <record id="op_c_qme3_a02" model="op.question.bank.answer">
+            <field name="name">502</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qme3"/>
+        </record>
+        <record id="op_c_qme3_a03" model="op.question.bank.answer">
+            <field name="name">520</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="question_id" ref="op_c_qme3"/>
+        </record>
+        <record id="op_c_qme3_a04" model="op.question.bank.answer">
+            <field name="name">5002</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qme3"/>
+        </record>
+
+        <record id="op_qz_ln6_me3" model="op.quiz.line">
+            <field name="name">What is 1004 divided by 2?</field>
+            <field name="mark" type="float">1.0</field>
+              <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/KzdbThwGNGI'"/>
+            <field name="document_id">KzdbThwGNGI</field>
+            <field name="quiz_id" ref="op_qz_maths1"/>
+            <field name="que_id" ref="op_c_qme3"/>
+        </record>
+
+        <record id="op_qz_ln6_me3_l01" model="op.quiz.answer">
+            <field name="name">52</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_me3"/>
+        </record>
+        <record id="op_qz_ln6_me3_l02" model="op.quiz.answer">
+            <field name="name">502</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_me3"/>
+        </record>
+        <record id="op_qz_ln6_me3_l03" model="op.quiz.answer">
+            <field name="name">520</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="line_id" ref="op_qz_ln6_me3"/>
+        </record>
+        <record id="op_qz_ln6_me3_l04" model="op.quiz.answer">
+            <field name="name">5002</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_me3"/>
+        </record>
+
+        <record id="op_c_qme4" model="op.question.bank.line">
+            <field name="name">The two straight lines in the same plane which never meet are called</field>
+            <field name="mark" type="float">1.0</field>
+             <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/SJ-VA9jekx8'"/>
+            <field name="document_id">SJ-VA9jekx8</field>
+            <field name="bank_id" ref="op_qu_bnk_me"/>
+        </record>
+        <record id="op_c_qme4_a01" model="op.question.bank.answer">
+            <field name="name">Angles</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qme4"/>
+        </record>
+        <record id="op_c_qme4_a02" model="op.question.bank.answer">
+            <field name="name">Transversal lines</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qme4"/>
+        </record>
+        <record id="op_c_qme4_a03" model="op.question.bank.answer">
+            <field name="name">vertex</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qme4"/>
+        </record>
+        <record id="op_c_qme4_a04" model="op.question.bank.answer">
+            <field name="name">parallel lines</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="question_id" ref="op_c_qme4"/>
+        </record>
+
+        <record id="op_qz_ln6_me4" model="op.quiz.line">
+            <field name="name">The two straight lines in the same plane which never meet are called</field>
+            <field name="mark" type="float">1.0</field>
+             <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/SJ-VA9jekx8'"/>
+            <field name="document_id">SJ-VA9jekx8</field>
+            <field name="quiz_id" ref="op_qz_maths1"/>
+            <field name="que_id" ref="op_c_qme4"/>
+        </record>
+
+        <record id="op_qz_ln6_me4_l01" model="op.quiz.answer">
+            <field name="name">Angles</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_me4"/>
+        </record>
+        <record id="op_qz_ln6_me4_l02" model="op.quiz.answer">
+            <field name="name">Transversal lines</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_me4"/>
+        </record>
+        <record id="op_qz_ln6_me4_l03" model="op.quiz.answer">
+            <field name="name">vertex</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_me4"/>
+        </record>
+        <record id="op_qz_ln6_me4_l04" model="op.quiz.answer">
+            <field name="name">parallel lines</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="line_id" ref="op_qz_ln6_me4"/>
+        </record>
+
+
+        <record id="op_c_qme5" model="op.question.bank.line">
+            <field name="name">Which is Even Number?</field>
+            <field name="mark" type="float">1.0</field>
+             <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/SFRTTUtAjg4'"/>
+            <field name="document_id">SFRTTUtAjg4</field>
+            <field name="bank_id" ref="op_qu_bnk_me"/>
+        </record>
+        <record id="op_c_qme5_a01" model="op.question.bank.answer">
+            <field name="name">2</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="question_id" ref="op_c_qme5"/>
+        </record>
+        <record id="op_c_qme5_a02" model="op.question.bank.answer">
+            <field name="name">11</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qme5"/>
+        </record>
+        <record id="op_c_qme5_a03" model="op.question.bank.answer">
+            <field name="name">1.5458</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qme5"/>
+        </record>
+        <record id="op_c_qme5_a04" model="op.question.bank.answer">
+            <field name="name">7.685</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qme5"/>
+        </record>
+
+        <record id="op_qz_ln6_me5" model="op.quiz.line">
+            <field name="name">Which is Even Number?</field>
+            <field name="mark" type="float">1.0</field>
+             <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/SFRTTUtAjg4'"/>
+            <field name="document_id">SFRTTUtAjg4</field>
+            <field name="quiz_id" ref="op_qz_maths1"/>
+            <field name="que_id" ref="op_c_qme5"/>
+        </record>
+
+        <record id="op_qz_ln6_me5_l01" model="op.quiz.answer">
+            <field name="name">2</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="line_id" ref="op_qz_ln6_me5"/>
+        </record>
+        <record id="op_qz_ln6_me5_l02" model="op.quiz.answer">
+            <field name="name">11</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_me5"/>
+        </record>
+        <record id="op_qz_ln6_me5_l03" model="op.quiz.answer">
+            <field name="name">1.5458</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_me5"/>
+        </record>
+        <record id="op_qz_ln6_me5_l04" model="op.quiz.answer">
+            <field name="name">7.685</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_me5"/>
+        </record>
+
+</odoo>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo noupdate="0">
+
+        <record id="group_op_section" model="res.groups">
+            <field name="name">Enable Section</field>
+            <field name="category_id"
+                   ref="openeducat_core.module_category_all_other_education"/>
+            <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record model="ir.rule" id="batch_multi_comp_rule">
+            <field name="name">Batch multi-company</field>
+            <field name="model_id" ref="openeducat_core.model_op_batch"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">
+                ['|',('company_id','=',False),'&amp;',('company_id','in',company_ids),'|',('company_id','child_of',[user.company_id.id]),('company_id','in',user.company_ids.ids)]
+            </field>
+        </record>
+
+        <record model="ir.rule" id="course_multi_comp_rule">
+            <field name="name">Course multi-company</field>
+            <field name="model_id" ref="openeducat_core.model_op_course"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">
+                ['|',('company_id','=',False),'&amp;',('company_id','in',company_ids),'|',('company_id','child_of',[user.company_id.id]),('company_id','in',user.company_ids.ids)]
+            </field>
+        </record>
+
+        <record model="ir.rule" id="faculty_multi_comp_rule">
+            <field name="name">Faculty multi-company</field>
+            <field name="model_id" ref="openeducat_core.model_op_faculty"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">
+                ['|',('company_id','=',False),'&amp;',('company_id','in',company_ids),'|',('company_id','child_of',[user.company_id.id]),('company_id','in',user.company_ids.ids)]
+            </field>
+        </record>
+
+        <record model="ir.rule" id="subject_multi_comp_rule">
+            <field name="name">Subject multi-company</field>
+            <field name="model_id" ref="openeducat_core.model_op_subject"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">
+                ['|',('company_id','=',False),'&amp;',('company_id','in',company_ids),'|',('company_id','child_of',[user.company_id.id]),('company_id','in',user.company_ids.ids)]
+            </field>
+        </record>
+
+        <record model="ir.rule" id="student_multi_comp_rule">
+            <field name="name">Student multi-company</field>
+            <field name="model_id" ref="openeducat_core.model_op_student"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">
+                ['|',('company_id','=',False),'&amp;',('company_id','in',company_ids),'|',('company_id','child_of',[user.company_id.id]),('company_id','in',user.company_ids.ids)]
+            </field>
+        </record>
+
+        <record model="ir.rule" id="hr_multi_comp_rule">
+            <field name="name">HR multi-company</field>
+            <field name="model_id" ref="openeducat_core.model_hr_employee"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">
+                ['|',('company_id','=',False),'&amp;',('company_id','in',company_ids),'|',('company_id','child_of',[user.company_id.id]),('company_id','in',user.company_ids.ids)]
+            </field>
+        </record>
+
+        <record model="ir.rule" id="course_multi_dept_rule">
+            <field name="name">Course multi-department</field>
+            <field name="model_id" ref="model_op_course"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">
+                ['|','|',('department_id','=',False),('department_id','child_of',[user.dept_id.id]),('department_id','in',user.department_ids.ids)]
+            </field>
+        </record>
+
+        <record model="ir.rule" id="faculty_multi_dept_rule">
+            <field name="name">Faculty multi-department</field>
+            <field name="model_id" ref="model_op_faculty"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">
+                ['|','|','|',('emp_id.user_id','=',user.id),('main_department_id','=',False),('main_department_id','child_of',[user.dept_id.id]),('main_department_id','in',user.department_ids.ids)]
+            </field>
+        </record>
+
+        <record model="ir.rule" id="subject_multi_dept_rule">
+            <field name="name">Subject multi-department</field>
+            <field name="model_id" ref="model_op_subject"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">
+                ['|','|',('department_id','=',False),('department_id','child_of',[user.dept_id.id]),('department_id','in',user.department_ids.ids)]
+            </field>
+        </record>
+
+</odoo>

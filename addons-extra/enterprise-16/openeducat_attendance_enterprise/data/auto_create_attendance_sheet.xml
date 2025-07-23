@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+        <record id="ir_cron_attendance_sheet_daily" model="ir.cron">
+            <field name="name">Attendance Sheet: Daily</field>
+            <field name="model_id" ref="model_op_attendance_sheet"/>
+            <field name="state">code</field>
+            <field name="code">model.attendance_sheet_daily()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="nextcall" eval="(DateTime.now() + timedelta(days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="active" eval="True"/>
+            <field name="doall" eval="False"/>
+        </record>
+
+        <record id="ir_cron_attendance_sheet_weekly" model="ir.cron">
+            <field name="name">Attendance Sheet: Weekly</field>
+            <field name="model_id" ref="model_op_attendance_sheet"/>
+            <field name="state">code</field>
+            <field name="code">model.attendance_sheet_weekly()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">weeks</field>
+            <field name="numbercall">-1</field>
+            <field name="nextcall" eval="(DateTime.now() + timedelta(days=7)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="active" eval="True"/>
+            <field name="doall" eval="False"/>
+        </record>
+
+        <record id="ir_cron_attendance_sheet_monthly" model="ir.cron">
+            <field name="name">Attendance Sheet: Monthly</field>
+            <field name="model_id" ref="model_op_attendance_sheet"/>
+            <field name="state">code</field>
+            <field name="code">model.attendance_sheet_monthly()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">months</field>
+            <field name="numbercall">-1</field>
+            <field name="nextcall" eval="(DateTime.now()+relativedelta(day=31)).strftime('%Y-%m-%d')"/>
+            <field name="active" eval="True"/>
+            <field name="doall" eval="False"/>
+        </record>
+
+</odoo>

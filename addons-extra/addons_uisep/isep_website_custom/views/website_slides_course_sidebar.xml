@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template id="website_slides.course_sidebar">
+        <!-- Channel main template: add link to forum -->
+        <div class="o_wslides_course_sidebar bg-white px-3 py-2 py-md-3 mb-3 mb-md-5">
+
+        
+        <div id="o_wslides_sidebar_collapse" class="collapse d-md-block">
+            <table class="table table-sm mt-3">
+                <tr t-if="channel.user_id">
+                    <th class="border-top-0">Responsible</th>
+                    <td class="border-top-0 text-break"><span t-esc="channel.user_id.display_name"/></td>
+                </tr>
+                <!-- <tr>
+                    <th class="border-top-0">Fecha de actualización</th>
+                    <td class="border-top-0"><t t-esc="channel.slide_last_update" t-options="{'widget': 'date'}"/></td>
+                </tr> -->
+                <tr t-if="channel.total_time">
+                    <th class="border-top-0">Completion Time</th>
+                    <td class="border-top-0"><t class="fw-bold" t-esc="channel.total_time" t-options="{'widget': 'duration', 'unit': 'hour', 'round': 'minute'}"/></td>
+                </tr>
+                <!-- <tr>
+                    <th>Members</th>
+                    <td><t t-esc="channel.members_count"/></td>
+                </tr>
+                -->
+            </table>
+
+           
+        </div>
+    </div>
+    </template>
+
+   <!-- Ocultar share fullscreen--> 
+     <template id="slide_fullscreen_share_none" inherit_id="website_slides.slide_fullscreen">
+        <xpath expr="//a[@class='o_wslides_fs_share d-flex align-items-center px-3']" position="replace"> </xpath>
+    </template>
+
+    <template id="course_nav_inherit" inherit_id="website_slides.course_nav">
+        <xpath expr="////ol[@class='breadcrumb bg-transparent mb-0 ps-0 py-0 overflow-hidden']" position="replace">       
+
+            <ol class="breadcrumb bg-transparent mb-0 ps-0 py-0 overflow-hidden">
+                <li class="breadcrumb-item">
+                    <a href="/campus">Campus</a>
+                </li>
+                <t t-set="breadcrumb_class" t-value="'breadcrumb-item %s' % ('fw-bold' if not slide else '')" />
+                <li t-att-class="'breadcrumb-item w-25 %s' % ('fw-bold' if not search_category and not search_tag and not search_slide_category and not slide else '')">
+                    <a t-att-href="'/slides/%s' % slug(channel)" class="text-truncate d-block"><span t-esc="channel.name"/></a>
+                </li>
+                <li t-att-class="breadcrumb_class" t-att-aria-current="'page' and search_category" t-if="search_category">
+                    <a t-att-href="'/slides/%s/category/%s' % (slug(channel), slug(search_category))"><span t-esc="search_category.name"/></a>
+                </li>
+                <li t-att-class="breadcrumb_class" t-att-aria-current="'page' and search_tag" t-if="search_tag">
+                    <a t-att-href="'/slides/%s/tag/%s' % (slug(channel), slug(search_tag))"><span t-esc="search_tag.name"/></a>
+                </li>
+                <li t-att-class="breadcrumb_class" t-att-aria-current="'page' and search_uncategorized" t-if="search_uncategorized">
+                    <a t-att-href="'/slides/%s?search_uncategorized=1' % (slug(channel))">Uncategorized</a>
+                </li>
+                <li t-att-class="breadcrumb_class" t-att-aria-current="'page' and search_slide_category" t-if="search_slide_category">
+                    <a t-att-href="'/slides/%s?slide_category=%s' % (slug(channel), search_slide_category)"><span t-esc="slide_categories[search_slide_category]"/></a>
+                </li>
+                <li t-if="slide" class="breadcrumb-item fw-bold">
+                    <a t-att-href="'/slides/slide/%s' % slug(slide)"><span t-esc="slide.name"/></a>
+                </li>
+            </ol>
+    </xpath>
+    </template> 
+
+
+
+</odoo>
+

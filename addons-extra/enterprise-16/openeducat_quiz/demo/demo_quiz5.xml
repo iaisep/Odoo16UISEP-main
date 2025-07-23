@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="op_qz_ctg_b1" model="op.quiz.category">
+            <field name="name">Category Bake</field>
+            <field name="code">bake122</field>
+        </record>
+
+        <record id="op_qz_bake1" model="op.quiz">
+            <field name="name">Backing Quiz</field>
+            <field name="categ_id" ref="op_qz_ctg_b1"/>
+            <field name="quiz_config">quiz_bank_selected</field>
+            <field name="time_config">True</field>
+            <field name="time_limit_hr">1</field>
+            <field name="time_limit_minute">30</field>
+            <field name="no_of_attempt">1</field>
+            <field name="description">This quiz is based on Statistics Bake
+            </field>
+            <field name="state">open</field>
+            <field name="quiz_html">
+                    Ever dreamt of baking fabulous artisan bread at home to wow your friends and family? Tired of baking
+                    bread that resembles a house brick? Want to be confident that you are baking healthy, tasty bread
+                    from ingredients you can trust? Then this is the course for you!
+
+            </field>
+        </record>
+        <record id="op_qu_bnk_type_bake1" model="op.question.bank.type">
+            <field name="name">Bake Real Artisan Bread</field>
+        </record>
+        <record id="op_qu_bnk_b10" model="op.question.bank">
+            <field name="name">Bake Test</field>
+            <field name="bank_type_id" ref="op_qu_bnk_type_bake1"/>
+        </record>
+        <record id="op_c_qb_b10" model="op.question.bank.line">
+            <field name="name">browines types?</field>
+             <field name="mark" type="float">1.0</field>
+            <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/3LIrP4nHrI8'"/>
+            <field name="document_id">3LIrP4nHrI8</field>
+            <field name="bank_id" ref="op_qu_bnk_b10"/>
+        </record>
+        <record id="op_c_qb_b1_a010" model="op.question.bank.answer">
+            <field name="name">cake</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qb_b10"/>
+        </record>
+        <record id="op_c_qb_b1_a020" model="op.question.bank.answer">
+            <field name="name">syrup</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="question_id" ref="op_c_qb_b10"/>
+        </record>
+        <record id="op_c_qb_b1_a030" model="op.question.bank.answer">
+            <field name="name">cookie</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qb_b10"/>
+        </record>
+        <record id="op_c_qb_b1_a040" model="op.question.bank.answer">
+            <field name="name">pudding</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qb_b10"/>
+        </record>
+
+        <record id="op_qz_ln6_b10" model="op.quiz.line">
+            <field name="name">browines types?</field>
+            <field name="mark" type="float">1.0</field>
+             <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/3LIrP4nHrI8'"/>
+            <field name="quiz_id" ref="op_qz_bake1"/>
+            <field name="que_id" ref="op_c_qb_b10"/>
+        </record>
+
+        <record id="op_qz_ln6_b1_l010" model="op.quiz.answer">
+            <field name="name">cake</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_b10"/>
+        </record>
+        <record id="op_qz_ln6_b1_l020" model="op.quiz.answer">
+            <field name="name">syrup</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="line_id" ref="op_qz_ln6_b10"/>
+        </record>
+        <record id="op_qz_ln6_b1_l030" model="op.quiz.answer">
+            <field name="name">cookie</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_b10"/>
+        </record>
+        <record id="op_qz_ln6_b1_l040" model="op.quiz.answer">
+            <field name="name">pudding</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_b10"/>
+        </record>
+
+
+        <record id="op_c_qb_b20" model="op.question.bank.line">
+            <field name="name">To make basic yeast bread, which of the following ingredients is not necessary?</field>
+            <field name="mark" type="float">1.0</field>
+             <field name="material_type">infographic</field>
+            <field name="datas" type="base64"
+                   file="openeducat_quiz/demo/files/bakingingredients.jpg"/>
+            <field name="bank_id" ref="op_qu_bnk_b10"/>
+        </record>
+        <record id="op_c_qb_b2_a010" model="op.question.bank.answer">
+            <field name="name">Yeast</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qb_b20"/>
+        </record>
+        <record id="op_c_qb_b2_a020" model="op.question.bank.answer">
+            <field name="name">Eggs</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qb_b20"/>
+        </record>
+        <record id="op_c_qb_b2_a030" model="op.question.bank.answer">
+            <field name="name">vegetables</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="question_id" ref="op_c_qb_b20"/>
+        </record>
+        <record id="op_c_qb_b2_a040" model="op.question.bank.answer">
+            <field name="name">Water</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qb_b20"/>
+        </record>
+
+        <record id="op_qz_ln6_b20" model="op.quiz.line">
+            <field name="name">To make basic yeast bread, which of the following ingredients is not necessary?</field>
+            <field name="mark" type="float">1.0</field>
+             <field name="material_type">infographic</field>
+            <field name="datas" type="base64"
+                   file="openeducat_quiz/demo/files/bakingingredients.jpg"/>
+            <field name="quiz_id" ref="op_qz_bake1"/>
+            <field name="que_id" ref="op_c_qb_b20"/>
+        </record>
+
+        <record id="op_qz_ln6_b2_l010" model="op.quiz.answer">
+            <field name="name">Yeast</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_b20"/>
+        </record>
+        <record id="op_qz_ln6_b2_l020" model="op.quiz.answer">
+            <field name="name">Eggs</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_b20"/>
+        </record>
+        <record id="op_qz_ln6_b2_l030" model="op.quiz.answer">
+            <field name="name">vegetables</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="line_id" ref="op_qz_ln6_b20"/>
+        </record>
+        <record id="op_qz_ln6_b2_l040" model="op.quiz.answer">
+            <field name="name">Water</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_b20"/>
+        </record>
+
+        <record id="op_c_qb_b30" model="op.question.bank.line">
+            <field name="name">Which is of Bake Food?</field>
+            <field name="mark" type="float">1.0</field>
+             <field name="material_type">infographic</field>
+            <field name="datas" type="base64"
+                   file="openeducat_quiz/demo/files/bake.jpg"/>
+            <field name="bank_id" ref="op_qu_bnk_b10"/>
+        </record>
+        <record id="op_c_qb_b3_a010" model="op.question.bank.answer">
+            <field name="name">Roti</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qb_b30"/>
+        </record>
+        <record id="op_c_qb_b3_a020" model="op.question.bank.answer">
+            <field name="name">Flower</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qb_b30"/>
+        </record>
+        <record id="op_c_qb_b3_a030" model="op.question.bank.answer">
+            <field name="name">Cake</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="question_id" ref="op_c_qb_b30"/>
+        </record>
+        <record id="op_c_qb_b3_a040" model="op.question.bank.answer">
+            <field name="name">Chocolate</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qb_b30"/>
+        </record>
+
+        <record id="op_qz_ln6_b30" model="op.quiz.line">
+            <field name="name">Which is of Bake Food?</field>
+            <field name="mark" type="float">1.0</field>
+             <field name="material_type">infographic</field>
+            <field name="datas" type="base64"
+                   file="openeducat_quiz/demo/files/bake.jpg"/>
+            <field name="quiz_id" ref="op_qz_bake1"/>
+            <field name="que_id" ref="op_c_qb_b30"/>
+        </record>
+
+        <record id="op_qz_ln6_m3_l010" model="op.quiz.answer">
+            <field name="name">Roti</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_b30"/>
+        </record>
+        <record id="op_qz_ln6_m3_l020" model="op.quiz.answer">
+            <field name="name">Flower</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_b30"/>
+        </record>
+        <record id="op_qz_ln6_m3_l030" model="op.quiz.answer">
+            <field name="name">Cake</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="line_id" ref="op_qz_ln6_b30"/>
+        </record>
+        <record id="op_qz_ln6_m3_l040" model="op.quiz.answer">
+            <field name="name">Chocolate</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_b30"/>
+        </record>
+
+        <record id="op_c_qb_b40" model="op.question.bank.line">
+            <field name="name">Which Are the Eusy To Bake?</field>
+            <field name="mark" type="float">1.0</field>
+              <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/l2FwbL1KWBI'"/>
+            <field name="document_id">l2FwbL1KWBI</field>
+            <field name="bank_id" ref="op_qu_bnk_b10"/>
+        </record>
+        <record id="op_c_qb_b4_a010" model="op.question.bank.answer">
+            <field name="name">Cake</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qb_b40"/>
+        </record>
+        <record id="op_c_qb_b4_a020" model="op.question.bank.answer">
+            <field name="name">Chocolate</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qb_b40"/>
+        </record>
+        <record id="op_c_qb_b4_a030" model="op.question.bank.answer">
+            <field name="name">Bread</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="question_id" ref="op_c_qb_b40"/>
+        </record>
+        <record id="op_c_qb_b4_a040" model="op.question.bank.answer">
+            <field name="name">Vegetables</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qb_b40"/>
+        </record>
+
+        <record id="op_qz_ln6_b40" model="op.quiz.line">
+            <field name="name">Which Are the Eusy To Bake?</field>
+            <field name="mark" type="float">1.0</field>
+              <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/l2FwbL1KWBI'"/>
+            <field name="document_id">l2FwbL1KWBI</field>
+            <field name="quiz_id" ref="op_qz_bake1"/>
+            <field name="que_id" ref="op_c_qb_b40"/>
+        </record>
+
+        <record id="op_qz_ln6_b4_l010" model="op.quiz.answer">
+            <field name="name">Cake</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_b40"/>
+        </record>
+        <record id="op_qz_ln6_b4_l020" model="op.quiz.answer">
+            <field name="name">Chocolate</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_b40"/>
+        </record>
+        <record id="op_qz_ln6_b4_l030" model="op.quiz.answer">
+            <field name="name">Bread</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="line_id" ref="op_qz_ln6_b40"/>
+        </record>
+        <record id="op_qz_ln6_b4_l040" model="op.quiz.answer">
+            <field name="name">Vegetables</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_b40"/>
+        </record>
+
+        <record id="op_c_qb_b50" model="op.question.bank.line">
+            <field name="name">Rosettes are??</field>
+             <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/5lMYnj92CWY'"/>
+            <field name="document_id">5lMYnj92CWY</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_b10"/>
+        </record>
+        <record id="op_c_qb_b5_a01" model="op.question.bank.answer">
+            <field name="name">Fried Cookie</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="question_id" ref="op_c_qb_b50"/>
+        </record>
+        <record id="op_c_qb_b5_a02" model="op.question.bank.answer">
+            <field name="name">Meolded Cookie</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qb_b50"/>
+        </record>
+        <record id="op_c_qb_b5_a03" model="op.question.bank.answer">
+            <field name="name">Sandwich Cookie</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qb_b50"/>
+        </record>
+        <record id="op_c_qb_b5_a04" model="op.question.bank.answer">
+            <field name="name">Car Cookie</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qb_b50"/>
+        </record>
+
+        <record id="op_qz_ln6_b50" model="op.quiz.line">
+            <field name="name">Rosettes are??</field>
+            <field name="mark" type="float">1.0</field>
+             <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/5lMYnj92CWY'"/>
+            <field name="document_id">5lMYnj92CWY</field>
+            <field name="quiz_id" ref="op_qz_bake1"/>
+            <field name="que_id" ref="op_c_qb_b50"/>
+        </record>
+
+        <record id="op_qz_ln6_b5_l01" model="op.quiz.answer">
+            <field name="name">Fried Cookie</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_100p_p"/>
+            <field name="line_id" ref="op_qz_ln6_b50"/>
+        </record>
+        <record id="op_qz_ln6_b5_l02" model="op.quiz.answer">
+            <field name="name">Meolded Cookie</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_b50"/>
+        </record>
+        <record id="op_qz_ln6_b5_l03" model="op.quiz.answer">
+            <field name="name">Sandwich Cookie</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_b50"/>
+        </record>
+        <record id="op_qz_ln6_b5_l04" model="op.quiz.answer">
+            <field name="name">Car Cookie</field>
+            <field name="grade_id" ref="openeducat_quiz.op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_b50"/>
+        </record>
+
+</odoo>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_op_lms_course_form_inherit" model="ir.ui.view">
+        <field name="name">op.course.inherit</field>
+        <field name="model">op.course</field>
+        <field name="inherit_id" ref="openeducat_lms.view_op_lms_course_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='general']" position="inside">
+                <group string="Descripcion HTML">
+                    <field name="lmsdescription_html" colspan="2" nolabel="1" options="{'style-inline': true, 'codeview': true}"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_op_material_form_inherit" model="ir.ui.view">
+        <field name="name">op.material.inherit</field>
+        <field name="model">op.material</field>
+        <field name="inherit_id" ref="openeducat_lms.view_op_course_material_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='webpage_content']" position="replace">
+                <field name="webpage_content"
+                                           attrs="{'invisible': [('material_type', '!=', 'webpage')]}" options="{'style-inline': true, 'codeview': true}"/>
+            </xpath>
+        </field>   
+    </record>
+
+
+
+</odoo>

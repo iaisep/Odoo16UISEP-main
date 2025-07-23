@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>        
+        <record id="config_instrucia_1" model="dv.instruction.config"> 
+            <field name="name">INST/001</field>
+            <field name="comment">original</field>
+            <field name="instruction">Datos Proporcionados:
+- Campos de Origen: {fields_old_content}
+- Campos de Destino: {fields_dest_content}
+
+**Instrucciones:**
+
+1. Compatibilidad de Campos:
+- Excluir los campos que:
+--Que comiencen con x_studio, write_, create_, o terminen con _ids en ambas secciones: "fields" y "field_noalma_fields".
+--Sean de tipo one2many o many2many, a menos que cumplan condiciones específicas (ver más abajo).
+-Considerar las columnas Stored de {fields_dest_content}:
+--Stored = Yes , incluir en "fields": [].
+--Stored = No, incluir en "field_noalma_fields": [].
+-Campos de tipo many2many:
+--No agregar en "fields": [].
+--Solo agregar en "field_noalma_fields": [] si cumplen con las condiciones y especificaciones.
+
+2. Generar Consulta SQL:
+- Utiliza los nombres de los campos compatibles como columnas a leer.
+- Estructura de la consulta:
+SELECT aa.id, aa.campo1, aa.campo2, ... FROM {model_origin} aa WHERE aa.company_id IN ({company_mcode}) ORDER BY id ASC
+-Incluir solo los campos con Stored = Yes, precedidos por aa..
+3. Generar Estructura JSON:
+- Utiliza la siguiente plantilla:
+```json[
+    {
+        "name": "{model_origin} - {company_name}",
+        "data_source_id": "{source_data}",
+        "sequence": "0",
+        "tdone": "",
+        "note": "",
+        "color": "0",
+        "method": "1",
+        "model_dv_id": "",
+        "active_c_xmlrpc": "",
+        "query": "SELECT aa.id,\n aa.campo1,.\n aa.campo2, ...\n FROM {model_origin} aa\n WHERE aa.company_id IN ({company_mcode})\n ORDER BY id ASC",
+        "allow_parcial_transaction": true,
+        "origin_primary_key": "id",
+        "target_external_id": "m_code",
+        "model_id": "{model_name}",
+        "fields": [
+            {
+                "origin_column": "campo_origen",
+                "origin_column_type": "tipo_dato",
+                "field_id": "campo_destino"
+            }
+            // Agregar más campos según corresponda (no agregar campos many2many)
+        ],
+        "field_noalma_fields": [
+            // Campos con Stored = No (incluyendo campos many2many si aplican)
+        ]
+    }
+]```
+- Estructura de los campos en "fields" y "field_noalma_fields":
+-- Para tipos char, text, boolean, selection, date, datetime, html:
+{
+    "origin_column": "campo",
+    "origin_column_type": "column",
+    "field_id": "campo"
+}
+-- Para tipo integer:
+{
+    "origin_column": "campo",
+    "origin_column_type": "column_int",
+    "field_id": "campo"
+}
+-- Para tipo float:
+{
+    "origin_column": "campo",
+    "origin_column_type": "column_float",
+    "field_id": "campo"
+}
+-- Para tipo many2one:
+{
+    "origin_column": "campo_id,m_code",
+    "origin_column_type": "m2o_external_code",
+    "field_id": "campo_id"
+}
+-- Para tipo many2many (solo en "field_noalma_fields"):
+{
+    "origin_column": "campo_ids,m_code",
+    "origin_column_type": "column_m2m",
+    "field_id": "campo_ids"
+}
+
+4. Consideraciones Importantes:
+- Para el JSON, no tomes en cuenta la variable de Id para la sección de fields, tambien no tomar en cuenta los campos que digan create_date, write_date, create_uid, write_uid.
+- No incluir el campo id en la sección de "fields" y "field_noalma_fields".
+-Verificación de 'm_code':
+-- Si en los Campos Destino, columna Name, no existe el campo llamado 'm_code', responder:
+NO EXISTE EL CAMPO m_code EN EL MODELO DESTINO, CREAR PRIMERO
+- Respuesta Final:
+Importante SOLO MOSTRAR la estructura JSON generada siguiendo las instrucciones anteriores, NO MUESTRES OTRO TEXTO QUE NO SEA LA ESTRUCTURA JSON .</field>
+        </record>
+    </data>
+</odoo>

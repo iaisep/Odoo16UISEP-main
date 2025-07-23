@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate='0'>
+        
+        <record id="module_category_isep_documents_portal" model="ir.module.category">
+                <field name="name">Documentación Portal</field>
+                <field name="description">Documentos publicos para Alumnos.</field>
+                <field name="sequence">1</field>
+        </record>
+
+        <record id="group_document_user" model="res.groups">
+                <field name="name">Documentación User</field>
+                <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+                <field name="category_id" ref="isep_documents_portal.module_category_isep_documents_portal"/>
+        </record>
+        
+        <record id="group_document_manager" model="res.groups">
+                <field name="name">Documentación Admin</field>
+                <field name="implied_ids" eval="[(4, ref('isep_documents_portal.group_document_user'))]"/>
+                <field name="category_id" ref="isep_documents_portal.module_category_isep_documents_portal"/>
+        </record>
+
+
+    </data>
+</odoo>

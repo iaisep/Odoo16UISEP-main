@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="ir_cron_data_master_call" model="ir.cron">
+        <field name="name">Datos para llamadas HelpDesk</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="doall">1</field>
+        <field name="model_id" ref="model_data_master_call"/>
+        <field name="state">code</field>
+        <field name="active" eval="True"/>
+        <field name="code">model.action_send_data_call()</field>
+        <field name="nextcall" eval="(datetime.now() + timedelta(minutes=7)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+</odoo>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="view_late_submission_line_tree" model="ir.ui.view">
+            <field name="name">late.sunbmission.line.tree</field>
+            <field name="model">late.submission.line</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="no_of_days"/>
+                    <field name="penalty"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_late_submission_line_form" model="ir.ui.view">
+            <field name="name">late.submission.line.form</field>
+            <field name="model">late.submission.line</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Late Submission">
+                    <sheet>
+                        <group>
+                            <field name="no_of_days"/>
+                            <field name="penalty"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_late_submission_line_search" model="ir.ui.view">
+            <field name="name">late.submission.line.search</field>
+            <field name="model">late.submission.line</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Late Submission Line">
+                    <field name="no_of_days"/>
+                    <field name="penalty"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_late_submission_line_view">
+            <field name="name">Late Submission Line</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">late.submission.line</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_late_submission_line_search"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_late_submission_line_view_form">
+            <field name="act_window_id" ref="act_late_submission_line_view"/>
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_late_submission_line_form"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_late_submission_line_view_tree">
+            <field name="act_window_id" ref="act_late_submission_line_view"/>
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_late_submission_line_tree"/>
+        </record>
+
+</odoo>

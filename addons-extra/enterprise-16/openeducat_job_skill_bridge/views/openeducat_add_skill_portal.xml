@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <template id="portal_my_home_menu_add_student_skill_form" name="Portal layout : Add Student Skill"
+              inherit_id="openeducat_core_enterprise.portal_breadcrumbs_inhetrite" priority="10">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+
+             <li t-if="page_name == 'student_skill_form' or student_skill_form "
+                 t-attf-class="breadcrumb-item #{'active ' if not student_skill_form else ''}">
+                <a t-if="user" t-attf-href="/student/profile/?{{ keep_query() }}">
+                    Student Profile
+                </a>
+                <t t-else="">Student Profile</t>
+            </li>
+            <li t-if="user" class="breadcrumb-item active">
+                Student Skill Form
+            </li>
+
+        </xpath>
+    </template>
+
+    <template id="enterprise_add_student_skill_portal">
+        <t t-call="portal.portal_layout">
+             <t t-set="breadcrumbs_searchbar" t-value="True"/>
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Submit Skill</t>
+            </t>
+            <t t-if="not skill_ids">
+                <p>There are currently no skills set as self assessed!!!</p>
+            </t>
+            <t t-if="skill_ids">
+                <div style="background-color:white; padding: 20px 40px 20px 40px;">
+
+                    <form action="/student/skill/submit" method="post" role="form" enctype="multipart/form-data">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <input type="hidden" name="student_id" t-att-value="user.id"/>
+                        <div class="row mt16 mb16 col-md-12">
+                            <div class="col-md-2">
+                                <label for="skill_type_id">Skill:</label>
+                            </div>
+                            <div class=" col-md-6">
+                                <select class="form-control" name="skill_type_id" required="1">
+                                    <option value="" class="disabled selected">
+                                        <lable>Select your option</lable>
+                                    </option>
+                                    <t t-foreach="skill_ids or []" t-as="skills">
+                                        <option t-att-value="skills.id">
+                                            <t t-esc="skills.name"/>
+                                        </option>
+                                    </t>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mt16 mb16 col-md-12">
+                            <div class="col-md-2">
+                                <label for="level_id">Level:</label>
+                            </div>
+                            <div class=" col-md-6">
+                                <select class="form-control" name="level_id" required="1">
+                                    <option value="" class="disabled selected">
+                                        <lable>Select your option</lable>
+                                    </option>
+                                    <t t-foreach="level_id" t-as="level">
+                                        <option t-att-value="level.id">
+                                            <t t-esc="level.name"/>
+                                        </option>
+                                    </t>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="clearfix mt16 mb16 row col-md-12">
+                            <div class="col-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    SUBMIT
+                                    <span class="fa fa-long-arrow-right"/>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

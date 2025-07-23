@@ -1,0 +1,15 @@
+<odoo noupdate="1">
+
+
+    <record id="web_oe_colors_attachment_file" model="ir.attachment">
+        <field name="public" eval="True"/>
+        <field name="name">Backend Theme Colors File</field>
+        <field name="datas" type="base64" file="openeducat_backend_theme/data/colors.scss"/>
+        <field name="res_model">ir.ui.view</field>
+        <field name="type">binary</field>
+        <field name="mimetype">text/scss</field>
+        <field name="url">/openeducat_backend_theme/static/src/scss/backend_theme_customizer/colors.scss</field>
+    </record>
+
+
+</odoo>

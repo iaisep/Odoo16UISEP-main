@@ -1,0 +1,62 @@
+<odoo>
+  <data>
+    <template id="inherit_website_ecommerce_product_main" inherit_id="website_sale.product">
+      <!--Color fondo al div-->
+        <xpath expr="//div[1]" position="before">
+              <style>
+                #o-carousel-product .carousel-outer .carousel-inner img {
+                    border-radius: 3rem !important;
+                }
+                .o_wsale_product_page {
+                 
+                 background-image: url(/isep_custom_ecommerce/static/src/img/wallpapper1.png);
+                    background-repeat: repeat; 
+                    
+                }
+                .text-muted {
+                    --text-opacity: 1;
+                    color: white !important;
+                }
+                .variant_price_extra {
+                    color: #2f2f36 !important;
+                }
+                .breadcrumb-item.active {
+                    color: #ffffff;
+                }
+                
+                
+              </style>
+            </xpath> 
+            
+            <xpath expr="//div[@id='product_detail_main']/div[1]" position="replace">
+       
+            </xpath>
+        
+            <xpath expr="//div[@id='product_details']" position="after">
+                           <div t-attf-class="col-lg-#{image_cols[0]} mt-lg-4 o_wsale_product_images position-relative" t-if="website.product_page_image_width != 'none'">
+                    <t t-call="website_sale.shop_product_images"/>
+                  </div>
+                
+              </xpath>
+              
+              
+              <xpath expr="//div[@id='product_detail_main']" position="attributes">
+               <attribute name="style">
+                     background: #141722bd;
+                     color:white;
+              </attribute>
+            </xpath>
+            <xpath expr="//div[@id='product_detail_main']" position="before">
+               <div class="row text-bg-primary" style="
+                    margin-top: 15px;
+                    height: 3px;
+               " ></div>
+            </xpath>
+
+    </template>
+
+  </data>
+</odoo>
+
+
+

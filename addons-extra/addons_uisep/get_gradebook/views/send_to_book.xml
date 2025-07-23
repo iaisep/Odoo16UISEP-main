@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="get_gradebook_form_send_to_book" model="ir.ui.view">
+        <field name="name">get.gradebook.form.send_to_book.inherit</field>
+        <field name="model">survey.user_input</field>
+        <field name="inherit_id" ref="isep_gradebook.custom_survey_user_input_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='answer_score_total']" position="after">
+                <field name="send_to_book" invisible="1"/>
+            </xpath>
+        </field>
+    </record>    
+</odoo>

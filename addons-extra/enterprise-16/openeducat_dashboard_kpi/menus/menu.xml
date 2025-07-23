@@ -1,0 +1,18 @@
+<odoo>
+
+
+        <menuitem id="openeducat_dashboard_kpi.dashboard_pro_root" name="KPI Dashboard" web_icon="openeducat_dashboard_kpi,static/description/icon.png"/>
+
+        <menuitem id="dashboard_pro_create"
+                  name="Create Dashboard"
+                  parent="dashboard_pro_root"
+                  action="openeducat_dashboard_kpi.create_dashboard_action_window"/>
+
+        <menuitem name="My Dashboard"
+                  id="openeducat_dashboard_kpi.dashboard_menu"
+                  action="openeducat_dashboard_kpi.dashboard_action_window"
+                  sequence="1"
+                  parent="dashboard_pro_root"/>
+
+
+</odoo>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+        <record model="ir.ui.view" id="student_progress_marksheet_line_wizad_form">
+            <field name="name">Activity Progress Wizard</field>
+            <field name="model">marksheet.line.progress.wizard</field>
+            <field name="arch" type="xml">
+                <form string="student progress wizard ">
+                    <group col="2" colspan="2">
+                        <field name="student_id" invisible="True"/>
+                        <field name="marksheet_ids" widget="many2many_lines"
+                               domain="[('student_id', '=', student_id)]"/>
+                    </group>
+                    <footer>
+                        <span groups="base.group_user">
+                            <button string="Add"
+                                    type="object" name="Add_marksheet_line" class="oe_highlight"/>
+                            <button special="cancel" string="Close"
+                                    type="object"/>
+                        </span>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_win_progress_marksheet_line_wizard_action">
+            <field name="name">Add Marksheet Line</field>
+            <field name="res_model">marksheet.line.progress.wizard</field>
+            <field name="binding_model_id" ref="openeducat_student_progress_enterprise.model_op_student_progression"/>
+            <field name="binding_view_types">list</field>
+            <field name="view_mode">form,tree</field>
+            <field name="view_id" ref="student_progress_marksheet_line_wizad_form"/>
+            <field name="context">{}</field>
+            <field name="target">new</field>
+        </record>
+
+
+</odoo>

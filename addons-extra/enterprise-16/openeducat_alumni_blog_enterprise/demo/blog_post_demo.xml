@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="alumni_blog_1" model="blog.post">
+            <field name="name">Sports</field>
+            <field name="blog_id" ref="website_blog.blog_blog_1"/>
+        </record>
+
+        <record id="alumni_blog_2" model="blog.post">
+            <field name="name">Music</field>
+            <field name="blog_id" ref="website_blog.blog_blog_1"/>
+        </record>
+
+        <record id="alumni_blog_3" model="blog.post">
+            <field name="name">Annual celebration</field>
+            <field name="blog_id" ref="website_blog.blog_blog_1"/>
+        </record>
+
+</odoo>

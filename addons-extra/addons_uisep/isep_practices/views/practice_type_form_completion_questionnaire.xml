@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- View practice.type.form.completion.questionnaire View Tree -->
+    <record id="view_practice_type_form_completion_questionnaire_tree" model="ir.ui.view">
+        <field name="name">view.practice.type.form.completion.questionnaire.tree</field>
+        <field name="model">practice.type.form.completion.questionnaire</field>
+        <field name="arch" type="xml">
+            <tree string="Completion Questionnaire">
+                <field name="name_student" string="Nombre del Estudiante"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- View practice.type.form.completion.questionnaire form -->
+    <record id="view_practice_type_form_completion_questionnaire_form" model="ir.ui.view">
+        <field name="name">view.practice.type.form.completion.questionnaire.form</field>
+        <field name="model">practice.type.form.completion.questionnaire</field>
+        <field name="arch" type="xml">
+            <form string="TypeForm Completion Questionnaire">
+                <sheet>
+                    <group>
+                        <group string="Información">
+                            <field name="name_student" required="1" string="Nombre del Estudiante"/>
+                            <field name="modality" required="1" string="Modalidad"/>
+                            <field name="campus" required="1" string="Sede" attrs="{'invisible': [('modality','=', 'Online')]}"/>
+                            <field name="area" required="1" string="Area"/>
+                            <!-- <field name="status_master" invisible="1"/>
+                            <field name="master_psychology_face_to_face" attrs="{'invisible': [('status_master','!=', 'master_psychology_face_to_face')]}"/>
+                            <field name="master_psychology_at_home" attrs="{'invisible': [('status_master','!=', 'master_psychology_at_home')]}"/>
+                            <field name="master_psychology_online" attrs="{'invisible': [('status_master','!=', 'master_psychology_online')]}"/>
+                            <field name="master_neuroscience_face_to_face" attrs="{'invisible': [('status_master','!=', 'master_neuroscience_face_to_face')]}"/>
+                            <field name="master_neuroscience_at_home" attrs="{'invisible': [('status_master','!=', 'master_neuroscience_at_home')]}"/>
+                            <field name="master_neuroscience_online" attrs="{'invisible': [('status_master','!=', 'master_neuroscience_online')]}"/>
+                            <field name="master_education_face_to_face" attrs="{'invisible': [('status_master','!=', 'master_education_face_to_face')]}"/>
+                            <field name="master_education_online" attrs="{'invisible': [('status_master','!=', 'master_education_online')]}"/>
+                            <field name="master_education_at_home" attrs="{'invisible': [('status_master','!=', 'master_education_at_home')]}"/>
+                            <field name="master_education_at_home" attrs="{'invisible': [('status_master','!=', 'master_education_at_home')]}"/>
+                            <field name="master_speech_therapy_face_to_face" attrs="{'invisible': [('status_master','!=', 'master_speech_therapy_face_to_face')]}"/>
+                            <field name="master_speech_therapy_online" attrs="{'invisible': [('status_master','!=', 'master_speech_therapy_online')]}"/>
+                            <field name="master_speech_therapy_at_home" attrs="{'invisible': [('status_master','!=', 'master_speech_therapy_at_home')]}"/>
+
+                            <field name="status_specialty" invisible="1"/> -->
+                            <!-- <field name="specialty_clinical_psychology" attrs="{'invisible': [('status_specialty','!=', 'specialty_clinical_psychology')]}"/>
+                            <field name="specialty_psychology_child_youth" attrs="{'invisible': [('status_specialty','!=', 'specialty_psychology_child_youth')]}"/>
+                            <field name="specialty_psychology_third_generation" attrs="{'invisible': [('status_specialty','!=', 'specialty_psychology_third_generation')]}"/> -->
+                        </group>
+                        <group string="Completion Questionnaire">
+                            <field name="assessment_1" string="Presentación del Servicio de Prácticas(Información, documentación)"/>
+                            <field name="assessment_2" string="Coordinación de las prácticas por parte de ISEP"/>
+                            <field name="assessment_3" string="Apoyo durante el proceso de prácticas por parte de ISEP"/>
+                            <field name="typology_practices"  attrs="{'invisible': [('modality','!=', 'Online')]}"/>
+                            <field name="assessment_4"  attrs="{'invisible': [('typology_practices','!=', 'Seguimiento de un caso (online)')]}"/>
+                            <field name="assessment_5" attrs="{'invisible': [('typology_practices','!=', 'Seguimiento de un caso (online)')]}"/>
+                            <field name="assessment_6" attrs="{'invisible': [('typology_practices','!=', 'Seguimiento de un caso (online)')]}"/>
+                            <field name="assessment_7" attrs="{'invisible': [('typology_practices','!=', 'Seguimiento de un caso (online)')]}"/>
+                            <field name="assessment_8" attrs="{'invisible': [('typology_practices','!=', 'Seguimiento de un caso (online)')]}"/>
+                            <field name="name_center_practice" attrs="{'invisible': [('modality','!=', 'Online'), ('typology_practices','!=', 'Centro Externo')]}"/>
+                            <field name="name_tutor" attrs="{'invisible': [('modality','!=', 'Online'), ('typology_practices','!=', 'Centro Externo')]}"/>
+                            <field name="performed_hours" attrs="{'invisible': [('modality','!=', 'Online'), ('typology_practices','!=', 'Centro Externo')]}"/>
+                            <field name="assessment_9" string="Centro: Instalaciones, ubicación física, servicios..."   attrs="{'invisible': [('typology_practices','=', 'Seguimiento de un caso (online)')]}"/>
+                            <field name="assessment_10" string="Tutor de prácticas: trato, apoyo, seguimiento..." attrs="{'invisible': [('typology_practices','=', 'Seguimiento de un caso (online)')]}"/>
+                            <field name="assessment_11" string="Tareas realizadas" attrs="{'invisible': [('typology_practices','=', 'Seguimiento de un caso (online)')]}"/>
+                            <field name="assessment_12" string="Aportación personal del alumno a las actividades del centro." attrs="{'invisible': [('typology_practices','=', 'Seguimiento de un caso (online)')]}"/>
+                            <field name="observations" string="Observaciones"/>
+                            <field name="number_hours_practice" string="Horas de prácticas"/>
+                            <field name="assessment_14" string="Relación de las prácticas con el contenido formativo"/>
+                            <field name="assessment_15" string="Oportunidad de ampliar Conocimientos en las prácticas"/>
+                            <field name="assessment_16" string="Experiencia válida para encontrar trabajo"/>
+                            <field name="assessment_17" string="Cumplimiento de expectativas"/>
+                            <field name="assessment_18" string="Valoración global de las prácticas"/>
+                            <field name="observations_suggestions" string="Observaciones"/>
+                            <field name="terms"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- View practice.type.form.completion.questionnaire search -->
+    <record id="view_practice_type_form_completion_questionnaire_search" model="ir.ui.view">
+        <field name="name">view.practice.type.form.completion.questionnaire.search</field>
+        <field name="model">practice.type.form.completion.questionnaire</field>
+        <field name="arch" type="xml">
+            <search string="TypeForm Completion Questionnaire">
+                <field name="name_tutor"/>
+                <group expand="1" string="Group By">
+                    <filter string="Name Tutor" name="name_tutor" domain="[]" context="{'group_by':'name_tutor'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action practice.type.form.completion.questionnaire -->
+    <record id="action_practice_type_form_completion_questionnaire" model="ir.actions.act_window">
+        <field name="name">Practice Type Form Completion Questionnaire</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">practice.type.form.completion.questionnaire</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                There is no examples click here to add new Practice Type Form Completion Questionnaire.
+            </p>
+        </field>
+    </record>
+
+</odoo>

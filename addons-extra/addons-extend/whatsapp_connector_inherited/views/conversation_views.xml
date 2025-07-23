@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <!--    inherited views for rights users Isep-->
+
+    <record id="view_conversation_form_inherit" model="ir.ui.view">
+        <field name="name">acrux.chat.conversation.inherit</field>
+        <field name="model">acrux.chat.conversation</field>
+        <field name="inherit_id" ref="whatsapp_connector.view_whatsapp_connector_conversation_form_admin"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='team_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+             <xpath expr="//field[@name='team_id']" position="before">
+                <field name="new_team_id"/>
+            </xpath>
+
+        </field>
+    </record>
+
+
+    <!--menuitem-->
+    <menuitem name="ChatRoom" id="menu_chatroom_user"
+              sequence="5"
+              parent="mail.menu_root_discuss"
+              groups="whatsapp_connector.group_chat_basic_extra"/>
+    <menuitem action="whatsapp_connector.view_whatsapp_connector_message_action"
+              id="whatsapp_connector_connector_menu"
+              parent="menu_chatroom_user"
+              sequence="6"/>
+    <menuitem action="whatsapp_connector.view_whatsapp_connector_conversation_action"
+              id="whatsapp_connector_conversation_menu"
+              parent="menu_chatroom_user"
+              sequence="7"/>
+
+
+</odoo>

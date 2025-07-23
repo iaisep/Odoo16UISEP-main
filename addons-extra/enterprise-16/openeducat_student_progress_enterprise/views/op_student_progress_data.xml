@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="view_student_progress_tree" model="ir.ui.view">
+            <field name="name">Student Progression List</field>
+            <field name="model">op.student.progression</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" optional="hide"/>
+                    <field name="student_id"/>
+                    <field name="date"/>
+                    <field name="created_by"/>
+                    <field name="state"/>
+                    <field name="active" widget="boolean_toggle" optional="hide"/>
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_student_progress_form" model="ir.ui.view">
+            <field name="name">Student Progression Form</field>
+            <field name="model">op.student.progression</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="state" widget="statusbar"/>
+                        <button name="state_draft" type="object" string="Reset To Draft" class="oe_highlight"
+                                attrs="{'invisible': ['|',('state', '=', 'draft'),('state','=','done')]}"/>
+                        <button name="state_open" type="object" string="In Progress" class="oe_highlight"
+                                attrs="{'invisible': ['|','|',('state', '=', 'cancel'),('state', '=', 'open'),('state','=','done')]}"/>
+                        <button name="state_rejected" type="object" string="Cancel" class="oe_highlight"
+                                attrs="{'invisible': ['|','|',('state', '=', 'draft'),('state', '=', 'cancel'),('state','=','done')]}"/>
+                        <button name="state_done" type="object" string="Done" class="oe_highlight"
+                                attrs="{'invisible': ['|','|',('state', '=', 'cancel'),('state', '=', 'draft'),('state', '=', 'done')]}"/>
+                    </header>
+                    <sheet>
+                        <field name="active" invisible="1"/>
+                        <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                                attrs="{'invisible': [('active', '=', True)]}"/>
+                        <group name="StudentData">
+                            <group>
+                                <field name="name" readonly="True" force_save="1"/>
+                                <field name="date" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            </group>
+                            <group>
+                                <field name="student_id" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="created_by"/>
+                                <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                            </group>
+                        </group>
+                        <notebook>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="view_op_student_progression_search" model="ir.ui.view">
+            <field name="name">op.student.progression.search</field>
+            <field name="model">op.student.progression</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Progression Records">
+                    <field name="student_id" select="True"/>
+                    <field name="date" select="True"/>
+                    <field name="created_by" select="True"/>
+                    <field name="state" select="True"/>
+                    <newline/>
+                    <filter string="Today" name="today"
+                            domain="[('date', '&gt;=', time.strftime('%%Y-%%m-%%d 00:00:00')),('date', '&lt;=', time.strftime('%%Y-%%m-%%d 23:59:59'))]"/>
+                    <filter string="Week" name="week"
+                            domain="['&amp;',('date', '>=', (context_today() + relativedelta(weeks=-1,days=1,weekday=0)).strftime('%Y-%m-%d')),('date', '&lt;=', (context_today() + relativedelta(weekday=6)).strftime('%Y-%m-%d'))]"/>
+                    <filter string="Month" name="month"
+                            domain="[('date','&gt;=', context_today().strftime('%Y-%m-1')), ('date','&lt;', ((context_today() + relativedelta(months=1)).strftime('%Y-%m-1')) )]"/>
+                    <filter string="Archived" name="inactive"
+                            domain="[('active', '=', False)]"/>
+                    <group expand="0" string="Group By...">
+                        <filter string="Student" name="group_by_student"
+                                domain="[]" context="{'group_by':'student_id'}"/>
+                        <filter string="Created By" name="group_by_created"
+                                domain="[]" context="{'group_by':'created_by'}"/>
+                        <filter string="State" name="group_by_state"
+                                domain="[]" context="{'group_by':'state'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="view_op_student_progression_graph" model="ir.ui.view">
+            <field name="name">op.student.progression.graph</field>
+            <field name="model">op.student.progression</field>
+            <field name="arch" type="xml">
+                <graph string="Student Progression graph" type="pie">
+                    <field name="student_id" type="row"/>
+                    <field name="state" type="col"/>
+                    <field name="date" interval="month"/>
+                </graph>
+            </field>
+        </record>
+
+        <record id="view_op_student_progression_pivot" model="ir.ui.view">
+            <field name="name">op.student.progression.pivot</field>
+            <field name="model">op.student.progression</field>
+            <field name="arch" type="xml">
+                <pivot string="Student Progression Analysis">
+                    <field name="student_id" type="row"/>
+                    <field name="state"/>
+                    <field name="date"/>
+                    <field name="created_by"/>
+                </pivot>
+            </field>
+        </record>
+
+
+        <record id="action_student_progrss_analysis" model="ir.actions.act_window">
+            <field name="name">Student Progression</field>
+            <field name="res_model">op.student.progression</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form,pivot,graph</field>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="action_student_progrss_analysis_form">
+            <field name="act_window_id" ref="action_student_progrss_analysis"/>
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_student_progress_form"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="action_student_progrss_analysis_tree">
+            <field name="act_window_id" ref="action_student_progrss_analysis"/>
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_student_progress_tree"/>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_op_student_progress_analysis_pivot_view">
+            <field name="name">Student Progress Analysis</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.student.progression</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_id" ref="openeducat_student_progress_enterprise.view_op_student_progression_pivot"/>
+            <field name="view_mode">pivot</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+
+        <record id="op_student_progress_analysis_pivot_view" model="ir.actions.act_window.view">
+            <field name="view_mode">pivot</field>
+            <field name="view_id" ref="openeducat_student_progress_enterprise.view_op_student_progression_pivot"/>
+            <field name="act_window_id" ref="act_op_student_progress_analysis_pivot_view"/>
+        </record>
+
+
+
+</odoo>

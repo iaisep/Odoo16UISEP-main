@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="view_op_assignment_enterprise_inherited_tree_view" model="ir.ui.view">
+            <field name="name">op.assignment.enterprise.inherited.tree</field>
+            <field name="model">op.assignment</field>
+            <field name="inherit_id" ref="openeducat_assignment.view_op_assignment_tree"/>
+            <field name="arch" type="xml">
+                <field name="state" position="before">
+                    <field name="attempt_type" optional="hide"/>
+                    <field name="max_attempt" optional="hide"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_op_assignment_inherited_form_view" model="ir.ui.view">
+            <field name="name">op.assignment..inherited.form</field>
+            <field name="model">op.assignment</field>
+            <field name="inherit_id" ref="openeducat_assignment.view_op_assignment_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='reviewer']" position="after">
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                </xpath>
+                <xpath expr="//notebook" position="before">
+                    <div>
+                        <h1>Submission Details</h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="attempt_type" attrs="{'readonly':[('state','!=','draft')]}"/>
+                        </group>
+                        <group>
+                            <field name="max_attempt"
+                                   attrs="{ 'readonly':[('state','!=','draft')],
+                                        'invisible': [('attempt_type', '=', 'single')]}"/>
+                        </group>
+                    </group>
+                </xpath>
+                <xpath expr="//notebook/page[@name='submissions']" position="after">
+                    <page name="additional_submission_configuration" string="Student Additional Attempt"
+                          attrs="{'invisible': [('attempt_type', '=', 'single')]}">
+                        <field name="additional_attempt">
+                            <tree>
+                                <field name="assignment_id"/>
+                                <field name="student_id"/>
+                                <field name="datetime"/>
+                                <field name="allowed_attempt"/>
+                                <field name="create_by"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_op_assignment_inherited_search_view" model="ir.ui.view">
+            <field name="name">op.assignment..inherited.search</field>
+            <field name="model">op.assignment</field>
+            <field name="inherit_id" ref="openeducat_assignment.view_op_assignment_search"/>
+            <field name="arch" type="xml">
+                <xpath expr="." position="inside">
+                    <searchpanel>
+                        <field name="subject_id" icon="fa fa-book"/>
+                    </searchpanel>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_op_tree_onboarding_assignment" model="ir.ui.view">
+            <field name="name">op.assignment.onboard</field>
+            <field name="model">op.assignment</field>
+            <field name="inherit_id" ref="openeducat_assignment.view_op_assignment_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree" position="attributes">
+                    <attribute name="banner_route">
+                        /openeducat_assignment_enterprise/openeducat_assignment_onboarding_panel
+                    </attribute>
+                </xpath>
+                <xpath expr="//field[@name='state']" position="after">
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                </xpath>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="act_assignment_analysis_pivot_view">
+            <field name="name">Assignment Analysis</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.assignment</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_id" ref="openeducat_assignment.view_op_assignment_pivot"/>
+            <field name="view_mode">pivot</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+
+        <record id="op_assignment_analysis_pivot_view" model="ir.actions.act_window.view">
+            <field name="sequence" eval="3"/>
+            <field name="view_mode">pivot</field>
+            <field name="view_id" ref="openeducat_assignment.view_op_assignment_pivot"/>
+            <field name="act_window_id" ref="act_assignment_analysis_pivot_view"/>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_assignment_submission_pivot_view">
+            <field name="name">Assignment Submission Analysis</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.assignment.sub.line</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_id" ref="openeducat_assignment.view_op_assignment_sub_line_pivot"/>
+            <field name="view_mode">pivot</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+
+        <record id="op_assignment_submission_pivot_view" model="ir.actions.act_window.view">
+            <field name="sequence" eval="3"/>
+            <field name="view_mode">pivot</field>
+            <field name="view_id" ref="openeducat_assignment.view_op_assignment_sub_line_pivot"/>
+            <field name="act_window_id" ref="act_assignment_submission_pivot_view"/>
+        </record>
+
+
+
+</odoo>

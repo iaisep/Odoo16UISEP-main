@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <!-- View res.partner form -->
+    <record id="view_res_summary_partner_form" model="ir.ui.view">
+        <field name="name">view.res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='internal_notes']" position="after">
+                <page name="summary" string="Resúmen de llamadas">
+                    <field name="summary_ids">
+                        <tree>
+                            <field name="crm_lead_id" />
+                            <!-- <field name="partner_id" /> -->
+                            <field name="summary" />
+                            <field name="create_date" string="Fecha de creación" readonly="1"/>
+                        </tree>
+                        <form string="Resúmen de llamadas">
+                            <group>
+                                <field name="crm_lead_id" />
+                                <!-- <field name="partner_id" /> -->
+                                <field name="summary" />
+                                <field name="create_date" string="Fecha de creación" readonly="1"/>
+                            </group>
+                        </form>
+                    </field>
+
+                    <field name="summary_partner_ids">
+                        <tree>
+                            <field name="partner_id" />
+                            <field name="summary" />
+                            <field name="create_date" string="Fecha de creación" readonly="1"/>
+                        </tree>
+                        <form string="Resúmen de llamadas Contacto">
+                            <group>
+                                <field name="partner_id" />
+                                <field name="summary" />
+                                <field name="create_date" string="Fecha de creación" readonly="1"/>
+                            </group>
+                        </form>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

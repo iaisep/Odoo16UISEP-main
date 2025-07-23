@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_slide_slide_form_inherit_local_external" model="ir.ui.view">
+            <field name="name">slide.slide.form</field>
+            <field name="model">slide.slide</field>
+            <field name="inherit_id" ref="website_slides.view_slide_slide_form"/>
+            <field name="arch" type="xml">
+                <field name="document_binary_content" position="after">
+                    <field name="external_url" attrs="{'invisible': [('slide_category', '!=', 'local_external')], 'required':[('slide_category', '=', 'local_external')]}"/>
+                    
+                </field>
+
+                <!-- <page name="description" position="after">
+                    <page name="html_content" string="HTML Contenido" attrs="{'invisible': [('slide_category', '!=', 'article')] }" >
+                                <field name="html_content"  widget="html" class="oe-bordered-editor"    options="{'style-inline': true, 'codeview': true, 'dynamic_placeholder': true}"   />
+                    </page>
+                    
+                </page> -->
+
+                
+            </field>
+        </record>
+    </data>
+</odoo>

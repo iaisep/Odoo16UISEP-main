@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <template id="practice_request_portal_details_template" name="Detalles de Solicitud de Práctica">
+        <t t-call="website.layout">
+            <div class="container mt-4 mb-4">
+                <div class="row">
+                    <div class="col-12">
+                        <h1 class="text-center">Detalles de la solicitud de práctica</h1>
+                        <div class="card mt-3">
+                            <div class="card-body">
+                                <!-- Datos principales -->
+                                <table class="table table-bordered">
+                                    <h4>Solicitud de práctica</h4>
+                                    <tr>
+                                        <th>No.</th>
+                                        <td>
+                                            <t t-esc="practice_request.id"/>
+                                        </td>
+                                    </tr>
+                                    <t t-set="state_dict" t-value="{
+                                        'draft': 'Borrador',
+                                        'assigned': 'Asignado',
+                                        'approved': 'Aprobado',
+                                        'rejected': 'Rechazado',
+                                        'progress': 'En Proceso',
+                                        'end': 'Finalizado'
+                                    }"/>
+                                    <tr>
+                                        <th>Estado</th>
+                                        <td>
+                                            <t t-esc="state_dict.get(practice_request.state, practice_request.state)"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Fecha de solicitud</th>
+                                        <td>
+                                            <t t-esc="practice_request.request_date"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <h4>Información General</h4>
+                                <table class="table table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <th>Nombre</th>
+                                            <td>
+                                                <t t-esc="practice_request.name"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Correo electrónico</th>
+                                            <td>
+                                                <t t-esc="practice_request.email"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Matricula</th>
+                                            <td>
+                                                <t t-esc="practice_request.op_admission_id.application_number"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Curso</th>
+                                            <td>
+                                                <t t-esc="practice_request.course_id.course_id.display_name"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Tipo de centro de práctica</th>
+                                            <td>
+                                                <t t-esc="practice_request.practice_center_type_id.display_name"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Descripción de la aplicación</th>
+                                            <td>
+                                                <t t-esc="practice_request.application_description"/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <!-- Fechas y horas -->
+                                <h4>Centro Asignado</h4>
+                                <table class="table table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <th>Centro de Práctica</th>
+                                            <td>
+                                                <t t-esc="practice_request.practice_center_id.display_name"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Tutor</th>
+                                            <td>
+                                                <t t-esc="practice_request.tutor_id.display_name"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Total horas de práctica</th>
+                                            <td>
+                                                <t t-esc="'%.2f'%practice_request.practice_center_type_id_total_hours"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Total de horas disponibles para la semana.</th>
+                                            <td>
+                                                <t t-esc="'%.2f' % practice_request.total_available_hours"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Número de semanas que durará la práctica.</th>
+                                            <td>
+                                                <t t-esc="'%.2f' % practice_request.weeks_practices"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Fecha de inicio</th>
+                                            <td>
+                                                <t t-esc="practice_request.start_date"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Posible fecha final de práctica</th>
+                                            <td>
+                                                <t t-esc="practice_request.compute_final_date"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>
+                                                <div style="display: flex; gap: 10px;">
+                                                    <t t-if="practice_request.state == 'assigned'">
+                                                        <form method="POST" action="/my/practice_requests2/accept">
+                                                            <input type="hidden" name="request_id"
+                                                                   t-att-value="practice_request.id"/>
+                                                            <button type="submit" class="btn btn-success">Aceptar
+                                                            </button>
+                                                        </form>
+                                                        <form method="POST" action="/my/practice_requests2/decline">
+                                                            <input type="hidden" name="request_id"
+                                                                   t-att-value="practice_request.id"/>
+                                                            <button type="submit" class="btn btn-danger">Rechazar
+                                                            </button>
+                                                        </form>
+                                                    </t>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+
+                                <!-- Otros datos -->
+                              <!--
+                                <h4>Información adicional</h4>
+                                <table class="table table-bordered">
+                                    <tbody>
+                                        <t t-set="status_sign_dict" t-value="{
+                                                'Signatures Pending': 'Firma en Trámite',
+                                                'Fully Signed': 'Totalmente Firmado',
+                                                'cancelled': 'Cancelado'
+                                            }"/>
+
+                                        <tr t-if="practice_request.sign_request_specific_agrement_id &gt; 0">
+                                            <th>Estado de firma del convenio</th>
+                                            <td>
+
+                                                <t t-esc="status_sign_dict.get(practice_request.status_sign_specific, practice_request.status_sign_specific)"/>
+
+                                            </td>
+                                        </tr>
+                                        <tr t-if="practice_request.sign_request_framework_agrement_id &gt; 0">
+                                            <th>Estado de firma del Acuerdo</th>
+                                            <td>
+                                                 <t t-esc="status_sign_dict.get(practice_request.status_sign_framework, practice_request.status_sign_framework)"/>
+
+                                            </td>
+                                        </tr> -->
+                                        <!--                                        <tr>-->
+                                        <!--                                            <th>Checklist Completed</th>-->
+                                        <!--                                            <td>-->
+                                        <!--                                                <t t-if="practice_request.checklist_completed">Yes</t>-->
+                                        <!--                                                <t t-if="not practice_request.checklist_completed">No</t>-->
+                                        <!--                                            </td>-->
+                                        <!--                                        </tr>-->
+                                      <!--  <tr>
+                                            <th>Correo electrónico enviado</th>
+                                            <td>
+                                                <t t-if="practice_request.email_send">Yes</t>
+                                                <t t-if="not practice_request.email_send">No</t>
+                                            </td>
+                                        </tr>
+
+
+                                    </tbody>
+                                </table>
+
+                                 -->
+
+                                <!--                                <h2>Registrar Documento</h2>-->
+                                <!--                                <form action="/web/submit_document" method="post" enctype="multipart/form-data">-->
+                                <!--                                    <input type="hidden" name="practice_request_id" t-att-value="practice_request.id"/>-->
+                                <!--                                    <div class="form-group">-->
+                                <!--                                        <label for="document_type">Tipo de Documento</label>-->
+                                <!--                                        <select id="document_type" name="document_type" class="form-control"-->
+                                <!--                                                t-att-required="required">-->
+                                <!--                                            <option value="agreement">Acuerdo</option>-->
+                                <!--                                            <option value="certificate">Certificado</option>-->
+                                <!--                                            <option value="report">Informe</option>-->
+                                <!--                                            <option value="other">Otro</option>-->
+                                <!--                                        </select>-->
+                                <!--                                    </div>-->
+                                <!--                                    <div class="form-group">-->
+                                <!--                                        <label for="description">Descripción</label>-->
+                                <!--                                        <textarea id="description" name="description" class="form-control"></textarea>-->
+                                <!--                                    </div>-->
+                                <!--                                    &lt;!&ndash;                <div class="form-group">&ndash;&gt;-->
+                                <!--                                    &lt;!&ndash;                    <label for="document_name">Nombre del Documento</label>&ndash;&gt;-->
+                                <!--                                    &lt;!&ndash;                    <input type="text" id="document_name" name="document_name" class="form-control" t-att-required="required" />&ndash;&gt;-->
+                                <!--                                    &lt;!&ndash;                </div>&ndash;&gt;-->
+
+                                <!--                                    <div class="form-group">-->
+                                <!--                                        <label for="file">Archivo</label>-->
+                                <!--                                        <input type="file" id="file" name="file" class="form-control"-->
+                                <!--                                               t-att-required="required"/>-->
+                                <!--                                    </div>-->
+
+                                <!--                                    &lt;!&ndash;                                    <div class="form-group">&ndash;&gt;-->
+                                <!--                                    &lt;!&ndash;                                        <label for="file_name">Nombre del Archivo</label>&ndash;&gt;-->
+                                <!--                                    &lt;!&ndash;                                        <input type="text" id="file_name" name="file_name" class="form-control"&ndash;&gt;-->
+                                <!--                                    &lt;!&ndash;                                               t-att-required="required"/>&ndash;&gt;-->
+                                <!--                                    &lt;!&ndash;                                    </div>&ndash;&gt;-->
+
+
+                                <!--                                    <div class="form-group">-->
+                                <!--                                        <button type="submit" class="btn btn-primary">Subir Documento</button>-->
+                                <!--                                    </div>-->
+                                <!--                                </form>-->
+
+                                <t t-if="practice_request.state in ['progress']">
+                                     
+                                    <t t-if="practice_request.practice_center_type_id.display_name == 'Presencial'">
+                                        <h4><span id= "practice_document_id">Descarga tu constancia de
+prácticas profesionales</span></h4>
+                                    </t>
+                                    <t t-else="">
+                                     
+                                        <h4><span id= "practice_document_id">Documento de Inicio de Práctica</span></h4>
+                                    </t>
+                                    <table class="table table-bordered">
+                                        <tr>
+                                            <th>
+                                                Nombre del Archivo
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Documento de inicio de práctica
+                                            </td>
+                                            <td>
+                                                <a t-att-href="'/report/pdf/isep_practices_2.t_practices/' + str(practice_request.id) + '?download=true'" 
+                                                    class="btn btn-primary" target="_blank">
+                                                        <i class="fa fa-download"></i>
+                                                </a>
+                                            </td>
+
+                                        </tr>
+                                    </table>
+
+                                    <h4>Formatos disponibles para usar en tus reportes de práctica profesional</h4>
+                                    <t t-set="docs" t-value="request.env['campus.files'].search([('public','=', True)])"/>
+
+                                    <table class="table table-bordered">
+                                        <tr>
+                                            <th>
+                                                Nombre del Archivo
+                                            </th>
+
+                                            <th>
+                                                Acciones
+                                            </th>
+                                        </tr>
+                                        <t t-foreach="docs" t-as="file">
+                                            <tr>
+                                                <td>
+                                                    <t t-esc="file.name"/>
+                                                </td>
+                                                <td>
+                                                    <t t-if="file.file">
+                                                        <a t-att-href="'/web/content/' + str(file.id) + '?model=campus.files&amp;field=file&amp;filename_field=file_name&amp;download=true'"
+                                                            style="color: green;">
+                                                           <i class="fa fa-download"></i>
+                                                        </a>
+                                                    </t>
+                                                </td>
+  
+                                            </tr>
+                                        </t>
+                                    </table>
+                                </t>
+
+
+
+                                <t t-if="practice_request.state in ['progress','end']">
+                                    <h4>Documentos Cargados</h4>
+                                    <!--                                <t t-if="practice_request.attachment2_ids">-->
+                                    <table class="table table-bordered">
+                                        <tr>
+                                            <th>
+                                                Fecha de Carga
+                                            </th>
+                                            <th>
+                                                Documento
+                                            </th>
+                                            <th>
+                                                Descripción
+                                            </th>
+                                            <th>
+                                                Tipo de Documento
+                                            </th>
+
+                                            <th>
+                                                Acciones
+                                            </th>
+                                        </tr>
+                                        <t t-foreach="practice_request.attachment2_ids" t-as="document">
+
+                                            <tr>
+                                                <td>
+                                                    <t t-esc="document.create_date"/>
+                                                </td>
+                                                <td>
+                                                    <t t-esc="document.name"/>
+                                                </td>
+                                                <td>
+                                                    <t t-esc="document.description"/>
+                                                </td>
+                                                <t t-set="document_type_dict" t-value="{
+                                                    'agreement': 'Acuerdo',
+                                                    'certificate': 'Certificado',
+                                                    'report': 'Informe',
+                                                    'other': 'Otro'
+                                                }"/>
+                                                <td>
+                                                    <t t-esc="document_type_dict.get(document.document_type, document.document_type)"/>
+                                                </td>
+
+                                                <td>
+                                                    <a t-att-href="'../notificaciones/download/'+str(document['id'])"
+                                                       style="color: green;">
+                                                        <i class="fa fa-download"></i>
+                                                    </a>
+                                                    <a t-att-href="'../notificaciones/borrar/'+str(document['id'])+'/'+str(document['practice_request_id'].id)"
+                                                       style="color: red;">
+                                                        <i class="fa fa-trash"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                        <form action="/web/submit_document" method="post" enctype="multipart/form-data">
+                                            <tr>
+                                                <th colspan="2">
+                                                    <div class="form-group">
+                                                        <input type="file" id="file" name="file" class="form-control"
+                                                               t-att-required="required"/>
+                                                    </div>
+                                                </th>
+                                                <th>
+                                                    <div class="form-group">
+                                                        <textarea id="description" name="description"
+                                                                  class="form-control"></textarea>
+                                                    </div>
+                                                </th>
+                                                <th>
+                                                    <div class="form-group">
+                                                        <select id="document_type" name="document_type"
+                                                                class="form-control"
+                                                                t-att-required="required">
+                                                            <option value="agreement">Acuerdo</option>
+                                                            <option value="certificate">Certificado</option>
+                                                            <option value="report">Informe</option>
+                                                            <option value="other">Otro</option>
+                                                        </select>
+                                                    </div>
+                                                </th>
+
+                                                <th>
+                                                    <div class="form-group">
+                                                        <input type="hidden" name="practice_request_id"
+                                                               t-att-value="practice_request.id"/>
+                                                        <button type="submit" class="btn btn-primary">
+                                                            <i class="fa fa-upload"></i>
+                                                        </button>
+                                                    </div>
+                                                </th>
+                                            </tr>
+
+
+                                        </form>
+
+
+                                    </table>
+                                </t>
+
+                                <t t-set="doc_urls" t-value="request.env['practice.doc.url'].search([('practice_center_type_ids','in',practice_request.practice_center_type_id.id)])"/>
+
+                                <t t-if="doc_urls">
+                                    <div class="card mt-4">
+                                        <div class="card-body">
+                                            <h4>Sube tu memoria de práctica</h4>
+                                            <p>Haz click en el siguiente enlace para cargar tu memoria de práctica y obtener un comentario del
+tutor responsable.</p>
+                                            <t t-foreach="doc_urls" t-as="doc_url" >
+                                              <div class="row mt-1">
+                                                 <div class="col-6">
+                                                   <t t-esc="doc_url.display_name"/>
+                                                 </div>
+                                                 <div class="col-6">
+                                                    <a t-att-href="doc_url.url_survey" class="btn btn-primary" target="_blank">
+                                                        <i class="fa fa-external-link">Cargar</i> 
+                                                    </a>
+                                                 </div>
+                                              </div>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </t>
+
+                                                                
+                                <!-- <t t-set="attachments" t-value="request.env['ir.attachment'].sudo().search([
+                                    ('create_uid.partner_id.email', '=', practice_request.email), 
+                                    ('res_id', '=', False),
+                                    ('res_model','=',False),
+                                    ('website_id', '!=', False)
+                                    ])"/>
+
+                                <t t-if="practice_request.attachment_upload_ids">
+                                    <div class="card mt-4">
+                                        <div class="card-body">
+                                            <h4>Archivos Subidos</h4>
+                                            <ul>
+                                                <t t-foreach="practice_request.attachment_upload_ids.sudo()" t-as="att">
+                                                    <li>
+                                                        <a t-att-href="'/web/content/' + str(att.id) + '?download=1'" target="_blank">
+                                                            <i class="fa fa-download"></i> <t t-esc="att.name"/>
+                                                        </a>
+                                                    </li>
+                                                </t>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </t>
+                                 -->
+
+                                <h4>Lista de verificación</h4>
+                                <!--                                <t t-if="practice_request.attachment2_ids">-->
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <th>
+                                            Descripción
+                                        </th>
+                                        <th>
+                                            ¿Es Obligatorio?
+                                        </th>
+                                        <th>
+                                            ¿Esta completo?
+                                        </th>
+
+                                    </tr>
+                                    <t t-foreach="practice_request.checklist_ids" t-as="checklist">
+
+                                        <tr>
+                                            <td>
+                                                <t t-esc="checklist.name"/>
+                                            </td>
+                                            <td class="text-center">
+
+                                                <t t-if="checklist.is_mandatory">
+                                                    <i class="fa fa-check text-success" title="Obligatorio"></i>
+                                                </t>
+                                            </td>
+                                            <td class="text-center">
+                                                <t t-if="checklist.is_completed">
+                                                    <i class="fa fa-check text-success" title="Completed"></i>
+                                                </t>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </table>
+                                <form method="POST" action="/my/practice_requests2">
+                                    <input type="hidden" name="request_id" t-att-value="practice_request.id"/>
+                                    <button type="submit" class="btn btn-success">Regresar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

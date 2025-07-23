@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <!--DEMO DATA FOR ENROLLMENT-->
+        <record id="demo_enrollment_paid_1" model="op.course.enrollment">
+            <field name="course_id" ref="openeducat_lms.demo_course_2"/>
+            <field name="user_id" ref="openeducat_lms.op_user_student_1"/>
+            <field name="state">in_progress</field>
+            <field name="enrollment_date" eval="(DateTime.today() - relativedelta(days=1))"/>
+        </record>
+
+        <record id="demo_enrollment_free_2" model="op.course.enrollment">
+            <field name="course_id" ref="openeducat_lms.demo_course_1"/>
+            <field name="user_id" ref="openeducat_lms.op_user_student_2"/>
+            <field name="state">in_progress</field>
+            <field name="enrollment_date" eval="(DateTime.today() - relativedelta(days=8))"/>
+        </record>
+
+        <record id="demo_enrollment_paid_3" model="op.course.enrollment">
+            <field name="course_id" ref="openeducat_lms.demo_course_2"/>
+            <field name="user_id" ref="openeducat_lms.op_user_student_3"/>
+            <field name="state">in_progress</field>
+            <field name="enrollment_date" eval="(DateTime.today() - relativedelta(days=4))"/>
+        </record>
+
+        <record id="demo_enrollment_free_4" model="op.course.enrollment">
+            <field name="course_id" ref="openeducat_lms.demo_course_1"/>
+            <field name="user_id" ref="openeducat_lms.op_user_student_4"/>
+            <field name="state">in_progress</field>
+            <field name="enrollment_date" eval="(DateTime.today() - relativedelta(days=6))"/>
+        </record>
+
+        <record id="demo_enrollment_paid_5" model="op.course.enrollment">
+            <field name="course_id" ref="openeducat_lms.demo_course_2"/>
+            <field name="user_id" ref="openeducat_lms.op_user_student_5"/>
+            <field name="state">in_progress</field>
+            <field name="enrollment_date" eval="(DateTime.today() - relativedelta(days=1))"/>
+        </record>
+
+        <record id="demo_enrollment_free_6" model="op.course.enrollment">
+            <field name="course_id" ref="openeducat_lms.demo_course_1"/>
+            <field name="user_id" ref="openeducat_lms.op_user_student_6"/>
+            <field name="state">in_progress</field>
+            <field name="enrollment_date" eval="(DateTime.today() - relativedelta(days=6))"/>
+        </record>
+
+        <record id="demo_enrollment_paid_7" model="op.course.enrollment">
+            <field name="course_id" ref="openeducat_lms.demo_course_2"/>
+            <field name="user_id" ref="openeducat_lms.op_user_student_7"/>
+            <field name="state">in_progress</field>
+            <field name="enrollment_date" eval="(DateTime.today() - relativedelta(days=7))"/>
+        </record>
+
+        <record id="demo_enrollment_free_8" model="op.course.enrollment">
+            <field name="course_id" ref="openeducat_lms.demo_course_1"/>
+            <field name="user_id" ref="openeducat_lms.op_user_student_8"/>
+            <field name="state">in_progress</field>
+            <field name="enrollment_date" eval="(DateTime.today() - relativedelta(days=3))"/>
+        </record>
+
+        <record id="demo_enrollment_paid_9" model="op.course.enrollment">
+            <field name="course_id" ref="openeducat_lms.demo_course_2"/>
+            <field name="user_id" ref="openeducat_lms.op_user_student_9"/>
+            <field name="state">in_progress</field>
+            <field name="enrollment_date" eval="(DateTime.today() - relativedelta(days=9))"/>
+        </record>
+
+        <record id="demo_enrollment_free_10" model="op.course.enrollment">
+            <field name="course_id" ref="openeducat_lms.demo_course_1"/>
+            <field name="user_id" ref="openeducat_lms.op_user_student_10"/>
+            <field name="state">in_progress</field>
+            <field name="enrollment_date" eval="(DateTime.today() - relativedelta(days=5))"/>
+        </record>
+
+        <record id="demo_enrollment_paid_11" model="op.course.enrollment">
+            <field name="course_id" ref="openeducat_lms.demo_course_2"/>
+            <field name="user_id" ref="openeducat_lms.op_user_student_11"/>
+            <field name="state">in_progress</field>
+            <field name="enrollment_date" eval="(DateTime.today() - relativedelta(days=1))"/>
+        </record>
+
+        <record id="demo_enrollment_paid_12" model="op.course.enrollment">
+            <field name="course_id" ref="openeducat_lms.demo_course_2"/>
+            <field name="user_id" ref="openeducat_lms.op_user_student_12"/>
+            <field name="state">in_progress</field>
+            <field name="enrollment_date" eval="(DateTime.today() - relativedelta(days=9))"/>
+        </record>
+
+        <record id="demo_enrollment_free_21" model="op.course.enrollment">
+            <field name="course_id" ref="openeducat_lms.demo_course_1"/>
+            <field name="user_id" ref="openeducat_lms.op_user_student_21"/>
+            <field name="state">in_progress</field>
+            <field name="enrollment_date" eval="(DateTime.today() - relativedelta(days=4))"/>
+        </record>
+
+        <record id="demo_enrollment_paid_14" model="op.course.enrollment">
+            <field name="course_id" ref="openeducat_lms.demo_course_2"/>
+            <field name="user_id" ref="openeducat_lms.op_user_student_14"/>
+            <field name="state">in_progress</field>
+            <field name="enrollment_date" eval="(DateTime.today() - relativedelta(days=4))"/>
+        </record>
+
+        <record id="demo_enrollment_free_15" model="op.course.enrollment">
+            <field name="course_id" ref="openeducat_lms.demo_course_1"/>
+            <field name="user_id" ref="openeducat_lms.op_user_student_15"/>
+            <field name="state">in_progress</field>
+            <field name="enrollment_date" eval="(DateTime.today() - relativedelta(days=2))"/>
+        </record>
+
+        <record id="demo_enrollment_paid_16" model="op.course.enrollment">
+            <field name="course_id" ref="openeducat_lms.demo_course_2"/>
+            <field name="user_id" ref="openeducat_lms.op_user_student_16"/>
+            <field name="state">in_progress</field>
+            <field name="enrollment_date" eval="(DateTime.today() - relativedelta(days=6))"/>
+        </record>
+
+        <record id="demo_enrollment_free_17" model="op.course.enrollment">
+            <field name="course_id" ref="openeducat_lms.demo_course_1"/>
+            <field name="user_id" ref="openeducat_lms.op_user_student_17"/>
+            <field name="state">in_progress</field>
+            <field name="enrollment_date" eval="(DateTime.today() - relativedelta(days=8))"/>
+        </record>
+
+        <record id="demo_enrollment_paid_18" model="op.course.enrollment">
+            <field name="course_id" ref="openeducat_lms.demo_course_2"/>
+            <field name="user_id" ref="openeducat_lms.op_user_student_18"/>
+            <field name="state">in_progress</field>
+            <field name="enrollment_date" eval="(DateTime.today() - relativedelta(days=1))"/>
+        </record>
+
+        <record id="demo_enrollment_free_19" model="op.course.enrollment">
+            <field name="course_id" ref="openeducat_lms.demo_course_1"/>
+            <field name="user_id" ref="openeducat_lms.op_user_student_19"/>
+            <field name="state">in_progress</field>
+            <field name="enrollment_date" eval="(DateTime.today() - relativedelta(days=1))"/>
+        </record>
+
+        <record id="demo_enrollment_free_20" model="op.course.enrollment">
+            <field name="course_id" ref="openeducat_lms.demo_course_1"/>
+            <field name="user_id" ref="openeducat_lms.op_user_student_20"/>
+            <field name="state">in_progress</field>
+            <field name="enrollment_date" eval="(DateTime.today() - relativedelta(days=7))"/>
+        </record>
+
+</odoo>

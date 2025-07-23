@@ -1,0 +1,397 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* openeducat_student_attendance_enterprise
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-13 12:25+0000\n"
+"PO-Revision-Date: 2022-12-13 12:25+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.actions.client,name:openeducat_student_attendance_enterprise.student_attendance_action_kiosk_mode
+msgid " Student Attendances"
+msgstr ""
+
+#. module: openeducat_student_attendance_enterprise
+#: code:addons/openeducat_student_attendance_enterprise/models/student_attendance.py:0
+#, python-format
+msgid "%(stu_name)s signed in at %(check_in)s"
+msgstr ""
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:0
+#, python-format
+msgid ""
+"<b>Warning! Last check in was over 12 hours ago.</b><br/>If this isn't "
+"right, please contact Human Resource staff"
+msgstr ""
+
+#. module: openeducat_student_attendance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_student_attendance_enterprise.view_student_attendance_kanban
+msgid "<i class=\"fa fa-calendar\" aria-label=\"Period\" role=\"img\" title=\"Period\"/>"
+msgstr "<i class=\"fa fa-calendar\" aria-label=\"período\" rol=\"img\" title=\"período\"/>"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:0
+#, python-format
+msgid "An apple a day keeps the doctor away"
+msgstr ""
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:0
+#, python-format
+msgid "Another good day's work! See you soon!"
+msgstr ""
+
+#. module: openeducat_student_attendance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_student_attendance_enterprise.student_attendance_timesheet_portal
+#: model_terms:ir.ui.view,arch_db:openeducat_student_attendance_enterprise.student_attendance_timesheet_progression_report
+#: model_terms:ir.ui.view,arch_db:openeducat_student_attendance_enterprise.student_progression_timesheet_portal
+msgid "Attedance Time"
+msgstr "Tiempo de atención"
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.model.fields,field_description:openeducat_student_attendance_enterprise.field_op_student__attendance_ids
+#: model_terms:ir.ui.view,arch_db:openeducat_student_attendance_enterprise.view_student_form_inherit_student_attendance
+msgid "Attendance"
+msgstr "Asistencia"
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.model,name:openeducat_student_attendance_enterprise.model_op_attendance_line
+msgid "Attendance Lines"
+msgstr "Líneas de asistencia"
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.model.fields,field_description:openeducat_student_attendance_enterprise.field_op_attendance_line__attendance_id
+msgid "Attendance Sheet"
+msgstr "Hoja de asistencia"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:0
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:0
+#, python-format
+msgid "Attendance Sheets"
+msgstr ""
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.model.fields,field_description:openeducat_student_attendance_enterprise.field_op_attendance_line__check_in
+msgid "Attendance Time"
+msgstr "Hora de asistencia"
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.model.fields,field_description:openeducat_student_attendance_enterprise.field_op_student__barcode
+msgid "Badge ID"
+msgstr "ID de insignia"
+
+#. module: openeducat_student_attendance_enterprise
+#: code:addons/openeducat_student_attendance_enterprise/models/op_student.py:0
+#, python-format
+msgid "Cannot perform sign in on multiple students."
+msgstr "No se puede realizar una sesión de varios estudiantes."
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:0
+#, python-format
+msgid "Company Logo"
+msgstr ""
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:0
+#, python-format
+msgid "Early to bed and early to rise, makes a man healthy, wealthy and wise"
+msgstr ""
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:0
+#, python-format
+msgid "Eat breakfast as a king, lunch as a merchant and supper as a beggar"
+msgstr ""
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:0
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:0
+#, python-format
+msgid "Error: could not find corresponding student."
+msgstr ""
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:0
+#, python-format
+msgid "First come, first served"
+msgstr ""
+
+#. module: openeducat_student_attendance_enterprise
+#: model_terms:ir.ui.view,arch_db:openeducat_student_attendance_enterprise.view_student_form_inherit_student_attendance
+msgid "Generate"
+msgstr "Generar"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:0
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:0
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:0
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:0
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:0
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:0
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:0
+#, python-format
+msgid "Go back"
+msgstr ""
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:0
+#, python-format
+msgid "Good afternoon"
+msgstr ""
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:0
+#, python-format
+msgid "Good evening"
+msgstr ""
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:0
+#, python-format
+msgid "Good morning"
+msgstr ""
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:0
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:0
+#, python-format
+msgid "Good night"
+msgstr ""
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:0
+#, python-format
+msgid "Have a good afternoon"
+msgstr ""
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:0
+#, python-format
+msgid "Have a good day!"
+msgstr ""
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:0
+#, python-format
+msgid "Have a good evening"
+msgstr ""
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:0
+#, python-format
+msgid "Have a nice lunch!"
+msgstr ""
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.model.fields,help:openeducat_student_attendance_enterprise.field_op_student__barcode
+msgid "ID used for student identification"
+msgstr "ID utilizado para la identificación del estudiante"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:0
+#, python-format
+msgid "Invalid request, please return to the main menu."
+msgstr ""
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.ui.menu,name:openeducat_student_attendance_enterprise.menu_student_attendance_kiosk_mode
+msgid "Kiosk Mode"
+msgstr "Modo quiosco"
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.model.fields,field_description:openeducat_student_attendance_enterprise.field_op_student__last_attendance_id
+msgid "Last Attendance"
+msgstr "Última asistencia"
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.actions.client,name:openeducat_student_attendance_enterprise.student_attendance_action_greeting_message
+msgid "Message"
+msgstr "Mensaje"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:0
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:0
+#, python-format
+msgid "No open Attendance Sheet."
+msgstr ""
+
+#. module: openeducat_student_attendance_enterprise
+#: code:addons/openeducat_student_attendance_enterprise/models/op_student.py:0
+#, python-format
+msgid "No student corresponding to barcode %(barcode)s"
+msgstr ""
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:0
+#, python-format
+msgid "OK"
+msgstr ""
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.model.fields,field_description:openeducat_student_attendance_enterprise.field_op_student__pin
+#: model_terms:ir.ui.view,arch_db:openeducat_student_attendance_enterprise.view_student_form_inherit_student_attendance
+msgid "PIN"
+msgstr "ALFILER"
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.model.fields,help:openeducat_student_attendance_enterprise.field_op_student__pin
+msgid "PIN used to Sign In in Kiosk Mode"
+msgstr "Pin utilizado para iniciar sesión en modo quiosco"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:0
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:0
+#, python-format
+msgid "Please contact the administrator."
+msgstr ""
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:0
+#, python-format
+msgid "Please enter your PIN to check in"
+msgstr ""
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:0
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:0
+#, python-format
+msgid "Please return to the main menu."
+msgstr ""
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:0
+#, python-format
+msgid "Scan your badge"
+msgstr ""
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:0
+#, python-format
+msgid "Select Student"
+msgstr ""
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:0
+#, python-format
+msgid "Signed in at"
+msgstr ""
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.model,name:openeducat_student_attendance_enterprise.model_op_student
+#: model:ir.model.fields,field_description:openeducat_student_attendance_enterprise.field_op_attendance_line__student_id
+#: model_terms:ir.ui.view,arch_db:openeducat_student_attendance_enterprise.student_view_kanban
+msgid "Student"
+msgstr "Alumno"
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.actions.act_window,name:openeducat_student_attendance_enterprise.student_attendance_action
+#: model:ir.ui.menu,name:openeducat_student_attendance_enterprise.menu_root_stu_att
+msgid "Student Attendances"
+msgstr "Asistencia estudiantil"
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.actions.act_window,name:openeducat_student_attendance_enterprise.open_view_student_list_my
+#: model:ir.actions.act_window,name:openeducat_student_attendance_enterprise.student_attendance_action_kanban
+msgid "Students"
+msgstr "Estudiantes"
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.model.constraint,message:openeducat_student_attendance_enterprise.constraint_op_student_barcode_uniq
+msgid ""
+"The Badge ID must be unique,                          this one is already "
+"assigned to another student."
+msgstr ""
+"La identificación de la insignia debe ser única, esta ya está asignada a "
+"otro estudiante."
+
+#. module: openeducat_student_attendance_enterprise
+#: code:addons/openeducat_student_attendance_enterprise/models/op_student.py:0
+#, python-format
+msgid "The PIN must be a sequence of digits."
+msgstr "El PIN debe ser una secuencia de dígitos."
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/js/greeting_message.js:0
+#, python-format
+msgid "The early bird catches the worm"
+msgstr ""
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:0
+#, python-format
+msgid "Welcome"
+msgstr ""
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:0
+#, python-format
+msgid "Welcome to"
+msgstr ""
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:0
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:0
+#, python-format
+msgid "Welcome!"
+msgstr ""
+
+#. module: openeducat_student_attendance_enterprise
+#: code:addons/openeducat_student_attendance_enterprise/models/op_student.py:0
+#, python-format
+msgid "Wrong PIN"
+msgstr "Pin erróneo"
+
+#. module: openeducat_student_attendance_enterprise
+#: model:ir.model.fields,help:openeducat_student_attendance_enterprise.field_op_student__attendance_ids
+msgid "list of attendances for students"
+msgstr "Lista de asistencias para estudiantes"
+
+#. module: openeducat_student_attendance_enterprise
+#. openerp-web
+#: code:addons/openeducat_student_attendance_enterprise/static/src/xml/student_attendance.xml:0
+#, python-format
+msgid "or"
+msgstr ""

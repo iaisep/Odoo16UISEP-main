@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="view_op_course_section_material_tree" model="ir.ui.view">
+            <field name="name">op.course.material.tree</field>
+            <field name="model">op.course.material</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="sequence"/>
+                    <field name="material_id" domain="[('user_id','=',uid)]"/>
+                    <field name="preview"/>
+                    <field name="total_time" widget="float_time" readonly="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_op_course_section_material_form" model="ir.ui.view">
+            <field name="name">op.course.material.form</field>
+            <field name="model">op.course.material</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Course Section Material Detail">
+                    <sheet>
+                        <group>
+                            <field name="sequence"/>
+                            <field name="material_id" domain="[('user_id','=',uid)]"/>
+                            <field name="preview"/>
+                            <field name="total_time" widget="float_time" readonly="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_open_op_course_section_material_view">
+            <field name="name">Course Section Material Detail</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.course.material</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+</odoo>

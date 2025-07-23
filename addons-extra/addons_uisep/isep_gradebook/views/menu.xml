@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+        <menuitem 
+            id="menu_app_gradebook_root"
+            name="Calificaciones"
+            web_icon="isep_gradebook,static/description/icon.png"
+            sequence="30"
+            groups="openeducat_core.group_op_faculty,openeducat_admission.group_op_admission_user"
+         />
+
+        <menuitem 
+            id="menu_app_gradebook_pending"
+            name="Pendientes"
+            action="action_app_gradebook_pending"
+            sequence="1"
+            parent="isep_gradebook.menu_app_gradebook_root"
+            groups="openeducat_core.group_op_faculty,openeducat_admission.group_op_admission_user"
+         />
+
+        <menuitem 
+            id="menu_app_gradebook_student_root" 
+            name="Libretas" 
+            action="act_app_gradebook_student_view" 
+            sequence="2" 
+            parent="isep_gradebook.menu_app_gradebook_root"
+            groups="openeducat_core.group_op_faculty,openeducat_admission.group_op_admission_user"
+        />
+        <menuitem 
+            id="menu_app_gradebook_reports_root" 
+            name="Informes" 
+            sequence="5" 
+            parent="isep_gradebook.menu_app_gradebook_root"
+            groups="openeducat_core.group_op_faculty,openeducat_admission.group_op_admission_user"
+        />
+
+    </data>
+        
+</odoo>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="template_1" model="op.grade.template.line">
+            <field name="academic_years_id" ref="openeducat_core.academic_year_1"/>
+            <field name="academic_term_id" ref="openeducat_core.academic_term_1"/>
+            <field name="weightage">aasignment_type</field>
+            <field name="assignment_type_weight_ids"
+                   eval="[(6,0, [ref('weight_1'), ref('weight_2'), ref('weight_3'), ref('weight_4'), ref('weight_5')])]"/>
+        </record>
+
+        <record id="template_1_1" model="op.grade.template.line">
+            <field name="academic_years_id" ref="openeducat_core.academic_year_1"/>
+            <field name="academic_term_id" ref="openeducat_core.academic_term_2"/>
+            <field name="weightage">aasignment_type</field>
+            <field name="assignment_type_weight_ids"
+                   eval="[(6,0, [ref('weight_1_1'), ref('weight_1_2'), ref('weight_1_3'), ref('weight_1_4'), ref('weight_1_5')])]"/>
+        </record>
+
+        <record id="template_2" model="op.grade.template.line">
+            <field name="academic_years_id" ref="openeducat_core.academic_year_1"/>
+            <field name="academic_term_id" ref="openeducat_core.academic_term_1"/>
+            <field name="weightage">aasignment_type</field>
+            <field name="assignment_type_weight_ids"
+                   eval="[(6,0, [ref('weight_6'), ref('weight_7'), ref('weight_8'), ref('weight_9')])]"/>
+        </record>
+
+        <record id="template_3" model="op.grade.template.line">
+            <field name="academic_years_id" ref="openeducat_core.academic_year_1"/>
+            <field name="academic_term_id" ref="openeducat_core.academic_term_1"/>
+            <field name="weightage">aasignment_type</field>
+            <field name="assignment_type_weight_ids" eval="[(6,0, [ref('weight_10')])]"/>
+        </record>
+
+        <record id="template_4" model="op.grade.template.line">
+            <field name="academic_years_id" ref="openeducat_core.academic_year_3"/>
+            <field name="academic_term_id" ref="openeducat_core.academic_term_6"/>
+            <field name="weightage">aasignment_type</field>
+            <field name="assignment_type_weight_ids" eval="[(6,0, [ref('weight_17'), ref('weight_18'), ref('weight_19'), ref('weight_20'), ref('weight_21')])]"/>
+        </record>
+
+        <record id="template_4_1" model="op.grade.template.line">
+            <field name="academic_years_id" ref="openeducat_core.academic_year_3"/>
+            <field name="academic_term_id" ref="openeducat_core.academic_term_7"/>
+            <field name="weightage">aasignment_type</field>
+            <field name="assignment_type_weight_ids" eval="[(6,0, [ref('weight_22'), ref('weight_23'), ref('weight_24'), ref('weight_25'), ref('weight_26')])]"/>
+        </record>
+
+        <record id="template_4_2" model="op.grade.template.line">
+            <field name="academic_years_id" ref="openeducat_core.academic_year_3"/>
+            <field name="academic_term_id" ref="openeducat_core.academic_term_9"/>
+            <field name="weightage">aasignment_type</field>
+            <field name="assignment_type_weight_ids" eval="[(6,0, [ref('weight_27'), ref('weight_28'), ref('weight_29'), ref('weight_30'), ref('weight_31')])]"/>
+        </record>
+
+        <record id="template_4_3" model="op.grade.template.line">
+            <field name="academic_years_id" ref="openeducat_core.academic_year_3"/>
+            <field name="academic_term_id" ref="openeducat_core.academic_term_10"/>
+            <field name="weightage">aasignment_type</field>
+            <field name="assignment_type_weight_ids" eval="[(6,0, [ref('weight_32'), ref('weight_33'), ref('weight_34'), ref('weight_35'), ref('weight_36')])]"/>
+        </record>
+
+</odoo>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo noupdate="1">
+
+        <record model="ir.rule" id="assignment_multi_comp_rule">
+            <field name="name">Assignment multi-company</field>
+            <field name="model_id" ref="openeducat_assignment.model_op_assignment"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),'&amp;',('company_id','in',company_ids),'|',('company_id','child_of',[user.company_id.id]),('company_id','in',user.company_ids.ids)]</field>
+        </record>
+
+        <record model="ir.rule" id="assignment_type_multi_comp_rule">
+            <field name="name">Assignment Type multi-company</field>
+            <field name="model_id" ref="openeducat_assignment.model_grading_assignment_type"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),'&amp;',('company_id','in',company_ids),'|',('company_id','child_of',[user.company_id.id]),('company_id','in',user.company_ids.ids)]</field>
+        </record>
+
+        <record model="ir.rule" id="assignment_sub_line_multi_comp_rule">
+            <field name="name">Assignment Sub Line multi-company</field>
+            <field name="model_id" ref="openeducat_assignment.model_op_assignment_sub_line"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),'&amp;',('company_id','in',company_ids),'|',('company_id','child_of',[user.company_id.id]),('company_id','in',user.company_ids.ids)]</field>
+        </record>
+
+</odoo>

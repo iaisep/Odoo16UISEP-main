@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_calendar_online_meeting_form_view" model="ir.ui.view">
+        <field name="name">calendar.online.meeting.form</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='allday']" position="after">
+                <field name="meeting_url" widget="url" attrs="{'invisible': [('online_meeting','=', False)]}"/>
+                <field name="online_meeting" invisible="1"/>
+                <field name="automatic_email" invisible="1"/>
+            </xpath>
+            <xpath expr="//field[@name='location']" position="after">
+                <field name="mpw" attrs="{'invisible': [('online_meeting','=', False)]}"/>
+                <field name="op_session_id" invisible="1"/>
+            </xpath>
+
+            <field name="email" position="after">
+                <field name="attendee_meeting_url" widget="url"/>
+                <field name="apw"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="calendar_event_list_inherit_online_tools" model="ir.ui.view">
+        <field name="name">calendar.event.online.tools</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_tree"/>
+        <field name="arch" type="xml">
+            <field name="description" position="after">
+                <field name="op_session_id" optional="hide"/>
+                <field name="mpw" optional="hide"/>
+                <field name="meeting_url" optional="hide"/>
+                <field name="online_meeting" optional="hide"/>
+                <field name="automatic_email" optional="hide"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

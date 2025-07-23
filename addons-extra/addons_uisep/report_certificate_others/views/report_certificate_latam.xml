@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="survey_certification_latam" name="survey: edit certification latam" inherit_id="survey.certification_report_view_modern">
+           
+            <xpath expr="//div[1]" position="replace">  
+                         
+                 <div id="o_survey_certification" t-att-data-oe-model="user_input._name" t-att-data-oe-id="user_input.id" t-att-class="'article'">
+
+                     <link rel="stylesheet" href="/report_certificate_others/static/src/css/style.css"/>
+
+                    <div class="certification" t-attf-style="background-image:url('data:image/jpeg;base64,{{ user_input.backgroundimage }}'); 
+                                                    background-size:211mm 296mm;                                                   
+                                                    width:211mm; 
+                                                    height:296mm;                                                 
+                                                    position:relative;
+                                                    left:-12px">
+
+                        <div class="certificate-title">
+                            <span class="certificate-title-text" t-field="user_input.title_certification"/>
+                        </div>   
+                        <div class="certificate-isep">
+                             <span class="certificate-isep-text" t-field="user_input.studen_school"/>
+                        </div>                         
+
+                        <div class="certificate-description">                       
+                         <span t-field="user_input.ref_certification"/>
+                        </div>
+                        <div class="certifcate-body">                           
+                            <span class="certifcate-body-text" t-out="user_input.body_certification"/>
+                        </div>
+
+                         <div class="certificate-motivational">                           
+                            <span t-field="user_input.motivational"/>
+                        </div>
+
+                        <t t-set="certified_name" t-value="user_input.partner_id.name or user_input.email or ''"/>
+                        
+                       <!--NOMBRE DE LA CERTIFICACION-->                         
+                        <div class="certification-name">                            
+                            <span class="certificate-text" t-field="user_input.survey_id.display_name"/> 
+                        </div>
+                       <!--NOMBRE DEL USUARIO--> 
+                       <div class="user-name">
+                          <span class="use-name-text" t-esc="certified_name"/>                          
+                       </div>                                              
+
+                        <!-- <span class="certification-hours" t-field="user_input.user_hours"/> -->
+                        <span class="certification-date" t-field="user_input.create_date" t-options='{"widget": "date"}'/>
+                        <!-- <span class="certificate-firm" t-field="user_input.firm_response"  t-options="{'widget': 'image'}" /> -->
+                        <div class="certificate-firm"> 
+                            <img  t-attf-src="data:image/jpeg;base64,{{ user_input.firm_response }}" height="200" width="150"/>                            
+                        </div>
+                         <div class="certificate-admin">                            
+                             <span t-field="user_input.response"/>                            
+                        </div>
+
+                        <div class="certificate-direction">                            
+                             <span t-field="user_input.firm_direction"/>                            
+                        </div>
+                        <div class="certifcate-firm">                            
+                             <span t-field="user_input.firm_firm"/>                             
+                        </div>
+
+                    </div>
+                </div>
+               
+            </xpath>
+            
+        </template>
+    </data>
+</odoo>

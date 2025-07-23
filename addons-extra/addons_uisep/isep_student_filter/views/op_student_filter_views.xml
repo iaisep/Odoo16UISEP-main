@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <!-- View op.student form -->
+    <record id="view_op_student_form_filter_inherit" model="ir.ui.view">
+        <field name="name">view.op.student.form</field>
+        <field name="model">op.student</field>
+        <field name="inherit_id" ref="openeducat_core.view_op_student_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='personal_information']/group[@name='personal_detail']" position="after">
+                <group string="Datos Académicos" name="date_academic">
+                    <group>
+                        <field name="gr_no"/>
+                        <field name="sepyc_program"/>
+                        <field name="university_from"/>
+                        <field name="profession_from"/>
+                        <field name="titulacion_from"/>
+                        <field name="finalizacionestudios_from"/>
+                        <field name="status_student"/>
+                    </group>
+
+                </group>
+            </xpath>
+
+            <xpath expr="//sheet/widget[@name='web_ribbon']" position="after">
+                <field name="total_completion_porc" widget="progressbar" />  
+            </xpath>
+
+            <xpath expr="//page[@name='personal_information']" position="after">
+                <page name="educativo" string="Educativo">
+                    <group>
+                        <group>
+                            <field name="gr_no"/>
+                        </group>
+                        <group>
+                            <field name="file_closing_date"/>
+                        </group>
+                    </group>
+
+                    <!-- Campo one2many admission-->
+                    <group string="Detalles de admisión" name="details_admission">
+                        <field name="op_admission_ids" widget="one2many_list" string="Admisión">
+                            <tree string="Admisión">
+                                <field name="admission_date"/>
+                                <field name="application_number" string="Matrícula"/>
+                                <field name="course_id"/>
+                                <field name="batch_id"/>
+                                <field name="due_date"/>
+                                <field name="state"/>
+                            </tree>
+                            <form string="Detalle de admisión">
+                                <group>
+                                    <field name="admission_date"/>
+                                    <field name="application_number" string="Matrícula"/>
+                                    <field name="course_id"/>
+                                    <field name="batch_id"/>
+                                    <field name="due_date"/>
+                                    <field name="state"/>
+                                </group>
+                            </form>
+                        </field>
+
+                        <!-- Campo one2many courses-->
+                        <field name="op_course_ids" widget="one2many_list" string="Curso">
+                            <tree string="Curso">
+                                <field name="course_id"/>
+                                <field name="batch_id"/>
+                                <field name="completion_porc" widget="percentpie" optional="show"/>
+                                <field name="subject_ids" optional="hide"/>
+                            </tree>
+                            <form string="Detalles de curso">
+                                <group>
+                                    <field name="course_id"/>
+                                    <field name="batch_id"/>  
+                                    <field name="completion_porc" widget="percentpie" />                                  
+                                    <field name="subject_ids" />
+                                </group>
+                            </form>
+                        </field>
+                    </group>
+                </page>
+
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_op_student_filter_inherit" model="ir.ui.view">
+        <field name="name">op.student.search.inherit</field>
+        <field name="model">op.student</field>
+        <field name="inherit_id" ref="openeducat_core.view_op_student_search"/>
+        <field name="arch" type="xml">
+            
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="gr_no"/>
+                <field name="company_id"/>
+                <field name="email"/>
+                <field name="mobile"/>
+                <field name="gender"/>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="op_student_course_inherit_module_name" model="ir.ui.view">
+        <field name="name">op_student_course_inherit_module_name</field>
+        <field name="model">op.student.course</field>
+        <field name="inherit_id" ref="openeducat_core.view_op_student_course_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='batch_id']" position="after">
+                <field name="completion_porc" widget="progressbar" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

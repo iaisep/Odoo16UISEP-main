@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="view_gpt_integration_tree" model="ir.ui.view">
+        <field name="name">gpt.integration.tree</field>
+        <field name="model">gpt.integration</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="model_id"/>
+                <field name="code"/>                
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_gpt_integration_form" model="ir.ui.view">
+        <field name="name">gpt.integration.form</field>
+        <field name="model">gpt.integration</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="model_id" domain="[('gpt_id','=',name)]" />
+                        <field name="code"/>
+                        <field name="description"/>
+                        <field name="prompt"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <record id="action_gpt_integration" model="ir.actions.act_window">
+        <field name="name">GPT Integraciones</field>
+        <field name="res_model">gpt.integration</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

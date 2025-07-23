@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="op_ans_grd_100p_p" model="op.answer.grade">
+            <field name="name">+100%</field>
+            <field name="value">100</field>
+        </record>
+
+        <record id="op_ans_grd_50p_p" model="op.answer.grade">
+            <field name="name">+50%</field>
+            <field name="value">50</field>
+        </record>
+
+        <record id="op_ans_grd_25p_p" model="op.answer.grade">
+            <field name="name">+25%</field>
+            <field name="value">25</field>
+        </record>
+
+        <record id="op_ans_grd_0p" model="op.answer.grade">
+            <field name="name">0</field>
+            <field name="value">0</field>
+        </record>
+
+        <record id="op_ans_grd_100n_n" model="op.answer.grade">
+            <field name="name">-100%</field>
+            <field name="value">-100</field>
+        </record>
+
+        <record id="op_ans_grd_50n_n" model="op.answer.grade">
+            <field name="name">-50%</field>
+            <field name="value">-50</field>
+        </record>
+
+        <record id="op_ans_grd_25n_n" model="op.answer.grade">
+            <field name="name">-25%</field>
+            <field name="value">-25</field>
+        </record>
+
+
+        <record id="op_qz_ctg_v1" model="op.quiz.category">
+            <field name="name">Category Vegetables</field>
+            <field name="code">veg122</field>
+        </record>
+
+        <record id="op_qz_veg1" model="op.quiz">
+            <field name="name">Vegetables Quiz</field>
+            <field name="categ_id" ref="op_qz_ctg_v1"/>
+            <field name="quiz_config">quiz_bank_selected</field>
+            <field name="time_config">True</field>
+            <field name="time_limit_hr">1</field>
+            <field name="time_limit_minute">30</field>
+            <field name="description">This quiz is based on Statistics Vegetables
+            </field>
+            <field name="no_of_attempt">1</field>
+            <field name="state">open</field>
+            <field name="quiz_html">
+                In this Vegetable Gardening Basics course you will learn where to put your garden, when to plant it
+                what are some of the easiest veggies to grow. The course is designed to teach the new gardener the
+                basics to get started. The course will also teach you more experienced gardeners some of the basic
+                principals that you need to know to "pump up" your garden production:
+            </field>
+        </record>
+        <record id="op_qu_bnk_type_veg1" model="op.question.bank.type">
+            <field name="name">Vegetables</field>
+        </record>
+        <record id="op_qu_bnk_v" model="op.question.bank">
+            <field name="name">Vegetables Test</field>
+            <field name="bank_type_id" ref="op_qu_bnk_type_veg1"/>
+        </record>
+        <record id="op_c_qv1" model="op.question.bank.line">
+            <field name="name">In which season is asparagus most often cropped and eaten in the UK?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/ttKbPzeadNw'"/>
+            <field name="document_id">ttKbPzeadNw</field>
+            <field name="bank_id" ref="op_qu_bnk_v"/>
+        </record>
+        <record id="op_c_qv1_a01" model="op.question.bank.answer">
+            <field name="name">Spring</field>
+            <field name="grade_id" ref="op_ans_grd_100p_p"/>
+            <field name="question_id" ref="op_c_qv1"/>
+        </record>
+        <record id="op_c_qv1_a02" model="op.question.bank.answer">
+            <field name="name">Summer</field>
+            <field name="grade_id" ref="op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qv1"/>
+        </record>
+        <record id="op_c_qv1_a03" model="op.question.bank.answer">
+            <field name="name">Autumn</field>
+            <field name="grade_id" ref="op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qv1"/>
+        </record>
+        <record id="op_c_qv1_a04" model="op.question.bank.answer">
+            <field name="name">Winter</field>
+            <field name="grade_id" ref="op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qv1"/>
+        </record>
+
+        <record id="op_qz_ln6_v1" model="op.quiz.line">
+            <field name="name">In which season
+                is asparagus most
+                often cropped and
+                eaten in the UK?
+            </field>
+            <field name="mark" type="float">1.0</field>
+            <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/ttKbPzeadNw'"/>
+            <field name="document_id">ttKbPzeadNw</field>
+            <field name="quiz_id" ref="op_qz_veg1"/>
+            <field name="que_id" ref="op_c_qv1"/>
+        </record>
+
+        <record id="op_qz_ln6_v1_l01" model="op.quiz.answer">
+            <field name="name">Spring</field>
+            <field name="grade_id" ref="op_ans_grd_100p_p"/>
+            <field name="line_id" ref="op_qz_ln6_v1"/>
+        </record>
+        <record id="op_qz_ln6_v1_l02" model="op.quiz.answer">
+            <field name="name">Summer</field>
+            <field name="grade_id" ref="op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_v1"/>
+        </record>
+        <record id="op_qz_ln6_v1_l03" model="op.quiz.answer">
+            <field name="name">Autumn</field>
+            <field name="grade_id" ref="op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_v1"/>
+        </record>
+        <record id="op_qz_ln6_v1_l04" model="op.quiz.answer">
+            <field name="name">Winter</field>
+            <field name="grade_id" ref="op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_v1"/>
+        </record>
+
+        <record id="op_c_qv2" model="op.question.bank.line">
+            <field name="name">Which are white and green varieties of what?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="material_type">infographic</field>
+            <field name="datas" type="base64"
+                   file="openeducat_quiz/demo/files/peas.jpg"/>
+            <field name="bank_id" ref="op_qu_bnk_v"/>
+        </record>
+        <record id="op_c_qv2_a01" model="op.question.bank.answer">
+            <field name="name">Broad beans</field>
+            <field name="grade_id" ref="op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qv2"/>
+        </record>
+        <record id="op_c_qv2_a02" model="op.question.bank.answer">
+            <field name="name">Chick peas</field>
+            <field name="grade_id" ref="op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qv2"/>
+        </record>
+        <record id="op_c_qv2_a03" model="op.question.bank.answer">
+            <field name="name">Mung beans</field>
+            <field name="grade_id" ref="op_ans_grd_100p_p"/>
+            <field name="question_id" ref="op_c_qv2"/>
+        </record>
+        <record id="op_c_qv2_a04" model="op.question.bank.answer">
+            <field name="name">Ricebeans</field>
+            <field name="grade_id" ref="op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qv2"/>
+        </record>
+
+        <record id="op_qz_ln6_v2" model="op.quiz.line">
+            <field name="name">Which are white and green varieties of what?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="material_type">infographic</field>
+            <field name="datas" type="base64"
+                   file="openeducat_quiz/demo/files/peas.jpg"/>
+            <field name="quiz_id" ref="op_qz_veg1"/>
+            <field name="que_id" ref="op_c_qv1"/>
+        </record>
+
+        <record id="op_qz_ln6_v2_l01" model="op.quiz.answer">
+            <field name="name">Broad beans</field>
+            <field name="grade_id" ref="op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_v2"/>
+        </record>
+        <record id="op_qz_ln6_v2_l02" model="op.quiz.answer">
+            <field name="name">Chick peas</field>
+            <field name="grade_id" ref="op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_v2"/>
+        </record>
+        <record id="op_qz_ln6_v2_l03" model="op.quiz.answer">
+            <field name="name">Mung beans</field>
+            <field name="grade_id" ref="op_ans_grd_100p_p"/>
+            <field name="line_id" ref="op_qz_ln6_v2"/>
+        </record>
+        <record id="op_qz_ln6_v2_l04" model="op.quiz.answer">
+            <field name="name">Ricebeans</field>
+            <field name="grade_id" ref="op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_v2"/>
+        </record>
+
+        <record id="op_c_qv3" model="op.question.bank.line">
+            <field name="name">Which vegetable has long storage life?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="material_type">infographic</field>
+            <field name="datas" type="base64"
+                   file="openeducat_quiz/demo/files/veg.jpg"/>
+            <field name="bank_id" ref="op_qu_bnk_v"/>
+        </record>
+        <record id="op_c_qv3_a01" model="op.question.bank.answer">
+            <field name="name">Spinach</field>
+            <field name="grade_id" ref="op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qv3"/>
+        </record>
+        <record id="op_c_qv3_a02" model="op.question.bank.answer">
+            <field name="name">Tomato</field>
+            <field name="grade_id" ref="op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qv3"/>
+        </record>
+        <record id="op_c_qv3_a03" model="op.question.bank.answer">
+            <field name="name">Onion</field>
+            <field name="grade_id" ref="op_ans_grd_100p_p"/>
+            <field name="question_id" ref="op_c_qv3"/>
+        </record>
+        <record id="op_c_qv3_a04" model="op.question.bank.answer">
+            <field name="name">Brinjal</field>
+            <field name="grade_id" ref="op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qv3"/>
+        </record>
+
+        <record id="op_qz_ln6_v3" model="op.quiz.line">
+            <field name="name">Which vegetable has long storage life?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="material_type">infographic</field>
+            <field name="datas" type="base64"
+                   file="openeducat_quiz/demo/files/veg.jpg"/>
+            <field name="quiz_id" ref="op_qz_veg1"/>
+            <field name="que_id" ref="op_c_qv3"/>
+        </record>
+
+        <record id="op_qz_ln6_v3_l01" model="op.quiz.answer">
+            <field name="name">Spinach</field>
+            <field name="grade_id" ref="op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_v3"/>
+        </record>
+        <record id="op_qz_ln6_v3_l02" model="op.quiz.answer">
+            <field name="name">Tomato</field>
+            <field name="grade_id" ref="op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_v3"/>
+        </record>
+        <record id="op_qz_ln6_v3_l03" model="op.quiz.answer">
+            <field name="name">Onion</field>
+            <field name="grade_id" ref="op_ans_grd_100p_p"/>
+            <field name="line_id" ref="op_qz_ln6_v3"/>
+        </record>
+        <record id="op_qz_ln6_v3_l04" model="op.quiz.answer">
+            <field name="name">Ricebeans</field>
+            <field name="grade_id" ref="op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_v3"/>
+        </record>
+
+        <record id="op_c_qv4" model="op.question.bank.line">
+            <field name="name">Which of these is NOT one of the three basic types of soil?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="material_type">infographic</field>
+            <field name="datas" type="base64"
+                   file="openeducat_quiz/demo/files/Soil-Types.jpg"/>
+            <field name="bank_id" ref="op_qu_bnk_v"/>
+        </record>
+        <record id="op_c_qv4_a01" model="op.question.bank.answer">
+            <field name="name">Ash</field>
+            <field name="grade_id" ref="op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qv4"/>
+        </record>
+        <record id="op_c_qv4_a02" model="op.question.bank.answer">
+            <field name="name">Sand</field>
+            <field name="grade_id" ref="op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qv4"/>
+        </record>
+        <record id="op_c_qv4_a03" model="op.question.bank.answer">
+            <field name="name">Silt</field>
+            <field name="grade_id" ref="op_ans_grd_100p_p"/>
+            <field name="question_id" ref="op_c_qv4"/>
+        </record>
+        <record id="op_c_qv4_a04" model="op.question.bank.answer">
+            <field name="name">Clay</field>
+            <field name="grade_id" ref="op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qv4"/>
+        </record>
+
+        <record id="op_qz_ln6_v4" model="op.quiz.line">
+            <field name="name">Which of these is NOT one of the three basic types of soil?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="material_type">infographic</field>
+            <field name="datas" type="base64"
+                   file="openeducat_quiz/demo/files/Soil-Types.jpg"/>
+            <field name="quiz_id" ref="op_qz_veg1"/>
+            <field name="que_id" ref="op_c_qv4"/>
+        </record>
+
+        <record id="op_qz_ln6_v4_l01" model="op.quiz.answer">
+            <field name="name">Ash</field>
+            <field name="grade_id" ref="op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_v4"/>
+        </record>
+        <record id="op_qz_ln6_v4_l02" model="op.quiz.answer">
+            <field name="name">Sand</field>
+            <field name="grade_id" ref="op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_v4"/>
+        </record>
+        <record id="op_qz_ln6_v4_l03" model="op.quiz.answer">
+            <field name="name">Silt</field>
+            <field name="grade_id" ref="op_ans_grd_100p_p"/>
+            <field name="line_id" ref="op_qz_ln6_v4"/>
+        </record>
+        <record id="op_qz_ln6_v4_l04" model="op.quiz.answer">
+            <field name="name">Clay</field>
+            <field name="grade_id" ref="op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_v4"/>
+        </record>
+
+        <record id="op_c_qv5" model="op.question.bank.line">
+            <field name="name">Which is Mediterranean Pea?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="material_type">infographic</field>
+            <field name="datas" type="base64"
+                   file="openeducat_quiz/demo/files/Type.jpg"/>
+            <field name="bank_id" ref="op_qu_bnk_v"/>
+        </record>
+        <record id="op_c_qv5_a01" model="op.question.bank.answer">
+            <field name="name">abyssinicum</field>
+            <field name="grade_id" ref="op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qv5"/>
+        </record>
+        <record id="op_c_qv5_a02" model="op.question.bank.answer">
+            <field name="name">humile</field>
+            <field name="grade_id" ref="op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qv5"/>
+        </record>
+        <record id="op_c_qv5_a03" model="op.question.bank.answer">
+            <field name="name">fulvum</field>
+            <field name="grade_id" ref="op_ans_grd_0p"/>
+            <field name="question_id" ref="op_c_qv5"/>
+        </record>
+        <record id="op_c_qv5_a04" model="op.question.bank.answer">
+            <field name="name">elatius</field>
+            <field name="grade_id" ref="op_ans_grd_100p_p"/>
+            <field name="question_id" ref="op_c_qv5"/>
+        </record>
+
+        <record id="op_qz_ln6_v5" model="op.quiz.line">
+            <field name="name">Which is Mediterranean Pea?</field>
+             <field name="mark" type="float">1.0</field>
+            <field name="material_type">infographic</field>
+            <field name="datas" type="base64"
+                   file="openeducat_quiz/demo/files/Type.jpg"/>
+            <field name="quiz_id" ref="op_qz_veg1"/>
+            <field name="que_id" ref="op_c_qv5"/>
+        </record>
+
+        <record id="op_qz_ln6_v5_l01" model="op.quiz.answer">
+            <field name="name">abyssinicum</field>
+            <field name="grade_id" ref="op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_v5"/>
+        </record>
+        <record id="op_qz_ln6_v5_l02" model="op.quiz.answer">
+            <field name="name">humile</field>
+            <field name="grade_id" ref="op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_v5"/>
+        </record>
+        <record id="op_qz_ln6_v5_l03" model="op.quiz.answer">
+            <field name="name">fulvum</field>
+            <field name="grade_id" ref="op_ans_grd_0p"/>
+            <field name="line_id" ref="op_qz_ln6_v5"/>
+        </record>
+        <record id="op_qz_ln6_v5_l04" model="op.quiz.answer">
+            <field name="name">elatius</field>
+            <field name="grade_id" ref="op_ans_grd_100p_p"/>
+            <field name="line_id" ref="op_qz_ln6_v5"/>
+        </record>
+
+        <record id="openeducat_core.op_user_faculty" model="res.users">
+            <field name="groups_id" eval="[(4,ref('openeducat_quiz.group_op_quiz_user'))]"/>
+        </record>
+
+</odoo>

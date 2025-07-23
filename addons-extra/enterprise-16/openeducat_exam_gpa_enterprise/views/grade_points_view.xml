@@ -1,0 +1,50 @@
+<odoo>
+
+        <record id="view_op_grade_point_inherited_form_gpa" model="ir.ui.view">
+            <field name="name">op.grade.point.inherited.form</field>
+            <field name="model">op.grade.configuration</field>
+            <field name="inherit_id" ref="openeducat_exam.view_op_grade_configuration_form"/>
+            <field name="arch" type="xml">
+                <field name="max_per" position="after">
+                    <field name="grade_point"/>
+                </field>
+            </field>
+        </record>
+        <record id="view_op_grade_point_inherited_tree_gpa" model="ir.ui.view">
+            <field name="name">op.grade.point.inherited.tree</field>
+            <field name="model">op.grade.configuration</field>
+            <field name="inherit_id" ref="openeducat_exam.view_op_grade_configuration_tree"/>
+            <field name="arch" type="xml">
+                <field name="result" position="after">
+                    <field name="grade_point"/>
+                </field>
+            </field>
+        </record>
+        <record id="view_op_resultline_inherited_tree_gpa" model="ir.ui.view">
+            <field name="name">op.result.line.inherited.tree</field>
+            <field name="model">op.result.line</field>
+            <field name="inherit_id" ref="openeducat_exam.view_op_result_line_tree"/>
+            <field name="arch" type="xml">
+                <field name="grade" position="after">
+                    <field name="grade_point"/>
+                    <field name="credit"/>
+                    <field name="qp"/>
+                </field>
+            </field>
+        </record>
+        <record id="view_op_resultline_inherited_form_gpa" model="ir.ui.view">
+            <field name="name">op.result.line.inherited.form</field>
+            <field name="model">op.result.line</field>
+            <field name="inherit_id" ref="openeducat_exam.view_op_result_line_form"/>
+            <field name="arch" type="xml">
+                <field name="grade" position="after">
+                    <field name="grade_point"/>
+                    <field name="qp"/>
+                </field>
+                <field name="status" position="after">
+                    <field name="credit"/>
+                </field>
+            </field>
+        </record>
+
+</odoo>

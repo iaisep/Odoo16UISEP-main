@@ -1,0 +1,114 @@
+<odoo>
+    <template id="activity_detail" name="Activity Detail">
+        <t t-call="website.layout">
+            <t t-set="additional_title">Activity Detail</t>
+            <div id="wrap">
+                <div class="oe_structure" id="oe_structure_activity_detail_1"/>
+
+                <!-- Breadcrumb -->
+
+                <section class="pt64 pb24 bg-white">
+                    <div class="container">
+                        <div class="pb64 text-center">
+                            <h1 class="mb0 mt0 text-uppercase" t-field="activity.name"/>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-5">
+                                <div class="row">
+                                    <div class="col-5 col-sm-5 col-md-6 col-lg-4">
+                                        <p>
+                                            <b>Company :</b>
+                                        </p>
+                                    </div>
+                                    <div class="col-7 col-sm-7 col-md-6 col-lg-8">
+                                        <p class="mt0" t-field="activity.partner_id"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-5 col-sm-5 col-md-6 col-lg-4">
+                                        <p>
+                                            <b>Job Post :</b>
+                                        </p>
+                                    </div>
+                                    <div class="col-7 col-sm-7 col-md-6 col-lg-8">
+                                        <p class="mt0" t-field="activity.job_post_id"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-5 col-sm-5 col-md-6 col-lg-4">
+                                        <p>
+                                            <b>Skills :</b>
+                                        </p>
+                                    </div>
+                                    <div class="col-7 col-sm-7 col-md-6 col-lg-8">
+                                        <p class="mt0" t-field="activity.skill_id"/>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-5 offset-lg-1">
+                                <div class="row">
+                                    <div class="col-5 col-sm-5 col-md-6 col-lg-4">
+                                        <p>
+                                            <b>Start Date :</b>
+                                        </p>
+                                    </div>
+                                    <div class="col-7 col-sm-7 col-md-6 col-lg-8">
+                                        <p class="mt0" t-field="activity.start_date"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-5 col-sm-5 col-md-6 col-lg-4">
+                                        <p>
+                                            <b>End Date :</b>
+                                        </p>
+                                    </div>
+                                    <div class="col-7 col-sm-7 col-md-6 col-lg-8">
+                                        <p class="mt0" t-field="activity.end_date"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-5 col-sm-5 col-md-6 col-lg-3">
+                                        <p>
+                                            <b>Description :</b>
+                                        </p>
+                                    </div>
+                                    <div class="col-7 col-sm-7 col-md-6 col-lg-9">
+                                        <p class="mt0" t-field="activity.description"/>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="row col-md-12">
+                            <t class="mt0" t-foreach="activity.job_post_id" t-as="o">
+                                <div class="col-sm-12 col-md-6">
+                                    <div style="padding: 20px;
+-webkit-box-shadow: 0px 0px 15px 0px rgba(72, 73, 121, 0.15);
+-moz-box-shadow: 0px 0px 15px 0px rgba(72, 73, 121, 0.15);
+box-shadow: 0px 0px 15px 0px rgba(72, 73, 121, 0.15); margin-bottom: 30px;">
+                                        <a t-attf-href="/job/post/apply/#{slug(activity)}/#{ slug(o)}">
+                                            <span t-field="o.job_post" class="text-black"/>
+                                            <div style="padding-top:15px;">
+                                                <i class="fa fa-map-marker"></i>
+                                                <span t-field="o.city" class="text-primary"
+                                                        style="font-size:14px;"/>
+                                            </div>
+
+                                            <div style="padding-top:15px;">
+                                                <i class="fa fa-clock-o"></i>
+                                                <span t-field="o.start_date" class="text-primary"
+                                                        style="font-size:14px;"/>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </t>
+    </template>
+</odoo>

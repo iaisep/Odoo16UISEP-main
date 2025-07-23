@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="report_hr_employee" model="ir.actions.report">
+        <field name="name">Protección de datos</field>
+        <field name="model">hr.employee</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">isep_employee_server.report_hr_employee_view</field>
+        <field name="report_file">isep_employee_server.report_hr_employee</field>
+        <field name="print_report_name">'%s' % object.name</field>
+        <field name="binding_model_id" ref="model_hr_employee"/>
+        <field name="binding_type">report</field>
+    </record>
+
+
+    <template id="report_hr_employee_view">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.basic_layout">
+                    <div class="page" style="padding: 40px; font-family: Arial, sans-serif;">
+                        <h2 style="font-weight: bold;">Comunicado sobre la Protección de Datos Confidenciales</h2>
+                        <br/>
+                        <p>Estimados Colaboradores,</p>
+                        <br/>
+                        <p style="text-align: justify;">
+                            Como parte fundamental de nuestra comunidad en Universidad Isep, 
+                            es esencial recordar y reforzar la importancia de la protección de 
+                            la información confidencial que manejamos en nuestras actividades diarias. 
+                            Cada uno de nosotros tiene la responsabilidad de proteger los datos inherentes 
+                            a su departamento y de asegurarse de que no se compartan con personas externas 
+                            a la universidad.
+                        </p>
+
+                        <p style="text-align: justify;">
+                            La confidencialidad es un valor esencial que garantiza la integridad y el éxito 
+                            de nuestra institución. Compartir, divulgar o permitir el acceso no autorizado 
+                            a información confidencial pone en riesgo no solo la reputación de nuestra universidad, 
+                            sino también la confianza que nuestros estudiantes, profesores y colegas depositan en nosotros.
+                        </p>
+
+                        <p style="text-align: justify;">
+                            En cumplimiento de las leyes aplicables, les recordamos que el uso indebido de información 
+                            confidencial está regulado y sancionado por la Ley Federal de Protección de Datos Personales 
+                            en Posesión de los Particulares de México. Esta ley establece que cualquier divulgación no 
+                            autorizada de información confidencial puede dar lugar a sanciones administrativas y, en 
+                            algunos casos, responsabilidades penales.
+                        </p>
+
+                        <p style="text-align: justify;">
+                            Queremos subrayar que este es un compromiso que todos compartimos, y cualquier violación a esta 
+                            política será tratada con la máxima seriedad, siguiendo los procedimientos legales y disciplinarios 
+                            correspondientes.
+                        </p>
+
+                        <p style="text-align: justify;">
+                            Agradecemos a todos por su atención a este asunto y por su continuo compromiso con los más altos 
+                            estándares éticos y profesionales.
+                        </p>
+
+                        <p>Quedamos a su disposición para cualquier duda o aclaración.</p>
+                        <br/>
+
+                        <p><strong>Atentamente,</strong></p>
+                        <p><strong>Talento Humano</strong></p>
+
+                        <div style="margin-top: 250px; text-align: right; font-weight: bold;">
+                            <span t-field="doc.name"/><br/><br/>
+                            FIRMA DE RECIBIDO
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

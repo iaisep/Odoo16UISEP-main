@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+        <record model="ir.ui.view" id="view_course_lms_forum_form">
+            <field name="name">op.course.form.forum.inherit</field>
+            <field name="model">op.course</field>
+            <field name="inherit_id" ref="openeducat_lms.view_op_lms_course_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/header/button[@name='action_closed']" position="after">
+                    <button name="action_create_forum" states="open"
+                            string="Create Forum" type="object" class="oe_highlight"
+                            attrs="{'invisible': ['|',('forum_id', '!=', False)]}"/>
+                </xpath>
+                <xpath expr="/form/sheet/group/group/field[@name='user_id']" position="after">
+                    <field name="forum_id" readonly="1"/>
+                </xpath>
+                <xpath expr="//div[@name='button_box']" position="inside">
+                    <button class="btn oe_stat_button" type="object"
+                            name="get_forum"
+                            icon="fa-forumbee">
+                        <field string="Forum Post" name="forum_count" widget="statinfo"/>
+                    </button>
+                </xpath>
+
+            </field>
+        </record>
+        <record id="view_op_course_tree_lms_forum" model="ir.ui.view">
+            <field name="name">op.course.lms.forum.tree</field>
+            <field name="model">op.course</field>
+            <field name="inherit_id" ref="openeducat_lms.view_op_lms_course_tree"/>
+            <field name="arch" type="xml">
+                <field name="active" position="before">
+                    <field name="forum_id" optional="hide"/>
+                    <field name="forum_post_ids" optional="hide"/>
+                    <field name="forum_count" optional="hide"/>
+                </field>
+            </field>
+        </record>
+
+</odoo>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- View practice.center.course View Tree -->
+    <record id="view_practice_center_course_tree" model="ir.ui.view">
+        <field name="name">view.practice.center.course.tree</field>
+        <field name="model">practice.center.course</field>
+        <field name="arch" type="xml">
+            <tree string="Association center course">
+                <field name="op_course_id"/>
+                <field name="partner_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- View practice.center.course form -->
+    <record id="view_practice_center_course_form" model="ir.ui.view">
+        <field name="name">view.practice.center.course.form</field>
+        <field name="model">practice.center.course</field>
+        <field name="arch" type="xml">
+            <form string="Association center course">
+                <sheet>
+                    <group col="4">
+                        <field name="op_course_id" />
+                        <field name="partner_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- View practice.center.course search -->
+    <record id="view_practice_center_course_search" model="ir.ui.view">
+        <field name="name">view.practice.center.course.search</field>
+        <field name="model">practice.center.course</field>
+        <field name="arch" type="xml">
+            <search string="Association center course">
+                <field name="op_course_id"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action practice.center.course -->
+    <record id="action_practice_center_course" model="ir.actions.act_window">
+        <field name="name">Practice Center Course</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">practice.center.course</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                There is no examples click here to add new Practice Center Course.
+            </p>
+        </field>
+    </record>
+
+</odoo>

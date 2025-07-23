@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="view_op_honor_tree" model="ir.ui.view">
+            <field name="name">op.honorroll</field>
+            <field name="model">op.honorroll</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="year_id"/>
+                    <field name="course_id"/>
+                    <field name="subject_id" optional="hide"/>
+                    <field name="from_per" optional="hide"/>
+                    <field name="to_per" optional="hide"/>
+                    <field name="description" optional="hide"/>
+                    <field name="state" optional="hide"/>
+                    <field name="active" widget="boolean_toggle" optional="hide"/>
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_op_honor_form" model="ir.ui.view">
+            <field name="name">op.honorroll.form</field>
+            <field name="model">op.honorroll</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Honor Roll">
+                    <header>
+                        <button name="generate_honor_roll" string="Generate Honor Roll" type="object"
+                                class="oe_highlight" attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+                        <button name="action_draft" states="cancel"
+                                string="Draft" type="object" class="oe_highlight"/>
+                        <button name="action_cancel" states="generate"
+                                string="Cancel" type="object" class="oe_highlight"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <field name="active" invisible="1"/>
+                        <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                                attrs="{'invisible': [('active', '=', True)]}"/>
+                        <group>
+                            <field name="name" string="Name"/>
+                        </group>
+                        <group class="mt32">
+                            <group>
+                                <field name="year_id"/>
+                            </group>
+                            <group>
+                                <field name="background" widget="image" class="oe_avatar"
+                                       style="float: left;"/>
+                            </group>
+                            <group>
+                                    <field name="course_id"/>
+                                    <field name="from_per"/>
+                                </group>
+                                <group>
+                                    <field name="subject_id"/>
+                                    <field name="to_per"/>
+                                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                                </group>
+                        </group>
+                        <group>
+                            <field name="description" string="Description"/>
+                        </group>
+                        <group>
+                            <field name="honor_line_id" readonly="1" string="Honor Line"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_op_honor_search" model="ir.ui.view">
+            <field name="name">op.honorroll.search</field>
+            <field name="model">op.honorroll</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Honor Roll">
+                    <filter string="Archived" name="inactive"
+                            domain="[('active', '=', False)]"/>
+                    <field name="year_id"/>
+                    <field name="course_id"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_op_honorroll_view">
+            <field name="name">Honor Roll</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.honorroll</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_op_honor_search"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_op_honoroll_view_form">
+            <field name="act_window_id" ref="act_op_honorroll_view"/>
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_op_honor_form"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_op_honorroll_view_tree">
+            <field name="act_window_id" ref="act_op_honorroll_view"/>
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_op_honor_tree"/>
+        </record>
+
+</odoo>

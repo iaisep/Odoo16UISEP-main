@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <record id="op_admission_elearning_wizard_form_inh" model="ir.ui.view">
+        <field name='name'>op.admission.elearning.wizard.formi</field>
+        <field name='model'>op.admission.elearning.wizard</field>
+        <field name="inherit_id" ref="isep_elearning_custom.op_admission_elearning_wizard_form"/>
+        <field name='arch' type='xml'>
+        
+            <field name="selected" position="before">                           
+            
+                <field name="can_be_taken" invisible="1"/>                            
+            
+            </field>
+            <field name="selected" position="replace">
+                <field name="selected" widget="boolean_toggle" force_save="1" attrs="{'readonly': ['|',('slide_channel_id','=', False),('can_be_taken','=',False)]}"/>               
+            </field>
+        </field>
+    </record>
+
+    
+</odoo>

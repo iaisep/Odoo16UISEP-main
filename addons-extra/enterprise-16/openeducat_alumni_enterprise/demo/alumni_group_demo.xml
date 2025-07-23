@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="alumni_group_1" model="op.alumni.group">
+            <field name="image" type="base64"
+                   file="openeducat_alumni_enterprise/static/img/image-1.jpg"/>
+            <field name="name">AD-2017</field>
+            <field name="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
+                took a galley of type and scrambled it to make a type specimen book. It has survived not only five
+                centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+            </field>
+            <field name="alumni_student_line"
+                   eval="[(4,ref('openeducat_core.op_student_1')),(4,ref('openeducat_core.op_student_3')),(4,ref('openeducat_core.op_student_4')),(4,ref('openeducat_alumni_enterprise.op_student_21'))]"/>
+            <field name="alumni_fees_amount">500</field>
+            <field name="fees_id" ref="openeducat_alumni_enterprise.op_alumni_product_1"/>
+        </record>
+
+        <record id="alumni_group_2" model="op.alumni.group">
+            <field name="image" type="base64"
+                   file="openeducat_alumni_enterprise/static/img/image-2.jpg"/>
+            <field name="name">AD-2018</field>
+            <field name="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
+                took a galley of type and scrambled it to make a type specimen book. It has survived not only five
+                centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+            </field>
+            <field name="alumni_student_line"
+                   eval="[(4,ref('openeducat_core.op_student_2')),(4,ref('openeducat_core.op_student_5')),
+                   (4,ref('openeducat_core.op_student_6')),(4,ref('openeducat_core.op_student_7')),(4,ref('openeducat_alumni_enterprise.op_student_22'))]"/>
+            <field name="alumni_fees_amount">500</field>
+            <field name="fees_id" ref="openeducat_alumni_enterprise.op_alumni_product_1"/>
+        </record>
+
+        <record id="alumni_group_3" model="op.alumni.group">
+            <field name="image" type="base64"
+                   file="openeducat_alumni_enterprise/static/img/image-3.jpg"/>
+            <field name="name">AD-2019</field>
+            <field name="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
+                took a galley of type and scrambled it to make a type specimen book. It has survived not only five
+                centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+            </field>
+            <field name="alumni_student_line"
+                   eval="[(4,ref('openeducat_core.op_student_17')),(4,ref('openeducat_core.op_student_18')),
+                   (4,ref('openeducat_core.op_student_19')),(4,ref('openeducat_core.op_student_20'))]"/>
+            <field name="alumni_fees_amount">1000</field>
+            <field name="fees_id" ref="openeducat_alumni_enterprise.op_alumni_product_1"/>
+        </record>
+
+</odoo>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_op_admission_form_inh" model="ir.ui.view">
+            <field name="model">op.admission</field>
+            <field name="inherit_id" ref="openeducat_admission.view_op_admission_form"/>
+            <field name="arch" type="xml">
+                <field name="course_id" position="after">               
+                    <field name="modality"/>
+                </field>
+            </field>
+
+    </record>
+</odoo>

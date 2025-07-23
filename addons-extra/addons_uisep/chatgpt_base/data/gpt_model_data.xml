@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <!-- CHATGPT -->
+        <record id="gpt_origin_1" model="gpt.origin">
+            <field name="name">ChatGpt</field>
+            <field name="api_key">changeme</field>
+        </record>
+        <record id="chatgpt_model_gpt_3_5_turbo" model="gpt.model">
+            <field name="name">gpt-3.5-turbo</field>
+            <field name="gpt_id" ref="gpt_origin_1"/>
+            <field name="description">Modelo optimizado para tareas generales de procesamiento de lenguaje natural con un buen equilibrio entre costo y rendimiento.</field>
+            <field name="max_input">4096</field>
+        </record>
+        <record id="chatgpt_model_gpt_4o_mini" model="gpt.model">
+            <field name="name">gpt-4o-mini</field>
+            <field name="gpt_id" ref="gpt_origin_1"/>
+            <field name="description">Modelo optimizado para tareas generales de procesamiento de lenguaje natural con un buen equilibrio entre costo y rendimiento.</field>
+            <field name="max_input">4096</field>
+        </record>
+        <record id="chatgpt_model_gpt4" model="gpt.model">
+            <field name="name">gpt-4</field>
+            <field name="gpt_id" ref="gpt_origin_1"/>
+            <field name="description">Modelo avanzado de IA con mayor capacidad y precisión para tareas complejas en comparación con versiones anteriores.</field>
+            <field name="max_input">8192</field>
+        </record>
+        <record id="text_embedding_3_small" model="gpt.model">
+            <field name="name">text-embedding-3-small</field>
+            <field name="gpt_id" ref="gpt_origin_1"/>
+            <field name="description">Modelo pequeño para incrustaciones de texto, económico y eficiente para tareas de clasificación y búsqueda.</field>
+            <field name="max_input">8191</field>
+        </record>
+        <record id="text_embedding_3_large" model="gpt.model">
+            <field name="name">text-embedding-3-large</field>
+            <field name="gpt_id" ref="gpt_origin_1"/>
+            <field name="description">Modelo grande para incrustaciones de texto, ideal para tareas que requieren mayor precisión en clasificación y búsqueda.</field>
+            <field name="max_input">8191</field>
+        </record>
+        <record id="text_embedding_ada_002" model="gpt.model">
+            <field name="name">text-embedding-ada-002</field>
+            <field name="gpt_id" ref="gpt_origin_1"/>
+            <field name="description">Modelo popular para incrustaciones de texto, balanceando costo y rendimiento con gran versatilidad.</field>
+            <field name="max_input">8191</field>
+        </record>
+
+        <!-- CHATGPT END -->
+
+    </data>
+</odoo>

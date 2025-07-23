@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="openeducat_batch_timetable_dashboard_kanban_view" model="ir.ui.view">
+            <field name="name">op.batch.timetable.dashboard.kanban</field>
+            <field name="model">op.batch</field>
+            <field name="inherit_id" ref="openeducat_core_enterprise.openeducat_batch_dashboard_kanban_view"/>
+            <field name="arch" type="xml">
+                    <xpath expr="//div[@name='second_column']" position="inside">
+                        <a name="%(openeducat_timetable_enterprise.act_dashboard_op_timetable_view)d"
+                           type="action" style="overflow: visible;">
+                            <field name="lectures_count"/>
+                            Today's Lectures
+                        </a>
+                    </xpath>
+                    <xpath expr="//div[@name='openeducat_new']" position="after">
+                        <div>
+                            <a type="object" name="open_generate_timetable">Generate TimeTable</a>
+                        </div>
+                    </xpath>
+                    <xpath expr="//div[@name='openeducat_reports']" position="after">
+                        <div>
+                            <a type="object" name="open_generate_timetable_reports">TimeTable Report</a>
+                        </div>
+                    </xpath>
+            </field>
+        </record>
+
+</odoo>

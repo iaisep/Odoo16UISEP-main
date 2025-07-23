@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="my_challenges" name="my challenges" inherit_id="openeducat_lms.courses"
+              priority="10">
+        <xpath expr="//section[@id='gameview']" position='inside'>
+            <t t-if="website.user_id != user_id">
+                <div class="col-lg-12 mt-4">
+                    <div class="container o_wslides_home_main">
+                        <div class="row">
+                            <t t-set="is_achievements_active"
+                               t-value="request.website.viewref('openeducat_lms_gamification.toggle_latest_achievements').active"/>
+                            <t t-set="has_side_column"
+                               t-value="request.website.viewref('openeducat_lms_gamification.toggle_leaderboard').active or is_achievements_active"/>
+                            <t t-if="is_public_user">
+                                <div t-if="has_side_column" class="col-lg-3 order-3 order-lg-2">
+                                    <div class="row">
+                                        <div class="col-12 col-md-7 col-lg-12">
+                                            <t t-call="openeducat_lms_gamification.slides_home_achievements_small"/>
+                                        </div>
+                                        <div class="col-12 col-md-5 col-lg-12 mt-5 mt-md-0">
+                                            <div t-att-class="'pl-md-5 pl-lg-0 mt-lg-4' if is_achievements_active else 'pl-md-5 pl-lg-0'">
+                                                <t t-call="openeducat_lms_gamification.slides_home_users_small"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </t>
+                            <div t-else="">
+                                <t t-set="has_side_column" t-value="True"/>
+                                <div class="o_wslides_home_aside_loggedin card border-0 mb-4">
+                                    <div class="o_wslides_home_aside_title">
+                                        <div class="d-flex align-items-center mb16">
+                                            <t t-call="openeducat_lms_gamification.slides_misc_user_image">
+                                                <t t-set="img_class" t-value="'rounded-circle me-1'"/>
+                                                <t t-set="img_style"
+                                                   t-value="'width: 22px; height: 22px; object-fit: cover;'"/>
+                                            </t>
+                                            <h5 t-esc="user.name" class="d-flex flex-grow-1 mb-0 fw-bold"/>
+                                            <a class="d-none d-lg-block" t-att-href="'/profile/user/%s' % user.id">
+                                                View
+                                            </a>
+                                            <a class="d-lg-none btn btn-sm bg-white border ms-3" href="#"
+                                               data-toggle="collapse"
+                                               data-target="#o_wslides_home_aside_content">More info
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div id="o_wslides_home_aside_content" class="collapse d-lg-block">
+                                        <div class="row mt-3 mt-lg-0">
+                                            <div class="col-12 col-sm-6 col-lg-12">
+                                                <t t-call="openeducat_lms_gamification.slides_home_user_profile_small"/>
+                                            </div>
+                                            <div class="col-12 col-sm-6 col-lg-12 d-flex align-items-center">
+                                                <t t-call="openeducat_lms_gamification.slides_home_user_achievements_small"/>
+                                            </div>
+                                            <div class="col-12 col-sm-6 col-lg-12 mt-lg-4">
+                                                <t t-call="openeducat_lms_gamification.slides_home_users_small"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </xpath>
+    </template>
+
+    <template id='slides_home_achievements_small' name="Users">
+        <t class="o_wslides_home_aside">
+        </t>
+    </template>
+
+    <template id="toggle_latest_achievements" inherit_id="openeducat_lms_gamification.slides_home_achievements_small"
+              active="True"
+              customize_show="True" name='Display Achievements'>
+        <xpath expr="//t[hasclass('o_wslides_home_aside')]" position="inside">
+            <div class="row o_wslides_home_aside_title">
+                <div class="col">
+                    <h5 class="m-0">Latest achievements</h5>
+                    <hr class="mt-2"/>
+                </div>
+            </div>
+            <div class="row">
+                <t t-if="achievements">
+                    <div class="col">
+                        <t t-foreach="achievements" t-as="achievement">
+                            <t t-call="openeducat_lms_gamification.achievement_card"/>
+                        </t>
+                    </div>
+                </t>
+                <t t-else="">
+                    <p class="col mt8">No achievements currently :(</p>
+                </t>
+            </div>
+        </xpath>
+    </template>
+
+    <template id='achievement_card' name="Achivement Card">
+        <div class="d-flex no-gutters mt8 align-items-center">
+            <t t-call="openeducat_lms_gamification.slides_misc_user_image">
+                <t t-set="user" t-value="achievement.user_id"/>
+            </t>
+            <div style="line-height: 1.3">
+                <span class="fw-bold" t-esc="achievement.user_id.name"/>
+                achieved
+                <span class="fw-bold" t-esc="achievement.badge_id.name"/>
+            </div>
+        </div>
+    </template>
+
+
+    <template id='slides_home_users_small' name="Users">
+        <div class="o_wslides_home_aside">
+        </div>
+    </template>
+
+    <template id="toggle_leaderboard" inherit_id="openeducat_lms_gamification.slides_home_users_small" active="True"
+              customize_show="True" name='Display Leaderboard'>
+        <xpath expr="//div[hasclass('o_wslides_home_aside')]" position="inside">
+            <div class="row o_wslides_home_aside_title">
+                <div class="col">
+                    <a href="/profile/users" class="float-right">View all</a>
+                    <h5 class="m-0 fw-bold">Leaderboard</h5>
+                    <hr class="mt-2 pt-2"/>
+                </div>
+            </div>
+            <div class="row">
+                <t t-if="users">
+                    <div class="col">
+                        <t t-set="counter" t-value="1"/>
+                        <t t-foreach="users" t-as="user">
+                            <t t-call="openeducat_lms_gamification.user_quickkarma_card"/>
+                            <t t-set="counter" t-value="counter + 1"/>
+                        </t>
+                    </div>
+                </t>
+                <t t-else="">
+                    <p class="col mt8">No leaderboard currently :(</p>
+                </t>
+            </div>
+        </xpath>
+    </template>
+
+    <template id='user_quickkarma_card' name="User QuickKarma Card">
+        <div class="d-flex mb-3 align-items-center">
+            <b class="me-2 text-muted" t-esc="counter"/>
+            <t t-call="openeducat_lms_gamification.slides_misc_user_image"/>
+            <div style="line-height:1.3">
+                <span class="fw-bold" t-esc="user.name"/>
+                <div class="d-flex align-items-center">
+                    <t t-esc="user.rank_id.name"/>
+                    <span class="text-500 mx-2">&#8226;</span>
+                    <span class="badge badge-success">
+                        <t t-esc="user.karma"/>
+                        xp
+                    </span>
+                </div>
+            </div>
+        </div>
+    </template>
+
+
+    <template id='slides_home_user_profile_small' name="User Profile">
+        <div class="o_wslides_home_aside">
+            <div t-if="user.rank_id" class="d-flex align-items-center">
+                <span class="fw-bold text-muted me-2">Current rank:</span>
+                <img t-att-src="website.image_url(user.rank_id, 'image_128')" width="16" height="16" alt=""
+                     class="o_object_fit_cover me-1"/>
+                <a href="/profile/ranks_badges" t-field="user.rank_id"/>
+            </div>
+            <t t-set="next_rank_id" t-value="user._get_next_rank()"/>
+            <div t-if="next_rank_id" class="fw-bold text-muted mt-1">Next rank:</div>
+            <t t-if="next_rank_id or user.rank_id" t-call="website_profile.profile_next_rank_card">
+                <t t-set="bg_class">bg-200</t>
+                <t t-set="img_max_width">32%</t>
+            </t>
+            <div t-if="next_rank_id" t-field="next_rank_id.description_motivational"/>
+            <div t-else="">Congratulations, you have reached the last rank!</div>
+        </div>
+    </template>
+
+    <template id='slides_misc_user_image' name="User Avatar">
+        <img t-att-class="img_class if img_class else 'rounded-circle float-left me-2'"
+             t-att-style="img_style if img_style else 'width: 32px; height: 32px; object-fit: cover;'"
+             t-att-src="'/profile/avatar/%s?field=image_128' % user.id"
+             t-att-alt="user.name"/>
+    </template>
+
+    <template id='slides_home_user_achievements_small' name="User Achievements">
+        <div class="o_wslides_home_aside flex-grow-1 mb-2">
+            <t t-foreach="challenges" t-as="challenge">
+                <t t-set="challenge_done" t-value="challenge in challenges_done if challenges_done else False"/>
+                <div t-attf-class="d-flex mb-3 align-items-center #{'o_wslides_entry_muted' if not challenge_done else ''}">
+                    <img class="me-2"
+                         style="max-height: 36px;"
+                         t-att-src="website.image_url(challenge.reward_id, 'image_128')"
+                         t-att-alt="challenge.reward_id.name"/>
+                    <div class="flex-grow-1">
+                        <b class="text_small_caps" t-esc="challenge.reward_id.name"/>
+                        <br/>
+                        <span class="text-muted" t-esc="challenge.reward_id.description"/>
+                    </div>
+                    <i t-if="challenge_done" class="fa fa-check h5 text-success" aria-label="Done" title="Done"
+                       role="img"></i>
+                </div>
+            </t>
+        </div>
+    </template>
+
+
+    <template id="reward_point_view" name="reward points" inherit_id="openeducat_lms.material_detail_view"
+              priority="10">
+        <xpath expr="//span[@id='material_name']" position='after'>
+            <span t-if="material.material_type == 'quiz'"
+                  t-att-class="'badge badge-success fw-bold px-2 py-1 mx-1'" style="position: absolute;">
+                <t t-esc="material.quiz_attempt_reward"
+                   class="material-right"/>xp
+            </span>
+        </xpath>
+    </template>
+</odoo>

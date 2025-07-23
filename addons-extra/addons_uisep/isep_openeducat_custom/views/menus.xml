@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <menuitem 
+            name="Cursos" 
+            parent="openeducat_admission.menu_op_admission_root" 
+            id="id_tree_courses_admin_root" 
+            sequence="30" />
+        
+        <menuitem 
+            name="Cursos" 
+            parent="id_tree_courses_admin_root" 
+            id="id_tree_courses_admin" 
+            action="openeducat_core_enterprise.open_course_dashboard_kanban" 
+            sequence="1" />
+        
+        <menuitem 
+            name="Asignaturas" 
+            parent="id_tree_courses_admin_root" 
+            id="id_tree_courses_asig_admin" 
+            action="openeducat_core.act_open_op_subject_view" 
+            sequence="2" />
+            
+
+    </data>
+</odoo>
+
+
+ 

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="0">
+
+        <record id="onboarding_step_1" model="oe.onboarding.steps">
+            <field name="plan_id" ref="openeducat_onboarding.onboarding_plan_1"/>
+            <field name="step_name">Quiz Category</field>
+            <field name="action_id" ref="openeducat_quiz.act_open_op_quiz_category_view"/>
+            <field name="image" type="base64" file="openeducat_quiz/static/img/quiz_cat.png"/>
+            <field name="doc_link">https://doc.openeducat.org/applications/quiz/quiz.html#quiz-categories</field>
+            <field name="youtube_link">https://youtu.be/SoKn2oNKtwQ</field>
+        </record>
+
+</odoo>

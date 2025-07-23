@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="web_configurator" name="Web Configurator" inherit_id="website.website_configurator" primary="True">
+       <xpath expr="//head/t[@t-call-assets][last()]" position="after">
+            <t t-call-assets="openeducat_core_enterprise.website_configurator_assets_js" lazy_load="True"/>
+        </xpath>
+    </template>
+</odoo>

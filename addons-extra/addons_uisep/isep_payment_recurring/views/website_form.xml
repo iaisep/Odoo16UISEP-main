@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template id="session_flywire">
+        <t t-call="website.layout">
+            <div id="flywire-payment-form">
+            <!-- <iframe src="https://campus.universidadisep.com/mod/hvp/embed.php?id=119393" 
+                width="1157" 
+                height="712" 
+                frameborder="0" 
+                allowfullscreen="allowfullscreen" 
+                title="Concepto y breve reseña histórica de la evaluación de los trastornos psicológicos (1/3)">
+            </iframe>
+            <script src="https://campus.universidadisep.com/mod/hvp/library/js/h5p-resizer.js" charset="UTF-8"></script> -->
+                <iframe 
+                    t-att-src="hosted_form_url"
+                    class="my-iframe"
+                    id="rcp-iframe"
+                    title="checkout"
+                    width="800px" 
+                    height="600px">
+                </iframe>
+                <input type="hidden" id="invoice_id" t-att-value="invoice_id"/>
+                <script>
+                    // Pasar el invoice_id a una variable JavaScript global
+                    window.invoice_id = <t t-esc="invoice_id"/>;
+                </script>
+            </div>
+        </t>
+    </template>
+
+    <template id="session_flywire_error" name="Flywire Payment Session Error">
+        <t t-call="website.layout">
+            <div class="alert alert-danger" role="alert">
+                Error: No se pudo encontrar la URL del formulario alojado en la respuesta.
+            </div>
+        </t>
+    </template>
+    
+</odoo>
+

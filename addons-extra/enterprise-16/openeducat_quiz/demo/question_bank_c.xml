@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="op_c_q01" model="op.question.bank.line">
+            <field name="name">Who was the first man to fly into space ?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_c"/>
+        </record>
+
+        <record id="op_c_q01_a01" model="op.question.bank.answer">
+            <field name="name">Yuri Gagarin (Russia)</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_c_q01"/>
+        </record>
+
+        <record id="op_c_q01_a02" model="op.question.bank.answer">
+            <field name="name">Rakesh Sharma (India)</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_c_q01"/>
+        </record>
+
+        <record id="op_c_q01_a03" model="op.question.bank.answer">
+            <field name="name">Neil Alden Armstrong (U.S.A)</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="question_id" ref="op_c_q01"/>
+        </record>
+
+        <record id="op_c_q01_a04" model="op.question.bank.answer">
+            <field name="name">Michael Collins (U.S.A)</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_c_q01"/>
+        </record>
+
+
+        <record id="op_c_q02" model="op.question.bank.line">
+            <field name="name">GPS is space based satellite navigation system. GPS stands for</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_c"/>
+        </record>
+
+        <record id="op_c_q02_a01" model="op.question.bank.answer">
+            <field name="name">Global positioning system</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="question_id" ref="op_c_q02"/>
+        </record>
+
+        <record id="op_c_q02_a02" model="op.question.bank.answer">
+            <field name="name">Global pointer satellite</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_c_q02"/>
+        </record>
+
+        <record id="op_c_q02_a03" model="op.question.bank.answer">
+            <field name="name">General positioning system</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_c_q02"/>
+        </record>
+
+        <record id="op_c_q02_a04" model="op.question.bank.answer">
+            <field name="name">General purpose satellite system</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_c_q02"/>
+        </record>
+
+
+        <record id="op_c_q03" model="op.question.bank.line">
+            <field name="name">ISRO stands for</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_c"/>
+        </record>
+
+        <record id="op_c_q03_a01" model="op.question.bank.answer">
+            <field name="name">Indian Space Research Organisation</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="question_id" ref="op_c_q03"/>
+        </record>
+
+        <record id="op_c_q03_a02" model="op.question.bank.answer">
+            <field name="name">International Space Research Organisation</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_c_q03"/>
+        </record>
+
+        <record id="op_c_q03_a03" model="op.question.bank.answer">
+            <field name="name">International Special Research Organisation</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_c_q03"/>
+        </record>
+
+        <record id="op_c_q03_a04" model="op.question.bank.answer">
+            <field name="name">Indian Software Research Organisation</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_c_q03"/>
+        </record>
+
+
+        <record id="op_c_q04" model="op.question.bank.line">
+            <field name="name">Telephone was invented by</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_c"/>
+        </record>
+
+        <record id="op_c_q04_a01" model="op.question.bank.answer">
+            <field name="name">Alexander Graham Bell</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="question_id" ref="op_c_q04"/>
+        </record>
+
+        <record id="op_c_q04_a02" model="op.question.bank.answer">
+            <field name="name">Nikolay Benardos</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_c_q04"/>
+        </record>
+
+        <record id="op_c_q04_a03" model="op.question.bank.answer">
+            <field name="name">Isaac Newton</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_c_q04"/>
+        </record>
+
+        <record id="op_c_q04_a04" model="op.question.bank.answer">
+            <field name="name">Francis Beaufort</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_c_q04"/>
+        </record>
+
+
+        <record id="op_c_q05" model="op.question.bank.line">
+            <field name="name">The world’s first intercity rail line was between</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_c"/>
+        </record>
+
+        <record id="op_c_q05_a01" model="op.question.bank.answer">
+            <field name="name">Liverpool and Manchester</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="question_id" ref="op_c_q05"/>
+        </record>
+
+        <record id="op_c_q05_a02" model="op.question.bank.answer">
+            <field name="name">Washington and New York</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_c_q05"/>
+        </record>
+
+        <record id="op_c_q05_a03" model="op.question.bank.answer">
+            <field name="name">Moscow and St Petersburg</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_c_q05"/>
+        </record>
+
+        <record id="op_c_q05_a04" model="op.question.bank.answer">
+            <field name="name">Rome and Naples</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_c_q05"/>
+        </record>
+
+
+        <record id="op_c_q06" model="op.question.bank.line">
+            <field name="name">FIFA is responsible for the organization of which of these sports event</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_c"/>
+        </record>
+
+        <record id="op_c_q06_a01" model="op.question.bank.answer">
+            <field name="name">Cricket world cup</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_c_q06"/>
+        </record>
+
+        <record id="op_c_q06_a02" model="op.question.bank.answer">
+            <field name="name">Hockey world cup</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_c_q06"/>
+        </record>
+
+        <record id="op_c_q06_a03" model="op.question.bank.answer">
+            <field name="name">Football world cup</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="question_id" ref="op_c_q06"/>
+        </record>
+
+        <record id="op_c_q06_a04" model="op.question.bank.answer">
+            <field name="name">Olympic games</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_c_q06"/>
+        </record>
+
+
+        <record id="op_c_q07" model="op.question.bank.line">
+            <field name="name">Which of these is the international governing body of cricket.</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_c"/>
+        </record>
+
+        <record id="op_c_q07_a01" model="op.question.bank.answer">
+            <field name="name">BCCI</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_c_q07"/>
+        </record>
+
+        <record id="op_c_q07_a02" model="op.question.bank.answer">
+            <field name="name">ICC</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="question_id" ref="op_c_q07"/>
+        </record>
+
+        <record id="op_c_q07_a03" model="op.question.bank.answer">
+            <field name="name">PCA</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_c_q07"/>
+        </record>
+
+        <record id="op_c_q07_a04" model="op.question.bank.answer">
+            <field name="name">FIFA</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_c_q07"/>
+        </record>
+
+
+        <record id="op_c_q08" model="op.question.bank.line">
+            <field name="name">The first Atomic bomb was dropped on which city</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_c"/>
+        </record>
+
+        <record id="op_c_q08_a01" model="op.question.bank.answer">
+            <field name="name">Hiroshima</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="question_id" ref="op_c_q08"/>
+        </record>
+
+        <record id="op_c_q08_a02" model="op.question.bank.answer">
+            <field name="name">Nagasaki</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_c_q08"/>
+        </record>
+
+        <record id="op_c_q08_a03" model="op.question.bank.answer">
+            <field name="name">Both</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_c_q08"/>
+        </record>
+
+        <record id="op_c_q08_a04" model="op.question.bank.answer">
+            <field name="name">None of these.</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_c_q08"/>
+        </record>
+
+
+        <record id="op_c_q09" model="op.question.bank.line">
+            <field name="name">For which of the following disciplines is Nobel Prize awarded?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_c"/>
+        </record>
+
+        <record id="op_c_q09_a01" model="op.question.bank.answer">
+            <field name="name">Literature, Peace and Economics</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_c_q09"/>
+        </record>
+
+        <record id="op_c_q09_a02" model="op.question.bank.answer">
+            <field name="name">Physics and Chemistry</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_c_q09"/>
+        </record>
+
+        <record id="op_c_q09_a03" model="op.question.bank.answer">
+            <field name="name">Physiology or Medicine</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_c_q09"/>
+        </record>
+
+        <record id="op_c_q09_a04" model="op.question.bank.answer">
+            <field name="name">All of the above</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="question_id" ref="op_c_q09"/>
+        </record>
+
+
+        <record id="op_c_q10" model="op.question.bank.line">
+            <field name="name">Who is the first Asian Winner of Nobel Prize?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="bank_id" ref="op_qu_bnk_c"/>
+        </record>
+
+        <record id="op_c_q10_a01" model="op.question.bank.answer">
+            <field name="name">C. V. Raman</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_c_q10"/>
+        </record>
+
+        <record id="op_c_q10_a02" model="op.question.bank.answer">
+            <field name="name">Rajiv Gandhi</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_c_q10"/>
+        </record>
+
+        <record id="op_c_q10_a03" model="op.question.bank.answer">
+            <field name="name">Rabindranath Tagore</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="question_id" ref="op_c_q10"/>
+        </record>
+
+        <record id="op_c_q10_a04" model="op.question.bank.answer">
+            <field name="name">Mother Teresa</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_c_q10"/>
+        </record>
+
+</odoo>

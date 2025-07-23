@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_hr_contract_isep_form" model="ir.ui.view">
+        <field name="name">hr.contract.isep.form</field>
+        <field name="model">hr.contract</field>
+        <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page name="rule_third" string="Company Contribution" attrs="{'invisible':[('company_cfdi', '!=', False)]}">
+                    <field name="rule_third_ids" widget="section_and_note_one2many" mode="tree,kanban">
+                        <form>
+                            <h3 class="oe_red">Alert once blocked the user must not change the records...</h3>
+                            <separator/>
+                            <group>
+                                <group>
+                                    <field name="rule_id" position="{'no_create':True}" attrs="{'readonly':[('locked','!=',False)]}"/>
+                                    <field name="partner_id" position="{'no_create':True}" attrs="{'readonly':[('locked','!=',False)]}"/>
+                                </group>
+                                <group>
+                                    <field name="locked"/>
+                                </group>
+                            </group>
+                            </form>
+                        <tree>
+                            <field name="rule_id" position="{'no_create':True}"/>
+                            <field name="partner_id" position="{'no_create':True}"/>
+                        </tree>
+                    </field>
+                </page>
+          </xpath>
+        </field>
+    </record>
+
+    <record id="view_hr_contract_rule_third_tree" model="ir.ui.view">
+        <field name="name">hr.contract.rule.third.tree</field>
+        <field name="model">hr.contract.rule.third</field>
+        <field name="arch" type="xml">
+            <tree string="Salary Rules With Third">
+                <field name="company_id"/>
+                <field name="rule_id"/>
+                <field name="partner_id"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>

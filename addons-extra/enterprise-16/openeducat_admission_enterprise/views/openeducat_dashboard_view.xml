@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="openeducat_course_admission_dashboard_kanban_view" model="ir.ui.view">
+            <field name="name">op.course.admission.dashboard.kanban</field>
+            <field name="model">op.course</field>
+            <field name="inherit_id" ref="openeducat_core_enterprise.openeducat_course_dashboard_kanban_view"/>
+            <field name="arch" type="xml">
+
+                    <xpath expr="//div[@name='forth_column']" position="inside">
+
+                        <a name="%(openeducat_admission_enterprise.act_dashboard_op_admission_view)d"
+                           type="action" style="overflow: visible;">
+                            <field name="admission_count"/>
+                            Admissions
+                        </a>
+
+                    </xpath>
+
+            </field>
+        </record>
+
+</odoo>

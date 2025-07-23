@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo noupdate="1">
+    <record id="op_circular_demo1" model="op.circular">
+        <field name="name">Inter Batch Quiz Competition</field>
+        <field name="subject">Quiz Competition</field>
+        <field name="start_date" eval="(DateTime.today() + relativedelta(days=5)).strftime('%Y-%m-%d')"/>
+        <field name="end_date" eval="(DateTime.today() + relativedelta(days=5)).strftime('%Y-%m-%d')"/>
+        <field name="description">We arranged inter batch Quiz Competition between BOA Sem-1 and BOA Sem-2.If you want to participate in the competition kindly Inform your class teacher.</field>
+        <field name="group_id" ref="openeducat_notice_board_enterprise.notice_group1"/>
+        <field name="academic_year_id" ref="openeducat_core.academic_year_3"/>
+        <field name="academic_term_id" ref="openeducat_core.academic_term_1"/>
+        <field name="state">publish</field>
+        <field name="created_by" ref="openeducat_core.op_user_faculty"/>
+    </record>
+</odoo>

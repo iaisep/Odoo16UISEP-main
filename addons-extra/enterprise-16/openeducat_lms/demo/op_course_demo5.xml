@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="category_food" model="op.course.category">
+            <field name="name">Food And Beverage</field>
+            <field name="code">fab</field>
+            <field name="icon">fa fa-cog</field>
+        </record>
+
+        <record id="demo_course_bake" model="op.course">
+            <field name="name">How to Bake Real Artisan Bread</field>
+            <field name="code">Bake-11336</field>
+            <field name="sequence">9</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="faculty_ids"
+                   eval="[(6,0,[ref('openeducat_core.op_faculty_2'),ref('openeducat_core.op_faculty_1')])]"/>
+            <field name="category_ids"
+                   eval="[(6,0,[ref('category_food')])]"/>
+            <field name="suggested_course_ids"
+                   eval="[(6,0,[ref('demo_course_vegetable')])]"/>
+            <field name="visibility">logged_user</field>
+            <field name="level_id" ref="op_course_level_beginner"/>
+            <field name="navigation_policy">free_learn</field>
+            <field name="state">open</field>
+            <field name="online_course" eval="True"/>
+            <field name="confirm_date"
+                   eval="(DateTime.today() - relativedelta(days=8))"/>
+             <field name="image_1920" type="base64"
+                   file="openeducat_lms/static/src/img/how-to-bake-real-artisan-bread-min.jpg"/>
+            <field name="full_description"><![CDATA[
+            <div>
+            <p>
+ The course shows you how to make round loaves, batons, baguettes and fougasse. And alongside the video we provide you with downloadable tried and tested recipes (slow white loaf, granary, wholemeal, semolina raisin and fennel, apricot and cinnamon) and instructions that you can print and keep.
+
+Artisan bread is made with time.</p>        </div>
+            ]]></field>
+        </record>
+        <record id="op_course_section_bake_variable" model="op.course.section">
+            <field name="name">Introduction</field>
+            <field name="course_id" ref="demo_course_bake"/>
+            <field name="sequence" type="int">1</field>
+        </record>
+        <record id="op_course_section_bake_variable2" model="op.course.section">
+            <field name="name">Preparation</field>
+            <field name="course_id" ref="demo_course_bake"/>
+            <field name="sequence" type="int">2</field>
+        </record>
+        <record id="op_course_section_bake_variable3" model="op.course.section">
+            <field name="name">The Bread Making Process</field>
+            <field name="course_id" ref="demo_course_bake"/>
+            <field name="sequence" type="int">3</field>
+        </record>
+        <record id="op_course_section_bake_variable4" model="op.course.section">
+            <field name="name">Conclusion</field>
+            <field name="course_id" ref="demo_course_bake"/>
+            <field name="sequence" type="int">4</field>
+        </record>
+        <record id="op_course_section_bake_variable5" model="op.course.section">
+            <field name="name">Quiz</field>
+            <field name="course_id" ref="demo_course_bake"/>
+            <field name="sequence" type="int">5</field>
+        </record>
+        <record id="material_introduction_bake1" model="op.material">
+            <field name="name">Introduction to the course</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">1.62</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=62pQOz1yKkY'"/>
+            <field name="document_id">62pQOz1yKkY</field>
+        </record>
+        <record id="op_course_material_introduction_bake1" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_introduction_bake1"/>
+            <field name="section_id" ref="op_course_section_bake_variable"/>
+            <field name="preview" eval="True"/>
+        </record>
+
+        <record id="material_preparation1" model="op.material">
+            <field name="name">Ingredients</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">10.50</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=6rx7rWuaQww'"/>
+            <field name="document_id">6rx7rWuaQww</field>
+        </record>
+        <record id="material_preparation2" model="op.material">
+            <field name="name">Equipment</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">2.45</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=aGqx1V4Cxo4'"/>
+            <field name="document_id">aGqx1V4Cxo4</field>
+        </record>
+        <record id="material_preparation3" model="op.material">
+            <field name="name">Recipes and instructions</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">8.02</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=QA9GZHCvDxI'"/>
+            <field name="document_id">QA9GZHCvDxI</field>
+        </record>
+
+        <record id="op_course_material_preparation1" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_preparation1"/>
+            <field name="section_id" ref="op_course_section_bake_variable2"/>
+            <field name="preview" eval="True"/>
+        </record>
+        <record id="op_course_material_preparation2" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_preparation2"/>
+            <field name="section_id" ref="op_course_section_bake_variable2"/>
+            <field name="preview" eval="True"/>
+        </record>
+        <record id="op_course_material_preparation3" model="op.course.material">
+            <field name="sequence" type="int">3</field>
+            <field name="material_id" ref="material_preparation3"/>
+            <field name="section_id" ref="op_course_section_bake_variable2"/>
+        </record>
+
+
+        <record id="material_process1" model="op.material">
+            <field name="name">The Sponge</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">6.06</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=NoRDwkK-XD8'"/>
+            <field name="document_id">NoRDwkK-XD8</field>
+        </record>
+        <record id="material_process2" model="op.material">
+            <field name="name">The Dough - mixing, kneading and first rise</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">8.97</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=KlFgc0ETNn8'"/>
+            <field name="document_id">KlFgc0ETNn8</field>
+        </record>
+        <record id="material_process3" model="op.material">
+            <field name="name">The Dough - stretching, folding and second rise</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">32.18</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=5fnYkQj26b8'"/>
+            <field name="document_id">5fnYkQj26b8</field>
+        </record>
+        <record id="material_process4" model="op.material">
+            <field name="name">The dough - dividing and pre-shaping</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">6.04</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=dt6pbWYbqPE'"/>
+            <field name="document_id">dt6pbWYbqPE</field>
+        </record>
+
+        <record id="material_process5" model="op.material">
+            <field name="name">Final Shaping - boule and battard </field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">7.13</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=d2-1TDzPxno'"/>
+            <field name="document_id">d2-1TDzPxno</field>
+        </record>
+        <record id="material_process6" model="op.material">
+            <field name="name">Final Shaping - a baguette</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">5.38</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=fdNRogR10nM'"/>
+            <field name="document_id">fdNRogR10nM</field>
+        </record>
+        <record id="material_process7" model="op.material">
+            <field name="name">Final Shaping - a fougasse</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">5.95</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=QR3ou5oM2VM'"/>
+            <field name="document_id">QR3ou5oM2VM</field>
+        </record>
+        <record id="material_process8" model="op.material">
+            <field name="name">Baking - slashing the loaves, loading the oven and oven management tips</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">3.45</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=47skjpOtBSQ'"/>
+            <field name="document_id">47skjpOtBSQ</field>
+        </record>
+
+
+        <record id="op_course_material_process1" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_process1"/>
+            <field name="section_id" ref="op_course_section_bake_variable3"/>
+            <field name="preview" eval="True"/>
+        </record>
+        <record id="op_course_material_process2" model="op.course.material">
+            <field name="sequence" type="int">2</field>
+            <field name="material_id" ref="material_process2"/>
+            <field name="section_id" ref="op_course_section_bake_variable3"/>
+        </record>
+        <record id="op_course_material_process3" model="op.course.material">
+            <field name="sequence" type="int">3</field>
+            <field name="material_id" ref="material_process3"/>
+            <field name="section_id" ref="op_course_section_bake_variable3"/>
+        </record>
+        <record id="op_course_material_process4" model="op.course.material">
+            <field name="sequence" type="int">4</field>
+            <field name="material_id" ref="material_process4"/>
+            <field name="section_id" ref="op_course_section_bake_variable3"/>
+        </record>
+        <record id="op_course_material_process5" model="op.course.material">
+            <field name="sequence" type="int">5</field>
+            <field name="material_id" ref="material_process5"/>
+            <field name="section_id" ref="op_course_section_bake_variable3"/>
+        </record>
+        <record id="op_course_material_process6" model="op.course.material">
+            <field name="sequence" type="int">6</field>
+            <field name="material_id" ref="material_process6"/>
+            <field name="section_id" ref="op_course_section_bake_variable3"/>
+        </record>
+        <record id="op_course_material_process7" model="op.course.material">
+            <field name="sequence" type="int">7</field>
+            <field name="material_id" ref="material_process7"/>
+            <field name="section_id" ref="op_course_section_bake_variable3"/>
+        </record>
+        <record id="op_course_material_process8" model="op.course.material">
+            <field name="sequence" type="int">8</field>
+            <field name="material_id" ref="material_process8"/>
+            <field name="section_id" ref="op_course_section_bake_variable3"/>
+        </record>
+
+        <record id="material_conclusion1" model="op.material">
+            <field name="name">Conclusion</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">video</field>
+            <field name="total_time" type="float">26.15</field>
+            <field name="url" eval="'https://www.youtube.com/watch?v=IOWWUwnuyaU'"/>
+            <field name="document_id">IOWWUwnuyaU</field>
+        </record>
+        <record id="op_course_material_conclusion1" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_conclusion1"/>
+            <field name="section_id" ref="op_course_section_bake_variable4"/>
+        </record>
+        <record id="material_bake_quiz" model="op.material">
+            <field name="name">Bake Quiz</field>
+            <field name="website_published" eval="True"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="material_type">quiz</field>
+            <field name="total_time" type="float">5.00</field>
+            <field name="quiz_id" ref="openeducat_quiz.op_qz_bake1"/>
+        </record>
+
+        <record id="op_course_material_bake_quiz" model="op.course.material">
+            <field name="sequence" type="int">1</field>
+            <field name="material_id" ref="material_bake_quiz"/>
+            <field name="section_id" ref="op_course_section_bake_variable5"/>
+        </record>
+
+
+       <record id="op_user_student_46" model="res.users" context="{'no_reset_password': True}">
+            <field name="name">Lucie</field>
+            <field name="password">openeducatback</field>
+            <field name="login">openeducatback@openeducat.com</field>
+            <field name="groups_id"
+                   eval="[(4,ref('openeducat_lms.group_op_lms_admin'))]"/>
+        </record>
+
+        <record id="demo_enrollment_back" model="op.course.enrollment">
+            <field name="course_id" ref="openeducat_lms.demo_course_bake"/>
+            <field name="user_id" ref="openeducat_lms.op_user_student_46"/>
+            <field name="state">in_progress</field>
+            <field name="enrollment_date" eval="(DateTime.today() - relativedelta(days=1))"/>
+        </record>
+
+</odoo>

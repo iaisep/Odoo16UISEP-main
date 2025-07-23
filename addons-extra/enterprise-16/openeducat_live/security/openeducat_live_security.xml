@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<odoo noupdate="1">
+
+        <record model="ir.rule" id="base.res_partner_portal_public_rule">
+            <field name="name">res_partner: portal/public: read access on my commercial partner</field>
+            <field name="domain_force">['|',('id', 'child_of',
+                user.commercial_partner_id.id),("is_student","=",False)]
+            </field>
+            <field name="active">False</field>
+        </record>
+
+</odoo>

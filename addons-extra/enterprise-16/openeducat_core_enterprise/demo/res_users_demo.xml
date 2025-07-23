@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="global_calendar_user" model="res.users" context="{'no_reset_password': True}">
+            <field name="name">Global Calendar User</field>
+<!--            <field name="password">calendar</field>-->
+            <field name="login">calendaruser@openeducat.com</field>
+        </record>
+
+</odoo>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_op_timetable_online_tools_form_view" model="ir.ui.view">
+        <field name="name">op.session.online.tools.form</field>
+        <field name="model">op.session</field>
+        <field name="inherit_id" ref="openeducat_timetable.view_op_session_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button class="btn oe_stat_button" type="object"
+                        name="action_view_online_meetings"
+                        style="border-right: 1px solid;"
+                        icon="fa-pencil-square-o">
+                    <field string="Online Meetings" name="meeting_count" widget="statinfo"/>
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>

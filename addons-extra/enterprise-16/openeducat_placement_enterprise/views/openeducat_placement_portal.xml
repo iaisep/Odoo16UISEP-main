@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="student_portal_placement_offers"
+              inherit_id="openeducat_core_enterprise.openeducat_enterprise_student_portal"
+              priority="15">
+        <xpath expr="//ul[hasclass('nav-pills')]" position="inside">
+            <li>
+                <a href="#placement_offers" aria-expanded="false" data-bs-toggle="tab" role="tab">
+                    <h5 class="mb0">
+                        Placement Offers
+                    </h5>
+                </a>
+            </li>
+        </xpath>
+        <xpath expr="//div[hasclass('tab-content')]" position="inside">
+            <div class="tab-pane fade" id="placement_offers">
+                <div class="mb-4">
+                    <h4>Placement Offers</h4>
+                </div>
+                <table class="mt16 table table-condensed">
+                    <thead>
+                        <tr>
+                            <th>Company Name</th>
+                            <th>Join date</th>
+                            <th>Offer Package</th>
+                            <th>Training Period</th>
+                            <th>State</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="student.placement_line" t-as="placement">
+                            <tr>
+                                <td>
+                                    <span t-esc="placement.name"/>
+                                </td>
+                                <td>
+                                    <span t-esc="placement.join_date" t-options="{'widget': 'date'}"/>
+                                </td>
+                                <td class="numspan">
+                                    <span t-esc="placement.offer_package"  t-options="{'widget': 'monetary', 'display_currency': placement.currency_id}"/>
+                                </td>
+                                <td>
+                                    <span t-esc="placement.training_period"/>
+                                </td>
+                                <td>
+                                    <t t-if="placement.state == 'draft'">
+                                                    <span class="badge badge-pill badge-muted"><i class="fa fa-fw fa-clock-o" aria-label="Draft" title="Draft" role="img"></i><span class="d-none d-md-inline"> Draft</span></span>
+                                                </t>
+                                                <t t-if="placement.state == 'offer'">
+                                                    <span class="badge badge-pill badge-info"><i class="fa fa-fw fa-clock-o" aria-label="Offer" title="Offer" role="img"></i><span class="d-none d-md-inline"> Offer</span></span>
+                                                </t>
+                                                <t t-if="placement.state == 'join'" >
+                                                    <span class="badge badge-pill badge-success"><i class="fa fa-fw fa-check" aria-label="Join" title="Join" role="img"></i><span class="d-none d-md-inline"> Join</span></span>
+                                                </t>
+                                                <t t-if="placement.state == 'reject'">
+                                                    <span class="badge badge-pill badge-danger"><i class="fa fa-fw fa-remove" aria-label="Rejected" title="Rejected" role="img"></i><span class="d-none d-md-inline"> Rejected</span></span>
+                                                </t>
+                                                <t t-if="placement.state == 'cancel'">
+                                                    <span class="badge badge-pill badge-warning"><i class="fa fa-fw fa-remove" aria-label="Cancelled" title="Cancelled" role="img"></i><span class="d-none d-md-inline"> Cancelled</span></span>
+                                                </t>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </xpath>
+    </template>
+</odoo>

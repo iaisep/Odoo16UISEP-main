@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+
+    <template id="register_practice_center" name="Register Practice Center">
+        <t t-call="portal.portal_layout">
+            <div class="container mt-4">
+                <h2>Registrar un centro de práctica</h2>
+                <form action="/my/register_practice_center" method="post" class="mt-4">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+
+                    <!-- General Information Section -->
+                    <div class="form-group">
+                        <label for="name">Nombre del centro</label>
+                        <input type="text" id="name" name="name" class="form-control"/>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="official_name">Nombre oficial</label>
+                        <input type="text" id="official_name" name="official_name" class="form-control"/>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="signatory_name">Persona que firma los reportes</label>
+                        <input type="text" id="signatory_name" name="signatory_name" class="form-control"/>
+                    </div>
+
+                    <!-- Contact Information Section -->
+                    <div class="form-group mt-3">
+                        <label for="coordinator">Coordinador o Encargado del Centro</label>
+                        <input type="text" id="coordinator" name="coordinator" class="form-control"/>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" id="email" name="email" class="form-control"/>
+                    </div>
+                    <!-- <div class="form-group mt-3">
+                        <label for="phone">Phone</label>
+                        <input type="text" id="phone" name="phone" class="form-control"/>
+                    </div> -->
+                    <div class="form-group mt-3">
+                        <label for="mobil">Celular</label>
+                        <input type="text" id="mobil" name="mobil" class="form-control"/>
+                    </div>
+
+                    <!-- Location Section -->
+                    <div class="form-group mt-3">
+                        <label for="country_id">País</label>
+                        <select id="country_id" name="country_id" class="form-control">
+                            <option value="">Seleccione país</option>
+                            <t t-foreach="request.env['res.country'].search([])" t-as="country">
+                                <option t-att-value="country.id">
+                                    <t t-esc="country.name"/>
+                                </option>
+                            </t>
+                        </select>
+                    </div>
+
+                    <!-- State Selection -->
+                    <div class="form-group mt-3">
+                        <label for="state_id">Estado</label>
+                        <select id="state_id" name="state_id" class="form-control" onchange="updateZips()">
+                            <option value="">Seleccione estado</option>
+                            <!-- Opciones dinámicas cargadas mediante JavaScript -->
+                        </select>
+                    </div>
+
+
+                    <div class="form-group mt-3">
+                        <label for="zip_id">ZIP</label>
+                        <select id="zip_id" name="zip_id" class="form-control">
+                            <option value="">Seleccione ZIP</option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group mt-3">
+                        <label for="street">Calle</label>
+                        <input type="text" id="street" name="street" class="form-control"/>
+                    </div>
+                    <!--                    <div class="form-group mt-3">-->
+                    <!--                        <label for="city">City</label>-->
+                    <!--                        <input type="text" id="city" name="city" class="form-control"/>-->
+                    <!--                    </div>-->
+                    <!--                    <div class="form-group mt-3">-->
+                    <!--                        <label for="postal_code">Postal Code</label>-->
+                    <!--                        <input type="text" id="postal_code" name="postal_code" class="form-control"/>-->
+                    <!--                    </div>-->
+
+                    <!-- Additional Details -->
+                    <div class="form-group mt-3">
+                        <label for="number_places">Número de plazas <span class="text-danger">(Si el número máximo de plazas no está definido, colocar 1).</span></label>
+                        <input type="text" id="number_places" name="number_places" class="form-control" value="1"/>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <label for="type_ids">Tipos de práctica</label>
+                        <table class="table table-bordered mt-2" id="type_ids_table">
+                            <thead>
+                                <tr>
+                                    <th>Tipo de práctica</th>
+                                    <!--                <th>Description</th>-->
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="type_ids_body">
+                                <!-- Filas dinámicas que se agregarán con JavaScript -->
+                            </tbody>
+                        </table>
+                        <button type="button" class="btn btn-primary" onclick="addPracticeType()">Agregar tipo de práctica
+                        </button>
+                    </div>
+
+
+                    <!-- Practice Schedules -->
+                    <!-- <div class="form-group mt-3">
+                        <label for="schedule_description">Practice Schedules</label>
+                        <textarea id="schedule_description" name="schedule_description" class="form-control" rows="3"
+                                  placeholder="Describe the schedules..."></textarea>
+                    </div> -->
+
+                    <!-- Practice Schedules -->
+                    <div class="form-group mt-3">
+                        <label>Horario de Prácticas</label>
+                        <table class="table table-bordered mt-2" id="schedule_table">
+                            <thead>
+                                <tr>
+                                    <th>Turno</th>
+                                    <th>Día</th>
+                                    <th>Hora de inicio</th>
+                                    <th>Hora de Finalización</th>
+                                    <th>Descripción</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="schedule_body">
+                                <!-- Filas dinámicas agregadas con JavaScript -->
+                            </tbody>
+                        </table>
+                        <button type="button" class="btn btn-primary" onclick="addScheduleRow()">Agregar horario de práctica</button>
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="d-flex justify-content-end mt-4">
+                        <button type="submit" class="btn btn-primary">Registrar centro</button>
+                    </div>
+                </form>
+            </div>
+        </t>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+            const countrySelect = document.getElementById('country_id');
+            const stateSelect = document.getElementById('state_id');
+
+            // Evento de cambio en el country_id
+            countrySelect.addEventListener('change', function () {
+            const countryId = this.value;
+
+            // Limpia las opciones actuales del state_id
+            stateSelect.innerHTML = '<option value="">Seleccione estado</option>';
+
+            if (countryId) {
+            <!--                // Llama a la ruta /get_states/<country_id>-->
+            fetch(`/get_states/${countryId}`)
+            .then(response => response.json())
+            .then(data => {
+            // Añade las nuevas opciones al state_id
+            data.forEach(state => {
+            const option = document.createElement('option');
+            option.value = state.id;
+            option.textContent = state.name;
+            stateSelect.appendChild(option);
+            });
+            })
+            .catch(error => console.error('Error fetching states:', error));
+            }
+            });
+            });
+        </script>
+        <script>
+            function updateZips() {
+            const stateId = document.getElementById('state_id').value;
+            const zipSelect = document.getElementById('zip_id');
+            zipSelect.innerHTML = '<option value="">Seleccione ZIP</option>'; // Reset ZIP options
+
+            if (stateId) {
+            fetch(`/get_zips/${stateId}`)
+            .then(response => response.json())
+            .then(data => {
+            data.forEach(zip => {
+            const option = document.createElement('option');
+            option.value = zip.id;
+            option.textContent = zip.name;
+            zipSelect.appendChild(option);
+            });
+            })
+            .catch(error => {
+            console.error('Error fetching ZIPs:', error);
+            });
+            }
+            }
+        </script>
+        <script>
+            let practiceTypeCounter = 0;
+
+            const practiceTypes = [
+            { value: 'on_site', label: 'Presencial' },
+            { value: 'distance', label: 'Distancia' },
+            { value: 'validation', label: 'Convalidación' }
+            ];
+
+            function addPracticeType() {
+            const tableBody = document.getElementById('type_ids_body');
+            const row = document.createElement('tr');
+            row.setAttribute('id', `type_row_${practiceTypeCounter}`);
+
+            const selectOptions = practiceTypes
+            .map(pt => `<option value="${pt.value}">${pt.label}</option>`)
+            .join('');
+
+            row.innerHTML = `
+            <td>
+                <select name="type_ids[${practiceTypeCounter}][type_of_practice]" class="form-control">
+                    ${selectOptions}
+                </select>
+            </td>
+            <!--            <td>-->
+            <!--                <input type="text" name="type_ids[${practiceTypeCounter}][description]" class="form-control" placeholder="Description"/>-->
+            <!--            </td>-->
+            <td>
+                <button type="button" class="btn btn-danger" onclick="removePracticeType(${practiceTypeCounter})">
+                    Eliminar
+                </button>
+            </td>
+            `;
+
+            tableBody.appendChild(row);
+            practiceTypeCounter++;
+            }
+
+            function removePracticeType(rowId) {
+            const row = document.getElementById(`type_row_${rowId}`);
+            if (row) {
+            row.remove();
+            }
+            }
+        </script>
+
+        <script>
+            let scheduleCounter = 0;
+
+            function addScheduleRow() {
+                const tableBody = document.getElementById('schedule_body');
+                const row = document.createElement('tr');
+                row.setAttribute('id', `schedule_row_${scheduleCounter}`);
+
+                row.innerHTML = `
+
+                <t t-set="days_dict" t-value="{
+                        'monday': 'Lunes',
+                        'tuesday': 'Martes',
+                        'wednesday': 'Miércoles',
+                        'thursday': 'Jueves',
+                        'friday': 'Viernes',
+                        'saturday': 'Sábado'
+                    }"/>
+
+                <t t-set="shifts_dict" t-value="{
+                        'morning': 'Mañana',
+                        'afternoon': 'Tarde',
+                        'both': 'Ambos'
+                    }"/>
+                    <td>
+                        <select name="schedule_ids[${scheduleCounter}][shift_id]" class="form-control">
+                            <option value="">Seleccione Turno</option>
+                            <t t-foreach="shifts" t-as="shift">
+                                <option t-att-value="shift.id">
+                                    <t t-esc="shifts_dict.get(shift.name, shift.name)"/>
+                                </option>
+                            </t>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="schedule_ids[${scheduleCounter}][day_of_week_id]" class="form-control">
+                            <option value="">Seleccione Día</option>
+                            <t t-foreach="days" t-as="day">
+                                <option t-att-value="day.id">
+                                    <t t-esc="days_dict.get(day.day_of_week, day.day_of_week)"/>
+                                </option>
+                            </t>
+                        </select>
+                    </td>
+                    <td><input type="time" name="schedule_ids[${scheduleCounter}][start_time]" class="form-control"/></td>
+                    <td><input type="time" name="schedule_ids[${scheduleCounter}][end_time]" class="form-control"/></td>
+                    <td><input type="text" name="schedule_ids[${scheduleCounter}][description]" class="form-control"/></td>
+                    <td>
+                        <button type="button" class="btn btn-danger" onclick="removeScheduleRow(${scheduleCounter})">
+                            Eliminar
+                        </button>
+                    </td>
+                `;
+
+                tableBody.appendChild(row);
+                scheduleCounter++;
+            }
+
+            function removeScheduleRow(rowId) {
+                const row = document.getElementById(`schedule_row_${rowId}`);
+                if (row) {
+                    row.remove();
+                }
+            }
+        </script>
+    </template>
+
+
+</odoo>

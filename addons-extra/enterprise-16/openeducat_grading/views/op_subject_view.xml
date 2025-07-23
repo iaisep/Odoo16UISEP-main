@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="view_op_subject_inherited_grade_form_view" model="ir.ui.view">
+            <field name="name">op.subject.form</field>
+            <field name="model">op.subject</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="openeducat_core.view_op_subject_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='course_id']" position="before">
+                    <field name="parent_sub_id"/>
+                </xpath>
+                <xpath expr="//field[@name='type']" position="after">
+                    <field name="default_template"/>
+                </xpath>
+                <xpath expr="//group[1]" position="after">
+                    <group>
+                        <field name="grade_template_ids" attrs="{'invisible': [('default_template', '!=', False)]}"/>
+                    </group>
+                </xpath>
+                <xpath expr="//field[@name='grade_weightage']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_op_subject_inherited_grade_tree_view" model="ir.ui.view">
+            <field name="name">op.subject.tree</field>
+            <field name="model">op.subject</field>
+            <field name="type">tree</field>
+            <field name="inherit_id" ref="openeducat_core.view_op_subject_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='grade_weightage']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='subject_type']" position="after">
+                    <button name="open_grade_book_grid"
+                            type="object"
+                            class="btn btn-primary"
+                            string="GradeBook">
+                    </button>
+                </xpath>
+            </field>
+        </record>
+
+</odoo>

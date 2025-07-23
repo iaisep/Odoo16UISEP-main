@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="blog_post_detail" name="Blog Post Detail" inherit_id="openeducat_alumni_enterprise.alumni_group"
+              priority="20">
+        <xpath expr="//section[@id='alumni_event_blog_view']//div//div" position="inside">
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 blog-item">
+                <div class="row align-items-baseline" id="blog_view">
+                    <div class="col-md-7 col-7 pl-4">
+                        <h3>Our Blogs</h3>
+                    </div>
+                    <div class="col-md-4 col-4 pr-0 text-right">
+                        <a class="text-secondary" style="font-size: 16px;" href="/blog">View All</a>
+                    </div>
+                    <t t-set="count" t-value="0"/>
+                    <div class="col-lg-11 blog-overflow pt16" style="margin: 0px 15px;">
+                        <t t-foreach="blogpost" t-as="post">
+                            <div class="row mb32 blog-box bg-white">
+                                <div class="col-3 col-sm-3 col-md-3 col-lg-2" style="padding: 21px 5px;">
+                                    <div class="text-center" style="border-right: 1px solid #e7e7e7;">
+                                        <p class="blog-dt mb0" t-field="post.post_date"
+                                           t-options='{"hide_seconds":"True", "format": "d"}'></p>
+                                        <p class="blog-mt mb0" t-field="post.post_date"
+                                           t-options='{"hide_seconds":"True", "format": "MMMM"}'></p>
+                                    </div>
+                                </div>
+                                <div class="col-9 col-sm-9 col-md-9 col-lg-10"
+                                     style="padding: 16px 16px 16px 14px;">
+                                    <h4 class="blog-name d-lg-flex d-md-flex">
+                                        <div class="w-lg-50 w-md-50 content_ellipsis">
+                                            <a itemprop="url"
+                                                   t-attf-href="/blog/#{slug(post.blog_id)}">
+                                                    <span itemprop="name"
+                                                          t-field="post.name"></span>
+                                                </a>
+<!--                                            <a t-attf-href="/blog/#{slug(post.blog_id)}" t-field="post.name"></a>-->
+                                        </div>
+                                        <div class="w-lg-50 w-md-50 text-lg-right text-md-right">
+                                            <!--                                            <span t-if="editable or post.tag_ids" class="fa fa-tags" role="img"-->
+                                            <!--                                                  aria-label="Tags" title="Tags"/>-->
+                                            <t t-foreach="post.tag_ids" t-as="one_tag">
+                                                <span class="badge badge-primary mr8"
+                                                      t-esc="one_tag.name"/>
+                                            </t>
+                                            <span t-if="editable and not post.tag_ids" class="badge badge-danger">
+                                                No tags defined!
+                                            </span>
+                                            <span t-if="not post.website_published" class="text-warning">
+                                                <span class="fa fa-exclamation-triangle ml8" title="Unpublished"
+                                                      role="img" aria-label="Unpublished"/>
+                                            </span>
+                                        </div>
+                                    </h4>
+                                    <div class="blog-id">
+                                        <span>In</span>
+                                        <a class="mr8" t-attf-href="/blog/#{slug(post.blog_id)}">
+                                            <span id="blog" t-field="post.blog_id"/>
+                                        </a>
+                                    </div>
+                                    <div class="text-muted" t-if="len(post.message_ids) &gt; 0">
+                                        <span class="fa fa-comment-o"/>
+                                        <a t-attf-href="#{blog_url('', ['blogpost'], blogpost=post)}#comments">
+                                            <t t-if="len(post.message_ids) &lt;= 1">
+                                                <t t-esc="len(post.message_ids)"/>
+                                                comment
+                                            </t>
+                                            <t t-if="len(post.message_ids) > 1">
+                                                <t t-esc="len(post.message_ids)"/>
+                                                comments
+                                            </t>
+                                        </a>
+                                    </div>
+                                    <div class="text-muted" t-field="post.website_meta_description"/>
+                                    <t t-set="count" t-value="count+1"/>
+                                    <div class="clearfix" t-if="(count % 3) == 0"/>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

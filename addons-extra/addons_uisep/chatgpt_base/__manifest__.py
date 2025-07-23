@@ -1,0 +1,27 @@
+# -*- coding: utf-8 -*-
+{
+    'name': 'ChatGPT Base Integration',
+    'version': '16.0.1.1.2',
+    'license': 'AGPL-3',
+    'summary': 'Registrar endpoints, testear, consumir funcion',
+    'description': 'Registrar endpoints, testear, consumir funcion',
+    'author': 'Hans Franco Olivos Cerna',
+    'company': 'Universidad Isep',
+    'maintainer': 'HFoc',
+    'website': 'https://universidadisep.com',
+    'depends': ['base'],
+    'data': [
+        'security/ir.model.access.csv',
+        'data/gpt_model_data.xml',
+        'views/gpt_error_log.xml',
+        'views/gpt_integration.xml',
+        'views/gpt_origin.xml',
+        'views/gpt_test.xml',
+        'views/menu.xml',
+    ],
+    'external_dependencies': {'python': ['openai']},
+    'images': ['static/description/icon.png'],
+    'installable': True,
+    'application': False,
+    'auto_install': False,
+}

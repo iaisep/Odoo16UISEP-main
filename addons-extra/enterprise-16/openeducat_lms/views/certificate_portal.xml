@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="portal_my_home_menu_certificates" name="Portal layout : Certificates"
+              inherit_id="portal.portal_breadcrumbs" priority="10">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <t t-if="user_id.sudo().is_student">
+                <li t-if="page_name == 'Certificate'"
+                    t-attf-class="breadcrumb-item #{'active ' if not invoice else ''}">
+                    <a t-if="result_data" t-attf-href="/certificate?{{ keep_query() }}">Certificates</a>
+                    <t t-else="">Certificates</t>
+                </li>
+            </t>
+            <t t-if="user_id.sudo().is_parent">
+                <li t-if="page_name == 'Certificate'"
+                    t-attf-class="breadcrumb-item #{'active ' if not invoice else ''}">
+                    <a t-if="result_data" t-attf-href="/certificate/#{stud_id}?{{ keep_query() }}">Certificates</a>
+                    <t t-else="">Certificates</t>
+                </li>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="certicate_portal_view">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Your Certificates</t>
+            </t>
+            <t t-if="not result_data">
+                <div class="alert alert-warning mt8" role="alert">
+                    There are no records.
+                </div>
+            </t>
+            <t t-if="result_data" t-call="portal.portal_table">
+                <thead>
+                    <tr>
+                        <th>Index</th>
+                        <th>Course Name</th>
+                        <th>Enrollment Date</th>
+                        <th>Completion Date</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="result_data" t-as="line">
+                        <tr>
+                            <td>
+                                <t t-esc="line['index']"/>
+                            </td>
+                            <td>
+                                <t t-esc="line['name'].name"/>
+                            </td>
+                            <td>
+                                <t t-esc="line['enroll_date']" t-options="{'widget': 'datetime'}"/>
+                            </td>
+                            <td>
+                                <t t-esc="line['cmp_date']" t-options="{'widget': 'datetime'}"/>
+                            </td>
+                            <td>
+                                <t t-if="line['name'].certificate == True">
+                                    <a t-att-href="line['certi']" title="Download Certificate">
+                                        <i class="fa fa-2x fa-download"></i>
+                                    </a>
+                                </t>
+                            </td>
+                        </tr>
+                    </t>
+                </tbody>
+            </t>
+        </t>
+    </template>
+</odoo>

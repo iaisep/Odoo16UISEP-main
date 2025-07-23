@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo noupdate="1">
+    <record model="ir.rule" id="job_post_multi_comp_rule">
+        <field name="name">Job Post multi-company</field>
+        <field name="model_id" ref="model_op_job_post"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">
+            ['|',('company_id','=',False),'&amp;',('company_id','in',company_ids),'|',('company_id','child_of',[user.company_id.id]),('company_id','in',user.company_ids.ids)]
+        </field>
+    </record>
+
+    <record model="ir.rule" id="job_type_multi_comp_rule">
+        <field name="name">Job Type multi-company</field>
+        <field name="model_id" ref="model_op_job_type"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">
+            ['|',('company_id','=',False),'&amp;',('company_id','in',company_ids),'|',('company_id','child_of',[user.company_id.id]),('company_id','in',user.company_ids.ids)]
+        </field>
+    </record>
+
+    <record model="ir.rule" id="job_applicant_multi_comp_rule">
+        <field name="name">Job Applicant multi-company</field>
+        <field name="model_id" ref="model_op_job_applicant"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">
+            ['|',('company_id','=',False),'&amp;',('company_id','in',company_ids),'|',('company_id','child_of',[user.company_id.id]),('company_id','in',user.company_ids.ids)]
+        </field>
+    </record>
+
+    <record model="ir.rule" id="job_post_multi_dept_rule">
+        <field name="name">JobPost multi-department</field>
+        <field name="model_id" ref="model_op_job_post"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">
+            ['|','|',('department_id','=',False),('department_id','child_of',[user.dept_id.id]),('department_id','in',user.department_ids.ids)]
+        </field>
+    </record>
+</odoo>

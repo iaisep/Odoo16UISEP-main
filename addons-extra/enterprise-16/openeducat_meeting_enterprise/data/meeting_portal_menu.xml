@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="poratl_menu_meeting_details" model="openeducat.portal.menu">
+        <field name="name">Meetings</field>
+        <field name="menu_ref_name">Meetings</field>
+        <field name="link">/meeting/information/</field>
+        <field name="active">True</field>
+        <field name="sequence" type="int">80</field>
+        <field name="background_color">#575756</field>
+        <field name="icon_image" type="base64"
+               file="openeducat_meeting_enterprise/static/img/metings_detail.png"/>
+    </record>
+</odoo>

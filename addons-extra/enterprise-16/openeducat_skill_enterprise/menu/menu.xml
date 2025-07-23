@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_op_student_skill_assessment_view_root"
+              name="Skill Assessment"
+              action="openeducat_skill_enterprise.act_op_student_skill_assessment_view"
+              web_icon="openeducat_skill_enterprise,static/description/icon.png"
+    />
+
+    <menuitem id="menu_assessment_analysis_root"
+              name="Analysis"
+              parent="menu_op_student_skill_assessment_view_root"/>
+
+    <menuitem id="menu_op_student_skill_assessment_line_pivot_view_sub_menu"
+              name="Skill Assessment Analysis"
+              parent="menu_assessment_analysis_root"
+              action="openeducat_skill_enterprise.act_op_student_skill_assessment_line_pivot_view"/>
+
+    <menuitem id="menu_configuration_root"
+              name="Configuration"
+              parent="menu_op_student_skill_assessment_view_root"/>
+
+    <menuitem id="menu_op_student_skill_type_view_sub_menu"
+              name="Skill Assessment Template"
+              parent="menu_configuration_root"
+              action="openeducat_skill_enterprise.act_op_student_skill_type_view"/>
+
+    <menuitem id="menu_op_student_skill_view_sub_menu"
+              name="Skills"
+              parent="menu_configuration_root"
+              action="openeducat_skill_enterprise.act_op_student_skill_name_view"/>
+
+    <menuitem id="menu_op_student_skill_level_view_sub_menu"
+              name="Skill Levels"
+              parent="menu_configuration_root"
+              action="openeducat_skill_enterprise.act_op_student_skill_level_name_view"/>
+
+    <menuitem id="menu_skill_category" name="Skills Category" parent="menu_configuration_root"
+                  sequence="10" action="act_open_op_skill_category_view"
+                  groups="openeducat_core.group_op_back_office_admin"/>
+</odoo>

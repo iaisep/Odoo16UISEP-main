@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="paperformat_certificado6" model="report.paperformat">
+	    <field name="name">Letter Certificado6</field>
+	    <field name="margin_top">0</field>     <!-- No top margin -->
+	    <field name="margin_bottom">0</field>  <!-- No bottom margin -->
+	    <field name="margin_left">0</field>    <!-- No left margin -->
+	    <field name="margin_right">0</field>   <!-- No right margin -->
+	    <field name="header_line" eval="False"/>  <!-- No header line -->
+	    <field name="header_spacing">0</field>    <!-- No header spacing -->
+	    <field name="dpi">90</field>  <!-- DPI settings can be adjusted if needed -->
+	    <field name="orientation">Portrait</field>  <!-- Portrait orientation -->
+	    <field name="format">Letter</field>
+	    <field name="default" eval="True"/>
+        </record>
+
+        <!-- QWeb Reports -->
+        <record id="r_certificado6" model="ir.actions.report">
+            <field name="certificado_web" eval="True"/>
+            <field name="name">Certificado 6</field>
+            <field name="model">op.student</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">isep_openeducat_reports.t_certificado6</field>
+            <field name="report_file">isep_openeducat_reports.t_certificado6</field>
+            <field name="binding_model_id" eval="False"/> 
+            <field name="binding_type">report</field>
+            <field name="paperformat_id" ref="isep_openeducat_reports.paperformat_certificado6"/>
+            <field name="attachment">(object.name or 'Certificado6').replace('/','_')+'.pdf'</field>
+        </record>
+
+        <template id="t_certificado6">
+                       <t t-set="students" t-value="docs or env[doc_model].sudo().browse(student_ids)"/>
+		       <t t-foreach="students" t-as="o">
+			   <t t-call="isep_openeducat_reports.t_certificado6_document" t-lang="o.partner_id.lang"/>
+		       </t>
+        </template>
+
+
+        <template id="t_certificado6_document">
+            <t t-call="web.basic_layout">
+                       <t t-set="libreta" t-value="env['app.gradebook.student'].sudo().search([('student_id','=',o.id),('batch_id','=',batch_id)])"/>
+                       <t t-set="admission" t-value="libreta.admission_id"/>
+ <t t-if="o and libreta and admission">
+                       <!-- <t t-set="total_amount" t-value="o.get_subscription_data().get('t_amount_total', 0)"/> -->
+                      <t t-set="data_to_stamp" t-value="{'Fecha':today_string,'Estudiante':o.display_name,'Documento':'Carta no adeudo', 'Carrera':admission.course_id.display_name, 'Libreta':libreta.display_name, 'Admision':admission.display_name }"/>
+                       <t t-set="dict_stamp" t-value="env['op.sign_certificate'].sudo().stamp_data(data_to_stamp, o)"/>
+ 
+
+                        <div class="watermark" style="position: absolute; opacity:1.0; width:100%; height:100%; text-align:center; z-index:-1; margin: 0px; ">
+
+                            <img class="border border-light" style="margin: 0px !important; width: 100%;" t-att-src="'/isep_openeducat_reports/static/src/img/background.png'"/>  
+                         </div> 
+
+      
+
+ 
+                        <div class="page" style="width:100%; height:100%; padding-left: 100px; padding-right: 100px;">
+
+
+                                <div class="row" style="text-align:right; padding-top:200px;">    
+					<div class="col-12">
+					    <p style='font-size:20px;'>México, a <span t-out="today_string"/> </p>
+                                        </div>
+                                        
+                                </div>
+                                 <div class="row" style=" padding-top:50px;">    
+					<div class="col-12">
+					    <p style='font-size:30px;'><strong>UNIVERSIDAD ISEP</strong></p>
+                                        </div>
+                                        
+                                </div>
+                                  <div class="row" style="padding-top: 50px;">    
+					<div class="col-12">
+					    <p style='font-size:20px;'><strong>ASUNTO: </strong> Carta no adeudo</p>
+                                        </div>
+                                </div> 
+
+                                  <div class="row" style="padding-top: 50px;">    
+					<div class="col-12">
+					    <p style='font-size:20px;'>A quien corresponda: </p>
+                                        </div>
+                                </div> 
+
+                                <div class="row" style="text-align:justify; padding-top: 50px;">     
+					<div class="col-12">
+					    <p style='font-size:20px;'>Por medio de la presente, <strong>UNIVERSIDAD ISEP</strong> certifica  que <span t-out="'la ' if o.gender == 'f' else 'el '"/> estudiante 
+					    <strong t-out="o.name"/> ha realizado los pagos correspondientes a sus estudios de <strong t-out="admission.course_id.display_name"/>, cumpliendo así con la totalidad de sus obligaciones financieras. </p>
+					    <!-- <p style='font-size:20px;'>El monto total cubierto por <span t-out="'la ' if o.gender == 'f' else 'el '"/> estudiante es de  <strong><t t-out="'$ %.2f USD,' %(total_amount)"/>  </strong>   quedando formalmente saldada su deuda con nuestra institución. </p> -->
+					    <p style='font-size:20px;'>Por lo tanto, certificamos que no existen deudas, obligaciones o pagos pendientes con <strong>Universidad ISEP, </strong> quedando <span t-out="'la ' if o.gender == 'f' else 'el '"/> estudiante en plena libertad de recibir su diploma y todos los servicios correspondientes sin restricción alguna. </p>
+
+					    <p style='font-size:20px;'>Sin más por el momento, quedamos a sus órdenes para cualquier aclaración que se requiera.</p>
+
+					</div>
+                                </div>
+
+  <div class="row" style="text-align:center; padding-top: 50px;">
+                                        <div class="col-4">
+	<img alt="Barcode" style="position: relative; left: -25px;" t-att-src="'/report/barcode/?barcode_type=QR&amp;value=%s&amp;width=180&amp;height=180' % quote_plus('%s/verificar_documento?'%(base_url) + keep_query(stamp=dict_stamp.get('stamp',''), certificate_id = dict_stamp.get('certificate_id', 0), data_str = dict_stamp.get('data_str', '')))"/>
+          
+                                        </div>
+                                    <div class="col-8">
+        
+
+
+					<div class="row" style="text-align:center;">
+					    <div class="col-4"/>
+					    <div class="col-8">
+						    <p style='font-size:20px;'>
+						    <strong>ATENTAMENTE</strong></p>
+					    </div>
+					</div>
+					<div class="row" style="font-size:16px;">
+					    <div class="col-12">
+
+                                        <img src="/isep_openeducat_reports/static/src/img/firma_ramon.png" style="width:132px; height:81px;"/> 
+                                        <img src="/isep_openeducat_reports/static/src/img/sello_isep.png" style="width:82px; height:48px;"/> 
+
+						<br></br>
+						<strong >LCP. Jesús Ramon Niebla Corrales</strong>
+                        <br></br>
+                        <strong >Departamento Finanzas</strong>
+					    </div>
+					</div>
+				 </div>
+		              </div>
+
+                          </div>  <!-- fin de page-->
+                      </t> <!--fin de if libreta etc -->
+             </t>
+        </template>
+    </data>
+</odoo>

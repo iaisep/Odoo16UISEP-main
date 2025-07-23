@@ -1,0 +1,24 @@
+/* Cursor normal para celdas interactivas */
+.o_grid_cell {
+    cursor: pointer !important;
+}
+
+/* Cursor "no permitido" para celdas bloqueadas */
+.o_grid_cell_disabled {
+    cursor: not-allowed !important;
+}
+
+/* Feedback visual al hacer hover */
+.o_grid_cell_clickable:hover {
+    background-color: #f8f9fa !important;
+}
+
+/* Resetear cursor en todas las celdas */
+.o_grid_view .o_grid_cell {
+    cursor: pointer !important;
+}
+
+/* Excluir celdas vacías o totales */
+.o_grid_cell_empty, .o_grid_cell_total {
+    cursor: default !important;
+}

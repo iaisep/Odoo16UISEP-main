@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+
+        <record id="paperformat_anexo_one" model="report.paperformat">
+            <field name="name">Acuerdo de condiciones</field>
+            <field name="default" eval="True"/>
+            <field name="format">custom</field>
+            <field name="page_height">297</field>
+            <field name="page_width">210</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">25</field>
+            <field name="margin_bottom">25</field>
+            <field name="margin_left">20</field>
+            <field name="margin_right">20</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">35</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <record id="report_anexo_one" model="ir.actions.report">
+            <field name="name">Acuerdo de condiciones</field>
+            <field name="model">practice.request</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">isep_practices_2.report_anexo_one_print</field>
+            <field name="report_file">isep_practices_2.report_anexo_one_print</field>
+            <field name="binding_model_id" ref="model_practice_request"/>
+            <field name="binding_type">report</field>
+            <field name="paperformat_id" ref="isep_practices_2.paperformat_anexo_one"/>
+            <field name="attachment">(object.name or 'Acuerdo de condiciones').replace('/','_')+'.pdf'</field>
+        </record>
+
+        <template id="report_anexo_one_print">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="isep_practices_2.cert_anexo_one" t-lang="doc.practice_center_id.partner_id.lang"/>
+            </t>
+        </template>
+
+        <template id="cert_anexo_one">
+            <t t-call="web.basic_layout">
+                <div class="page" name="first_page" style="font-family:Arial, serif;page-break-after:always;">
+                    <div class="header">
+                        <div class="row" style="margin-bottom:30px;">
+                            <div class="col-12" style="text-align:right;">
+                                <img class="img-fluid logo" style="height:100px;padding-top:50px;" t-att-src="'/isep_practices_2/static/src/img/Logo_1200x700-01.png'"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="text-align:justify; padding-top:5px;">
+                        <div class="col-12">
+                            <p style='font-size:16px;color:#002E5D;text-align: center;'><strong>Acuerdo de 
+                                condiciones de resguardo, reserva, custodia y protección de la seguridad y 
+                                confidencialidad de la información</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="row" style="text-align:center; font-size:16px;margin-left:1em;margin-right:1em; padding-top: 10px;">
+                    
+                        <p style="text-align: right;">México, a <span t-esc="datetime.datetime.today().day"></span>
+                            <t t-if="datetime.datetime.today().month == 1"><span>de Enero del </span></t>
+                            <t t-if="datetime.datetime.today().month == 2"><span>de Febrero del </span></t>
+                            <t t-if="datetime.datetime.today().month == 3"><span>de Marzo del </span></t>
+                            <t t-if="datetime.datetime.today().month == 4"><span>de Abril del </span></t>
+                            <t t-if="datetime.datetime.today().month == 5"><span>de Mayo del </span></t>
+                            <t t-if="datetime.datetime.today().month == 6"><span>de Junio del </span></t>
+                            <t t-if="datetime.datetime.today().month == 7"><span>de Julio del </span></t>
+                            <t t-if="datetime.datetime.today().month == 8"><span>de Agosto del </span></t>
+                            <t t-if="datetime.datetime.today().month == 9"><span>de Septiembre del </span></t>
+                            <t t-if="datetime.datetime.today().month == 10"><span>de Octubre del </span></t>
+                            <t t-if="datetime.datetime.today().month == 11"><span>de Noviembre del </span></t>
+                            <t t-if="datetime.datetime.today().month == 12"><span>de Diciembre del </span></t>
+                            <span t-esc="datetime.datetime.today().year"></span>
+                        </p>
+                    </div>
+
+                    <div style="text-align:justify; font-size:16px; padding-top: 10px; 
+                        height: 100px; 
+                        position: absolute; 
+                        padding-top: 10px;
+                        overflow: hidden;">
+
+                        <p>El presente acuerdo de condiciones de resguardo, reserva, custodia y protección de la seguridad
+                                        y confidencialidad de la información, intervienen él/la alumno/a  <span t-field="doc.name"/> 
+                                        y la Universidad ISEP.
+                                        </p><br/>
+                    </div>
+
+                     <div style="text-align:justify;font-size:16px;padding-top: 120px;">
+                                <p>Él/la alumno/a de Universidad ISEP, acepta las condiciones de resguardo, reserva, custodia y 
+                                    protección de la seguridad y confidencialidad de la información, datos personales y de todo tipo 
+                                    de documentos propiedad de Universidad ISEP o de la institución pública o particular donde él/la alumno/a 
+                                    decida desarrollar las prácticas. Él/la alumno/a no podrá divulgar o hacer uso de la información o documentos 
+                                    más allá de lo especificado por Universidad ISEP. Su uso es exclusivo para la entrega de reportes 
+                                    quincenales y desarrollo de la memoria de prácticas.</p><br/>
+                                <p>Ambas partes, Universidad ISEP y él/la alumno/a, se reconocen recíprocamente con capacidad de obligarse y, 
+                                    al efecto, suscriben el presente acuerdo de condiciones de resguardo, reserva, custodia y protección de la 
+                                    seguridad y confidencialidad de la información con base en las siguientes Claúsulas:</p><br/>
+                                
+                                <p><strong>PRIMERA.-</strong> Objeto. El presente compromiso responsabiliza a él/la alumno/a respecto de la información 
+                                    que le sea proporcionada por Universidad ISEP, ya sea de forma oral, escrita, impresa, sonora, visual, electrónica, 
+                                    informática u holográfica, contenida en cualquier tipo de documento, que puede consistir en: expedientes, reportes, 
+                                    estudios, notas, memorandos, estadísticas o bien, cualquier otro registro que documente los casos clínicos que se le 
+                                    pondrán a su disposición, sin importar su fuente o fecha de elaboración</p><br/>
+                                <p><strong>SEGUNDA.-</strong> La información que le sea proporcionada a él/la alumno/a podría ser considerada, según el caso, como reservada, 
+                                    privilegiada y confidencial, <strong> en los términos de las leyesy aplicables, </strong> por lo que se le obliga a protegerla, reservarla, resguardarla y no divulgarla, utilizándola única y exclusivamente 
+                                    para llevar a cabo y cumplir con las actividades y obligaciones que expresamente le sean conferidas por Universidad ISEP.</p><br/>
+                                <p><strong>TERCERA.-</strong> Es responsabilidad de él/la alumno/a no reproducir, hacer pública o divulgar a terceros la información objeto de la presente Carta, y de cumplir con las medidas de 
+                                    seguridad adecuadas al tipo de documento con el que se trabaje.</p><br/>
+                                <p><strong>CUARTA.-</strong> Sin perjuicio de lo estipulado en el presente acuerdo, ambas partes aceptan que la obligación de confidencialidad 
+                                    no es aplicable en los siguientes casos:</p>
+
+                                <p><strong>a)</strong> Cuando la información se encontrará en el dominio público en el momento en que me sea suministrada o, una vez suministrada, ésta acceda al dominio público.</p>
+                                <p><strong>b)</strong> Cuando la legislación vigente o un mandado judicial exija su divulgación.</p>
+                                <p><strong>c)</strong> Cuando la información fuera desarrollada o recibida legítimamente de terceros, de forma totalmente independiente a su relación con la Universidad.</p><br/>
+
+                                <p><strong>QUINTA.-</strong> Los derechos de propiedad intelectual de la información objeto de este acuerdo pertenecen a Universidad ISEP y el hecho de revelarla para el fin mencionado en la cláusula primera no cambiará la situación.</p>
+                                <p>En caso de que la información resulte revelada o divulgada o utilizada, de cualquier forma, distinta al objeto de este acuerdo, ya sea de forma dolosa o por mera negligencia, habrá de indemnizar a Universidad ISEP los daños y perjuicios ocasionados, 
+                                    sin perjuicio de las acciones civiles o penales que puedan corresponder a este último.</p><br/>
+                                <p><strong>SEXTA.-</strong> Él/la alumno/a se obliga a devolver cualquier documentación, antecedentes facilitados en cualquier tipo de soporte y, en su caso, las copias obtenidas de los mismos, 
+                                que constituyan información amparada por el deber de confidencialidad objeto de la presente en el supuesto de que cese la relación o prestación del servicio con la Universidad por cualquier motivo.</p><br/>
+                                <p><strong>SÉPTIMA.-</strong> El presente acuerdo entrará en vigor en el momento de la firma del mismo por ambas partes, extendiéndose su vigencia hasta un plazo de 5 años después de finalizada la relación entre las partes o, en su caso, la prestación del servicio.</p><br/>
+                                <p><strong>OCTAVA.-</strong> En caso de cualquier conflicto o discrepancia que pueda surgir en relación con la interpretación y/o cumplimiento del presente acuerdo, las partes se someten expresamente a los Juzgados y Tribunales de Culiacán, Sinaloa, con renuncia a su fuero propio, aplicándose la legislación vigente.</p>
+                                <p>Asimismo, él/la alumno/a queda informado de que su incumplimiento puede generar el ejercicio de acciones disciplinarias por parte de Universidad ISEP, así como la sustracción o revelación de información puede ser una acción constitutiva de ilícito penal de acuerdo con el Código Penal.</p>
+                                <p>Conforme con lo presente, declara que conoce y comprende plenamente su obligación de guardar absoluto secreto acerca de todos aquellos datos e informaciones a los que va a tener acceso durante su periodo de prácticas.</p><br/>
+
+                                <p style="text-align: center;">Atentamente</p>
+                                <p>Nombre completo: <span t-field="doc.name"/></p>   
+                                <p>Firma:</p>
+                                <p>Documento de Identificación Nacional(DNI, INE, IFE, otro): <span t-field="doc.practice_center_id.partner_id.vat"/> </p>
+
+                                <div style="solid #000; padding: 15px; margin-top: 20px; text-align: center;">
+                                    <span>Sí acepto _____________________</span>
+                                    <span style="margin-left: 50px;">No acepto _____________________</span>
+                                </div>
+
+
+
+                            </div>
+
+                </div>
+            </t>
+        </template>
+        
+
+    </data>
+</odoo>

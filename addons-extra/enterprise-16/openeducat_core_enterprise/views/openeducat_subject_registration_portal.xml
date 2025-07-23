@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_my_home_menu_subject_registration_form" name="Portal layout : Subject Registration Form"
+              inherit_id="openeducat_core_enterprise.portal_breadcrumbs_inhetrite" priority="10">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="page_name == 'subject_reg_form' or subject_reg_form "
+                t-attf-class="breadcrumb-item #{'active ' if not subject_reg_form else ''}">
+                <a t-if="student_id" t-attf-href="/subject/registration/?{{ keep_query() }}">
+                    Subject Registration List
+                </a>
+                <t t-else="">Subject Registration List</t>
+            </li>
+            <t t-if="page_name == 'subject_reg_form' or subject_reg_form ">
+                <li t-if="student_id" class="breadcrumb-item active">
+                    Subject Registration Form
+                </li>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="portal_my_home_menu_subject_registration" name="Portal layout : Subject Registration"
+              inherit_id="openeducat_core_enterprise.portal_breadcrumbs_inhetrite" priority="10">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+
+            <t t-if="user_id.sudo().is_parent">
+                <li t-if="page_name == 'subject_registration' or subject_registration"
+                    t-attf-class="breadcrumb-item #{'active ' if not subject_registration else ''}">
+                    <a t-if="subject_registration_ids"
+                       t-attf-href="/subject/registration/#{stud_id}?{{ keep_query() }}">
+                        Subject Registration List
+                    </a>
+                    <t t-else="">Subject Registration List</t>
+                </li>
+                <li t-if="page_name == 'subject_register' or subject_register "
+                    t-attf-class="breadcrumb-item #{'active ' if not subject_registration_ids else ''}">
+                    <a t-if="subject_register" t-attf-href="/subject/registration/#{student}?{{ keep_query() }}">
+                        Subject Registration List
+                    </a>
+                    <t t-else="">Subject Registration List</t>
+                </li>
+            </t>
+            <t t-if="user_id.sudo().is_student">
+                <li t-if="page_name == 'subject_registration' or subject_registration"
+                    t-attf-class="breadcrumb-item #{'active ' if not subject_registration else ''}">
+                    <a t-if="subject_registration_ids" t-attf-href="/subject/registration/?{{ keep_query() }}">
+                        Subject Registration List
+                    </a>
+                    <t t-else="">Subject Registration List</t>
+                </li>
+                <li t-if="page_name == 'subject_register' or subject_register "
+                    t-attf-class="breadcrumb-item #{'active ' if not subject_registration_ids else ''}">
+                    <a t-if="subject_register" t-attf-href="/subject/registration/?{{ keep_query() }}">
+                        Subject Registration List
+                    </a>
+                    <t t-else="">Subject Registration List</t>
+                </li>
+            </t>
+            <li t-if="subject_register" class="breadcrumb-item active">
+                <span t-field="subject_register.name"/>
+            </li>
+        </xpath>
+    </template>
+
+    <template id="portal_student_subject_registration_list">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Subject Registration List</t>
+            </t>
+
+            <div t-if="user_id.sudo().is_student" class="mt16 mb16 text-left portal_buttons">
+                <div>
+                    <a t-attf-href="/subject/registration/create/">
+                        <button>Create Subject registration</button>
+                    </a>
+                </div>
+            </div>
+            <t t-if="not grouped_tasks">
+                <div class="alert alert-warning mt8" role="alert">
+                    There are no records.
+                </div>
+            </t>
+            <t t-if="grouped_tasks">
+                <t t-if="subject_registration_ids" t-call="portal.portal_table">
+                    <t t-foreach="grouped_tasks" t-as="tasks">
+                        <thead>
+                            <tr class="active" t-attf-class="{{'thead-light' if not groupby == 'none' else ''}}">
+                                <th t-if="groupby == 'none'">Name</th>
+                                <th t-else="">
+                                    <em class="font-weight-normal text-muted">Registration For:</em>
+                                    <span t-field="tasks[0].sudo().course_id.name"/>
+                                </th>
+                                <th>Student</th>
+                                <th>Course</th>
+                                <th>Batch</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-if="tasks" t-foreach="tasks"
+                               t-as="task">
+                                <tr>
+                                    <td>
+                                        <a t-attf-href="/subject/registration/data/#{stud_id}/#{task.id}">
+                                            <span t-esc="task.name"/>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <span id="student_name" t-esc="task.student_id.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="task.course_id.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="task.batch_id.name"/>
+                                    </td>
+                                    <td>
+                                        <t t-if="task.state == 'draft'">
+                                            <span class="badge badge-pill text-bg-info">
+                                                <i class="fa fa-fw fa-clock-o" aria-label="Draft" title="Draft"
+                                                   role="img"/>
+                                                <span class="d-none d-md-inline">Draft</span>
+                                            </span>
+                                        </t>
+                                        <t t-if="task.state == 'submitted'">
+                                            <span class="badge badge-pill text-bg-primary">
+                                                <i class="fa fa-fw fa-clock-o" aria-label="Submitted" title="Submitted"
+                                                   role="img"/>
+                                                <span class="d-none d-md-inline">Submitted</span>
+                                            </span>
+                                        </t>
+                                        <t t-if="task.state == 'approved'">
+                                            <span class="badge badge-pill text-bg-success">
+                                                <i class="fa fa-fw fa-check" aria-label="Approved" title="Approved"
+                                                   role="img"/>
+                                                <span class="d-none d-md-inline">Approved</span>
+                                            </span>
+                                        </t>
+                                        <t t-if="task.state == 'rejected'">
+                                            <span class="badge badge-pill text-bg-danger">
+                                                <i class="fa fa-fw fa-remove" aria-label="Rejected" title="Rejected"
+                                                   role="img"/>
+                                                <span class="d-none d-md-inline">Rejected</span>
+                                            </span>
+                                        </t>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </t>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <template id="portal_student_subject_registration_data">
+        <t t-call="portal.portal_layout">
+            <t t-foreach="subject_register" t-as="registation_data">
+                <t t-set="o_portal_fullwidth_alert" groups="project.group_project_user">
+                    <t t-call="portal.portal_back_in_edit_mode">
+                        <t t-set="backend_url"
+                           t-value="'/web#model=op.subject.registration&amp;id=%s&amp;view_type=form' % (registation_data.id)"/>
+                    </t>
+                </t>
+            </t>
+            <t t-if="not subject_register">
+                <div class="alert alert-warning mt8" role="alert">
+                    There are no records.
+                </div>
+            </t>
+            <t t-call="portal.portal_record_layout">
+                <t t-set="card_header">
+                    <h5 class="mb-0">
+                        <t t-foreach="subject_register" t-as="registation_data">
+                            <small class="text-muted">Subject Registration -</small>
+                            <span id="registration_name" t-field="registation_data.name"/>
+                        </t>
+                    </h5>
+                </t>
+            </t>
+
+            <t t-foreach="subject_register" t-as="registation_data">
+                <div t-if="registation_data" style="background-color:white; padding: 20px 40px 20px 40px;"
+                     class="texr-center">
+
+                    <div class="mt32">
+                        <div class="row col-md-12">
+                            <div class="row col-md-6">
+                                <div t-if="registation_data.student_id" class="col-md-5">
+                                    <strong>Student:</strong>
+                                </div>
+                                <div t-if="registation_data.student_id" class="col-md-7">
+                                    <span id="student_name" t-esc="registation_data.student_id.name"/>
+                                </div>
+                                <div t-if="registation_data.course_id" class="col-md-5">
+                                    <strong>Course:</strong>
+                                </div>
+                                <div t-if="registation_data.course_id" class="col-md-7">
+                                    <span t-esc="registation_data.course_id.name"/>
+                                </div>
+                                <div t-if="registation_data.batch_id.name" class="col-md-5">
+                                    <strong>Batch:</strong>
+                                </div>
+                                <div t-if="registation_data.batch_id.name" class="col-md-7">
+                                    <span t-esc="registation_data.batch_id.name"/>
+                                </div>
+                            </div>
+                            <div class="row col-md-6">
+                                <div t-if="registation_data.state" class="col-md-5">
+                                    <strong>Status:</strong>
+                                </div>
+                                <div t-if="registation_data.state" class="col-md-7">
+                                    <span t-esc="{'draft':'Draft', 'submitted':'Submitted',
+                                    'approved':'Approved', 'rejected':'Rejected'}[registation_data.state]"/>
+                                </div>
+                                <div t-if="registation_data.max_unit_load" class="col-md-5">
+                                    <strong>Max Unit Load:</strong>
+                                </div>
+                                <div t-if="registation_data.max_unit_load" class="col-md-7">
+                                    <span t-esc="registation_data.max_unit_load"/>
+                                </div>
+                                <div t-if="registation_data.min_unit_load" class="col-md-5">
+                                    <strong>Min Unit Load:</strong>
+                                </div>
+                                <div t-if="registation_data.min_unit_load" class="col-md-7">
+                                    <span t-esc="registation_data.min_unit_load"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div t-if="registation_data.compulsory_subject_ids"
+                     style="background-color:white; padding: 0px 40px 20px 40px;">
+                    <div class="row col-md-12">
+                        <div class="col-md-6 row">
+                            <div class="col-md-5">
+                                <strong>Compulsory Sbjects:</strong>
+                            </div>
+                            <div class="col-md-7">
+                                <t t-if="registation_data.compulsory_subject_ids"
+                                   t-foreach="registation_data.compulsory_subject_ids"
+                                   t-as="compulsory_subject_list">
+                                    <span t-esc="compulsory_subject_list.name">,</span>
+                                    <br/>
+                                </t>
+                            </div>
+                        </div>
+                        <div class="col-md-6 row">
+                            <div class="col-md-5">
+                                <strong>Elective Subjects:</strong>
+                            </div>
+                            <div class="col-md-7">
+                                <t t-if="registation_data.elective_subject_ids"
+                                   t-foreach="registation_data.elective_subject_ids"
+                                   t-as="elective_subject_list">
+                                    <span t-esc="elective_subject_list.name"/>
+                                    <br/>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <template id="openeducat_create_subject_registration">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Subject Registration Form</t>
+            </t>
+            <t t-if="not student_id">
+                <p>There are currently no information for your account!!!</p>
+            </t>
+
+            <div t-if="student_id" style="background-color:white; padding: 20px 40px 20px 40px;" class="js_get_data">
+                <div class="mt32">
+                    <form action="/subject/registration/submit" method="post" role="form"
+                          enctype="multipart/form-data">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <div class="row col-md-12">
+                            <div class="row col-lg-6 col-md-12">
+                                <input type="hidden" name="student_id" t-attf-class="form-control"
+                                       t-att-value="student_id.id"/>
+                                <div class="col-md-4 mt16">
+                                    <lable>Course:</lable>
+                                </div>
+                                <div class="col-md-8 mt8">
+                                    <select id="course_dropdown" class="form-control" name="course_id">
+                                        <option value="" class="disabled selected">
+                                            <lable>Select your option</lable>
+                                        </option>
+                                        <t t-foreach="course_ids" t-as="course_data">
+                                            <option t-att-value="course_data.id">
+                                                <t t-esc="course_data.name"/>
+                                            </option>
+                                        </t>
+                                    </select>
+                                </div>
+                                <div class="col-md-4 mt16">
+                                    <lable>Batch:</lable>
+                                </div>
+                                <div class="col-md-8 mt8" id="batch_on_courses">
+                                    <select class="form-control custom batches" id="batch_on_courses" name="batch_id"
+                                            required="1">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row col-lg-6 col-md-12">
+                                <div class="col-md-4 mt16">
+                                    <lable>Minimum Unit Load:</lable>
+                                </div>
+                                <div class="col-md-8 mt8">
+                                    <input type="number" name="min_unit_load" t-attf-class="form-control"/>
+                                </div>
+                                <div class="col-md-4 mt16">
+                                    <lable>Maximum Unit Load:</lable>
+                                </div>
+                                <div class="col-md-8 mt8">
+                                    <input type="number" name="max_unit_load" t-attf-class="form-control"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt32"/>
+                        <div t-if="user_id.sudo().is_student" class="row compulsory_subjects col-md-12">
+                            <div class="col-md-2 mt8">
+                                <lable>Compulsory Subjects:</lable>
+                            </div>
+                            <div class="col-md-10" style="padding-left: 5px;">
+                                <select class="form-control js-example-basic-multiple subjects"
+                                        name="compulsory_subject_ids" multiple="True" required="1">
+
+                                </select>
+                            </div>
+                        </div>
+                        <script>
+                            $(function()
+                            {
+                            $(".js-example-basic-multiple").select2()
+
+                            });
+                        </script>
+                        <div t-if="user_id.sudo().is_student" class="row elective_subjects mt8 col-md-12">
+                            <div class="col-md-2 mt8">
+                                <lable>Elective Subjects:</lable>
+                            </div>
+                            <div class="col-md-10" style="padding-left: 5px;">
+                                <select class="form-control js-example-basic-multiple"
+                                        name="elective_subject_ids" multiple="True">
+                                    <t t-foreach="subject_registration_ids" t-as="student_details">
+                                        <option t-att-value="student_details.id">
+                                            <t t-esc="student_details.name"/>
+                                        </option>
+                                    </t>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="clearfix mb16 mt16 row col-md-12">
+                            <div class="col-md-4">
+                                <button type="submit" class="btn btn-primary subject_registration_submit">
+                                    SUBMIT
+                                    <span class="fa fa-long-arrow-right"/>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

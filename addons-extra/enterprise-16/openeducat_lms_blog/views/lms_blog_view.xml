@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="course_detail_inherit_blog" inherit_id="openeducat_lms.course_detail">
+        <xpath expr="//li[hasclass('review')]" position="after">
+            <li class="">
+                <a data-bs-toggle="tab" role="tab" href="#tab4" aria-expanded="false">
+                    Blog
+                </a>
+            </li>
+        </xpath>
+        <xpath expr="//div[contains(@id, 'blog_tab_view')]" position="inside">
+            <div id="course-blg" class="mb24">
+                <t t-foreach="blog_post_ids" t-as="blog_post">
+                    <t t-if="blog_post.website_published">
+                        <div class="row blg-item">
+                            <div class="col-3 col-lg-2 col-md-2">
+                                <div class="text-center" style="border-right: 1px solid #e7e7e7;">
+                                    <p class="blog-date" t-field="blog_post.post_date"
+                                       t-options='{"hide_seconds":"True", "format": "d"}'></p>
+                                    <p class="blog-month" t-field="blog_post.post_date"
+                                       t-options='{"hide_seconds":"True", "format": "MMMM"}'></p>
+                                </div>
+                            </div>
+                            <div class="col-9 col-lg-10 col-md-10">
+                                <h4>
+                                    <a class="blog-name" t-field="blog_post.blog_id.name"
+                                       t-attf-href="/blog/#{slug(course.blog_id)}"></a>
+                                    <span t-if="not blog_post.website_published" class="text-warning">
+                                        <span class="fa fa-exclamation-triangle ml8" title="Unpublished"/>
+                                    </span>
+                                </h4>
+                                <div class="text-muted fa fa-tags">
+                                    <span t-field="blog_post.blog_id.website_meta_keywords"/>
+                                    <span t-if="editable and not blog_post.blog_id.website_meta_keywords"
+                                          class="label label-danger">No keywords defined!
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </div>
+        </xpath>
+    </template>
+</odoo>

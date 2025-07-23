@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    
+        <record id="typeform_model_relation_view" model="ir.ui.view">
+            <field name="model">mk.typeform.model.relation</field>
+            <field name="arch" type="xml">
+                <form string="Form fields relationship">
+                    <sheet>
+                        <group>
+                            <field name="form_id" invisible="1"/>
+                            <field name="relation_model_id"/>
+                            <field name="field_model_id" options="{'no_create': True,'no_create_edit':True}"/>
+                            <field name="type_field"/>
+                            <field name="format_value" attrs="{'invisible': [('type_field', '!=', 'static_type')]}"/>
+                            <field name="value_static_field"
+                                   attrs="{'invisible': [('type_field', '!=', 'static_type')]}"/>
+                            <field name="reference" attrs="{'invisible': [('type_field', '!=', 'reference_type')]}"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_tree_typeform_model_relation" model="ir.ui.view">
+            <field name="model">mk.typeform.model.relation</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="form_id"/>
+                    <field name="relation_model_id"/>
+                    <field name="field_model_id"/>
+                    <field name="reference"/>
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- View practice.schedule View Tree -->
+    <record id="view_practice_schedule_tree" model="ir.ui.view">
+        <field name="name">view.practice.schedule.tree</field>
+        <field name="model">practice.schedule</field>
+        <field name="arch" type="xml">
+            <tree string="Schedule">
+                <field name="name"/>
+                <field name="turn"/>
+                <field name="practice_schedule_days_ids"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- View practice.schedule form -->
+    <record id="view_practice_schedule_form" model="ir.ui.view">
+        <field name="name">view.practice.schedule.form</field>
+        <field name="model">practice.schedule</field>
+        <field name="arch" type="xml">
+            <form string="Schedule">
+                <sheet>
+                    <group col="4">
+                        <field name="name" required="1"/>
+                        <field name="turn" required="1"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page name="schedule" string="Schedule days">
+                            <field name="practice_schedule_days_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- View practice.schedule search -->
+    <record id="view_practice_schedule_search" model="ir.ui.view">
+        <field name="name">view.practice.schedule.search</field>
+        <field name="model">practice.schedule</field>
+        <field name="arch" type="xml">
+            <search string="Schedule">
+                <field name="name"/>
+                <group expand="1" string="Group By">
+                    <filter string="Name" name="name" domain="[]" context="{'group_by':'name'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action practice.schedule -->
+    <record id="action_practice_schedule" model="ir.actions.act_window">
+        <field name="name">Practice Schedule</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">practice.schedule</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                There is no examples click here to add new Practice Schedule.
+            </p>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <!-- View survey.survey form -->
+    <record id="view_survey_lib_survey_form" model="ir.ui.view">
+        <field name="name">view.survey.survey.form</field>
+        <field name="model">survey.survey</field>
+        <field name="inherit_id" ref="dv_slide_channel_custom.survey_survey_ia_form_inherit"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='active_ia']" position="after">
+                <field name="active_lib" widget="boolean_toggle"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

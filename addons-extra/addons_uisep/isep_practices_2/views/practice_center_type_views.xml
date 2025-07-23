@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Vistas -->
+
+    <record id="view_practice_center_type_tree" model="ir.ui.view">
+        <field name="name">practice.center.type.tree</field>
+        <field name="model">practice.center.type</field>
+        <field name="arch" type="xml">
+            <tree string="Practice Center Types">
+                <field name="type_of_practice"/>
+                <field name="total_hours"/>
+                <field name="is_available"/>
+                 <field name="op_course_ids" widget="many2many_tags"/>
+
+
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_practice_center_type_form" model="ir.ui.view">
+        <field name="name">practice.center.type.form</field>
+        <field name="model">practice.center.type</field>
+        <field name="arch" type="xml">
+            <form string="Practice Center Type">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="type_of_practice"/>
+                            <field name="total_hours"/>
+
+
+                            <field name="description" widget="html"/>
+                        </group>
+                        <group>
+                            <field name="is_available"/>
+                            <field name="op_course_ids" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="expected_ids">
+                            <tree string="Expected Activities or Documents" editable="bottom" default_order="sequence">
+                                <field name="sequence" widget="handle" string="Sequence"/>
+                                <field name="name" string="Name"/>
+                                <field name="expected_type" string="Expected Type"/>
+                                <field name="is_mandatory" string="Mandatory" widget="boolean_toggle"/>
+                                <field name="description" string="Description" widget="html"/>
+                                <field name="practice_center_type_id" string="Practice Center Type" invisible="1"/>
+                            </tree>
+                        </field>
+                    </group>
+                    <group>
+                        <field name="enabled_center_ids"/>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_practice_center_type_kanban" model="ir.ui.view">
+        <field name="name">practice.center.type.kanban</field>
+        <field name="model">practice.center.type</field>
+        <field name="arch" type="xml">
+            <kanban string="Practice Center Types">
+                <field name="type_of_practice"/>
+                <field name="is_available"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <strong>
+                                    <field name="type_of_practice"/>
+                                </strong>
+                                <span t-if="record.is_available.raw_value">Available for Practice</span>
+
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+    <record id="view_practice_center_type_search" model="ir.ui.view">
+        <field name="name">practice.center.type.search</field>
+        <field name="model">practice.center.type</field>
+        <field name="arch" type="xml">
+            <search string="Practice Center Types">
+                <field name="type_of_practice"/>
+                <filter name="available_types" string="Available for Practice" domain="[('is_available', '=', True)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_practice_center_type" model="ir.actions.act_window">
+        <field name="name">Practice Center Types</field>
+        <field name="res_model">practice.center.type</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_id" ref="view_practice_center_type_tree"/>
+        <field name="search_view_id" ref="view_practice_center_type_search"/>
+    </record>
+
+
+    <menuitem id="menu_practice_center_types" name="Practice Modalities" parent="menu_practice_configuration"
+              action="action_practice_center_type" sequence="30"/>
+
+
+</odoo>

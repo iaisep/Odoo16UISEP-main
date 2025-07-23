@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="view_op_student_skill_assessment_tree" model="ir.ui.view">
+            <field name="name">op.student.skill.assessment.tree</field>
+            <field name="model">op.student.skill.assessment</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="student_skill_type_id"/>
+                    <field name="date"/>
+                    <field name="student_id"/>
+                    <field name="user_id"/>
+                    <field name="student_skill_assessment_line" optional="hide"/>
+                    <field name="state" optional="hide"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_op_student_skill_assessment_form" model="ir.ui.view">
+            <field name="name">op.student.skill.assessment.form</field>
+            <field name="model">op.student.skill.assessment</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Student Skill Assessment">
+                    <header>
+                        <button name="act_draft" states="schedule,cancel" type="object"
+                                string="Draft" class="oe_highlight"/>
+                        <button name="act_schedule" states="draft" type="object"
+                                string="Schedule" class="oe_highlight"/>
+                        <button name="act_done" states="schedule" type="object"
+                                string="Done" class="oe_highlight"/>
+                        <button name="act_cancel" states="schedule" type="object"
+                                string="Cancel"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="student_skill_type_id"
+                                       attrs="{'readonly': [('state', 'not in', 'draft')]}"/>
+                                <field name="student_id" attrs="{'readonly': [('state', 'not in', 'draft')]}"/>
+                            </group>
+                            <group>
+                                <field name="date" attrs="{'readonly': [('state', 'not in', 'draft')]}"/>
+                                <field name="user_id" attrs="{'readonly': [('state', 'not in', 'draft')]}"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Skills" name="skills">
+                                <field name="student_skill_assessment_line"
+                                       attrs="{'readonly': [('state', 'in', ('done', 'cancel'))]}"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_op_student_skill_assessment_search" model="ir.ui.view">
+            <field name="name">op.student.skill.assessment.search</field>
+            <field name="model">op.student.skill.assessment</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Student Skill Assessment">
+                    <field name="name"/>
+                    <field name="student_skill_type_id"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="view_op_student_skill_assessment_pivot" model="ir.ui.view">
+            <field name="name">op.student.skill.assessment.pivot</field>
+            <field name="model">op.student.skill.assessment</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <pivot string="Student Skill Assessment">
+                    <field name="student_skill_type_id" type="col"/>
+                    <field name="date" type="row"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_op_student_skill_assessment_view">
+            <field name="name">Skill Assessment</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.student.skill.assessment</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form,pivot</field>
+            <field name="search_view_id" ref="view_op_student_skill_assessment_search"/>
+        </record>
+
+</odoo>

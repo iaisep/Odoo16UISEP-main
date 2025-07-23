@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <!-- QWeb Reports -->
+        <record id="certification_report" model="ir.actions.report">
+            <field name="name">Certifications</field>
+            <field name="model">op.course.enrollment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">openeducat_lms.certification_report_view</field>
+            <field name="report_file">openeducat_lms.certification_report_view</field>
+            <field name="paperformat_id" ref="openeducat_lms.paperformat_certificate"/>
+        </record>
+
+</odoo>

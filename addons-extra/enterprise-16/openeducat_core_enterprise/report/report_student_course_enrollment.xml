@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <template id="report_student_course_enrollment">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <style>
+                                .course tr:nth-of-type(odd){
+                                background-color: #f4f4f4;
+                                }
+                                .course tr:nth-of-type(even){
+                                background-color: #ffffff;
+                                }
+                                .course th, td{
+                                text-align:left;
+                                }
+                                .course td {
+                                padding: 10px;
+                                }
+                            </style>
+                            <div class="mt-6 text-center">
+                                <h4 style="position:relative;font-size:25px;padding-bottom:5px; width: 40%; display:inline-block; border-bottom:2px solid black;">
+                                    <strong>Student Course
+                                        Enrollment
+                                    </strong>
+                                </h4>
+                            </div>
+                            <br></br>
+                            <table class="table-borderless mt-3" width="25%" style="line-height: 1;">
+                                <tbody>
+                                    <tr>
+                                        <t t-if="o.name">
+                                            <td>
+                                                <span t-esc="o.name" style="font-size:20px;"/>
+                                                <br/>
+                                                <t t-if="o.street">
+                                                    <span t-esc="o.street"/>,
+                                                </t>
+                                                <t t-if="o.street2">
+                                                    <span t-esc="o.street2"/>
+                                                </t>
+                                                <br/>
+                                                <t t-if="o.city">
+                                                    <span t-esc="o.city"/>,
+                                                </t>
+                                                <t t-if="o.state_id">
+                                                    <span t-esc="o.state_id.name"/>,
+                                                </t>
+                                                <t t-if="o.zip">
+                                                    <span t-esc="o.zip"/>
+                                                </t>
+                                                <br/>
+                                                <t t-if="o.country_id.name">
+                                                    <span t-esc="o.country_id.name"/>
+                                                </t>
+                                            </td>
+                                        </t>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <t t-foreach="o.course_detail_ids" t-as="course_details">
+                                <div class="mt-5">
+                                    <h3 style="font-size:20px;">
+                                        <t t-esc="course_details.course_id.name"/>
+                                    </h3>
+                                    <table class="table mt-3 course" width="100%"
+                                           style="font-size:14px;">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    BATCH
+                                                </td>
+                                                <td>
+                                                    <t t-if="course_details.batch_id">
+                                                        <t t-esc="course_details.batch_id.name"/>
+                                                    </t>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    ACADEMIC YEAR
+                                                </td>
+                                                <td>
+                                                    <t t-if="course_details.academic_years_id">
+                                                        <t t-esc="course_details.academic_years_id.name"/>
+                                                    </t>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    ACADEMIC TERM
+                                                </td>
+                                                <td>
+                                                    <t t-if="course_details.academic_term_id">
+                                                        <t t-esc="course_details.academic_term_id.name"/>
+                                                        (
+                                                        <t t-esc="course_details.academic_term_id.term_start_date.strftime('%d/%m/%Y')"/>
+                                                        to
+                                                        <t t-esc="course_details.academic_term_id.term_end_date.strftime('%d/%m/%Y')"/>
+                                                        )
+                                                    </t>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    ROLL NUMBER
+                                                </td>
+                                                <td>
+                                                    <t t-esc="course_details.roll_number"/>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                    <table class="table course" style="font-size:14px;">
+                                        <tbody>
+                                            <tr>
+                                                <td colspan="5" style="text-align:left;">
+                                                    SUBJECTS
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>NAME</td>
+                                                <td>CODE</td>
+                                                <td>TYPE</td>
+                                                <td>SUBJECT TYPE</td>
+                                                <td>GRADE WEIGHTAGE</td>
+                                            </tr>
+                                            <t t-foreach="course_details.subject_ids" t-as="subject">
+                                                <tr>
+                                                    <td>
+                                                        <t t-esc="subject.name"/>
+                                                    </td>
+                                                    <td>
+                                                        <t t-esc="subject.code"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="subject.type"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="subject.subject_type"/>
+                                                    </td>
+                                                    <td>
+                                                        <t t-esc="subject.grade_weightage"/>
+                                                    </td>
+                                                </tr>
+                                            </t>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </t>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+</odoo>

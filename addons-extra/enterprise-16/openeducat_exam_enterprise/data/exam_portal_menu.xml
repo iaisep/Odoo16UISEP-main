@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="poratl_menu_exam" model="openeducat.portal.menu">
+        <field name="name">Exams</field>
+        <field name="menu_ref_name">Exams</field>
+        <field name="link">/student/exam/</field>
+        <field name="active">True</field>
+        <field name="sequence" type="int">30</field>
+        <field name="background_color">#304cd5</field>
+        <field name="icon_image" type="base64"
+               file="openeducat_exam_enterprise/static/img/exams.png"/>
+    </record>
+</odoo>

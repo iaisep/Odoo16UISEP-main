@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="view_op_student_skill_tree" model="ir.ui.view">
+            <field name="name">op.student.skill.tree</field>
+            <field name="model">op.student.skill</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="student_skill_name_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_op_student_skill_form" model="ir.ui.view">
+            <field name="name">op.student.skill.form</field>
+            <field name="model">op.student.skill</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Student Skill">
+                    <sheet>
+                        <group>
+                            <field name="student_skill_name_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_op_student_skill_search" model="ir.ui.view">
+            <field name="name">op.student.skill.search</field>
+            <field name="model">op.student.skill</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Student Skill">
+                    <field name="student_skill_name_id"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_op_student_skill_view">
+            <field name="name">Student Skill</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.student.skill</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_op_student_skill_search"/>
+        </record>
+
+</odoo>

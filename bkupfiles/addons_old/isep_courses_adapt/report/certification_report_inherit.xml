@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="certification_report_lms" name="Certificado LMS"    inherit_id="openeducat_lms.certification_report_view">
+            <xpath expr="//t[@t-call='web.html_container']" position="replace">
+                <t t-call="web.html_container">
+                    <t t-call="web.basic_layout">
+                        <t t-foreach="docs" t-as="o">
+                            <div class="page" style="width:100%; height:100%;background-image:url('/isep_courses_adapt/static/src/img/bgdp_latam.png'); background-size:cover; margin:0;">
+                                <div class="row" style="font-size: 60px; padding-top:400px; padding-left:60px;">
+                                    <div class="col-12 text-left" style="font-size:20px;color:#002E5D;"><strong>EXPIDE EL DIPLOMA DE:</strong></div>
+                                </div>
+                                <div class="row" style="font-size: 34px; padding-top:10px; padding-left:60px;">
+                                    <div class="col-12 text-left"><strong> <span t-esc="o.course_id.name"/></strong></div>
+                                </div>
+                                <div class="row" style="color:#ee7401;font-size:25px; padding-top: 10px; padding-left: 60px;">
+                                    <div class="col-12 text-left" ><strong>AL ALUMNO/A:</strong></div>
+                                </div>
+                                <div class="row" style="padding-top:20px;">
+                                    <div class="col-12 text-center" style="font-size:2em;color:#002E5D;font-style:italic;text-decoration: underline;"><strong><span t-field="o.user_id"/></strong></div>
+                                </div>
+                                <div class="row" style="font-size: 24px;">
+                                    <div class="col-11">
+                                        <p class="text-center" style="line-height:200%;color:#3e3e3f;font-size:29px; text-align:justify;padding-top:20px; padding-left:60px; margin-top: 8px;">Por haber culminado con dedicación y esfuerzo todos los módulos del programa.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row" style="font-size: 20px;">
+                                    <div class="col-11">
+                                        <p class="text-center" style="line-height:150%;color:#002E5D;font-size:29px; text-align:justify; margin-top: 2px; padding-left:60px;"><strong>Que tu desempeño, esfuerzo y actitud positiva te lleven a alcanzar tus metas siempre.</strong></p>
+                                    </div>
+                                </div>
+                                <div class="row" style="font-size: 40px; padding-top:25px; padding-left: 60px;">
+                                    <div class="col-12">
+                                        <p class="text-left" style="line-height:150%;color:#3e3e3f;margin-top:2em; text-align:left; font-size:34px;">
+                                            <strong> Expedido el: <span t-esc="datetime.datetime.today().day"/>
+                                            <t t-if="datetime.datetime.today().month == 1"><span> de Enero de </span></t>
+                                            <t t-if="datetime.datetime.today().month == 2"><span> de Febrero de </span></t>
+                                            <t t-if="datetime.datetime.today().month == 3"><span> de Marzo de </span></t>
+                                            <t t-if="datetime.datetime.today().month == 4"><span> de Abril de </span></t>
+                                            <t t-if="datetime.datetime.today().month == 5"><span> de Mayo de </span></t>
+                                            <t t-if="datetime.datetime.today().month == 6"><span> de Junio de </span></t>
+                                            <t t-if="datetime.datetime.today().month == 7"><span> de Julio de </span></t>
+                                            <t t-if="datetime.datetime.today().month == 8"><span> de Agosto de </span></t>
+                                            <t t-if="datetime.datetime.today().month == 9"><span> de Septiembre de </span></t>
+                                            <t t-if="datetime.datetime.today().month == 10"><span> de Octubre de </span></t>
+                                            <t t-if="datetime.datetime.today().month == 11"><span> de Noviembre de </span></t>
+                                            <t t-if="datetime.datetime.today().month == 12"><span> de Diciembre de </span></t>
+                                            <span t-esc="datetime.datetime.today().year"/> </strong>
+                                        </p>
+                                    </div>
+                                </div>
+                                <t t-if="len(o) &lt; 30">
+                                  <br></br>
+                                  <br></br>
+                                  <br></br>
+                                  <br></br>
+                                  <br></br>
+                                </t>
+                                <div class="row" style="text-align:center; font-size:16px;margin-left:4em;margin-right:4em; padding-top: 60px;">
+                                    <div class="col-6">
+                                        <img src="/isep_courses_adapt/static/src/img/firmamarc_fix.png" style="width:110px; height:119px;"/><br/>
+                                    </div>
+                                    <div class="col-6">
+                                        <img src="/isep_courses_adapt/static/src/img/firmaluis.png" style="width:110px; height:119px;"/><br/>
+                                    </div>
+                                </div>
+                                <div class="row" style="text-align:center; font-size:20px;margin-left:4em;margin-right:4em;padding-bottom:50px">
+                                    <div class="col-6">
+                                        <strong style="color:#ee7401;">Marc Gaja Ramon</strong>
+                                        <br/>
+                                        <p style="color:#002E5D;text-align:center;">Director General</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <strong style="color:#ee7401;">Luis Manuel Castro Moreno</strong>
+                                        <br/>
+                                        <p style="color:#002E5D;text-align:center;">Director Académico</p>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </t>
+                    </t>
+                </t>
+            </xpath>
+        </template>
+    </data>
+</odoo>

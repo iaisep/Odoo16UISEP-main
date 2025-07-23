@@ -1,0 +1,58 @@
+# -*- coding: utf-8 -*-
+{
+    'name': 'ISEP Prácticas Version  2',
+    'version': '16.6',
+    'summary': """ Módulos de Prácticas Migrate""",
+    'author': 'Isep Latam, SC / Breithner Aquituari, silvau',
+    'website': '',
+    'category': 'Education',
+    'depends': [
+        'base',
+        'mail',
+        'portal',
+        'openeducat_core',
+        'openeducat_fees',
+        'openeducat_admission',
+        'website',
+        'sign',
+        'base_location',
+        'base_location_geonames_import'
+    ],
+    "data": [
+        "data/cron.xml",
+        "data/data.xml",
+        "security/ir.model.access.csv",
+        "views/menu_views.xml",
+        "views/campus_files_views.xml",
+        "views/practice_center_day_views.xml",
+        "views/practice_center_shift_views.xml",
+        "views/practice_center_type_views.xml",
+        "views/practice_center_views.xml",
+        "views/practice_questionnaire_views.xml",
+        "views/practice_request_document_views.xml",
+        "views/practice_request_views.xml",
+        "reports/agreement_conditions_report.xml",
+        "reports/practice_progress_report.xml",
+        "reports/specific_agreement_report.xml",
+        # "#reports/framework_agreement_report.xml",
+        "templates/portal_my_centers.xml",
+        "templates/portal_my_practices_request.xml",
+        "templates/portal_practice_center.xml",
+        "templates/practice_centers_template.xml",
+        "templates/practice_request_form_template.xml",
+        "templates/practice_request_portal_details_template.xml",
+        "templates/practice_request_portal_template.xml",
+        "templates/register_practice_center.xml",
+        "templates/success_page.xml",
+        "views/a_practice_doc_url_views.xml",
+    ],
+
+    'assets': {
+
+    },
+        
+    'application': True,
+    'installable': True,
+    'auto_install': False,
+    'license': 'LGPL-3',
+}

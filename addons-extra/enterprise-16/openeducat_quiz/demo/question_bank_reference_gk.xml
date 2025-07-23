@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="op_sp_q01" model="op.question.bank.line">
+            <field name="name">Which is the shape mentioned in above video?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="' https://youtu.be/EOYGpHBBAr8'"/>
+            <field name="document_id">EOYGpHBBAr8</field>
+            <field name="bank_id" ref="op_qu_bnk_que"/>
+        </record>
+
+        <record id="op_sp_q01_a01" model="op.question.bank.answer">
+            <field name="name">Circle</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_sp_q01"/>
+        </record>
+
+        <record id="op_sp_q01_a02" model="op.question.bank.answer">
+            <field name="name">Square</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_sp_q01"/>
+        </record>
+
+        <record id="op_sp_q01_a03" model="op.question.bank.answer">
+            <field name="name">Triangle</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_sp_q01"/>
+        </record>
+
+        <record id="op_sp_q01_a04" model="op.question.bank.answer">
+            <field name="name">Rectangle</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_sp_q01"/>
+        </record>
+
+        <record id="op_sp_q01_a05" model="op.question.bank.answer">
+            <field name="name">All Of Above</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="question_id" ref="op_sp_q01"/>
+        </record>
+
+        <record id="op_sp_q02" model="op.question.bank.line">
+            <field name="name">Which is the animal mentioned in above video?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="material_type">video</field>
+            <field name="video_type">youtube</field>
+            <field name="url"
+                   eval="'https://youtu.be/l_nfVh5moYs'"/>
+            <field name="document_id">l_nfVh5moYs</field>
+            <field name="bank_id" ref="op_qu_bnk_que"/>
+        </record>
+
+        <record id="op_sp_q02_a01" model="op.question.bank.answer">
+            <field name="name">Cat</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_sp_q02"/>
+        </record>
+
+        <record id="op_sp_q02_a02" model="op.question.bank.answer">
+            <field name="name">Dog</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="question_id" ref="op_sp_q02"/>
+        </record>
+
+        <record id="op_sp_q02_a03" model="op.question.bank.answer">
+            <field name="name">Goat</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_sp_q02"/>
+        </record>
+
+        <record id="op_sp_q02_a04" model="op.question.bank.answer">
+            <field name="name">None</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_sp_q02"/>
+        </record>
+
+        <record id="op_sp_q03" model="op.question.bank.line">
+            <field name="name">Which is the bird shown in above Image?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="material_type">infographic</field>
+            <field name="datas" type="base64"
+                   file="openeducat_quiz/demo/files/Pigeon.jpg"/>
+            <field name="bank_id" ref="op_qu_bnk_que"/>
+        </record>
+
+        <record id="op_sp_q03_a01" model="op.question.bank.answer">
+            <field name="name">Parrot</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_sp_q03"/>
+        </record>
+
+        <record id="op_sp_q03_a02" model="op.question.bank.answer">
+            <field name="name">Crow</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_sp_q03"/>
+        </record>
+
+        <record id="op_sp_q03_a03" model="op.question.bank.answer">
+            <field name="name">Pigeon</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="question_id" ref="op_sp_q03"/>
+        </record>
+
+        <record id="op_sp_q03_a04" model="op.question.bank.answer">
+            <field name="name">Hen</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_sp_q03"/>
+        </record>
+
+        <record id="op_sp_q04" model="op.question.bank.line">
+            <field name="name">Which bird's voice in above audio?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="material_type">audio</field>
+            <field name="datas" type="base64"
+                   file="openeducat_quiz/demo/files/Birds-Sound.mp3"/>
+            <field name="bank_id" ref="op_qu_bnk_que"/>
+        </record>
+
+        <record id="op_sp_q04_a01" model="op.question.bank.answer">
+            <field name="name">Peacock</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_sp_q04"/>
+        </record>
+
+        <record id="op_sp_q04_a02" model="op.question.bank.answer">
+            <field name="name">BulBul</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_sp_q04"/>
+        </record>
+
+        <record id="op_sp_q04_a03" model="op.question.bank.answer">
+            <field name="name">Crow</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_sp_q04"/>
+        </record>
+
+        <record id="op_sp_q04_a04" model="op.question.bank.answer">
+            <field name="name">All of Above</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="question_id" ref="op_sp_q04"/>
+        </record>
+
+        <record id="op_sp_q05" model="op.question.bank.line">
+            <field name="name">Which body part chew the food?</field>
+            <field name="mark" type="float">1.0</field>
+            <field name="material_type">document</field>
+            <field name="datas" type="base64"
+                   file="openeducat_quiz/demo/files/Our-Body.pdf"/>
+            <field name="bank_id" ref="op_qu_bnk_que"/>
+        </record>
+
+        <record id="op_sp_q05_a01" model="op.question.bank.answer">
+            <field name="name">Teeth</field>
+            <field name="grade_id" ref="op_ans_grd_100p"/>
+            <field name="question_id" ref="op_sp_q05"/>
+        </record>
+
+        <record id="op_sp_q05_a02" model="op.question.bank.answer">
+            <field name="name">Eyes</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_sp_q05"/>
+        </record>
+
+        <record id="op_sp_q05_a03" model="op.question.bank.answer">
+            <field name="name">Nose</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_sp_q05"/>
+        </record>
+
+        <record id="op_sp_q05_a04" model="op.question.bank.answer">
+            <field name="name">Ear</field>
+            <field name="grade_id" ref="op_ans_grd_0"/>
+            <field name="question_id" ref="op_sp_q05"/>
+        </record>
+
+
+
+</odoo>

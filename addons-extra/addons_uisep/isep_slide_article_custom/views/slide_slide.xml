@@ -1,0 +1,14 @@
+<odoo>
+    <record id="slide_slide_custom_btn" model="ir.ui.view">
+        <field name="name">slide.slide.custom.btn</field>
+        <field name="model">slide.slide</field>
+        <field name="inherit_id" ref="website_slides.view_slide_slide_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='total_views']" position="after">
+                <field name="msn_custom"  attrs="{'invisible': [('slide_category','!=','article')]}" />
+            </xpath>
+        </field>
+
+    </record>
+
+</odoo>

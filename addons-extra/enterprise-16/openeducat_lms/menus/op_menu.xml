@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Website LMS -->
+    <record id="website_menu_lms_courses" model="website.menu">
+        <field name="name">Courses</field>
+        <field name="url">/courses</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence" type="int">20</field>
+    </record>
+
+    <record id="poratl_menu_certificat" model="openeducat.portal.menu">
+        <field name="name">Certificate</field>
+        <field name="menu_ref_name">Certificate</field>
+        <field name="link">/certificate</field>
+        <field name="active">True</field>
+        <field name="sequence" type="int">65</field>
+        <field name="background_color">#45ac34</field>
+        <field name="icon_image" type="base64"
+               file="openeducat_lms/static/img/certificate.png"/>
+    </record>
+
+    <record id="poratl_menu_courses" model="openeducat.portal.menu">
+        <field name="name">Courses</field>
+        <field name="menu_ref_name">Courses</field>
+        <field name="link">/my-courses</field>
+        <field name="active">True</field>
+        <field name="sequence" type="int">85</field>
+        <field name="background_color">#45ac34</field>
+        <field name="icon_image" type="base64"
+               file="openeducat_lms/static/img/course.png"/>
+    </record>
+
+    <!-- Main Menu of LMS -->
+    <menuitem id="menu_lms_main"
+              sequence="20"
+              name="LMS"
+              groups="openeducat_lms.group_op_lms_user"
+              web_icon="openeducat_lms,static/description/icon.png"/>
+
+    <!-- Dashboard -->
+    <menuitem id="menu_lms_main_dashboard"
+              parent="menu_lms_main"
+              name="Course Dashboard"
+              groups="openeducat_lms.group_op_lms_admin"
+              sequence="5"
+              action="lms_dashboard_act"/>
+
+    <!-- Course -->
+    <menuitem id="menu_op_course"
+              parent="menu_lms_main"
+              name="Courses"
+              sequence="10"
+              groups="openeducat_lms.group_op_lms_user"
+              action="act_open_op_lms_course_view"/>
+
+    <!-- Section-->
+    <menuitem id="menu_op_course_section"
+              parent="menu_lms_main"
+              name="Section"
+              sequence="20"
+              groups="openeducat_lms.group_op_lms_user"
+              action="act_open_op_course_section_view"/>
+
+
+    <!-- Course material -->
+    <menuitem id="menu_op_course_material"
+              parent="menu_lms_main"
+              sequence="30"
+              groups="openeducat_lms.group_op_lms_user"
+              action="act_open_op_course_material_view"/>
+
+    <!-- Enrollments -->
+    <menuitem id="menu_course_enrollment"
+              parent="menu_lms_main"
+              sequence="30"
+              action="act_open_op_course_enrollment_view"
+              groups="openeducat_lms.group_op_lms_admin"/>
+
+    <!-- Configuration -->
+    <menuitem id="menu_op_lms_configuration"
+              parent="menu_lms_main"
+              name="Configuration"
+              sequence="100"
+              groups="openeducat_lms.group_op_lms_admin"/>
+
+    <!-- Course Category -->
+<!--    <menuitem id="menu_course_category"-->
+<!--              parent="menu_op_lms_configuration"-->
+<!--              name="Course Category"-->
+<!--              sequence="10"-->
+<!--              action="act_open_course_category_view"-->
+<!--              groups="openeducat_lms.group_op_lms_admin"/>-->
+    <menuitem id="menu_course_level"
+              parent="menu_op_lms_configuration"
+              name="Course Level"
+              sequence="10"
+              action="act_open_course_level_view"
+              groups="openeducat_lms.group_op_lms_admin"/>
+    <menuitem id="menu_op_lms_analysis_reporting"
+              sequence="50"
+              name="Reporting"
+              parent="menu_lms_main"
+              groups="openeducat_lms.group_op_lms_admin"/>
+
+    <menuitem id="menu_op_lms_analysis"
+              parent="menu_op_lms_analysis_reporting"
+              name="Enrollment Analysis"
+              groups="openeducat_lms.group_op_lms_admin"
+              sequence="10"
+              action="openeducat_lms.act_enrollment_analysis_pivot_view"/>
+
+</odoo>

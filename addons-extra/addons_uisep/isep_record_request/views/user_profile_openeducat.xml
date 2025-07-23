@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="user_profile_openeducat" inherit_id="isep_website_custom.user_profile_openeducat">
+        <xpath expr="//div[@name='ratings']" position="after">
+            <div class="card-ext col-12 col-sm-12 col-md-6 col-lg-4 p-2" name="documents">
+                <a href="/my/documents" style="text-decoration: none !important;">
+                    <div class="card_new" style="background:#002e5d">
+                        <div class='card_main'>
+                            <div class="auto-block text-center">
+                                <img src="isep_record_request/static/img/document.png" style="max-width:55%;"/>
+                            </div>
+                            <hr/>
+                            <div class='creator'>
+                                <span class="auto-block">Documentos</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </xpath>
+    </template>
+</odoo>

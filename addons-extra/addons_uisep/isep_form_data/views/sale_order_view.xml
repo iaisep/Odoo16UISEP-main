@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+      
+    <record id="view_sale_order_form_extends" model="ir.ui.view">
+        <field name="name">sale.order</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>  
+        <field name="arch" type="xml">
+
+            
+            <xpath expr="//field[@name='reference']" position="after">              
+                <label for="card"/>
+                <div class="o_row">
+                    <field name="card"/>    
+                    <button name="open_form" type="object" string="Link de tarjeta"
+                        attrs="{'invisible':[('card','=',False)]}"
+                        icon="fa-id-card" />
+                </div>
+                <field name="order_start_url" readonly="1"/>
+
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>
+

@@ -19,6 +19,8 @@ services:
       - POSTGRES_PASSWORD=Odoo$$Dev.psswd%&#$$23
       - POSTGRES_USER=odoo
       - PGDATA=/var/lib/postgresql/data/pgdata
+    ports:
+      - "59432:5432"  # HOST:CONTAINER — redirige 59432 del host a 5432 del contenedor
     volumes:
       - odoo_volume-db-data:/var/lib/postgresql/data/pgdata
 
